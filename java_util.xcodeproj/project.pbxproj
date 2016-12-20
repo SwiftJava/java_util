@@ -1,0 +1,1193 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB3408271E08AF5000DA5E5E /* AbstractCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34074E1E08AF4F00DA5E5E /* AbstractCollection.swift */; };
+		BB3408281E08AF5000DA5E5E /* AbstractExecutorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34074F1E08AF4F00DA5E5E /* AbstractExecutorService.swift */; };
+		BB3408291E08AF5000DA5E5E /* AbstractList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407501E08AF4F00DA5E5E /* AbstractList.swift */; };
+		BB34082A1E08AF5000DA5E5E /* AbstractMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407511E08AF4F00DA5E5E /* AbstractMap.swift */; };
+		BB34082B1E08AF5000DA5E5E /* AbstractOwnableSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407521E08AF4F00DA5E5E /* AbstractOwnableSynchronizer.swift */; };
+		BB34082C1E08AF5000DA5E5E /* AbstractPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407531E08AF4F00DA5E5E /* AbstractPreferences.swift */; };
+		BB34082D1E08AF5000DA5E5E /* AbstractQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407541E08AF4F00DA5E5E /* AbstractQueue.swift */; };
+		BB34082E1E08AF5000DA5E5E /* AbstractQueuedLongSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407551E08AF4F00DA5E5E /* AbstractQueuedLongSynchronizer.swift */; };
+		BB34082F1E08AF5000DA5E5E /* AbstractQueuedSynchronizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407561E08AF4F00DA5E5E /* AbstractQueuedSynchronizer.swift */; };
+		BB3408301E08AF5000DA5E5E /* AbstractSequentialList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407571E08AF4F00DA5E5E /* AbstractSequentialList.swift */; };
+		BB3408311E08AF5000DA5E5E /* AbstractSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407581E08AF4F00DA5E5E /* AbstractSet.swift */; };
+		BB3408321E08AF5000DA5E5E /* Adler32.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407591E08AF4F00DA5E5E /* Adler32.swift */; };
+		BB3408331E08AF5000DA5E5E /* ArrayBlockingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34075A1E08AF4F00DA5E5E /* ArrayBlockingQueue.swift */; };
+		BB3408341E08AF5000DA5E5E /* ArrayDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34075B1E08AF4F00DA5E5E /* ArrayDeque.swift */; };
+		BB3408351E08AF5000DA5E5E /* ArrayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34075C1E08AF4F00DA5E5E /* ArrayList.swift */; };
+		BB3408361E08AF5000DA5E5E /* Arrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34075D1E08AF4F00DA5E5E /* Arrays.swift */; };
+		BB3408371E08AF5000DA5E5E /* AtomicBoolean.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34075E1E08AF4F00DA5E5E /* AtomicBoolean.swift */; };
+		BB3408381E08AF5000DA5E5E /* AtomicInteger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34075F1E08AF4F00DA5E5E /* AtomicInteger.swift */; };
+		BB3408391E08AF5000DA5E5E /* AtomicIntegerArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407601E08AF4F00DA5E5E /* AtomicIntegerArray.swift */; };
+		BB34083A1E08AF5000DA5E5E /* AtomicIntegerFieldUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407611E08AF4F00DA5E5E /* AtomicIntegerFieldUpdater.swift */; };
+		BB34083B1E08AF5000DA5E5E /* AtomicLong.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407621E08AF4F00DA5E5E /* AtomicLong.swift */; };
+		BB34083C1E08AF5000DA5E5E /* AtomicLongArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407631E08AF4F00DA5E5E /* AtomicLongArray.swift */; };
+		BB34083D1E08AF5000DA5E5E /* AtomicLongFieldUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407641E08AF4F00DA5E5E /* AtomicLongFieldUpdater.swift */; };
+		BB34083E1E08AF5000DA5E5E /* AtomicMarkableReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407651E08AF4F00DA5E5E /* AtomicMarkableReference.swift */; };
+		BB34083F1E08AF5000DA5E5E /* AtomicReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407661E08AF4F00DA5E5E /* AtomicReference.swift */; };
+		BB3408401E08AF5000DA5E5E /* AtomicReferenceArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407671E08AF4F00DA5E5E /* AtomicReferenceArray.swift */; };
+		BB3408411E08AF5000DA5E5E /* AtomicReferenceFieldUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407681E08AF4F00DA5E5E /* AtomicReferenceFieldUpdater.swift */; };
+		BB3408421E08AF5000DA5E5E /* AtomicStampedReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407691E08AF4F00DA5E5E /* AtomicStampedReference.swift */; };
+		BB3408431E08AF5000DA5E5E /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34076A1E08AF4F00DA5E5E /* Attributes.swift */; };
+		BB3408441E08AF5000DA5E5E /* BackingStoreException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34076B1E08AF4F00DA5E5E /* BackingStoreException.swift */; };
+		BB3408451E08AF5000DA5E5E /* BitSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34076C1E08AF4F00DA5E5E /* BitSet.swift */; };
+		BB3408461E08AF5000DA5E5E /* BlockingDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34076D1E08AF4F00DA5E5E /* BlockingDeque.swift */; };
+		BB3408471E08AF5000DA5E5E /* BlockingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34076E1E08AF4F00DA5E5E /* BlockingQueue.swift */; };
+		BB3408481E08AF5000DA5E5E /* BrokenBarrierException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34076F1E08AF4F00DA5E5E /* BrokenBarrierException.swift */; };
+		BB3408491E08AF5000DA5E5E /* Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407701E08AF4F00DA5E5E /* Calendar.swift */; };
+		BB34084A1E08AF5000DA5E5E /* Callable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407711E08AF4F00DA5E5E /* Callable.swift */; };
+		BB34084B1E08AF5000DA5E5E /* CancellationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407721E08AF4F00DA5E5E /* CancellationException.swift */; };
+		BB34084C1E08AF5000DA5E5E /* CheckedInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407731E08AF4F00DA5E5E /* CheckedInputStream.swift */; };
+		BB34084D1E08AF5000DA5E5E /* CheckedOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407741E08AF4F00DA5E5E /* CheckedOutputStream.swift */; };
+		BB34084E1E08AF5000DA5E5E /* Checksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407751E08AF4F00DA5E5E /* Checksum.swift */; };
+		BB34084F1E08AF5000DA5E5E /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407761E08AF4F00DA5E5E /* Collection.swift */; };
+		BB3408501E08AF5000DA5E5E /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407771E08AF4F00DA5E5E /* Collections.swift */; };
+		BB3408511E08AF5000DA5E5E /* CompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407781E08AF4F00DA5E5E /* CompletionService.swift */; };
+		BB3408521E08AF5000DA5E5E /* ConcurrentHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407791E08AF4F00DA5E5E /* ConcurrentHashMap.swift */; };
+		BB3408531E08AF5000DA5E5E /* ConcurrentLinkedQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34077A1E08AF4F00DA5E5E /* ConcurrentLinkedQueue.swift */; };
+		BB3408541E08AF5000DA5E5E /* ConcurrentMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34077B1E08AF4F00DA5E5E /* ConcurrentMap.swift */; };
+		BB3408551E08AF5000DA5E5E /* ConcurrentModificationException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34077C1E08AF4F00DA5E5E /* ConcurrentModificationException.swift */; };
+		BB3408561E08AF5000DA5E5E /* ConcurrentNavigableMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34077D1E08AF4F00DA5E5E /* ConcurrentNavigableMap.swift */; };
+		BB3408571E08AF5000DA5E5E /* ConcurrentSkipListMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34077E1E08AF4F00DA5E5E /* ConcurrentSkipListMap.swift */; };
+		BB3408581E08AF5000DA5E5E /* ConcurrentSkipListSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34077F1E08AF4F00DA5E5E /* ConcurrentSkipListSet.swift */; };
+		BB3408591E08AF5000DA5E5E /* Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407801E08AF4F00DA5E5E /* Condition.swift */; };
+		BB34085A1E08AF5000DA5E5E /* ConsoleHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407811E08AF4F00DA5E5E /* ConsoleHandler.swift */; };
+		BB34085B1E08AF5000DA5E5E /* CopyOnWriteArrayList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407821E08AF4F00DA5E5E /* CopyOnWriteArrayList.swift */; };
+		BB34085C1E08AF5000DA5E5E /* CopyOnWriteArraySet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407831E08AF4F00DA5E5E /* CopyOnWriteArraySet.swift */; };
+		BB34085D1E08AF5000DA5E5E /* CountDownLatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407841E08AF4F00DA5E5E /* CountDownLatch.swift */; };
+		BB34085E1E08AF5000DA5E5E /* CRC32.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407851E08AF4F00DA5E5E /* CRC32.swift */; };
+		BB34085F1E08AF5000DA5E5E /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407861E08AF4F00DA5E5E /* Currency.swift */; };
+		BB3408601E08AF5000DA5E5E /* CurrencyNameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407871E08AF4F00DA5E5E /* CurrencyNameProvider.swift */; };
+		BB3408611E08AF5000DA5E5E /* CyclicBarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407881E08AF4F00DA5E5E /* CyclicBarrier.swift */; };
+		BB3408621E08AF5000DA5E5E /* DataFormatException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407891E08AF4F00DA5E5E /* DataFormatException.swift */; };
+		BB3408631E08AF5000DA5E5E /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34078A1E08AF4F00DA5E5E /* Date.swift */; };
+		BB3408641E08AF5000DA5E5E /* Deflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34078B1E08AF4F00DA5E5E /* Deflater.swift */; };
+		BB3408651E08AF5000DA5E5E /* DeflaterInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34078C1E08AF4F00DA5E5E /* DeflaterInputStream.swift */; };
+		BB3408661E08AF5000DA5E5E /* DeflaterOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34078D1E08AF4F00DA5E5E /* DeflaterOutputStream.swift */; };
+		BB3408671E08AF5000DA5E5E /* Delayed.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34078E1E08AF4F00DA5E5E /* Delayed.swift */; };
+		BB3408681E08AF5000DA5E5E /* DelayQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34078F1E08AF4F00DA5E5E /* DelayQueue.swift */; };
+		BB3408691E08AF5000DA5E5E /* Deque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407901E08AF4F00DA5E5E /* Deque.swift */; };
+		BB34086A1E08AF5000DA5E5E /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407911E08AF4F00DA5E5E /* Dictionary.swift */; };
+		BB34086B1E08AF5000DA5E5E /* DuplicateFormatFlagsException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407921E08AF4F00DA5E5E /* DuplicateFormatFlagsException.swift */; };
+		BB34086C1E08AF5000DA5E5E /* EmptyStackException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407931E08AF4F00DA5E5E /* EmptyStackException.swift */; };
+		BB34086D1E08AF5000DA5E5E /* Enumeration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407941E08AF4F00DA5E5E /* Enumeration.swift */; };
+		BB34086E1E08AF5000DA5E5E /* EnumMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407951E08AF4F00DA5E5E /* EnumMap.swift */; };
+		BB34086F1E08AF5000DA5E5E /* EnumSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407961E08AF4F00DA5E5E /* EnumSet.swift */; };
+		BB3408701E08AF5000DA5E5E /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407971E08AF4F00DA5E5E /* ErrorManager.swift */; };
+		BB3408711E08AF5000DA5E5E /* EventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407981E08AF4F00DA5E5E /* EventListener.swift */; };
+		BB3408721E08AF5000DA5E5E /* EventListenerProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407991E08AF4F00DA5E5E /* EventListenerProxy.swift */; };
+		BB3408731E08AF5000DA5E5E /* EventObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34079A1E08AF4F00DA5E5E /* EventObject.swift */; };
+		BB3408741E08AF5000DA5E5E /* Exchanger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34079B1E08AF4F00DA5E5E /* Exchanger.swift */; };
+		BB3408751E08AF5000DA5E5E /* ExecutionException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34079C1E08AF4F00DA5E5E /* ExecutionException.swift */; };
+		BB3408761E08AF5000DA5E5E /* Executor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34079D1E08AF4F00DA5E5E /* Executor.swift */; };
+		BB3408771E08AF5000DA5E5E /* ExecutorCompletionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34079E1E08AF4F00DA5E5E /* ExecutorCompletionService.swift */; };
+		BB3408781E08AF5000DA5E5E /* Executors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34079F1E08AF4F00DA5E5E /* Executors.swift */; };
+		BB3408791E08AF5000DA5E5E /* ExecutorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A01E08AF4F00DA5E5E /* ExecutorService.swift */; };
+		BB34087A1E08AF5000DA5E5E /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A11E08AF4F00DA5E5E /* FileHandler.swift */; };
+		BB34087B1E08AF5000DA5E5E /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A21E08AF4F00DA5E5E /* Filter.swift */; };
+		BB34087C1E08AF5000DA5E5E /* FormatFlagsConversionMismatchException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A31E08AF4F00DA5E5E /* FormatFlagsConversionMismatchException.swift */; };
+		BB34087D1E08AF5000DA5E5E /* Formattable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A41E08AF4F00DA5E5E /* Formattable.swift */; };
+		BB34087E1E08AF5000DA5E5E /* FormattableFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A51E08AF4F00DA5E5E /* FormattableFlags.swift */; };
+		BB34087F1E08AF5000DA5E5E /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A61E08AF4F00DA5E5E /* Formatter.swift */; };
+		BB3408801E08AF5000DA5E5E /* FormatterClosedException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A71E08AF4F00DA5E5E /* FormatterClosedException.swift */; };
+		BB3408811E08AF5000DA5E5E /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A81E08AF4F00DA5E5E /* Future.swift */; };
+		BB3408821E08AF5000DA5E5E /* FutureTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407A91E08AF4F00DA5E5E /* FutureTask.swift */; };
+		BB3408831E08AF5000DA5E5E /* GregorianCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407AA1E08AF4F00DA5E5E /* GregorianCalendar.swift */; };
+		BB3408841E08AF5000DA5E5E /* GZIPInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407AB1E08AF4F00DA5E5E /* GZIPInputStream.swift */; };
+		BB3408851E08AF5000DA5E5E /* GZIPOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407AC1E08AF4F00DA5E5E /* GZIPOutputStream.swift */; };
+		BB3408861E08AF5000DA5E5E /* Handler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407AD1E08AF4F00DA5E5E /* Handler.swift */; };
+		BB3408871E08AF5000DA5E5E /* HashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407AE1E08AF4F00DA5E5E /* HashMap.swift */; };
+		BB3408881E08AF5000DA5E5E /* HashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407AF1E08AF4F00DA5E5E /* HashSet.swift */; };
+		BB3408891E08AF5000DA5E5E /* Hashtable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B01E08AF4F00DA5E5E /* Hashtable.swift */; };
+		BB34088A1E08AF5000DA5E5E /* IdentityHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B11E08AF4F00DA5E5E /* IdentityHashMap.swift */; };
+		BB34088B1E08AF5000DA5E5E /* IllegalFormatCodePointException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B21E08AF4F00DA5E5E /* IllegalFormatCodePointException.swift */; };
+		BB34088C1E08AF5000DA5E5E /* IllegalFormatConversionException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B31E08AF4F00DA5E5E /* IllegalFormatConversionException.swift */; };
+		BB34088D1E08AF5000DA5E5E /* IllegalFormatException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B41E08AF4F00DA5E5E /* IllegalFormatException.swift */; };
+		BB34088E1E08AF5000DA5E5E /* IllegalFormatFlagsException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B51E08AF4F00DA5E5E /* IllegalFormatFlagsException.swift */; };
+		BB34088F1E08AF5000DA5E5E /* IllegalFormatPrecisionException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B61E08AF4F00DA5E5E /* IllegalFormatPrecisionException.swift */; };
+		BB3408901E08AF5000DA5E5E /* IllegalFormatWidthException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B71E08AF4F00DA5E5E /* IllegalFormatWidthException.swift */; };
+		BB3408911E08AF5000DA5E5E /* Inflater.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B81E08AF4F00DA5E5E /* Inflater.swift */; };
+		BB3408921E08AF5000DA5E5E /* InflaterInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407B91E08AF4F00DA5E5E /* InflaterInputStream.swift */; };
+		BB3408931E08AF5000DA5E5E /* InflaterOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407BA1E08AF4F00DA5E5E /* InflaterOutputStream.swift */; };
+		BB3408941E08AF5000DA5E5E /* InputMismatchException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407BB1E08AF4F00DA5E5E /* InputMismatchException.swift */; };
+		BB3408951E08AF5000DA5E5E /* InvalidPreferencesFormatException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407BC1E08AF4F00DA5E5E /* InvalidPreferencesFormatException.swift */; };
+		BB3408961E08AF5000DA5E5E /* InvalidPropertiesFormatException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407BD1E08AF4F00DA5E5E /* InvalidPropertiesFormatException.swift */; };
+		BB3408971E08AF5000DA5E5E /* Iterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407BE1E08AF4F00DA5E5E /* Iterator.swift */; };
+		BB3408981E08AF5000DA5E5E /* JarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407BF1E08AF4F00DA5E5E /* JarEntry.swift */; };
+		BB3408991E08AF5000DA5E5E /* JarException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C01E08AF4F00DA5E5E /* JarException.swift */; };
+		BB34089A1E08AF5000DA5E5E /* JarFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C11E08AF4F00DA5E5E /* JarFile.swift */; };
+		BB34089B1E08AF5000DA5E5E /* JarInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C21E08AF4F00DA5E5E /* JarInputStream.swift */; };
+		BB34089C1E08AF5000DA5E5E /* JarOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C31E08AF4F00DA5E5E /* JarOutputStream.swift */; };
+		BB34089D1E08AF5000DA5E5E /* JavaComparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C41E08AF4F00DA5E5E /* JavaComparator.swift */; };
+		BB34089E1E08AF5000DA5E5E /* JavaLocale.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C51E08AF4F00DA5E5E /* JavaLocale.swift */; };
+		BB34089F1E08AF5000DA5E5E /* JavaSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C61E08AF4F00DA5E5E /* JavaSet.swift */; };
+		BB3408A01E08AF5000DA5E5E /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C71E08AF4F00DA5E5E /* Level.swift */; };
+		BB3408A11E08AF5000DA5E5E /* LinkedBlockingDeque.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C81E08AF4F00DA5E5E /* LinkedBlockingDeque.swift */; };
+		BB3408A21E08AF5000DA5E5E /* LinkedBlockingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407C91E08AF4F00DA5E5E /* LinkedBlockingQueue.swift */; };
+		BB3408A31E08AF5000DA5E5E /* LinkedHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407CA1E08AF4F00DA5E5E /* LinkedHashMap.swift */; };
+		BB3408A41E08AF5000DA5E5E /* LinkedHashSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407CB1E08AF4F00DA5E5E /* LinkedHashSet.swift */; };
+		BB3408A51E08AF5000DA5E5E /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407CC1E08AF4F00DA5E5E /* LinkedList.swift */; };
+		BB3408A61E08AF5000DA5E5E /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407CD1E08AF4F00DA5E5E /* List.swift */; };
+		BB3408A71E08AF5000DA5E5E /* ListIterator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407CE1E08AF4F00DA5E5E /* ListIterator.swift */; };
+		BB3408A81E08AF5000DA5E5E /* ListResourceBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407CF1E08AF4F00DA5E5E /* ListResourceBundle.swift */; };
+		BB3408A91E08AF5000DA5E5E /* LocaleNameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D01E08AF4F00DA5E5E /* LocaleNameProvider.swift */; };
+		BB3408AA1E08AF5000DA5E5E /* LocaleServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D11E08AF4F00DA5E5E /* LocaleServiceProvider.swift */; };
+		BB3408AB1E08AF5000DA5E5E /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D21E08AF4F00DA5E5E /* Lock.swift */; };
+		BB3408AC1E08AF5000DA5E5E /* LockSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D31E08AF4F00DA5E5E /* LockSupport.swift */; };
+		BB3408AD1E08AF5000DA5E5E /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D41E08AF5000DA5E5E /* Logger.swift */; };
+		BB3408AE1E08AF5000DA5E5E /* logging_Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D51E08AF5000DA5E5E /* logging_Formatter.swift */; };
+		BB3408AF1E08AF5000DA5E5E /* LoggingMXBean.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D61E08AF5000DA5E5E /* LoggingMXBean.swift */; };
+		BB3408B01E08AF5000DA5E5E /* LoggingPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D71E08AF5000DA5E5E /* LoggingPermission.swift */; };
+		BB3408B11E08AF5000DA5E5E /* LogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D81E08AF5000DA5E5E /* LogManager.swift */; };
+		BB3408B21E08AF5000DA5E5E /* LogRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407D91E08AF5000DA5E5E /* LogRecord.swift */; };
+		BB3408B31E08AF5000DA5E5E /* Manifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407DA1E08AF5000DA5E5E /* Manifest.swift */; };
+		BB3408B41E08AF5000DA5E5E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407DB1E08AF5000DA5E5E /* Map.swift */; };
+		BB3408B51E08AF5000DA5E5E /* Matcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407DC1E08AF5000DA5E5E /* Matcher.swift */; };
+		BB3408B61E08AF5000DA5E5E /* MatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407DD1E08AF5000DA5E5E /* MatchResult.swift */; };
+		BB3408B71E08AF5000DA5E5E /* MemoryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407DE1E08AF5000DA5E5E /* MemoryHandler.swift */; };
+		BB3408B81E08AF5000DA5E5E /* MissingFormatArgumentException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407DF1E08AF5000DA5E5E /* MissingFormatArgumentException.swift */; };
+		BB3408B91E08AF5100DA5E5E /* MissingFormatWidthException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E01E08AF5000DA5E5E /* MissingFormatWidthException.swift */; };
+		BB3408BA1E08AF5100DA5E5E /* MissingResourceException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E11E08AF5000DA5E5E /* MissingResourceException.swift */; };
+		BB3408BB1E08AF5100DA5E5E /* NavigableMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E21E08AF5000DA5E5E /* NavigableMap.swift */; };
+		BB3408BC1E08AF5100DA5E5E /* NavigableSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E31E08AF5000DA5E5E /* NavigableSet.swift */; };
+		BB3408BD1E08AF5100DA5E5E /* NodeChangeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E41E08AF5000DA5E5E /* NodeChangeEvent.swift */; };
+		BB3408BE1E08AF5100DA5E5E /* NodeChangeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E51E08AF5000DA5E5E /* NodeChangeListener.swift */; };
+		BB3408BF1E08AF5100DA5E5E /* NoSuchElementException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E61E08AF5000DA5E5E /* NoSuchElementException.swift */; };
+		BB3408C01E08AF5100DA5E5E /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E71E08AF5000DA5E5E /* Observable.swift */; };
+		BB3408C11E08AF5100DA5E5E /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E81E08AF5000DA5E5E /* Observer.swift */; };
+		BB3408C21E08AF5100DA5E5E /* Pack200.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407E91E08AF5000DA5E5E /* Pack200.swift */; };
+		BB3408C31E08AF5100DA5E5E /* Pattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407EA1E08AF5000DA5E5E /* Pattern.swift */; };
+		BB3408C41E08AF5100DA5E5E /* PatternSyntaxException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407EB1E08AF5000DA5E5E /* PatternSyntaxException.swift */; };
+		BB3408C51E08AF5100DA5E5E /* PreferenceChangeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407EC1E08AF5000DA5E5E /* PreferenceChangeEvent.swift */; };
+		BB3408C61E08AF5100DA5E5E /* PreferenceChangeListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407ED1E08AF5000DA5E5E /* PreferenceChangeListener.swift */; };
+		BB3408C71E08AF5100DA5E5E /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407EE1E08AF5000DA5E5E /* Preferences.swift */; };
+		BB3408C81E08AF5100DA5E5E /* PreferencesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407EF1E08AF5000DA5E5E /* PreferencesFactory.swift */; };
+		BB3408C91E08AF5100DA5E5E /* PriorityBlockingQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F01E08AF5000DA5E5E /* PriorityBlockingQueue.swift */; };
+		BB3408CA1E08AF5100DA5E5E /* PriorityQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F11E08AF5000DA5E5E /* PriorityQueue.swift */; };
+		BB3408CB1E08AF5100DA5E5E /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F21E08AF5000DA5E5E /* Properties.swift */; };
+		BB3408CC1E08AF5100DA5E5E /* PropertyPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F31E08AF5000DA5E5E /* PropertyPermission.swift */; };
+		BB3408CD1E08AF5100DA5E5E /* PropertyResourceBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F41E08AF5000DA5E5E /* PropertyResourceBundle.swift */; };
+		BB3408CE1E08AF5100DA5E5E /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F51E08AF5000DA5E5E /* Queue.swift */; };
+		BB3408CF1E08AF5100DA5E5E /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F61E08AF5000DA5E5E /* Random.swift */; };
+		BB3408D01E08AF5100DA5E5E /* RandomAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F71E08AF5000DA5E5E /* RandomAccess.swift */; };
+		BB3408D11E08AF5100DA5E5E /* ReadWriteLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F81E08AF5000DA5E5E /* ReadWriteLock.swift */; };
+		BB3408D21E08AF5100DA5E5E /* ReentrantLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407F91E08AF5000DA5E5E /* ReentrantLock.swift */; };
+		BB3408D31E08AF5100DA5E5E /* ReentrantReadWriteLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407FA1E08AF5000DA5E5E /* ReentrantReadWriteLock.swift */; };
+		BB3408D41E08AF5100DA5E5E /* RejectedExecutionException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407FB1E08AF5000DA5E5E /* RejectedExecutionException.swift */; };
+		BB3408D51E08AF5100DA5E5E /* RejectedExecutionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407FC1E08AF5000DA5E5E /* RejectedExecutionHandler.swift */; };
+		BB3408D61E08AF5100DA5E5E /* ResourceBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407FD1E08AF5000DA5E5E /* ResourceBundle.swift */; };
+		BB3408D71E08AF5100DA5E5E /* RunnableFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407FE1E08AF5000DA5E5E /* RunnableFuture.swift */; };
+		BB3408D81E08AF5100DA5E5E /* RunnableScheduledFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3407FF1E08AF5000DA5E5E /* RunnableScheduledFuture.swift */; };
+		BB3408D91E08AF5100DA5E5E /* Scanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408001E08AF5000DA5E5E /* Scanner.swift */; };
+		BB3408DA1E08AF5100DA5E5E /* ScheduledExecutorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408011E08AF5000DA5E5E /* ScheduledExecutorService.swift */; };
+		BB3408DB1E08AF5100DA5E5E /* ScheduledFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408021E08AF5000DA5E5E /* ScheduledFuture.swift */; };
+		BB3408DC1E08AF5100DA5E5E /* ScheduledThreadPoolExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408031E08AF5000DA5E5E /* ScheduledThreadPoolExecutor.swift */; };
+		BB3408DD1E08AF5100DA5E5E /* Semaphore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408041E08AF5000DA5E5E /* Semaphore.swift */; };
+		BB3408DE1E08AF5100DA5E5E /* ServiceConfigurationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408051E08AF5000DA5E5E /* ServiceConfigurationError.swift */; };
+		BB3408DF1E08AF5100DA5E5E /* ServiceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408061E08AF5000DA5E5E /* ServiceLoader.swift */; };
+		BB3408E01E08AF5100DA5E5E /* SimpleFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408071E08AF5000DA5E5E /* SimpleFormatter.swift */; };
+		BB3408E11E08AF5100DA5E5E /* SimpleTimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408081E08AF5000DA5E5E /* SimpleTimeZone.swift */; };
+		BB3408E21E08AF5100DA5E5E /* SocketHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408091E08AF5000DA5E5E /* SocketHandler.swift */; };
+		BB3408E31E08AF5100DA5E5E /* SortedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34080A1E08AF5000DA5E5E /* SortedMap.swift */; };
+		BB3408E41E08AF5100DA5E5E /* SortedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34080B1E08AF5000DA5E5E /* SortedSet.swift */; };
+		BB3408E51E08AF5100DA5E5E /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34080C1E08AF5000DA5E5E /* Stack.swift */; };
+		BB3408E61E08AF5100DA5E5E /* StreamHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34080D1E08AF5000DA5E5E /* StreamHandler.swift */; };
+		BB3408E71E08AF5100DA5E5E /* StringTokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34080E1E08AF5000DA5E5E /* StringTokenizer.swift */; };
+		BB3408E81E08AF5100DA5E5E /* SynchronousQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34080F1E08AF5000DA5E5E /* SynchronousQueue.swift */; };
+		BB3408E91E08AF5100DA5E5E /* ThreadFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408101E08AF5000DA5E5E /* ThreadFactory.swift */; };
+		BB3408EA1E08AF5100DA5E5E /* ThreadPoolExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408111E08AF5000DA5E5E /* ThreadPoolExecutor.swift */; };
+		BB3408EB1E08AF5100DA5E5E /* TimeoutException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408121E08AF5000DA5E5E /* TimeoutException.swift */; };
+		BB3408EC1E08AF5100DA5E5E /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408131E08AF5000DA5E5E /* Timer.swift */; };
+		BB3408ED1E08AF5100DA5E5E /* TimerTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408141E08AF5000DA5E5E /* TimerTask.swift */; };
+		BB3408EE1E08AF5100DA5E5E /* TimeUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408151E08AF5000DA5E5E /* TimeUnit.swift */; };
+		BB3408EF1E08AF5100DA5E5E /* TimeZone.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408161E08AF5000DA5E5E /* TimeZone.swift */; };
+		BB3408F01E08AF5100DA5E5E /* TimeZoneNameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408171E08AF5000DA5E5E /* TimeZoneNameProvider.swift */; };
+		BB3408F11E08AF5100DA5E5E /* TooManyListenersException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408181E08AF5000DA5E5E /* TooManyListenersException.swift */; };
+		BB3408F21E08AF5100DA5E5E /* TreeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408191E08AF5000DA5E5E /* TreeMap.swift */; };
+		BB3408F31E08AF5100DA5E5E /* TreeSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34081A1E08AF5000DA5E5E /* TreeSet.swift */; };
+		BB3408F41E08AF5100DA5E5E /* UnknownFormatConversionException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34081B1E08AF5000DA5E5E /* UnknownFormatConversionException.swift */; };
+		BB3408F51E08AF5100DA5E5E /* UnknownFormatFlagsException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34081C1E08AF5000DA5E5E /* UnknownFormatFlagsException.swift */; };
+		BB3408F61E08AF5100DA5E5E /* UUID.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34081D1E08AF5000DA5E5E /* UUID.swift */; };
+		BB3408F71E08AF5100DA5E5E /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34081E1E08AF5000DA5E5E /* Vector.swift */; };
+		BB3408F81E08AF5100DA5E5E /* WeakHashMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB34081F1E08AF5000DA5E5E /* WeakHashMap.swift */; };
+		BB3408F91E08AF5100DA5E5E /* XMLFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408201E08AF5000DA5E5E /* XMLFormatter.swift */; };
+		BB3408FA1E08AF5100DA5E5E /* ZipEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408211E08AF5000DA5E5E /* ZipEntry.swift */; };
+		BB3408FB1E08AF5100DA5E5E /* ZipError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408221E08AF5000DA5E5E /* ZipError.swift */; };
+		BB3408FC1E08AF5100DA5E5E /* ZipException.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408231E08AF5000DA5E5E /* ZipException.swift */; };
+		BB3408FD1E08AF5100DA5E5E /* ZipFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408241E08AF5000DA5E5E /* ZipFile.swift */; };
+		BB3408FE1E08AF5100DA5E5E /* ZipInputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408251E08AF5000DA5E5E /* ZipInputStream.swift */; };
+		BB3408FF1E08AF5100DA5E5E /* ZipOutputStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3408261E08AF5000DA5E5E /* ZipOutputStream.swift */; };
+		BBBF2E491D499E42004142AE /* java_util.h in Headers */ = {isa = PBXBuildFile; fileRef = BBBF2E471D499E42004142AE /* java_util.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BBC140721D4999C30035A039 /* java_lang.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBC140711D4999C30035A039 /* java_lang.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BB19B4331D6633B4002F5586 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BB34074E1E08AF4F00DA5E5E /* AbstractCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractCollection.swift; path = Sources/AbstractCollection.swift; sourceTree = "<group>"; };
+		BB34074F1E08AF4F00DA5E5E /* AbstractExecutorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractExecutorService.swift; path = Sources/AbstractExecutorService.swift; sourceTree = "<group>"; };
+		BB3407501E08AF4F00DA5E5E /* AbstractList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractList.swift; path = Sources/AbstractList.swift; sourceTree = "<group>"; };
+		BB3407511E08AF4F00DA5E5E /* AbstractMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractMap.swift; path = Sources/AbstractMap.swift; sourceTree = "<group>"; };
+		BB3407521E08AF4F00DA5E5E /* AbstractOwnableSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractOwnableSynchronizer.swift; path = Sources/AbstractOwnableSynchronizer.swift; sourceTree = "<group>"; };
+		BB3407531E08AF4F00DA5E5E /* AbstractPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractPreferences.swift; path = Sources/AbstractPreferences.swift; sourceTree = "<group>"; };
+		BB3407541E08AF4F00DA5E5E /* AbstractQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractQueue.swift; path = Sources/AbstractQueue.swift; sourceTree = "<group>"; };
+		BB3407551E08AF4F00DA5E5E /* AbstractQueuedLongSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractQueuedLongSynchronizer.swift; path = Sources/AbstractQueuedLongSynchronizer.swift; sourceTree = "<group>"; };
+		BB3407561E08AF4F00DA5E5E /* AbstractQueuedSynchronizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractQueuedSynchronizer.swift; path = Sources/AbstractQueuedSynchronizer.swift; sourceTree = "<group>"; };
+		BB3407571E08AF4F00DA5E5E /* AbstractSequentialList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractSequentialList.swift; path = Sources/AbstractSequentialList.swift; sourceTree = "<group>"; };
+		BB3407581E08AF4F00DA5E5E /* AbstractSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbstractSet.swift; path = Sources/AbstractSet.swift; sourceTree = "<group>"; };
+		BB3407591E08AF4F00DA5E5E /* Adler32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Adler32.swift; path = Sources/Adler32.swift; sourceTree = "<group>"; };
+		BB34075A1E08AF4F00DA5E5E /* ArrayBlockingQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayBlockingQueue.swift; path = Sources/ArrayBlockingQueue.swift; sourceTree = "<group>"; };
+		BB34075B1E08AF4F00DA5E5E /* ArrayDeque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayDeque.swift; path = Sources/ArrayDeque.swift; sourceTree = "<group>"; };
+		BB34075C1E08AF4F00DA5E5E /* ArrayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayList.swift; path = Sources/ArrayList.swift; sourceTree = "<group>"; };
+		BB34075D1E08AF4F00DA5E5E /* Arrays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Arrays.swift; path = Sources/Arrays.swift; sourceTree = "<group>"; };
+		BB34075E1E08AF4F00DA5E5E /* AtomicBoolean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicBoolean.swift; path = Sources/AtomicBoolean.swift; sourceTree = "<group>"; };
+		BB34075F1E08AF4F00DA5E5E /* AtomicInteger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicInteger.swift; path = Sources/AtomicInteger.swift; sourceTree = "<group>"; };
+		BB3407601E08AF4F00DA5E5E /* AtomicIntegerArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicIntegerArray.swift; path = Sources/AtomicIntegerArray.swift; sourceTree = "<group>"; };
+		BB3407611E08AF4F00DA5E5E /* AtomicIntegerFieldUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicIntegerFieldUpdater.swift; path = Sources/AtomicIntegerFieldUpdater.swift; sourceTree = "<group>"; };
+		BB3407621E08AF4F00DA5E5E /* AtomicLong.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicLong.swift; path = Sources/AtomicLong.swift; sourceTree = "<group>"; };
+		BB3407631E08AF4F00DA5E5E /* AtomicLongArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicLongArray.swift; path = Sources/AtomicLongArray.swift; sourceTree = "<group>"; };
+		BB3407641E08AF4F00DA5E5E /* AtomicLongFieldUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicLongFieldUpdater.swift; path = Sources/AtomicLongFieldUpdater.swift; sourceTree = "<group>"; };
+		BB3407651E08AF4F00DA5E5E /* AtomicMarkableReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicMarkableReference.swift; path = Sources/AtomicMarkableReference.swift; sourceTree = "<group>"; };
+		BB3407661E08AF4F00DA5E5E /* AtomicReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicReference.swift; path = Sources/AtomicReference.swift; sourceTree = "<group>"; };
+		BB3407671E08AF4F00DA5E5E /* AtomicReferenceArray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicReferenceArray.swift; path = Sources/AtomicReferenceArray.swift; sourceTree = "<group>"; };
+		BB3407681E08AF4F00DA5E5E /* AtomicReferenceFieldUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicReferenceFieldUpdater.swift; path = Sources/AtomicReferenceFieldUpdater.swift; sourceTree = "<group>"; };
+		BB3407691E08AF4F00DA5E5E /* AtomicStampedReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AtomicStampedReference.swift; path = Sources/AtomicStampedReference.swift; sourceTree = "<group>"; };
+		BB34076A1E08AF4F00DA5E5E /* Attributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Attributes.swift; path = Sources/Attributes.swift; sourceTree = "<group>"; };
+		BB34076B1E08AF4F00DA5E5E /* BackingStoreException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackingStoreException.swift; path = Sources/BackingStoreException.swift; sourceTree = "<group>"; };
+		BB34076C1E08AF4F00DA5E5E /* BitSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BitSet.swift; path = Sources/BitSet.swift; sourceTree = "<group>"; };
+		BB34076D1E08AF4F00DA5E5E /* BlockingDeque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockingDeque.swift; path = Sources/BlockingDeque.swift; sourceTree = "<group>"; };
+		BB34076E1E08AF4F00DA5E5E /* BlockingQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockingQueue.swift; path = Sources/BlockingQueue.swift; sourceTree = "<group>"; };
+		BB34076F1E08AF4F00DA5E5E /* BrokenBarrierException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrokenBarrierException.swift; path = Sources/BrokenBarrierException.swift; sourceTree = "<group>"; };
+		BB3407701E08AF4F00DA5E5E /* Calendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Calendar.swift; path = Sources/Calendar.swift; sourceTree = "<group>"; };
+		BB3407711E08AF4F00DA5E5E /* Callable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Callable.swift; path = Sources/Callable.swift; sourceTree = "<group>"; };
+		BB3407721E08AF4F00DA5E5E /* CancellationException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CancellationException.swift; path = Sources/CancellationException.swift; sourceTree = "<group>"; };
+		BB3407731E08AF4F00DA5E5E /* CheckedInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckedInputStream.swift; path = Sources/CheckedInputStream.swift; sourceTree = "<group>"; };
+		BB3407741E08AF4F00DA5E5E /* CheckedOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckedOutputStream.swift; path = Sources/CheckedOutputStream.swift; sourceTree = "<group>"; };
+		BB3407751E08AF4F00DA5E5E /* Checksum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Checksum.swift; path = Sources/Checksum.swift; sourceTree = "<group>"; };
+		BB3407761E08AF4F00DA5E5E /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Collection.swift; path = Sources/Collection.swift; sourceTree = "<group>"; };
+		BB3407771E08AF4F00DA5E5E /* Collections.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Collections.swift; path = Sources/Collections.swift; sourceTree = "<group>"; };
+		BB3407781E08AF4F00DA5E5E /* CompletionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompletionService.swift; path = Sources/CompletionService.swift; sourceTree = "<group>"; };
+		BB3407791E08AF4F00DA5E5E /* ConcurrentHashMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcurrentHashMap.swift; path = Sources/ConcurrentHashMap.swift; sourceTree = "<group>"; };
+		BB34077A1E08AF4F00DA5E5E /* ConcurrentLinkedQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcurrentLinkedQueue.swift; path = Sources/ConcurrentLinkedQueue.swift; sourceTree = "<group>"; };
+		BB34077B1E08AF4F00DA5E5E /* ConcurrentMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcurrentMap.swift; path = Sources/ConcurrentMap.swift; sourceTree = "<group>"; };
+		BB34077C1E08AF4F00DA5E5E /* ConcurrentModificationException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcurrentModificationException.swift; path = Sources/ConcurrentModificationException.swift; sourceTree = "<group>"; };
+		BB34077D1E08AF4F00DA5E5E /* ConcurrentNavigableMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcurrentNavigableMap.swift; path = Sources/ConcurrentNavigableMap.swift; sourceTree = "<group>"; };
+		BB34077E1E08AF4F00DA5E5E /* ConcurrentSkipListMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcurrentSkipListMap.swift; path = Sources/ConcurrentSkipListMap.swift; sourceTree = "<group>"; };
+		BB34077F1E08AF4F00DA5E5E /* ConcurrentSkipListSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcurrentSkipListSet.swift; path = Sources/ConcurrentSkipListSet.swift; sourceTree = "<group>"; };
+		BB3407801E08AF4F00DA5E5E /* Condition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Condition.swift; path = Sources/Condition.swift; sourceTree = "<group>"; };
+		BB3407811E08AF4F00DA5E5E /* ConsoleHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConsoleHandler.swift; path = Sources/ConsoleHandler.swift; sourceTree = "<group>"; };
+		BB3407821E08AF4F00DA5E5E /* CopyOnWriteArrayList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CopyOnWriteArrayList.swift; path = Sources/CopyOnWriteArrayList.swift; sourceTree = "<group>"; };
+		BB3407831E08AF4F00DA5E5E /* CopyOnWriteArraySet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CopyOnWriteArraySet.swift; path = Sources/CopyOnWriteArraySet.swift; sourceTree = "<group>"; };
+		BB3407841E08AF4F00DA5E5E /* CountDownLatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountDownLatch.swift; path = Sources/CountDownLatch.swift; sourceTree = "<group>"; };
+		BB3407851E08AF4F00DA5E5E /* CRC32.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CRC32.swift; path = Sources/CRC32.swift; sourceTree = "<group>"; };
+		BB3407861E08AF4F00DA5E5E /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Currency.swift; path = Sources/Currency.swift; sourceTree = "<group>"; };
+		BB3407871E08AF4F00DA5E5E /* CurrencyNameProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrencyNameProvider.swift; path = Sources/CurrencyNameProvider.swift; sourceTree = "<group>"; };
+		BB3407881E08AF4F00DA5E5E /* CyclicBarrier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CyclicBarrier.swift; path = Sources/CyclicBarrier.swift; sourceTree = "<group>"; };
+		BB3407891E08AF4F00DA5E5E /* DataFormatException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataFormatException.swift; path = Sources/DataFormatException.swift; sourceTree = "<group>"; };
+		BB34078A1E08AF4F00DA5E5E /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Date.swift; path = Sources/Date.swift; sourceTree = "<group>"; };
+		BB34078B1E08AF4F00DA5E5E /* Deflater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Deflater.swift; path = Sources/Deflater.swift; sourceTree = "<group>"; };
+		BB34078C1E08AF4F00DA5E5E /* DeflaterInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeflaterInputStream.swift; path = Sources/DeflaterInputStream.swift; sourceTree = "<group>"; };
+		BB34078D1E08AF4F00DA5E5E /* DeflaterOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DeflaterOutputStream.swift; path = Sources/DeflaterOutputStream.swift; sourceTree = "<group>"; };
+		BB34078E1E08AF4F00DA5E5E /* Delayed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Delayed.swift; path = Sources/Delayed.swift; sourceTree = "<group>"; };
+		BB34078F1E08AF4F00DA5E5E /* DelayQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DelayQueue.swift; path = Sources/DelayQueue.swift; sourceTree = "<group>"; };
+		BB3407901E08AF4F00DA5E5E /* Deque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Deque.swift; path = Sources/Deque.swift; sourceTree = "<group>"; };
+		BB3407911E08AF4F00DA5E5E /* Dictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Dictionary.swift; path = Sources/Dictionary.swift; sourceTree = "<group>"; };
+		BB3407921E08AF4F00DA5E5E /* DuplicateFormatFlagsException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DuplicateFormatFlagsException.swift; path = Sources/DuplicateFormatFlagsException.swift; sourceTree = "<group>"; };
+		BB3407931E08AF4F00DA5E5E /* EmptyStackException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmptyStackException.swift; path = Sources/EmptyStackException.swift; sourceTree = "<group>"; };
+		BB3407941E08AF4F00DA5E5E /* Enumeration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Enumeration.swift; path = Sources/Enumeration.swift; sourceTree = "<group>"; };
+		BB3407951E08AF4F00DA5E5E /* EnumMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnumMap.swift; path = Sources/EnumMap.swift; sourceTree = "<group>"; };
+		BB3407961E08AF4F00DA5E5E /* EnumSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnumSet.swift; path = Sources/EnumSet.swift; sourceTree = "<group>"; };
+		BB3407971E08AF4F00DA5E5E /* ErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorManager.swift; path = Sources/ErrorManager.swift; sourceTree = "<group>"; };
+		BB3407981E08AF4F00DA5E5E /* EventListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListener.swift; path = Sources/EventListener.swift; sourceTree = "<group>"; };
+		BB3407991E08AF4F00DA5E5E /* EventListenerProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventListenerProxy.swift; path = Sources/EventListenerProxy.swift; sourceTree = "<group>"; };
+		BB34079A1E08AF4F00DA5E5E /* EventObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventObject.swift; path = Sources/EventObject.swift; sourceTree = "<group>"; };
+		BB34079B1E08AF4F00DA5E5E /* Exchanger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Exchanger.swift; path = Sources/Exchanger.swift; sourceTree = "<group>"; };
+		BB34079C1E08AF4F00DA5E5E /* ExecutionException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExecutionException.swift; path = Sources/ExecutionException.swift; sourceTree = "<group>"; };
+		BB34079D1E08AF4F00DA5E5E /* Executor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Executor.swift; path = Sources/Executor.swift; sourceTree = "<group>"; };
+		BB34079E1E08AF4F00DA5E5E /* ExecutorCompletionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExecutorCompletionService.swift; path = Sources/ExecutorCompletionService.swift; sourceTree = "<group>"; };
+		BB34079F1E08AF4F00DA5E5E /* Executors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Executors.swift; path = Sources/Executors.swift; sourceTree = "<group>"; };
+		BB3407A01E08AF4F00DA5E5E /* ExecutorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExecutorService.swift; path = Sources/ExecutorService.swift; sourceTree = "<group>"; };
+		BB3407A11E08AF4F00DA5E5E /* FileHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileHandler.swift; path = Sources/FileHandler.swift; sourceTree = "<group>"; };
+		BB3407A21E08AF4F00DA5E5E /* Filter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Filter.swift; sourceTree = "<group>"; };
+		BB3407A31E08AF4F00DA5E5E /* FormatFlagsConversionMismatchException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatFlagsConversionMismatchException.swift; path = Sources/FormatFlagsConversionMismatchException.swift; sourceTree = "<group>"; };
+		BB3407A41E08AF4F00DA5E5E /* Formattable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Formattable.swift; path = Sources/Formattable.swift; sourceTree = "<group>"; };
+		BB3407A51E08AF4F00DA5E5E /* FormattableFlags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormattableFlags.swift; path = Sources/FormattableFlags.swift; sourceTree = "<group>"; };
+		BB3407A61E08AF4F00DA5E5E /* Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Formatter.swift; path = Sources/Formatter.swift; sourceTree = "<group>"; };
+		BB3407A71E08AF4F00DA5E5E /* FormatterClosedException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormatterClosedException.swift; path = Sources/FormatterClosedException.swift; sourceTree = "<group>"; };
+		BB3407A81E08AF4F00DA5E5E /* Future.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Future.swift; path = Sources/Future.swift; sourceTree = "<group>"; };
+		BB3407A91E08AF4F00DA5E5E /* FutureTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FutureTask.swift; path = Sources/FutureTask.swift; sourceTree = "<group>"; };
+		BB3407AA1E08AF4F00DA5E5E /* GregorianCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GregorianCalendar.swift; path = Sources/GregorianCalendar.swift; sourceTree = "<group>"; };
+		BB3407AB1E08AF4F00DA5E5E /* GZIPInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GZIPInputStream.swift; path = Sources/GZIPInputStream.swift; sourceTree = "<group>"; };
+		BB3407AC1E08AF4F00DA5E5E /* GZIPOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GZIPOutputStream.swift; path = Sources/GZIPOutputStream.swift; sourceTree = "<group>"; };
+		BB3407AD1E08AF4F00DA5E5E /* Handler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Handler.swift; path = Sources/Handler.swift; sourceTree = "<group>"; };
+		BB3407AE1E08AF4F00DA5E5E /* HashMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashMap.swift; path = Sources/HashMap.swift; sourceTree = "<group>"; };
+		BB3407AF1E08AF4F00DA5E5E /* HashSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HashSet.swift; path = Sources/HashSet.swift; sourceTree = "<group>"; };
+		BB3407B01E08AF4F00DA5E5E /* Hashtable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hashtable.swift; path = Sources/Hashtable.swift; sourceTree = "<group>"; };
+		BB3407B11E08AF4F00DA5E5E /* IdentityHashMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IdentityHashMap.swift; path = Sources/IdentityHashMap.swift; sourceTree = "<group>"; };
+		BB3407B21E08AF4F00DA5E5E /* IllegalFormatCodePointException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllegalFormatCodePointException.swift; path = Sources/IllegalFormatCodePointException.swift; sourceTree = "<group>"; };
+		BB3407B31E08AF4F00DA5E5E /* IllegalFormatConversionException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllegalFormatConversionException.swift; path = Sources/IllegalFormatConversionException.swift; sourceTree = "<group>"; };
+		BB3407B41E08AF4F00DA5E5E /* IllegalFormatException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllegalFormatException.swift; path = Sources/IllegalFormatException.swift; sourceTree = "<group>"; };
+		BB3407B51E08AF4F00DA5E5E /* IllegalFormatFlagsException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllegalFormatFlagsException.swift; path = Sources/IllegalFormatFlagsException.swift; sourceTree = "<group>"; };
+		BB3407B61E08AF4F00DA5E5E /* IllegalFormatPrecisionException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllegalFormatPrecisionException.swift; path = Sources/IllegalFormatPrecisionException.swift; sourceTree = "<group>"; };
+		BB3407B71E08AF4F00DA5E5E /* IllegalFormatWidthException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IllegalFormatWidthException.swift; path = Sources/IllegalFormatWidthException.swift; sourceTree = "<group>"; };
+		BB3407B81E08AF4F00DA5E5E /* Inflater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Inflater.swift; path = Sources/Inflater.swift; sourceTree = "<group>"; };
+		BB3407B91E08AF4F00DA5E5E /* InflaterInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InflaterInputStream.swift; path = Sources/InflaterInputStream.swift; sourceTree = "<group>"; };
+		BB3407BA1E08AF4F00DA5E5E /* InflaterOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InflaterOutputStream.swift; path = Sources/InflaterOutputStream.swift; sourceTree = "<group>"; };
+		BB3407BB1E08AF4F00DA5E5E /* InputMismatchException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InputMismatchException.swift; path = Sources/InputMismatchException.swift; sourceTree = "<group>"; };
+		BB3407BC1E08AF4F00DA5E5E /* InvalidPreferencesFormatException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvalidPreferencesFormatException.swift; path = Sources/InvalidPreferencesFormatException.swift; sourceTree = "<group>"; };
+		BB3407BD1E08AF4F00DA5E5E /* InvalidPropertiesFormatException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InvalidPropertiesFormatException.swift; path = Sources/InvalidPropertiesFormatException.swift; sourceTree = "<group>"; };
+		BB3407BE1E08AF4F00DA5E5E /* Iterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Iterator.swift; path = Sources/Iterator.swift; sourceTree = "<group>"; };
+		BB3407BF1E08AF4F00DA5E5E /* JarEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JarEntry.swift; path = Sources/JarEntry.swift; sourceTree = "<group>"; };
+		BB3407C01E08AF4F00DA5E5E /* JarException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JarException.swift; path = Sources/JarException.swift; sourceTree = "<group>"; };
+		BB3407C11E08AF4F00DA5E5E /* JarFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JarFile.swift; path = Sources/JarFile.swift; sourceTree = "<group>"; };
+		BB3407C21E08AF4F00DA5E5E /* JarInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JarInputStream.swift; path = Sources/JarInputStream.swift; sourceTree = "<group>"; };
+		BB3407C31E08AF4F00DA5E5E /* JarOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JarOutputStream.swift; path = Sources/JarOutputStream.swift; sourceTree = "<group>"; };
+		BB3407C41E08AF4F00DA5E5E /* JavaComparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaComparator.swift; path = Sources/JavaComparator.swift; sourceTree = "<group>"; };
+		BB3407C51E08AF4F00DA5E5E /* JavaLocale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaLocale.swift; path = Sources/JavaLocale.swift; sourceTree = "<group>"; };
+		BB3407C61E08AF4F00DA5E5E /* JavaSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JavaSet.swift; path = Sources/JavaSet.swift; sourceTree = "<group>"; };
+		BB3407C71E08AF4F00DA5E5E /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Level.swift; path = Sources/Level.swift; sourceTree = "<group>"; };
+		BB3407C81E08AF4F00DA5E5E /* LinkedBlockingDeque.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkedBlockingDeque.swift; path = Sources/LinkedBlockingDeque.swift; sourceTree = "<group>"; };
+		BB3407C91E08AF4F00DA5E5E /* LinkedBlockingQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkedBlockingQueue.swift; path = Sources/LinkedBlockingQueue.swift; sourceTree = "<group>"; };
+		BB3407CA1E08AF4F00DA5E5E /* LinkedHashMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkedHashMap.swift; path = Sources/LinkedHashMap.swift; sourceTree = "<group>"; };
+		BB3407CB1E08AF4F00DA5E5E /* LinkedHashSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkedHashSet.swift; path = Sources/LinkedHashSet.swift; sourceTree = "<group>"; };
+		BB3407CC1E08AF4F00DA5E5E /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkedList.swift; path = Sources/LinkedList.swift; sourceTree = "<group>"; };
+		BB3407CD1E08AF4F00DA5E5E /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = List.swift; path = Sources/List.swift; sourceTree = "<group>"; };
+		BB3407CE1E08AF4F00DA5E5E /* ListIterator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListIterator.swift; path = Sources/ListIterator.swift; sourceTree = "<group>"; };
+		BB3407CF1E08AF4F00DA5E5E /* ListResourceBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListResourceBundle.swift; path = Sources/ListResourceBundle.swift; sourceTree = "<group>"; };
+		BB3407D01E08AF4F00DA5E5E /* LocaleNameProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocaleNameProvider.swift; path = Sources/LocaleNameProvider.swift; sourceTree = "<group>"; };
+		BB3407D11E08AF4F00DA5E5E /* LocaleServiceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocaleServiceProvider.swift; path = Sources/LocaleServiceProvider.swift; sourceTree = "<group>"; };
+		BB3407D21E08AF4F00DA5E5E /* Lock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Lock.swift; path = Sources/Lock.swift; sourceTree = "<group>"; };
+		BB3407D31E08AF4F00DA5E5E /* LockSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LockSupport.swift; path = Sources/LockSupport.swift; sourceTree = "<group>"; };
+		BB3407D41E08AF5000DA5E5E /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Logger.swift; path = Sources/Logger.swift; sourceTree = "<group>"; };
+		BB3407D51E08AF5000DA5E5E /* logging_Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = logging_Formatter.swift; path = Sources/logging_Formatter.swift; sourceTree = "<group>"; };
+		BB3407D61E08AF5000DA5E5E /* LoggingMXBean.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingMXBean.swift; path = Sources/LoggingMXBean.swift; sourceTree = "<group>"; };
+		BB3407D71E08AF5000DA5E5E /* LoggingPermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoggingPermission.swift; path = Sources/LoggingPermission.swift; sourceTree = "<group>"; };
+		BB3407D81E08AF5000DA5E5E /* LogManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogManager.swift; path = Sources/LogManager.swift; sourceTree = "<group>"; };
+		BB3407D91E08AF5000DA5E5E /* LogRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LogRecord.swift; path = Sources/LogRecord.swift; sourceTree = "<group>"; };
+		BB3407DA1E08AF5000DA5E5E /* Manifest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Manifest.swift; path = Sources/Manifest.swift; sourceTree = "<group>"; };
+		BB3407DB1E08AF5000DA5E5E /* Map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Map.swift; path = Sources/Map.swift; sourceTree = "<group>"; };
+		BB3407DC1E08AF5000DA5E5E /* Matcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Matcher.swift; path = Sources/Matcher.swift; sourceTree = "<group>"; };
+		BB3407DD1E08AF5000DA5E5E /* MatchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MatchResult.swift; path = Sources/MatchResult.swift; sourceTree = "<group>"; };
+		BB3407DE1E08AF5000DA5E5E /* MemoryHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoryHandler.swift; path = Sources/MemoryHandler.swift; sourceTree = "<group>"; };
+		BB3407DF1E08AF5000DA5E5E /* MissingFormatArgumentException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissingFormatArgumentException.swift; path = Sources/MissingFormatArgumentException.swift; sourceTree = "<group>"; };
+		BB3407E01E08AF5000DA5E5E /* MissingFormatWidthException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissingFormatWidthException.swift; path = Sources/MissingFormatWidthException.swift; sourceTree = "<group>"; };
+		BB3407E11E08AF5000DA5E5E /* MissingResourceException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MissingResourceException.swift; path = Sources/MissingResourceException.swift; sourceTree = "<group>"; };
+		BB3407E21E08AF5000DA5E5E /* NavigableMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigableMap.swift; path = Sources/NavigableMap.swift; sourceTree = "<group>"; };
+		BB3407E31E08AF5000DA5E5E /* NavigableSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigableSet.swift; path = Sources/NavigableSet.swift; sourceTree = "<group>"; };
+		BB3407E41E08AF5000DA5E5E /* NodeChangeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NodeChangeEvent.swift; path = Sources/NodeChangeEvent.swift; sourceTree = "<group>"; };
+		BB3407E51E08AF5000DA5E5E /* NodeChangeListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NodeChangeListener.swift; path = Sources/NodeChangeListener.swift; sourceTree = "<group>"; };
+		BB3407E61E08AF5000DA5E5E /* NoSuchElementException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoSuchElementException.swift; path = Sources/NoSuchElementException.swift; sourceTree = "<group>"; };
+		BB3407E71E08AF5000DA5E5E /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Observable.swift; path = Sources/Observable.swift; sourceTree = "<group>"; };
+		BB3407E81E08AF5000DA5E5E /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Observer.swift; path = Sources/Observer.swift; sourceTree = "<group>"; };
+		BB3407E91E08AF5000DA5E5E /* Pack200.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pack200.swift; path = Sources/Pack200.swift; sourceTree = "<group>"; };
+		BB3407EA1E08AF5000DA5E5E /* Pattern.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pattern.swift; path = Sources/Pattern.swift; sourceTree = "<group>"; };
+		BB3407EB1E08AF5000DA5E5E /* PatternSyntaxException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PatternSyntaxException.swift; path = Sources/PatternSyntaxException.swift; sourceTree = "<group>"; };
+		BB3407EC1E08AF5000DA5E5E /* PreferenceChangeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferenceChangeEvent.swift; path = Sources/PreferenceChangeEvent.swift; sourceTree = "<group>"; };
+		BB3407ED1E08AF5000DA5E5E /* PreferenceChangeListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferenceChangeListener.swift; path = Sources/PreferenceChangeListener.swift; sourceTree = "<group>"; };
+		BB3407EE1E08AF5000DA5E5E /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Preferences.swift; path = Sources/Preferences.swift; sourceTree = "<group>"; };
+		BB3407EF1E08AF5000DA5E5E /* PreferencesFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreferencesFactory.swift; path = Sources/PreferencesFactory.swift; sourceTree = "<group>"; };
+		BB3407F01E08AF5000DA5E5E /* PriorityBlockingQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriorityBlockingQueue.swift; path = Sources/PriorityBlockingQueue.swift; sourceTree = "<group>"; };
+		BB3407F11E08AF5000DA5E5E /* PriorityQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PriorityQueue.swift; path = Sources/PriorityQueue.swift; sourceTree = "<group>"; };
+		BB3407F21E08AF5000DA5E5E /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Properties.swift; path = Sources/Properties.swift; sourceTree = "<group>"; };
+		BB3407F31E08AF5000DA5E5E /* PropertyPermission.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertyPermission.swift; path = Sources/PropertyPermission.swift; sourceTree = "<group>"; };
+		BB3407F41E08AF5000DA5E5E /* PropertyResourceBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PropertyResourceBundle.swift; path = Sources/PropertyResourceBundle.swift; sourceTree = "<group>"; };
+		BB3407F51E08AF5000DA5E5E /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = Sources/Queue.swift; sourceTree = "<group>"; };
+		BB3407F61E08AF5000DA5E5E /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Random.swift; path = Sources/Random.swift; sourceTree = "<group>"; };
+		BB3407F71E08AF5000DA5E5E /* RandomAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomAccess.swift; path = Sources/RandomAccess.swift; sourceTree = "<group>"; };
+		BB3407F81E08AF5000DA5E5E /* ReadWriteLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadWriteLock.swift; path = Sources/ReadWriteLock.swift; sourceTree = "<group>"; };
+		BB3407F91E08AF5000DA5E5E /* ReentrantLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReentrantLock.swift; path = Sources/ReentrantLock.swift; sourceTree = "<group>"; };
+		BB3407FA1E08AF5000DA5E5E /* ReentrantReadWriteLock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReentrantReadWriteLock.swift; path = Sources/ReentrantReadWriteLock.swift; sourceTree = "<group>"; };
+		BB3407FB1E08AF5000DA5E5E /* RejectedExecutionException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RejectedExecutionException.swift; path = Sources/RejectedExecutionException.swift; sourceTree = "<group>"; };
+		BB3407FC1E08AF5000DA5E5E /* RejectedExecutionHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RejectedExecutionHandler.swift; path = Sources/RejectedExecutionHandler.swift; sourceTree = "<group>"; };
+		BB3407FD1E08AF5000DA5E5E /* ResourceBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResourceBundle.swift; path = Sources/ResourceBundle.swift; sourceTree = "<group>"; };
+		BB3407FE1E08AF5000DA5E5E /* RunnableFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunnableFuture.swift; path = Sources/RunnableFuture.swift; sourceTree = "<group>"; };
+		BB3407FF1E08AF5000DA5E5E /* RunnableScheduledFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RunnableScheduledFuture.swift; path = Sources/RunnableScheduledFuture.swift; sourceTree = "<group>"; };
+		BB3408001E08AF5000DA5E5E /* Scanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scanner.swift; path = Sources/Scanner.swift; sourceTree = "<group>"; };
+		BB3408011E08AF5000DA5E5E /* ScheduledExecutorService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduledExecutorService.swift; path = Sources/ScheduledExecutorService.swift; sourceTree = "<group>"; };
+		BB3408021E08AF5000DA5E5E /* ScheduledFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduledFuture.swift; path = Sources/ScheduledFuture.swift; sourceTree = "<group>"; };
+		BB3408031E08AF5000DA5E5E /* ScheduledThreadPoolExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduledThreadPoolExecutor.swift; path = Sources/ScheduledThreadPoolExecutor.swift; sourceTree = "<group>"; };
+		BB3408041E08AF5000DA5E5E /* Semaphore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Semaphore.swift; path = Sources/Semaphore.swift; sourceTree = "<group>"; };
+		BB3408051E08AF5000DA5E5E /* ServiceConfigurationError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceConfigurationError.swift; path = Sources/ServiceConfigurationError.swift; sourceTree = "<group>"; };
+		BB3408061E08AF5000DA5E5E /* ServiceLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ServiceLoader.swift; path = Sources/ServiceLoader.swift; sourceTree = "<group>"; };
+		BB3408071E08AF5000DA5E5E /* SimpleFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleFormatter.swift; path = Sources/SimpleFormatter.swift; sourceTree = "<group>"; };
+		BB3408081E08AF5000DA5E5E /* SimpleTimeZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleTimeZone.swift; path = Sources/SimpleTimeZone.swift; sourceTree = "<group>"; };
+		BB3408091E08AF5000DA5E5E /* SocketHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocketHandler.swift; path = Sources/SocketHandler.swift; sourceTree = "<group>"; };
+		BB34080A1E08AF5000DA5E5E /* SortedMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortedMap.swift; path = Sources/SortedMap.swift; sourceTree = "<group>"; };
+		BB34080B1E08AF5000DA5E5E /* SortedSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SortedSet.swift; path = Sources/SortedSet.swift; sourceTree = "<group>"; };
+		BB34080C1E08AF5000DA5E5E /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Stack.swift; path = Sources/Stack.swift; sourceTree = "<group>"; };
+		BB34080D1E08AF5000DA5E5E /* StreamHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamHandler.swift; path = Sources/StreamHandler.swift; sourceTree = "<group>"; };
+		BB34080E1E08AF5000DA5E5E /* StringTokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringTokenizer.swift; path = Sources/StringTokenizer.swift; sourceTree = "<group>"; };
+		BB34080F1E08AF5000DA5E5E /* SynchronousQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SynchronousQueue.swift; path = Sources/SynchronousQueue.swift; sourceTree = "<group>"; };
+		BB3408101E08AF5000DA5E5E /* ThreadFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThreadFactory.swift; path = Sources/ThreadFactory.swift; sourceTree = "<group>"; };
+		BB3408111E08AF5000DA5E5E /* ThreadPoolExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThreadPoolExecutor.swift; path = Sources/ThreadPoolExecutor.swift; sourceTree = "<group>"; };
+		BB3408121E08AF5000DA5E5E /* TimeoutException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeoutException.swift; path = Sources/TimeoutException.swift; sourceTree = "<group>"; };
+		BB3408131E08AF5000DA5E5E /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Timer.swift; path = Sources/Timer.swift; sourceTree = "<group>"; };
+		BB3408141E08AF5000DA5E5E /* TimerTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimerTask.swift; path = Sources/TimerTask.swift; sourceTree = "<group>"; };
+		BB3408151E08AF5000DA5E5E /* TimeUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeUnit.swift; path = Sources/TimeUnit.swift; sourceTree = "<group>"; };
+		BB3408161E08AF5000DA5E5E /* TimeZone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZone.swift; path = Sources/TimeZone.swift; sourceTree = "<group>"; };
+		BB3408171E08AF5000DA5E5E /* TimeZoneNameProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeZoneNameProvider.swift; path = Sources/TimeZoneNameProvider.swift; sourceTree = "<group>"; };
+		BB3408181E08AF5000DA5E5E /* TooManyListenersException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TooManyListenersException.swift; path = Sources/TooManyListenersException.swift; sourceTree = "<group>"; };
+		BB3408191E08AF5000DA5E5E /* TreeMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TreeMap.swift; path = Sources/TreeMap.swift; sourceTree = "<group>"; };
+		BB34081A1E08AF5000DA5E5E /* TreeSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TreeSet.swift; path = Sources/TreeSet.swift; sourceTree = "<group>"; };
+		BB34081B1E08AF5000DA5E5E /* UnknownFormatConversionException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnknownFormatConversionException.swift; path = Sources/UnknownFormatConversionException.swift; sourceTree = "<group>"; };
+		BB34081C1E08AF5000DA5E5E /* UnknownFormatFlagsException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UnknownFormatFlagsException.swift; path = Sources/UnknownFormatFlagsException.swift; sourceTree = "<group>"; };
+		BB34081D1E08AF5000DA5E5E /* UUID.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UUID.swift; path = Sources/UUID.swift; sourceTree = "<group>"; };
+		BB34081E1E08AF5000DA5E5E /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Vector.swift; path = Sources/Vector.swift; sourceTree = "<group>"; };
+		BB34081F1E08AF5000DA5E5E /* WeakHashMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeakHashMap.swift; path = Sources/WeakHashMap.swift; sourceTree = "<group>"; };
+		BB3408201E08AF5000DA5E5E /* XMLFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XMLFormatter.swift; path = Sources/XMLFormatter.swift; sourceTree = "<group>"; };
+		BB3408211E08AF5000DA5E5E /* ZipEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipEntry.swift; path = Sources/ZipEntry.swift; sourceTree = "<group>"; };
+		BB3408221E08AF5000DA5E5E /* ZipError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipError.swift; path = Sources/ZipError.swift; sourceTree = "<group>"; };
+		BB3408231E08AF5000DA5E5E /* ZipException.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipException.swift; path = Sources/ZipException.swift; sourceTree = "<group>"; };
+		BB3408241E08AF5000DA5E5E /* ZipFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipFile.swift; path = Sources/ZipFile.swift; sourceTree = "<group>"; };
+		BB3408251E08AF5000DA5E5E /* ZipInputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipInputStream.swift; path = Sources/ZipInputStream.swift; sourceTree = "<group>"; };
+		BB3408261E08AF5000DA5E5E /* ZipOutputStream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZipOutputStream.swift; path = Sources/ZipOutputStream.swift; sourceTree = "<group>"; };
+		BBBF2E461D499E42004142AE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBBF2E471D499E42004142AE /* java_util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = java_util.h; sourceTree = "<group>"; };
+		BBC140541D49992D0035A039 /* java_util.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = java_util.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBC1406C1D4999860035A039 /* build.log */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = build.log; sourceTree = "<group>"; };
+		BBC1406D1D4999860035A039 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		BBC140711D4999C30035A039 /* java_lang.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = java_lang.framework; path = "../../../Library/Developer/Xcode/DerivedData/SwiftJava-bhwyspxgviouaubrunixdmmpgggl/Build/Products/Debug/java_lang.framework"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBC140501D49992D0035A039 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBC140721D4999C30035A039 /* java_lang.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBC1404A1D49992D0035A039 = {
+			isa = PBXGroup;
+			children = (
+				BB19B4331D6633B4002F5586 /* LICENSE */,
+				BBC1406C1D4999860035A039 /* build.log */,
+				BBBF2E461D499E42004142AE /* Info.plist */,
+				BBBF2E471D499E42004142AE /* java_util.h */,
+				BBC1406D1D4999860035A039 /* Package.swift */,
+				BBC1406B1D4999760035A039 /* Sources */,
+				BBC140551D49992D0035A039 /* Products */,
+				BBC140701D4999C30035A039 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BBC140551D49992D0035A039 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBC140541D49992D0035A039 /* java_util.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBC1406B1D4999760035A039 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BB34074E1E08AF4F00DA5E5E /* AbstractCollection.swift */,
+				BB34074F1E08AF4F00DA5E5E /* AbstractExecutorService.swift */,
+				BB3407501E08AF4F00DA5E5E /* AbstractList.swift */,
+				BB3407511E08AF4F00DA5E5E /* AbstractMap.swift */,
+				BB3407521E08AF4F00DA5E5E /* AbstractOwnableSynchronizer.swift */,
+				BB3407531E08AF4F00DA5E5E /* AbstractPreferences.swift */,
+				BB3407541E08AF4F00DA5E5E /* AbstractQueue.swift */,
+				BB3407551E08AF4F00DA5E5E /* AbstractQueuedLongSynchronizer.swift */,
+				BB3407561E08AF4F00DA5E5E /* AbstractQueuedSynchronizer.swift */,
+				BB3407571E08AF4F00DA5E5E /* AbstractSequentialList.swift */,
+				BB3407581E08AF4F00DA5E5E /* AbstractSet.swift */,
+				BB3407591E08AF4F00DA5E5E /* Adler32.swift */,
+				BB34075A1E08AF4F00DA5E5E /* ArrayBlockingQueue.swift */,
+				BB34075B1E08AF4F00DA5E5E /* ArrayDeque.swift */,
+				BB34075C1E08AF4F00DA5E5E /* ArrayList.swift */,
+				BB34075D1E08AF4F00DA5E5E /* Arrays.swift */,
+				BB34075E1E08AF4F00DA5E5E /* AtomicBoolean.swift */,
+				BB34075F1E08AF4F00DA5E5E /* AtomicInteger.swift */,
+				BB3407601E08AF4F00DA5E5E /* AtomicIntegerArray.swift */,
+				BB3407611E08AF4F00DA5E5E /* AtomicIntegerFieldUpdater.swift */,
+				BB3407621E08AF4F00DA5E5E /* AtomicLong.swift */,
+				BB3407631E08AF4F00DA5E5E /* AtomicLongArray.swift */,
+				BB3407641E08AF4F00DA5E5E /* AtomicLongFieldUpdater.swift */,
+				BB3407651E08AF4F00DA5E5E /* AtomicMarkableReference.swift */,
+				BB3407661E08AF4F00DA5E5E /* AtomicReference.swift */,
+				BB3407671E08AF4F00DA5E5E /* AtomicReferenceArray.swift */,
+				BB3407681E08AF4F00DA5E5E /* AtomicReferenceFieldUpdater.swift */,
+				BB3407691E08AF4F00DA5E5E /* AtomicStampedReference.swift */,
+				BB34076A1E08AF4F00DA5E5E /* Attributes.swift */,
+				BB34076B1E08AF4F00DA5E5E /* BackingStoreException.swift */,
+				BB34076C1E08AF4F00DA5E5E /* BitSet.swift */,
+				BB34076D1E08AF4F00DA5E5E /* BlockingDeque.swift */,
+				BB34076E1E08AF4F00DA5E5E /* BlockingQueue.swift */,
+				BB34076F1E08AF4F00DA5E5E /* BrokenBarrierException.swift */,
+				BB3407701E08AF4F00DA5E5E /* Calendar.swift */,
+				BB3407711E08AF4F00DA5E5E /* Callable.swift */,
+				BB3407721E08AF4F00DA5E5E /* CancellationException.swift */,
+				BB3407731E08AF4F00DA5E5E /* CheckedInputStream.swift */,
+				BB3407741E08AF4F00DA5E5E /* CheckedOutputStream.swift */,
+				BB3407751E08AF4F00DA5E5E /* Checksum.swift */,
+				BB3407761E08AF4F00DA5E5E /* Collection.swift */,
+				BB3407771E08AF4F00DA5E5E /* Collections.swift */,
+				BB3407781E08AF4F00DA5E5E /* CompletionService.swift */,
+				BB3407791E08AF4F00DA5E5E /* ConcurrentHashMap.swift */,
+				BB34077A1E08AF4F00DA5E5E /* ConcurrentLinkedQueue.swift */,
+				BB34077B1E08AF4F00DA5E5E /* ConcurrentMap.swift */,
+				BB34077C1E08AF4F00DA5E5E /* ConcurrentModificationException.swift */,
+				BB34077D1E08AF4F00DA5E5E /* ConcurrentNavigableMap.swift */,
+				BB34077E1E08AF4F00DA5E5E /* ConcurrentSkipListMap.swift */,
+				BB34077F1E08AF4F00DA5E5E /* ConcurrentSkipListSet.swift */,
+				BB3407801E08AF4F00DA5E5E /* Condition.swift */,
+				BB3407811E08AF4F00DA5E5E /* ConsoleHandler.swift */,
+				BB3407821E08AF4F00DA5E5E /* CopyOnWriteArrayList.swift */,
+				BB3407831E08AF4F00DA5E5E /* CopyOnWriteArraySet.swift */,
+				BB3407841E08AF4F00DA5E5E /* CountDownLatch.swift */,
+				BB3407851E08AF4F00DA5E5E /* CRC32.swift */,
+				BB3407861E08AF4F00DA5E5E /* Currency.swift */,
+				BB3407871E08AF4F00DA5E5E /* CurrencyNameProvider.swift */,
+				BB3407881E08AF4F00DA5E5E /* CyclicBarrier.swift */,
+				BB3407891E08AF4F00DA5E5E /* DataFormatException.swift */,
+				BB34078A1E08AF4F00DA5E5E /* Date.swift */,
+				BB34078B1E08AF4F00DA5E5E /* Deflater.swift */,
+				BB34078C1E08AF4F00DA5E5E /* DeflaterInputStream.swift */,
+				BB34078D1E08AF4F00DA5E5E /* DeflaterOutputStream.swift */,
+				BB34078E1E08AF4F00DA5E5E /* Delayed.swift */,
+				BB34078F1E08AF4F00DA5E5E /* DelayQueue.swift */,
+				BB3407901E08AF4F00DA5E5E /* Deque.swift */,
+				BB3407911E08AF4F00DA5E5E /* Dictionary.swift */,
+				BB3407921E08AF4F00DA5E5E /* DuplicateFormatFlagsException.swift */,
+				BB3407931E08AF4F00DA5E5E /* EmptyStackException.swift */,
+				BB3407941E08AF4F00DA5E5E /* Enumeration.swift */,
+				BB3407951E08AF4F00DA5E5E /* EnumMap.swift */,
+				BB3407961E08AF4F00DA5E5E /* EnumSet.swift */,
+				BB3407971E08AF4F00DA5E5E /* ErrorManager.swift */,
+				BB3407981E08AF4F00DA5E5E /* EventListener.swift */,
+				BB3407991E08AF4F00DA5E5E /* EventListenerProxy.swift */,
+				BB34079A1E08AF4F00DA5E5E /* EventObject.swift */,
+				BB34079B1E08AF4F00DA5E5E /* Exchanger.swift */,
+				BB34079C1E08AF4F00DA5E5E /* ExecutionException.swift */,
+				BB34079D1E08AF4F00DA5E5E /* Executor.swift */,
+				BB34079E1E08AF4F00DA5E5E /* ExecutorCompletionService.swift */,
+				BB34079F1E08AF4F00DA5E5E /* Executors.swift */,
+				BB3407A01E08AF4F00DA5E5E /* ExecutorService.swift */,
+				BB3407A11E08AF4F00DA5E5E /* FileHandler.swift */,
+				BB3407A21E08AF4F00DA5E5E /* Filter.swift */,
+				BB3407A31E08AF4F00DA5E5E /* FormatFlagsConversionMismatchException.swift */,
+				BB3407A41E08AF4F00DA5E5E /* Formattable.swift */,
+				BB3407A51E08AF4F00DA5E5E /* FormattableFlags.swift */,
+				BB3407A61E08AF4F00DA5E5E /* Formatter.swift */,
+				BB3407A71E08AF4F00DA5E5E /* FormatterClosedException.swift */,
+				BB3407A81E08AF4F00DA5E5E /* Future.swift */,
+				BB3407A91E08AF4F00DA5E5E /* FutureTask.swift */,
+				BB3407AA1E08AF4F00DA5E5E /* GregorianCalendar.swift */,
+				BB3407AB1E08AF4F00DA5E5E /* GZIPInputStream.swift */,
+				BB3407AC1E08AF4F00DA5E5E /* GZIPOutputStream.swift */,
+				BB3407AD1E08AF4F00DA5E5E /* Handler.swift */,
+				BB3407AE1E08AF4F00DA5E5E /* HashMap.swift */,
+				BB3407AF1E08AF4F00DA5E5E /* HashSet.swift */,
+				BB3407B01E08AF4F00DA5E5E /* Hashtable.swift */,
+				BB3407B11E08AF4F00DA5E5E /* IdentityHashMap.swift */,
+				BB3407B21E08AF4F00DA5E5E /* IllegalFormatCodePointException.swift */,
+				BB3407B31E08AF4F00DA5E5E /* IllegalFormatConversionException.swift */,
+				BB3407B41E08AF4F00DA5E5E /* IllegalFormatException.swift */,
+				BB3407B51E08AF4F00DA5E5E /* IllegalFormatFlagsException.swift */,
+				BB3407B61E08AF4F00DA5E5E /* IllegalFormatPrecisionException.swift */,
+				BB3407B71E08AF4F00DA5E5E /* IllegalFormatWidthException.swift */,
+				BB3407B81E08AF4F00DA5E5E /* Inflater.swift */,
+				BB3407B91E08AF4F00DA5E5E /* InflaterInputStream.swift */,
+				BB3407BA1E08AF4F00DA5E5E /* InflaterOutputStream.swift */,
+				BB3407BB1E08AF4F00DA5E5E /* InputMismatchException.swift */,
+				BB3407BC1E08AF4F00DA5E5E /* InvalidPreferencesFormatException.swift */,
+				BB3407BD1E08AF4F00DA5E5E /* InvalidPropertiesFormatException.swift */,
+				BB3407BE1E08AF4F00DA5E5E /* Iterator.swift */,
+				BB3407BF1E08AF4F00DA5E5E /* JarEntry.swift */,
+				BB3407C01E08AF4F00DA5E5E /* JarException.swift */,
+				BB3407C11E08AF4F00DA5E5E /* JarFile.swift */,
+				BB3407C21E08AF4F00DA5E5E /* JarInputStream.swift */,
+				BB3407C31E08AF4F00DA5E5E /* JarOutputStream.swift */,
+				BB3407C41E08AF4F00DA5E5E /* JavaComparator.swift */,
+				BB3407C51E08AF4F00DA5E5E /* JavaLocale.swift */,
+				BB3407C61E08AF4F00DA5E5E /* JavaSet.swift */,
+				BB3407C71E08AF4F00DA5E5E /* Level.swift */,
+				BB3407C81E08AF4F00DA5E5E /* LinkedBlockingDeque.swift */,
+				BB3407C91E08AF4F00DA5E5E /* LinkedBlockingQueue.swift */,
+				BB3407CA1E08AF4F00DA5E5E /* LinkedHashMap.swift */,
+				BB3407CB1E08AF4F00DA5E5E /* LinkedHashSet.swift */,
+				BB3407CC1E08AF4F00DA5E5E /* LinkedList.swift */,
+				BB3407CD1E08AF4F00DA5E5E /* List.swift */,
+				BB3407CE1E08AF4F00DA5E5E /* ListIterator.swift */,
+				BB3407CF1E08AF4F00DA5E5E /* ListResourceBundle.swift */,
+				BB3407D01E08AF4F00DA5E5E /* LocaleNameProvider.swift */,
+				BB3407D11E08AF4F00DA5E5E /* LocaleServiceProvider.swift */,
+				BB3407D21E08AF4F00DA5E5E /* Lock.swift */,
+				BB3407D31E08AF4F00DA5E5E /* LockSupport.swift */,
+				BB3407D41E08AF5000DA5E5E /* Logger.swift */,
+				BB3407D51E08AF5000DA5E5E /* logging_Formatter.swift */,
+				BB3407D61E08AF5000DA5E5E /* LoggingMXBean.swift */,
+				BB3407D71E08AF5000DA5E5E /* LoggingPermission.swift */,
+				BB3407D81E08AF5000DA5E5E /* LogManager.swift */,
+				BB3407D91E08AF5000DA5E5E /* LogRecord.swift */,
+				BB3407DA1E08AF5000DA5E5E /* Manifest.swift */,
+				BB3407DB1E08AF5000DA5E5E /* Map.swift */,
+				BB3407DC1E08AF5000DA5E5E /* Matcher.swift */,
+				BB3407DD1E08AF5000DA5E5E /* MatchResult.swift */,
+				BB3407DE1E08AF5000DA5E5E /* MemoryHandler.swift */,
+				BB3407DF1E08AF5000DA5E5E /* MissingFormatArgumentException.swift */,
+				BB3407E01E08AF5000DA5E5E /* MissingFormatWidthException.swift */,
+				BB3407E11E08AF5000DA5E5E /* MissingResourceException.swift */,
+				BB3407E21E08AF5000DA5E5E /* NavigableMap.swift */,
+				BB3407E31E08AF5000DA5E5E /* NavigableSet.swift */,
+				BB3407E41E08AF5000DA5E5E /* NodeChangeEvent.swift */,
+				BB3407E51E08AF5000DA5E5E /* NodeChangeListener.swift */,
+				BB3407E61E08AF5000DA5E5E /* NoSuchElementException.swift */,
+				BB3407E71E08AF5000DA5E5E /* Observable.swift */,
+				BB3407E81E08AF5000DA5E5E /* Observer.swift */,
+				BB3407E91E08AF5000DA5E5E /* Pack200.swift */,
+				BB3407EA1E08AF5000DA5E5E /* Pattern.swift */,
+				BB3407EB1E08AF5000DA5E5E /* PatternSyntaxException.swift */,
+				BB3407EC1E08AF5000DA5E5E /* PreferenceChangeEvent.swift */,
+				BB3407ED1E08AF5000DA5E5E /* PreferenceChangeListener.swift */,
+				BB3407EE1E08AF5000DA5E5E /* Preferences.swift */,
+				BB3407EF1E08AF5000DA5E5E /* PreferencesFactory.swift */,
+				BB3407F01E08AF5000DA5E5E /* PriorityBlockingQueue.swift */,
+				BB3407F11E08AF5000DA5E5E /* PriorityQueue.swift */,
+				BB3407F21E08AF5000DA5E5E /* Properties.swift */,
+				BB3407F31E08AF5000DA5E5E /* PropertyPermission.swift */,
+				BB3407F41E08AF5000DA5E5E /* PropertyResourceBundle.swift */,
+				BB3407F51E08AF5000DA5E5E /* Queue.swift */,
+				BB3407F61E08AF5000DA5E5E /* Random.swift */,
+				BB3407F71E08AF5000DA5E5E /* RandomAccess.swift */,
+				BB3407F81E08AF5000DA5E5E /* ReadWriteLock.swift */,
+				BB3407F91E08AF5000DA5E5E /* ReentrantLock.swift */,
+				BB3407FA1E08AF5000DA5E5E /* ReentrantReadWriteLock.swift */,
+				BB3407FB1E08AF5000DA5E5E /* RejectedExecutionException.swift */,
+				BB3407FC1E08AF5000DA5E5E /* RejectedExecutionHandler.swift */,
+				BB3407FD1E08AF5000DA5E5E /* ResourceBundle.swift */,
+				BB3407FE1E08AF5000DA5E5E /* RunnableFuture.swift */,
+				BB3407FF1E08AF5000DA5E5E /* RunnableScheduledFuture.swift */,
+				BB3408001E08AF5000DA5E5E /* Scanner.swift */,
+				BB3408011E08AF5000DA5E5E /* ScheduledExecutorService.swift */,
+				BB3408021E08AF5000DA5E5E /* ScheduledFuture.swift */,
+				BB3408031E08AF5000DA5E5E /* ScheduledThreadPoolExecutor.swift */,
+				BB3408041E08AF5000DA5E5E /* Semaphore.swift */,
+				BB3408051E08AF5000DA5E5E /* ServiceConfigurationError.swift */,
+				BB3408061E08AF5000DA5E5E /* ServiceLoader.swift */,
+				BB3408071E08AF5000DA5E5E /* SimpleFormatter.swift */,
+				BB3408081E08AF5000DA5E5E /* SimpleTimeZone.swift */,
+				BB3408091E08AF5000DA5E5E /* SocketHandler.swift */,
+				BB34080A1E08AF5000DA5E5E /* SortedMap.swift */,
+				BB34080B1E08AF5000DA5E5E /* SortedSet.swift */,
+				BB34080C1E08AF5000DA5E5E /* Stack.swift */,
+				BB34080D1E08AF5000DA5E5E /* StreamHandler.swift */,
+				BB34080E1E08AF5000DA5E5E /* StringTokenizer.swift */,
+				BB34080F1E08AF5000DA5E5E /* SynchronousQueue.swift */,
+				BB3408101E08AF5000DA5E5E /* ThreadFactory.swift */,
+				BB3408111E08AF5000DA5E5E /* ThreadPoolExecutor.swift */,
+				BB3408121E08AF5000DA5E5E /* TimeoutException.swift */,
+				BB3408131E08AF5000DA5E5E /* Timer.swift */,
+				BB3408141E08AF5000DA5E5E /* TimerTask.swift */,
+				BB3408151E08AF5000DA5E5E /* TimeUnit.swift */,
+				BB3408161E08AF5000DA5E5E /* TimeZone.swift */,
+				BB3408171E08AF5000DA5E5E /* TimeZoneNameProvider.swift */,
+				BB3408181E08AF5000DA5E5E /* TooManyListenersException.swift */,
+				BB3408191E08AF5000DA5E5E /* TreeMap.swift */,
+				BB34081A1E08AF5000DA5E5E /* TreeSet.swift */,
+				BB34081B1E08AF5000DA5E5E /* UnknownFormatConversionException.swift */,
+				BB34081C1E08AF5000DA5E5E /* UnknownFormatFlagsException.swift */,
+				BB34081D1E08AF5000DA5E5E /* UUID.swift */,
+				BB34081E1E08AF5000DA5E5E /* Vector.swift */,
+				BB34081F1E08AF5000DA5E5E /* WeakHashMap.swift */,
+				BB3408201E08AF5000DA5E5E /* XMLFormatter.swift */,
+				BB3408211E08AF5000DA5E5E /* ZipEntry.swift */,
+				BB3408221E08AF5000DA5E5E /* ZipError.swift */,
+				BB3408231E08AF5000DA5E5E /* ZipException.swift */,
+				BB3408241E08AF5000DA5E5E /* ZipFile.swift */,
+				BB3408251E08AF5000DA5E5E /* ZipInputStream.swift */,
+				BB3408261E08AF5000DA5E5E /* ZipOutputStream.swift */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		BBC140701D4999C30035A039 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBC140711D4999C30035A039 /* java_lang.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BBC140511D49992D0035A039 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBBF2E491D499E42004142AE /* java_util.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BBC140531D49992D0035A039 /* java_util */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBC1405C1D49992D0035A039 /* Build configuration list for PBXNativeTarget "java_util" */;
+			buildPhases = (
+				BBC1404F1D49992D0035A039 /* Sources */,
+				BBC140501D49992D0035A039 /* Frameworks */,
+				BBC140511D49992D0035A039 /* Headers */,
+				BBC140521D49992D0035A039 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = java_util;
+			productName = java_util;
+			productReference = BBC140541D49992D0035A039 /* java_util.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBC1404B1D49992D0035A039 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "John Holdsworth";
+				TargetAttributes = {
+					BBC140531D49992D0035A039 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeamName = "John Holdsworth";
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = BBC1404E1D49992D0035A039 /* Build configuration list for PBXProject "java_util" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BBC1404A1D49992D0035A039;
+			productRefGroup = BBC140551D49992D0035A039 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBC140531D49992D0035A039 /* java_util */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBC140521D49992D0035A039 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBC1404F1D49992D0035A039 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB34087C1E08AF5000DA5E5E /* FormatFlagsConversionMismatchException.swift in Sources */,
+				BB3408C11E08AF5100DA5E5E /* Observer.swift in Sources */,
+				BB3408A61E08AF5000DA5E5E /* List.swift in Sources */,
+				BB3408E31E08AF5100DA5E5E /* SortedMap.swift in Sources */,
+				BB3408C81E08AF5100DA5E5E /* PreferencesFactory.swift in Sources */,
+				BB34089D1E08AF5000DA5E5E /* JavaComparator.swift in Sources */,
+				BB3408B71E08AF5000DA5E5E /* MemoryHandler.swift in Sources */,
+				BB3408B51E08AF5000DA5E5E /* Matcher.swift in Sources */,
+				BB3408971E08AF5000DA5E5E /* Iterator.swift in Sources */,
+				BB3408811E08AF5000DA5E5E /* Future.swift in Sources */,
+				BB3408371E08AF5000DA5E5E /* AtomicBoolean.swift in Sources */,
+				BB3408651E08AF5000DA5E5E /* DeflaterInputStream.swift in Sources */,
+				BB3408EA1E08AF5100DA5E5E /* ThreadPoolExecutor.swift in Sources */,
+				BB3408F41E08AF5100DA5E5E /* UnknownFormatConversionException.swift in Sources */,
+				BB3408281E08AF5000DA5E5E /* AbstractExecutorService.swift in Sources */,
+				BB34083F1E08AF5000DA5E5E /* AtomicReference.swift in Sources */,
+				BB3408861E08AF5000DA5E5E /* Handler.swift in Sources */,
+				BB3408351E08AF5000DA5E5E /* ArrayList.swift in Sources */,
+				BB3408671E08AF5000DA5E5E /* Delayed.swift in Sources */,
+				BB3408DC1E08AF5100DA5E5E /* ScheduledThreadPoolExecutor.swift in Sources */,
+				BB3408B41E08AF5000DA5E5E /* Map.swift in Sources */,
+				BB3408D61E08AF5100DA5E5E /* ResourceBundle.swift in Sources */,
+				BB3408701E08AF5000DA5E5E /* ErrorManager.swift in Sources */,
+				BB3408941E08AF5000DA5E5E /* InputMismatchException.swift in Sources */,
+				BB34084D1E08AF5000DA5E5E /* CheckedOutputStream.swift in Sources */,
+				BB34088C1E08AF5000DA5E5E /* IllegalFormatConversionException.swift in Sources */,
+				BB34083E1E08AF5000DA5E5E /* AtomicMarkableReference.swift in Sources */,
+				BB3408721E08AF5000DA5E5E /* EventListenerProxy.swift in Sources */,
+				BB3408621E08AF5000DA5E5E /* DataFormatException.swift in Sources */,
+				BB3408711E08AF5000DA5E5E /* EventListener.swift in Sources */,
+				BB3408511E08AF5000DA5E5E /* CompletionService.swift in Sources */,
+				BB34083B1E08AF5000DA5E5E /* AtomicLong.swift in Sources */,
+				BB3408DB1E08AF5100DA5E5E /* ScheduledFuture.swift in Sources */,
+				BB3408A91E08AF5000DA5E5E /* LocaleNameProvider.swift in Sources */,
+				BB3408F71E08AF5100DA5E5E /* Vector.swift in Sources */,
+				BB3408901E08AF5000DA5E5E /* IllegalFormatWidthException.swift in Sources */,
+				BB34088D1E08AF5000DA5E5E /* IllegalFormatException.swift in Sources */,
+				BB3408B81E08AF5000DA5E5E /* MissingFormatArgumentException.swift in Sources */,
+				BB3408FE1E08AF5100DA5E5E /* ZipInputStream.swift in Sources */,
+				BB34088F1E08AF5000DA5E5E /* IllegalFormatPrecisionException.swift in Sources */,
+				BB34084F1E08AF5000DA5E5E /* Collection.swift in Sources */,
+				BB3408E41E08AF5100DA5E5E /* SortedSet.swift in Sources */,
+				BB3408E91E08AF5100DA5E5E /* ThreadFactory.swift in Sources */,
+				BB3408551E08AF5000DA5E5E /* ConcurrentModificationException.swift in Sources */,
+				BB34087B1E08AF5000DA5E5E /* Filter.swift in Sources */,
+				BB3408401E08AF5000DA5E5E /* AtomicReferenceArray.swift in Sources */,
+				BB3408F61E08AF5100DA5E5E /* UUID.swift in Sources */,
+				BB3408321E08AF5000DA5E5E /* Adler32.swift in Sources */,
+				BB34082B1E08AF5000DA5E5E /* AbstractOwnableSynchronizer.swift in Sources */,
+				BB3408791E08AF5000DA5E5E /* ExecutorService.swift in Sources */,
+				BB3408431E08AF5000DA5E5E /* Attributes.swift in Sources */,
+				BB3408331E08AF5000DA5E5E /* ArrayBlockingQueue.swift in Sources */,
+				BB3408461E08AF5000DA5E5E /* BlockingDeque.swift in Sources */,
+				BB34089A1E08AF5000DA5E5E /* JarFile.swift in Sources */,
+				BB3408CE1E08AF5100DA5E5E /* Queue.swift in Sources */,
+				BB34085A1E08AF5000DA5E5E /* ConsoleHandler.swift in Sources */,
+				BB3408611E08AF5000DA5E5E /* CyclicBarrier.swift in Sources */,
+				BB34083A1E08AF5000DA5E5E /* AtomicIntegerFieldUpdater.swift in Sources */,
+				BB3408561E08AF5000DA5E5E /* ConcurrentNavigableMap.swift in Sources */,
+				BB3408991E08AF5000DA5E5E /* JarException.swift in Sources */,
+				BB34085E1E08AF5000DA5E5E /* CRC32.swift in Sources */,
+				BB3408891E08AF5000DA5E5E /* Hashtable.swift in Sources */,
+				BB3408C51E08AF5100DA5E5E /* PreferenceChangeEvent.swift in Sources */,
+				BB3408D01E08AF5100DA5E5E /* RandomAccess.swift in Sources */,
+				BB3408EF1E08AF5100DA5E5E /* TimeZone.swift in Sources */,
+				BB3408311E08AF5000DA5E5E /* AbstractSet.swift in Sources */,
+				BB34087E1E08AF5000DA5E5E /* FormattableFlags.swift in Sources */,
+				BB3408BB1E08AF5100DA5E5E /* NavigableMap.swift in Sources */,
+				BB3408A31E08AF5000DA5E5E /* LinkedHashMap.swift in Sources */,
+				BB3408771E08AF5000DA5E5E /* ExecutorCompletionService.swift in Sources */,
+				BB3408F21E08AF5100DA5E5E /* TreeMap.swift in Sources */,
+				BB3408591E08AF5000DA5E5E /* Condition.swift in Sources */,
+				BB34087F1E08AF5000DA5E5E /* Formatter.swift in Sources */,
+				BB3408661E08AF5000DA5E5E /* DeflaterOutputStream.swift in Sources */,
+				BB34082E1E08AF5000DA5E5E /* AbstractQueuedLongSynchronizer.swift in Sources */,
+				BB3408391E08AF5000DA5E5E /* AtomicIntegerArray.swift in Sources */,
+				BB3408FB1E08AF5100DA5E5E /* ZipError.swift in Sources */,
+				BB3408F11E08AF5100DA5E5E /* TooManyListenersException.swift in Sources */,
+				BB3408CA1E08AF5100DA5E5E /* PriorityQueue.swift in Sources */,
+				BB3408CD1E08AF5100DA5E5E /* PropertyResourceBundle.swift in Sources */,
+				BB3408FA1E08AF5100DA5E5E /* ZipEntry.swift in Sources */,
+				BB3408B31E08AF5000DA5E5E /* Manifest.swift in Sources */,
+				BB3408CB1E08AF5100DA5E5E /* Properties.swift in Sources */,
+				BB3408641E08AF5000DA5E5E /* Deflater.swift in Sources */,
+				BB3408B01E08AF5000DA5E5E /* LoggingPermission.swift in Sources */,
+				BB3408A81E08AF5000DA5E5E /* ListResourceBundle.swift in Sources */,
+				BB3408291E08AF5000DA5E5E /* AbstractList.swift in Sources */,
+				BB3408F81E08AF5100DA5E5E /* WeakHashMap.swift in Sources */,
+				BB34089F1E08AF5000DA5E5E /* JavaSet.swift in Sources */,
+				BB34086F1E08AF5000DA5E5E /* EnumSet.swift in Sources */,
+				BB3408DD1E08AF5100DA5E5E /* Semaphore.swift in Sources */,
+				BB3408E81E08AF5100DA5E5E /* SynchronousQueue.swift in Sources */,
+				BB3408571E08AF5000DA5E5E /* ConcurrentSkipListMap.swift in Sources */,
+				BB3408D41E08AF5100DA5E5E /* RejectedExecutionException.swift in Sources */,
+				BB3408FC1E08AF5100DA5E5E /* ZipException.swift in Sources */,
+				BB3408D21E08AF5100DA5E5E /* ReentrantLock.swift in Sources */,
+				BB3408C01E08AF5100DA5E5E /* Observable.swift in Sources */,
+				BB3408AB1E08AF5000DA5E5E /* Lock.swift in Sources */,
+				BB3408301E08AF5000DA5E5E /* AbstractSequentialList.swift in Sources */,
+				BB3408851E08AF5000DA5E5E /* GZIPOutputStream.swift in Sources */,
+				BB3408731E08AF5000DA5E5E /* EventObject.swift in Sources */,
+				BB3408821E08AF5000DA5E5E /* FutureTask.swift in Sources */,
+				BB3408441E08AF5000DA5E5E /* BackingStoreException.swift in Sources */,
+				BB34084B1E08AF5000DA5E5E /* CancellationException.swift in Sources */,
+				BB34086D1E08AF5000DA5E5E /* Enumeration.swift in Sources */,
+				BB34084C1E08AF5000DA5E5E /* CheckedInputStream.swift in Sources */,
+				BB3408A71E08AF5000DA5E5E /* ListIterator.swift in Sources */,
+				BB3408361E08AF5000DA5E5E /* Arrays.swift in Sources */,
+				BB34085D1E08AF5000DA5E5E /* CountDownLatch.swift in Sources */,
+				BB3408EB1E08AF5100DA5E5E /* TimeoutException.swift in Sources */,
+				BB3408DA1E08AF5100DA5E5E /* ScheduledExecutorService.swift in Sources */,
+				BB34087D1E08AF5000DA5E5E /* Formattable.swift in Sources */,
+				BB3408961E08AF5000DA5E5E /* InvalidPropertiesFormatException.swift in Sources */,
+				BB3408421E08AF5000DA5E5E /* AtomicStampedReference.swift in Sources */,
+				BB3408831E08AF5000DA5E5E /* GregorianCalendar.swift in Sources */,
+				BB3408FF1E08AF5100DA5E5E /* ZipOutputStream.swift in Sources */,
+				BB34083C1E08AF5000DA5E5E /* AtomicLongArray.swift in Sources */,
+				BB34082A1E08AF5000DA5E5E /* AbstractMap.swift in Sources */,
+				BB3408741E08AF5000DA5E5E /* Exchanger.swift in Sources */,
+				BB3408AF1E08AF5000DA5E5E /* LoggingMXBean.swift in Sources */,
+				BB3408921E08AF5000DA5E5E /* InflaterInputStream.swift in Sources */,
+				BB3408BA1E08AF5100DA5E5E /* MissingResourceException.swift in Sources */,
+				BB34082D1E08AF5000DA5E5E /* AbstractQueue.swift in Sources */,
+				BB3408581E08AF5000DA5E5E /* ConcurrentSkipListSet.swift in Sources */,
+				BB3408E01E08AF5100DA5E5E /* SimpleFormatter.swift in Sources */,
+				BB34088E1E08AF5000DA5E5E /* IllegalFormatFlagsException.swift in Sources */,
+				BB3408451E08AF5000DA5E5E /* BitSet.swift in Sources */,
+				BB3408AA1E08AF5000DA5E5E /* LocaleServiceProvider.swift in Sources */,
+				BB3408D11E08AF5100DA5E5E /* ReadWriteLock.swift in Sources */,
+				BB34088A1E08AF5000DA5E5E /* IdentityHashMap.swift in Sources */,
+				BB3408AD1E08AF5000DA5E5E /* Logger.swift in Sources */,
+				BB3408411E08AF5000DA5E5E /* AtomicReferenceFieldUpdater.swift in Sources */,
+				BB3408751E08AF5000DA5E5E /* ExecutionException.swift in Sources */,
+				BB34089C1E08AF5000DA5E5E /* JarOutputStream.swift in Sources */,
+				BB3408CF1E08AF5100DA5E5E /* Random.swift in Sources */,
+				BB3408981E08AF5000DA5E5E /* JarEntry.swift in Sources */,
+				BB3408541E08AF5000DA5E5E /* ConcurrentMap.swift in Sources */,
+				BB3408531E08AF5000DA5E5E /* ConcurrentLinkedQueue.swift in Sources */,
+				BB3408BE1E08AF5100DA5E5E /* NodeChangeListener.swift in Sources */,
+				BB34088B1E08AF5000DA5E5E /* IllegalFormatCodePointException.swift in Sources */,
+				BB3408EE1E08AF5100DA5E5E /* TimeUnit.swift in Sources */,
+				BB3408B91E08AF5100DA5E5E /* MissingFormatWidthException.swift in Sources */,
+				BB3408481E08AF5000DA5E5E /* BrokenBarrierException.swift in Sources */,
+				BB3408881E08AF5000DA5E5E /* HashSet.swift in Sources */,
+				BB3408BF1E08AF5100DA5E5E /* NoSuchElementException.swift in Sources */,
+				BB3408761E08AF5000DA5E5E /* Executor.swift in Sources */,
+				BB3408B11E08AF5000DA5E5E /* LogManager.swift in Sources */,
+				BB3408DF1E08AF5100DA5E5E /* ServiceLoader.swift in Sources */,
+				BB3408F91E08AF5100DA5E5E /* XMLFormatter.swift in Sources */,
+				BB3408381E08AF5000DA5E5E /* AtomicInteger.swift in Sources */,
+				BB3408F01E08AF5100DA5E5E /* TimeZoneNameProvider.swift in Sources */,
+				BB34083D1E08AF5000DA5E5E /* AtomicLongFieldUpdater.swift in Sources */,
+				BB3408C21E08AF5100DA5E5E /* Pack200.swift in Sources */,
+				BB3408A41E08AF5000DA5E5E /* LinkedHashSet.swift in Sources */,
+				BB3408931E08AF5000DA5E5E /* InflaterOutputStream.swift in Sources */,
+				BB3408A51E08AF5000DA5E5E /* LinkedList.swift in Sources */,
+				BB3408EC1E08AF5100DA5E5E /* Timer.swift in Sources */,
+				BB3408911E08AF5000DA5E5E /* Inflater.swift in Sources */,
+				BB34086B1E08AF5000DA5E5E /* DuplicateFormatFlagsException.swift in Sources */,
+				BB34085C1E08AF5000DA5E5E /* CopyOnWriteArraySet.swift in Sources */,
+				BB3408A01E08AF5000DA5E5E /* Level.swift in Sources */,
+				BB34089E1E08AF5000DA5E5E /* JavaLocale.swift in Sources */,
+				BB34089B1E08AF5000DA5E5E /* JarInputStream.swift in Sources */,
+				BB3408E21E08AF5100DA5E5E /* SocketHandler.swift in Sources */,
+				BB3408951E08AF5000DA5E5E /* InvalidPreferencesFormatException.swift in Sources */,
+				BB3408501E08AF5000DA5E5E /* Collections.swift in Sources */,
+				BB3408BC1E08AF5100DA5E5E /* NavigableSet.swift in Sources */,
+				BB34085B1E08AF5000DA5E5E /* CopyOnWriteArrayList.swift in Sources */,
+				BB3408C41E08AF5100DA5E5E /* PatternSyntaxException.swift in Sources */,
+				BB3408681E08AF5000DA5E5E /* DelayQueue.swift in Sources */,
+				BB3408521E08AF5000DA5E5E /* ConcurrentHashMap.swift in Sources */,
+				BB34086C1E08AF5000DA5E5E /* EmptyStackException.swift in Sources */,
+				BB3408E61E08AF5100DA5E5E /* StreamHandler.swift in Sources */,
+				BB3408C61E08AF5100DA5E5E /* PreferenceChangeListener.swift in Sources */,
+				BB34085F1E08AF5000DA5E5E /* Currency.swift in Sources */,
+				BB3408ED1E08AF5100DA5E5E /* TimerTask.swift in Sources */,
+				BB34084A1E08AF5000DA5E5E /* Callable.swift in Sources */,
+				BB3408F51E08AF5100DA5E5E /* UnknownFormatFlagsException.swift in Sources */,
+				BB3408F31E08AF5100DA5E5E /* TreeSet.swift in Sources */,
+				BB3408841E08AF5000DA5E5E /* GZIPInputStream.swift in Sources */,
+				BB34082C1E08AF5000DA5E5E /* AbstractPreferences.swift in Sources */,
+				BB3408691E08AF5000DA5E5E /* Deque.swift in Sources */,
+				BB3408271E08AF5000DA5E5E /* AbstractCollection.swift in Sources */,
+				BB3408601E08AF5000DA5E5E /* CurrencyNameProvider.swift in Sources */,
+				BB3408B21E08AF5000DA5E5E /* LogRecord.swift in Sources */,
+				BB3408631E08AF5000DA5E5E /* Date.swift in Sources */,
+				BB3408D31E08AF5100DA5E5E /* ReentrantReadWriteLock.swift in Sources */,
+				BB3408E71E08AF5100DA5E5E /* StringTokenizer.swift in Sources */,
+				BB3408341E08AF5000DA5E5E /* ArrayDeque.swift in Sources */,
+				BB34084E1E08AF5000DA5E5E /* Checksum.swift in Sources */,
+				BB3408D91E08AF5100DA5E5E /* Scanner.swift in Sources */,
+				BB3408871E08AF5000DA5E5E /* HashMap.swift in Sources */,
+				BB3408801E08AF5000DA5E5E /* FormatterClosedException.swift in Sources */,
+				BB3408AC1E08AF5000DA5E5E /* LockSupport.swift in Sources */,
+				BB34086E1E08AF5000DA5E5E /* EnumMap.swift in Sources */,
+				BB3408E51E08AF5100DA5E5E /* Stack.swift in Sources */,
+				BB3408DE1E08AF5100DA5E5E /* ServiceConfigurationError.swift in Sources */,
+				BB3408C71E08AF5100DA5E5E /* Preferences.swift in Sources */,
+				BB3408FD1E08AF5100DA5E5E /* ZipFile.swift in Sources */,
+				BB3408D81E08AF5100DA5E5E /* RunnableScheduledFuture.swift in Sources */,
+				BB34087A1E08AF5000DA5E5E /* FileHandler.swift in Sources */,
+				BB3408E11E08AF5100DA5E5E /* SimpleTimeZone.swift in Sources */,
+				BB3408471E08AF5000DA5E5E /* BlockingQueue.swift in Sources */,
+				BB3408C31E08AF5100DA5E5E /* Pattern.swift in Sources */,
+				BB3408B61E08AF5000DA5E5E /* MatchResult.swift in Sources */,
+				BB3408A11E08AF5000DA5E5E /* LinkedBlockingDeque.swift in Sources */,
+				BB3408781E08AF5000DA5E5E /* Executors.swift in Sources */,
+				BB34086A1E08AF5000DA5E5E /* Dictionary.swift in Sources */,
+				BB3408CC1E08AF5100DA5E5E /* PropertyPermission.swift in Sources */,
+				BB3408BD1E08AF5100DA5E5E /* NodeChangeEvent.swift in Sources */,
+				BB3408C91E08AF5100DA5E5E /* PriorityBlockingQueue.swift in Sources */,
+				BB3408AE1E08AF5000DA5E5E /* logging_Formatter.swift in Sources */,
+				BB3408A21E08AF5000DA5E5E /* LinkedBlockingQueue.swift in Sources */,
+				BB34082F1E08AF5000DA5E5E /* AbstractQueuedSynchronizer.swift in Sources */,
+				BB3408491E08AF5000DA5E5E /* Calendar.swift in Sources */,
+				BB3408D51E08AF5100DA5E5E /* RejectedExecutionHandler.swift in Sources */,
+				BB3408D71E08AF5100DA5E5E /* RunnableFuture.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BBC1405A1D49992D0035A039 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BBC1405B1D49992D0035A039 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BBC1405D1D49992D0035A039 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.genie.java-util";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BBC1405E1D49992D0035A039 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.genie.java-util";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBC1404E1D49992D0035A039 /* Build configuration list for PBXProject "java_util" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBC1405A1D49992D0035A039 /* Debug */,
+				BBC1405B1D49992D0035A039 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBC1405C1D49992D0035A039 /* Build configuration list for PBXNativeTarget "java_util" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBC1405D1D49992D0035A039 /* Debug */,
+				BBC1405E1D49992D0035A039 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBC1404B1D49992D0035A039 /* Project object */;
+}
