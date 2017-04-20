@@ -31,20 +31,20 @@ open class EnumSet: AbstractSet, java_lang.Cloneable, /* java.io.Serializable */
 
     /// java.util.EnumSet(java.lang.Class,java.lang.Enum[])
 
-    /// public java.lang.Object java.util.EnumSet.clone() throws java.lang.CloneNotSupportedException
-
-    private static var clone_MethodID_1: jmethodID?
-
-    override open func clone() throws /* java.lang.CloneNotSupportedException */ -> java_lang.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &EnumSet.clone_MethodID_1, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.CloneNotSupportedException( javaObject: throwable )
-        }
-        return __return != nil ? java_lang.JavaObject( javaObject: __return ) : nil
-    }
+//    /// public java.lang.Object java.util.EnumSet.clone() throws java.lang.CloneNotSupportedException
+//
+//    private static var clone_MethodID_1: jmethodID?
+//
+//    override open func clone() throws /* java.lang.CloneNotSupportedException */ -> java_lang.JavaObject! {
+//        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+//        var __locals = [jobject]()
+//        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &EnumSet.clone_MethodID_1, args: &__args, locals: &__locals )
+//        defer { JNI.DeleteLocalRef( __return ) }
+//        if let throwable = JNI.ExceptionCheck() {
+//            throw java_lang.CloneNotSupportedException( javaObject: throwable )
+//        }
+//        return __return != nil ? java_lang.JavaObject( javaObject: __return ) : nil
+//    }
 
 
     /// public java.util.EnumSet java.util.EnumSet.clone()

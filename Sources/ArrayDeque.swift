@@ -85,18 +85,18 @@ open class ArrayDeque: AbstractCollection, Deque, java_lang.Cloneable, /* java.i
 
     /// public java.lang.Object java.util.ArrayDeque.clone() throws java.lang.CloneNotSupportedException
 
-    private static var clone_MethodID_4: jmethodID?
-
-    override open func clone() throws /* java.lang.CloneNotSupportedException */ -> java_lang.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &ArrayDeque.clone_MethodID_4, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.CloneNotSupportedException( javaObject: throwable )
-        }
-        return __return != nil ? java_lang.JavaObject( javaObject: __return ) : nil
-    }
+//    private static var clone_MethodID_4: jmethodID?
+//
+//    override open func clone() throws /* java.lang.CloneNotSupportedException */ -> java_lang.JavaObject! {
+//        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+//        var __locals = [jobject]()
+//        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &ArrayDeque.clone_MethodID_4, args: &__args, locals: &__locals )
+//        defer { JNI.DeleteLocalRef( __return ) }
+//        if let throwable = JNI.ExceptionCheck() {
+//            throw java_lang.CloneNotSupportedException( javaObject: throwable )
+//        }
+//        return __return != nil ? java_lang.JavaObject( javaObject: __return ) : nil
+//    }
 
 
     /// public java.util.ArrayDeque java.util.ArrayDeque.clone()

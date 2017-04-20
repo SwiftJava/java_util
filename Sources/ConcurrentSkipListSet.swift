@@ -113,20 +113,20 @@ open class ConcurrentSkipListSet: AbstractSet, java_lang.Cloneable, /* java.io.S
     }
 
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentSkipListSet.clone() throws java.lang.CloneNotSupportedException
-
-    private static var clone_MethodID_6: jmethodID?
-
-    override open func clone() throws /* java.lang.CloneNotSupportedException */ -> java_lang.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &ConcurrentSkipListSet.clone_MethodID_6, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.CloneNotSupportedException( javaObject: throwable )
-        }
-        return __return != nil ? java_lang.JavaObject( javaObject: __return ) : nil
-    }
+//    /// public java.lang.Object java.util.concurrent.ConcurrentSkipListSet.clone() throws java.lang.CloneNotSupportedException
+//
+//    private static var clone_MethodID_6: jmethodID?
+//
+//    override open func clone() throws /* java.lang.CloneNotSupportedException */ -> java_lang.JavaObject! {
+//        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+//        var __locals = [jobject]()
+//        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &ConcurrentSkipListSet.clone_MethodID_6, args: &__args, locals: &__locals )
+//        defer { JNI.DeleteLocalRef( __return ) }
+//        if let throwable = JNI.ExceptionCheck() {
+//            throw java_lang.CloneNotSupportedException( javaObject: throwable )
+//        }
+//        return __return != nil ? java_lang.JavaObject( javaObject: __return ) : nil
+//    }
 
 
     /// public void java.util.concurrent.ConcurrentSkipListSet.clear()
