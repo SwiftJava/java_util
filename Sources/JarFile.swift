@@ -170,7 +170,7 @@ open class JarFile: ZipFile {
     public convenience init( file: /* java.io.File */ UnclassedObject?, verify: Bool, mode: Int ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         __args[1] = JNIType.toJava( value: verify, locals: &__locals )
         __args[2] = JNIType.toJava( value: mode, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;ZI)V", methodCache: &JarFile.new_MethodID_1, args: &__args, locals: &__locals )
@@ -192,7 +192,7 @@ open class JarFile: ZipFile {
     public convenience init( file: /* java.io.File */ UnclassedObject?, verify: Bool ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         __args[1] = JNIType.toJava( value: verify, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;Z)V", methodCache: &JarFile.new_MethodID_2, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
@@ -213,7 +213,7 @@ open class JarFile: ZipFile {
     public convenience init( file: /* java.io.File */ UnclassedObject? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;)V", methodCache: &JarFile.new_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -286,7 +286,7 @@ open class JarFile: ZipFile {
     open func getInputStream( ze: ZipEntry? ) throws /* java.io.IOException */ -> /* java.io.InputStream */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: ze != nil ? ze! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: ze, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getInputStream", methodSig: "(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;", methodCache: &JarFile.getInputStream_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {

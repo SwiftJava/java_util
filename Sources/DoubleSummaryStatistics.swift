@@ -64,7 +64,7 @@ open class DoubleSummaryStatistics: java_swift.JavaObject, DoubleConsumer {
     open func combine( other: DoubleSummaryStatistics? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: other != nil ? other! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: other, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "combine", methodSig: "(Ljava/util/DoubleSummaryStatistics;)V", methodCache: &DoubleSummaryStatistics.combine_MethodID_3, args: &__args, locals: &__locals )
     }
 

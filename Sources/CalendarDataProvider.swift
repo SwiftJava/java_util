@@ -35,7 +35,7 @@ open class CalendarDataProvider: LocaleServiceProvider {
     open func getFirstDayOfWeek( locale: JavaLocale? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getFirstDayOfWeek", methodSig: "(Ljava/util/Locale;)I", methodCache: &CalendarDataProvider.getFirstDayOfWeek_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -51,7 +51,7 @@ open class CalendarDataProvider: LocaleServiceProvider {
     open func getMinimalDaysInFirstWeek( locale: JavaLocale? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMinimalDaysInFirstWeek", methodSig: "(Ljava/util/Locale;)I", methodCache: &CalendarDataProvider.getMinimalDaysInFirstWeek_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }

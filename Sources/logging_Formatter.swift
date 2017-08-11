@@ -35,7 +35,7 @@ open class logging_Formatter: java_swift.JavaObject {
     open func format( record: LogRecord? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: record != nil ? record! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: record, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "format", methodSig: "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", methodCache: &logging_Formatter.format_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -51,7 +51,7 @@ open class logging_Formatter: java_swift.JavaObject {
     open func getHead( h: Handler? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: h != nil ? h! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: h, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getHead", methodSig: "(Ljava/util/logging/Handler;)Ljava/lang/String;", methodCache: &logging_Formatter.getHead_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -67,7 +67,7 @@ open class logging_Formatter: java_swift.JavaObject {
     open func getTail( h: Handler? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: h != nil ? h! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: h, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getTail", methodSig: "(Ljava/util/logging/Handler;)Ljava/lang/String;", methodCache: &logging_Formatter.getTail_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -83,7 +83,7 @@ open class logging_Formatter: java_swift.JavaObject {
     open func formatMessage( record: LogRecord? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: record != nil ? record! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: record, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "formatMessage", methodSig: "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", methodCache: &logging_Formatter.formatMessage_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }

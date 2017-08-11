@@ -78,7 +78,7 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
     open func put( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;)V", methodCache: &SynchronousQueue.put_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -119,7 +119,7 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &SynchronousQueue.poll_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
@@ -142,17 +142,78 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
 
     /// public boolean java.util.concurrent.SynchronousQueue.retainAll(java.util.Collection)
 
+    /// public java.lang.Object java.util.concurrent.SynchronousQueue.take() throws java.lang.InterruptedException
+
+    private static var take_MethodID_5: jmethodID?
+
+    open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &SynchronousQueue.take_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public int java.util.concurrent.SynchronousQueue.remainingCapacity()
+
+    private static var remainingCapacity_MethodID_6: jmethodID?
+
+    open func remainingCapacity() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &SynchronousQueue.remainingCapacity_MethodID_6, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public int java.util.concurrent.SynchronousQueue.drainTo(java.util.Collection,int)
+
+    private static var drainTo_MethodID_7: jmethodID?
+
+    open func drainTo( c: Collection?, maxElements: Int ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        __args[1] = JNIType.toJava( value: maxElements, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &SynchronousQueue.drainTo_MethodID_7, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func drainTo( _ _c: Collection?, _ _maxElements: Int ) -> Int {
+        return drainTo( c: _c, maxElements: _maxElements )
+    }
+
+    /// public int java.util.concurrent.SynchronousQueue.drainTo(java.util.Collection)
+
+    private static var drainTo_MethodID_8: jmethodID?
+
+    open func drainTo( c: Collection? ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &SynchronousQueue.drainTo_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func drainTo( _ _c: Collection? ) -> Int {
+        return drainTo( c: _c )
+    }
+
     /// public boolean java.util.concurrent.SynchronousQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var offer_MethodID_5: jmethodID?
+    private static var offer_MethodID_9: jmethodID?
 
     open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &SynchronousQueue.offer_MethodID_5, args: &__args, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &SynchronousQueue.offer_MethodID_9, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -165,67 +226,6 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
 
     /// public boolean java.util.concurrent.SynchronousQueue.offer(java.lang.Object)
 
-    /// public java.lang.Object java.util.concurrent.SynchronousQueue.take() throws java.lang.InterruptedException
-
-    private static var take_MethodID_6: jmethodID?
-
-    open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &SynchronousQueue.take_MethodID_6, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public int java.util.concurrent.SynchronousQueue.remainingCapacity()
-
-    private static var remainingCapacity_MethodID_7: jmethodID?
-
-    open func remainingCapacity() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &SynchronousQueue.remainingCapacity_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public int java.util.concurrent.SynchronousQueue.drainTo(java.util.Collection,int)
-
-    private static var drainTo_MethodID_8: jmethodID?
-
-    open func drainTo( c: Collection?, maxElements: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        __args[1] = JNIType.toJava( value: maxElements, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &SynchronousQueue.drainTo_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func drainTo( _ _c: Collection?, _ _maxElements: Int ) -> Int {
-        return drainTo( c: _c, maxElements: _maxElements )
-    }
-
-    /// public int java.util.concurrent.SynchronousQueue.drainTo(java.util.Collection)
-
-    private static var drainTo_MethodID_9: jmethodID?
-
-    open func drainTo( c: Collection? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &SynchronousQueue.drainTo_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func drainTo( _ _c: Collection? ) -> Int {
-        return drainTo( c: _c )
-    }
-
     /// In declared protocol but not defined.. ///
 
     /// public abstract boolean java.util.Collection.equals(java.lang.Object)
@@ -235,7 +235,7 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &SynchronousQueue.equals_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

@@ -108,6 +108,8 @@ open class Inflater: java_swift.JavaObject {
 
     /// private void java.util.zip.Inflater.ensureOpen()
 
+    /// boolean java.util.zip.Inflater.ended()
+
     /// public boolean java.util.zip.Inflater.finished()
 
     private static var finished_MethodID_6: jmethodID?
@@ -152,26 +154,9 @@ open class Inflater: java_swift.JavaObject {
         setInput( b: _b )
     }
 
-    /// private static native void java.util.zip.Inflater.setDictionary(long,byte[],int,int)
-
-    /// public void java.util.zip.Inflater.setDictionary(byte[])
-
-    private static var setDictionary_MethodID_9: jmethodID?
-
-    open func setDictionary( b: [Int8]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDictionary", methodSig: "([B)V", methodCache: &Inflater.setDictionary_MethodID_9, args: &__args, locals: &__locals )
-    }
-
-    open func setDictionary( _ _b: [Int8]? ) {
-        setDictionary( b: _b )
-    }
-
     /// public void java.util.zip.Inflater.setDictionary(byte[],int,int)
 
-    private static var setDictionary_MethodID_10: jmethodID?
+    private static var setDictionary_MethodID_9: jmethodID?
 
     open func setDictionary( b: [Int8]?, off: Int, len: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
@@ -179,11 +164,28 @@ open class Inflater: java_swift.JavaObject {
         __args[0] = JNIType.toJava( value: b, locals: &__locals )
         __args[1] = JNIType.toJava( value: off, locals: &__locals )
         __args[2] = JNIType.toJava( value: len, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDictionary", methodSig: "([BII)V", methodCache: &Inflater.setDictionary_MethodID_10, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDictionary", methodSig: "([BII)V", methodCache: &Inflater.setDictionary_MethodID_9, args: &__args, locals: &__locals )
     }
 
     open func setDictionary( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) {
         setDictionary( b: _b, off: _off, len: _len )
+    }
+
+    /// private static native void java.util.zip.Inflater.setDictionary(long,byte[],int,int)
+
+    /// public void java.util.zip.Inflater.setDictionary(byte[])
+
+    private static var setDictionary_MethodID_10: jmethodID?
+
+    open func setDictionary( b: [Int8]? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDictionary", methodSig: "([B)V", methodCache: &Inflater.setDictionary_MethodID_10, args: &__args, locals: &__locals )
+    }
+
+    open func setDictionary( _ _b: [Int8]? ) {
+        setDictionary( b: _b )
     }
 
     /// public int java.util.zip.Inflater.getRemaining()
@@ -222,15 +224,36 @@ open class Inflater: java_swift.JavaObject {
     }
 
 
-    /// public int java.util.zip.Inflater.inflate(byte[]) throws java.util.zip.DataFormatException
+    /// public int java.util.zip.Inflater.inflate(byte[],int,int) throws java.util.zip.DataFormatException
 
     private static var inflate_MethodID_14: jmethodID?
+
+    open func inflate( b: [Int8]?, off: Int, len: Int ) throws /* java.util.zip.DataFormatException */ -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        __args[1] = JNIType.toJava( value: off, locals: &__locals )
+        __args[2] = JNIType.toJava( value: len, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "inflate", methodSig: "([BII)I", methodCache: &Inflater.inflate_MethodID_14, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw DataFormatException( javaObject: throwable )
+        }
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func inflate( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.util.zip.DataFormatException */ -> Int {
+        return try inflate( b: _b, off: _off, len: _len )
+    }
+
+    /// public int java.util.zip.Inflater.inflate(byte[]) throws java.util.zip.DataFormatException
+
+    private static var inflate_MethodID_15: jmethodID?
 
     open func inflate( b: [Int8]? ) throws /* java.util.zip.DataFormatException */ -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "inflate", methodSig: "([B)I", methodCache: &Inflater.inflate_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "inflate", methodSig: "([B)I", methodCache: &Inflater.inflate_MethodID_15, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw DataFormatException( javaObject: throwable )
         }
@@ -241,26 +264,7 @@ open class Inflater: java_swift.JavaObject {
         return try inflate( b: _b )
     }
 
-    /// public int java.util.zip.Inflater.inflate(byte[],int,int) throws java.util.zip.DataFormatException
-
-    private static var inflate_MethodID_15: jmethodID?
-
-    open func inflate( b: [Int8]?, off: Int, len: Int ) throws /* java.util.zip.DataFormatException */ -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        __args[1] = JNIType.toJava( value: off, locals: &__locals )
-        __args[2] = JNIType.toJava( value: len, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "inflate", methodSig: "([BII)I", methodCache: &Inflater.inflate_MethodID_15, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw DataFormatException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func inflate( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.util.zip.DataFormatException */ -> Int {
-        return try inflate( b: _b, off: _off, len: _len )
-    }
+    /// private static native int java.util.zip.Inflater.getAdler(long)
 
     /// public int java.util.zip.Inflater.getAdler()
 
@@ -273,8 +277,6 @@ open class Inflater: java_swift.JavaObject {
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
-
-    /// private static native int java.util.zip.Inflater.getAdler(long)
 
     /// public int java.util.zip.Inflater.getTotalIn()
 
@@ -325,8 +327,6 @@ open class Inflater: java_swift.JavaObject {
 
 
     /// private native int java.util.zip.Inflater.inflateBytes(long,byte[],int,int) throws java.util.zip.DataFormatException
-
-    /// boolean java.util.zip.Inflater.ended()
 
 }
 

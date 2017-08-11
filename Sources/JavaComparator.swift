@@ -107,7 +107,7 @@ open class JavaComparatorForward: JNIObjectForward, JavaComparator {
     open func equals( obj: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &JavaComparatorForward.equals_MethodID_19, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -123,8 +123,8 @@ open class JavaComparatorForward: JNIObjectForward, JavaComparator {
     open func compare( o1: java_swift.JavaObject?, o2: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o1 != nil ? o1! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: o2 != nil ? o2! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o1, locals: &__locals )
+        __args[1] = JNIType.toJava( value: o2, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compare", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)I", methodCache: &JavaComparatorForward.compare_MethodID_20, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }

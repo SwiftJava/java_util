@@ -23,17 +23,17 @@ public protocol Collector: JavaProtocol {
 
     func supplier() -> Supplier!
 
-    /// public abstract java.util.function.Function java.util.stream.Collector.finisher()
+    /// public abstract java.util.Set java.util.stream.Collector.characteristics()
 
-    func finisher() -> Function!
+    func characteristics() -> java_swift.JavaSet!
 
     /// public abstract java.util.function.BiConsumer java.util.stream.Collector.accumulator()
 
     func accumulator() -> BiConsumer!
 
-    /// public abstract java.util.Set java.util.stream.Collector.characteristics()
+    /// public abstract java.util.function.Function java.util.stream.Collector.finisher()
 
-    func characteristics() -> java_swift.JavaSet!
+    func finisher() -> Function!
 
 }
 
@@ -109,16 +109,16 @@ open class CollectorForward: JNIObjectForward, Collector {
     }
 
 
-    /// public abstract java.util.function.Function java.util.stream.Collector.finisher()
+    /// public abstract java.util.Set java.util.stream.Collector.characteristics()
 
-    private static var finisher_MethodID_12: jmethodID?
+    private static var characteristics_MethodID_12: jmethodID?
 
-    open func finisher() -> Function! {
+    open func characteristics() -> java_swift.JavaSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "finisher", methodSig: "()Ljava/util/function/Function;", methodCache: &CollectorForward.finisher_MethodID_12, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "characteristics", methodSig: "()Ljava/util/Set;", methodCache: &CollectorForward.characteristics_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? FunctionForward( javaObject: __return ) : nil
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
     }
 
 
@@ -135,16 +135,16 @@ open class CollectorForward: JNIObjectForward, Collector {
     }
 
 
-    /// public abstract java.util.Set java.util.stream.Collector.characteristics()
+    /// public abstract java.util.function.Function java.util.stream.Collector.finisher()
 
-    private static var characteristics_MethodID_14: jmethodID?
+    private static var finisher_MethodID_14: jmethodID?
 
-    open func characteristics() -> java_swift.JavaSet! {
+    open func finisher() -> Function! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "characteristics", methodSig: "()Ljava/util/Set;", methodCache: &CollectorForward.characteristics_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "finisher", methodSig: "()Ljava/util/function/Function;", methodCache: &CollectorForward.finisher_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+        return __return != nil ? FunctionForward( javaObject: __return ) : nil
     }
 
 

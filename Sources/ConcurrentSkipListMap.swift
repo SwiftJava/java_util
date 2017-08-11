@@ -124,8 +124,8 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func remove( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &ConcurrentSkipListMap.remove_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -182,8 +182,8 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.replace_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -200,9 +200,9 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2 != nil ? arg2! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &ConcurrentSkipListMap.replace_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -239,8 +239,8 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func putIfAbsent( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.putIfAbsent_MethodID_11, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -269,8 +269,8 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func getOrDefault( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getOrDefault", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.getOrDefault_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -302,7 +302,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func computeIfAbsent( arg0: java_swift.JavaObject?, arg1: Function? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.computeIfAbsent_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -320,7 +320,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func computeIfPresent( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfPresent", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.computeIfPresent_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -338,7 +338,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func compute( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compute", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.compute_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -356,8 +356,8 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func merge( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: BiFunction? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.merge_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -396,8 +396,6 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     }
 
 
-    /// final java.util.concurrent.ConcurrentSkipListMap$Node java.util.concurrent.ConcurrentSkipListMap.findFirst()
-
     /// static final int java.util.concurrent.ConcurrentSkipListMap.cpr(java.util.Comparator,java.lang.Object,java.lang.Object)
 
     /// java.util.Iterator java.util.concurrent.ConcurrentSkipListMap.keyIterator()
@@ -426,7 +424,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func lowerEntry( key: java_swift.JavaObject? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "lowerEntry", methodSig: "(Ljava/lang/Object;)Ljava/util/Map$Entry;", methodCache: &ConcurrentSkipListMap.lowerEntry_MethodID_21, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
@@ -443,7 +441,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func lowerKey( key: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "lowerKey", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.lowerKey_MethodID_22, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -460,7 +458,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func floorEntry( key: java_swift.JavaObject? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floorEntry", methodSig: "(Ljava/lang/Object;)Ljava/util/Map$Entry;", methodCache: &ConcurrentSkipListMap.floorEntry_MethodID_23, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
@@ -477,7 +475,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func floorKey( key: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floorKey", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.floorKey_MethodID_24, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -494,7 +492,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func ceilingEntry( key: java_swift.JavaObject? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ceilingEntry", methodSig: "(Ljava/lang/Object;)Ljava/util/Map$Entry;", methodCache: &ConcurrentSkipListMap.ceilingEntry_MethodID_25, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
@@ -511,7 +509,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func ceilingKey( key: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ceilingKey", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.ceilingKey_MethodID_26, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -528,7 +526,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func higherEntry( key: java_swift.JavaObject? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "higherEntry", methodSig: "(Ljava/lang/Object;)Ljava/util/Map$Entry;", methodCache: &ConcurrentSkipListMap.higherEntry_MethodID_27, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
@@ -545,7 +543,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func higherKey( key: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "higherKey", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.higherKey_MethodID_28, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -607,20 +605,20 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     }
 
 
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.descendingMap()
+    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.descendingMap()
 
     private static var descendingMap_MethodID_33: jmethodID?
 
-    open func descendingMap() -> ConcurrentNavigableMap! {
+    open func descendingMap() -> NavigableMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingMap", methodSig: "()Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.descendingMap_MethodID_33, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingMap", methodSig: "()Ljava/util/NavigableMap;", methodCache: &ConcurrentSkipListMap.descendingMap_MethodID_33, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: ConcurrentNavigableMapForward(), from: __return )
+        return JNIType.toSwift( type: NavigableMapForward(), from: __return )
     }
 
 
-    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.descendingMap()
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.descendingMap()
 
     /// public java.util.NavigableSet java.util.concurrent.ConcurrentSkipListMap.navigableKeySet()
 
@@ -648,47 +646,47 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     }
 
 
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,java.lang.Object)
+    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,boolean,java.lang.Object,boolean)
 
     private static var subMap_MethodID_36: jmethodID?
 
-    open func subMap( fromKey: java_swift.JavaObject?, toKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromKey != nil ? fromKey! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toKey != nil ? toKey! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.subMap_MethodID_36, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: ConcurrentNavigableMapForward(), from: __return )
-    }
-
-    open func subMap( _ _fromKey: java_swift.JavaObject?, _ _toKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
-        return subMap( fromKey: _fromKey, toKey: _toKey )
-    }
-
-    /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,java.lang.Object)
-
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,boolean,java.lang.Object,boolean)
-
-    private static var subMap_MethodID_37: jmethodID?
-
-    open func subMap( fromKey: java_swift.JavaObject?, fromInclusive: Bool, toKey: java_swift.JavaObject?, toInclusive: Bool ) -> ConcurrentNavigableMap! {
+    open func subMap( fromKey: java_swift.JavaObject?, fromInclusive: Bool, toKey: java_swift.JavaObject?, toInclusive: Bool ) -> NavigableMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromKey != nil ? fromKey! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
         __args[1] = JNIType.toJava( value: fromInclusive, locals: &__locals )
-        __args[2] = JNIType.toJava( value: toKey != nil ? toKey! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: toKey, locals: &__locals )
         __args[3] = JNIType.toJava( value: toInclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.subMap_MethodID_37, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &ConcurrentSkipListMap.subMap_MethodID_36, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: ConcurrentNavigableMapForward(), from: __return )
+        return JNIType.toSwift( type: NavigableMapForward(), from: __return )
     }
 
-    open func subMap( _ _fromKey: java_swift.JavaObject?, _ _fromInclusive: Bool, _ _toKey: java_swift.JavaObject?, _ _toInclusive: Bool ) -> ConcurrentNavigableMap! {
+    open func subMap( _ _fromKey: java_swift.JavaObject?, _ _fromInclusive: Bool, _ _toKey: java_swift.JavaObject?, _ _toInclusive: Bool ) -> NavigableMap! {
         return subMap( fromKey: _fromKey, fromInclusive: _fromInclusive, toKey: _toKey, toInclusive: _toInclusive )
     }
 
-    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,boolean,java.lang.Object,boolean)
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,boolean,java.lang.Object,boolean)
+
+    /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,java.lang.Object)
+
+    private static var subMap_MethodID_37: jmethodID?
+
+    open func subMap( fromKey: java_swift.JavaObject?, toKey: java_swift.JavaObject? ) -> SortedMap! {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
+        __args[1] = JNIType.toJava( value: toKey, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &ConcurrentSkipListMap.subMap_MethodID_37, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return JNIType.toSwift( type: SortedMapForward(), from: __return )
+    }
+
+    open func subMap( _ _fromKey: java_swift.JavaObject?, _ _toKey: java_swift.JavaObject? ) -> SortedMap! {
+        return subMap( fromKey: _fromKey, toKey: _toKey )
+    }
+
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,java.lang.Object)
 
     /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object)
 
@@ -697,7 +695,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func headMap( toKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toKey != nil ? toKey! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: toKey, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headMap", methodSig: "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.headMap_MethodID_38, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: ConcurrentNavigableMapForward(), from: __return )
@@ -707,6 +705,8 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
         return headMap( toKey: _toKey )
     }
 
+    /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object)
+
     /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object,boolean)
 
     private static var headMap_MethodID_39: jmethodID?
@@ -714,7 +714,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     open func headMap( toKey: java_swift.JavaObject?, inclusive: Bool ) -> NavigableMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toKey != nil ? toKey! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: toKey, locals: &__locals )
         __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headMap", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &ConcurrentSkipListMap.headMap_MethodID_39, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -725,37 +725,17 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
         return headMap( toKey: _toKey, inclusive: _inclusive )
     }
 
-    /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object)
-
     /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object,boolean)
-
-    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object,boolean)
-
-    private static var tailMap_MethodID_40: jmethodID?
-
-    open func tailMap( fromKey: java_swift.JavaObject?, inclusive: Bool ) -> NavigableMap! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromKey != nil ? fromKey! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &ConcurrentSkipListMap.tailMap_MethodID_40, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: NavigableMapForward(), from: __return )
-    }
-
-    open func tailMap( _ _fromKey: java_swift.JavaObject?, _ _inclusive: Bool ) -> NavigableMap! {
-        return tailMap( fromKey: _fromKey, inclusive: _inclusive )
-    }
 
     /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object)
 
-    private static var tailMap_MethodID_41: jmethodID?
+    private static var tailMap_MethodID_40: jmethodID?
 
     open func tailMap( fromKey: java_swift.JavaObject? ) -> SortedMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromKey != nil ? fromKey! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &ConcurrentSkipListMap.tailMap_MethodID_41, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &ConcurrentSkipListMap.tailMap_MethodID_40, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: SortedMapForward(), from: __return )
     }
@@ -764,9 +744,29 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
         return tailMap( fromKey: _fromKey )
     }
 
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object,boolean)
+
+    private static var tailMap_MethodID_41: jmethodID?
+
+    open func tailMap( fromKey: java_swift.JavaObject?, inclusive: Bool ) -> ConcurrentNavigableMap! {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
+        __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.tailMap_MethodID_41, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return JNIType.toSwift( type: ConcurrentNavigableMapForward(), from: __return )
+    }
+
+    open func tailMap( _ _fromKey: java_swift.JavaObject?, _ _inclusive: Bool ) -> ConcurrentNavigableMap! {
+        return tailMap( fromKey: _fromKey, inclusive: _inclusive )
+    }
+
+    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object,boolean)
+
     /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object)
 
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object,boolean)
+    /// final java.util.concurrent.ConcurrentSkipListMap$Node java.util.concurrent.ConcurrentSkipListMap.findFirst()
 
     /// private boolean java.util.concurrent.ConcurrentSkipListMap.casHead(java.util.concurrent.ConcurrentSkipListMap$HeadIndex,java.util.concurrent.ConcurrentSkipListMap$HeadIndex)
 
@@ -815,7 +815,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func equals( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentSkipListMap.equals_MethodID_42, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -831,7 +831,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.remove_MethodID_43, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -867,8 +867,8 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func put( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.put_MethodID_45, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -887,7 +887,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func get( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentSkipListMap.get_MethodID_46, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -904,7 +904,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentSkipListMap.containsValue_MethodID_47, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -924,7 +924,7 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* java.io.S
     override open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentSkipListMap.containsKey_MethodID_48, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

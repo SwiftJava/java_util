@@ -141,7 +141,7 @@ open class JarEntry: ZipEntry {
     public convenience init( je: JarEntry? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: je != nil ? je! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: je, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarEntry", classCache: &JarEntry.JarEntryJNIClass, methodSig: "(Ljava/util/jar/JarEntry;)V", methodCache: &JarEntry.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -158,7 +158,7 @@ open class JarEntry: ZipEntry {
     public convenience init( ze: ZipEntry? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: ze != nil ? ze! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: ze, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarEntry", classCache: &JarEntry.JarEntryJNIClass, methodSig: "(Ljava/util/zip/ZipEntry;)V", methodCache: &JarEntry.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )

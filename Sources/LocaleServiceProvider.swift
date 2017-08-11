@@ -47,7 +47,7 @@ open class LocaleServiceProvider: java_swift.JavaObject {
     open func isSupportedLocale( locale: JavaLocale? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isSupportedLocale", methodSig: "(Ljava/util/Locale;)Z", methodCache: &LocaleServiceProvider.isSupportedLocale_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

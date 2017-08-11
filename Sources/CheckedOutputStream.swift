@@ -30,7 +30,7 @@ open class CheckedOutputStream: /* java.io.FilterOutputStream */ UnclassedObject
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &CheckedOutputStream.out_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -42,7 +42,7 @@ open class CheckedOutputStream: /* java.io.FilterOutputStream */ UnclassedObject
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, cksum: Checksum? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         __args[1] = JNIType.toJava( value: cksum, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/CheckedOutputStream", classCache: &CheckedOutputStream.CheckedOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/zip/Checksum;)V", methodCache: &CheckedOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )

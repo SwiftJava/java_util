@@ -44,7 +44,7 @@ open class Optional: java_swift.JavaObject {
     open func equals( obj: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Optional.equals_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -98,7 +98,7 @@ open class Optional: java_swift.JavaObject {
     open class func of( value: java_swift.JavaObject? ) -> Optional! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value != nil ? value! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: value, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Optional", classCache: &OptionalJNIClass, methodName: "of", methodSig: "(Ljava/lang/Object;)Ljava/util/Optional;", methodCache: &of_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Optional( javaObject: __return ) : nil
@@ -128,7 +128,7 @@ open class Optional: java_swift.JavaObject {
     open class func ofNullable( value: java_swift.JavaObject? ) -> Optional! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value != nil ? value! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: value, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Optional", classCache: &OptionalJNIClass, methodName: "ofNullable", methodSig: "(Ljava/lang/Object;)Ljava/util/Optional;", methodCache: &ofNullable_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Optional( javaObject: __return ) : nil
@@ -172,7 +172,7 @@ open class Optional: java_swift.JavaObject {
     open func orElse( other: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: other != nil ? other! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: other, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "orElse", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Optional.orElse_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil

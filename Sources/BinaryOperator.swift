@@ -67,8 +67,8 @@ open class BinaryOperatorForward: BiFunctionForward, BinaryOperator {
     override open func apply( t: java_swift.JavaObject?, u: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: u != nil ? u! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
+        __args[1] = JNIType.toJava( value: u, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "apply", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &BinaryOperatorForward.apply_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil

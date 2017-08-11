@@ -196,7 +196,7 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
     open func indexOf( o: java_swift.JavaObject?, index: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         __args[1] = JNIType.toJava( value: index, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "indexOf", methodSig: "(Ljava/lang/Object;I)I", methodCache: &Vector.indexOf_MethodID_6, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -217,7 +217,7 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
     open func lastIndexOf( o: java_swift.JavaObject?, index: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         __args[1] = JNIType.toJava( value: index, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "lastIndexOf", methodSig: "(Ljava/lang/Object;I)I", methodCache: &Vector.lastIndexOf_MethodID_7, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -269,7 +269,7 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
     open func addElement( obj: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "addElement", methodSig: "(Ljava/lang/Object;)V", methodCache: &Vector.addElement_MethodID_9, args: &__args, locals: &__locals )
     }
 
@@ -409,7 +409,7 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
     open func setElementAt( obj: java_swift.JavaObject?, index: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         __args[1] = JNIType.toJava( value: index, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setElementAt", methodSig: "(Ljava/lang/Object;I)V", methodCache: &Vector.setElementAt_MethodID_18, args: &__args, locals: &__locals )
     }
@@ -440,7 +440,7 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
     open func insertElementAt( obj: java_swift.JavaObject?, index: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         __args[1] = JNIType.toJava( value: index, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "insertElementAt", methodSig: "(Ljava/lang/Object;I)V", methodCache: &Vector.insertElementAt_MethodID_20, args: &__args, locals: &__locals )
     }
@@ -456,7 +456,7 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
     open func removeElement( obj: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeElement", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Vector.removeElement_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

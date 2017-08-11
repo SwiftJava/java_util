@@ -83,7 +83,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func add( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "add", methodSig: "(Ljava/lang/Object;)Z", methodCache: &CopyOnWriteArrayList.add_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -100,7 +100,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: index, locals: &__locals )
-        __args[1] = JNIType.toJava( value: element != nil ? element! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: element, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "add", methodSig: "(ILjava/lang/Object;)V", methodCache: &CopyOnWriteArrayList.add_MethodID_5, args: &__args, locals: &__locals )
     }
 
@@ -115,7 +115,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func remove( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Z", methodCache: &CopyOnWriteArrayList.remove_MethodID_6, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -169,7 +169,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &CopyOnWriteArrayList.equals_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -204,7 +204,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func indexOf( e: java_swift.JavaObject?, index: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         __args[1] = JNIType.toJava( value: index, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "indexOf", methodSig: "(Ljava/lang/Object;I)I", methodCache: &CopyOnWriteArrayList.indexOf_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -221,7 +221,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func indexOf( o: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "indexOf", methodSig: "(Ljava/lang/Object;)I", methodCache: &CopyOnWriteArrayList.indexOf_MethodID_12, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -260,7 +260,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func lastIndexOf( o: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "lastIndexOf", methodSig: "(Ljava/lang/Object;)I", methodCache: &CopyOnWriteArrayList.lastIndexOf_MethodID_15, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -278,7 +278,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func lastIndexOf( e: java_swift.JavaObject?, index: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         __args[1] = JNIType.toJava( value: index, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "lastIndexOf", methodSig: "(Ljava/lang/Object;I)I", methodCache: &CopyOnWriteArrayList.lastIndexOf_MethodID_16, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -295,7 +295,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func contains( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "contains", methodSig: "(Ljava/lang/Object;)Z", methodCache: &CopyOnWriteArrayList.contains_MethodID_17, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -465,7 +465,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: index, locals: &__locals )
-        __args[1] = JNIType.toJava( value: element != nil ? element! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: element, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "set", methodSig: "(ILjava/lang/Object;)Ljava/lang/Object;", methodCache: &CopyOnWriteArrayList.set_MethodID_28, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -615,7 +615,7 @@ open class CopyOnWriteArrayList: java_swift.JavaObject, List, RandomAccess, java
     open func addIfAbsent( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "addIfAbsent", methodSig: "(Ljava/lang/Object;)Z", methodCache: &CopyOnWriteArrayList.addIfAbsent_MethodID_37, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

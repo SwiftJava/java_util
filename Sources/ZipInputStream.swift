@@ -50,7 +50,7 @@ open class ZipInputStream: InflaterInputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &ZipInputStream.inf_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -111,7 +111,7 @@ open class ZipInputStream: InflaterInputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &ZipInputStream._in_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -125,8 +125,8 @@ open class ZipInputStream: InflaterInputStream {
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, charset: /* java.nio.charset.Charset */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: charset != nil ? charset! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
+        __args[1] = JNIType.toJava( value: charset, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipInputStream", classCache: &ZipInputStream.ZipInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/nio/charset/Charset;)V", methodCache: &ZipInputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -143,7 +143,7 @@ open class ZipInputStream: InflaterInputStream {
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipInputStream", classCache: &ZipInputStream.ZipInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &ZipInputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -165,15 +165,31 @@ open class ZipInputStream: InflaterInputStream {
 
     /// private void java.util.zip.ZipInputStream.ensureOpen() throws java.io.IOException
 
+    /// public java.util.zip.ZipEntry java.util.zip.ZipInputStream.getNextEntry() throws java.io.IOException
+
+    private static var getNextEntry_MethodID_3: jmethodID?
+
+    open func getNextEntry() throws /* java.io.IOException */ -> ZipEntry! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getNextEntry", methodSig: "()Ljava/util/zip/ZipEntry;", methodCache: &ZipInputStream.getNextEntry_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+        }
+        return __return != nil ? ZipEntry( javaObject: __return ) : nil
+    }
+
+
     /// protected java.util.zip.ZipEntry java.util.zip.ZipInputStream.createZipEntry(java.lang.String)
 
-    private static var createZipEntry_MethodID_3: jmethodID?
+    private static var createZipEntry_MethodID_4: jmethodID?
 
     open func createZipEntry( name: String? ) -> ZipEntry! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "createZipEntry", methodSig: "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", methodCache: &ZipInputStream.createZipEntry_MethodID_3, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "createZipEntry", methodSig: "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", methodCache: &ZipInputStream.createZipEntry_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ZipEntry( javaObject: __return ) : nil
     }
@@ -184,12 +200,12 @@ open class ZipInputStream: InflaterInputStream {
 
     /// public void java.util.zip.ZipInputStream.closeEntry() throws java.io.IOException
 
-    private static var closeEntry_MethodID_4: jmethodID?
+    private static var closeEntry_MethodID_5: jmethodID?
 
     open func closeEntry() throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "closeEntry", methodSig: "()V", methodCache: &ZipInputStream.closeEntry_MethodID_4, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "closeEntry", methodSig: "()V", methodCache: &ZipInputStream.closeEntry_MethodID_5, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
         }
@@ -199,22 +215,6 @@ open class ZipInputStream: InflaterInputStream {
     /// private java.util.zip.ZipEntry java.util.zip.ZipInputStream.readLOC() throws java.io.IOException
 
     /// private void java.util.zip.ZipInputStream.readEnd(java.util.zip.ZipEntry) throws java.io.IOException
-
-    /// public java.util.zip.ZipEntry java.util.zip.ZipInputStream.getNextEntry() throws java.io.IOException
-
-    private static var getNextEntry_MethodID_5: jmethodID?
-
-    open func getNextEntry() throws /* java.io.IOException */ -> ZipEntry! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getNextEntry", methodSig: "()Ljava/util/zip/ZipEntry;", methodCache: &ZipInputStream.getNextEntry_MethodID_5, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-        return __return != nil ? ZipEntry( javaObject: __return ) : nil
-    }
-
 
 }
 

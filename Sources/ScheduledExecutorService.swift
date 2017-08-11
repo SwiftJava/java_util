@@ -40,7 +40,7 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: command, locals: &__locals )
         __args[1] = JNIType.toJava( value: delay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledExecutorServiceForward.schedule_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ScheduledFutureForward( javaObject: __return ) : nil
@@ -59,7 +59,7 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: callable, locals: &__locals )
         __args[1] = JNIType.toJava( value: delay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledExecutorServiceForward.schedule_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ScheduledFutureForward( javaObject: __return ) : nil
@@ -79,7 +79,7 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
         __args[0] = JNIType.toJava( value: command, locals: &__locals )
         __args[1] = JNIType.toJava( value: initialDelay, locals: &__locals )
         __args[2] = JNIType.toJava( value: period, locals: &__locals )
-        __args[3] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "scheduleAtFixedRate", methodSig: "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledExecutorServiceForward.scheduleAtFixedRate_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ScheduledFutureForward( javaObject: __return ) : nil
@@ -99,7 +99,7 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
         __args[0] = JNIType.toJava( value: command, locals: &__locals )
         __args[1] = JNIType.toJava( value: initialDelay, locals: &__locals )
         __args[2] = JNIType.toJava( value: delay, locals: &__locals )
-        __args[3] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "scheduleWithFixedDelay", methodSig: "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledExecutorServiceForward.scheduleWithFixedDelay_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ScheduledFutureForward( javaObject: __return ) : nil
@@ -120,15 +120,57 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
     }
 
 
+    /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection) throws java.lang.InterruptedException
+
+    private static var invokeAll_MethodID_10: jmethodID?
+
+    override open func invokeAll( tasks: Collection? ) throws /* java.lang.InterruptedException */ -> List! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAll", methodSig: "(Ljava/util/Collection;)Ljava/util/List;", methodCache: &ScheduledExecutorServiceForward.invokeAll_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return __return != nil ? ListForward( javaObject: __return ) : nil
+    }
+
+    override open func invokeAll( _ _tasks: Collection? ) throws /* java.lang.InterruptedException */ -> List! {
+        return try invokeAll( tasks: _tasks )
+    }
+
+    /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
+
+    private static var invokeAll_MethodID_11: jmethodID?
+
+    override open func invokeAll( tasks: Collection?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> List! {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
+        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAll", methodSig: "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", methodCache: &ScheduledExecutorServiceForward.invokeAll_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return __return != nil ? ListForward( javaObject: __return ) : nil
+    }
+
+    override open func invokeAll( _ _tasks: Collection?, _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> List! {
+        return try invokeAll( tasks: _tasks, timeout: _timeout, unit: _unit )
+    }
+
     /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.util.concurrent.Callable)
 
-    private static var submit_MethodID_10: jmethodID?
+    private static var submit_MethodID_12: jmethodID?
 
     override open func submit( task: Callable? ) -> Future! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: task, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", methodCache: &ScheduledExecutorServiceForward.submit_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", methodCache: &ScheduledExecutorServiceForward.submit_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? FutureForward( javaObject: __return ) : nil
     }
@@ -139,14 +181,14 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
 
     /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable,java.lang.Object)
 
-    private static var submit_MethodID_11: jmethodID?
+    private static var submit_MethodID_13: jmethodID?
 
     override open func submit( task: java_swift.Runnable?, result: java_swift.JavaObject? ) -> Future! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: task, locals: &__locals )
-        __args[1] = JNIType.toJava( value: result != nil ? result! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", methodCache: &ScheduledExecutorServiceForward.submit_MethodID_11, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: result, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", methodCache: &ScheduledExecutorServiceForward.submit_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? FutureForward( javaObject: __return ) : nil
     }
@@ -157,13 +199,13 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
 
     /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
 
-    private static var submit_MethodID_12: jmethodID?
+    private static var submit_MethodID_14: jmethodID?
 
     override open func submit( task: java_swift.Runnable? ) -> Future! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: task, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", methodCache: &ScheduledExecutorServiceForward.submit_MethodID_12, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", methodCache: &ScheduledExecutorServiceForward.submit_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? FutureForward( javaObject: __return ) : nil
     }
@@ -174,12 +216,12 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
 
     /// public abstract java.util.List java.util.concurrent.ExecutorService.shutdownNow()
 
-    private static var shutdownNow_MethodID_13: jmethodID?
+    private static var shutdownNow_MethodID_15: jmethodID?
 
     override open func shutdownNow() -> List! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "shutdownNow", methodSig: "()Ljava/util/List;", methodCache: &ScheduledExecutorServiceForward.shutdownNow_MethodID_13, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "shutdownNow", methodSig: "()Ljava/util/List;", methodCache: &ScheduledExecutorServiceForward.shutdownNow_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ListForward( javaObject: __return ) : nil
     }
@@ -187,38 +229,38 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
 
     /// public abstract boolean java.util.concurrent.ExecutorService.isTerminated()
 
-    private static var isTerminated_MethodID_14: jmethodID?
+    private static var isTerminated_MethodID_16: jmethodID?
 
     override open func isTerminated() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminated", methodSig: "()Z", methodCache: &ScheduledExecutorServiceForward.isTerminated_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminated", methodSig: "()Z", methodCache: &ScheduledExecutorServiceForward.isTerminated_MethodID_16, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public abstract boolean java.util.concurrent.ExecutorService.isShutdown()
 
-    private static var isShutdown_MethodID_15: jmethodID?
+    private static var isShutdown_MethodID_17: jmethodID?
 
     override open func isShutdown() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isShutdown", methodSig: "()Z", methodCache: &ScheduledExecutorServiceForward.isShutdown_MethodID_15, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isShutdown", methodSig: "()Z", methodCache: &ScheduledExecutorServiceForward.isShutdown_MethodID_17, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public abstract boolean java.util.concurrent.ExecutorService.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var awaitTermination_MethodID_16: jmethodID?
+    private static var awaitTermination_MethodID_18: jmethodID?
 
     override open func awaitTermination( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitTermination", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ScheduledExecutorServiceForward.awaitTermination_MethodID_16, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitTermination", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ScheduledExecutorServiceForward.awaitTermination_MethodID_18, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -231,13 +273,13 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
 
     /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException
 
-    private static var invokeAny_MethodID_17: jmethodID?
+    private static var invokeAny_MethodID_19: jmethodID?
 
     override open func invokeAny( tasks: Collection? ) throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException */ -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAny", methodSig: "(Ljava/util/Collection;)Ljava/lang/Object;", methodCache: &ScheduledExecutorServiceForward.invokeAny_MethodID_17, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAny", methodSig: "(Ljava/util/Collection;)Ljava/lang/Object;", methodCache: &ScheduledExecutorServiceForward.invokeAny_MethodID_19, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -251,15 +293,15 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
 
     /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException
 
-    private static var invokeAny_MethodID_18: jmethodID?
+    private static var invokeAny_MethodID_20: jmethodID?
 
     override open func invokeAny( tasks: Collection?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException, java.util.concurrent.TimeoutException */ -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAny", methodSig: "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &ScheduledExecutorServiceForward.invokeAny_MethodID_18, args: &__args, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAny", methodSig: "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &ScheduledExecutorServiceForward.invokeAny_MethodID_20, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -269,48 +311,6 @@ open class ScheduledExecutorServiceForward: ExecutorServiceForward, ScheduledExe
 
     override open func invokeAny( _ _tasks: Collection?, _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException, java.util.concurrent.TimeoutException */ -> java_swift.JavaObject! {
         return try invokeAny( tasks: _tasks, timeout: _timeout, unit: _unit )
-    }
-
-    /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
-
-    private static var invokeAll_MethodID_19: jmethodID?
-
-    override open func invokeAll( tasks: Collection?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
-        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAll", methodSig: "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", methodCache: &ScheduledExecutorServiceForward.invokeAll_MethodID_19, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return __return != nil ? ListForward( javaObject: __return ) : nil
-    }
-
-    override open func invokeAll( _ _tasks: Collection?, _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> List! {
-        return try invokeAll( tasks: _tasks, timeout: _timeout, unit: _unit )
-    }
-
-    /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection) throws java.lang.InterruptedException
-
-    private static var invokeAll_MethodID_20: jmethodID?
-
-    override open func invokeAll( tasks: Collection? ) throws /* java.lang.InterruptedException */ -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAll", methodSig: "(Ljava/util/Collection;)Ljava/util/List;", methodCache: &ScheduledExecutorServiceForward.invokeAll_MethodID_20, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return __return != nil ? ListForward( javaObject: __return ) : nil
-    }
-
-    override open func invokeAll( _ _tasks: Collection? ) throws /* java.lang.InterruptedException */ -> List! {
-        return try invokeAll( tasks: _tasks )
     }
 
     /// public abstract void java.util.concurrent.Executor.execute(java.lang.Runnable)

@@ -68,7 +68,7 @@ open class ExecutorCompletionService: java_swift.JavaObject, CompletionService {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/Future;", methodCache: &ExecutorCompletionService.poll_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
@@ -94,16 +94,32 @@ open class ExecutorCompletionService: java_swift.JavaObject, CompletionService {
     }
 
 
+    /// public java.util.concurrent.Future java.util.concurrent.ExecutorCompletionService.take() throws java.lang.InterruptedException
+
+    private static var take_MethodID_5: jmethodID?
+
+    open func take() throws /* java.lang.InterruptedException */ -> Future! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/util/concurrent/Future;", methodCache: &ExecutorCompletionService.take_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return __return != nil ? FutureForward( javaObject: __return ) : nil
+    }
+
+
     /// public java.util.concurrent.Future java.util.concurrent.ExecutorCompletionService.submit(java.lang.Runnable,java.lang.Object)
 
-    private static var submit_MethodID_5: jmethodID?
+    private static var submit_MethodID_6: jmethodID?
 
     open func submit( task: java_swift.Runnable?, result: java_swift.JavaObject? ) -> Future! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: task, locals: &__locals )
-        __args[1] = JNIType.toJava( value: result != nil ? result! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", methodCache: &ExecutorCompletionService.submit_MethodID_5, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: result, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", methodCache: &ExecutorCompletionService.submit_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? FutureForward( javaObject: __return ) : nil
     }
@@ -114,13 +130,13 @@ open class ExecutorCompletionService: java_swift.JavaObject, CompletionService {
 
     /// public java.util.concurrent.Future java.util.concurrent.ExecutorCompletionService.submit(java.util.concurrent.Callable)
 
-    private static var submit_MethodID_6: jmethodID?
+    private static var submit_MethodID_7: jmethodID?
 
     open func submit( task: Callable? ) -> Future! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: task, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", methodCache: &ExecutorCompletionService.submit_MethodID_6, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", methodCache: &ExecutorCompletionService.submit_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? FutureForward( javaObject: __return ) : nil
     }
@@ -132,22 +148,6 @@ open class ExecutorCompletionService: java_swift.JavaObject, CompletionService {
     /// private java.util.concurrent.RunnableFuture java.util.concurrent.ExecutorCompletionService.newTaskFor(java.util.concurrent.Callable)
 
     /// private java.util.concurrent.RunnableFuture java.util.concurrent.ExecutorCompletionService.newTaskFor(java.lang.Runnable,java.lang.Object)
-
-    /// public java.util.concurrent.Future java.util.concurrent.ExecutorCompletionService.take() throws java.lang.InterruptedException
-
-    private static var take_MethodID_7: jmethodID?
-
-    open func take() throws /* java.lang.InterruptedException */ -> Future! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/util/concurrent/Future;", methodCache: &ExecutorCompletionService.take_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return __return != nil ? FutureForward( javaObject: __return ) : nil
-    }
-
 
 }
 

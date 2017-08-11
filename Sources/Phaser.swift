@@ -66,7 +66,7 @@ open class Phaser: java_swift.JavaObject {
     public convenience init( parent: Phaser?, parties: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parent != nil ? parent! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: parent, locals: &__locals )
         __args[1] = JNIType.toJava( value: parties, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/Phaser", classCache: &Phaser.PhaserJNIClass, methodSig: "(Ljava/util/concurrent/Phaser;I)V", methodCache: &Phaser.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -84,7 +84,7 @@ open class Phaser: java_swift.JavaObject {
     public convenience init( parent: Phaser? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parent != nil ? parent! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: parent, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/Phaser", classCache: &Phaser.PhaserJNIClass, methodSig: "(Ljava/util/concurrent/Phaser;)V", methodCache: &Phaser.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -94,33 +94,33 @@ open class Phaser: java_swift.JavaObject {
         self.init( parent: _parent )
     }
 
-    /// public java.util.concurrent.Phaser(int)
+    /// public java.util.concurrent.Phaser()
 
     private static var new_MethodID_3: jmethodID?
+
+    public convenience init() {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/Phaser", classCache: &Phaser.PhaserJNIClass, methodSig: "()V", methodCache: &Phaser.new_MethodID_3, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.concurrent.Phaser(int)
+
+    private static var new_MethodID_4: jmethodID?
 
     public convenience init( parties: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: parties, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/Phaser", classCache: &Phaser.PhaserJNIClass, methodSig: "(I)V", methodCache: &Phaser.new_MethodID_3, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/Phaser", classCache: &Phaser.PhaserJNIClass, methodSig: "(I)V", methodCache: &Phaser.new_MethodID_4, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
     public convenience init( _ _parties: Int ) {
         self.init( parties: _parties )
-    }
-
-    /// public java.util.concurrent.Phaser()
-
-    private static var new_MethodID_4: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/Phaser", classCache: &Phaser.PhaserJNIClass, methodSig: "()V", methodCache: &Phaser.new_MethodID_4, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
     }
 
     /// public java.lang.String java.util.concurrent.Phaser.toString()
@@ -163,14 +163,26 @@ open class Phaser: java_swift.JavaObject {
     }
 
 
+    /// public boolean java.util.concurrent.Phaser.isTerminated()
+
+    private static var isTerminated_MethodID_8: jmethodID?
+
+    open func isTerminated() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminated", methodSig: "()Z", methodCache: &Phaser.isTerminated_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
     /// public final int java.util.concurrent.Phaser.getPhase()
 
-    private static var getPhase_MethodID_8: jmethodID?
+    private static var getPhase_MethodID_9: jmethodID?
 
     open func getPhase() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getPhase", methodSig: "()I", methodCache: &Phaser.getPhase_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getPhase", methodSig: "()I", methodCache: &Phaser.getPhase_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -197,13 +209,13 @@ open class Phaser: java_swift.JavaObject {
 
     /// public int java.util.concurrent.Phaser.bulkRegister(int)
 
-    private static var bulkRegister_MethodID_9: jmethodID?
+    private static var bulkRegister_MethodID_10: jmethodID?
 
     open func bulkRegister( parties: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: parties, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "bulkRegister", methodSig: "(I)I", methodCache: &Phaser.bulkRegister_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "bulkRegister", methodSig: "(I)I", methodCache: &Phaser.bulkRegister_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -213,73 +225,54 @@ open class Phaser: java_swift.JavaObject {
 
     /// public int java.util.concurrent.Phaser.arrive()
 
-    private static var arrive_MethodID_10: jmethodID?
+    private static var arrive_MethodID_11: jmethodID?
 
     open func arrive() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "arrive", methodSig: "()I", methodCache: &Phaser.arrive_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "arrive", methodSig: "()I", methodCache: &Phaser.arrive_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.concurrent.Phaser.arriveAndDeregister()
 
-    private static var arriveAndDeregister_MethodID_11: jmethodID?
+    private static var arriveAndDeregister_MethodID_12: jmethodID?
 
     open func arriveAndDeregister() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "arriveAndDeregister", methodSig: "()I", methodCache: &Phaser.arriveAndDeregister_MethodID_11, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "arriveAndDeregister", methodSig: "()I", methodCache: &Phaser.arriveAndDeregister_MethodID_12, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.concurrent.Phaser.arriveAndAwaitAdvance()
 
-    private static var arriveAndAwaitAdvance_MethodID_12: jmethodID?
+    private static var arriveAndAwaitAdvance_MethodID_13: jmethodID?
 
     open func arriveAndAwaitAdvance() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "arriveAndAwaitAdvance", methodSig: "()I", methodCache: &Phaser.arriveAndAwaitAdvance_MethodID_12, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "arriveAndAwaitAdvance", methodSig: "()I", methodCache: &Phaser.arriveAndAwaitAdvance_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.concurrent.Phaser.awaitAdvance(int)
 
-    private static var awaitAdvance_MethodID_13: jmethodID?
+    private static var awaitAdvance_MethodID_14: jmethodID?
 
     open func awaitAdvance( phase: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: phase, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "awaitAdvance", methodSig: "(I)I", methodCache: &Phaser.awaitAdvance_MethodID_13, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "awaitAdvance", methodSig: "(I)I", methodCache: &Phaser.awaitAdvance_MethodID_14, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
     open func awaitAdvance( _ _phase: Int ) -> Int {
         return awaitAdvance( phase: _phase )
-    }
-
-    /// public int java.util.concurrent.Phaser.awaitAdvanceInterruptibly(int) throws java.lang.InterruptedException
-
-    private static var awaitAdvanceInterruptibly_MethodID_14: jmethodID?
-
-    open func awaitAdvanceInterruptibly( phase: Int ) throws /* java.lang.InterruptedException */ -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: phase, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "awaitAdvanceInterruptibly", methodSig: "(I)I", methodCache: &Phaser.awaitAdvanceInterruptibly_MethodID_14, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func awaitAdvanceInterruptibly( _ _phase: Int ) throws /* java.lang.InterruptedException */ -> Int {
-        return try awaitAdvanceInterruptibly( phase: _phase )
     }
 
     /// public int java.util.concurrent.Phaser.awaitAdvanceInterruptibly(int,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException,java.util.concurrent.TimeoutException
@@ -291,7 +284,7 @@ open class Phaser: java_swift.JavaObject {
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: phase, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "awaitAdvanceInterruptibly", methodSig: "(IJLjava/util/concurrent/TimeUnit;)I", methodCache: &Phaser.awaitAdvanceInterruptibly_MethodID_15, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -303,63 +296,82 @@ open class Phaser: java_swift.JavaObject {
         return try awaitAdvanceInterruptibly( phase: _phase, timeout: _timeout, unit: _unit )
     }
 
+    /// public int java.util.concurrent.Phaser.awaitAdvanceInterruptibly(int) throws java.lang.InterruptedException
+
+    private static var awaitAdvanceInterruptibly_MethodID_16: jmethodID?
+
+    open func awaitAdvanceInterruptibly( phase: Int ) throws /* java.lang.InterruptedException */ -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: phase, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "awaitAdvanceInterruptibly", methodSig: "(I)I", methodCache: &Phaser.awaitAdvanceInterruptibly_MethodID_16, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func awaitAdvanceInterruptibly( _ _phase: Int ) throws /* java.lang.InterruptedException */ -> Int {
+        return try awaitAdvanceInterruptibly( phase: _phase )
+    }
+
     /// public void java.util.concurrent.Phaser.forceTermination()
 
-    private static var forceTermination_MethodID_16: jmethodID?
+    private static var forceTermination_MethodID_17: jmethodID?
 
     open func forceTermination() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forceTermination", methodSig: "()V", methodCache: &Phaser.forceTermination_MethodID_16, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forceTermination", methodSig: "()V", methodCache: &Phaser.forceTermination_MethodID_17, args: &__args, locals: &__locals )
     }
 
 
     /// public int java.util.concurrent.Phaser.getRegisteredParties()
 
-    private static var getRegisteredParties_MethodID_17: jmethodID?
+    private static var getRegisteredParties_MethodID_18: jmethodID?
 
     open func getRegisteredParties() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getRegisteredParties", methodSig: "()I", methodCache: &Phaser.getRegisteredParties_MethodID_17, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getRegisteredParties", methodSig: "()I", methodCache: &Phaser.getRegisteredParties_MethodID_18, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.concurrent.Phaser.getArrivedParties()
 
-    private static var getArrivedParties_MethodID_18: jmethodID?
+    private static var getArrivedParties_MethodID_19: jmethodID?
 
     open func getArrivedParties() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getArrivedParties", methodSig: "()I", methodCache: &Phaser.getArrivedParties_MethodID_18, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getArrivedParties", methodSig: "()I", methodCache: &Phaser.getArrivedParties_MethodID_19, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.concurrent.Phaser.getUnarrivedParties()
 
-    private static var getUnarrivedParties_MethodID_19: jmethodID?
+    private static var getUnarrivedParties_MethodID_20: jmethodID?
 
     open func getUnarrivedParties() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getUnarrivedParties", methodSig: "()I", methodCache: &Phaser.getUnarrivedParties_MethodID_19, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getUnarrivedParties", methodSig: "()I", methodCache: &Phaser.getUnarrivedParties_MethodID_20, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// protected boolean java.util.concurrent.Phaser.onAdvance(int,int)
 
-    private static var onAdvance_MethodID_20: jmethodID?
+    private static var onAdvance_MethodID_21: jmethodID?
 
     open func onAdvance( phase: Int, registeredParties: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: phase, locals: &__locals )
         __args[1] = JNIType.toJava( value: registeredParties, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "onAdvance", methodSig: "(II)Z", methodCache: &Phaser.onAdvance_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "onAdvance", methodSig: "(II)Z", methodCache: &Phaser.onAdvance_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -374,18 +386,6 @@ open class Phaser: java_swift.JavaObject {
     /// private int java.util.concurrent.Phaser.abortWait(int)
 
     /// private int java.util.concurrent.Phaser.internalAwaitAdvance(int,java.util.concurrent.Phaser$QNode)
-
-    /// public boolean java.util.concurrent.Phaser.isTerminated()
-
-    private static var isTerminated_MethodID_21: jmethodID?
-
-    open func isTerminated() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminated", methodSig: "()Z", methodCache: &Phaser.isTerminated_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
 
 }
 

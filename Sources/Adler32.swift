@@ -56,7 +56,7 @@ open class Adler32: java_swift.JavaObject, Checksum {
     open func update( buffer: /* java.nio.ByteBuffer */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: buffer != nil ? buffer! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: buffer, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "update", methodSig: "(Ljava/nio/ByteBuffer;)V", methodCache: &Adler32.update_MethodID_3, args: &__args, locals: &__locals )
     }
 

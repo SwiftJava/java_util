@@ -181,17 +181,17 @@ open class IdentityHashMap: AbstractMap, /* java.io.Serializable */ UnclassedPro
 
     /// private boolean java.util.IdentityHashMap.removeMapping(java.lang.Object,java.lang.Object)
 
-    /// static boolean java.util.IdentityHashMap.access$1100(java.util.IdentityHashMap,java.lang.Object,java.lang.Object)
-
-    /// static boolean java.util.IdentityHashMap.access$1200(java.util.IdentityHashMap,java.lang.Object,java.lang.Object)
-
     /// private static int java.util.IdentityHashMap.nextKeyIndex(int,int)
-
-    /// private boolean java.util.IdentityHashMap.containsMapping(java.lang.Object,java.lang.Object)
 
     /// private void java.util.IdentityHashMap.closeDeletion(int)
 
     /// private void java.util.IdentityHashMap.putForCreate(java.lang.Object,java.lang.Object) throws java.io.StreamCorruptedException
+
+    /// private boolean java.util.IdentityHashMap.containsMapping(java.lang.Object,java.lang.Object)
+
+    /// static boolean java.util.IdentityHashMap.access$1100(java.util.IdentityHashMap,java.lang.Object,java.lang.Object)
+
+    /// static boolean java.util.IdentityHashMap.access$1200(java.util.IdentityHashMap,java.lang.Object,java.lang.Object)
 
     /// In declared protocol but not defined.. ///
 
@@ -202,7 +202,7 @@ open class IdentityHashMap: AbstractMap, /* java.io.Serializable */ UnclassedPro
     override open func equals( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &IdentityHashMap.equals_MethodID_7, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -220,7 +220,7 @@ open class IdentityHashMap: AbstractMap, /* java.io.Serializable */ UnclassedPro
     override open func get( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &IdentityHashMap.get_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -237,7 +237,7 @@ open class IdentityHashMap: AbstractMap, /* java.io.Serializable */ UnclassedPro
     override open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &IdentityHashMap.remove_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -256,7 +256,7 @@ open class IdentityHashMap: AbstractMap, /* java.io.Serializable */ UnclassedPro
     override open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &IdentityHashMap.containsValue_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -299,7 +299,7 @@ open class IdentityHashMap: AbstractMap, /* java.io.Serializable */ UnclassedPro
     override open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &IdentityHashMap.containsKey_MethodID_12, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -321,8 +321,8 @@ open class IdentityHashMap: AbstractMap, /* java.io.Serializable */ UnclassedPro
     override open func put( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &IdentityHashMap.put_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil

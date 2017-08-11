@@ -36,7 +36,7 @@ open class PreferenceChangeEvent: EventObject {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &PreferenceChangeEvent.source_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -48,7 +48,7 @@ open class PreferenceChangeEvent: EventObject {
     public convenience init( node: Preferences?, key: String?, newValue: String? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: node != nil ? node! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: node, locals: &__locals )
         __args[1] = JNIType.toJava( value: key, locals: &__locals )
         __args[2] = JNIType.toJava( value: newValue, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/prefs/PreferenceChangeEvent", classCache: &PreferenceChangeEvent.PreferenceChangeEventJNIClass, methodSig: "(Ljava/util/prefs/Preferences;Ljava/lang/String;Ljava/lang/String;)V", methodCache: &PreferenceChangeEvent.new_MethodID_1, args: &__args, locals: &__locals )

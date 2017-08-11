@@ -84,15 +84,133 @@ open class Handler: java_swift.JavaObject {
     }
 
 
+    /// public java.util.logging.Formatter java.util.logging.Handler.getFormatter()
+
+    private static var getFormatter_MethodID_5: jmethodID?
+
+    open func getFormatter() -> logging_Formatter! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFormatter", methodSig: "()Ljava/util/logging/Formatter;", methodCache: &Handler.getFormatter_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? logging_Formatter( javaObject: __return ) : nil
+    }
+
+
+    /// protected void java.util.logging.Handler.reportError(java.lang.String,java.lang.Exception,int)
+
+    private static var reportError_MethodID_6: jmethodID?
+
+    open func reportError( msg: String?, ex: java_swift.Exception?, code: Int ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: msg, locals: &__locals )
+        __args[1] = JNIType.toJava( value: ex, locals: &__locals )
+        __args[2] = JNIType.toJava( value: code, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reportError", methodSig: "(Ljava/lang/String;Ljava/lang/Exception;I)V", methodCache: &Handler.reportError_MethodID_6, args: &__args, locals: &__locals )
+    }
+
+    open func reportError( _ _msg: String?, _ _ex: java_swift.Exception?, _ _code: Int ) {
+        reportError( msg: _msg, ex: _ex, code: _code )
+    }
+
+    /// public java.util.logging.Filter java.util.logging.Handler.getFilter()
+
+    private static var getFilter_MethodID_7: jmethodID?
+
+    open func getFilter() -> Filter! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFilter", methodSig: "()Ljava/util/logging/Filter;", methodCache: &Handler.getFilter_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? FilterForward( javaObject: __return ) : nil
+    }
+
+
+    /// public synchronized void java.util.logging.Handler.setErrorManager(java.util.logging.ErrorManager)
+
+    private static var setErrorManager_MethodID_8: jmethodID?
+
+    open func setErrorManager( em: ErrorManager? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: em, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setErrorManager", methodSig: "(Ljava/util/logging/ErrorManager;)V", methodCache: &Handler.setErrorManager_MethodID_8, args: &__args, locals: &__locals )
+    }
+
+    open func setErrorManager( _ _em: ErrorManager? ) {
+        setErrorManager( em: _em )
+    }
+
+    /// public java.util.logging.ErrorManager java.util.logging.Handler.getErrorManager()
+
+    private static var getErrorManager_MethodID_9: jmethodID?
+
+    open func getErrorManager() -> ErrorManager! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getErrorManager", methodSig: "()Ljava/util/logging/ErrorManager;", methodCache: &Handler.getErrorManager_MethodID_9, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ErrorManager( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.logging.Level java.util.logging.Handler.getLevel()
+
+    private static var getLevel_MethodID_10: jmethodID?
+
+    open func getLevel() -> Level! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLevel", methodSig: "()Ljava/util/logging/Level;", methodCache: &Handler.getLevel_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Level( javaObject: __return ) : nil
+    }
+
+
+    /// public boolean java.util.logging.Handler.isLoggable(java.util.logging.LogRecord)
+
+    private static var isLoggable_MethodID_11: jmethodID?
+
+    open func isLoggable( record: LogRecord? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: record, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isLoggable", methodSig: "(Ljava/util/logging/LogRecord;)Z", methodCache: &Handler.isLoggable_MethodID_11, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func isLoggable( _ _record: LogRecord? ) -> Bool {
+        return isLoggable( record: _record )
+    }
+
+    /// public synchronized void java.util.logging.Handler.setLevel(java.util.logging.Level) throws java.lang.SecurityException
+
+    private static var setLevel_MethodID_12: jmethodID?
+
+    open func setLevel( newLevel: Level? ) throws /* java.lang.SecurityException */ {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: newLevel, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLevel", methodSig: "(Ljava/util/logging/Level;)V", methodCache: &Handler.setLevel_MethodID_12, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.JavaSecurityException( javaObject: throwable )
+        }
+    }
+
+    open func setLevel( _ _newLevel: Level? ) throws /* java.lang.SecurityException */ {
+        try setLevel( newLevel: _newLevel )
+    }
+
     /// public abstract void java.util.logging.Handler.publish(java.util.logging.LogRecord)
 
-    private static var publish_MethodID_5: jmethodID?
+    private static var publish_MethodID_13: jmethodID?
 
     open func publish( record: LogRecord? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: record != nil ? record! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "publish", methodSig: "(Ljava/util/logging/LogRecord;)V", methodCache: &Handler.publish_MethodID_5, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: record, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "publish", methodSig: "(Ljava/util/logging/LogRecord;)V", methodCache: &Handler.publish_MethodID_13, args: &__args, locals: &__locals )
     }
 
     open func publish( _ _record: LogRecord? ) {
@@ -101,13 +219,13 @@ open class Handler: java_swift.JavaObject {
 
     /// public synchronized void java.util.logging.Handler.setFilter(java.util.logging.Filter) throws java.lang.SecurityException
 
-    private static var setFilter_MethodID_6: jmethodID?
+    private static var setFilter_MethodID_14: jmethodID?
 
     open func setFilter( newFilter: Filter? ) throws /* java.lang.SecurityException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: newFilter, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setFilter", methodSig: "(Ljava/util/logging/Filter;)V", methodCache: &Handler.setFilter_MethodID_6, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setFilter", methodSig: "(Ljava/util/logging/Filter;)V", methodCache: &Handler.setFilter_MethodID_14, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.JavaSecurityException( javaObject: throwable )
         }
@@ -119,13 +237,13 @@ open class Handler: java_swift.JavaObject {
 
     /// public synchronized void java.util.logging.Handler.setFormatter(java.util.logging.Formatter) throws java.lang.SecurityException
 
-    private static var setFormatter_MethodID_7: jmethodID?
+    private static var setFormatter_MethodID_15: jmethodID?
 
     open func setFormatter( newFormatter: logging_Formatter? ) throws /* java.lang.SecurityException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newFormatter != nil ? newFormatter! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setFormatter", methodSig: "(Ljava/util/logging/Formatter;)V", methodCache: &Handler.setFormatter_MethodID_7, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: newFormatter, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setFormatter", methodSig: "(Ljava/util/logging/Formatter;)V", methodCache: &Handler.setFormatter_MethodID_15, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.JavaSecurityException( javaObject: throwable )
         }
@@ -137,13 +255,13 @@ open class Handler: java_swift.JavaObject {
 
     /// public synchronized void java.util.logging.Handler.setEncoding(java.lang.String) throws java.lang.SecurityException,java.io.UnsupportedEncodingException
 
-    private static var setEncoding_MethodID_8: jmethodID?
+    private static var setEncoding_MethodID_16: jmethodID?
 
     open func setEncoding( encoding: String? ) throws /* java.lang.SecurityException, java.io.UnsupportedEncodingException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: encoding, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setEncoding", methodSig: "(Ljava/lang/String;)V", methodCache: &Handler.setEncoding_MethodID_8, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setEncoding", methodSig: "(Ljava/lang/String;)V", methodCache: &Handler.setEncoding_MethodID_16, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.JavaSecurityException( javaObject: throwable )
         }
@@ -151,124 +269,6 @@ open class Handler: java_swift.JavaObject {
 
     open func setEncoding( _ _encoding: String? ) throws /* java.lang.SecurityException, java.io.UnsupportedEncodingException */ {
         try setEncoding( encoding: _encoding )
-    }
-
-    /// public java.util.logging.Formatter java.util.logging.Handler.getFormatter()
-
-    private static var getFormatter_MethodID_9: jmethodID?
-
-    open func getFormatter() -> logging_Formatter! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFormatter", methodSig: "()Ljava/util/logging/Formatter;", methodCache: &Handler.getFormatter_MethodID_9, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? logging_Formatter( javaObject: __return ) : nil
-    }
-
-
-    /// protected void java.util.logging.Handler.reportError(java.lang.String,java.lang.Exception,int)
-
-    private static var reportError_MethodID_10: jmethodID?
-
-    open func reportError( msg: String?, ex: java_lang.Exception?, code: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: msg, locals: &__locals )
-        __args[1] = JNIType.toJava( value: ex != nil ? ex! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: code, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reportError", methodSig: "(Ljava/lang/String;Ljava/lang/Exception;I)V", methodCache: &Handler.reportError_MethodID_10, args: &__args, locals: &__locals )
-    }
-
-    open func reportError( _ _msg: String?, _ _ex: java_lang.Exception?, _ _code: Int ) {
-        reportError( msg: _msg, ex: _ex, code: _code )
-    }
-
-    /// public java.util.logging.Filter java.util.logging.Handler.getFilter()
-
-    private static var getFilter_MethodID_11: jmethodID?
-
-    open func getFilter() -> Filter! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFilter", methodSig: "()Ljava/util/logging/Filter;", methodCache: &Handler.getFilter_MethodID_11, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? FilterForward( javaObject: __return ) : nil
-    }
-
-
-    /// public synchronized void java.util.logging.Handler.setErrorManager(java.util.logging.ErrorManager)
-
-    private static var setErrorManager_MethodID_12: jmethodID?
-
-    open func setErrorManager( em: ErrorManager? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: em != nil ? em! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setErrorManager", methodSig: "(Ljava/util/logging/ErrorManager;)V", methodCache: &Handler.setErrorManager_MethodID_12, args: &__args, locals: &__locals )
-    }
-
-    open func setErrorManager( _ _em: ErrorManager? ) {
-        setErrorManager( em: _em )
-    }
-
-    /// public java.util.logging.ErrorManager java.util.logging.Handler.getErrorManager()
-
-    private static var getErrorManager_MethodID_13: jmethodID?
-
-    open func getErrorManager() -> ErrorManager! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getErrorManager", methodSig: "()Ljava/util/logging/ErrorManager;", methodCache: &Handler.getErrorManager_MethodID_13, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ErrorManager( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.logging.Level java.util.logging.Handler.getLevel()
-
-    private static var getLevel_MethodID_14: jmethodID?
-
-    open func getLevel() -> Level! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLevel", methodSig: "()Ljava/util/logging/Level;", methodCache: &Handler.getLevel_MethodID_14, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Level( javaObject: __return ) : nil
-    }
-
-
-    /// public synchronized void java.util.logging.Handler.setLevel(java.util.logging.Level) throws java.lang.SecurityException
-
-    private static var setLevel_MethodID_15: jmethodID?
-
-    open func setLevel( newLevel: Level? ) throws /* java.lang.SecurityException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newLevel != nil ? newLevel! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLevel", methodSig: "(Ljava/util/logging/Level;)V", methodCache: &Handler.setLevel_MethodID_15, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.JavaSecurityException( javaObject: throwable )
-        }
-    }
-
-    open func setLevel( _ _newLevel: Level? ) throws /* java.lang.SecurityException */ {
-        try setLevel( newLevel: _newLevel )
-    }
-
-    /// public boolean java.util.logging.Handler.isLoggable(java.util.logging.LogRecord)
-
-    private static var isLoggable_MethodID_16: jmethodID?
-
-    open func isLoggable( record: LogRecord? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: record != nil ? record! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isLoggable", methodSig: "(Ljava/util/logging/LogRecord;)Z", methodCache: &Handler.isLoggable_MethodID_16, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func isLoggable( _ _record: LogRecord? ) -> Bool {
-        return isLoggable( record: _record )
     }
 
 }

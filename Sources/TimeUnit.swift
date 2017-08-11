@@ -172,31 +172,15 @@ open class TimeUnit: java_lang.Enum {
         try sleep( timeout: _timeout )
     }
 
-    /// public long java.util.concurrent.TimeUnit.toMillis(long)
-
-    private static var toMillis_MethodID_4: jmethodID?
-
-    open func toMillis( duration: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: duration, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "toMillis", methodSig: "(J)J", methodCache: &TimeUnit.toMillis_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-    open func toMillis( _ _duration: Int64 ) -> Int64 {
-        return toMillis( duration: _duration )
-    }
-
     /// public long java.util.concurrent.TimeUnit.toNanos(long)
 
-    private static var toNanos_MethodID_5: jmethodID?
+    private static var toNanos_MethodID_4: jmethodID?
 
     open func toNanos( duration: Int64 ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: duration, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "toNanos", methodSig: "(J)J", methodCache: &TimeUnit.toNanos_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "toNanos", methodSig: "(J)J", methodCache: &TimeUnit.toNanos_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
@@ -206,19 +190,35 @@ open class TimeUnit: java_lang.Enum {
 
     /// public long java.util.concurrent.TimeUnit.convert(long,java.util.concurrent.TimeUnit)
 
-    private static var convert_MethodID_6: jmethodID?
+    private static var convert_MethodID_5: jmethodID?
 
     open func convert( sourceDuration: Int64, sourceUnit: TimeUnit? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: sourceDuration, locals: &__locals )
-        __args[1] = JNIType.toJava( value: sourceUnit != nil ? sourceUnit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "convert", methodSig: "(JLjava/util/concurrent/TimeUnit;)J", methodCache: &TimeUnit.convert_MethodID_6, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: sourceUnit, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "convert", methodSig: "(JLjava/util/concurrent/TimeUnit;)J", methodCache: &TimeUnit.convert_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
     open func convert( _ _sourceDuration: Int64, _ _sourceUnit: TimeUnit? ) -> Int64 {
         return convert( sourceDuration: _sourceDuration, sourceUnit: _sourceUnit )
+    }
+
+    /// public long java.util.concurrent.TimeUnit.toMillis(long)
+
+    private static var toMillis_MethodID_6: jmethodID?
+
+    open func toMillis( duration: Int64 ) -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: duration, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "toMillis", methodSig: "(J)J", methodCache: &TimeUnit.toMillis_MethodID_6, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+    open func toMillis( _ _duration: Int64 ) -> Int64 {
+        return toMillis( duration: _duration )
     }
 
     /// public long java.util.concurrent.TimeUnit.toMicros(long)
@@ -310,7 +310,7 @@ open class TimeUnit: java_lang.Enum {
     open func timedWait( obj: java_swift.JavaObject?, timeout: Int64 ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "timedWait", methodSig: "(Ljava/lang/Object;J)V", methodCache: &TimeUnit.timedWait_MethodID_12, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
@@ -329,7 +329,7 @@ open class TimeUnit: java_lang.Enum {
     open func timedJoin( thread: java_lang.Thread?, timeout: Int64 ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: thread != nil ? thread! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: thread, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "timedJoin", methodSig: "(Ljava/lang/Thread;J)V", methodCache: &TimeUnit.timedJoin_MethodID_13, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {

@@ -28,9 +28,27 @@ open class TimeZoneNameProvider: LocaleServiceProvider {
         JNI.DeleteLocalRef( __object )
     }
 
+    /// public java.lang.String java.util.spi.TimeZoneNameProvider.getGenericDisplayName(java.lang.String,int,java.util.Locale)
+
+    private static var getGenericDisplayName_MethodID_2: jmethodID?
+
+    open func getGenericDisplayName( ID: String?, style: Int, locale: JavaLocale? ) -> String! {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: ID, locals: &__locals )
+        __args[1] = JNIType.toJava( value: style, locals: &__locals )
+        __args[2] = JNIType.toJava( value: locale, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getGenericDisplayName", methodSig: "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", methodCache: &TimeZoneNameProvider.getGenericDisplayName_MethodID_2, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: String(), from: __return )
+    }
+
+    open func getGenericDisplayName( _ _ID: String?, _ _style: Int, _ _locale: JavaLocale? ) -> String! {
+        return getGenericDisplayName( ID: _ID, style: _style, locale: _locale )
+    }
+
     /// public abstract java.lang.String java.util.spi.TimeZoneNameProvider.getDisplayName(java.lang.String,boolean,int,java.util.Locale)
 
-    private static var getDisplayName_MethodID_2: jmethodID?
+    private static var getDisplayName_MethodID_3: jmethodID?
 
     open func getDisplayName( ID: String?, daylight: Bool, style: Int, locale: JavaLocale? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
@@ -38,31 +56,13 @@ open class TimeZoneNameProvider: LocaleServiceProvider {
         __args[0] = JNIType.toJava( value: ID, locals: &__locals )
         __args[1] = JNIType.toJava( value: daylight, locals: &__locals )
         __args[2] = JNIType.toJava( value: style, locals: &__locals )
-        __args[3] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", methodCache: &TimeZoneNameProvider.getDisplayName_MethodID_2, args: &__args, locals: &__locals )
+        __args[3] = JNIType.toJava( value: locale, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/lang/String;ZILjava/util/Locale;)Ljava/lang/String;", methodCache: &TimeZoneNameProvider.getDisplayName_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
     open func getDisplayName( _ _ID: String?, _ _daylight: Bool, _ _style: Int, _ _locale: JavaLocale? ) -> String! {
         return getDisplayName( ID: _ID, daylight: _daylight, style: _style, locale: _locale )
-    }
-
-    /// public java.lang.String java.util.spi.TimeZoneNameProvider.getGenericDisplayName(java.lang.String,int,java.util.Locale)
-
-    private static var getGenericDisplayName_MethodID_3: jmethodID?
-
-    open func getGenericDisplayName( ID: String?, style: Int, locale: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: ID, locals: &__locals )
-        __args[1] = JNIType.toJava( value: style, locals: &__locals )
-        __args[2] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getGenericDisplayName", methodSig: "(Ljava/lang/String;ILjava/util/Locale;)Ljava/lang/String;", methodCache: &TimeZoneNameProvider.getGenericDisplayName_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getGenericDisplayName( _ _ID: String?, _ _style: Int, _ _locale: JavaLocale? ) -> String! {
-        return getGenericDisplayName( ID: _ID, style: _style, locale: _locale )
     }
 
 }

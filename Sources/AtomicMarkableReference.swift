@@ -29,7 +29,7 @@ open class AtomicMarkableReference: java_swift.JavaObject {
     public convenience init( initialRef: java_swift.JavaObject?, initialMark: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialRef != nil ? initialRef! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: initialRef, locals: &__locals )
         __args[1] = JNIType.toJava( value: initialMark, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/atomic/AtomicMarkableReference", classCache: &AtomicMarkableReference.AtomicMarkableReferenceJNIClass, methodSig: "(Ljava/lang/Object;Z)V", methodCache: &AtomicMarkableReference.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -64,7 +64,7 @@ open class AtomicMarkableReference: java_swift.JavaObject {
     open func set( newReference: java_swift.JavaObject?, newMark: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newReference != nil ? newReference! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: newReference, locals: &__locals )
         __args[1] = JNIType.toJava( value: newMark, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(Ljava/lang/Object;Z)V", methodCache: &AtomicMarkableReference.set_MethodID_3, args: &__args, locals: &__locals )
     }
@@ -82,8 +82,8 @@ open class AtomicMarkableReference: java_swift.JavaObject {
     open func compareAndSet( expectedReference: java_swift.JavaObject?, newReference: java_swift.JavaObject?, expectedMark: Bool, newMark: Bool ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: expectedReference != nil ? expectedReference! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: newReference != nil ? newReference! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: expectedReference, locals: &__locals )
+        __args[1] = JNIType.toJava( value: newReference, locals: &__locals )
         __args[2] = JNIType.toJava( value: expectedMark, locals: &__locals )
         __args[3] = JNIType.toJava( value: newMark, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", methodCache: &AtomicMarkableReference.compareAndSet_MethodID_4, args: &__args, locals: &__locals )
@@ -101,8 +101,8 @@ open class AtomicMarkableReference: java_swift.JavaObject {
     open func weakCompareAndSet( expectedReference: java_swift.JavaObject?, newReference: java_swift.JavaObject?, expectedMark: Bool, newMark: Bool ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: expectedReference != nil ? expectedReference! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: newReference != nil ? newReference! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: expectedReference, locals: &__locals )
+        __args[1] = JNIType.toJava( value: newReference, locals: &__locals )
         __args[2] = JNIType.toJava( value: expectedMark, locals: &__locals )
         __args[3] = JNIType.toJava( value: newMark, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "weakCompareAndSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;ZZ)Z", methodCache: &AtomicMarkableReference.weakCompareAndSet_MethodID_5, args: &__args, locals: &__locals )
@@ -145,7 +145,7 @@ open class AtomicMarkableReference: java_swift.JavaObject {
     open func attemptMark( expectedReference: java_swift.JavaObject?, newMark: Bool ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: expectedReference != nil ? expectedReference! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: expectedReference, locals: &__locals )
         __args[1] = JNIType.toJava( value: newMark, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "attemptMark", methodSig: "(Ljava/lang/Object;Z)Z", methodCache: &AtomicMarkableReference.attemptMark_MethodID_8, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )

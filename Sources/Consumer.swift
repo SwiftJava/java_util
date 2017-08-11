@@ -11,11 +11,11 @@ public protocol Consumer: JavaProtocol {
 
     func accept( t: java_swift.JavaObject? )
 
+    /// private void java.util.function.Consumer.lambda$andThen$0(java.util.function.Consumer,java.lang.Object)
+
     /// public default java.util.function.Consumer java.util.function.Consumer.andThen(java.util.function.Consumer)
 
     func andThen( after: Consumer? ) -> Consumer!
-
-    /// private void java.util.function.Consumer.lambda$andThen$0(java.util.function.Consumer,java.lang.Object)
 
 }
 
@@ -31,7 +31,7 @@ open class ConsumerForward: JNIObjectForward, Consumer {
     open func accept( t: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "accept", methodSig: "(Ljava/lang/Object;)V", methodCache: &ConsumerForward.accept_MethodID_3, args: &__args, locals: &__locals )
     }
 

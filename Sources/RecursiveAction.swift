@@ -93,7 +93,7 @@ open class RecursiveAction: ForkJoinTask {
     open func setRawResult( mustBeNull: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mustBeNull != nil ? mustBeNull! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: mustBeNull, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawResult", methodSig: "(Ljava/lang/Object;)V", methodCache: &RecursiveAction.setRawResult_MethodID_4, args: &__args, locals: &__locals )
     }
 
@@ -108,7 +108,7 @@ open class RecursiveAction: ForkJoinTask {
     open func setRawResult( mustBeNull: java_lang.Void? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mustBeNull != nil ? mustBeNull! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: mustBeNull, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawResult", methodSig: "(Ljava/lang/Void;)V", methodCache: &RecursiveAction.setRawResult_MethodID_5, args: &__args, locals: &__locals )
     }
 

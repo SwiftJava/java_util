@@ -348,10 +348,6 @@ open class Pattern: java_swift.JavaObject, /* java.io.Serializable */ UnclassedP
         return quote( s: _s )
     }
 
-    /// private int java.util.regex.Pattern.cursor()
-
-    /// private static java.util.regex.Pattern$CharProperty java.util.regex.Pattern.intersection(java.util.regex.Pattern$CharProperty,java.util.regex.Pattern$CharProperty)
-
     /// private void java.util.regex.Pattern.unread()
 
     /// public java.lang.String java.util.regex.Pattern.pattern()
@@ -483,6 +479,10 @@ open class Pattern: java_swift.JavaObject, /* java.io.Serializable */ UnclassedP
     }
 
     /// private boolean java.util.regex.Pattern.lambda$asPredicate$0(java.lang.String)
+
+    /// private static java.util.regex.Pattern$CharProperty java.util.regex.Pattern.intersection(java.util.regex.Pattern$CharProperty,java.util.regex.Pattern$CharProperty)
+
+    /// private int java.util.regex.Pattern.cursor()
 
 }
 

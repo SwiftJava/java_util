@@ -35,7 +35,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func get( arg0: java_swift.JavaObject? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)J", methodCache: &AtomicLongFieldUpdater.get_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
@@ -53,7 +53,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func set( arg0: java_swift.JavaObject?, arg1: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(Ljava/lang/Object;J)V", methodCache: &AtomicLongFieldUpdater.set_MethodID_3, args: &__args, locals: &__locals )
     }
@@ -69,7 +69,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func lazySet( arg0: java_swift.JavaObject?, arg1: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "lazySet", methodSig: "(Ljava/lang/Object;J)V", methodCache: &AtomicLongFieldUpdater.lazySet_MethodID_4, args: &__args, locals: &__locals )
     }
@@ -85,7 +85,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func getAndAdd( arg0: java_swift.JavaObject?, arg1: Int64 ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAndAdd", methodSig: "(Ljava/lang/Object;J)J", methodCache: &AtomicLongFieldUpdater.getAndAdd_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
@@ -102,7 +102,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func getAndSet( arg0: java_swift.JavaObject?, arg1: Int64 ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAndSet", methodSig: "(Ljava/lang/Object;J)J", methodCache: &AtomicLongFieldUpdater.getAndSet_MethodID_6, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
@@ -119,7 +119,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func compareAndSet( arg0: java_swift.JavaObject?, arg1: Int64, arg2: Int64 ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSet", methodSig: "(Ljava/lang/Object;JJ)Z", methodCache: &AtomicLongFieldUpdater.compareAndSet_MethodID_7, args: &__args, locals: &__locals )
@@ -137,7 +137,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func weakCompareAndSet( arg0: java_swift.JavaObject?, arg1: Int64, arg2: Int64 ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "weakCompareAndSet", methodSig: "(Ljava/lang/Object;JJ)Z", methodCache: &AtomicLongFieldUpdater.weakCompareAndSet_MethodID_8, args: &__args, locals: &__locals )
@@ -155,7 +155,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func getAndIncrement( arg0: java_swift.JavaObject? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAndIncrement", methodSig: "(Ljava/lang/Object;)J", methodCache: &AtomicLongFieldUpdater.getAndIncrement_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
@@ -171,7 +171,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func getAndDecrement( arg0: java_swift.JavaObject? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAndDecrement", methodSig: "(Ljava/lang/Object;)J", methodCache: &AtomicLongFieldUpdater.getAndDecrement_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
@@ -187,7 +187,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func incrementAndGet( arg0: java_swift.JavaObject? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "incrementAndGet", methodSig: "(Ljava/lang/Object;)J", methodCache: &AtomicLongFieldUpdater.incrementAndGet_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
@@ -203,7 +203,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func decrementAndGet( arg0: java_swift.JavaObject? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "decrementAndGet", methodSig: "(Ljava/lang/Object;)J", methodCache: &AtomicLongFieldUpdater.decrementAndGet_MethodID_12, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
@@ -219,7 +219,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func addAndGet( arg0: java_swift.JavaObject?, arg1: Int64 ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "addAndGet", methodSig: "(Ljava/lang/Object;J)J", methodCache: &AtomicLongFieldUpdater.addAndGet_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
@@ -236,7 +236,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func getAndUpdate( arg0: java_swift.JavaObject?, arg1: LongUnaryOperator? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAndUpdate", methodSig: "(Ljava/lang/Object;Ljava/util/function/LongUnaryOperator;)J", methodCache: &AtomicLongFieldUpdater.getAndUpdate_MethodID_14, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
@@ -253,7 +253,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func updateAndGet( arg0: java_swift.JavaObject?, arg1: LongUnaryOperator? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "updateAndGet", methodSig: "(Ljava/lang/Object;Ljava/util/function/LongUnaryOperator;)J", methodCache: &AtomicLongFieldUpdater.updateAndGet_MethodID_15, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
@@ -270,7 +270,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func getAndAccumulate( arg0: java_swift.JavaObject?, arg1: Int64, arg2: LongBinaryOperator? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAndAccumulate", methodSig: "(Ljava/lang/Object;JLjava/util/function/LongBinaryOperator;)J", methodCache: &AtomicLongFieldUpdater.getAndAccumulate_MethodID_16, args: &__args, locals: &__locals )
@@ -288,7 +288,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open func accumulateAndGet( arg0: java_swift.JavaObject?, arg1: Int64, arg2: LongBinaryOperator? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "accumulateAndGet", methodSig: "(Ljava/lang/Object;JLjava/util/function/LongBinaryOperator;)J", methodCache: &AtomicLongFieldUpdater.accumulateAndGet_MethodID_17, args: &__args, locals: &__locals )
@@ -306,7 +306,7 @@ open class AtomicLongFieldUpdater: java_swift.JavaObject {
     open class func newUpdater( arg0: java_swift.JavaClass?, arg1: String? ) -> AtomicLongFieldUpdater! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/atomic/AtomicLongFieldUpdater", classCache: &AtomicLongFieldUpdaterJNIClass, methodName: "newUpdater", methodSig: "(Ljava/lang/Class;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicLongFieldUpdater;", methodCache: &newUpdater_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }

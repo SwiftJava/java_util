@@ -442,7 +442,7 @@ open class GregorianCalendar: Calendar {
     public convenience init( zone: TimeZone? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: zone != nil ? zone! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: zone, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/GregorianCalendar", classCache: &GregorianCalendar.GregorianCalendarJNIClass, methodSig: "(Ljava/util/TimeZone;)V", methodCache: &GregorianCalendar.new_MethodID_5, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -459,7 +459,7 @@ open class GregorianCalendar: Calendar {
     public convenience init( aLocale: JavaLocale? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: aLocale != nil ? aLocale! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: aLocale, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/GregorianCalendar", classCache: &GregorianCalendar.GregorianCalendarJNIClass, methodSig: "(Ljava/util/Locale;)V", methodCache: &GregorianCalendar.new_MethodID_6, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -476,8 +476,8 @@ open class GregorianCalendar: Calendar {
     public convenience init( zone: TimeZone?, aLocale: JavaLocale? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: zone != nil ? zone! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: aLocale != nil ? aLocale! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: zone, locals: &__locals )
+        __args[1] = JNIType.toJava( value: aLocale, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/GregorianCalendar", classCache: &GregorianCalendar.GregorianCalendarJNIClass, methodSig: "(Ljava/util/TimeZone;Ljava/util/Locale;)V", methodCache: &GregorianCalendar.new_MethodID_7, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -510,7 +510,7 @@ open class GregorianCalendar: Calendar {
     open func equals( obj: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &GregorianCalendar.equals_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -532,7 +532,7 @@ open class GregorianCalendar: Calendar {
     open class func from( zdt: /* java.time.ZonedDateTime */ UnclassedObject? ) -> GregorianCalendar! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: zdt != nil ? zdt! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: zdt, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/GregorianCalendar", classCache: &GregorianCalendarJNIClass, methodName: "from", methodSig: "(Ljava/time/ZonedDateTime;)Ljava/util/GregorianCalendar;", methodCache: &from_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? GregorianCalendar( javaObject: __return ) : nil
@@ -542,28 +542,11 @@ open class GregorianCalendar: Calendar {
         return from( zdt: _zdt )
     }
 
-    /// public java.util.TimeZone java.util.GregorianCalendar.getTimeZone()
-
-    /// public void java.util.GregorianCalendar.setTimeZone(java.util.TimeZone)
-
-    private static var setTimeZone_MethodID_11: jmethodID?
-
-    open func setTimeZone( zone: TimeZone? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: zone != nil ? zone! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTimeZone", methodSig: "(Ljava/util/TimeZone;)V", methodCache: &GregorianCalendar.setTimeZone_MethodID_11, args: &__args, locals: &__locals )
-    }
-
-    override open func setTimeZone( _ _zone: TimeZone? ) {
-        setTimeZone( zone: _zone )
-    }
-
     /// private sun.util.calendar.BaseCalendar$Date java.util.GregorianCalendar.getCalendarDate(long)
 
     /// public void java.util.GregorianCalendar.setWeekDate(int,int,int)
 
-    private static var setWeekDate_MethodID_12: jmethodID?
+    private static var setWeekDate_MethodID_11: jmethodID?
 
     open func setWeekDate( weekYear: Int, weekOfYear: Int, dayOfWeek: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
@@ -571,7 +554,7 @@ open class GregorianCalendar: Calendar {
         __args[0] = JNIType.toJava( value: weekYear, locals: &__locals )
         __args[1] = JNIType.toJava( value: weekOfYear, locals: &__locals )
         __args[2] = JNIType.toJava( value: dayOfWeek, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setWeekDate", methodSig: "(III)V", methodCache: &GregorianCalendar.setWeekDate_MethodID_12, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setWeekDate", methodSig: "(III)V", methodCache: &GregorianCalendar.setWeekDate_MethodID_11, args: &__args, locals: &__locals )
     }
 
     override open func setWeekDate( _ _weekYear: Int, _ _weekOfYear: Int, _ _dayOfWeek: Int ) {
@@ -580,13 +563,13 @@ open class GregorianCalendar: Calendar {
 
     /// public void java.util.GregorianCalendar.setGregorianChange(java.util.Date)
 
-    private static var setGregorianChange_MethodID_13: jmethodID?
+    private static var setGregorianChange_MethodID_12: jmethodID?
 
     open func setGregorianChange( date: Date? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: date != nil ? date! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setGregorianChange", methodSig: "(Ljava/util/Date;)V", methodCache: &GregorianCalendar.setGregorianChange_MethodID_13, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: date, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setGregorianChange", methodSig: "(Ljava/util/Date;)V", methodCache: &GregorianCalendar.setGregorianChange_MethodID_12, args: &__args, locals: &__locals )
     }
 
     open func setGregorianChange( _ _date: Date? ) {
@@ -599,12 +582,12 @@ open class GregorianCalendar: Calendar {
 
     /// protected void java.util.GregorianCalendar.computeTime()
 
-    private static var computeTime_MethodID_14: jmethodID?
+    private static var computeTime_MethodID_13: jmethodID?
 
     override open func computeTime() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "computeTime", methodSig: "()V", methodCache: &GregorianCalendar.computeTime_MethodID_14, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "computeTime", methodSig: "()V", methodCache: &GregorianCalendar.computeTime_MethodID_13, args: &__args, locals: &__locals )
     }
 
 
@@ -612,12 +595,12 @@ open class GregorianCalendar: Calendar {
 
     /// protected void java.util.GregorianCalendar.computeFields()
 
-    private static var computeFields_MethodID_15: jmethodID?
+    private static var computeFields_MethodID_14: jmethodID?
 
     override open func computeFields() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "computeFields", methodSig: "()V", methodCache: &GregorianCalendar.computeFields_MethodID_15, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "computeFields", methodSig: "()V", methodCache: &GregorianCalendar.computeFields_MethodID_14, args: &__args, locals: &__locals )
     }
 
 
@@ -625,14 +608,14 @@ open class GregorianCalendar: Calendar {
 
     /// public void java.util.GregorianCalendar.roll(int,int)
 
-    private static var roll_MethodID_16: jmethodID?
+    private static var roll_MethodID_15: jmethodID?
 
     open func roll( field: Int, amount: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: field, locals: &__locals )
         __args[1] = JNIType.toJava( value: amount, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "roll", methodSig: "(II)V", methodCache: &GregorianCalendar.roll_MethodID_16, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "roll", methodSig: "(II)V", methodCache: &GregorianCalendar.roll_MethodID_15, args: &__args, locals: &__locals )
     }
 
     override open func roll( _ _field: Int, _ _amount: Int ) {
@@ -641,14 +624,14 @@ open class GregorianCalendar: Calendar {
 
     /// public void java.util.GregorianCalendar.roll(int,boolean)
 
-    private static var roll_MethodID_17: jmethodID?
+    private static var roll_MethodID_16: jmethodID?
 
     open func roll( field: Int, up: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: field, locals: &__locals )
         __args[1] = JNIType.toJava( value: up, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "roll", methodSig: "(IZ)V", methodCache: &GregorianCalendar.roll_MethodID_17, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "roll", methodSig: "(IZ)V", methodCache: &GregorianCalendar.roll_MethodID_16, args: &__args, locals: &__locals )
     }
 
     override open func roll( _ _field: Int, _ _up: Bool ) {
@@ -661,13 +644,13 @@ open class GregorianCalendar: Calendar {
 
     /// public int java.util.GregorianCalendar.getMinimum(int)
 
-    private static var getMinimum_MethodID_18: jmethodID?
+    private static var getMinimum_MethodID_17: jmethodID?
 
     open func getMinimum( field: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: field, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMinimum", methodSig: "(I)I", methodCache: &GregorianCalendar.getMinimum_MethodID_18, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMinimum", methodSig: "(I)I", methodCache: &GregorianCalendar.getMinimum_MethodID_17, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -677,13 +660,13 @@ open class GregorianCalendar: Calendar {
 
     /// public int java.util.GregorianCalendar.getMaximum(int)
 
-    private static var getMaximum_MethodID_19: jmethodID?
+    private static var getMaximum_MethodID_18: jmethodID?
 
     open func getMaximum( field: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: field, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMaximum", methodSig: "(I)I", methodCache: &GregorianCalendar.getMaximum_MethodID_19, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMaximum", methodSig: "(I)I", methodCache: &GregorianCalendar.getMaximum_MethodID_18, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -693,13 +676,13 @@ open class GregorianCalendar: Calendar {
 
     /// public int java.util.GregorianCalendar.getGreatestMinimum(int)
 
-    private static var getGreatestMinimum_MethodID_20: jmethodID?
+    private static var getGreatestMinimum_MethodID_19: jmethodID?
 
     open func getGreatestMinimum( field: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: field, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getGreatestMinimum", methodSig: "(I)I", methodCache: &GregorianCalendar.getGreatestMinimum_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getGreatestMinimum", methodSig: "(I)I", methodCache: &GregorianCalendar.getGreatestMinimum_MethodID_19, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -709,13 +692,13 @@ open class GregorianCalendar: Calendar {
 
     /// public int java.util.GregorianCalendar.getLeastMaximum(int)
 
-    private static var getLeastMaximum_MethodID_21: jmethodID?
+    private static var getLeastMaximum_MethodID_20: jmethodID?
 
     open func getLeastMaximum( field: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: field, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getLeastMaximum", methodSig: "(I)I", methodCache: &GregorianCalendar.getLeastMaximum_MethodID_21, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getLeastMaximum", methodSig: "(I)I", methodCache: &GregorianCalendar.getLeastMaximum_MethodID_20, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -725,13 +708,13 @@ open class GregorianCalendar: Calendar {
 
     /// public int java.util.GregorianCalendar.getActualMinimum(int)
 
-    private static var getActualMinimum_MethodID_22: jmethodID?
+    private static var getActualMinimum_MethodID_21: jmethodID?
 
     open func getActualMinimum( field: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: field, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActualMinimum", methodSig: "(I)I", methodCache: &GregorianCalendar.getActualMinimum_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActualMinimum", methodSig: "(I)I", methodCache: &GregorianCalendar.getActualMinimum_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -741,18 +724,35 @@ open class GregorianCalendar: Calendar {
 
     /// public int java.util.GregorianCalendar.getActualMaximum(int)
 
-    private static var getActualMaximum_MethodID_23: jmethodID?
+    private static var getActualMaximum_MethodID_22: jmethodID?
 
     open func getActualMaximum( field: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: field, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActualMaximum", methodSig: "(I)I", methodCache: &GregorianCalendar.getActualMaximum_MethodID_23, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActualMaximum", methodSig: "(I)I", methodCache: &GregorianCalendar.getActualMaximum_MethodID_22, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
     override open func getActualMaximum( _ _field: Int ) -> Int {
         return getActualMaximum( field: _field )
+    }
+
+    /// public java.util.TimeZone java.util.GregorianCalendar.getTimeZone()
+
+    /// public void java.util.GregorianCalendar.setTimeZone(java.util.TimeZone)
+
+    private static var setTimeZone_MethodID_23: jmethodID?
+
+    open func setTimeZone( zone: TimeZone? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: zone, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTimeZone", methodSig: "(Ljava/util/TimeZone;)V", methodCache: &GregorianCalendar.setTimeZone_MethodID_23, args: &__args, locals: &__locals )
+    }
+
+    override open func setTimeZone( _ _zone: TimeZone? ) {
+        setTimeZone( zone: _zone )
     }
 
     /// public final java.util.Date java.util.GregorianCalendar.getGregorianChange()
@@ -784,13 +784,13 @@ open class GregorianCalendar: Calendar {
         return isLeapYear( year: _year )
     }
 
-    /// private int java.util.GregorianCalendar.yearLength(int)
-
     /// private int java.util.GregorianCalendar.yearLength()
 
-    /// private int java.util.GregorianCalendar.monthLength(int)
+    /// private int java.util.GregorianCalendar.yearLength(int)
 
     /// private int java.util.GregorianCalendar.monthLength(int,int)
+
+    /// private int java.util.GregorianCalendar.monthLength(int)
 
     /// private boolean java.util.GregorianCalendar.isCutoverYear(int)
 

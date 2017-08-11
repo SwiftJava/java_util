@@ -25,8 +25,8 @@ open class ToDoubleBiFunctionForward: JNIObjectForward, ToDoubleBiFunction {
     open func applyAsDouble( t: java_swift.JavaObject?, u: java_swift.JavaObject? ) -> Double {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: u != nil ? u! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
+        __args[1] = JNIType.toJava( value: u, locals: &__locals )
         let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "applyAsDouble", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)D", methodCache: &ToDoubleBiFunctionForward.applyAsDouble_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Double(), from: __return )
     }

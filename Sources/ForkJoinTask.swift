@@ -78,7 +78,7 @@ open class ForkJoinTask: java_swift.JavaObject, Future, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &ForkJoinTask.get_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
@@ -206,7 +206,7 @@ open class ForkJoinTask: java_swift.JavaObject, Future, /* java.io.Serializable 
     open func complete( value: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value != nil ? value! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: value, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "complete", methodSig: "(Ljava/lang/Object;)V", methodCache: &ForkJoinTask.complete_MethodID_12, args: &__args, locals: &__locals )
     }
 
@@ -236,7 +236,7 @@ open class ForkJoinTask: java_swift.JavaObject, Future, /* java.io.Serializable 
     open func setRawResult( value: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value != nil ? value! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: value, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawResult", methodSig: "(Ljava/lang/Object;)V", methodCache: &ForkJoinTask.setRawResult_MethodID_14, args: &__args, locals: &__locals )
     }
 
@@ -285,8 +285,8 @@ open class ForkJoinTask: java_swift.JavaObject, Future, /* java.io.Serializable 
     open class func invokeAll( t1: ForkJoinTask?, t2: ForkJoinTask? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t1 != nil ? t1! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: t2 != nil ? t2! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t1, locals: &__locals )
+        __args[1] = JNIType.toJava( value: t2, locals: &__locals )
         JNIMethod.CallStaticVoidMethod( className: "java/util/concurrent/ForkJoinTask", classCache: &ForkJoinTaskJNIClass, methodName: "invokeAll", methodSig: "(Ljava/util/concurrent/ForkJoinTask;Ljava/util/concurrent/ForkJoinTask;)V", methodCache: &invokeAll_MethodID_15, args: &__args, locals: &__locals )
     }
 
@@ -397,7 +397,7 @@ open class ForkJoinTask: java_swift.JavaObject, Future, /* java.io.Serializable 
     open func completeExceptionally( ex: java_swift.Throwable? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: ex != nil ? ex! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: ex, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "completeExceptionally", methodSig: "(Ljava/lang/Throwable;)V", methodCache: &ForkJoinTask.completeExceptionally_MethodID_23, args: &__args, locals: &__locals )
     }
 
@@ -612,7 +612,7 @@ open class ForkJoinTask: java_swift.JavaObject, Future, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: runnable, locals: &__locals )
-        __args[1] = JNIType.toJava( value: result != nil ? result! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: result, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/ForkJoinTask", classCache: &ForkJoinTaskJNIClass, methodName: "adapt", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/ForkJoinTask;", methodCache: &adapt_MethodID_39, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ForkJoinTask( javaObject: __return ) : nil

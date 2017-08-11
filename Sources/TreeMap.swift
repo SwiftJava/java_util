@@ -139,8 +139,8 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     override open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeMap.replace_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -157,9 +157,9 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     override open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2 != nil ? arg2! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &TreeMap.replace_MethodID_7, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -319,9 +319,9 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
 
     /// void java.util.TreeMap.addAllForTreeSet(java.util.SortedSet,java.lang.Object)
 
-    /// private final java.util.TreeMap$Entry java.util.TreeMap.buildFromSorted(int,int,int,int,java.util.Iterator,java.io.ObjectInputStream,java.lang.Object) throws java.io.IOException,java.lang.ClassNotFoundException
-
     /// private void java.util.TreeMap.buildFromSorted(int,java.util.Iterator,java.io.ObjectInputStream,java.lang.Object) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// private final java.util.TreeMap$Entry java.util.TreeMap.buildFromSorted(int,int,int,int,java.util.Iterator,java.io.ObjectInputStream,java.lang.Object) throws java.io.IOException,java.lang.ClassNotFoundException
 
     /// private static int java.util.TreeMap.computeRedLevel(int)
 
@@ -330,10 +330,6 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     /// final java.util.Spliterator java.util.TreeMap.keySpliterator()
 
     /// final java.util.Spliterator java.util.TreeMap.descendingKeySpliterator()
-
-    /// private static void java.util.TreeMap.setColor(java.util.TreeMap$Entry,boolean)
-
-    /// static java.util.TreeMap$Entry java.util.TreeMap.predecessor(java.util.TreeMap$Entry)
 
     /// public java.lang.Object java.util.TreeMap.lastKey()
 
@@ -355,7 +351,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func lowerEntry( key: java_swift.JavaObject? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "lowerEntry", methodSig: "(Ljava/lang/Object;)Ljava/util/Map$Entry;", methodCache: &TreeMap.lowerEntry_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
@@ -372,7 +368,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func lowerKey( key: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "lowerKey", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeMap.lowerKey_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -389,7 +385,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func floorEntry( key: java_swift.JavaObject? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floorEntry", methodSig: "(Ljava/lang/Object;)Ljava/util/Map$Entry;", methodCache: &TreeMap.floorEntry_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
@@ -406,7 +402,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func floorKey( key: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floorKey", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeMap.floorKey_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -423,7 +419,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func ceilingEntry( key: java_swift.JavaObject? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ceilingEntry", methodSig: "(Ljava/lang/Object;)Ljava/util/Map$Entry;", methodCache: &TreeMap.ceilingEntry_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
@@ -440,7 +436,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func ceilingKey( key: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ceilingKey", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeMap.ceilingKey_MethodID_19, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -457,7 +453,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func higherEntry( key: java_swift.JavaObject? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "higherEntry", methodSig: "(Ljava/lang/Object;)Ljava/util/Map$Entry;", methodCache: &TreeMap.higherEntry_MethodID_20, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
@@ -474,7 +470,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func higherKey( key: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "higherKey", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeMap.higherKey_MethodID_21, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -575,36 +571,16 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     }
 
 
-    /// public java.util.NavigableMap java.util.TreeMap.subMap(java.lang.Object,boolean,java.lang.Object,boolean)
-
-    private static var subMap_MethodID_29: jmethodID?
-
-    open func subMap( fromKey: java_swift.JavaObject?, fromInclusive: Bool, toKey: java_swift.JavaObject?, toInclusive: Bool ) -> NavigableMap! {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromKey != nil ? fromKey! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: fromInclusive, locals: &__locals )
-        __args[2] = JNIType.toJava( value: toKey != nil ? toKey! as JNIObject : nil, locals: &__locals )
-        __args[3] = JNIType.toJava( value: toInclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &TreeMap.subMap_MethodID_29, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: NavigableMapForward(), from: __return )
-    }
-
-    open func subMap( _ _fromKey: java_swift.JavaObject?, _ _fromInclusive: Bool, _ _toKey: java_swift.JavaObject?, _ _toInclusive: Bool ) -> NavigableMap! {
-        return subMap( fromKey: _fromKey, fromInclusive: _fromInclusive, toKey: _toKey, toInclusive: _toInclusive )
-    }
-
     /// public java.util.SortedMap java.util.TreeMap.subMap(java.lang.Object,java.lang.Object)
 
-    private static var subMap_MethodID_30: jmethodID?
+    private static var subMap_MethodID_29: jmethodID?
 
     open func subMap( fromKey: java_swift.JavaObject?, toKey: java_swift.JavaObject? ) -> SortedMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromKey != nil ? fromKey! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toKey != nil ? toKey! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &TreeMap.subMap_MethodID_30, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
+        __args[1] = JNIType.toJava( value: toKey, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &TreeMap.subMap_MethodID_29, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: SortedMapForward(), from: __return )
     }
@@ -613,39 +589,59 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
         return subMap( fromKey: _fromKey, toKey: _toKey )
     }
 
-    /// public java.util.SortedMap java.util.TreeMap.headMap(java.lang.Object)
+    /// public java.util.NavigableMap java.util.TreeMap.subMap(java.lang.Object,boolean,java.lang.Object,boolean)
 
-    private static var headMap_MethodID_31: jmethodID?
+    private static var subMap_MethodID_30: jmethodID?
 
-    open func headMap( toKey: java_swift.JavaObject? ) -> SortedMap! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func subMap( fromKey: java_swift.JavaObject?, fromInclusive: Bool, toKey: java_swift.JavaObject?, toInclusive: Bool ) -> NavigableMap! {
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toKey != nil ? toKey! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headMap", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &TreeMap.headMap_MethodID_31, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
+        __args[1] = JNIType.toJava( value: fromInclusive, locals: &__locals )
+        __args[2] = JNIType.toJava( value: toKey, locals: &__locals )
+        __args[3] = JNIType.toJava( value: toInclusive, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &TreeMap.subMap_MethodID_30, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: SortedMapForward(), from: __return )
+        return JNIType.toSwift( type: NavigableMapForward(), from: __return )
     }
 
-    open func headMap( _ _toKey: java_swift.JavaObject? ) -> SortedMap! {
-        return headMap( toKey: _toKey )
+    open func subMap( _ _fromKey: java_swift.JavaObject?, _ _fromInclusive: Bool, _ _toKey: java_swift.JavaObject?, _ _toInclusive: Bool ) -> NavigableMap! {
+        return subMap( fromKey: _fromKey, fromInclusive: _fromInclusive, toKey: _toKey, toInclusive: _toInclusive )
     }
 
     /// public java.util.NavigableMap java.util.TreeMap.headMap(java.lang.Object,boolean)
 
-    private static var headMap_MethodID_32: jmethodID?
+    private static var headMap_MethodID_31: jmethodID?
 
     open func headMap( toKey: java_swift.JavaObject?, inclusive: Bool ) -> NavigableMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toKey != nil ? toKey! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: toKey, locals: &__locals )
         __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headMap", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &TreeMap.headMap_MethodID_32, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headMap", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &TreeMap.headMap_MethodID_31, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: NavigableMapForward(), from: __return )
     }
 
     open func headMap( _ _toKey: java_swift.JavaObject?, _ _inclusive: Bool ) -> NavigableMap! {
         return headMap( toKey: _toKey, inclusive: _inclusive )
+    }
+
+    /// public java.util.SortedMap java.util.TreeMap.headMap(java.lang.Object)
+
+    private static var headMap_MethodID_32: jmethodID?
+
+    open func headMap( toKey: java_swift.JavaObject? ) -> SortedMap! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: toKey, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headMap", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &TreeMap.headMap_MethodID_32, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return JNIType.toSwift( type: SortedMapForward(), from: __return )
+    }
+
+    open func headMap( _ _toKey: java_swift.JavaObject? ) -> SortedMap! {
+        return headMap( toKey: _toKey )
     }
 
     /// public java.util.NavigableMap java.util.TreeMap.tailMap(java.lang.Object,boolean)
@@ -655,7 +651,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func tailMap( fromKey: java_swift.JavaObject?, inclusive: Bool ) -> NavigableMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromKey != nil ? fromKey! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
         __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &TreeMap.tailMap_MethodID_33, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -673,7 +669,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func tailMap( fromKey: java_swift.JavaObject? ) -> SortedMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromKey != nil ? fromKey! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &TreeMap.tailMap_MethodID_34, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: SortedMapForward(), from: __return )
@@ -682,6 +678,10 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     open func tailMap( _ _fromKey: java_swift.JavaObject? ) -> SortedMap! {
         return tailMap( fromKey: _fromKey )
     }
+
+    /// static java.util.TreeMap$Entry java.util.TreeMap.predecessor(java.util.TreeMap$Entry)
+
+    /// private static void java.util.TreeMap.setColor(java.util.TreeMap$Entry,boolean)
 
     /// In declared protocol but not defined.. ///
 
@@ -692,7 +692,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     override open func equals( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &TreeMap.equals_MethodID_35, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -708,7 +708,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     override open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeMap.remove_MethodID_36, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -737,8 +737,8 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     override open func put( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeMap.put_MethodID_37, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -759,7 +759,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     override open func get( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeMap.get_MethodID_38, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -776,7 +776,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     override open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &TreeMap.containsValue_MethodID_39, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -796,7 +796,7 @@ open class TreeMap: AbstractMap, java_lang.Cloneable, /* java.io.Serializable */
     override open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &TreeMap.containsKey_MethodID_40, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

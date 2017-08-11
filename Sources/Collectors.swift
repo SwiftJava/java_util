@@ -88,62 +88,54 @@ open class Collectors: java_swift.JavaObject {
 
     /// static java.util.function.Function java.util.stream.Collectors.access$000()
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.summarizingInt(java.util.function.ToIntFunction)
+    /// static double[] java.util.stream.Collectors.sumWithCompensation(double[],double)
 
-    private static var summarizingInt_MethodID_4: jmethodID?
+    /// public static java.util.stream.Collector java.util.stream.Collectors.toList()
 
-    open class func summarizingInt( mapper: ToIntFunction? ) -> Collector! {
+    private static var toList_MethodID_4: jmethodID?
+
+    open class func toList() -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "summarizingInt", methodSig: "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;", methodCache: &summarizingInt_MethodID_4, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "toList", methodSig: "()Ljava/util/stream/Collector;", methodCache: &toList_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func summarizingInt( _ _mapper: ToIntFunction? ) -> Collector! {
-        return summarizingInt( mapper: _mapper )
-    }
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.summarizingLong(java.util.function.ToLongFunction)
+    /// public static java.util.stream.Collector java.util.stream.Collectors.minBy(java.util.Comparator)
 
-    private static var summarizingLong_MethodID_5: jmethodID?
+    private static var minBy_MethodID_5: jmethodID?
 
-    open class func summarizingLong( mapper: ToLongFunction? ) -> Collector! {
+    open class func minBy( comparator: JavaComparator? ) -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "summarizingLong", methodSig: "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/Collector;", methodCache: &summarizingLong_MethodID_5, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: comparator, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "minBy", methodSig: "(Ljava/util/Comparator;)Ljava/util/stream/Collector;", methodCache: &minBy_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func summarizingLong( _ _mapper: ToLongFunction? ) -> Collector! {
-        return summarizingLong( mapper: _mapper )
+    open class func minBy( _ _comparator: JavaComparator? ) -> Collector! {
+        return minBy( comparator: _comparator )
     }
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.summarizingDouble(java.util.function.ToDoubleFunction)
+    /// public static java.util.stream.Collector java.util.stream.Collectors.maxBy(java.util.Comparator)
 
-    private static var summarizingDouble_MethodID_6: jmethodID?
+    private static var maxBy_MethodID_6: jmethodID?
 
-    open class func summarizingDouble( mapper: ToDoubleFunction? ) -> Collector! {
+    open class func maxBy( comparator: JavaComparator? ) -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "summarizingDouble", methodSig: "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/Collector;", methodCache: &summarizingDouble_MethodID_6, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: comparator, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "maxBy", methodSig: "(Ljava/util/Comparator;)Ljava/util/stream/Collector;", methodCache: &maxBy_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func summarizingDouble( _ _mapper: ToDoubleFunction? ) -> Collector! {
-        return summarizingDouble( mapper: _mapper )
+    open class func maxBy( _ _comparator: JavaComparator? ) -> Collector! {
+        return maxBy( comparator: _comparator )
     }
-
-    /// private static java.util.DoubleSummaryStatistics java.util.stream.Collectors.lambda$summarizingDouble$65(java.util.DoubleSummaryStatistics,java.util.DoubleSummaryStatistics)
-
-    /// private static void java.util.stream.Collectors.lambda$summarizingDouble$64(java.util.function.ToDoubleFunction,java.util.DoubleSummaryStatistics,java.lang.Object)
-
-    /// private static java.util.LongSummaryStatistics java.util.stream.Collectors.lambda$summarizingLong$63(java.util.LongSummaryStatistics,java.util.LongSummaryStatistics)
 
     /// private static void java.util.stream.Collectors.lambda$summarizingLong$62(java.util.function.ToLongFunction,java.util.LongSummaryStatistics,java.lang.Object)
 
@@ -278,7 +270,7 @@ open class Collectors: java_swift.JavaObject {
     open class func reducing( identity: java_swift.JavaObject?, op: BinaryOperator? ) -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: identity != nil ? identity! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: identity, locals: &__locals )
         __args[1] = JNIType.toJava( value: op, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "reducing", methodSig: "(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", methodCache: &reducing_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -313,7 +305,7 @@ open class Collectors: java_swift.JavaObject {
     open class func reducing( identity: java_swift.JavaObject?, mapper: Function?, op: BinaryOperator? ) -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: identity != nil ? identity! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: identity, locals: &__locals )
         __args[1] = JNIType.toJava( value: mapper, locals: &__locals )
         __args[2] = JNIType.toJava( value: op, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "reducing", methodSig: "(Ljava/lang/Object;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", methodCache: &reducing_MethodID_9, args: &__args, locals: &__locals )
@@ -359,18 +351,24 @@ open class Collectors: java_swift.JavaObject {
     }
 
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.joining()
+    /// public static java.util.stream.Collector java.util.stream.Collectors.joining(java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence)
 
     private static var joining_MethodID_12: jmethodID?
 
-    open class func joining() -> Collector! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func joining( delimiter: java_lang.CharSequence?, prefix: java_lang.CharSequence?, suffix: java_lang.CharSequence? ) -> Collector! {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "joining", methodSig: "()Ljava/util/stream/Collector;", methodCache: &joining_MethodID_12, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: delimiter, locals: &__locals )
+        __args[1] = JNIType.toJava( value: prefix, locals: &__locals )
+        __args[2] = JNIType.toJava( value: suffix, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "joining", methodSig: "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/stream/Collector;", methodCache: &joining_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
+    open class func joining( _ _delimiter: java_lang.CharSequence?, _ _prefix: java_lang.CharSequence?, _ _suffix: java_lang.CharSequence? ) -> Collector! {
+        return joining( delimiter: _delimiter, prefix: _prefix, suffix: _suffix )
+    }
 
     /// public static java.util.stream.Collector java.util.stream.Collectors.joining(java.lang.CharSequence)
 
@@ -389,24 +387,18 @@ open class Collectors: java_swift.JavaObject {
         return joining( delimiter: _delimiter )
     }
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.joining(java.lang.CharSequence,java.lang.CharSequence,java.lang.CharSequence)
+    /// public static java.util.stream.Collector java.util.stream.Collectors.joining()
 
     private static var joining_MethodID_14: jmethodID?
 
-    open class func joining( delimiter: java_lang.CharSequence?, prefix: java_lang.CharSequence?, suffix: java_lang.CharSequence? ) -> Collector! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    open class func joining() -> Collector! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: delimiter, locals: &__locals )
-        __args[1] = JNIType.toJava( value: prefix, locals: &__locals )
-        __args[2] = JNIType.toJava( value: suffix, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "joining", methodSig: "(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/util/stream/Collector;", methodCache: &joining_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "joining", methodSig: "()Ljava/util/stream/Collector;", methodCache: &joining_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func joining( _ _delimiter: java_lang.CharSequence?, _ _prefix: java_lang.CharSequence?, _ _suffix: java_lang.CharSequence? ) -> Collector! {
-        return joining( delimiter: _delimiter, prefix: _prefix, suffix: _suffix )
-    }
 
     /// private static java.util.function.BinaryOperator java.util.stream.Collectors.mapMerger(java.util.function.BinaryOperator)
 
@@ -637,9 +629,26 @@ open class Collectors: java_swift.JavaObject {
         return groupingByConcurrent( classifier: _classifier, downstream: _downstream )
     }
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.groupingByConcurrent(java.util.function.Function,java.util.function.Supplier,java.util.stream.Collector)
+    /// public static java.util.stream.Collector java.util.stream.Collectors.groupingByConcurrent(java.util.function.Function)
 
     private static var groupingByConcurrent_MethodID_28: jmethodID?
+
+    open class func groupingByConcurrent( classifier: Function? ) -> Collector! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: classifier, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "groupingByConcurrent", methodSig: "(Ljava/util/function/Function;)Ljava/util/stream/Collector;", methodCache: &groupingByConcurrent_MethodID_28, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? CollectorForward( javaObject: __return ) : nil
+    }
+
+    open class func groupingByConcurrent( _ _classifier: Function? ) -> Collector! {
+        return groupingByConcurrent( classifier: _classifier )
+    }
+
+    /// public static java.util.stream.Collector java.util.stream.Collectors.groupingByConcurrent(java.util.function.Function,java.util.function.Supplier,java.util.stream.Collector)
+
+    private static var groupingByConcurrent_MethodID_29: jmethodID?
 
     open class func groupingByConcurrent( classifier: Function?, mapFactory: Supplier?, downstream: Collector? ) -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
@@ -647,30 +656,13 @@ open class Collectors: java_swift.JavaObject {
         __args[0] = JNIType.toJava( value: classifier, locals: &__locals )
         __args[1] = JNIType.toJava( value: mapFactory, locals: &__locals )
         __args[2] = JNIType.toJava( value: downstream, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "groupingByConcurrent", methodSig: "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", methodCache: &groupingByConcurrent_MethodID_28, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "groupingByConcurrent", methodSig: "(Ljava/util/function/Function;Ljava/util/function/Supplier;Ljava/util/stream/Collector;)Ljava/util/stream/Collector;", methodCache: &groupingByConcurrent_MethodID_29, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
     open class func groupingByConcurrent( _ _classifier: Function?, _ _mapFactory: Supplier?, _ _downstream: Collector? ) -> Collector! {
         return groupingByConcurrent( classifier: _classifier, mapFactory: _mapFactory, downstream: _downstream )
-    }
-
-    /// public static java.util.stream.Collector java.util.stream.Collectors.groupingByConcurrent(java.util.function.Function)
-
-    private static var groupingByConcurrent_MethodID_29: jmethodID?
-
-    open class func groupingByConcurrent( classifier: Function? ) -> Collector! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: classifier, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "groupingByConcurrent", methodSig: "(Ljava/util/function/Function;)Ljava/util/stream/Collector;", methodCache: &groupingByConcurrent_MethodID_29, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? CollectorForward( javaObject: __return ) : nil
-    }
-
-    open class func groupingByConcurrent( _ _classifier: Function? ) -> Collector! {
-        return groupingByConcurrent( classifier: _classifier )
     }
 
     /// public static java.util.stream.Collector java.util.stream.Collectors.partitioningBy(java.util.function.Predicate)
@@ -708,24 +700,23 @@ open class Collectors: java_swift.JavaObject {
         return partitioningBy( predicate: _predicate, downstream: _downstream )
     }
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.toConcurrentMap(java.util.function.Function,java.util.function.Function,java.util.function.BinaryOperator,java.util.function.Supplier)
+    /// public static java.util.stream.Collector java.util.stream.Collectors.toConcurrentMap(java.util.function.Function,java.util.function.Function,java.util.function.BinaryOperator)
 
     private static var toConcurrentMap_MethodID_32: jmethodID?
 
-    open class func toConcurrentMap( keyMapper: Function?, valueMapper: Function?, mergeFunction: BinaryOperator?, mapSupplier: Supplier? ) -> Collector! {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+    open class func toConcurrentMap( keyMapper: Function?, valueMapper: Function?, mergeFunction: BinaryOperator? ) -> Collector! {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: keyMapper, locals: &__locals )
         __args[1] = JNIType.toJava( value: valueMapper, locals: &__locals )
         __args[2] = JNIType.toJava( value: mergeFunction, locals: &__locals )
-        __args[3] = JNIType.toJava( value: mapSupplier, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "toConcurrentMap", methodSig: "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Ljava/util/stream/Collector;", methodCache: &toConcurrentMap_MethodID_32, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "toConcurrentMap", methodSig: "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", methodCache: &toConcurrentMap_MethodID_32, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func toConcurrentMap( _ _keyMapper: Function?, _ _valueMapper: Function?, _ _mergeFunction: BinaryOperator?, _ _mapSupplier: Supplier? ) -> Collector! {
-        return toConcurrentMap( keyMapper: _keyMapper, valueMapper: _valueMapper, mergeFunction: _mergeFunction, mapSupplier: _mapSupplier )
+    open class func toConcurrentMap( _ _keyMapper: Function?, _ _valueMapper: Function?, _ _mergeFunction: BinaryOperator? ) -> Collector! {
+        return toConcurrentMap( keyMapper: _keyMapper, valueMapper: _valueMapper, mergeFunction: _mergeFunction )
     }
 
     /// public static java.util.stream.Collector java.util.stream.Collectors.toConcurrentMap(java.util.function.Function,java.util.function.Function)
@@ -746,73 +737,82 @@ open class Collectors: java_swift.JavaObject {
         return toConcurrentMap( keyMapper: _keyMapper, valueMapper: _valueMapper )
     }
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.toConcurrentMap(java.util.function.Function,java.util.function.Function,java.util.function.BinaryOperator)
+    /// public static java.util.stream.Collector java.util.stream.Collectors.toConcurrentMap(java.util.function.Function,java.util.function.Function,java.util.function.BinaryOperator,java.util.function.Supplier)
 
     private static var toConcurrentMap_MethodID_34: jmethodID?
 
-    open class func toConcurrentMap( keyMapper: Function?, valueMapper: Function?, mergeFunction: BinaryOperator? ) -> Collector! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    open class func toConcurrentMap( keyMapper: Function?, valueMapper: Function?, mergeFunction: BinaryOperator?, mapSupplier: Supplier? ) -> Collector! {
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: keyMapper, locals: &__locals )
         __args[1] = JNIType.toJava( value: valueMapper, locals: &__locals )
         __args[2] = JNIType.toJava( value: mergeFunction, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "toConcurrentMap", methodSig: "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;)Ljava/util/stream/Collector;", methodCache: &toConcurrentMap_MethodID_34, args: &__args, locals: &__locals )
+        __args[3] = JNIType.toJava( value: mapSupplier, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "toConcurrentMap", methodSig: "(Ljava/util/function/Function;Ljava/util/function/Function;Ljava/util/function/BinaryOperator;Ljava/util/function/Supplier;)Ljava/util/stream/Collector;", methodCache: &toConcurrentMap_MethodID_34, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func toConcurrentMap( _ _keyMapper: Function?, _ _valueMapper: Function?, _ _mergeFunction: BinaryOperator? ) -> Collector! {
-        return toConcurrentMap( keyMapper: _keyMapper, valueMapper: _valueMapper, mergeFunction: _mergeFunction )
+    open class func toConcurrentMap( _ _keyMapper: Function?, _ _valueMapper: Function?, _ _mergeFunction: BinaryOperator?, _ _mapSupplier: Supplier? ) -> Collector! {
+        return toConcurrentMap( keyMapper: _keyMapper, valueMapper: _valueMapper, mergeFunction: _mergeFunction, mapSupplier: _mapSupplier )
     }
 
-    /// static double[] java.util.stream.Collectors.sumWithCompensation(double[],double)
+    /// public static java.util.stream.Collector java.util.stream.Collectors.summarizingInt(java.util.function.ToIntFunction)
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.minBy(java.util.Comparator)
+    private static var summarizingInt_MethodID_35: jmethodID?
 
-    private static var minBy_MethodID_35: jmethodID?
-
-    open class func minBy( comparator: JavaComparator? ) -> Collector! {
+    open class func summarizingInt( mapper: ToIntFunction? ) -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: comparator, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "minBy", methodSig: "(Ljava/util/Comparator;)Ljava/util/stream/Collector;", methodCache: &minBy_MethodID_35, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "summarizingInt", methodSig: "(Ljava/util/function/ToIntFunction;)Ljava/util/stream/Collector;", methodCache: &summarizingInt_MethodID_35, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func minBy( _ _comparator: JavaComparator? ) -> Collector! {
-        return minBy( comparator: _comparator )
+    open class func summarizingInt( _ _mapper: ToIntFunction? ) -> Collector! {
+        return summarizingInt( mapper: _mapper )
     }
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.maxBy(java.util.Comparator)
+    /// public static java.util.stream.Collector java.util.stream.Collectors.summarizingLong(java.util.function.ToLongFunction)
 
-    private static var maxBy_MethodID_36: jmethodID?
+    private static var summarizingLong_MethodID_36: jmethodID?
 
-    open class func maxBy( comparator: JavaComparator? ) -> Collector! {
+    open class func summarizingLong( mapper: ToLongFunction? ) -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: comparator, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "maxBy", methodSig: "(Ljava/util/Comparator;)Ljava/util/stream/Collector;", methodCache: &maxBy_MethodID_36, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "summarizingLong", methodSig: "(Ljava/util/function/ToLongFunction;)Ljava/util/stream/Collector;", methodCache: &summarizingLong_MethodID_36, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func maxBy( _ _comparator: JavaComparator? ) -> Collector! {
-        return maxBy( comparator: _comparator )
+    open class func summarizingLong( _ _mapper: ToLongFunction? ) -> Collector! {
+        return summarizingLong( mapper: _mapper )
     }
 
-    /// public static java.util.stream.Collector java.util.stream.Collectors.toList()
+    /// public static java.util.stream.Collector java.util.stream.Collectors.summarizingDouble(java.util.function.ToDoubleFunction)
 
-    private static var toList_MethodID_37: jmethodID?
+    private static var summarizingDouble_MethodID_37: jmethodID?
 
-    open class func toList() -> Collector! {
+    open class func summarizingDouble( mapper: ToDoubleFunction? ) -> Collector! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "toList", methodSig: "()Ljava/util/stream/Collector;", methodCache: &toList_MethodID_37, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collectors", classCache: &CollectorsJNIClass, methodName: "summarizingDouble", methodSig: "(Ljava/util/function/ToDoubleFunction;)Ljava/util/stream/Collector;", methodCache: &summarizingDouble_MethodID_37, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
+    open class func summarizingDouble( _ _mapper: ToDoubleFunction? ) -> Collector! {
+        return summarizingDouble( mapper: _mapper )
+    }
+
+    /// private static java.util.DoubleSummaryStatistics java.util.stream.Collectors.lambda$summarizingDouble$65(java.util.DoubleSummaryStatistics,java.util.DoubleSummaryStatistics)
+
+    /// private static void java.util.stream.Collectors.lambda$summarizingDouble$64(java.util.function.ToDoubleFunction,java.util.DoubleSummaryStatistics,java.lang.Object)
+
+    /// private static java.util.LongSummaryStatistics java.util.stream.Collectors.lambda$summarizingLong$63(java.util.LongSummaryStatistics,java.util.LongSummaryStatistics)
 
 }
 

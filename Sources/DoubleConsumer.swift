@@ -11,11 +11,11 @@ public protocol DoubleConsumer: JavaProtocol {
 
     func accept( value: Double )
 
+    /// private void java.util.function.DoubleConsumer.lambda$andThen$0(java.util.function.DoubleConsumer,double)
+
     /// public default java.util.function.DoubleConsumer java.util.function.DoubleConsumer.andThen(java.util.function.DoubleConsumer)
 
     func andThen( after: DoubleConsumer? ) -> DoubleConsumer!
-
-    /// private void java.util.function.DoubleConsumer.lambda$andThen$0(java.util.function.DoubleConsumer,double)
 
 }
 

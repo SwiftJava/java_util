@@ -101,8 +101,8 @@ open class SortedSetForward: java_swift.JavaSetForward, SortedSet {
     open func subSet( fromElement: java_swift.JavaObject?, toElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
+        __args[1] = JNIType.toJava( value: toElement, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &SortedSetForward.subSet_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
@@ -119,7 +119,7 @@ open class SortedSetForward: java_swift.JavaSetForward, SortedSet {
     open func headSet( toElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: toElement, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &SortedSetForward.headSet_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
@@ -136,7 +136,7 @@ open class SortedSetForward: java_swift.JavaSetForward, SortedSet {
     open func tailSet( fromElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &SortedSetForward.tailSet_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
@@ -153,7 +153,7 @@ open class SortedSetForward: java_swift.JavaSetForward, SortedSet {
     override open func add( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "add", methodSig: "(Ljava/lang/Object;)Z", methodCache: &SortedSetForward.add_MethodID_15, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -169,7 +169,7 @@ open class SortedSetForward: java_swift.JavaSetForward, SortedSet {
     override open func remove( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Z", methodCache: &SortedSetForward.remove_MethodID_16, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -185,7 +185,7 @@ open class SortedSetForward: java_swift.JavaSetForward, SortedSet {
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &SortedSetForward.equals_MethodID_17, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -236,7 +236,7 @@ open class SortedSetForward: java_swift.JavaSetForward, SortedSet {
     override open func contains( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "contains", methodSig: "(Ljava/lang/Object;)Z", methodCache: &SortedSetForward.contains_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

@@ -74,7 +74,7 @@ open class ZipOutputStream: DeflaterOutputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &ZipOutputStream.def_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -114,7 +114,7 @@ open class ZipOutputStream: DeflaterOutputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &ZipOutputStream.out_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -126,8 +126,8 @@ open class ZipOutputStream: DeflaterOutputStream {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, charset: /* java.nio.charset.Charset */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: charset != nil ? charset! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = JNIType.toJava( value: charset, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipOutputStream", classCache: &ZipOutputStream.ZipOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/nio/charset/Charset;)V", methodCache: &ZipOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -144,7 +144,7 @@ open class ZipOutputStream: DeflaterOutputStream {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipOutputStream", classCache: &ZipOutputStream.ZipOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;)V", methodCache: &ZipOutputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -166,14 +166,52 @@ open class ZipOutputStream: DeflaterOutputStream {
 
     /// private void java.util.zip.ZipOutputStream.ensureOpen() throws java.io.IOException
 
+    /// public void java.util.zip.ZipOutputStream.finish() throws java.io.IOException
+
+    /// private void java.util.zip.ZipOutputStream.writeByte(int) throws java.io.IOException
+
+    /// private void java.util.zip.ZipOutputStream.writeShort(int) throws java.io.IOException
+
+    /// private void java.util.zip.ZipOutputStream.writeLong(long) throws java.io.IOException
+
+    /// public void java.util.zip.ZipOutputStream.setMethod(int)
+
+    private static var setMethod_MethodID_3: jmethodID?
+
+    open func setMethod( method: Int ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: method, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMethod", methodSig: "(I)V", methodCache: &ZipOutputStream.setMethod_MethodID_3, args: &__args, locals: &__locals )
+    }
+
+    open func setMethod( _ _method: Int ) {
+        setMethod( method: _method )
+    }
+
+    /// public void java.util.zip.ZipOutputStream.setComment(java.lang.String)
+
+    private static var setComment_MethodID_4: jmethodID?
+
+    open func setComment( comment: String? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: comment, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setComment", methodSig: "(Ljava/lang/String;)V", methodCache: &ZipOutputStream.setComment_MethodID_4, args: &__args, locals: &__locals )
+    }
+
+    open func setComment( _ _comment: String? ) {
+        setComment( comment: _comment )
+    }
+
     /// public void java.util.zip.ZipOutputStream.closeEntry() throws java.io.IOException
 
-    private static var closeEntry_MethodID_3: jmethodID?
+    private static var closeEntry_MethodID_5: jmethodID?
 
     open func closeEntry() throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "closeEntry", methodSig: "()V", methodCache: &ZipOutputStream.closeEntry_MethodID_3, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "closeEntry", methodSig: "()V", methodCache: &ZipOutputStream.closeEntry_MethodID_5, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
         }
@@ -182,13 +220,13 @@ open class ZipOutputStream: DeflaterOutputStream {
 
     /// public void java.util.zip.ZipOutputStream.putNextEntry(java.util.zip.ZipEntry) throws java.io.IOException
 
-    private static var putNextEntry_MethodID_4: jmethodID?
+    private static var putNextEntry_MethodID_6: jmethodID?
 
     open func putNextEntry( e: ZipEntry? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "putNextEntry", methodSig: "(Ljava/util/zip/ZipEntry;)V", methodCache: &ZipOutputStream.putNextEntry_MethodID_4, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "putNextEntry", methodSig: "(Ljava/util/zip/ZipEntry;)V", methodCache: &ZipOutputStream.putNextEntry_MethodID_6, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
         }
@@ -200,13 +238,13 @@ open class ZipOutputStream: DeflaterOutputStream {
 
     /// public void java.util.zip.ZipOutputStream.setLevel(int)
 
-    private static var setLevel_MethodID_5: jmethodID?
+    private static var setLevel_MethodID_7: jmethodID?
 
     open func setLevel( level: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: level, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLevel", methodSig: "(I)V", methodCache: &ZipOutputStream.setLevel_MethodID_5, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLevel", methodSig: "(I)V", methodCache: &ZipOutputStream.setLevel_MethodID_7, args: &__args, locals: &__locals )
     }
 
     open func setLevel( _ _level: Int ) {
@@ -224,44 +262,6 @@ open class ZipOutputStream: DeflaterOutputStream {
     /// private int java.util.zip.ZipOutputStream.getExtraLen(byte[])
 
     /// private void java.util.zip.ZipOutputStream.writeExtra(byte[]) throws java.io.IOException
-
-    /// public void java.util.zip.ZipOutputStream.setMethod(int)
-
-    private static var setMethod_MethodID_6: jmethodID?
-
-    open func setMethod( method: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: method, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMethod", methodSig: "(I)V", methodCache: &ZipOutputStream.setMethod_MethodID_6, args: &__args, locals: &__locals )
-    }
-
-    open func setMethod( _ _method: Int ) {
-        setMethod( method: _method )
-    }
-
-    /// public void java.util.zip.ZipOutputStream.setComment(java.lang.String)
-
-    private static var setComment_MethodID_7: jmethodID?
-
-    open func setComment( comment: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: comment, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setComment", methodSig: "(Ljava/lang/String;)V", methodCache: &ZipOutputStream.setComment_MethodID_7, args: &__args, locals: &__locals )
-    }
-
-    open func setComment( _ _comment: String? ) {
-        setComment( comment: _comment )
-    }
-
-    /// public void java.util.zip.ZipOutputStream.finish() throws java.io.IOException
-
-    /// private void java.util.zip.ZipOutputStream.writeByte(int) throws java.io.IOException
-
-    /// private void java.util.zip.ZipOutputStream.writeShort(int) throws java.io.IOException
-
-    /// private void java.util.zip.ZipOutputStream.writeLong(long) throws java.io.IOException
 
 }
 

@@ -38,7 +38,7 @@ open class PropertyResourceBundle: ResourceBundle {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "parent", fieldType: "Ljava/util/ResourceBundle;", fieldCache: &PropertyResourceBundle.parent_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -64,7 +64,7 @@ open class PropertyResourceBundle: ResourceBundle {
     public convenience init( stream: /* java.io.InputStream */ UnclassedObject? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: stream != nil ? stream! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: stream, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/PropertyResourceBundle", classCache: &PropertyResourceBundle.PropertyResourceBundleJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &PropertyResourceBundle.new_MethodID_1, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -78,8 +78,6 @@ open class PropertyResourceBundle: ResourceBundle {
     }
 
     /// public java.util.PropertyResourceBundle(java.io.Reader) throws java.io.IOException
-
-    /// public java.util.Enumeration java.util.PropertyResourceBundle.getKeys()
 
     /// public java.lang.Object java.util.PropertyResourceBundle.handleGetObject(java.lang.String)
 
@@ -110,6 +108,8 @@ open class PropertyResourceBundle: ResourceBundle {
         return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
     }
 
+
+    /// public java.util.Enumeration java.util.PropertyResourceBundle.getKeys()
 
 }
 

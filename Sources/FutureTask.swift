@@ -57,7 +57,7 @@ open class FutureTask: java_swift.JavaObject, RunnableFuture {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: runnable, locals: &__locals )
-        __args[1] = JNIType.toJava( value: result != nil ? result! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: result, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/FutureTask", classCache: &FutureTask.FutureTaskJNIClass, methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)V", methodCache: &FutureTask.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -103,7 +103,7 @@ open class FutureTask: java_swift.JavaObject, RunnableFuture {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &FutureTask.get_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
@@ -139,7 +139,7 @@ open class FutureTask: java_swift.JavaObject, RunnableFuture {
     open func set( v: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: v != nil ? v! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: v, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(Ljava/lang/Object;)V", methodCache: &FutureTask.set_MethodID_6, args: &__args, locals: &__locals )
     }
 
@@ -207,7 +207,7 @@ open class FutureTask: java_swift.JavaObject, RunnableFuture {
     open func setException( t: java_swift.Throwable? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setException", methodSig: "(Ljava/lang/Throwable;)V", methodCache: &FutureTask.setException_MethodID_11, args: &__args, locals: &__locals )
     }
 

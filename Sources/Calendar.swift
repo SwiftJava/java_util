@@ -748,8 +748,8 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     public convenience init( arg0: TimeZone?, arg1: JavaLocale? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Calendar", classCache: &Calendar.CalendarJNIClass, methodSig: "(Ljava/util/TimeZone;Ljava/util/Locale;)V", methodCache: &Calendar.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -810,37 +810,37 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     }
 
 
-    /// public int java.util.Calendar.compareTo(java.util.Calendar)
-
-    private static var compareTo_MethodID_6: jmethodID?
-
-    open func compareTo( arg0: Calendar? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/util/Calendar;)I", methodCache: &Calendar.compareTo_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func compareTo( _ _arg0: Calendar? ) -> Int {
-        return compareTo( arg0: _arg0 )
-    }
-
     /// private int java.util.Calendar.compareTo(long)
 
     /// public int java.util.Calendar.compareTo(java.lang.Object)
 
-    private static var compareTo_MethodID_7: jmethodID?
+    private static var compareTo_MethodID_6: jmethodID?
 
     open func compareTo( arg0: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/lang/Object;)I", methodCache: &Calendar.compareTo_MethodID_7, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/lang/Object;)I", methodCache: &Calendar.compareTo_MethodID_6, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
     open func compareTo( _ _arg0: java_swift.JavaObject? ) -> Int {
+        return compareTo( arg0: _arg0 )
+    }
+
+    /// public int java.util.Calendar.compareTo(java.util.Calendar)
+
+    private static var compareTo_MethodID_7: jmethodID?
+
+    open func compareTo( arg0: Calendar? ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/util/Calendar;)I", methodCache: &Calendar.compareTo_MethodID_7, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func compareTo( _ _arg0: Calendar? ) -> Int {
         return compareTo( arg0: _arg0 )
     }
 
@@ -883,21 +883,22 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     }
 
 
-    /// public static java.util.Calendar java.util.Calendar.getInstance(java.util.Locale)
+    /// public static java.util.Calendar java.util.Calendar.getInstance(java.util.TimeZone,java.util.Locale)
 
     private static var getInstance_MethodID_11: jmethodID?
 
-    open class func getInstance( arg0: JavaLocale? ) -> Calendar! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getInstance( arg0: TimeZone?, arg1: JavaLocale? ) -> Calendar! {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Calendar", classCache: &CalendarJNIClass, methodName: "getInstance", methodSig: "(Ljava/util/Locale;)Ljava/util/Calendar;", methodCache: &getInstance_MethodID_11, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Calendar", classCache: &CalendarJNIClass, methodName: "getInstance", methodSig: "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", methodCache: &getInstance_MethodID_11, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Calendar( javaObject: __return ) : nil
     }
 
-    open class func getInstance( _ _arg0: JavaLocale? ) -> Calendar! {
-        return getInstance( arg0: _arg0 )
+    open class func getInstance( _ _arg0: TimeZone?, _ _arg1: JavaLocale? ) -> Calendar! {
+        return getInstance( arg0: _arg0, arg1: _arg1 )
     }
 
     /// public static java.util.Calendar java.util.Calendar.getInstance(java.util.TimeZone)
@@ -907,7 +908,7 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     open class func getInstance( arg0: TimeZone? ) -> Calendar! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Calendar", classCache: &CalendarJNIClass, methodName: "getInstance", methodSig: "(Ljava/util/TimeZone;)Ljava/util/Calendar;", methodCache: &getInstance_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Calendar( javaObject: __return ) : nil
@@ -917,22 +918,21 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         return getInstance( arg0: _arg0 )
     }
 
-    /// public static java.util.Calendar java.util.Calendar.getInstance(java.util.TimeZone,java.util.Locale)
+    /// public static java.util.Calendar java.util.Calendar.getInstance(java.util.Locale)
 
     private static var getInstance_MethodID_13: jmethodID?
 
-    open class func getInstance( arg0: TimeZone?, arg1: JavaLocale? ) -> Calendar! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open class func getInstance( arg0: JavaLocale? ) -> Calendar! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1 != nil ? arg1! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Calendar", classCache: &CalendarJNIClass, methodName: "getInstance", methodSig: "(Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/util/Calendar;", methodCache: &getInstance_MethodID_13, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Calendar", classCache: &CalendarJNIClass, methodName: "getInstance", methodSig: "(Ljava/util/Locale;)Ljava/util/Calendar;", methodCache: &getInstance_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Calendar( javaObject: __return ) : nil
     }
 
-    open class func getInstance( _ _arg0: TimeZone?, _ _arg1: JavaLocale? ) -> Calendar! {
-        return getInstance( arg0: _arg0, arg1: _arg1 )
+    open class func getInstance( _ _arg0: JavaLocale? ) -> Calendar! {
+        return getInstance( arg0: _arg0 )
     }
 
     /// private void java.util.Calendar.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
@@ -955,24 +955,21 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         return isSet( arg0: _arg0 )
     }
 
-    /// public final void java.util.Calendar.set(int,int,int,int,int,int)
+    /// public final void java.util.Calendar.set(int,int,int)
 
     private static var set_MethodID_15: jmethodID?
 
-    open func set( arg0: Int, arg1: Int, arg2: Int, arg3: Int, arg4: Int, arg5: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 6 )
+    open func set( arg0: Int, arg1: Int, arg2: Int ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        __args[3] = JNIType.toJava( value: arg3, locals: &__locals )
-        __args[4] = JNIType.toJava( value: arg4, locals: &__locals )
-        __args[5] = JNIType.toJava( value: arg5, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(IIIIII)V", methodCache: &Calendar.set_MethodID_15, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(III)V", methodCache: &Calendar.set_MethodID_15, args: &__args, locals: &__locals )
     }
 
-    open func set( _ _arg0: Int, _ _arg1: Int, _ _arg2: Int, _ _arg3: Int, _ _arg4: Int, _ _arg5: Int ) {
-        set( arg0: _arg0, arg1: _arg1, arg2: _arg2, arg3: _arg3, arg4: _arg4, arg5: _arg5 )
+    open func set( _ _arg0: Int, _ _arg1: Int, _ _arg2: Int ) {
+        set( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
     }
 
     /// public void java.util.Calendar.set(int,int)
@@ -991,26 +988,9 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         set( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public final void java.util.Calendar.set(int,int,int)
-
-    private static var set_MethodID_17: jmethodID?
-
-    open func set( arg0: Int, arg1: Int, arg2: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(III)V", methodCache: &Calendar.set_MethodID_17, args: &__args, locals: &__locals )
-    }
-
-    open func set( _ _arg0: Int, _ _arg1: Int, _ _arg2: Int ) {
-        set( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
-    }
-
     /// public final void java.util.Calendar.set(int,int,int,int,int)
 
-    private static var set_MethodID_18: jmethodID?
+    private static var set_MethodID_17: jmethodID?
 
     open func set( arg0: Int, arg1: Int, arg2: Int, arg3: Int, arg4: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 5 )
@@ -1020,11 +1000,31 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         __args[3] = JNIType.toJava( value: arg3, locals: &__locals )
         __args[4] = JNIType.toJava( value: arg4, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(IIIII)V", methodCache: &Calendar.set_MethodID_18, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(IIIII)V", methodCache: &Calendar.set_MethodID_17, args: &__args, locals: &__locals )
     }
 
     open func set( _ _arg0: Int, _ _arg1: Int, _ _arg2: Int, _ _arg3: Int, _ _arg4: Int ) {
         set( arg0: _arg0, arg1: _arg1, arg2: _arg2, arg3: _arg3, arg4: _arg4 )
+    }
+
+    /// public final void java.util.Calendar.set(int,int,int,int,int,int)
+
+    private static var set_MethodID_18: jmethodID?
+
+    open func set( arg0: Int, arg1: Int, arg2: Int, arg3: Int, arg4: Int, arg5: Int ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 6 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
+        __args[3] = JNIType.toJava( value: arg3, locals: &__locals )
+        __args[4] = JNIType.toJava( value: arg4, locals: &__locals )
+        __args[5] = JNIType.toJava( value: arg5, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(IIIIII)V", methodCache: &Calendar.set_MethodID_18, args: &__args, locals: &__locals )
+    }
+
+    open func set( _ _arg0: Int, _ _arg1: Int, _ _arg2: Int, _ _arg3: Int, _ _arg4: Int, _ _arg5: Int ) {
+        set( arg0: _arg0, arg1: _arg1, arg2: _arg2, arg3: _arg3, arg4: _arg4, arg5: _arg5 )
     }
 
     /// public boolean java.util.Calendar.before(java.lang.Object)
@@ -1034,7 +1034,7 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     open func before( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "before", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Calendar.before_MethodID_19, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -1050,7 +1050,7 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     open func after( arg0: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "after", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Calendar.after_MethodID_20, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -1080,7 +1080,7 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2 != nil ? arg2! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(IILjava/util/Locale;)Ljava/lang/String;", methodCache: &Calendar.getDisplayName_MethodID_22, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -1089,76 +1089,20 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         return getDisplayName( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
     }
 
-    /// public final void java.util.Calendar.setTime(java.util.Date)
-
-    private static var setTime_MethodID_23: jmethodID?
-
-    open func setTime( arg0: Date? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTime", methodSig: "(Ljava/util/Date;)V", methodCache: &Calendar.setTime_MethodID_23, args: &__args, locals: &__locals )
-    }
-
-    open func setTime( _ _arg0: Date? ) {
-        setTime( arg0: _arg0 )
-    }
-
-    /// public final java.util.Date java.util.Calendar.getTime()
-
-    private static var getTime_MethodID_24: jmethodID?
-
-    open func getTime() -> Date! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getTime", methodSig: "()Ljava/util/Date;", methodCache: &Calendar.getTime_MethodID_24, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Date( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.TimeZone java.util.Calendar.getTimeZone()
-
-    private static var getTimeZone_MethodID_25: jmethodID?
-
-    open func getTimeZone() -> TimeZone! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getTimeZone", methodSig: "()Ljava/util/TimeZone;", methodCache: &Calendar.getTimeZone_MethodID_25, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? TimeZone( javaObject: __return ) : nil
-    }
-
-
-    /// public void java.util.Calendar.setTimeZone(java.util.TimeZone)
-
-    private static var setTimeZone_MethodID_26: jmethodID?
-
-    open func setTimeZone( arg0: TimeZone? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTimeZone", methodSig: "(Ljava/util/TimeZone;)V", methodCache: &Calendar.setTimeZone_MethodID_26, args: &__args, locals: &__locals )
-    }
-
-    open func setTimeZone( _ _arg0: TimeZone? ) {
-        setTimeZone( arg0: _arg0 )
-    }
-
     /// protected void java.util.Calendar.complete()
 
-    private static var complete_MethodID_27: jmethodID?
+    private static var complete_MethodID_23: jmethodID?
 
     open func complete() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "complete", methodSig: "()V", methodCache: &Calendar.complete_MethodID_27, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "complete", methodSig: "()V", methodCache: &Calendar.complete_MethodID_23, args: &__args, locals: &__locals )
     }
 
 
     /// public void java.util.Calendar.setWeekDate(int,int,int)
 
-    private static var setWeekDate_MethodID_28: jmethodID?
+    private static var setWeekDate_MethodID_24: jmethodID?
 
     open func setWeekDate( arg0: Int, arg1: Int, arg2: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
@@ -1166,7 +1110,7 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setWeekDate", methodSig: "(III)V", methodCache: &Calendar.setWeekDate_MethodID_28, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setWeekDate", methodSig: "(III)V", methodCache: &Calendar.setWeekDate_MethodID_24, args: &__args, locals: &__locals )
     }
 
     open func setWeekDate( _ _arg0: Int, _ _arg1: Int, _ _arg2: Int ) {
@@ -1175,13 +1119,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public void java.util.Calendar.setLenient(boolean)
 
-    private static var setLenient_MethodID_29: jmethodID?
+    private static var setLenient_MethodID_25: jmethodID?
 
     open func setLenient( arg0: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLenient", methodSig: "(Z)V", methodCache: &Calendar.setLenient_MethodID_29, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLenient", methodSig: "(Z)V", methodCache: &Calendar.setLenient_MethodID_25, args: &__args, locals: &__locals )
     }
 
     open func setLenient( _ _arg0: Bool ) {
@@ -1192,12 +1136,12 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public static java.util.Set java.util.Calendar.getAvailableCalendarTypes()
 
-    private static var getAvailableCalendarTypes_MethodID_30: jmethodID?
+    private static var getAvailableCalendarTypes_MethodID_26: jmethodID?
 
     open class func getAvailableCalendarTypes() -> java_swift.JavaSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Calendar", classCache: &CalendarJNIClass, methodName: "getAvailableCalendarTypes", methodSig: "()Ljava/util/Set;", methodCache: &getAvailableCalendarTypes_MethodID_30, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Calendar", classCache: &CalendarJNIClass, methodName: "getAvailableCalendarTypes", methodSig: "()Ljava/util/Set;", methodCache: &getAvailableCalendarTypes_MethodID_26, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
     }
@@ -1205,13 +1149,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public void java.util.Calendar.setFirstDayOfWeek(int)
 
-    private static var setFirstDayOfWeek_MethodID_31: jmethodID?
+    private static var setFirstDayOfWeek_MethodID_27: jmethodID?
 
     open func setFirstDayOfWeek( arg0: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setFirstDayOfWeek", methodSig: "(I)V", methodCache: &Calendar.setFirstDayOfWeek_MethodID_31, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setFirstDayOfWeek", methodSig: "(I)V", methodCache: &Calendar.setFirstDayOfWeek_MethodID_27, args: &__args, locals: &__locals )
     }
 
     open func setFirstDayOfWeek( _ _arg0: Int ) {
@@ -1220,13 +1164,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public void java.util.Calendar.setMinimalDaysInFirstWeek(int)
 
-    private static var setMinimalDaysInFirstWeek_MethodID_32: jmethodID?
+    private static var setMinimalDaysInFirstWeek_MethodID_28: jmethodID?
 
     open func setMinimalDaysInFirstWeek( arg0: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMinimalDaysInFirstWeek", methodSig: "(I)V", methodCache: &Calendar.setMinimalDaysInFirstWeek_MethodID_32, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMinimalDaysInFirstWeek", methodSig: "(I)V", methodCache: &Calendar.setMinimalDaysInFirstWeek_MethodID_28, args: &__args, locals: &__locals )
     }
 
     open func setMinimalDaysInFirstWeek( _ _arg0: Int ) {
@@ -1235,13 +1179,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public void java.util.Calendar.setTimeInMillis(long)
 
-    private static var setTimeInMillis_MethodID_33: jmethodID?
+    private static var setTimeInMillis_MethodID_29: jmethodID?
 
     open func setTimeInMillis( arg0: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTimeInMillis", methodSig: "(J)V", methodCache: &Calendar.setTimeInMillis_MethodID_33, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTimeInMillis", methodSig: "(J)V", methodCache: &Calendar.setTimeInMillis_MethodID_29, args: &__args, locals: &__locals )
     }
 
     open func setTimeInMillis( _ _arg0: Int64 ) {
@@ -1250,24 +1194,24 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public boolean java.util.Calendar.isWeekDateSupported()
 
-    private static var isWeekDateSupported_MethodID_34: jmethodID?
+    private static var isWeekDateSupported_MethodID_30: jmethodID?
 
     open func isWeekDateSupported() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isWeekDateSupported", methodSig: "()Z", methodCache: &Calendar.isWeekDateSupported_MethodID_34, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isWeekDateSupported", methodSig: "()Z", methodCache: &Calendar.isWeekDateSupported_MethodID_30, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public int java.util.Calendar.getFirstDayOfWeek()
 
-    private static var getFirstDayOfWeek_MethodID_35: jmethodID?
+    private static var getFirstDayOfWeek_MethodID_31: jmethodID?
 
     open func getFirstDayOfWeek() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getFirstDayOfWeek", methodSig: "()I", methodCache: &Calendar.getFirstDayOfWeek_MethodID_35, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getFirstDayOfWeek", methodSig: "()I", methodCache: &Calendar.getFirstDayOfWeek_MethodID_31, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -1276,47 +1220,47 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// protected abstract void java.util.Calendar.computeTime()
 
-    private static var computeTime_MethodID_36: jmethodID?
+    private static var computeTime_MethodID_32: jmethodID?
 
     open func computeTime() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "computeTime", methodSig: "()V", methodCache: &Calendar.computeTime_MethodID_36, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "computeTime", methodSig: "()V", methodCache: &Calendar.computeTime_MethodID_32, args: &__args, locals: &__locals )
     }
 
 
     /// protected abstract void java.util.Calendar.computeFields()
 
-    private static var computeFields_MethodID_37: jmethodID?
+    private static var computeFields_MethodID_33: jmethodID?
 
     open func computeFields() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "computeFields", methodSig: "()V", methodCache: &Calendar.computeFields_MethodID_37, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "computeFields", methodSig: "()V", methodCache: &Calendar.computeFields_MethodID_33, args: &__args, locals: &__locals )
     }
 
 
     /// public long java.util.Calendar.getTimeInMillis()
 
-    private static var getTimeInMillis_MethodID_38: jmethodID?
+    private static var getTimeInMillis_MethodID_34: jmethodID?
 
     open func getTimeInMillis() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getTimeInMillis", methodSig: "()J", methodCache: &Calendar.getTimeInMillis_MethodID_38, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getTimeInMillis", methodSig: "()J", methodCache: &Calendar.getTimeInMillis_MethodID_34, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
 
     /// protected final int java.util.Calendar.internalGet(int)
 
-    private static var internalGet_MethodID_39: jmethodID?
+    private static var internalGet_MethodID_35: jmethodID?
 
     open func internalGet( arg0: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "internalGet", methodSig: "(I)I", methodCache: &Calendar.internalGet_MethodID_39, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "internalGet", methodSig: "(I)I", methodCache: &Calendar.internalGet_MethodID_35, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -1326,15 +1270,15 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public java.util.Map java.util.Calendar.getDisplayNames(int,int,java.util.Locale)
 
-    private static var getDisplayNames_MethodID_40: jmethodID?
+    private static var getDisplayNames_MethodID_36: jmethodID?
 
     open func getDisplayNames( arg0: Int, arg1: Int, arg2: JavaLocale? ) -> java_swift.JavaMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2 != nil ? arg2! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayNames", methodSig: "(IILjava/util/Locale;)Ljava/util/Map;", methodCache: &Calendar.getDisplayNames_MethodID_40, args: &__args, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayNames", methodSig: "(IILjava/util/Locale;)Ljava/util/Map;", methodCache: &Calendar.getDisplayNames_MethodID_36, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: java_swift.JavaMapForward(), from: __return )
     }
@@ -1381,45 +1325,45 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public java.lang.String java.util.Calendar.getCalendarType()
 
-    private static var getCalendarType_MethodID_41: jmethodID?
+    private static var getCalendarType_MethodID_37: jmethodID?
 
     open func getCalendarType() -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCalendarType", methodSig: "()Ljava/lang/String;", methodCache: &Calendar.getCalendarType_MethodID_41, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCalendarType", methodSig: "()Ljava/lang/String;", methodCache: &Calendar.getCalendarType_MethodID_37, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
 
-    /// public void java.util.Calendar.roll(int,int)
-
-    private static var roll_MethodID_42: jmethodID?
-
-    open func roll( arg0: Int, arg1: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "roll", methodSig: "(II)V", methodCache: &Calendar.roll_MethodID_42, args: &__args, locals: &__locals )
-    }
-
-    open func roll( _ _arg0: Int, _ _arg1: Int ) {
-        roll( arg0: _arg0, arg1: _arg1 )
-    }
-
     /// public abstract void java.util.Calendar.roll(int,boolean)
 
-    private static var roll_MethodID_43: jmethodID?
+    private static var roll_MethodID_38: jmethodID?
 
     open func roll( arg0: Int, arg1: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "roll", methodSig: "(IZ)V", methodCache: &Calendar.roll_MethodID_43, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "roll", methodSig: "(IZ)V", methodCache: &Calendar.roll_MethodID_38, args: &__args, locals: &__locals )
     }
 
     open func roll( _ _arg0: Int, _ _arg1: Bool ) {
+        roll( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public void java.util.Calendar.roll(int,int)
+
+    private static var roll_MethodID_39: jmethodID?
+
+    open func roll( arg0: Int, arg1: Int ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "roll", methodSig: "(II)V", methodCache: &Calendar.roll_MethodID_39, args: &__args, locals: &__locals )
+    }
+
+    open func roll( _ _arg0: Int, _ _arg1: Int ) {
         roll( arg0: _arg0, arg1: _arg1 )
     }
 
@@ -1429,61 +1373,61 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public boolean java.util.Calendar.isLenient()
 
-    private static var isLenient_MethodID_44: jmethodID?
+    private static var isLenient_MethodID_40: jmethodID?
 
     open func isLenient() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isLenient", methodSig: "()Z", methodCache: &Calendar.isLenient_MethodID_44, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isLenient", methodSig: "()Z", methodCache: &Calendar.isLenient_MethodID_40, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public int java.util.Calendar.getMinimalDaysInFirstWeek()
 
-    private static var getMinimalDaysInFirstWeek_MethodID_45: jmethodID?
+    private static var getMinimalDaysInFirstWeek_MethodID_41: jmethodID?
 
     open func getMinimalDaysInFirstWeek() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMinimalDaysInFirstWeek", methodSig: "()I", methodCache: &Calendar.getMinimalDaysInFirstWeek_MethodID_45, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMinimalDaysInFirstWeek", methodSig: "()I", methodCache: &Calendar.getMinimalDaysInFirstWeek_MethodID_41, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.Calendar.getWeekYear()
 
-    private static var getWeekYear_MethodID_46: jmethodID?
+    private static var getWeekYear_MethodID_42: jmethodID?
 
     open func getWeekYear() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getWeekYear", methodSig: "()I", methodCache: &Calendar.getWeekYear_MethodID_46, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getWeekYear", methodSig: "()I", methodCache: &Calendar.getWeekYear_MethodID_42, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.Calendar.getWeeksInWeekYear()
 
-    private static var getWeeksInWeekYear_MethodID_47: jmethodID?
+    private static var getWeeksInWeekYear_MethodID_43: jmethodID?
 
     open func getWeeksInWeekYear() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getWeeksInWeekYear", methodSig: "()I", methodCache: &Calendar.getWeeksInWeekYear_MethodID_47, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getWeeksInWeekYear", methodSig: "()I", methodCache: &Calendar.getWeeksInWeekYear_MethodID_43, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public abstract int java.util.Calendar.getMinimum(int)
 
-    private static var getMinimum_MethodID_48: jmethodID?
+    private static var getMinimum_MethodID_44: jmethodID?
 
     open func getMinimum( arg0: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMinimum", methodSig: "(I)I", methodCache: &Calendar.getMinimum_MethodID_48, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMinimum", methodSig: "(I)I", methodCache: &Calendar.getMinimum_MethodID_44, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -1493,13 +1437,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public abstract int java.util.Calendar.getMaximum(int)
 
-    private static var getMaximum_MethodID_49: jmethodID?
+    private static var getMaximum_MethodID_45: jmethodID?
 
     open func getMaximum( arg0: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMaximum", methodSig: "(I)I", methodCache: &Calendar.getMaximum_MethodID_49, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMaximum", methodSig: "(I)I", methodCache: &Calendar.getMaximum_MethodID_45, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -1509,13 +1453,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public abstract int java.util.Calendar.getGreatestMinimum(int)
 
-    private static var getGreatestMinimum_MethodID_50: jmethodID?
+    private static var getGreatestMinimum_MethodID_46: jmethodID?
 
     open func getGreatestMinimum( arg0: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getGreatestMinimum", methodSig: "(I)I", methodCache: &Calendar.getGreatestMinimum_MethodID_50, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getGreatestMinimum", methodSig: "(I)I", methodCache: &Calendar.getGreatestMinimum_MethodID_46, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -1525,13 +1469,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public abstract int java.util.Calendar.getLeastMaximum(int)
 
-    private static var getLeastMaximum_MethodID_51: jmethodID?
+    private static var getLeastMaximum_MethodID_47: jmethodID?
 
     open func getLeastMaximum( arg0: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getLeastMaximum", methodSig: "(I)I", methodCache: &Calendar.getLeastMaximum_MethodID_51, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getLeastMaximum", methodSig: "(I)I", methodCache: &Calendar.getLeastMaximum_MethodID_47, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -1541,13 +1485,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public int java.util.Calendar.getActualMinimum(int)
 
-    private static var getActualMinimum_MethodID_52: jmethodID?
+    private static var getActualMinimum_MethodID_48: jmethodID?
 
     open func getActualMinimum( arg0: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActualMinimum", methodSig: "(I)I", methodCache: &Calendar.getActualMinimum_MethodID_52, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActualMinimum", methodSig: "(I)I", methodCache: &Calendar.getActualMinimum_MethodID_48, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -1557,13 +1501,13 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public int java.util.Calendar.getActualMaximum(int)
 
-    private static var getActualMaximum_MethodID_53: jmethodID?
+    private static var getActualMaximum_MethodID_49: jmethodID?
 
     open func getActualMaximum( arg0: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActualMaximum", methodSig: "(I)I", methodCache: &Calendar.getActualMaximum_MethodID_53, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActualMaximum", methodSig: "(I)I", methodCache: &Calendar.getActualMaximum_MethodID_49, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -1587,16 +1531,72 @@ open class Calendar: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public final java.time.Instant java.util.Calendar.toInstant()
 
-    private static var toInstant_MethodID_54: jmethodID?
+    private static var toInstant_MethodID_50: jmethodID?
 
     open func toInstant() -> /* java.time.Instant */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toInstant", methodSig: "()Ljava/time/Instant;", methodCache: &Calendar.toInstant_MethodID_54, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toInstant", methodSig: "()Ljava/time/Instant;", methodCache: &Calendar.toInstant_MethodID_50, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.time.Instant */ UnclassedObject( javaObject: __return ) : nil
     }
 
+
+    /// public final void java.util.Calendar.setTime(java.util.Date)
+
+    private static var setTime_MethodID_51: jmethodID?
+
+    open func setTime( arg0: Date? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTime", methodSig: "(Ljava/util/Date;)V", methodCache: &Calendar.setTime_MethodID_51, args: &__args, locals: &__locals )
+    }
+
+    open func setTime( _ _arg0: Date? ) {
+        setTime( arg0: _arg0 )
+    }
+
+    /// public final java.util.Date java.util.Calendar.getTime()
+
+    private static var getTime_MethodID_52: jmethodID?
+
+    open func getTime() -> Date! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getTime", methodSig: "()Ljava/util/Date;", methodCache: &Calendar.getTime_MethodID_52, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Date( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.TimeZone java.util.Calendar.getTimeZone()
+
+    private static var getTimeZone_MethodID_53: jmethodID?
+
+    open func getTimeZone() -> TimeZone! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getTimeZone", methodSig: "()Ljava/util/TimeZone;", methodCache: &Calendar.getTimeZone_MethodID_53, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? TimeZone( javaObject: __return ) : nil
+    }
+
+
+    /// public void java.util.Calendar.setTimeZone(java.util.TimeZone)
+
+    private static var setTimeZone_MethodID_54: jmethodID?
+
+    open func setTimeZone( arg0: TimeZone? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTimeZone", methodSig: "(Ljava/util/TimeZone;)V", methodCache: &Calendar.setTimeZone_MethodID_54, args: &__args, locals: &__locals )
+    }
+
+    open func setTimeZone( _ _arg0: TimeZone? ) {
+        setTimeZone( arg0: _arg0 )
+    }
 
 }
 

@@ -251,49 +251,193 @@ open class Deflater: java_swift.JavaObject {
 
     /// private void java.util.zip.Deflater.ensureOpen()
 
+    /// public void java.util.zip.Deflater.finish()
+
+    private static var finish_MethodID_7: jmethodID?
+
+    open func finish() {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "finish", methodSig: "()V", methodCache: &Deflater.finish_MethodID_7, args: &__args, locals: &__locals )
+    }
+
+
+    /// public boolean java.util.zip.Deflater.finished()
+
+    private static var finished_MethodID_8: jmethodID?
+
+    open func finished() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "finished", methodSig: "()Z", methodCache: &Deflater.finished_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public void java.util.zip.Deflater.setInput(byte[],int,int)
+
+    private static var setInput_MethodID_9: jmethodID?
+
+    open func setInput( b: [Int8]?, off: Int, len: Int ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        __args[1] = JNIType.toJava( value: off, locals: &__locals )
+        __args[2] = JNIType.toJava( value: len, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setInput", methodSig: "([BII)V", methodCache: &Deflater.setInput_MethodID_9, args: &__args, locals: &__locals )
+    }
+
+    open func setInput( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) {
+        setInput( b: _b, off: _off, len: _len )
+    }
+
+    /// public void java.util.zip.Deflater.setInput(byte[])
+
+    private static var setInput_MethodID_10: jmethodID?
+
+    open func setInput( b: [Int8]? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setInput", methodSig: "([B)V", methodCache: &Deflater.setInput_MethodID_10, args: &__args, locals: &__locals )
+    }
+
+    open func setInput( _ _b: [Int8]? ) {
+        setInput( b: _b )
+    }
+
+    /// public void java.util.zip.Deflater.setDictionary(byte[])
+
+    private static var setDictionary_MethodID_11: jmethodID?
+
+    open func setDictionary( b: [Int8]? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDictionary", methodSig: "([B)V", methodCache: &Deflater.setDictionary_MethodID_11, args: &__args, locals: &__locals )
+    }
+
+    open func setDictionary( _ _b: [Int8]? ) {
+        setDictionary( b: _b )
+    }
+
+    /// public void java.util.zip.Deflater.setDictionary(byte[],int,int)
+
+    private static var setDictionary_MethodID_12: jmethodID?
+
+    open func setDictionary( b: [Int8]?, off: Int, len: Int ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        __args[1] = JNIType.toJava( value: off, locals: &__locals )
+        __args[2] = JNIType.toJava( value: len, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDictionary", methodSig: "([BII)V", methodCache: &Deflater.setDictionary_MethodID_12, args: &__args, locals: &__locals )
+    }
+
+    open func setDictionary( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) {
+        setDictionary( b: _b, off: _off, len: _len )
+    }
+
+    /// private static native void java.util.zip.Deflater.setDictionary(long,byte[],int,int)
+
+    /// public boolean java.util.zip.Deflater.needsInput()
+
+    private static var needsInput_MethodID_13: jmethodID?
+
+    open func needsInput() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "needsInput", methodSig: "()Z", methodCache: &Deflater.needsInput_MethodID_13, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// private static native int java.util.zip.Deflater.getAdler(long)
+
+    /// public int java.util.zip.Deflater.getAdler()
+
+    private static var getAdler_MethodID_14: jmethodID?
+
+    open func getAdler() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAdler", methodSig: "()I", methodCache: &Deflater.getAdler_MethodID_14, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public int java.util.zip.Deflater.getTotalIn()
+
+    private static var getTotalIn_MethodID_15: jmethodID?
+
+    open func getTotalIn() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getTotalIn", methodSig: "()I", methodCache: &Deflater.getTotalIn_MethodID_15, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public long java.util.zip.Deflater.getBytesRead()
+
+    private static var getBytesRead_MethodID_16: jmethodID?
+
+    open func getBytesRead() -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getBytesRead", methodSig: "()J", methodCache: &Deflater.getBytesRead_MethodID_16, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+
+    /// public int java.util.zip.Deflater.getTotalOut()
+
+    private static var getTotalOut_MethodID_17: jmethodID?
+
+    open func getTotalOut() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getTotalOut", methodSig: "()I", methodCache: &Deflater.getTotalOut_MethodID_17, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public long java.util.zip.Deflater.getBytesWritten()
+
+    private static var getBytesWritten_MethodID_18: jmethodID?
+
+    open func getBytesWritten() -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getBytesWritten", methodSig: "()J", methodCache: &Deflater.getBytesWritten_MethodID_18, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+
     /// public void java.util.zip.Deflater.setLevel(int)
 
-    private static var setLevel_MethodID_7: jmethodID?
+    private static var setLevel_MethodID_19: jmethodID?
 
     open func setLevel( level: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: level, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLevel", methodSig: "(I)V", methodCache: &Deflater.setLevel_MethodID_7, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLevel", methodSig: "(I)V", methodCache: &Deflater.setLevel_MethodID_19, args: &__args, locals: &__locals )
     }
 
     open func setLevel( _ _level: Int ) {
         setLevel( level: _level )
     }
 
-    /// public int java.util.zip.Deflater.deflate(byte[],int,int,int)
-
-    private static var deflate_MethodID_8: jmethodID?
-
-    open func deflate( b: [Int8]?, off: Int, len: Int, flush: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        __args[1] = JNIType.toJava( value: off, locals: &__locals )
-        __args[2] = JNIType.toJava( value: len, locals: &__locals )
-        __args[3] = JNIType.toJava( value: flush, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "deflate", methodSig: "([BIII)I", methodCache: &Deflater.deflate_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func deflate( _ _b: [Int8]?, _ _off: Int, _ _len: Int, _ _flush: Int ) -> Int {
-        return deflate( b: _b, off: _off, len: _len, flush: _flush )
-    }
-
     /// public int java.util.zip.Deflater.deflate(byte[])
 
-    private static var deflate_MethodID_9: jmethodID?
+    private static var deflate_MethodID_20: jmethodID?
 
     open func deflate( b: [Int8]? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "deflate", methodSig: "([B)I", methodCache: &Deflater.deflate_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "deflate", methodSig: "([B)I", methodCache: &Deflater.deflate_MethodID_20, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -303,7 +447,7 @@ open class Deflater: java_swift.JavaObject {
 
     /// public int java.util.zip.Deflater.deflate(byte[],int,int)
 
-    private static var deflate_MethodID_10: jmethodID?
+    private static var deflate_MethodID_21: jmethodID?
 
     open func deflate( b: [Int8]?, off: Int, len: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
@@ -311,7 +455,7 @@ open class Deflater: java_swift.JavaObject {
         __args[0] = JNIType.toJava( value: b, locals: &__locals )
         __args[1] = JNIType.toJava( value: off, locals: &__locals )
         __args[2] = JNIType.toJava( value: len, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "deflate", methodSig: "([BII)I", methodCache: &Deflater.deflate_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "deflate", methodSig: "([BII)I", methodCache: &Deflater.deflate_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -319,15 +463,34 @@ open class Deflater: java_swift.JavaObject {
         return deflate( b: _b, off: _off, len: _len )
     }
 
+    /// public int java.util.zip.Deflater.deflate(byte[],int,int,int)
+
+    private static var deflate_MethodID_22: jmethodID?
+
+    open func deflate( b: [Int8]?, off: Int, len: Int, flush: Int ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        __args[1] = JNIType.toJava( value: off, locals: &__locals )
+        __args[2] = JNIType.toJava( value: len, locals: &__locals )
+        __args[3] = JNIType.toJava( value: flush, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "deflate", methodSig: "([BIII)I", methodCache: &Deflater.deflate_MethodID_22, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func deflate( _ _b: [Int8]?, _ _off: Int, _ _len: Int, _ _flush: Int ) -> Int {
+        return deflate( b: _b, off: _off, len: _len, flush: _flush )
+    }
+
     /// public void java.util.zip.Deflater.setStrategy(int)
 
-    private static var setStrategy_MethodID_11: jmethodID?
+    private static var setStrategy_MethodID_23: jmethodID?
 
     open func setStrategy( strategy: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: strategy, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStrategy", methodSig: "(I)V", methodCache: &Deflater.setStrategy_MethodID_11, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStrategy", methodSig: "(I)V", methodCache: &Deflater.setStrategy_MethodID_23, args: &__args, locals: &__locals )
     }
 
     open func setStrategy( _ _strategy: Int ) {
@@ -335,169 +498,6 @@ open class Deflater: java_swift.JavaObject {
     }
 
     /// private native int java.util.zip.Deflater.deflateBytes(long,byte[],int,int,int)
-
-    /// public boolean java.util.zip.Deflater.finished()
-
-    private static var finished_MethodID_12: jmethodID?
-
-    open func finished() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "finished", methodSig: "()Z", methodCache: &Deflater.finished_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public void java.util.zip.Deflater.setInput(byte[],int,int)
-
-    private static var setInput_MethodID_13: jmethodID?
-
-    open func setInput( b: [Int8]?, off: Int, len: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        __args[1] = JNIType.toJava( value: off, locals: &__locals )
-        __args[2] = JNIType.toJava( value: len, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setInput", methodSig: "([BII)V", methodCache: &Deflater.setInput_MethodID_13, args: &__args, locals: &__locals )
-    }
-
-    open func setInput( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) {
-        setInput( b: _b, off: _off, len: _len )
-    }
-
-    /// public void java.util.zip.Deflater.setInput(byte[])
-
-    private static var setInput_MethodID_14: jmethodID?
-
-    open func setInput( b: [Int8]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setInput", methodSig: "([B)V", methodCache: &Deflater.setInput_MethodID_14, args: &__args, locals: &__locals )
-    }
-
-    open func setInput( _ _b: [Int8]? ) {
-        setInput( b: _b )
-    }
-
-    /// public void java.util.zip.Deflater.setDictionary(byte[],int,int)
-
-    private static var setDictionary_MethodID_15: jmethodID?
-
-    open func setDictionary( b: [Int8]?, off: Int, len: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        __args[1] = JNIType.toJava( value: off, locals: &__locals )
-        __args[2] = JNIType.toJava( value: len, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDictionary", methodSig: "([BII)V", methodCache: &Deflater.setDictionary_MethodID_15, args: &__args, locals: &__locals )
-    }
-
-    open func setDictionary( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) {
-        setDictionary( b: _b, off: _off, len: _len )
-    }
-
-    /// private static native void java.util.zip.Deflater.setDictionary(long,byte[],int,int)
-
-    /// public void java.util.zip.Deflater.setDictionary(byte[])
-
-    private static var setDictionary_MethodID_16: jmethodID?
-
-    open func setDictionary( b: [Int8]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDictionary", methodSig: "([B)V", methodCache: &Deflater.setDictionary_MethodID_16, args: &__args, locals: &__locals )
-    }
-
-    open func setDictionary( _ _b: [Int8]? ) {
-        setDictionary( b: _b )
-    }
-
-    /// public boolean java.util.zip.Deflater.needsInput()
-
-    private static var needsInput_MethodID_17: jmethodID?
-
-    open func needsInput() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "needsInput", methodSig: "()Z", methodCache: &Deflater.needsInput_MethodID_17, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public int java.util.zip.Deflater.getAdler()
-
-    private static var getAdler_MethodID_18: jmethodID?
-
-    open func getAdler() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAdler", methodSig: "()I", methodCache: &Deflater.getAdler_MethodID_18, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// private static native int java.util.zip.Deflater.getAdler(long)
-
-    /// public int java.util.zip.Deflater.getTotalIn()
-
-    private static var getTotalIn_MethodID_19: jmethodID?
-
-    open func getTotalIn() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getTotalIn", methodSig: "()I", methodCache: &Deflater.getTotalIn_MethodID_19, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public long java.util.zip.Deflater.getBytesRead()
-
-    private static var getBytesRead_MethodID_20: jmethodID?
-
-    open func getBytesRead() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getBytesRead", methodSig: "()J", methodCache: &Deflater.getBytesRead_MethodID_20, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public int java.util.zip.Deflater.getTotalOut()
-
-    private static var getTotalOut_MethodID_21: jmethodID?
-
-    open func getTotalOut() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getTotalOut", methodSig: "()I", methodCache: &Deflater.getTotalOut_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public long java.util.zip.Deflater.getBytesWritten()
-
-    private static var getBytesWritten_MethodID_22: jmethodID?
-
-    open func getBytesWritten() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getBytesWritten", methodSig: "()J", methodCache: &Deflater.getBytesWritten_MethodID_22, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public void java.util.zip.Deflater.finish()
-
-    private static var finish_MethodID_23: jmethodID?
-
-    open func finish() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "finish", methodSig: "()V", methodCache: &Deflater.finish_MethodID_23, args: &__args, locals: &__locals )
-    }
-
 
 }
 

@@ -28,7 +28,7 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &DeflaterOutputStream.def_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -68,7 +68,7 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &DeflaterOutputStream.out_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -80,7 +80,7 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterOutputStream", classCache: &DeflaterOutputStream.DeflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;)V", methodCache: &DeflaterOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -97,7 +97,7 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, syncFlush: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         __args[1] = JNIType.toJava( value: syncFlush, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterOutputStream", classCache: &DeflaterOutputStream.DeflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Z)V", methodCache: &DeflaterOutputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -115,8 +115,8 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, def: Deflater? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: def != nil ? def! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = JNIType.toJava( value: def, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterOutputStream", classCache: &DeflaterOutputStream.DeflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;)V", methodCache: &DeflaterOutputStream.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -133,8 +133,8 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, def: Deflater?, size: Int, syncFlush: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: def != nil ? def! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = JNIType.toJava( value: def, locals: &__locals )
         __args[2] = JNIType.toJava( value: size, locals: &__locals )
         __args[3] = JNIType.toJava( value: syncFlush, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterOutputStream", classCache: &DeflaterOutputStream.DeflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;IZ)V", methodCache: &DeflaterOutputStream.new_MethodID_4, args: &__args, locals: &__locals )
@@ -153,8 +153,8 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, def: Deflater?, size: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: def != nil ? def! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = JNIType.toJava( value: def, locals: &__locals )
         __args[2] = JNIType.toJava( value: size, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterOutputStream", classCache: &DeflaterOutputStream.DeflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;I)V", methodCache: &DeflaterOutputStream.new_MethodID_5, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -172,8 +172,8 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, def: Deflater?, syncFlush: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: def != nil ? def! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = JNIType.toJava( value: def, locals: &__locals )
         __args[2] = JNIType.toJava( value: syncFlush, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterOutputStream", classCache: &DeflaterOutputStream.DeflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/zip/Deflater;Z)V", methodCache: &DeflaterOutputStream.new_MethodID_6, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -192,28 +192,28 @@ open class DeflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
 
     /// public void java.util.zip.DeflaterOutputStream.close() throws java.io.IOException
 
-    /// protected void java.util.zip.DeflaterOutputStream.deflate() throws java.io.IOException
+    /// public void java.util.zip.DeflaterOutputStream.finish() throws java.io.IOException
 
-    private static var deflate_MethodID_7: jmethodID?
+    private static var finish_MethodID_7: jmethodID?
 
-    open func deflate() throws /* java.io.IOException */ {
+    open func finish() throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "deflate", methodSig: "()V", methodCache: &DeflaterOutputStream.deflate_MethodID_7, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "finish", methodSig: "()V", methodCache: &DeflaterOutputStream.finish_MethodID_7, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
         }
     }
 
 
-    /// public void java.util.zip.DeflaterOutputStream.finish() throws java.io.IOException
+    /// protected void java.util.zip.DeflaterOutputStream.deflate() throws java.io.IOException
 
-    private static var finish_MethodID_8: jmethodID?
+    private static var deflate_MethodID_8: jmethodID?
 
-    open func finish() throws /* java.io.IOException */ {
+    open func deflate() throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "finish", methodSig: "()V", methodCache: &DeflaterOutputStream.finish_MethodID_8, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "deflate", methodSig: "()V", methodCache: &DeflaterOutputStream.deflate_MethodID_8, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
         }

@@ -138,31 +138,6 @@ open class LogManager: java_swift.JavaObject {
 
     /// boolean java.util.logging.LogManager.getBooleanProperty(java.lang.String,boolean)
 
-    /// static boolean java.util.logging.LogManager.access$700(java.util.logging.LogManager)
-
-    /// static void java.util.logging.LogManager.access$800(java.util.logging.LogManager)
-
-    /// public static java.util.logging.LogManager java.util.logging.LogManager.getLogManager()
-
-    private static var getLogManager_MethodID_5: jmethodID?
-
-    open class func getLogManager() -> LogManager! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/logging/LogManager", classCache: &LogManagerJNIClass, methodName: "getLogManager", methodSig: "()Ljava/util/logging/LogManager;", methodCache: &getLogManager_MethodID_5, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? LogManager( javaObject: __return ) : nil
-    }
-
-
-    /// java.util.logging.Level java.util.logging.LogManager.getLevelProperty(java.lang.String,java.util.logging.Level)
-
-    /// java.util.logging.Filter java.util.logging.LogManager.getFilterProperty(java.lang.String,java.util.logging.Filter)
-
-    /// java.util.logging.Formatter java.util.logging.LogManager.getFormatterProperty(java.lang.String,java.util.logging.Formatter)
-
-    /// java.lang.String java.util.logging.LogManager.getStringProperty(java.lang.String,java.lang.String)
-
     /// private void java.util.logging.LogManager.readPrimordialConfiguration()
 
     /// private static java.lang.Void java.util.logging.LogManager.checkSubclassPermissions()
@@ -185,13 +160,13 @@ open class LogManager: java_swift.JavaObject {
 
     /// public boolean java.util.logging.LogManager.addLogger(java.util.logging.Logger)
 
-    private static var addLogger_MethodID_6: jmethodID?
+    private static var addLogger_MethodID_5: jmethodID?
 
     open func addLogger( arg0: Logger? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "addLogger", methodSig: "(Ljava/util/logging/Logger;)Z", methodCache: &LogManager.addLogger_MethodID_6, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "addLogger", methodSig: "(Ljava/util/logging/Logger;)Z", methodCache: &LogManager.addLogger_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -205,12 +180,12 @@ open class LogManager: java_swift.JavaObject {
 
     /// public java.util.Enumeration java.util.logging.LogManager.getLoggerNames()
 
-    private static var getLoggerNames_MethodID_7: jmethodID?
+    private static var getLoggerNames_MethodID_6: jmethodID?
 
     open func getLoggerNames() -> Enumeration! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLoggerNames", methodSig: "()Ljava/util/Enumeration;", methodCache: &LogManager.getLoggerNames_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLoggerNames", methodSig: "()Ljava/util/Enumeration;", methodCache: &LogManager.getLoggerNames_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumerationForward( javaObject: __return ) : nil
     }
@@ -218,13 +193,13 @@ open class LogManager: java_swift.JavaObject {
 
     /// public void java.util.logging.LogManager.readConfiguration(java.io.InputStream) throws java.io.IOException,java.lang.SecurityException
 
-    private static var readConfiguration_MethodID_8: jmethodID?
+    private static var readConfiguration_MethodID_7: jmethodID?
 
     open func readConfiguration( arg0: /* java.io.InputStream */ UnclassedObject? ) throws /* java.io.IOException, java.lang.SecurityException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "readConfiguration", methodSig: "(Ljava/io/InputStream;)V", methodCache: &LogManager.readConfiguration_MethodID_8, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "readConfiguration", methodSig: "(Ljava/io/InputStream;)V", methodCache: &LogManager.readConfiguration_MethodID_7, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
         }
@@ -236,12 +211,12 @@ open class LogManager: java_swift.JavaObject {
 
     /// public void java.util.logging.LogManager.readConfiguration() throws java.io.IOException,java.lang.SecurityException
 
-    private static var readConfiguration_MethodID_9: jmethodID?
+    private static var readConfiguration_MethodID_8: jmethodID?
 
     open func readConfiguration() throws /* java.io.IOException, java.lang.SecurityException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "readConfiguration", methodSig: "()V", methodCache: &LogManager.readConfiguration_MethodID_9, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "readConfiguration", methodSig: "()V", methodCache: &LogManager.readConfiguration_MethodID_8, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
         }
@@ -260,16 +235,73 @@ open class LogManager: java_swift.JavaObject {
 
     /// public static synchronized java.util.logging.LoggingMXBean java.util.logging.LogManager.getLoggingMXBean()
 
-    private static var getLoggingMXBean_MethodID_10: jmethodID?
+    private static var getLoggingMXBean_MethodID_9: jmethodID?
 
     open class func getLoggingMXBean() -> LoggingMXBean! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/logging/LogManager", classCache: &LogManagerJNIClass, methodName: "getLoggingMXBean", methodSig: "()Ljava/util/logging/LoggingMXBean;", methodCache: &getLoggingMXBean_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/logging/LogManager", classCache: &LogManagerJNIClass, methodName: "getLoggingMXBean", methodSig: "()Ljava/util/logging/LoggingMXBean;", methodCache: &getLoggingMXBean_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LoggingMXBeanForward( javaObject: __return ) : nil
     }
 
+
+    /// static boolean java.util.logging.LogManager.access$700(java.util.logging.LogManager)
+
+    /// static void java.util.logging.LogManager.access$800(java.util.logging.LogManager)
+
+    /// public void java.util.logging.LogManager.addPropertyChangeListener(java.beans.PropertyChangeListener) throws java.lang.SecurityException
+
+    private static var addPropertyChangeListener_MethodID_10: jmethodID?
+
+    open func addPropertyChangeListener( arg0: /* java.beans.PropertyChangeListener */ UnclassedProtocol? ) throws /* java.lang.SecurityException */ {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addPropertyChangeListener", methodSig: "(Ljava/beans/PropertyChangeListener;)V", methodCache: &LogManager.addPropertyChangeListener_MethodID_10, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.JavaSecurityException( javaObject: throwable )
+        }
+    }
+
+    open func addPropertyChangeListener( _ _arg0: /* java.beans.PropertyChangeListener */ UnclassedProtocol? ) throws /* java.lang.SecurityException */ {
+        try addPropertyChangeListener( arg0: _arg0 )
+    }
+
+    /// public java.util.logging.Logger java.util.logging.LogManager.getLogger(java.lang.String)
+
+    private static var getLogger_MethodID_11: jmethodID?
+
+    open func getLogger( arg0: String? ) -> Logger! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLogger", methodSig: "(Ljava/lang/String;)Ljava/util/logging/Logger;", methodCache: &LogManager.getLogger_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Logger( javaObject: __return ) : nil
+    }
+
+    open func getLogger( _ _arg0: String? ) -> Logger! {
+        return getLogger( arg0: _arg0 )
+    }
+
+    /// public void java.util.logging.LogManager.removePropertyChangeListener(java.beans.PropertyChangeListener) throws java.lang.SecurityException
+
+    private static var removePropertyChangeListener_MethodID_12: jmethodID?
+
+    open func removePropertyChangeListener( arg0: /* java.beans.PropertyChangeListener */ UnclassedProtocol? ) throws /* java.lang.SecurityException */ {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removePropertyChangeListener", methodSig: "(Ljava/beans/PropertyChangeListener;)V", methodCache: &LogManager.removePropertyChangeListener_MethodID_12, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.JavaSecurityException( javaObject: throwable )
+        }
+    }
+
+    open func removePropertyChangeListener( _ _arg0: /* java.beans.PropertyChangeListener */ UnclassedProtocol? ) throws /* java.lang.SecurityException */ {
+        try removePropertyChangeListener( arg0: _arg0 )
+    }
 
     /// static void java.util.logging.LogManager.access$1100(java.util.logging.Logger,java.util.logging.Level)
 
@@ -283,58 +315,26 @@ open class LogManager: java_swift.JavaObject {
 
     /// static void java.util.logging.LogManager.access$1500(java.util.logging.LogManager)
 
-    /// public void java.util.logging.LogManager.addPropertyChangeListener(java.beans.PropertyChangeListener) throws java.lang.SecurityException
+    /// public static java.util.logging.LogManager java.util.logging.LogManager.getLogManager()
 
-    private static var addPropertyChangeListener_MethodID_11: jmethodID?
+    private static var getLogManager_MethodID_13: jmethodID?
 
-    open func addPropertyChangeListener( arg0: /* java.beans.PropertyChangeListener */ UnclassedProtocol? ) throws /* java.lang.SecurityException */ {
+    open class func getLogManager() -> LogManager! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addPropertyChangeListener", methodSig: "(Ljava/beans/PropertyChangeListener;)V", methodCache: &LogManager.addPropertyChangeListener_MethodID_11, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.JavaSecurityException( javaObject: throwable )
-        }
-    }
-
-    open func addPropertyChangeListener( _ _arg0: /* java.beans.PropertyChangeListener */ UnclassedProtocol? ) throws /* java.lang.SecurityException */ {
-        try addPropertyChangeListener( arg0: _arg0 )
-    }
-
-    /// public java.util.logging.Logger java.util.logging.LogManager.getLogger(java.lang.String)
-
-    private static var getLogger_MethodID_12: jmethodID?
-
-    open func getLogger( arg0: String? ) -> Logger! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLogger", methodSig: "(Ljava/lang/String;)Ljava/util/logging/Logger;", methodCache: &LogManager.getLogger_MethodID_12, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/logging/LogManager", classCache: &LogManagerJNIClass, methodName: "getLogManager", methodSig: "()Ljava/util/logging/LogManager;", methodCache: &getLogManager_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Logger( javaObject: __return ) : nil
+        return __return != nil ? LogManager( javaObject: __return ) : nil
     }
 
-    open func getLogger( _ _arg0: String? ) -> Logger! {
-        return getLogger( arg0: _arg0 )
-    }
 
-    /// public void java.util.logging.LogManager.removePropertyChangeListener(java.beans.PropertyChangeListener) throws java.lang.SecurityException
+    /// java.util.logging.Level java.util.logging.LogManager.getLevelProperty(java.lang.String,java.util.logging.Level)
 
-    private static var removePropertyChangeListener_MethodID_13: jmethodID?
+    /// java.util.logging.Filter java.util.logging.LogManager.getFilterProperty(java.lang.String,java.util.logging.Filter)
 
-    open func removePropertyChangeListener( arg0: /* java.beans.PropertyChangeListener */ UnclassedProtocol? ) throws /* java.lang.SecurityException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removePropertyChangeListener", methodSig: "(Ljava/beans/PropertyChangeListener;)V", methodCache: &LogManager.removePropertyChangeListener_MethodID_13, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.JavaSecurityException( javaObject: throwable )
-        }
-    }
+    /// java.util.logging.Formatter java.util.logging.LogManager.getFormatterProperty(java.lang.String,java.util.logging.Formatter)
 
-    open func removePropertyChangeListener( _ _arg0: /* java.beans.PropertyChangeListener */ UnclassedProtocol? ) throws /* java.lang.SecurityException */ {
-        try removePropertyChangeListener( arg0: _arg0 )
-    }
+    /// java.lang.String java.util.logging.LogManager.getStringProperty(java.lang.String,java.lang.String)
 
 }
 

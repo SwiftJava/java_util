@@ -95,33 +95,33 @@ open class Random: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPr
 
     /// private synchronized void java.util.Random.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
-    /// public int java.util.Random.nextInt()
-
-    private static var nextInt_MethodID_4: jmethodID?
-
-    open func nextInt() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "()I", methodCache: &Random.nextInt_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
     /// public int java.util.Random.nextInt(int)
 
-    private static var nextInt_MethodID_5: jmethodID?
+    private static var nextInt_MethodID_4: jmethodID?
 
     open func nextInt( bound: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(I)I", methodCache: &Random.nextInt_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(I)I", methodCache: &Random.nextInt_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
     open func nextInt( _ _bound: Int ) -> Int {
         return nextInt( bound: _bound )
     }
+
+    /// public int java.util.Random.nextInt()
+
+    private static var nextInt_MethodID_5: jmethodID?
+
+    open func nextInt() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "()I", methodCache: &Random.nextInt_MethodID_5, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
 
     /// public double java.util.Random.nextDouble()
 
@@ -135,9 +135,22 @@ open class Random: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPr
     }
 
 
-    /// public java.util.stream.LongStream java.util.Random.longs(long,long,long)
+    /// public java.util.stream.LongStream java.util.Random.longs()
 
     private static var longs_MethodID_7: jmethodID?
+
+    open func longs() -> LongStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "longs", methodSig: "()Ljava/util/stream/LongStream;", methodCache: &Random.longs_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? LongStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.stream.LongStream java.util.Random.longs(long,long,long)
+
+    private static var longs_MethodID_8: jmethodID?
 
     open func longs( streamSize: Int64, randomNumberOrigin: Int64, randomNumberBound: Int64 ) -> LongStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
@@ -145,7 +158,7 @@ open class Random: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPr
         __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
         __args[1] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
         __args[2] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "longs", methodSig: "(JJJ)Ljava/util/stream/LongStream;", methodCache: &Random.longs_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "longs", methodSig: "(JJJ)Ljava/util/stream/LongStream;", methodCache: &Random.longs_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LongStreamForward( javaObject: __return ) : nil
     }
@@ -153,19 +166,6 @@ open class Random: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPr
     open func longs( _ _streamSize: Int64, _ _randomNumberOrigin: Int64, _ _randomNumberBound: Int64 ) -> LongStream! {
         return longs( streamSize: _streamSize, randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
     }
-
-    /// public java.util.stream.LongStream java.util.Random.longs()
-
-    private static var longs_MethodID_8: jmethodID?
-
-    open func longs() -> LongStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "longs", methodSig: "()Ljava/util/stream/LongStream;", methodCache: &Random.longs_MethodID_8, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? LongStreamForward( javaObject: __return ) : nil
-    }
-
 
     /// public java.util.stream.LongStream java.util.Random.longs(long,long)
 
@@ -202,14 +202,53 @@ open class Random: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPr
         return longs( streamSize: _streamSize )
     }
 
+    /// public boolean java.util.Random.nextBoolean()
+
+    private static var nextBoolean_MethodID_11: jmethodID?
+
+    open func nextBoolean() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "nextBoolean", methodSig: "()Z", methodCache: &Random.nextBoolean_MethodID_11, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public float java.util.Random.nextFloat()
+
+    private static var nextFloat_MethodID_12: jmethodID?
+
+    open func nextFloat() -> Float {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "nextFloat", methodSig: "()F", methodCache: &Random.nextFloat_MethodID_12, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Float(), from: __return )
+    }
+
+
+    /// public void java.util.Random.nextBytes(byte[])
+
+    private static var nextBytes_MethodID_13: jmethodID?
+
+    open func nextBytes( bytes: [Int8]? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: bytes, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "nextBytes", methodSig: "([B)V", methodCache: &Random.nextBytes_MethodID_13, args: &__args, locals: &__locals )
+    }
+
+    open func nextBytes( _ _bytes: [Int8]? ) {
+        nextBytes( bytes: _bytes )
+    }
+
     /// public long java.util.Random.nextLong()
 
-    private static var nextLong_MethodID_11: jmethodID?
+    private static var nextLong_MethodID_14: jmethodID?
 
     open func nextLong() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "()J", methodCache: &Random.nextLong_MethodID_11, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "()J", methodCache: &Random.nextLong_MethodID_14, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
@@ -220,15 +259,149 @@ open class Random: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPr
 
     /// final long java.util.Random.internalNextLong(long,long)
 
+    /// public java.util.stream.IntStream java.util.Random.ints(int,int)
+
+    private static var ints_MethodID_15: jmethodID?
+
+    open func ints( randomNumberOrigin: Int, randomNumberBound: Int ) -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
+        __args[1] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(II)Ljava/util/stream/IntStream;", methodCache: &Random.ints_MethodID_15, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+    open func ints( _ _randomNumberOrigin: Int, _ _randomNumberBound: Int ) -> IntStream! {
+        return ints( randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
+    }
+
+    /// public java.util.stream.IntStream java.util.Random.ints()
+
+    private static var ints_MethodID_16: jmethodID?
+
+    open func ints() -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &Random.ints_MethodID_16, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.stream.IntStream java.util.Random.ints(long)
+
+    private static var ints_MethodID_17: jmethodID?
+
+    open func ints( streamSize: Int64 ) -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(J)Ljava/util/stream/IntStream;", methodCache: &Random.ints_MethodID_17, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+    open func ints( _ _streamSize: Int64 ) -> IntStream! {
+        return ints( streamSize: _streamSize )
+    }
+
+    /// public java.util.stream.IntStream java.util.Random.ints(long,int,int)
+
+    private static var ints_MethodID_18: jmethodID?
+
+    open func ints( streamSize: Int64, randomNumberOrigin: Int, randomNumberBound: Int ) -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
+        __args[1] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
+        __args[2] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(JII)Ljava/util/stream/IntStream;", methodCache: &Random.ints_MethodID_18, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+    open func ints( _ _streamSize: Int64, _ _randomNumberOrigin: Int, _ _randomNumberBound: Int ) -> IntStream! {
+        return ints( streamSize: _streamSize, randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
+    }
+
+    /// public java.util.stream.DoubleStream java.util.Random.doubles()
+
+    private static var doubles_MethodID_19: jmethodID?
+
+    open func doubles() -> DoubleStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "()Ljava/util/stream/DoubleStream;", methodCache: &Random.doubles_MethodID_19, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.stream.DoubleStream java.util.Random.doubles(long,double,double)
+
+    private static var doubles_MethodID_20: jmethodID?
+
+    open func doubles( streamSize: Int64, randomNumberOrigin: Double, randomNumberBound: Double ) -> DoubleStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
+        __args[1] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
+        __args[2] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(JDD)Ljava/util/stream/DoubleStream;", methodCache: &Random.doubles_MethodID_20, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+    }
+
+    open func doubles( _ _streamSize: Int64, _ _randomNumberOrigin: Double, _ _randomNumberBound: Double ) -> DoubleStream! {
+        return doubles( streamSize: _streamSize, randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
+    }
+
+    /// public java.util.stream.DoubleStream java.util.Random.doubles(double,double)
+
+    private static var doubles_MethodID_21: jmethodID?
+
+    open func doubles( randomNumberOrigin: Double, randomNumberBound: Double ) -> DoubleStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
+        __args[1] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(DD)Ljava/util/stream/DoubleStream;", methodCache: &Random.doubles_MethodID_21, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+    }
+
+    open func doubles( _ _randomNumberOrigin: Double, _ _randomNumberBound: Double ) -> DoubleStream! {
+        return doubles( randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
+    }
+
+    /// public java.util.stream.DoubleStream java.util.Random.doubles(long)
+
+    private static var doubles_MethodID_22: jmethodID?
+
+    open func doubles( streamSize: Int64 ) -> DoubleStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(J)Ljava/util/stream/DoubleStream;", methodCache: &Random.doubles_MethodID_22, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+    }
+
+    open func doubles( _ _streamSize: Int64 ) -> DoubleStream! {
+        return doubles( streamSize: _streamSize )
+    }
+
     /// public synchronized void java.util.Random.setSeed(long)
 
-    private static var setSeed_MethodID_12: jmethodID?
+    private static var setSeed_MethodID_23: jmethodID?
 
     open func setSeed( seed: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: seed, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSeed", methodSig: "(J)V", methodCache: &Random.setSeed_MethodID_12, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSeed", methodSig: "(J)V", methodCache: &Random.setSeed_MethodID_23, args: &__args, locals: &__locals )
     }
 
     open func setSeed( _ _seed: Int64 ) {
@@ -241,188 +414,15 @@ open class Random: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPr
 
     /// public synchronized double java.util.Random.nextGaussian()
 
-    private static var nextGaussian_MethodID_13: jmethodID?
+    private static var nextGaussian_MethodID_24: jmethodID?
 
     open func nextGaussian() -> Double {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextGaussian", methodSig: "()D", methodCache: &Random.nextGaussian_MethodID_13, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextGaussian", methodSig: "()D", methodCache: &Random.nextGaussian_MethodID_24, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Double(), from: __return )
     }
 
-
-    /// public java.util.stream.IntStream java.util.Random.ints(long)
-
-    private static var ints_MethodID_14: jmethodID?
-
-    open func ints( streamSize: Int64 ) -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(J)Ljava/util/stream/IntStream;", methodCache: &Random.ints_MethodID_14, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-    open func ints( _ _streamSize: Int64 ) -> IntStream! {
-        return ints( streamSize: _streamSize )
-    }
-
-    /// public java.util.stream.IntStream java.util.Random.ints()
-
-    private static var ints_MethodID_15: jmethodID?
-
-    open func ints() -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &Random.ints_MethodID_15, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.stream.IntStream java.util.Random.ints(long,int,int)
-
-    private static var ints_MethodID_16: jmethodID?
-
-    open func ints( streamSize: Int64, randomNumberOrigin: Int, randomNumberBound: Int ) -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
-        __args[1] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
-        __args[2] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(JII)Ljava/util/stream/IntStream;", methodCache: &Random.ints_MethodID_16, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-    open func ints( _ _streamSize: Int64, _ _randomNumberOrigin: Int, _ _randomNumberBound: Int ) -> IntStream! {
-        return ints( streamSize: _streamSize, randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
-    }
-
-    /// public java.util.stream.IntStream java.util.Random.ints(int,int)
-
-    private static var ints_MethodID_17: jmethodID?
-
-    open func ints( randomNumberOrigin: Int, randomNumberBound: Int ) -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
-        __args[1] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(II)Ljava/util/stream/IntStream;", methodCache: &Random.ints_MethodID_17, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-    open func ints( _ _randomNumberOrigin: Int, _ _randomNumberBound: Int ) -> IntStream! {
-        return ints( randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
-    }
-
-    /// public java.util.stream.DoubleStream java.util.Random.doubles(long,double,double)
-
-    private static var doubles_MethodID_18: jmethodID?
-
-    open func doubles( streamSize: Int64, randomNumberOrigin: Double, randomNumberBound: Double ) -> DoubleStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
-        __args[1] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
-        __args[2] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(JDD)Ljava/util/stream/DoubleStream;", methodCache: &Random.doubles_MethodID_18, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
-    }
-
-    open func doubles( _ _streamSize: Int64, _ _randomNumberOrigin: Double, _ _randomNumberBound: Double ) -> DoubleStream! {
-        return doubles( streamSize: _streamSize, randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
-    }
-
-    /// public java.util.stream.DoubleStream java.util.Random.doubles(double,double)
-
-    private static var doubles_MethodID_19: jmethodID?
-
-    open func doubles( randomNumberOrigin: Double, randomNumberBound: Double ) -> DoubleStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
-        __args[1] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(DD)Ljava/util/stream/DoubleStream;", methodCache: &Random.doubles_MethodID_19, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
-    }
-
-    open func doubles( _ _randomNumberOrigin: Double, _ _randomNumberBound: Double ) -> DoubleStream! {
-        return doubles( randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
-    }
-
-    /// public java.util.stream.DoubleStream java.util.Random.doubles()
-
-    private static var doubles_MethodID_20: jmethodID?
-
-    open func doubles() -> DoubleStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "()Ljava/util/stream/DoubleStream;", methodCache: &Random.doubles_MethodID_20, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.stream.DoubleStream java.util.Random.doubles(long)
-
-    private static var doubles_MethodID_21: jmethodID?
-
-    open func doubles( streamSize: Int64 ) -> DoubleStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(J)Ljava/util/stream/DoubleStream;", methodCache: &Random.doubles_MethodID_21, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
-    }
-
-    open func doubles( _ _streamSize: Int64 ) -> DoubleStream! {
-        return doubles( streamSize: _streamSize )
-    }
-
-    /// public boolean java.util.Random.nextBoolean()
-
-    private static var nextBoolean_MethodID_22: jmethodID?
-
-    open func nextBoolean() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "nextBoolean", methodSig: "()Z", methodCache: &Random.nextBoolean_MethodID_22, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public float java.util.Random.nextFloat()
-
-    private static var nextFloat_MethodID_23: jmethodID?
-
-    open func nextFloat() -> Float {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "nextFloat", methodSig: "()F", methodCache: &Random.nextFloat_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Float(), from: __return )
-    }
-
-
-    /// public void java.util.Random.nextBytes(byte[])
-
-    private static var nextBytes_MethodID_24: jmethodID?
-
-    open func nextBytes( bytes: [Int8]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bytes, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "nextBytes", methodSig: "([B)V", methodCache: &Random.nextBytes_MethodID_24, args: &__args, locals: &__locals )
-    }
-
-    open func nextBytes( _ _bytes: [Int8]? ) {
-        nextBytes( bytes: _bytes )
-    }
 
     /// private void java.util.Random.resetSeed(long)
 

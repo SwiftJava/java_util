@@ -112,7 +112,7 @@ open class Timer: java_swift.JavaObject {
     open func schedule( task: TimerTask?, delay: Int64, period: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
         __args[1] = JNIType.toJava( value: delay, locals: &__locals )
         __args[2] = JNIType.toJava( value: period, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/util/TimerTask;JJ)V", methodCache: &Timer.schedule_MethodID_6, args: &__args, locals: &__locals )
@@ -129,8 +129,8 @@ open class Timer: java_swift.JavaObject {
     open func schedule( task: TimerTask?, time: Date? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: time != nil ? time! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
+        __args[1] = JNIType.toJava( value: time, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/util/TimerTask;Ljava/util/Date;)V", methodCache: &Timer.schedule_MethodID_7, args: &__args, locals: &__locals )
     }
 
@@ -145,7 +145,7 @@ open class Timer: java_swift.JavaObject {
     open func schedule( task: TimerTask?, delay: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
         __args[1] = JNIType.toJava( value: delay, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/util/TimerTask;J)V", methodCache: &Timer.schedule_MethodID_8, args: &__args, locals: &__locals )
     }
@@ -161,8 +161,8 @@ open class Timer: java_swift.JavaObject {
     open func schedule( task: TimerTask?, firstTime: Date?, period: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: firstTime != nil ? firstTime! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
+        __args[1] = JNIType.toJava( value: firstTime, locals: &__locals )
         __args[2] = JNIType.toJava( value: period, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/util/TimerTask;Ljava/util/Date;J)V", methodCache: &Timer.schedule_MethodID_9, args: &__args, locals: &__locals )
     }
@@ -178,7 +178,7 @@ open class Timer: java_swift.JavaObject {
     open func scheduleAtFixedRate( task: TimerTask?, delay: Int64, period: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
         __args[1] = JNIType.toJava( value: delay, locals: &__locals )
         __args[2] = JNIType.toJava( value: period, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "scheduleAtFixedRate", methodSig: "(Ljava/util/TimerTask;JJ)V", methodCache: &Timer.scheduleAtFixedRate_MethodID_10, args: &__args, locals: &__locals )
@@ -195,8 +195,8 @@ open class Timer: java_swift.JavaObject {
     open func scheduleAtFixedRate( task: TimerTask?, firstTime: Date?, period: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: firstTime != nil ? firstTime! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
+        __args[1] = JNIType.toJava( value: firstTime, locals: &__locals )
         __args[2] = JNIType.toJava( value: period, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "scheduleAtFixedRate", methodSig: "(Ljava/util/TimerTask;Ljava/util/Date;J)V", methodCache: &Timer.scheduleAtFixedRate_MethodID_11, args: &__args, locals: &__locals )
     }

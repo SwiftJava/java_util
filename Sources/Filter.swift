@@ -25,7 +25,7 @@ open class FilterForward: JNIObjectForward, Filter {
     open func isLoggable( record: LogRecord? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: record != nil ? record! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: record, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isLoggable", methodSig: "(Ljava/util/logging/LogRecord;)Z", methodCache: &FilterForward.isLoggable_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

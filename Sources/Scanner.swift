@@ -107,75 +107,39 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// static final boolean java.util.Scanner.$assertionsDisabled
 
-    /// public java.util.Scanner(java.io.InputStream)
+    /// public java.util.Scanner(java.nio.file.Path) throws java.io.IOException
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( source: /* java.io.InputStream */ UnclassedObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: source != nil ? source! as JNIObject : nil, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &Scanner.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _source: /* java.io.InputStream */ UnclassedObject? ) {
-        self.init( source: _source )
-    }
-
-    /// public java.util.Scanner(java.lang.Readable)
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init( source: java_lang.Readable? ) {
+    public convenience init( source: /* java.nio.file.Path */ UnclassedProtocol? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: source, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/lang/Readable;)V", methodCache: &Scanner.new_MethodID_2, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/nio/file/Path;)V", methodCache: &Scanner.new_MethodID_1, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+        }
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _source: java_lang.Readable? ) {
-        self.init( source: _source )
+    public convenience init( _ _source: /* java.nio.file.Path */ UnclassedProtocol? ) throws {
+        try self.init( source: _source )
     }
 
     /// private java.util.Scanner(java.lang.Readable,java.util.regex.Pattern)
 
-    /// private java.util.Scanner(java.io.File,java.nio.charset.CharsetDecoder) throws java.io.FileNotFoundException
-
-    /// public java.util.Scanner(java.io.InputStream,java.lang.String)
-
-    private static var new_MethodID_3: jmethodID?
-
-    public convenience init( source: /* java.io.InputStream */ UnclassedObject?, charsetName: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: source != nil ? source! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: charsetName, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/lang/String;)V", methodCache: &Scanner.new_MethodID_3, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _source: /* java.io.InputStream */ UnclassedObject?, _ _charsetName: String? ) {
-        self.init( source: _source, charsetName: _charsetName )
-    }
-
-    /// public java.util.Scanner(java.io.File,java.lang.String) throws java.io.FileNotFoundException
-
-    /// public java.util.Scanner(java.io.File) throws java.io.FileNotFoundException
+    /// private java.util.Scanner(java.nio.file.Path,java.nio.charset.Charset) throws java.io.IOException
 
     /// public java.util.Scanner(java.lang.String)
 
-    private static var new_MethodID_4: jmethodID?
+    private static var new_MethodID_2: jmethodID?
 
     public convenience init( source: String? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: source, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &Scanner.new_MethodID_4, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &Scanner.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -184,46 +148,88 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
         self.init( source: _source )
     }
 
-    /// public java.util.Scanner(java.nio.channels.ReadableByteChannel)
+    /// public java.util.Scanner(java.io.InputStream)
 
-    private static var new_MethodID_5: jmethodID?
+    private static var new_MethodID_3: jmethodID?
 
-    public convenience init( source: /* java.nio.channels.ReadableByteChannel */ UnclassedProtocol? ) {
+    public convenience init( source: /* java.io.InputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: source, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/nio/channels/ReadableByteChannel;)V", methodCache: &Scanner.new_MethodID_5, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &Scanner.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _source: /* java.nio.channels.ReadableByteChannel */ UnclassedProtocol? ) {
+    public convenience init( _ _source: /* java.io.InputStream */ UnclassedObject? ) {
         self.init( source: _source )
     }
 
-    /// public java.util.Scanner(java.nio.channels.ReadableByteChannel,java.lang.String)
+    /// public java.util.Scanner(java.io.InputStream,java.lang.String)
 
-    private static var new_MethodID_6: jmethodID?
+    private static var new_MethodID_4: jmethodID?
 
-    public convenience init( source: /* java.nio.channels.ReadableByteChannel */ UnclassedProtocol?, charsetName: String? ) {
+    public convenience init( source: /* java.io.InputStream */ UnclassedObject?, charsetName: String? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: source, locals: &__locals )
         __args[1] = JNIType.toJava( value: charsetName, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/nio/channels/ReadableByteChannel;Ljava/lang/String;)V", methodCache: &Scanner.new_MethodID_6, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/lang/String;)V", methodCache: &Scanner.new_MethodID_4, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _source: /* java.nio.channels.ReadableByteChannel */ UnclassedProtocol?, _ _charsetName: String? ) {
+    public convenience init( _ _source: /* java.io.InputStream */ UnclassedObject?, _ _charsetName: String? ) {
         self.init( source: _source, charsetName: _charsetName )
     }
 
     /// public java.util.Scanner(java.nio.file.Path,java.lang.String) throws java.io.IOException
 
-    /// private java.util.Scanner(java.nio.file.Path,java.nio.charset.Charset) throws java.io.IOException
+    private static var new_MethodID_5: jmethodID?
 
-    /// public java.util.Scanner(java.nio.file.Path) throws java.io.IOException
+    public convenience init( source: /* java.nio.file.Path */ UnclassedProtocol?, charsetName: String? ) throws {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: source, locals: &__locals )
+        __args[1] = JNIType.toJava( value: charsetName, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/nio/file/Path;Ljava/lang/String;)V", methodCache: &Scanner.new_MethodID_5, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+        }
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _source: /* java.nio.file.Path */ UnclassedProtocol?, _ _charsetName: String? ) throws {
+        try self.init( source: _source, charsetName: _charsetName )
+    }
+
+    /// public java.util.Scanner(java.lang.Readable)
+
+    private static var new_MethodID_6: jmethodID?
+
+    public convenience init( source: java_lang.Readable? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: source, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/Scanner", classCache: &Scanner.ScannerJNIClass, methodSig: "(Ljava/lang/Readable;)V", methodCache: &Scanner.new_MethodID_6, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _source: java_lang.Readable? ) {
+        self.init( source: _source )
+    }
+
+    /// private java.util.Scanner(java.io.File,java.nio.charset.CharsetDecoder) throws java.io.FileNotFoundException
+
+    /// public java.util.Scanner(java.io.File,java.lang.String) throws java.io.FileNotFoundException
+
+    /// public java.util.Scanner(java.io.File) throws java.io.FileNotFoundException
+
+    /// public java.util.Scanner(java.nio.channels.ReadableByteChannel,java.lang.String)
+
+    /// public java.util.Scanner(java.nio.channels.ReadableByteChannel)
 
     /// public void java.util.Scanner.remove()
 
@@ -238,19 +244,19 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public java.lang.String java.util.Scanner.toString()
 
-    /// public java.lang.String java.util.Scanner.next(java.util.regex.Pattern)
+    /// public java.lang.String java.util.Scanner.next(java.lang.String)
 
     private static var next_MethodID_8: jmethodID?
 
-    open func next( pattern: Pattern? ) -> String! {
+    open func next( pattern: String? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: pattern != nil ? pattern! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "next", methodSig: "(Ljava/util/regex/Pattern;)Ljava/lang/String;", methodCache: &Scanner.next_MethodID_8, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "next", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &Scanner.next_MethodID_8, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
-    open func next( _ _pattern: Pattern? ) -> String! {
+    open func next( _ _pattern: String? ) -> String! {
         return next( pattern: _pattern )
     }
 
@@ -266,23 +272,23 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     }
 
 
-    /// public java.lang.String java.util.Scanner.next(java.lang.String)
+    /// public java.lang.Object java.util.Scanner.next()
+
+    /// public java.lang.String java.util.Scanner.next(java.util.regex.Pattern)
 
     private static var next_MethodID_10: jmethodID?
 
-    open func next( pattern: String? ) -> String! {
+    open func next( pattern: Pattern? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "next", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &Scanner.next_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "next", methodSig: "(Ljava/util/regex/Pattern;)Ljava/lang/String;", methodCache: &Scanner.next_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
-    open func next( _ _pattern: String? ) -> String! {
+    open func next( _ _pattern: Pattern? ) -> String! {
         return next( pattern: _pattern )
     }
-
-    /// public java.lang.Object java.util.Scanner.next()
 
     /// public java.util.regex.Pattern java.util.Scanner.delimiter()
 
@@ -310,47 +316,47 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     }
 
 
-    /// public boolean java.util.Scanner.hasNext(java.util.regex.Pattern)
-
-    private static var hasNext_MethodID_13: jmethodID?
-
-    open func hasNext( pattern: Pattern? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: pattern != nil ? pattern! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNext", methodSig: "(Ljava/util/regex/Pattern;)Z", methodCache: &Scanner.hasNext_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func hasNext( _ _pattern: Pattern? ) -> Bool {
-        return hasNext( pattern: _pattern )
-    }
-
     /// public boolean java.util.Scanner.hasNext()
 
-    private static var hasNext_MethodID_14: jmethodID?
+    private static var hasNext_MethodID_13: jmethodID?
 
     open func hasNext() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNext", methodSig: "()Z", methodCache: &Scanner.hasNext_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNext", methodSig: "()Z", methodCache: &Scanner.hasNext_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.Scanner.hasNext(java.lang.String)
 
-    private static var hasNext_MethodID_15: jmethodID?
+    private static var hasNext_MethodID_14: jmethodID?
 
     open func hasNext( pattern: String? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNext", methodSig: "(Ljava/lang/String;)Z", methodCache: &Scanner.hasNext_MethodID_15, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNext", methodSig: "(Ljava/lang/String;)Z", methodCache: &Scanner.hasNext_MethodID_14, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
     open func hasNext( _ _pattern: String? ) -> Bool {
+        return hasNext( pattern: _pattern )
+    }
+
+    /// public boolean java.util.Scanner.hasNext(java.util.regex.Pattern)
+
+    private static var hasNext_MethodID_15: jmethodID?
+
+    open func hasNext( pattern: Pattern? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNext", methodSig: "(Ljava/util/regex/Pattern;)Z", methodCache: &Scanner.hasNext_MethodID_15, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func hasNext( _ _pattern: Pattern? ) -> Bool {
         return hasNext( pattern: _pattern )
     }
 
@@ -378,37 +384,37 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     }
 
 
-    /// public java.util.Scanner java.util.Scanner.skip(java.lang.String)
-
-    private static var skip_MethodID_18: jmethodID?
-
-    open func skip( pattern: String? ) -> Scanner! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "skip", methodSig: "(Ljava/lang/String;)Ljava/util/Scanner;", methodCache: &Scanner.skip_MethodID_18, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Scanner( javaObject: __return ) : nil
-    }
-
-    open func skip( _ _pattern: String? ) -> Scanner! {
-        return skip( pattern: _pattern )
-    }
-
     /// public java.util.Scanner java.util.Scanner.skip(java.util.regex.Pattern)
 
-    private static var skip_MethodID_19: jmethodID?
+    private static var skip_MethodID_18: jmethodID?
 
     open func skip( pattern: Pattern? ) -> Scanner! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: pattern != nil ? pattern! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "skip", methodSig: "(Ljava/util/regex/Pattern;)Ljava/util/Scanner;", methodCache: &Scanner.skip_MethodID_19, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "skip", methodSig: "(Ljava/util/regex/Pattern;)Ljava/util/Scanner;", methodCache: &Scanner.skip_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Scanner( javaObject: __return ) : nil
     }
 
     open func skip( _ _pattern: Pattern? ) -> Scanner! {
+        return skip( pattern: _pattern )
+    }
+
+    /// public java.util.Scanner java.util.Scanner.skip(java.lang.String)
+
+    private static var skip_MethodID_19: jmethodID?
+
+    open func skip( pattern: String? ) -> Scanner! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "skip", methodSig: "(Ljava/lang/String;)Ljava/util/Scanner;", methodCache: &Scanner.skip_MethodID_19, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Scanner( javaObject: __return ) : nil
+    }
+
+    open func skip( _ _pattern: String? ) -> Scanner! {
         return skip( pattern: _pattern )
     }
 
@@ -437,33 +443,33 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     }
 
 
-    /// public int java.util.Scanner.nextInt(int)
+    /// public int java.util.Scanner.nextInt()
 
     private static var nextInt_MethodID_22: jmethodID?
+
+    open func nextInt() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "()I", methodCache: &Scanner.nextInt_MethodID_22, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public int java.util.Scanner.nextInt(int)
+
+    private static var nextInt_MethodID_23: jmethodID?
 
     open func nextInt( radix: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(I)I", methodCache: &Scanner.nextInt_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(I)I", methodCache: &Scanner.nextInt_MethodID_23, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
     open func nextInt( _ _radix: Int ) -> Int {
         return nextInt( radix: _radix )
     }
-
-    /// public int java.util.Scanner.nextInt()
-
-    private static var nextInt_MethodID_23: jmethodID?
-
-    open func nextInt() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "()I", methodCache: &Scanner.nextInt_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
 
     /// public double java.util.Scanner.nextDouble()
 
@@ -481,47 +487,6 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// private void java.util.Scanner.ensureOpen()
 
-    /// public long java.util.Scanner.nextLong()
-
-    private static var nextLong_MethodID_25: jmethodID?
-
-    open func nextLong() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "()J", methodCache: &Scanner.nextLong_MethodID_25, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public long java.util.Scanner.nextLong(int)
-
-    private static var nextLong_MethodID_26: jmethodID?
-
-    open func nextLong( radix: Int ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(I)J", methodCache: &Scanner.nextLong_MethodID_26, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-    open func nextLong( _ _radix: Int ) -> Int64 {
-        return nextLong( radix: _radix )
-    }
-
-    /// public java.io.IOException java.util.Scanner.ioException()
-
-    private static var ioException_MethodID_27: jmethodID?
-
-    open func ioException() -> /* java.io.IOException */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ioException", methodSig: "()Ljava/io/IOException;", methodCache: &Scanner.ioException_MethodID_27, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.io.IOException */ UnclassedObject( javaObject: __return ) : nil
-    }
-
-
     /// private static java.util.regex.Pattern java.util.Scanner.boolPattern()
 
     /// private java.util.regex.Pattern java.util.Scanner.integerPattern()
@@ -538,19 +503,19 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// private void java.util.Scanner.buildFloatAndDecimalPattern()
 
-    /// private static java.lang.Readable java.util.Scanner.makeReadable(java.nio.channels.ReadableByteChannel)
+    /// private static java.lang.Readable java.util.Scanner.makeReadable(java.io.InputStream,java.nio.charset.Charset)
 
     /// private static java.lang.Readable java.util.Scanner.makeReadable(java.nio.channels.ReadableByteChannel,java.nio.charset.CharsetDecoder)
 
-    /// private static java.lang.Readable java.util.Scanner.makeReadable(java.io.InputStream,java.nio.charset.Charset)
+    /// private static java.lang.Readable java.util.Scanner.makeReadable(java.nio.channels.ReadableByteChannel)
 
     /// private static java.nio.charset.CharsetDecoder java.util.Scanner.toDecoder(java.lang.String)
 
     /// private void java.util.Scanner.saveState()
 
-    /// private boolean java.util.Scanner.revertState(boolean)
-
     /// private void java.util.Scanner.revertState()
+
+    /// private boolean java.util.Scanner.revertState(boolean)
 
     /// private void java.util.Scanner.cacheResult()
 
@@ -580,13 +545,13 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public java.util.Scanner java.util.Scanner.useDelimiter(java.util.regex.Pattern)
 
-    private static var useDelimiter_MethodID_28: jmethodID?
+    private static var useDelimiter_MethodID_25: jmethodID?
 
     open func useDelimiter( pattern: Pattern? ) -> Scanner! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: pattern != nil ? pattern! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useDelimiter", methodSig: "(Ljava/util/regex/Pattern;)Ljava/util/Scanner;", methodCache: &Scanner.useDelimiter_MethodID_28, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useDelimiter", methodSig: "(Ljava/util/regex/Pattern;)Ljava/util/Scanner;", methodCache: &Scanner.useDelimiter_MethodID_25, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Scanner( javaObject: __return ) : nil
     }
@@ -597,13 +562,13 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public java.util.Scanner java.util.Scanner.useDelimiter(java.lang.String)
 
-    private static var useDelimiter_MethodID_29: jmethodID?
+    private static var useDelimiter_MethodID_26: jmethodID?
 
     open func useDelimiter( pattern: String? ) -> Scanner! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useDelimiter", methodSig: "(Ljava/lang/String;)Ljava/util/Scanner;", methodCache: &Scanner.useDelimiter_MethodID_29, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useDelimiter", methodSig: "(Ljava/lang/String;)Ljava/util/Scanner;", methodCache: &Scanner.useDelimiter_MethodID_26, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Scanner( javaObject: __return ) : nil
     }
@@ -614,13 +579,13 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public java.util.Scanner java.util.Scanner.useLocale(java.util.Locale)
 
-    private static var useLocale_MethodID_30: jmethodID?
+    private static var useLocale_MethodID_27: jmethodID?
 
     open func useLocale( locale: JavaLocale? ) -> Scanner! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useLocale", methodSig: "(Ljava/util/Locale;)Ljava/util/Scanner;", methodCache: &Scanner.useLocale_MethodID_30, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: locale, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useLocale", methodSig: "(Ljava/util/Locale;)Ljava/util/Scanner;", methodCache: &Scanner.useLocale_MethodID_27, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Scanner( javaObject: __return ) : nil
     }
@@ -631,13 +596,13 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public java.util.Scanner java.util.Scanner.useRadix(int)
 
-    private static var useRadix_MethodID_31: jmethodID?
+    private static var useRadix_MethodID_28: jmethodID?
 
     open func useRadix( radix: Int ) -> Scanner! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useRadix", methodSig: "(I)Ljava/util/Scanner;", methodCache: &Scanner.useRadix_MethodID_31, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useRadix", methodSig: "(I)Ljava/util/Scanner;", methodCache: &Scanner.useRadix_MethodID_28, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Scanner( javaObject: __return ) : nil
     }
@@ -650,37 +615,37 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public boolean java.util.Scanner.hasNextLine()
 
-    private static var hasNextLine_MethodID_32: jmethodID?
+    private static var hasNextLine_MethodID_29: jmethodID?
 
     open func hasNextLine() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextLine", methodSig: "()Z", methodCache: &Scanner.hasNextLine_MethodID_32, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextLine", methodSig: "()Z", methodCache: &Scanner.hasNextLine_MethodID_29, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public java.lang.String java.util.Scanner.nextLine()
 
-    private static var nextLine_MethodID_33: jmethodID?
+    private static var nextLine_MethodID_30: jmethodID?
 
     open func nextLine() -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextLine", methodSig: "()Ljava/lang/String;", methodCache: &Scanner.nextLine_MethodID_33, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextLine", methodSig: "()Ljava/lang/String;", methodCache: &Scanner.nextLine_MethodID_30, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
 
     /// public java.lang.String java.util.Scanner.findInLine(java.lang.String)
 
-    private static var findInLine_MethodID_34: jmethodID?
+    private static var findInLine_MethodID_31: jmethodID?
 
     open func findInLine( pattern: String? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findInLine", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &Scanner.findInLine_MethodID_34, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findInLine", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &Scanner.findInLine_MethodID_31, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
@@ -690,13 +655,13 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public java.lang.String java.util.Scanner.findInLine(java.util.regex.Pattern)
 
-    private static var findInLine_MethodID_35: jmethodID?
+    private static var findInLine_MethodID_32: jmethodID?
 
     open func findInLine( pattern: Pattern? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: pattern != nil ? pattern! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findInLine", methodSig: "(Ljava/util/regex/Pattern;)Ljava/lang/String;", methodCache: &Scanner.findInLine_MethodID_35, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findInLine", methodSig: "(Ljava/util/regex/Pattern;)Ljava/lang/String;", methodCache: &Scanner.findInLine_MethodID_32, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
@@ -706,14 +671,14 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public java.lang.String java.util.Scanner.findWithinHorizon(java.util.regex.Pattern,int)
 
-    private static var findWithinHorizon_MethodID_36: jmethodID?
+    private static var findWithinHorizon_MethodID_33: jmethodID?
 
     open func findWithinHorizon( pattern: Pattern?, horizon: Int ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: pattern != nil ? pattern! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
         __args[1] = JNIType.toJava( value: horizon, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findWithinHorizon", methodSig: "(Ljava/util/regex/Pattern;I)Ljava/lang/String;", methodCache: &Scanner.findWithinHorizon_MethodID_36, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findWithinHorizon", methodSig: "(Ljava/util/regex/Pattern;I)Ljava/lang/String;", methodCache: &Scanner.findWithinHorizon_MethodID_33, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
@@ -723,14 +688,14 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public java.lang.String java.util.Scanner.findWithinHorizon(java.lang.String,int)
 
-    private static var findWithinHorizon_MethodID_37: jmethodID?
+    private static var findWithinHorizon_MethodID_34: jmethodID?
 
     open func findWithinHorizon( pattern: String?, horizon: Int ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: pattern, locals: &__locals )
         __args[1] = JNIType.toJava( value: horizon, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findWithinHorizon", methodSig: "(Ljava/lang/String;I)Ljava/lang/String;", methodCache: &Scanner.findWithinHorizon_MethodID_37, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findWithinHorizon", methodSig: "(Ljava/lang/String;I)Ljava/lang/String;", methodCache: &Scanner.findWithinHorizon_MethodID_34, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
@@ -740,37 +705,49 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public boolean java.util.Scanner.hasNextBoolean()
 
-    private static var hasNextBoolean_MethodID_38: jmethodID?
+    private static var hasNextBoolean_MethodID_35: jmethodID?
 
     open func hasNextBoolean() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextBoolean", methodSig: "()Z", methodCache: &Scanner.hasNextBoolean_MethodID_38, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextBoolean", methodSig: "()Z", methodCache: &Scanner.hasNextBoolean_MethodID_35, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.Scanner.nextBoolean()
 
-    private static var nextBoolean_MethodID_39: jmethodID?
+    private static var nextBoolean_MethodID_36: jmethodID?
 
     open func nextBoolean() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "nextBoolean", methodSig: "()Z", methodCache: &Scanner.nextBoolean_MethodID_39, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "nextBoolean", methodSig: "()Z", methodCache: &Scanner.nextBoolean_MethodID_36, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public boolean java.util.Scanner.hasNextByte()
+
+    private static var hasNextByte_MethodID_37: jmethodID?
+
+    open func hasNextByte() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextByte", methodSig: "()Z", methodCache: &Scanner.hasNextByte_MethodID_37, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.Scanner.hasNextByte(int)
 
-    private static var hasNextByte_MethodID_40: jmethodID?
+    private static var hasNextByte_MethodID_38: jmethodID?
 
     open func hasNextByte( radix: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextByte", methodSig: "(I)Z", methodCache: &Scanner.hasNextByte_MethodID_40, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextByte", methodSig: "(I)Z", methodCache: &Scanner.hasNextByte_MethodID_38, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -778,27 +755,15 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
         return hasNextByte( radix: _radix )
     }
 
-    /// public boolean java.util.Scanner.hasNextByte()
-
-    private static var hasNextByte_MethodID_41: jmethodID?
-
-    open func hasNextByte() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextByte", methodSig: "()Z", methodCache: &Scanner.hasNextByte_MethodID_41, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
     /// public byte java.util.Scanner.nextByte(int)
 
-    private static var nextByte_MethodID_42: jmethodID?
+    private static var nextByte_MethodID_39: jmethodID?
 
     open func nextByte( radix: Int ) -> Int8 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallByteMethod( object: javaObject, methodName: "nextByte", methodSig: "(I)B", methodCache: &Scanner.nextByte_MethodID_42, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallByteMethod( object: javaObject, methodName: "nextByte", methodSig: "(I)B", methodCache: &Scanner.nextByte_MethodID_39, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int8(), from: __return )
     }
 
@@ -808,25 +773,37 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public byte java.util.Scanner.nextByte()
 
-    private static var nextByte_MethodID_43: jmethodID?
+    private static var nextByte_MethodID_40: jmethodID?
 
     open func nextByte() -> Int8 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallByteMethod( object: javaObject, methodName: "nextByte", methodSig: "()B", methodCache: &Scanner.nextByte_MethodID_43, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallByteMethod( object: javaObject, methodName: "nextByte", methodSig: "()B", methodCache: &Scanner.nextByte_MethodID_40, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int8(), from: __return )
+    }
+
+
+    /// public boolean java.util.Scanner.hasNextShort()
+
+    private static var hasNextShort_MethodID_41: jmethodID?
+
+    open func hasNextShort() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextShort", methodSig: "()Z", methodCache: &Scanner.hasNextShort_MethodID_41, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.Scanner.hasNextShort(int)
 
-    private static var hasNextShort_MethodID_44: jmethodID?
+    private static var hasNextShort_MethodID_42: jmethodID?
 
     open func hasNextShort( radix: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextShort", methodSig: "(I)Z", methodCache: &Scanner.hasNextShort_MethodID_44, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextShort", methodSig: "(I)Z", methodCache: &Scanner.hasNextShort_MethodID_42, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -834,27 +811,27 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
         return hasNextShort( radix: _radix )
     }
 
-    /// public boolean java.util.Scanner.hasNextShort()
+    /// public short java.util.Scanner.nextShort()
 
-    private static var hasNextShort_MethodID_45: jmethodID?
+    private static var nextShort_MethodID_43: jmethodID?
 
-    open func hasNextShort() -> Bool {
+    open func nextShort() -> Int16 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextShort", methodSig: "()Z", methodCache: &Scanner.hasNextShort_MethodID_45, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        let __return = JNIMethod.CallShortMethod( object: javaObject, methodName: "nextShort", methodSig: "()S", methodCache: &Scanner.nextShort_MethodID_43, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int16(), from: __return )
     }
 
 
     /// public short java.util.Scanner.nextShort(int)
 
-    private static var nextShort_MethodID_46: jmethodID?
+    private static var nextShort_MethodID_44: jmethodID?
 
     open func nextShort( radix: Int ) -> Int16 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallShortMethod( object: javaObject, methodName: "nextShort", methodSig: "(I)S", methodCache: &Scanner.nextShort_MethodID_46, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallShortMethod( object: javaObject, methodName: "nextShort", methodSig: "(I)S", methodCache: &Scanner.nextShort_MethodID_44, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int16(), from: __return )
     }
 
@@ -862,27 +839,15 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
         return nextShort( radix: _radix )
     }
 
-    /// public short java.util.Scanner.nextShort()
-
-    private static var nextShort_MethodID_47: jmethodID?
-
-    open func nextShort() -> Int16 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallShortMethod( object: javaObject, methodName: "nextShort", methodSig: "()S", methodCache: &Scanner.nextShort_MethodID_47, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int16(), from: __return )
-    }
-
-
     /// public boolean java.util.Scanner.hasNextInt(int)
 
-    private static var hasNextInt_MethodID_48: jmethodID?
+    private static var hasNextInt_MethodID_45: jmethodID?
 
     open func hasNextInt( radix: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextInt", methodSig: "(I)Z", methodCache: &Scanner.hasNextInt_MethodID_48, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextInt", methodSig: "(I)Z", methodCache: &Scanner.hasNextInt_MethodID_45, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -892,27 +857,39 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
 
     /// public boolean java.util.Scanner.hasNextInt()
 
-    private static var hasNextInt_MethodID_49: jmethodID?
+    private static var hasNextInt_MethodID_46: jmethodID?
 
     open func hasNextInt() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextInt", methodSig: "()Z", methodCache: &Scanner.hasNextInt_MethodID_49, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextInt", methodSig: "()Z", methodCache: &Scanner.hasNextInt_MethodID_46, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// private java.lang.String java.util.Scanner.processIntegerToken(java.lang.String)
 
+    /// public boolean java.util.Scanner.hasNextLong()
+
+    private static var hasNextLong_MethodID_47: jmethodID?
+
+    open func hasNextLong() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextLong", methodSig: "()Z", methodCache: &Scanner.hasNextLong_MethodID_47, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
     /// public boolean java.util.Scanner.hasNextLong(int)
 
-    private static var hasNextLong_MethodID_50: jmethodID?
+    private static var hasNextLong_MethodID_48: jmethodID?
 
     open func hasNextLong( radix: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextLong", methodSig: "(I)Z", methodCache: &Scanner.hasNextLong_MethodID_50, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextLong", methodSig: "(I)Z", methodCache: &Scanner.hasNextLong_MethodID_48, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -920,77 +897,53 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
         return hasNextLong( radix: _radix )
     }
 
-    /// public boolean java.util.Scanner.hasNextLong()
-
-    private static var hasNextLong_MethodID_51: jmethodID?
-
-    open func hasNextLong() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextLong", methodSig: "()Z", methodCache: &Scanner.hasNextLong_MethodID_51, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
     /// private java.lang.String java.util.Scanner.processFloatToken(java.lang.String)
 
     /// public boolean java.util.Scanner.hasNextFloat()
 
-    private static var hasNextFloat_MethodID_52: jmethodID?
+    private static var hasNextFloat_MethodID_49: jmethodID?
 
     open func hasNextFloat() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextFloat", methodSig: "()Z", methodCache: &Scanner.hasNextFloat_MethodID_52, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextFloat", methodSig: "()Z", methodCache: &Scanner.hasNextFloat_MethodID_49, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public float java.util.Scanner.nextFloat()
 
-    private static var nextFloat_MethodID_53: jmethodID?
+    private static var nextFloat_MethodID_50: jmethodID?
 
     open func nextFloat() -> Float {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "nextFloat", methodSig: "()F", methodCache: &Scanner.nextFloat_MethodID_53, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "nextFloat", methodSig: "()F", methodCache: &Scanner.nextFloat_MethodID_50, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Float(), from: __return )
     }
 
 
     /// public boolean java.util.Scanner.hasNextDouble()
 
-    private static var hasNextDouble_MethodID_54: jmethodID?
+    private static var hasNextDouble_MethodID_51: jmethodID?
 
     open func hasNextDouble() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextDouble", methodSig: "()Z", methodCache: &Scanner.hasNextDouble_MethodID_54, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public boolean java.util.Scanner.hasNextBigInteger()
-
-    private static var hasNextBigInteger_MethodID_55: jmethodID?
-
-    open func hasNextBigInteger() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextBigInteger", methodSig: "()Z", methodCache: &Scanner.hasNextBigInteger_MethodID_55, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextDouble", methodSig: "()Z", methodCache: &Scanner.hasNextDouble_MethodID_51, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.Scanner.hasNextBigInteger(int)
 
-    private static var hasNextBigInteger_MethodID_56: jmethodID?
+    private static var hasNextBigInteger_MethodID_52: jmethodID?
 
     open func hasNextBigInteger( radix: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextBigInteger", methodSig: "(I)Z", methodCache: &Scanner.hasNextBigInteger_MethodID_56, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextBigInteger", methodSig: "(I)Z", methodCache: &Scanner.hasNextBigInteger_MethodID_52, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -998,28 +951,27 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
         return hasNextBigInteger( radix: _radix )
     }
 
-    /// public java.math.BigInteger java.util.Scanner.nextBigInteger()
+    /// public boolean java.util.Scanner.hasNextBigInteger()
 
-    private static var nextBigInteger_MethodID_57: jmethodID?
+    private static var hasNextBigInteger_MethodID_53: jmethodID?
 
-    open func nextBigInteger() -> /* java.math.BigInteger */ UnclassedObject! {
+    open func hasNextBigInteger() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextBigInteger", methodSig: "()Ljava/math/BigInteger;", methodCache: &Scanner.nextBigInteger_MethodID_57, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.math.BigInteger */ UnclassedObject( javaObject: __return ) : nil
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextBigInteger", methodSig: "()Z", methodCache: &Scanner.hasNextBigInteger_MethodID_53, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public java.math.BigInteger java.util.Scanner.nextBigInteger(int)
 
-    private static var nextBigInteger_MethodID_58: jmethodID?
+    private static var nextBigInteger_MethodID_54: jmethodID?
 
     open func nextBigInteger( radix: Int ) -> /* java.math.BigInteger */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: radix, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextBigInteger", methodSig: "(I)Ljava/math/BigInteger;", methodCache: &Scanner.nextBigInteger_MethodID_58, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextBigInteger", methodSig: "(I)Ljava/math/BigInteger;", methodCache: &Scanner.nextBigInteger_MethodID_54, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.math.BigInteger */ UnclassedObject( javaObject: __return ) : nil
     }
@@ -1028,28 +980,82 @@ open class Scanner: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
         return nextBigInteger( radix: _radix )
     }
 
+    /// public java.math.BigInteger java.util.Scanner.nextBigInteger()
+
+    private static var nextBigInteger_MethodID_55: jmethodID?
+
+    open func nextBigInteger() -> /* java.math.BigInteger */ UnclassedObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextBigInteger", methodSig: "()Ljava/math/BigInteger;", methodCache: &Scanner.nextBigInteger_MethodID_55, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* java.math.BigInteger */ UnclassedObject( javaObject: __return ) : nil
+    }
+
+
     /// public boolean java.util.Scanner.hasNextBigDecimal()
 
-    private static var hasNextBigDecimal_MethodID_59: jmethodID?
+    private static var hasNextBigDecimal_MethodID_56: jmethodID?
 
     open func hasNextBigDecimal() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextBigDecimal", methodSig: "()Z", methodCache: &Scanner.hasNextBigDecimal_MethodID_59, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasNextBigDecimal", methodSig: "()Z", methodCache: &Scanner.hasNextBigDecimal_MethodID_56, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public java.math.BigDecimal java.util.Scanner.nextBigDecimal()
 
-    private static var nextBigDecimal_MethodID_60: jmethodID?
+    private static var nextBigDecimal_MethodID_57: jmethodID?
 
     open func nextBigDecimal() -> /* java.math.BigDecimal */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextBigDecimal", methodSig: "()Ljava/math/BigDecimal;", methodCache: &Scanner.nextBigDecimal_MethodID_60, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextBigDecimal", methodSig: "()Ljava/math/BigDecimal;", methodCache: &Scanner.nextBigDecimal_MethodID_57, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.math.BigDecimal */ UnclassedObject( javaObject: __return ) : nil
+    }
+
+
+    /// public long java.util.Scanner.nextLong(int)
+
+    private static var nextLong_MethodID_58: jmethodID?
+
+    open func nextLong( radix: Int ) -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: radix, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(I)J", methodCache: &Scanner.nextLong_MethodID_58, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+    open func nextLong( _ _radix: Int ) -> Int64 {
+        return nextLong( radix: _radix )
+    }
+
+    /// public long java.util.Scanner.nextLong()
+
+    private static var nextLong_MethodID_59: jmethodID?
+
+    open func nextLong() -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "()J", methodCache: &Scanner.nextLong_MethodID_59, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+
+    /// public java.io.IOException java.util.Scanner.ioException()
+
+    private static var ioException_MethodID_60: jmethodID?
+
+    open func ioException() -> /* java.io.IOException */ UnclassedObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ioException", methodSig: "()Ljava/io/IOException;", methodCache: &Scanner.ioException_MethodID_60, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* java.io.IOException */ UnclassedObject( javaObject: __return ) : nil
     }
 
 

@@ -46,8 +46,8 @@ open class StreamHandler: Handler {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, formatter: logging_Formatter? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: formatter != nil ? formatter! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = JNIType.toJava( value: formatter, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/logging/StreamHandler", classCache: &StreamHandler.StreamHandlerJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/logging/Formatter;)V", methodCache: &StreamHandler.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -73,6 +73,10 @@ open class StreamHandler: Handler {
 
     /// public synchronized void java.util.logging.StreamHandler.close() throws java.lang.SecurityException
 
+    /// public boolean java.util.logging.StreamHandler.isLoggable(java.util.logging.LogRecord)
+
+    /// private void java.util.logging.StreamHandler.configure()
+
     /// public synchronized void java.util.logging.StreamHandler.publish(java.util.logging.LogRecord)
 
     /// public synchronized void java.util.logging.StreamHandler.setEncoding(java.lang.String) throws java.lang.SecurityException,java.io.UnsupportedEncodingException
@@ -84,7 +88,7 @@ open class StreamHandler: Handler {
     open func setOutputStream( out: /* java.io.OutputStream */ UnclassedObject? ) throws /* java.lang.SecurityException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setOutputStream", methodSig: "(Ljava/io/OutputStream;)V", methodCache: &StreamHandler.setOutputStream_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.JavaSecurityException( javaObject: throwable )
@@ -96,10 +100,6 @@ open class StreamHandler: Handler {
     }
 
     /// private synchronized void java.util.logging.StreamHandler.flushAndClose() throws java.lang.SecurityException
-
-    /// private void java.util.logging.StreamHandler.configure()
-
-    /// public boolean java.util.logging.StreamHandler.isLoggable(java.util.logging.LogRecord)
 
 }
 

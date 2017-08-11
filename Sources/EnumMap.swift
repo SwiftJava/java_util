@@ -47,7 +47,7 @@ open class EnumMap: AbstractMap, /* java.io.Serializable */ UnclassedProtocol, j
     public convenience init( keyType: java_swift.JavaClass? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: keyType != nil ? keyType! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: keyType, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/EnumMap", classCache: &EnumMap.EnumMapJNIClass, methodSig: "(Ljava/lang/Class;)V", methodCache: &EnumMap.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -102,8 +102,8 @@ open class EnumMap: AbstractMap, /* java.io.Serializable */ UnclassedProtocol, j
     open func put( key: java_lang.Enum?, value: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: value != nil ? value! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
+        __args[1] = JNIType.toJava( value: value, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Enum;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &EnumMap.put_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -184,7 +184,11 @@ open class EnumMap: AbstractMap, /* java.io.Serializable */ UnclassedProtocol, j
 
     /// private boolean java.util.EnumMap.removeMapping(java.lang.Object,java.lang.Object)
 
+    /// private void java.util.EnumMap.typeCheck(java.lang.Enum)
+
     /// private boolean java.util.EnumMap.isValidKey(java.lang.Object)
+
+    /// private boolean java.util.EnumMap.containsMapping(java.lang.Object,java.lang.Object)
 
     /// private int java.util.EnumMap.entryHashCode(int)
 
@@ -199,10 +203,6 @@ open class EnumMap: AbstractMap, /* java.io.Serializable */ UnclassedProtocol, j
     /// static java.lang.Object java.util.EnumMap.access$1200(java.util.EnumMap,java.lang.Object)
 
     /// static int java.util.EnumMap.access$1600(java.util.EnumMap,int)
-
-    /// private boolean java.util.EnumMap.containsMapping(java.lang.Object,java.lang.Object)
-
-    /// private void java.util.EnumMap.typeCheck(java.lang.Enum)
 
 }
 

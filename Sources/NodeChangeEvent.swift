@@ -34,7 +34,7 @@ open class NodeChangeEvent: EventObject {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &NodeChangeEvent.source_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -46,8 +46,8 @@ open class NodeChangeEvent: EventObject {
     public convenience init( parent: Preferences?, child: Preferences? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parent != nil ? parent! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: child != nil ? child! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: parent, locals: &__locals )
+        __args[1] = JNIType.toJava( value: child, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/prefs/NodeChangeEvent", classCache: &NodeChangeEvent.NodeChangeEventJNIClass, methodSig: "(Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", methodCache: &NodeChangeEvent.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )

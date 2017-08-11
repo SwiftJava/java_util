@@ -105,7 +105,7 @@ open class ArrayBlockingQueue: AbstractQueue, /* java.io.Serializable */ Unclass
     open func put( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;)V", methodCache: &ArrayBlockingQueue.put_MethodID_4, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -144,7 +144,7 @@ open class ArrayBlockingQueue: AbstractQueue, /* java.io.Serializable */ Unclass
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &ArrayBlockingQueue.poll_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
@@ -161,37 +161,14 @@ open class ArrayBlockingQueue: AbstractQueue, /* java.io.Serializable */ Unclass
 
     /// final int java.util.concurrent.ArrayBlockingQueue.dec(int)
 
-    /// public boolean java.util.concurrent.ArrayBlockingQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
-
-    private static var offer_MethodID_6: jmethodID?
-
-    open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ArrayBlockingQueue.offer_MethodID_6, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func offer( _ _e: java_swift.JavaObject?, _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        return try offer( e: _e, timeout: _timeout, unit: _unit )
-    }
-
-    /// public boolean java.util.concurrent.ArrayBlockingQueue.offer(java.lang.Object)
-
     /// public java.lang.Object java.util.concurrent.ArrayBlockingQueue.take() throws java.lang.InterruptedException
 
-    private static var take_MethodID_7: jmethodID?
+    private static var take_MethodID_6: jmethodID?
 
     open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &ArrayBlockingQueue.take_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &ArrayBlockingQueue.take_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -202,25 +179,25 @@ open class ArrayBlockingQueue: AbstractQueue, /* java.io.Serializable */ Unclass
 
     /// public int java.util.concurrent.ArrayBlockingQueue.remainingCapacity()
 
-    private static var remainingCapacity_MethodID_8: jmethodID?
+    private static var remainingCapacity_MethodID_7: jmethodID?
 
     open func remainingCapacity() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &ArrayBlockingQueue.remainingCapacity_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &ArrayBlockingQueue.remainingCapacity_MethodID_7, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.concurrent.ArrayBlockingQueue.drainTo(java.util.Collection)
 
-    private static var drainTo_MethodID_9: jmethodID?
+    private static var drainTo_MethodID_8: jmethodID?
 
     open func drainTo( c: Collection? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &ArrayBlockingQueue.drainTo_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &ArrayBlockingQueue.drainTo_MethodID_8, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -230,19 +207,42 @@ open class ArrayBlockingQueue: AbstractQueue, /* java.io.Serializable */ Unclass
 
     /// public int java.util.concurrent.ArrayBlockingQueue.drainTo(java.util.Collection,int)
 
-    private static var drainTo_MethodID_10: jmethodID?
+    private static var drainTo_MethodID_9: jmethodID?
 
     open func drainTo( c: Collection?, maxElements: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
         __args[1] = JNIType.toJava( value: maxElements, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &ArrayBlockingQueue.drainTo_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &ArrayBlockingQueue.drainTo_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
     open func drainTo( _ _c: Collection?, _ _maxElements: Int ) -> Int {
         return drainTo( c: _c, maxElements: _maxElements )
+    }
+
+    /// public boolean java.util.concurrent.ArrayBlockingQueue.offer(java.lang.Object)
+
+    /// public boolean java.util.concurrent.ArrayBlockingQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
+
+    private static var offer_MethodID_10: jmethodID?
+
+    open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ArrayBlockingQueue.offer_MethodID_10, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func offer( _ _e: java_swift.JavaObject?, _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
+        return try offer( e: _e, timeout: _timeout, unit: _unit )
     }
 
     /// final java.lang.Object java.util.concurrent.ArrayBlockingQueue.itemAt(int)
@@ -262,7 +262,7 @@ open class ArrayBlockingQueue: AbstractQueue, /* java.io.Serializable */ Unclass
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ArrayBlockingQueue.equals_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

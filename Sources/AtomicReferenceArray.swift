@@ -103,7 +103,7 @@ open class AtomicReferenceArray: java_swift.JavaObject, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: i, locals: &__locals )
-        __args[1] = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: newValue, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(ILjava/lang/Object;)V", methodCache: &AtomicReferenceArray.set_MethodID_5, args: &__args, locals: &__locals )
     }
 
@@ -119,7 +119,7 @@ open class AtomicReferenceArray: java_swift.JavaObject, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: i, locals: &__locals )
-        __args[1] = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: newValue, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "lazySet", methodSig: "(ILjava/lang/Object;)V", methodCache: &AtomicReferenceArray.lazySet_MethodID_6, args: &__args, locals: &__locals )
     }
 
@@ -135,7 +135,7 @@ open class AtomicReferenceArray: java_swift.JavaObject, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: i, locals: &__locals )
-        __args[1] = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: newValue, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getAndSet", methodSig: "(ILjava/lang/Object;)Ljava/lang/Object;", methodCache: &AtomicReferenceArray.getAndSet_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -153,8 +153,8 @@ open class AtomicReferenceArray: java_swift.JavaObject, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: i, locals: &__locals )
-        __args[1] = JNIType.toJava( value: expect != nil ? expect! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: update != nil ? update! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: expect, locals: &__locals )
+        __args[2] = JNIType.toJava( value: update, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSet", methodSig: "(ILjava/lang/Object;Ljava/lang/Object;)Z", methodCache: &AtomicReferenceArray.compareAndSet_MethodID_8, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -171,8 +171,8 @@ open class AtomicReferenceArray: java_swift.JavaObject, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: i, locals: &__locals )
-        __args[1] = JNIType.toJava( value: expect != nil ? expect! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: update != nil ? update! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: expect, locals: &__locals )
+        __args[2] = JNIType.toJava( value: update, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "weakCompareAndSet", methodSig: "(ILjava/lang/Object;Ljava/lang/Object;)Z", methodCache: &AtomicReferenceArray.weakCompareAndSet_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -225,7 +225,7 @@ open class AtomicReferenceArray: java_swift.JavaObject, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: i, locals: &__locals )
-        __args[1] = JNIType.toJava( value: x != nil ? x! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: x, locals: &__locals )
         __args[2] = JNIType.toJava( value: accumulatorFunction, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getAndAccumulate", methodSig: "(ILjava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", methodCache: &AtomicReferenceArray.getAndAccumulate_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -244,7 +244,7 @@ open class AtomicReferenceArray: java_swift.JavaObject, /* java.io.Serializable 
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: i, locals: &__locals )
-        __args[1] = JNIType.toJava( value: x != nil ? x! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: x, locals: &__locals )
         __args[2] = JNIType.toJava( value: accumulatorFunction, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "accumulateAndGet", methodSig: "(ILjava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;", methodCache: &AtomicReferenceArray.accumulateAndGet_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }

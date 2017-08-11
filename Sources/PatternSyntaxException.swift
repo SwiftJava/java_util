@@ -83,39 +83,39 @@ open class PatternSyntaxException: java_lang.IllegalArgumentException {
 
     /// public java.lang.String java.util.regex.PatternSyntaxException.getMessage()
 
+    /// public int java.util.regex.PatternSyntaxException.getIndex()
+
+    private static var getIndex_MethodID_2: jmethodID?
+
+    open func getIndex() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getIndex", methodSig: "()I", methodCache: &PatternSyntaxException.getIndex_MethodID_2, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
     /// public java.lang.String java.util.regex.PatternSyntaxException.getDescription()
 
-    private static var getDescription_MethodID_2: jmethodID?
+    private static var getDescription_MethodID_3: jmethodID?
 
     open func getDescription() -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDescription", methodSig: "()Ljava/lang/String;", methodCache: &PatternSyntaxException.getDescription_MethodID_2, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDescription", methodSig: "()Ljava/lang/String;", methodCache: &PatternSyntaxException.getDescription_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
 
     /// public java.lang.String java.util.regex.PatternSyntaxException.getPattern()
 
-    private static var getPattern_MethodID_3: jmethodID?
+    private static var getPattern_MethodID_4: jmethodID?
 
     open func getPattern() -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getPattern", methodSig: "()Ljava/lang/String;", methodCache: &PatternSyntaxException.getPattern_MethodID_3, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getPattern", methodSig: "()Ljava/lang/String;", methodCache: &PatternSyntaxException.getPattern_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public int java.util.regex.PatternSyntaxException.getIndex()
-
-    private static var getIndex_MethodID_4: jmethodID?
-
-    open func getIndex() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getIndex", methodSig: "()I", methodCache: &PatternSyntaxException.getIndex_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
     }
 
 

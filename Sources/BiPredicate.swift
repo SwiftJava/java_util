@@ -43,8 +43,8 @@ open class BiPredicateForward: JNIObjectForward, BiPredicate {
     open func test( t: java_swift.JavaObject?, u: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: u != nil ? u! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
+        __args[1] = JNIType.toJava( value: u, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "test", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &BiPredicateForward.test_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

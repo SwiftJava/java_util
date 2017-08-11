@@ -49,7 +49,7 @@ open class PredicateForward: JNIObjectForward, Predicate {
     open func test( t: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "test", methodSig: "(Ljava/lang/Object;)Z", methodCache: &PredicateForward.test_MethodID_6, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -112,7 +112,7 @@ open class PredicateForward: JNIObjectForward, Predicate {
     open class func isEqual( targetRef: java_swift.JavaObject? ) -> Predicate! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: targetRef != nil ? targetRef! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: targetRef, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/function/Predicate", classCache: &PredicateJNIClass, methodName: "isEqual", methodSig: "(Ljava/lang/Object;)Ljava/util/function/Predicate;", methodCache: &isEqual_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? PredicateForward( javaObject: __return ) : nil

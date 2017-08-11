@@ -40,7 +40,7 @@ open class Formatter: java_swift.JavaObject, /* java.io.Closeable */ UnclassedPr
     public convenience init( file: /* java.io.File */ UnclassedObject?, csn: String? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         __args[1] = JNIType.toJava( value: csn, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Formatter", classCache: &Formatter.FormatterJNIClass, methodSig: "(Ljava/io/File;Ljava/lang/String;)V", methodCache: &Formatter.new_MethodID_1, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
@@ -61,7 +61,7 @@ open class Formatter: java_swift.JavaObject, /* java.io.Closeable */ UnclassedPr
     public convenience init( file: /* java.io.File */ UnclassedObject? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Formatter", classCache: &Formatter.FormatterJNIClass, methodSig: "(Ljava/io/File;)V", methodCache: &Formatter.new_MethodID_2, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.FileNotFoundException */ UnclassedObject( javaObject: throwable )
@@ -83,7 +83,7 @@ open class Formatter: java_swift.JavaObject, /* java.io.Closeable */ UnclassedPr
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: fileName, locals: &__locals )
         __args[1] = JNIType.toJava( value: csn, locals: &__locals )
-        __args[2] = JNIType.toJava( value: l != nil ? l! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: l, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Formatter", classCache: &Formatter.FormatterJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/String;Ljava/util/Locale;)V", methodCache: &Formatter.new_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.FileNotFoundException */ UnclassedObject( javaObject: throwable )
@@ -150,9 +150,9 @@ open class Formatter: java_swift.JavaObject, /* java.io.Closeable */ UnclassedPr
     public convenience init( file: /* java.io.File */ UnclassedObject?, csn: String?, l: JavaLocale? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         __args[1] = JNIType.toJava( value: csn, locals: &__locals )
-        __args[2] = JNIType.toJava( value: l != nil ? l! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: l, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Formatter", classCache: &Formatter.FormatterJNIClass, methodSig: "(Ljava/io/File;Ljava/lang/String;Ljava/util/Locale;)V", methodCache: &Formatter.new_MethodID_6, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.FileNotFoundException */ UnclassedObject( javaObject: throwable )
@@ -191,7 +191,7 @@ open class Formatter: java_swift.JavaObject, /* java.io.Closeable */ UnclassedPr
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: a, locals: &__locals )
-        __args[1] = JNIType.toJava( value: l != nil ? l! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: l, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Formatter", classCache: &Formatter.FormatterJNIClass, methodSig: "(Ljava/lang/Appendable;Ljava/util/Locale;)V", methodCache: &Formatter.new_MethodID_8, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -208,7 +208,7 @@ open class Formatter: java_swift.JavaObject, /* java.io.Closeable */ UnclassedPr
     public convenience init( l: JavaLocale? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: l != nil ? l! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: l, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Formatter", classCache: &Formatter.FormatterJNIClass, methodSig: "(Ljava/util/Locale;)V", methodCache: &Formatter.new_MethodID_9, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -257,7 +257,7 @@ open class Formatter: java_swift.JavaObject, /* java.io.Closeable */ UnclassedPr
     open func format( l: JavaLocale?, format: String?, args: [JavaObject]? ) -> Formatter! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: l != nil ? l! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: l, locals: &__locals )
         __args[1] = JNIType.toJava( value: format, locals: &__locals )
         __args[2] = JNIType.toJava( value: args, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "format", methodSig: "(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/util/Formatter;", methodCache: &Formatter.format_MethodID_12, args: &__args, locals: &__locals )

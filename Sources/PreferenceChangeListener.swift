@@ -25,7 +25,7 @@ open class PreferenceChangeListenerForward: EventListenerForward, PreferenceChan
     open func preferenceChange( evt: PreferenceChangeEvent? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: evt != nil ? evt! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: evt, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "preferenceChange", methodSig: "(Ljava/util/prefs/PreferenceChangeEvent;)V", methodCache: &PreferenceChangeListenerForward.preferenceChange_MethodID_2, args: &__args, locals: &__locals )
     }
 

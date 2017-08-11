@@ -161,7 +161,7 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open func lower( e: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "lower", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeSet.lower_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -191,7 +191,7 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open func floor( e: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floor", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeSet.floor_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -201,55 +201,16 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
         return floor( e: _e )
     }
 
-    /// public java.lang.Object java.util.TreeSet.pollFirst()
-
-    private static var pollFirst_MethodID_11: jmethodID?
-
-    open func pollFirst() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollFirst", methodSig: "()Ljava/lang/Object;", methodCache: &TreeSet.pollFirst_MethodID_11, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public java.lang.Object java.util.TreeSet.pollLast()
-
-    private static var pollLast_MethodID_12: jmethodID?
-
-    open func pollLast() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollLast", methodSig: "()Ljava/lang/Object;", methodCache: &TreeSet.pollLast_MethodID_12, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.Iterator java.util.TreeSet.descendingIterator()
-
-    private static var descendingIterator_MethodID_13: jmethodID?
-
-    open func descendingIterator() -> Iterator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingIterator", methodSig: "()Ljava/util/Iterator;", methodCache: &TreeSet.descendingIterator_MethodID_13, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IteratorForward( javaObject: __return ) : nil
-    }
-
-
     /// public java.util.SortedSet java.util.TreeSet.subSet(java.lang.Object,java.lang.Object)
 
-    private static var subSet_MethodID_14: jmethodID?
+    private static var subSet_MethodID_11: jmethodID?
 
     open func subSet( fromElement: java_swift.JavaObject?, toElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &TreeSet.subSet_MethodID_14, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
+        __args[1] = JNIType.toJava( value: toElement, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &TreeSet.subSet_MethodID_11, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
     }
@@ -260,16 +221,16 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.util.NavigableSet java.util.TreeSet.subSet(java.lang.Object,boolean,java.lang.Object,boolean)
 
-    private static var subSet_MethodID_15: jmethodID?
+    private static var subSet_MethodID_12: jmethodID?
 
     open func subSet( fromElement: java_swift.JavaObject?, fromInclusive: Bool, toElement: java_swift.JavaObject?, toInclusive: Bool ) -> NavigableSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
         __args[1] = JNIType.toJava( value: fromInclusive, locals: &__locals )
-        __args[2] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: toElement, locals: &__locals )
         __args[3] = JNIType.toJava( value: toInclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &TreeSet.subSet_MethodID_15, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &TreeSet.subSet_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
     }
@@ -280,13 +241,13 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.util.SortedSet java.util.TreeSet.headSet(java.lang.Object)
 
-    private static var headSet_MethodID_16: jmethodID?
+    private static var headSet_MethodID_13: jmethodID?
 
     open func headSet( toElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &TreeSet.headSet_MethodID_16, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: toElement, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &TreeSet.headSet_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
     }
@@ -297,14 +258,14 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.util.NavigableSet java.util.TreeSet.headSet(java.lang.Object,boolean)
 
-    private static var headSet_MethodID_17: jmethodID?
+    private static var headSet_MethodID_14: jmethodID?
 
     open func headSet( toElement: java_swift.JavaObject?, inclusive: Bool ) -> NavigableSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: toElement, locals: &__locals )
         __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &TreeSet.headSet_MethodID_17, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &TreeSet.headSet_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
     }
@@ -315,14 +276,14 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.util.NavigableSet java.util.TreeSet.tailSet(java.lang.Object,boolean)
 
-    private static var tailSet_MethodID_18: jmethodID?
+    private static var tailSet_MethodID_15: jmethodID?
 
     open func tailSet( fromElement: java_swift.JavaObject?, inclusive: Bool ) -> NavigableSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
         __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &TreeSet.tailSet_MethodID_18, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &TreeSet.tailSet_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
     }
@@ -333,13 +294,13 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.util.SortedSet java.util.TreeSet.tailSet(java.lang.Object)
 
-    private static var tailSet_MethodID_19: jmethodID?
+    private static var tailSet_MethodID_16: jmethodID?
 
     open func tailSet( fromElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &TreeSet.tailSet_MethodID_19, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &TreeSet.tailSet_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
     }
@@ -350,13 +311,13 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.lang.Object java.util.TreeSet.ceiling(java.lang.Object)
 
-    private static var ceiling_MethodID_20: jmethodID?
+    private static var ceiling_MethodID_17: jmethodID?
 
     open func ceiling( e: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ceiling", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeSet.ceiling_MethodID_20, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ceiling", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeSet.ceiling_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -367,13 +328,13 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.lang.Object java.util.TreeSet.higher(java.lang.Object)
 
-    private static var higher_MethodID_21: jmethodID?
+    private static var higher_MethodID_18: jmethodID?
 
     open func higher( e: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "higher", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeSet.higher_MethodID_21, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "higher", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &TreeSet.higher_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -384,14 +345,53 @@ open class TreeSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.util.NavigableSet java.util.TreeSet.descendingSet()
 
-    private static var descendingSet_MethodID_22: jmethodID?
+    private static var descendingSet_MethodID_19: jmethodID?
 
     open func descendingSet() -> NavigableSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingSet", methodSig: "()Ljava/util/NavigableSet;", methodCache: &TreeSet.descendingSet_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingSet", methodSig: "()Ljava/util/NavigableSet;", methodCache: &TreeSet.descendingSet_MethodID_19, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.Object java.util.TreeSet.pollFirst()
+
+    private static var pollFirst_MethodID_20: jmethodID?
+
+    open func pollFirst() -> java_swift.JavaObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollFirst", methodSig: "()Ljava/lang/Object;", methodCache: &TreeSet.pollFirst_MethodID_20, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.Object java.util.TreeSet.pollLast()
+
+    private static var pollLast_MethodID_21: jmethodID?
+
+    open func pollLast() -> java_swift.JavaObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollLast", methodSig: "()Ljava/lang/Object;", methodCache: &TreeSet.pollLast_MethodID_21, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.Iterator java.util.TreeSet.descendingIterator()
+
+    private static var descendingIterator_MethodID_22: jmethodID?
+
+    open func descendingIterator() -> Iterator! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingIterator", methodSig: "()Ljava/util/Iterator;", methodCache: &TreeSet.descendingIterator_MethodID_22, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IteratorForward( javaObject: __return ) : nil
     }
 
 

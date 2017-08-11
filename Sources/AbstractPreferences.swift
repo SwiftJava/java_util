@@ -86,7 +86,7 @@ open class AbstractPreferences: Preferences {
     public convenience init( parent: AbstractPreferences?, name: String? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parent != nil ? parent! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: parent, locals: &__locals )
         __args[1] = JNIType.toJava( value: name, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/prefs/AbstractPreferences", classCache: &AbstractPreferences.AbstractPreferencesJNIClass, methodSig: "(Ljava/util/prefs/AbstractPreferences;Ljava/lang/String;)V", methodCache: &AbstractPreferences.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )

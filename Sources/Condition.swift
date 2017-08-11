@@ -62,7 +62,7 @@ open class ConditionForward: JNIObjectForward, Condition {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: time, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "await", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ConditionForward.await_MethodID_9, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -125,7 +125,7 @@ open class ConditionForward: JNIObjectForward, Condition {
     open func awaitUntil( deadline: Date? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: deadline != nil ? deadline! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: deadline, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitUntil", methodSig: "(Ljava/util/Date;)Z", methodCache: &ConditionForward.awaitUntil_MethodID_13, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )

@@ -29,7 +29,7 @@ open class AtomicStampedReference: java_swift.JavaObject {
     public convenience init( initialRef: java_swift.JavaObject?, initialStamp: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialRef != nil ? initialRef! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: initialRef, locals: &__locals )
         __args[1] = JNIType.toJava( value: initialStamp, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/atomic/AtomicStampedReference", classCache: &AtomicStampedReference.AtomicStampedReferenceJNIClass, methodSig: "(Ljava/lang/Object;I)V", methodCache: &AtomicStampedReference.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -64,7 +64,7 @@ open class AtomicStampedReference: java_swift.JavaObject {
     open func set( newReference: java_swift.JavaObject?, newStamp: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newReference != nil ? newReference! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: newReference, locals: &__locals )
         __args[1] = JNIType.toJava( value: newStamp, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(Ljava/lang/Object;I)V", methodCache: &AtomicStampedReference.set_MethodID_3, args: &__args, locals: &__locals )
     }
@@ -82,8 +82,8 @@ open class AtomicStampedReference: java_swift.JavaObject {
     open func compareAndSet( expectedReference: java_swift.JavaObject?, newReference: java_swift.JavaObject?, expectedStamp: Int, newStamp: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: expectedReference != nil ? expectedReference! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: newReference != nil ? newReference! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: expectedReference, locals: &__locals )
+        __args[1] = JNIType.toJava( value: newReference, locals: &__locals )
         __args[2] = JNIType.toJava( value: expectedStamp, locals: &__locals )
         __args[3] = JNIType.toJava( value: newStamp, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;II)Z", methodCache: &AtomicStampedReference.compareAndSet_MethodID_4, args: &__args, locals: &__locals )
@@ -101,8 +101,8 @@ open class AtomicStampedReference: java_swift.JavaObject {
     open func weakCompareAndSet( expectedReference: java_swift.JavaObject?, newReference: java_swift.JavaObject?, expectedStamp: Int, newStamp: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: expectedReference != nil ? expectedReference! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: newReference != nil ? newReference! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: expectedReference, locals: &__locals )
+        __args[1] = JNIType.toJava( value: newReference, locals: &__locals )
         __args[2] = JNIType.toJava( value: expectedStamp, locals: &__locals )
         __args[3] = JNIType.toJava( value: newStamp, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "weakCompareAndSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;II)Z", methodCache: &AtomicStampedReference.weakCompareAndSet_MethodID_5, args: &__args, locals: &__locals )
@@ -147,7 +147,7 @@ open class AtomicStampedReference: java_swift.JavaObject {
     open func attemptStamp( expectedReference: java_swift.JavaObject?, newStamp: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: expectedReference != nil ? expectedReference! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: expectedReference, locals: &__locals )
         __args[1] = JNIType.toJava( value: newStamp, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "attemptStamp", methodSig: "(Ljava/lang/Object;I)Z", methodCache: &AtomicStampedReference.attemptStamp_MethodID_8, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )

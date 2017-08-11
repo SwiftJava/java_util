@@ -322,7 +322,7 @@ open class Matcher: java_swift.JavaObject, MatchResult {
     open func appendReplacement( sb: java_lang.StringBuffer?, replacement: String? ) -> Matcher! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: sb != nil ? sb! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: sb, locals: &__locals )
         __args[1] = JNIType.toJava( value: replacement, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "appendReplacement", methodSig: "(Ljava/lang/StringBuffer;Ljava/lang/String;)Ljava/util/regex/Matcher;", methodCache: &Matcher.appendReplacement_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -340,7 +340,7 @@ open class Matcher: java_swift.JavaObject, MatchResult {
     open func appendTail( sb: java_lang.StringBuffer? ) -> java_lang.StringBuffer! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: sb != nil ? sb! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: sb, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "appendTail", methodSig: "(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;", methodCache: &Matcher.appendTail_MethodID_19, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_lang.StringBuffer( javaObject: __return ) : nil
@@ -350,38 +350,51 @@ open class Matcher: java_swift.JavaObject, MatchResult {
         return appendTail( sb: _sb )
     }
 
+    /// public java.util.regex.Pattern java.util.regex.Matcher.pattern()
+
+    private static var pattern_MethodID_20: jmethodID?
+
+    open func pattern() -> Pattern! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pattern", methodSig: "()Ljava/util/regex/Pattern;", methodCache: &Matcher.pattern_MethodID_20, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Pattern( javaObject: __return ) : nil
+    }
+
+
     /// public boolean java.util.regex.Matcher.hitEnd()
 
-    private static var hitEnd_MethodID_20: jmethodID?
+    private static var hitEnd_MethodID_21: jmethodID?
 
     open func hitEnd() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hitEnd", methodSig: "()Z", methodCache: &Matcher.hitEnd_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hitEnd", methodSig: "()Z", methodCache: &Matcher.hitEnd_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.regex.Matcher.requireEnd()
 
-    private static var requireEnd_MethodID_21: jmethodID?
+    private static var requireEnd_MethodID_22: jmethodID?
 
     open func requireEnd() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "requireEnd", methodSig: "()Z", methodCache: &Matcher.requireEnd_MethodID_21, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "requireEnd", methodSig: "()Z", methodCache: &Matcher.requireEnd_MethodID_22, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public java.util.regex.MatchResult java.util.regex.Matcher.toMatchResult()
 
-    private static var toMatchResult_MethodID_22: jmethodID?
+    private static var toMatchResult_MethodID_23: jmethodID?
 
     open func toMatchResult() -> MatchResult! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toMatchResult", methodSig: "()Ljava/util/regex/MatchResult;", methodCache: &Matcher.toMatchResult_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toMatchResult", methodSig: "()Ljava/util/regex/MatchResult;", methodCache: &Matcher.toMatchResult_MethodID_23, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? MatchResultForward( javaObject: __return ) : nil
     }
@@ -389,13 +402,13 @@ open class Matcher: java_swift.JavaObject, MatchResult {
 
     /// public java.util.regex.Matcher java.util.regex.Matcher.usePattern(java.util.regex.Pattern)
 
-    private static var usePattern_MethodID_23: jmethodID?
+    private static var usePattern_MethodID_24: jmethodID?
 
     open func usePattern( newPattern: Pattern? ) -> Matcher! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newPattern != nil ? newPattern! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "usePattern", methodSig: "(Ljava/util/regex/Pattern;)Ljava/util/regex/Matcher;", methodCache: &Matcher.usePattern_MethodID_23, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: newPattern, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "usePattern", methodSig: "(Ljava/util/regex/Pattern;)Ljava/util/regex/Matcher;", methodCache: &Matcher.usePattern_MethodID_24, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Matcher( javaObject: __return ) : nil
     }
@@ -406,73 +419,73 @@ open class Matcher: java_swift.JavaObject, MatchResult {
 
     /// public int java.util.regex.Matcher.groupCount()
 
-    private static var groupCount_MethodID_24: jmethodID?
+    private static var groupCount_MethodID_25: jmethodID?
 
     open func groupCount() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "groupCount", methodSig: "()I", methodCache: &Matcher.groupCount_MethodID_24, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "groupCount", methodSig: "()I", methodCache: &Matcher.groupCount_MethodID_25, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public boolean java.util.regex.Matcher.lookingAt()
 
-    private static var lookingAt_MethodID_25: jmethodID?
+    private static var lookingAt_MethodID_26: jmethodID?
 
     open func lookingAt() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "lookingAt", methodSig: "()Z", methodCache: &Matcher.lookingAt_MethodID_25, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "lookingAt", methodSig: "()Z", methodCache: &Matcher.lookingAt_MethodID_26, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public int java.util.regex.Matcher.regionStart()
 
-    private static var regionStart_MethodID_26: jmethodID?
+    private static var regionStart_MethodID_27: jmethodID?
 
     open func regionStart() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "regionStart", methodSig: "()I", methodCache: &Matcher.regionStart_MethodID_26, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "regionStart", methodSig: "()I", methodCache: &Matcher.regionStart_MethodID_27, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.regex.Matcher.regionEnd()
 
-    private static var regionEnd_MethodID_27: jmethodID?
+    private static var regionEnd_MethodID_28: jmethodID?
 
     open func regionEnd() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "regionEnd", methodSig: "()I", methodCache: &Matcher.regionEnd_MethodID_27, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "regionEnd", methodSig: "()I", methodCache: &Matcher.regionEnd_MethodID_28, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public boolean java.util.regex.Matcher.hasTransparentBounds()
 
-    private static var hasTransparentBounds_MethodID_28: jmethodID?
+    private static var hasTransparentBounds_MethodID_29: jmethodID?
 
     open func hasTransparentBounds() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasTransparentBounds", methodSig: "()Z", methodCache: &Matcher.hasTransparentBounds_MethodID_28, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasTransparentBounds", methodSig: "()Z", methodCache: &Matcher.hasTransparentBounds_MethodID_29, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public java.util.regex.Matcher java.util.regex.Matcher.useTransparentBounds(boolean)
 
-    private static var useTransparentBounds_MethodID_29: jmethodID?
+    private static var useTransparentBounds_MethodID_30: jmethodID?
 
     open func useTransparentBounds( b: Bool ) -> Matcher! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useTransparentBounds", methodSig: "(Z)Ljava/util/regex/Matcher;", methodCache: &Matcher.useTransparentBounds_MethodID_29, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useTransparentBounds", methodSig: "(Z)Ljava/util/regex/Matcher;", methodCache: &Matcher.useTransparentBounds_MethodID_30, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Matcher( javaObject: __return ) : nil
     }
@@ -483,25 +496,25 @@ open class Matcher: java_swift.JavaObject, MatchResult {
 
     /// public boolean java.util.regex.Matcher.hasAnchoringBounds()
 
-    private static var hasAnchoringBounds_MethodID_30: jmethodID?
+    private static var hasAnchoringBounds_MethodID_31: jmethodID?
 
     open func hasAnchoringBounds() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasAnchoringBounds", methodSig: "()Z", methodCache: &Matcher.hasAnchoringBounds_MethodID_30, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasAnchoringBounds", methodSig: "()Z", methodCache: &Matcher.hasAnchoringBounds_MethodID_31, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public java.util.regex.Matcher java.util.regex.Matcher.useAnchoringBounds(boolean)
 
-    private static var useAnchoringBounds_MethodID_31: jmethodID?
+    private static var useAnchoringBounds_MethodID_32: jmethodID?
 
     open func useAnchoringBounds( b: Bool ) -> Matcher! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useAnchoringBounds", methodSig: "(Z)Ljava/util/regex/Matcher;", methodCache: &Matcher.useAnchoringBounds_MethodID_31, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "useAnchoringBounds", methodSig: "(Z)Ljava/util/regex/Matcher;", methodCache: &Matcher.useAnchoringBounds_MethodID_32, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Matcher( javaObject: __return ) : nil
     }
@@ -518,14 +531,14 @@ open class Matcher: java_swift.JavaObject, MatchResult {
 
     /// public java.util.regex.Matcher java.util.regex.Matcher.region(int,int)
 
-    private static var region_MethodID_32: jmethodID?
+    private static var region_MethodID_33: jmethodID?
 
     open func region( start: Int, end: Int ) -> Matcher! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: start, locals: &__locals )
         __args[1] = JNIType.toJava( value: end, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "region", methodSig: "(II)Ljava/util/regex/Matcher;", methodCache: &Matcher.region_MethodID_32, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "region", methodSig: "(II)Ljava/util/regex/Matcher;", methodCache: &Matcher.region_MethodID_33, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Matcher( javaObject: __return ) : nil
     }
@@ -533,19 +546,6 @@ open class Matcher: java_swift.JavaObject, MatchResult {
     open func region( _ _start: Int, _ _end: Int ) -> Matcher! {
         return region( start: _start, end: _end )
     }
-
-    /// public java.util.regex.Pattern java.util.regex.Matcher.pattern()
-
-    private static var pattern_MethodID_33: jmethodID?
-
-    open func pattern() -> Pattern! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pattern", methodSig: "()Ljava/util/regex/Pattern;", methodCache: &Matcher.pattern_MethodID_33, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Pattern( javaObject: __return ) : nil
-    }
-
 
 }
 

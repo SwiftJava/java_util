@@ -39,7 +39,7 @@ open class SimpleFormatter: logging_Formatter {
     open func format( arg0: LogRecord? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "format", methodSig: "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", methodCache: &SimpleFormatter.format_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }

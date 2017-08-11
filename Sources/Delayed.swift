@@ -26,7 +26,7 @@ open class DelayedForward: java_lang.JavaComparableForward, Delayed {
     open func getDelay( unit: TimeUnit? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getDelay", methodSig: "(Ljava/util/concurrent/TimeUnit;)J", methodCache: &DelayedForward.getDelay_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
@@ -42,7 +42,7 @@ open class DelayedForward: java_lang.JavaComparableForward, Delayed {
     override open func compareTo( arg0: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/lang/Object;)I", methodCache: &DelayedForward.compareTo_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }

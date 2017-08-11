@@ -11,11 +11,11 @@ public protocol LongConsumer: JavaProtocol {
 
     func accept( value: Int64 )
 
+    /// private void java.util.function.LongConsumer.lambda$andThen$0(java.util.function.LongConsumer,long)
+
     /// public default java.util.function.LongConsumer java.util.function.LongConsumer.andThen(java.util.function.LongConsumer)
 
     func andThen( after: LongConsumer? ) -> LongConsumer!
-
-    /// private void java.util.function.LongConsumer.lambda$andThen$0(java.util.function.LongConsumer,long)
 
 }
 

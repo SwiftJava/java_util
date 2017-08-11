@@ -570,7 +570,7 @@ open class Preferences: java_swift.JavaObject {
     open func exportNode( os: /* java.io.OutputStream */ UnclassedObject? ) throws /* java.io.IOException, java.util.prefs.BackingStoreException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: os != nil ? os! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: os, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "exportNode", methodSig: "(Ljava/io/OutputStream;)V", methodCache: &Preferences.exportNode_MethodID_34, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -588,7 +588,7 @@ open class Preferences: java_swift.JavaObject {
     open func exportSubtree( os: /* java.io.OutputStream */ UnclassedObject? ) throws /* java.io.IOException, java.util.prefs.BackingStoreException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: os != nil ? os! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: os, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "exportSubtree", methodSig: "(Ljava/io/OutputStream;)V", methodCache: &Preferences.exportSubtree_MethodID_35, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -608,7 +608,7 @@ open class Preferences: java_swift.JavaObject {
     open class func userNodeForPackage( c: java_swift.JavaClass? ) -> Preferences! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c != nil ? c! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/prefs/Preferences", classCache: &PreferencesJNIClass, methodName: "userNodeForPackage", methodSig: "(Ljava/lang/Class;)Ljava/util/prefs/Preferences;", methodCache: &userNodeForPackage_MethodID_36, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Preferences( javaObject: __return ) : nil
@@ -625,7 +625,7 @@ open class Preferences: java_swift.JavaObject {
     open class func systemNodeForPackage( c: java_swift.JavaClass? ) -> Preferences! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c != nil ? c! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/prefs/Preferences", classCache: &PreferencesJNIClass, methodName: "systemNodeForPackage", methodSig: "(Ljava/lang/Class;)Ljava/util/prefs/Preferences;", methodCache: &systemNodeForPackage_MethodID_37, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Preferences( javaObject: __return ) : nil
@@ -655,7 +655,7 @@ open class Preferences: java_swift.JavaObject {
     open class func importPreferences( _is: /* java.io.InputStream */ UnclassedObject? ) throws /* java.io.IOException, java.util.prefs.InvalidPreferencesFormatException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _is != nil ? _is! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _is, locals: &__locals )
         JNIMethod.CallStaticVoidMethod( className: "java/util/prefs/Preferences", classCache: &PreferencesJNIClass, methodName: "importPreferences", methodSig: "(Ljava/io/InputStream;)V", methodCache: &importPreferences_MethodID_39, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )

@@ -28,7 +28,7 @@ open class GZIPInputStream: InflaterInputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "crc", fieldType: "Ljava/util/zip/CRC32;", fieldCache: &GZIPInputStream.crc_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -87,7 +87,7 @@ open class GZIPInputStream: InflaterInputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &GZIPInputStream.inf_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -148,7 +148,7 @@ open class GZIPInputStream: InflaterInputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &GZIPInputStream._in_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -162,7 +162,7 @@ open class GZIPInputStream: InflaterInputStream {
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPInputStream", classCache: &GZIPInputStream.GZIPInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &GZIPInputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -179,7 +179,7 @@ open class GZIPInputStream: InflaterInputStream {
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, size: Int ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         __args[1] = JNIType.toJava( value: size, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPInputStream", classCache: &GZIPInputStream.GZIPInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;I)V", methodCache: &GZIPInputStream.new_MethodID_2, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {

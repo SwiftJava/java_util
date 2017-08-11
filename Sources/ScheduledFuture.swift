@@ -22,7 +22,7 @@ open class ScheduledFutureForward: DelayedForward, ScheduledFuture {
     override open func getDelay( unit: TimeUnit? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getDelay", methodSig: "(Ljava/util/concurrent/TimeUnit;)J", methodCache: &ScheduledFutureForward.getDelay_MethodID_1, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
@@ -38,7 +38,7 @@ open class ScheduledFutureForward: DelayedForward, ScheduledFuture {
     override open func compareTo( arg0: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/lang/Object;)I", methodCache: &ScheduledFutureForward.compareTo_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -55,7 +55,7 @@ open class ScheduledFutureForward: DelayedForward, ScheduledFuture {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &ScheduledFutureForward.get_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {

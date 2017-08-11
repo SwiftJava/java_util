@@ -204,7 +204,7 @@ open class ForkJoinPool: AbstractExecutorService {
     open func invoke( task: ForkJoinTask? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invoke", methodSig: "(Ljava/util/concurrent/ForkJoinTask;)Ljava/lang/Object;", methodCache: &ForkJoinPool.invoke_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -244,7 +244,7 @@ open class ForkJoinPool: AbstractExecutorService {
     open func execute( task: ForkJoinTask? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "execute", methodSig: "(Ljava/util/concurrent/ForkJoinTask;)V", methodCache: &ForkJoinPool.execute_MethodID_6, args: &__args, locals: &__locals )
     }
 
@@ -292,274 +292,6 @@ open class ForkJoinPool: AbstractExecutorService {
     }
 
 
-    /// private boolean java.util.concurrent.ForkJoinPool.createWorker()
-
-    /// private void java.util.concurrent.ForkJoinPool.tryAddWorker(long)
-
-    /// final java.util.concurrent.ForkJoinPool$WorkQueue java.util.concurrent.ForkJoinPool.registerWorker(java.util.concurrent.ForkJoinWorkerThread)
-
-    /// final void java.util.concurrent.ForkJoinPool.deregisterWorker(java.util.concurrent.ForkJoinWorkerThread,java.lang.Throwable)
-
-    /// final void java.util.concurrent.ForkJoinPool.signalWork(java.util.concurrent.ForkJoinPool$WorkQueue[],java.util.concurrent.ForkJoinPool$WorkQueue)
-
-    /// final void java.util.concurrent.ForkJoinPool.runWorker(java.util.concurrent.ForkJoinPool$WorkQueue)
-
-    /// private boolean java.util.concurrent.ForkJoinPool.awaitWork(java.util.concurrent.ForkJoinPool$WorkQueue,int)
-
-    /// private void java.util.concurrent.ForkJoinPool.helpStealer(java.util.concurrent.ForkJoinPool$WorkQueue,java.util.concurrent.ForkJoinTask)
-
-    /// private boolean java.util.concurrent.ForkJoinPool.tryCompensate(java.util.concurrent.ForkJoinPool$WorkQueue)
-
-    /// private java.util.concurrent.ForkJoinPool$WorkQueue java.util.concurrent.ForkJoinPool.findNonEmptyStealQueue()
-
-    /// private boolean java.util.concurrent.ForkJoinPool.tryTerminate(boolean,boolean)
-
-    /// private void java.util.concurrent.ForkJoinPool.externalSubmit(java.util.concurrent.ForkJoinTask)
-
-    /// private static int java.util.concurrent.ForkJoinPool.checkParallelism(int)
-
-    /// private static java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory java.util.concurrent.ForkJoinPool.checkFactory(java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory)
-
-    /// public java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.submit(java.util.concurrent.Callable)
-
-    /// public java.util.concurrent.Future java.util.concurrent.ForkJoinPool.submit(java.lang.Runnable)
-
-    /// public java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.submit(java.lang.Runnable)
-
-    /// public java.util.concurrent.Future java.util.concurrent.ForkJoinPool.submit(java.util.concurrent.Callable)
-
-    /// public java.util.concurrent.Future java.util.concurrent.ForkJoinPool.submit(java.lang.Runnable,java.lang.Object)
-
-    /// public java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.submit(java.lang.Runnable,java.lang.Object)
-
-    /// public java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.submit(java.util.concurrent.ForkJoinTask)
-
-    private static var submit_MethodID_10: jmethodID?
-
-    open func submit( task: ForkJoinTask? ) -> ForkJoinTask! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task != nil ? task! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/util/concurrent/ForkJoinTask;)Ljava/util/concurrent/ForkJoinTask;", methodCache: &ForkJoinPool.submit_MethodID_10, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ForkJoinTask( javaObject: __return ) : nil
-    }
-
-    open func submit( _ _task: ForkJoinTask? ) -> ForkJoinTask! {
-        return submit( task: _task )
-    }
-
-    /// public int java.util.concurrent.ForkJoinPool.getParallelism()
-
-    private static var getParallelism_MethodID_11: jmethodID?
-
-    open func getParallelism() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getParallelism", methodSig: "()I", methodCache: &ForkJoinPool.getParallelism_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public int java.util.concurrent.ForkJoinPool.getPoolSize()
-
-    private static var getPoolSize_MethodID_12: jmethodID?
-
-    open func getPoolSize() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getPoolSize", methodSig: "()I", methodCache: &ForkJoinPool.getPoolSize_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public boolean java.util.concurrent.ForkJoinPool.getAsyncMode()
-
-    private static var getAsyncMode_MethodID_13: jmethodID?
-
-    open func getAsyncMode() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getAsyncMode", methodSig: "()Z", methodCache: &ForkJoinPool.getAsyncMode_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public int java.util.concurrent.ForkJoinPool.getRunningThreadCount()
-
-    private static var getRunningThreadCount_MethodID_14: jmethodID?
-
-    open func getRunningThreadCount() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getRunningThreadCount", methodSig: "()I", methodCache: &ForkJoinPool.getRunningThreadCount_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public int java.util.concurrent.ForkJoinPool.getActiveThreadCount()
-
-    private static var getActiveThreadCount_MethodID_15: jmethodID?
-
-    open func getActiveThreadCount() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActiveThreadCount", methodSig: "()I", methodCache: &ForkJoinPool.getActiveThreadCount_MethodID_15, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public boolean java.util.concurrent.ForkJoinPool.isQuiescent()
-
-    private static var isQuiescent_MethodID_16: jmethodID?
-
-    open func isQuiescent() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isQuiescent", methodSig: "()Z", methodCache: &ForkJoinPool.isQuiescent_MethodID_16, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public long java.util.concurrent.ForkJoinPool.getStealCount()
-
-    private static var getStealCount_MethodID_17: jmethodID?
-
-    open func getStealCount() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getStealCount", methodSig: "()J", methodCache: &ForkJoinPool.getStealCount_MethodID_17, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public int java.util.concurrent.ForkJoinPool.getQueuedSubmissionCount()
-
-    private static var getQueuedSubmissionCount_MethodID_18: jmethodID?
-
-    open func getQueuedSubmissionCount() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getQueuedSubmissionCount", methodSig: "()I", methodCache: &ForkJoinPool.getQueuedSubmissionCount_MethodID_18, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public boolean java.util.concurrent.ForkJoinPool.hasQueuedSubmissions()
-
-    private static var hasQueuedSubmissions_MethodID_19: jmethodID?
-
-    open func hasQueuedSubmissions() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasQueuedSubmissions", methodSig: "()Z", methodCache: &ForkJoinPool.hasQueuedSubmissions_MethodID_19, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// protected java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.pollSubmission()
-
-    private static var pollSubmission_MethodID_20: jmethodID?
-
-    open func pollSubmission() -> ForkJoinTask! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollSubmission", methodSig: "()Ljava/util/concurrent/ForkJoinTask;", methodCache: &ForkJoinPool.pollSubmission_MethodID_20, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ForkJoinTask( javaObject: __return ) : nil
-    }
-
-
-    /// protected int java.util.concurrent.ForkJoinPool.drainTasksTo(java.util.Collection)
-
-    private static var drainTasksTo_MethodID_21: jmethodID?
-
-    open func drainTasksTo( c: Collection? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTasksTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &ForkJoinPool.drainTasksTo_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func drainTasksTo( _ _c: Collection? ) -> Int {
-        return drainTasksTo( c: _c )
-    }
-
-    /// public java.util.List java.util.concurrent.ForkJoinPool.shutdownNow()
-
-    /// public boolean java.util.concurrent.ForkJoinPool.isTerminated()
-
-    /// public boolean java.util.concurrent.ForkJoinPool.isTerminating()
-
-    private static var isTerminating_MethodID_22: jmethodID?
-
-    open func isTerminating() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminating", methodSig: "()Z", methodCache: &ForkJoinPool.isTerminating_MethodID_22, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public boolean java.util.concurrent.ForkJoinPool.isShutdown()
-
-    /// public boolean java.util.concurrent.ForkJoinPool.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
-
-    /// public boolean java.util.concurrent.ForkJoinPool.awaitQuiescence(long,java.util.concurrent.TimeUnit)
-
-    private static var awaitQuiescence_MethodID_23: jmethodID?
-
-    open func awaitQuiescence( timeout: Int64, unit: TimeUnit? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitQuiescence", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ForkJoinPool.awaitQuiescence_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func awaitQuiescence( _ _timeout: Int64, _ _unit: TimeUnit? ) -> Bool {
-        return awaitQuiescence( timeout: _timeout, unit: _unit )
-    }
-
-    /// protected java.util.concurrent.RunnableFuture java.util.concurrent.ForkJoinPool.newTaskFor(java.util.concurrent.Callable)
-
-    private static var newTaskFor_MethodID_24: jmethodID?
-
-    override open func newTaskFor( callable: Callable? ) -> RunnableFuture! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: callable, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "newTaskFor", methodSig: "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/RunnableFuture;", methodCache: &ForkJoinPool.newTaskFor_MethodID_24, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? RunnableFutureForward( javaObject: __return ) : nil
-    }
-
-    override open func newTaskFor( _ _callable: Callable? ) -> RunnableFuture! {
-        return newTaskFor( callable: _callable )
-    }
-
-    /// protected java.util.concurrent.RunnableFuture java.util.concurrent.ForkJoinPool.newTaskFor(java.lang.Runnable,java.lang.Object)
-
-    private static var newTaskFor_MethodID_25: jmethodID?
-
-    override open func newTaskFor( runnable: java_swift.Runnable?, value: java_swift.JavaObject? ) -> RunnableFuture! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: runnable, locals: &__locals )
-        __args[1] = JNIType.toJava( value: value != nil ? value! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "newTaskFor", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/RunnableFuture;", methodCache: &ForkJoinPool.newTaskFor_MethodID_25, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? RunnableFutureForward( javaObject: __return ) : nil
-    }
-
-    override open func newTaskFor( _ _runnable: java_swift.Runnable?, _ _value: java_swift.JavaObject? ) -> RunnableFuture! {
-        return newTaskFor( runnable: _runnable, value: _value )
-    }
-
-    /// private static java.util.concurrent.ForkJoinPool java.util.concurrent.ForkJoinPool.makeCommonPool()
-
     /// final int java.util.concurrent.ForkJoinPool.helpComplete(java.util.concurrent.ForkJoinPool$WorkQueue,java.util.concurrent.CountedCompleter,int)
 
     /// final int java.util.concurrent.ForkJoinPool.externalHelpComplete(java.util.concurrent.CountedCompleter,int)
@@ -568,12 +300,12 @@ open class ForkJoinPool: AbstractExecutorService {
 
     /// public long java.util.concurrent.ForkJoinPool.getQueuedTaskCount()
 
-    private static var getQueuedTaskCount_MethodID_26: jmethodID?
+    private static var getQueuedTaskCount_MethodID_10: jmethodID?
 
     open func getQueuedTaskCount() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getQueuedTaskCount", methodSig: "()J", methodCache: &ForkJoinPool.getQueuedTaskCount_MethodID_26, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getQueuedTaskCount", methodSig: "()J", methodCache: &ForkJoinPool.getQueuedTaskCount_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
@@ -596,7 +328,255 @@ open class ForkJoinPool: AbstractExecutorService {
 
     /// private boolean java.util.concurrent.ForkJoinPool.tryRelease(long,java.util.concurrent.ForkJoinPool$WorkQueue,long)
 
-    /// private java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.scan(java.util.concurrent.ForkJoinPool$WorkQueue,int)
+    /// private java.util.concurrent.ForkJoinPool$WorkQueue java.util.concurrent.ForkJoinPool.findNonEmptyStealQueue()
+
+    /// private boolean java.util.concurrent.ForkJoinPool.tryTerminate(boolean,boolean)
+
+    /// private void java.util.concurrent.ForkJoinPool.externalSubmit(java.util.concurrent.ForkJoinTask)
+
+    /// private static int java.util.concurrent.ForkJoinPool.checkParallelism(int)
+
+    /// private static java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory java.util.concurrent.ForkJoinPool.checkFactory(java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory)
+
+    /// public java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.submit(java.lang.Runnable)
+
+    /// public java.util.concurrent.Future java.util.concurrent.ForkJoinPool.submit(java.lang.Runnable)
+
+    /// public java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.submit(java.lang.Runnable,java.lang.Object)
+
+    /// public java.util.concurrent.Future java.util.concurrent.ForkJoinPool.submit(java.lang.Runnable,java.lang.Object)
+
+    /// public java.util.concurrent.Future java.util.concurrent.ForkJoinPool.submit(java.util.concurrent.Callable)
+
+    /// public java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.submit(java.util.concurrent.ForkJoinTask)
+
+    private static var submit_MethodID_11: jmethodID?
+
+    open func submit( task: ForkJoinTask? ) -> ForkJoinTask! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/util/concurrent/ForkJoinTask;)Ljava/util/concurrent/ForkJoinTask;", methodCache: &ForkJoinPool.submit_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ForkJoinTask( javaObject: __return ) : nil
+    }
+
+    open func submit( _ _task: ForkJoinTask? ) -> ForkJoinTask! {
+        return submit( task: _task )
+    }
+
+    /// public java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.submit(java.util.concurrent.Callable)
+
+    /// public int java.util.concurrent.ForkJoinPool.getParallelism()
+
+    private static var getParallelism_MethodID_12: jmethodID?
+
+    open func getParallelism() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getParallelism", methodSig: "()I", methodCache: &ForkJoinPool.getParallelism_MethodID_12, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public int java.util.concurrent.ForkJoinPool.getPoolSize()
+
+    private static var getPoolSize_MethodID_13: jmethodID?
+
+    open func getPoolSize() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getPoolSize", methodSig: "()I", methodCache: &ForkJoinPool.getPoolSize_MethodID_13, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public boolean java.util.concurrent.ForkJoinPool.getAsyncMode()
+
+    private static var getAsyncMode_MethodID_14: jmethodID?
+
+    open func getAsyncMode() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getAsyncMode", methodSig: "()Z", methodCache: &ForkJoinPool.getAsyncMode_MethodID_14, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public int java.util.concurrent.ForkJoinPool.getRunningThreadCount()
+
+    private static var getRunningThreadCount_MethodID_15: jmethodID?
+
+    open func getRunningThreadCount() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getRunningThreadCount", methodSig: "()I", methodCache: &ForkJoinPool.getRunningThreadCount_MethodID_15, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public int java.util.concurrent.ForkJoinPool.getActiveThreadCount()
+
+    private static var getActiveThreadCount_MethodID_16: jmethodID?
+
+    open func getActiveThreadCount() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActiveThreadCount", methodSig: "()I", methodCache: &ForkJoinPool.getActiveThreadCount_MethodID_16, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public boolean java.util.concurrent.ForkJoinPool.isQuiescent()
+
+    private static var isQuiescent_MethodID_17: jmethodID?
+
+    open func isQuiescent() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isQuiescent", methodSig: "()Z", methodCache: &ForkJoinPool.isQuiescent_MethodID_17, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public long java.util.concurrent.ForkJoinPool.getStealCount()
+
+    private static var getStealCount_MethodID_18: jmethodID?
+
+    open func getStealCount() -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getStealCount", methodSig: "()J", methodCache: &ForkJoinPool.getStealCount_MethodID_18, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+
+    /// public int java.util.concurrent.ForkJoinPool.getQueuedSubmissionCount()
+
+    private static var getQueuedSubmissionCount_MethodID_19: jmethodID?
+
+    open func getQueuedSubmissionCount() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getQueuedSubmissionCount", methodSig: "()I", methodCache: &ForkJoinPool.getQueuedSubmissionCount_MethodID_19, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public boolean java.util.concurrent.ForkJoinPool.hasQueuedSubmissions()
+
+    private static var hasQueuedSubmissions_MethodID_20: jmethodID?
+
+    open func hasQueuedSubmissions() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasQueuedSubmissions", methodSig: "()Z", methodCache: &ForkJoinPool.hasQueuedSubmissions_MethodID_20, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// protected java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.pollSubmission()
+
+    private static var pollSubmission_MethodID_21: jmethodID?
+
+    open func pollSubmission() -> ForkJoinTask! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollSubmission", methodSig: "()Ljava/util/concurrent/ForkJoinTask;", methodCache: &ForkJoinPool.pollSubmission_MethodID_21, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ForkJoinTask( javaObject: __return ) : nil
+    }
+
+
+    /// protected int java.util.concurrent.ForkJoinPool.drainTasksTo(java.util.Collection)
+
+    private static var drainTasksTo_MethodID_22: jmethodID?
+
+    open func drainTasksTo( c: Collection? ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTasksTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &ForkJoinPool.drainTasksTo_MethodID_22, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func drainTasksTo( _ _c: Collection? ) -> Int {
+        return drainTasksTo( c: _c )
+    }
+
+    /// public java.util.List java.util.concurrent.ForkJoinPool.shutdownNow()
+
+    /// public boolean java.util.concurrent.ForkJoinPool.isTerminated()
+
+    /// public boolean java.util.concurrent.ForkJoinPool.isTerminating()
+
+    private static var isTerminating_MethodID_23: jmethodID?
+
+    open func isTerminating() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminating", methodSig: "()Z", methodCache: &ForkJoinPool.isTerminating_MethodID_23, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public boolean java.util.concurrent.ForkJoinPool.isShutdown()
+
+    /// public boolean java.util.concurrent.ForkJoinPool.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
+
+    /// public boolean java.util.concurrent.ForkJoinPool.awaitQuiescence(long,java.util.concurrent.TimeUnit)
+
+    private static var awaitQuiescence_MethodID_24: jmethodID?
+
+    open func awaitQuiescence( timeout: Int64, unit: TimeUnit? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitQuiescence", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ForkJoinPool.awaitQuiescence_MethodID_24, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func awaitQuiescence( _ _timeout: Int64, _ _unit: TimeUnit? ) -> Bool {
+        return awaitQuiescence( timeout: _timeout, unit: _unit )
+    }
+
+    /// protected java.util.concurrent.RunnableFuture java.util.concurrent.ForkJoinPool.newTaskFor(java.util.concurrent.Callable)
+
+    private static var newTaskFor_MethodID_25: jmethodID?
+
+    override open func newTaskFor( callable: Callable? ) -> RunnableFuture! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: callable, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "newTaskFor", methodSig: "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/RunnableFuture;", methodCache: &ForkJoinPool.newTaskFor_MethodID_25, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? RunnableFutureForward( javaObject: __return ) : nil
+    }
+
+    override open func newTaskFor( _ _callable: Callable? ) -> RunnableFuture! {
+        return newTaskFor( callable: _callable )
+    }
+
+    /// protected java.util.concurrent.RunnableFuture java.util.concurrent.ForkJoinPool.newTaskFor(java.lang.Runnable,java.lang.Object)
+
+    private static var newTaskFor_MethodID_26: jmethodID?
+
+    override open func newTaskFor( runnable: java_swift.Runnable?, value: java_swift.JavaObject? ) -> RunnableFuture! {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: runnable, locals: &__locals )
+        __args[1] = JNIType.toJava( value: value, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "newTaskFor", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/RunnableFuture;", methodCache: &ForkJoinPool.newTaskFor_MethodID_26, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? RunnableFutureForward( javaObject: __return ) : nil
+    }
+
+    override open func newTaskFor( _ _runnable: java_swift.Runnable?, _ _value: java_swift.JavaObject? ) -> RunnableFuture! {
+        return newTaskFor( runnable: _runnable, value: _value )
+    }
+
+    /// private static java.util.concurrent.ForkJoinPool java.util.concurrent.ForkJoinPool.makeCommonPool()
 
     /// public static java.util.concurrent.ForkJoinPool java.util.concurrent.ForkJoinPool.commonPool()
 
@@ -636,6 +616,26 @@ open class ForkJoinPool: AbstractExecutorService {
     /// private int java.util.concurrent.ForkJoinPool.awaitRunStateLock()
 
     /// private void java.util.concurrent.ForkJoinPool.unlockRunState(int,int)
+
+    /// private boolean java.util.concurrent.ForkJoinPool.createWorker()
+
+    /// private void java.util.concurrent.ForkJoinPool.tryAddWorker(long)
+
+    /// final java.util.concurrent.ForkJoinPool$WorkQueue java.util.concurrent.ForkJoinPool.registerWorker(java.util.concurrent.ForkJoinWorkerThread)
+
+    /// final void java.util.concurrent.ForkJoinPool.deregisterWorker(java.util.concurrent.ForkJoinWorkerThread,java.lang.Throwable)
+
+    /// final void java.util.concurrent.ForkJoinPool.signalWork(java.util.concurrent.ForkJoinPool$WorkQueue[],java.util.concurrent.ForkJoinPool$WorkQueue)
+
+    /// final void java.util.concurrent.ForkJoinPool.runWorker(java.util.concurrent.ForkJoinPool$WorkQueue)
+
+    /// private boolean java.util.concurrent.ForkJoinPool.awaitWork(java.util.concurrent.ForkJoinPool$WorkQueue,int)
+
+    /// private void java.util.concurrent.ForkJoinPool.helpStealer(java.util.concurrent.ForkJoinPool$WorkQueue,java.util.concurrent.ForkJoinTask)
+
+    /// private boolean java.util.concurrent.ForkJoinPool.tryCompensate(java.util.concurrent.ForkJoinPool$WorkQueue)
+
+    /// private java.util.concurrent.ForkJoinTask java.util.concurrent.ForkJoinPool.scan(java.util.concurrent.ForkJoinPool$WorkQueue,int)
 
 }
 

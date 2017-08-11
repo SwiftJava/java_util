@@ -112,7 +112,7 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
     open func equals( obj: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BitSet.equals_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -145,7 +145,7 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
     open class func valueOf( lb: /* java.nio.LongBuffer */ UnclassedObject? ) -> BitSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: lb != nil ? lb! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: lb, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/BitSet", classCache: &BitSetJNIClass, methodName: "valueOf", methodSig: "(Ljava/nio/LongBuffer;)Ljava/util/BitSet;", methodCache: &valueOf_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BitSet( javaObject: __return ) : nil
@@ -492,7 +492,7 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
     open func intersects( set: BitSet? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: set != nil ? set! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: set, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "intersects", methodSig: "(Ljava/util/BitSet;)Z", methodCache: &BitSet.intersects_MethodID_29, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -520,7 +520,7 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
     open func and( set: BitSet? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: set != nil ? set! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: set, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "and", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.and_MethodID_31, args: &__args, locals: &__locals )
     }
 
@@ -535,7 +535,7 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
     open func or( set: BitSet? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: set != nil ? set! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: set, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "or", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.or_MethodID_32, args: &__args, locals: &__locals )
     }
 
@@ -550,7 +550,7 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
     open func xor( set: BitSet? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: set != nil ? set! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: set, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "xor", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.xor_MethodID_33, args: &__args, locals: &__locals )
     }
 
@@ -565,7 +565,7 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
     open func andNot( set: BitSet? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: set != nil ? set! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: set, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "andNot", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.andNot_MethodID_34, args: &__args, locals: &__locals )
     }
 

@@ -101,7 +101,7 @@ open class StringJoiner: java_swift.JavaObject {
     open func merge( other: StringJoiner? ) -> StringJoiner! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: other != nil ? other! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: other, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/util/StringJoiner;)Ljava/util/StringJoiner;", methodCache: &StringJoiner.merge_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? StringJoiner( javaObject: __return ) : nil

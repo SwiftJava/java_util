@@ -149,8 +149,8 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: list, locals: &__locals )
-        __args[1] = JNIType.toJava( value: oldVal != nil ? oldVal! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: newVal != nil ? newVal! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: oldVal, locals: &__locals )
+        __args[2] = JNIType.toJava( value: newVal, locals: &__locals )
         let __return = JNIMethod.CallStaticBooleanMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "replaceAll", methodSig: "(Ljava/util/List;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &replaceAll_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -315,7 +315,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: list, locals: &__locals )
-        __args[1] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: obj, locals: &__locals )
         JNIMethod.CallStaticVoidMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "fill", methodSig: "(Ljava/util/List;Ljava/lang/Object;)V", methodCache: &fill_MethodID_15, args: &__args, locals: &__locals )
     }
 
@@ -331,7 +331,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: n, locals: &__locals )
-        __args[1] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "nCopies", methodSig: "(ILjava/lang/Object;)Ljava/util/List;", methodCache: &nCopies_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ListForward( javaObject: __return ) : nil
@@ -444,7 +444,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: list, locals: &__locals )
-        __args[1] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: key, locals: &__locals )
         __args[2] = JNIType.toJava( value: c, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "binarySearch", methodSig: "(Ljava/util/List;Ljava/lang/Object;Ljava/util/Comparator;)I", methodCache: &binarySearch_MethodID_23, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -462,7 +462,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: list, locals: &__locals )
-        __args[1] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "binarySearch", methodSig: "(Ljava/util/List;Ljava/lang/Object;)I", methodCache: &binarySearch_MethodID_24, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -502,7 +502,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: list, locals: &__locals )
-        __args[1] = JNIType.toJava( value: rnd != nil ? rnd! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: rnd, locals: &__locals )
         JNIMethod.CallStaticVoidMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "shuffle", methodSig: "(Ljava/util/List;Ljava/util/Random;)V", methodCache: &shuffle_MethodID_26, args: &__args, locals: &__locals )
     }
 
@@ -795,7 +795,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        __args[1] = JNIType.toJava( value: type != nil ? type! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: type, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedCollection", methodSig: "(Ljava/util/Collection;Ljava/lang/Class;)Ljava/util/Collection;", methodCache: &checkedCollection_MethodID_43, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectionForward( javaObject: __return ) : nil
@@ -815,7 +815,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: queue, locals: &__locals )
-        __args[1] = JNIType.toJava( value: type != nil ? type! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: type, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedQueue", methodSig: "(Ljava/util/Queue;Ljava/lang/Class;)Ljava/util/Queue;", methodCache: &checkedQueue_MethodID_44, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? QueueForward( javaObject: __return ) : nil
@@ -833,7 +833,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: s, locals: &__locals )
-        __args[1] = JNIType.toJava( value: type != nil ? type! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: type, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedSet", methodSig: "(Ljava/util/Set;Ljava/lang/Class;)Ljava/util/Set;", methodCache: &checkedSet_MethodID_45, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
@@ -851,7 +851,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: s, locals: &__locals )
-        __args[1] = JNIType.toJava( value: type != nil ? type! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: type, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedSortedSet", methodSig: "(Ljava/util/SortedSet;Ljava/lang/Class;)Ljava/util/SortedSet;", methodCache: &checkedSortedSet_MethodID_46, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
@@ -869,7 +869,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: s, locals: &__locals )
-        __args[1] = JNIType.toJava( value: type != nil ? type! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: type, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedNavigableSet", methodSig: "(Ljava/util/NavigableSet;Ljava/lang/Class;)Ljava/util/NavigableSet;", methodCache: &checkedNavigableSet_MethodID_47, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
@@ -887,7 +887,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: list, locals: &__locals )
-        __args[1] = JNIType.toJava( value: type != nil ? type! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: type, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedList", methodSig: "(Ljava/util/List;Ljava/lang/Class;)Ljava/util/List;", methodCache: &checkedList_MethodID_48, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ListForward( javaObject: __return ) : nil
@@ -905,8 +905,8 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: m, mapClass: "java/util/Map", locals: &__locals )
-        __args[1] = JNIType.toJava( value: keyType != nil ? keyType! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: valueType != nil ? valueType! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: keyType, locals: &__locals )
+        __args[2] = JNIType.toJava( value: valueType, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedMap", methodSig: "(Ljava/util/Map;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/Map;", methodCache: &checkedMap_MethodID_49, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: java_swift.JavaMapForward(), from: __return )
@@ -924,8 +924,8 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: m, mapClass: "java/util/SortedMap", locals: &__locals )
-        __args[1] = JNIType.toJava( value: keyType != nil ? keyType! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: valueType != nil ? valueType! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: keyType, locals: &__locals )
+        __args[2] = JNIType.toJava( value: valueType, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedSortedMap", methodSig: "(Ljava/util/SortedMap;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/SortedMap;", methodCache: &checkedSortedMap_MethodID_50, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: SortedMapForward(), from: __return )
@@ -943,8 +943,8 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: m, mapClass: "java/util/NavigableMap", locals: &__locals )
-        __args[1] = JNIType.toJava( value: keyType != nil ? keyType! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: valueType != nil ? valueType! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: keyType, locals: &__locals )
+        __args[2] = JNIType.toJava( value: valueType, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "checkedNavigableMap", methodSig: "(Ljava/util/NavigableMap;Ljava/lang/Class;Ljava/lang/Class;)Ljava/util/NavigableMap;", methodCache: &checkedNavigableMap_MethodID_51, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: NavigableMapForward(), from: __return )
@@ -1065,7 +1065,7 @@ open class Collections: java_swift.JavaObject {
     open class func singleton( o: java_swift.JavaObject? ) -> java_swift.JavaSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "singleton", methodSig: "(Ljava/lang/Object;)Ljava/util/Set;", methodCache: &singleton_MethodID_60, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
@@ -1086,7 +1086,7 @@ open class Collections: java_swift.JavaObject {
     open class func singletonList( o: java_swift.JavaObject? ) -> List! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "singletonList", methodSig: "(Ljava/lang/Object;)Ljava/util/List;", methodCache: &singletonList_MethodID_61, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ListForward( javaObject: __return ) : nil
@@ -1103,8 +1103,8 @@ open class Collections: java_swift.JavaObject {
     open class func singletonMap( key: java_swift.JavaObject?, value: java_swift.JavaObject? ) -> java_swift.JavaMap! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: value != nil ? value! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
+        __args[1] = JNIType.toJava( value: value, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "singletonMap", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Map;", methodCache: &singletonMap_MethodID_62, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return JNIType.toSwift( type: java_swift.JavaMapForward(), from: __return )
@@ -1141,7 +1141,7 @@ open class Collections: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        __args[1] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Collections", classCache: &CollectionsJNIClass, methodName: "frequency", methodSig: "(Ljava/util/Collection;Ljava/lang/Object;)I", methodCache: &frequency_MethodID_64, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }

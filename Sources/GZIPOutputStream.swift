@@ -28,7 +28,7 @@ open class GZIPOutputStream: DeflaterOutputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "crc", fieldType: "Ljava/util/zip/CRC32;", fieldCache: &GZIPOutputStream.crc_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -49,7 +49,7 @@ open class GZIPOutputStream: DeflaterOutputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &GZIPOutputStream.def_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -89,7 +89,7 @@ open class GZIPOutputStream: DeflaterOutputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &GZIPOutputStream.out_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -101,7 +101,7 @@ open class GZIPOutputStream: DeflaterOutputStream {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, syncFlush: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         __args[1] = JNIType.toJava( value: syncFlush, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Z)V", methodCache: &GZIPOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -119,7 +119,7 @@ open class GZIPOutputStream: DeflaterOutputStream {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;)V", methodCache: &GZIPOutputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -136,7 +136,7 @@ open class GZIPOutputStream: DeflaterOutputStream {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, size: Int, syncFlush: Bool ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         __args[1] = JNIType.toJava( value: size, locals: &__locals )
         __args[2] = JNIType.toJava( value: syncFlush, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;IZ)V", methodCache: &GZIPOutputStream.new_MethodID_3, args: &__args, locals: &__locals )
@@ -158,7 +158,7 @@ open class GZIPOutputStream: DeflaterOutputStream {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, size: Int ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         __args[1] = JNIType.toJava( value: size, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;I)V", methodCache: &GZIPOutputStream.new_MethodID_4, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {

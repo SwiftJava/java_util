@@ -75,7 +75,7 @@ open class LongSummaryStatistics: java_swift.JavaObject, LongConsumer, IntConsum
     open func combine( other: LongSummaryStatistics? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: other != nil ? other! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: other, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "combine", methodSig: "(Ljava/util/LongSummaryStatistics;)V", methodCache: &LongSummaryStatistics.combine_MethodID_4, args: &__args, locals: &__locals )
     }
 

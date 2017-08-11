@@ -94,7 +94,7 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
     open func put( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;)V", methodCache: &LinkedTransferQueue.put_MethodID_3, args: &__args, locals: &__locals )
     }
 
@@ -118,8 +118,6 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
 
     /// private void java.util.concurrent.LinkedTransferQueue.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
-    /// public java.lang.Object java.util.concurrent.LinkedTransferQueue.poll()
-
     /// public java.lang.Object java.util.concurrent.LinkedTransferQueue.poll(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
     private static var poll_MethodID_4: jmethodID?
@@ -128,7 +126,7 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &LinkedTransferQueue.poll_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
@@ -141,6 +139,8 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
         return try poll( timeout: _timeout, unit: _unit )
     }
 
+    /// public java.lang.Object java.util.concurrent.LinkedTransferQueue.poll()
+
     /// public java.lang.Object java.util.concurrent.LinkedTransferQueue.peek()
 
     /// public void java.util.concurrent.LinkedTransferQueue.transfer(java.lang.Object) throws java.lang.InterruptedException
@@ -150,7 +150,7 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
     open func transfer( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "transfer", methodSig: "(Ljava/lang/Object;)V", methodCache: &LinkedTransferQueue.transfer_MethodID_5, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -162,6 +162,91 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
     }
 
     /// final java.util.concurrent.LinkedTransferQueue$Node java.util.concurrent.LinkedTransferQueue.succ(java.util.concurrent.LinkedTransferQueue$Node)
+
+    /// public java.lang.Object java.util.concurrent.LinkedTransferQueue.take() throws java.lang.InterruptedException
+
+    private static var take_MethodID_6: jmethodID?
+
+    open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedTransferQueue.take_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public int java.util.concurrent.LinkedTransferQueue.remainingCapacity()
+
+    private static var remainingCapacity_MethodID_7: jmethodID?
+
+    open func remainingCapacity() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &LinkedTransferQueue.remainingCapacity_MethodID_7, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public int java.util.concurrent.LinkedTransferQueue.drainTo(java.util.Collection)
+
+    private static var drainTo_MethodID_8: jmethodID?
+
+    open func drainTo( c: Collection? ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &LinkedTransferQueue.drainTo_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func drainTo( _ _c: Collection? ) -> Int {
+        return drainTo( c: _c )
+    }
+
+    /// public int java.util.concurrent.LinkedTransferQueue.drainTo(java.util.Collection,int)
+
+    private static var drainTo_MethodID_9: jmethodID?
+
+    open func drainTo( c: Collection?, maxElements: Int ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        __args[1] = JNIType.toJava( value: maxElements, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &LinkedTransferQueue.drainTo_MethodID_9, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func drainTo( _ _c: Collection?, _ _maxElements: Int ) -> Int {
+        return drainTo( c: _c, maxElements: _maxElements )
+    }
+
+    /// public boolean java.util.concurrent.LinkedTransferQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit)
+
+    private static var offer_MethodID_10: jmethodID?
+
+    open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &LinkedTransferQueue.offer_MethodID_10, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func offer( _ _e: java_swift.JavaObject?, _ _timeout: Int64, _ _unit: TimeUnit? ) -> Bool {
+        return offer( e: _e, timeout: _timeout, unit: _unit )
+    }
+
+    /// public boolean java.util.concurrent.LinkedTransferQueue.offer(java.lang.Object)
+
+    /// private boolean java.util.concurrent.LinkedTransferQueue.casHead(java.util.concurrent.LinkedTransferQueue$Node,java.util.concurrent.LinkedTransferQueue$Node)
+
+    /// private boolean java.util.concurrent.LinkedTransferQueue.casTail(java.util.concurrent.LinkedTransferQueue$Node,java.util.concurrent.LinkedTransferQueue$Node)
 
     /// final void java.util.concurrent.LinkedTransferQueue.unsplice(java.util.concurrent.LinkedTransferQueue$Node,java.util.concurrent.LinkedTransferQueue$Node)
 
@@ -187,33 +272,17 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
 
     /// private boolean java.util.concurrent.LinkedTransferQueue.findAndRemove(java.lang.Object)
 
-    /// public boolean java.util.concurrent.LinkedTransferQueue.tryTransfer(java.lang.Object)
-
-    private static var tryTransfer_MethodID_6: jmethodID?
-
-    open func tryTransfer( e: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryTransfer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedTransferQueue.tryTransfer_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func tryTransfer( _ _e: java_swift.JavaObject? ) -> Bool {
-        return tryTransfer( e: _e )
-    }
-
     /// public boolean java.util.concurrent.LinkedTransferQueue.tryTransfer(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var tryTransfer_MethodID_7: jmethodID?
+    private static var tryTransfer_MethodID_11: jmethodID?
 
     open func tryTransfer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryTransfer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &LinkedTransferQueue.tryTransfer_MethodID_7, args: &__args, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryTransfer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &LinkedTransferQueue.tryTransfer_MethodID_11, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -224,114 +293,45 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
         return try tryTransfer( e: _e, timeout: _timeout, unit: _unit )
     }
 
+    /// public boolean java.util.concurrent.LinkedTransferQueue.tryTransfer(java.lang.Object)
+
+    private static var tryTransfer_MethodID_12: jmethodID?
+
+    open func tryTransfer( e: java_swift.JavaObject? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryTransfer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedTransferQueue.tryTransfer_MethodID_12, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func tryTransfer( _ _e: java_swift.JavaObject? ) -> Bool {
+        return tryTransfer( e: _e )
+    }
+
     /// public boolean java.util.concurrent.LinkedTransferQueue.hasWaitingConsumer()
 
-    private static var hasWaitingConsumer_MethodID_8: jmethodID?
+    private static var hasWaitingConsumer_MethodID_13: jmethodID?
 
     open func hasWaitingConsumer() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasWaitingConsumer", methodSig: "()Z", methodCache: &LinkedTransferQueue.hasWaitingConsumer_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasWaitingConsumer", methodSig: "()Z", methodCache: &LinkedTransferQueue.hasWaitingConsumer_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public int java.util.concurrent.LinkedTransferQueue.getWaitingConsumerCount()
 
-    private static var getWaitingConsumerCount_MethodID_9: jmethodID?
+    private static var getWaitingConsumerCount_MethodID_14: jmethodID?
 
     open func getWaitingConsumerCount() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getWaitingConsumerCount", methodSig: "()I", methodCache: &LinkedTransferQueue.getWaitingConsumerCount_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getWaitingConsumerCount", methodSig: "()I", methodCache: &LinkedTransferQueue.getWaitingConsumerCount_MethodID_14, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
-
-    /// public boolean java.util.concurrent.LinkedTransferQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit)
-
-    private static var offer_MethodID_10: jmethodID?
-
-    open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &LinkedTransferQueue.offer_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func offer( _ _e: java_swift.JavaObject?, _ _timeout: Int64, _ _unit: TimeUnit? ) -> Bool {
-        return offer( e: _e, timeout: _timeout, unit: _unit )
-    }
-
-    /// public boolean java.util.concurrent.LinkedTransferQueue.offer(java.lang.Object)
-
-    /// public java.lang.Object java.util.concurrent.LinkedTransferQueue.take() throws java.lang.InterruptedException
-
-    private static var take_MethodID_11: jmethodID?
-
-    open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedTransferQueue.take_MethodID_11, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public int java.util.concurrent.LinkedTransferQueue.remainingCapacity()
-
-    private static var remainingCapacity_MethodID_12: jmethodID?
-
-    open func remainingCapacity() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &LinkedTransferQueue.remainingCapacity_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public int java.util.concurrent.LinkedTransferQueue.drainTo(java.util.Collection,int)
-
-    private static var drainTo_MethodID_13: jmethodID?
-
-    open func drainTo( c: Collection?, maxElements: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        __args[1] = JNIType.toJava( value: maxElements, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &LinkedTransferQueue.drainTo_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func drainTo( _ _c: Collection?, _ _maxElements: Int ) -> Int {
-        return drainTo( c: _c, maxElements: _maxElements )
-    }
-
-    /// public int java.util.concurrent.LinkedTransferQueue.drainTo(java.util.Collection)
-
-    private static var drainTo_MethodID_14: jmethodID?
-
-    open func drainTo( c: Collection? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &LinkedTransferQueue.drainTo_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func drainTo( _ _c: Collection? ) -> Int {
-        return drainTo( c: _c )
-    }
-
-    /// private boolean java.util.concurrent.LinkedTransferQueue.casHead(java.util.concurrent.LinkedTransferQueue$Node,java.util.concurrent.LinkedTransferQueue$Node)
-
-    /// private boolean java.util.concurrent.LinkedTransferQueue.casTail(java.util.concurrent.LinkedTransferQueue$Node,java.util.concurrent.LinkedTransferQueue$Node)
 
     /// In declared protocol but not defined.. ///
 
@@ -342,7 +342,7 @@ open class LinkedTransferQueue: AbstractQueue, TransferQueue, /* java.io.Seriali
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedTransferQueue.equals_MethodID_15, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

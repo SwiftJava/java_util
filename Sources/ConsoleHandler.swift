@@ -52,9 +52,9 @@ open class ConsoleHandler: StreamHandler {
 
     /// public void java.util.logging.ConsoleHandler.close()
 
-    /// public void java.util.logging.ConsoleHandler.publish(java.util.logging.LogRecord)
-
     /// private void java.util.logging.ConsoleHandler.configure()
+
+    /// public void java.util.logging.ConsoleHandler.publish(java.util.logging.LogRecord)
 
 }
 

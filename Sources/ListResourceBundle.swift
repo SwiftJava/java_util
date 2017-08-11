@@ -38,7 +38,7 @@ open class ListResourceBundle: ResourceBundle {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "parent", fieldType: "Ljava/util/ResourceBundle;", fieldCache: &ListResourceBundle.parent_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -68,8 +68,6 @@ open class ListResourceBundle: ResourceBundle {
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
-
-    /// public java.util.Enumeration java.util.ListResourceBundle.getKeys()
 
     /// public final java.lang.Object java.util.ListResourceBundle.handleGetObject(java.lang.String)
 
@@ -114,6 +112,8 @@ open class ListResourceBundle: ResourceBundle {
 
 
     /// private synchronized void java.util.ListResourceBundle.loadLookup()
+
+    /// public java.util.Enumeration java.util.ListResourceBundle.getKeys()
 
 }
 

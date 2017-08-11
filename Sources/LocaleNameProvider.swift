@@ -36,7 +36,7 @@ open class LocaleNameProvider: LocaleServiceProvider {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: languageCode, locals: &__locals )
-        __args[1] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayLanguage", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", methodCache: &LocaleNameProvider.getDisplayLanguage_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -53,7 +53,7 @@ open class LocaleNameProvider: LocaleServiceProvider {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: scriptCode, locals: &__locals )
-        __args[1] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayScript", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", methodCache: &LocaleNameProvider.getDisplayScript_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -70,7 +70,7 @@ open class LocaleNameProvider: LocaleServiceProvider {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: countryCode, locals: &__locals )
-        __args[1] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayCountry", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", methodCache: &LocaleNameProvider.getDisplayCountry_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -87,7 +87,7 @@ open class LocaleNameProvider: LocaleServiceProvider {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: variant, locals: &__locals )
-        __args[1] = JNIType.toJava( value: locale != nil ? locale! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayVariant", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", methodCache: &LocaleNameProvider.getDisplayVariant_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }

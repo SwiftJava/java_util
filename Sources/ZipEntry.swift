@@ -79,7 +79,7 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
     public convenience init( e: ZipEntry? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipEntry", classCache: &ZipEntry.ZipEntryJNIClass, methodSig: "(Ljava/util/zip/ZipEntry;)V", methodCache: &ZipEntry.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -191,7 +191,7 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
     open func setLastModifiedTime( time: /* java.nio.file.attribute.FileTime */ UnclassedObject? ) -> ZipEntry! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: time != nil ? time! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: time, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "setLastModifiedTime", methodSig: "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", methodCache: &ZipEntry.setLastModifiedTime_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ZipEntry( javaObject: __return ) : nil
@@ -216,15 +216,29 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
         setSize( size: _size )
     }
 
+    /// public java.lang.String java.util.zip.ZipEntry.getComment()
+
+    private static var getComment_MethodID_11: jmethodID?
+
+    open func getComment() -> String! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getComment", methodSig: "()Ljava/lang/String;", methodCache: &ZipEntry.getComment_MethodID_11, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: String(), from: __return )
+    }
+
+
+    /// void java.util.zip.ZipEntry.setExtra0(byte[],boolean)
+
     /// public void java.util.zip.ZipEntry.setTime(long)
 
-    private static var setTime_MethodID_11: jmethodID?
+    private static var setTime_MethodID_12: jmethodID?
 
     open func setTime( time: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: time, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTime", methodSig: "(J)V", methodCache: &ZipEntry.setTime_MethodID_11, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setTime", methodSig: "(J)V", methodCache: &ZipEntry.setTime_MethodID_12, args: &__args, locals: &__locals )
     }
 
     open func setTime( _ _time: Int64 ) {
@@ -233,25 +247,25 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public long java.util.zip.ZipEntry.getTime()
 
-    private static var getTime_MethodID_12: jmethodID?
+    private static var getTime_MethodID_13: jmethodID?
 
     open func getTime() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getTime", methodSig: "()J", methodCache: &ZipEntry.getTime_MethodID_12, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getTime", methodSig: "()J", methodCache: &ZipEntry.getTime_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
 
     /// public java.util.zip.ZipEntry java.util.zip.ZipEntry.setLastAccessTime(java.nio.file.attribute.FileTime)
 
-    private static var setLastAccessTime_MethodID_13: jmethodID?
+    private static var setLastAccessTime_MethodID_14: jmethodID?
 
     open func setLastAccessTime( time: /* java.nio.file.attribute.FileTime */ UnclassedObject? ) -> ZipEntry! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: time != nil ? time! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "setLastAccessTime", methodSig: "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", methodCache: &ZipEntry.setLastAccessTime_MethodID_13, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: time, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "setLastAccessTime", methodSig: "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", methodCache: &ZipEntry.setLastAccessTime_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ZipEntry( javaObject: __return ) : nil
     }
@@ -262,12 +276,12 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public java.nio.file.attribute.FileTime java.util.zip.ZipEntry.getLastAccessTime()
 
-    private static var getLastAccessTime_MethodID_14: jmethodID?
+    private static var getLastAccessTime_MethodID_15: jmethodID?
 
     open func getLastAccessTime() -> /* java.nio.file.attribute.FileTime */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLastAccessTime", methodSig: "()Ljava/nio/file/attribute/FileTime;", methodCache: &ZipEntry.getLastAccessTime_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLastAccessTime", methodSig: "()Ljava/nio/file/attribute/FileTime;", methodCache: &ZipEntry.getLastAccessTime_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.nio.file.attribute.FileTime */ UnclassedObject( javaObject: __return ) : nil
     }
@@ -275,13 +289,13 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public java.util.zip.ZipEntry java.util.zip.ZipEntry.setCreationTime(java.nio.file.attribute.FileTime)
 
-    private static var setCreationTime_MethodID_15: jmethodID?
+    private static var setCreationTime_MethodID_16: jmethodID?
 
     open func setCreationTime( time: /* java.nio.file.attribute.FileTime */ UnclassedObject? ) -> ZipEntry! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: time != nil ? time! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "setCreationTime", methodSig: "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", methodCache: &ZipEntry.setCreationTime_MethodID_15, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: time, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "setCreationTime", methodSig: "(Ljava/nio/file/attribute/FileTime;)Ljava/util/zip/ZipEntry;", methodCache: &ZipEntry.setCreationTime_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ZipEntry( javaObject: __return ) : nil
     }
@@ -292,12 +306,12 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public java.nio.file.attribute.FileTime java.util.zip.ZipEntry.getCreationTime()
 
-    private static var getCreationTime_MethodID_16: jmethodID?
+    private static var getCreationTime_MethodID_17: jmethodID?
 
     open func getCreationTime() -> /* java.nio.file.attribute.FileTime */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCreationTime", methodSig: "()Ljava/nio/file/attribute/FileTime;", methodCache: &ZipEntry.getCreationTime_MethodID_16, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCreationTime", methodSig: "()Ljava/nio/file/attribute/FileTime;", methodCache: &ZipEntry.getCreationTime_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.nio.file.attribute.FileTime */ UnclassedObject( javaObject: __return ) : nil
     }
@@ -305,25 +319,25 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public long java.util.zip.ZipEntry.getCompressedSize()
 
-    private static var getCompressedSize_MethodID_17: jmethodID?
+    private static var getCompressedSize_MethodID_18: jmethodID?
 
     open func getCompressedSize() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getCompressedSize", methodSig: "()J", methodCache: &ZipEntry.getCompressedSize_MethodID_17, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getCompressedSize", methodSig: "()J", methodCache: &ZipEntry.getCompressedSize_MethodID_18, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
 
     /// public void java.util.zip.ZipEntry.setCompressedSize(long)
 
-    private static var setCompressedSize_MethodID_18: jmethodID?
+    private static var setCompressedSize_MethodID_19: jmethodID?
 
     open func setCompressedSize( csize: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: csize, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setCompressedSize", methodSig: "(J)V", methodCache: &ZipEntry.setCompressedSize_MethodID_18, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setCompressedSize", methodSig: "(J)V", methodCache: &ZipEntry.setCompressedSize_MethodID_19, args: &__args, locals: &__locals )
     }
 
     open func setCompressedSize( _ _csize: Int64 ) {
@@ -332,13 +346,13 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public void java.util.zip.ZipEntry.setCrc(long)
 
-    private static var setCrc_MethodID_19: jmethodID?
+    private static var setCrc_MethodID_20: jmethodID?
 
     open func setCrc( crc: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: crc, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setCrc", methodSig: "(J)V", methodCache: &ZipEntry.setCrc_MethodID_19, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setCrc", methodSig: "(J)V", methodCache: &ZipEntry.setCrc_MethodID_20, args: &__args, locals: &__locals )
     }
 
     open func setCrc( _ _crc: Int64 ) {
@@ -347,25 +361,25 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public long java.util.zip.ZipEntry.getCrc()
 
-    private static var getCrc_MethodID_20: jmethodID?
+    private static var getCrc_MethodID_21: jmethodID?
 
     open func getCrc() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getCrc", methodSig: "()J", methodCache: &ZipEntry.getCrc_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getCrc", methodSig: "()J", methodCache: &ZipEntry.getCrc_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
 
     /// public void java.util.zip.ZipEntry.setMethod(int)
 
-    private static var setMethod_MethodID_21: jmethodID?
+    private static var setMethod_MethodID_22: jmethodID?
 
     open func setMethod( method: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: method, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMethod", methodSig: "(I)V", methodCache: &ZipEntry.setMethod_MethodID_21, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMethod", methodSig: "(I)V", methodCache: &ZipEntry.setMethod_MethodID_22, args: &__args, locals: &__locals )
     }
 
     open func setMethod( _ _method: Int ) {
@@ -374,13 +388,13 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public void java.util.zip.ZipEntry.setExtra(byte[])
 
-    private static var setExtra_MethodID_22: jmethodID?
+    private static var setExtra_MethodID_23: jmethodID?
 
     open func setExtra( extra: [Int8]? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: extra, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setExtra", methodSig: "([B)V", methodCache: &ZipEntry.setExtra_MethodID_22, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setExtra", methodSig: "([B)V", methodCache: &ZipEntry.setExtra_MethodID_23, args: &__args, locals: &__locals )
     }
 
     open func setExtra( _ _extra: [Int8]? ) {
@@ -389,44 +403,30 @@ open class ZipEntry: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public byte[] java.util.zip.ZipEntry.getExtra()
 
-    private static var getExtra_MethodID_23: jmethodID?
+    private static var getExtra_MethodID_24: jmethodID?
 
     open func getExtra() -> [Int8]! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getExtra", methodSig: "()[B", methodCache: &ZipEntry.getExtra_MethodID_23, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getExtra", methodSig: "()[B", methodCache: &ZipEntry.getExtra_MethodID_24, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: [Int8](), from: __return )
     }
 
 
     /// public void java.util.zip.ZipEntry.setComment(java.lang.String)
 
-    private static var setComment_MethodID_24: jmethodID?
+    private static var setComment_MethodID_25: jmethodID?
 
     open func setComment( comment: String? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: comment, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setComment", methodSig: "(Ljava/lang/String;)V", methodCache: &ZipEntry.setComment_MethodID_24, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setComment", methodSig: "(Ljava/lang/String;)V", methodCache: &ZipEntry.setComment_MethodID_25, args: &__args, locals: &__locals )
     }
 
     open func setComment( _ _comment: String? ) {
         setComment( comment: _comment )
     }
-
-    /// public java.lang.String java.util.zip.ZipEntry.getComment()
-
-    private static var getComment_MethodID_25: jmethodID?
-
-    open func getComment() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getComment", methodSig: "()Ljava/lang/String;", methodCache: &ZipEntry.getComment_MethodID_25, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// void java.util.zip.ZipEntry.setExtra0(byte[],boolean)
 
 }
 

@@ -30,7 +30,7 @@ open class EventObject: java_swift.JavaObject, /* java.io.Serializable */ Unclas
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &EventObject.source_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -42,7 +42,7 @@ open class EventObject: java_swift.JavaObject, /* java.io.Serializable */ Unclas
     public convenience init( source: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: source != nil ? source! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: source, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/EventObject", classCache: &EventObject.EventObjectJNIClass, methodSig: "(Ljava/lang/Object;)V", methodCache: &EventObject.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )

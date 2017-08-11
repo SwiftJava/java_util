@@ -101,28 +101,73 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// private void java.util.concurrent.locks.StampedLock.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
 
-    /// public long java.util.concurrent.locks.StampedLock.tryWriteLock()
+    /// public boolean java.util.concurrent.locks.StampedLock.validate(long)
 
-    private static var tryWriteLock_MethodID_2: jmethodID?
+    private static var validate_MethodID_2: jmethodID?
 
-    open func tryWriteLock() -> Int64 {
+    open func validate( stamp: Int64 ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryWriteLock", methodSig: "()J", methodCache: &StampedLock.tryWriteLock_MethodID_2, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "validate", methodSig: "(J)Z", methodCache: &StampedLock.validate_MethodID_2, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func validate( _ _stamp: Int64 ) -> Bool {
+        return validate( stamp: _stamp )
+    }
+
+    /// public long java.util.concurrent.locks.StampedLock.readLock()
+
+    private static var readLock_MethodID_3: jmethodID?
+
+    open func readLock() -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "readLock", methodSig: "()J", methodCache: &StampedLock.readLock_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
 
+    /// public long java.util.concurrent.locks.StampedLock.writeLock()
+
+    private static var writeLock_MethodID_4: jmethodID?
+
+    open func writeLock() -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "writeLock", methodSig: "()J", methodCache: &StampedLock.writeLock_MethodID_4, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+
+    /// public void java.util.concurrent.locks.StampedLock.unlock(long)
+
+    private static var unlock_MethodID_5: jmethodID?
+
+    open func unlock( stamp: Int64 ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "unlock", methodSig: "(J)V", methodCache: &StampedLock.unlock_MethodID_5, args: &__args, locals: &__locals )
+    }
+
+    open func unlock( _ _stamp: Int64 ) {
+        unlock( stamp: _stamp )
+    }
+
+    /// private void java.util.concurrent.locks.StampedLock.release(java.util.concurrent.locks.StampedLock$WNode)
+
     /// public long java.util.concurrent.locks.StampedLock.tryWriteLock(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var tryWriteLock_MethodID_3: jmethodID?
+    private static var tryWriteLock_MethodID_6: jmethodID?
 
     open func tryWriteLock( time: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: time, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryWriteLock", methodSig: "(JLjava/util/concurrent/TimeUnit;)J", methodCache: &StampedLock.tryWriteLock_MethodID_3, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryWriteLock", methodSig: "(JLjava/util/concurrent/TimeUnit;)J", methodCache: &StampedLock.tryWriteLock_MethodID_6, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -133,16 +178,28 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
         return try tryWriteLock( time: _time, unit: _unit )
     }
 
+    /// public long java.util.concurrent.locks.StampedLock.tryWriteLock()
+
+    private static var tryWriteLock_MethodID_7: jmethodID?
+
+    open func tryWriteLock() -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryWriteLock", methodSig: "()J", methodCache: &StampedLock.tryWriteLock_MethodID_7, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+
     /// public long java.util.concurrent.locks.StampedLock.tryReadLock(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var tryReadLock_MethodID_4: jmethodID?
+    private static var tryReadLock_MethodID_8: jmethodID?
 
     open func tryReadLock( time: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: time, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryReadLock", methodSig: "(JLjava/util/concurrent/TimeUnit;)J", methodCache: &StampedLock.tryReadLock_MethodID_4, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryReadLock", methodSig: "(JLjava/util/concurrent/TimeUnit;)J", methodCache: &StampedLock.tryReadLock_MethodID_8, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -155,50 +212,50 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public long java.util.concurrent.locks.StampedLock.tryReadLock()
 
-    private static var tryReadLock_MethodID_5: jmethodID?
+    private static var tryReadLock_MethodID_9: jmethodID?
 
     open func tryReadLock() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryReadLock", methodSig: "()J", methodCache: &StampedLock.tryReadLock_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryReadLock", methodSig: "()J", methodCache: &StampedLock.tryReadLock_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public int java.util.concurrent.locks.StampedLock.getReadLockCount()
-
-    private static var getReadLockCount_MethodID_6: jmethodID?
-
-    open func getReadLockCount() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getReadLockCount", methodSig: "()I", methodCache: &StampedLock.getReadLockCount_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// private int java.util.concurrent.locks.StampedLock.getReadLockCount(long)
 
+    /// public int java.util.concurrent.locks.StampedLock.getReadLockCount()
+
+    private static var getReadLockCount_MethodID_10: jmethodID?
+
+    open func getReadLockCount() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getReadLockCount", methodSig: "()I", methodCache: &StampedLock.getReadLockCount_MethodID_10, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
     /// public boolean java.util.concurrent.locks.StampedLock.isWriteLocked()
 
-    private static var isWriteLocked_MethodID_7: jmethodID?
+    private static var isWriteLocked_MethodID_11: jmethodID?
 
     open func isWriteLocked() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isWriteLocked", methodSig: "()Z", methodCache: &StampedLock.isWriteLocked_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isWriteLocked", methodSig: "()Z", methodCache: &StampedLock.isWriteLocked_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public long java.util.concurrent.locks.StampedLock.readLockInterruptibly() throws java.lang.InterruptedException
 
-    private static var readLockInterruptibly_MethodID_8: jmethodID?
+    private static var readLockInterruptibly_MethodID_12: jmethodID?
 
     open func readLockInterruptibly() throws /* java.lang.InterruptedException */ -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "readLockInterruptibly", methodSig: "()J", methodCache: &StampedLock.readLockInterruptibly_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "readLockInterruptibly", methodSig: "()J", methodCache: &StampedLock.readLockInterruptibly_MethodID_12, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -210,12 +267,12 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public java.util.concurrent.locks.Lock java.util.concurrent.locks.StampedLock.asReadLock()
 
-    private static var asReadLock_MethodID_9: jmethodID?
+    private static var asReadLock_MethodID_13: jmethodID?
 
     open func asReadLock() -> Lock! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asReadLock", methodSig: "()Ljava/util/concurrent/locks/Lock;", methodCache: &StampedLock.asReadLock_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asReadLock", methodSig: "()Ljava/util/concurrent/locks/Lock;", methodCache: &StampedLock.asReadLock_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LockForward( javaObject: __return ) : nil
     }
@@ -223,12 +280,12 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public java.util.concurrent.locks.Lock java.util.concurrent.locks.StampedLock.asWriteLock()
 
-    private static var asWriteLock_MethodID_10: jmethodID?
+    private static var asWriteLock_MethodID_14: jmethodID?
 
     open func asWriteLock() -> Lock! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asWriteLock", methodSig: "()Ljava/util/concurrent/locks/Lock;", methodCache: &StampedLock.asWriteLock_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asWriteLock", methodSig: "()Ljava/util/concurrent/locks/Lock;", methodCache: &StampedLock.asWriteLock_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LockForward( javaObject: __return ) : nil
     }
@@ -236,12 +293,12 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public long java.util.concurrent.locks.StampedLock.writeLockInterruptibly() throws java.lang.InterruptedException
 
-    private static var writeLockInterruptibly_MethodID_11: jmethodID?
+    private static var writeLockInterruptibly_MethodID_15: jmethodID?
 
     open func writeLockInterruptibly() throws /* java.lang.InterruptedException */ -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "writeLockInterruptibly", methodSig: "()J", methodCache: &StampedLock.writeLockInterruptibly_MethodID_11, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "writeLockInterruptibly", methodSig: "()J", methodCache: &StampedLock.writeLockInterruptibly_MethodID_15, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -253,25 +310,25 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public long java.util.concurrent.locks.StampedLock.tryOptimisticRead()
 
-    private static var tryOptimisticRead_MethodID_12: jmethodID?
+    private static var tryOptimisticRead_MethodID_16: jmethodID?
 
     open func tryOptimisticRead() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryOptimisticRead", methodSig: "()J", methodCache: &StampedLock.tryOptimisticRead_MethodID_12, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryOptimisticRead", methodSig: "()J", methodCache: &StampedLock.tryOptimisticRead_MethodID_16, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
 
     /// public void java.util.concurrent.locks.StampedLock.unlockWrite(long)
 
-    private static var unlockWrite_MethodID_13: jmethodID?
+    private static var unlockWrite_MethodID_17: jmethodID?
 
     open func unlockWrite( stamp: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "unlockWrite", methodSig: "(J)V", methodCache: &StampedLock.unlockWrite_MethodID_13, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "unlockWrite", methodSig: "(J)V", methodCache: &StampedLock.unlockWrite_MethodID_17, args: &__args, locals: &__locals )
     }
 
     open func unlockWrite( _ _stamp: Int64 ) {
@@ -280,13 +337,13 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public void java.util.concurrent.locks.StampedLock.unlockRead(long)
 
-    private static var unlockRead_MethodID_14: jmethodID?
+    private static var unlockRead_MethodID_18: jmethodID?
 
     open func unlockRead( stamp: Int64 ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "unlockRead", methodSig: "(J)V", methodCache: &StampedLock.unlockRead_MethodID_14, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "unlockRead", methodSig: "(J)V", methodCache: &StampedLock.unlockRead_MethodID_18, args: &__args, locals: &__locals )
     }
 
     open func unlockRead( _ _stamp: Int64 ) {
@@ -295,13 +352,13 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public long java.util.concurrent.locks.StampedLock.tryConvertToWriteLock(long)
 
-    private static var tryConvertToWriteLock_MethodID_15: jmethodID?
+    private static var tryConvertToWriteLock_MethodID_19: jmethodID?
 
     open func tryConvertToWriteLock( stamp: Int64 ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryConvertToWriteLock", methodSig: "(J)J", methodCache: &StampedLock.tryConvertToWriteLock_MethodID_15, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryConvertToWriteLock", methodSig: "(J)J", methodCache: &StampedLock.tryConvertToWriteLock_MethodID_19, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
@@ -311,13 +368,13 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public long java.util.concurrent.locks.StampedLock.tryConvertToReadLock(long)
 
-    private static var tryConvertToReadLock_MethodID_16: jmethodID?
+    private static var tryConvertToReadLock_MethodID_20: jmethodID?
 
     open func tryConvertToReadLock( stamp: Int64 ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryConvertToReadLock", methodSig: "(J)J", methodCache: &StampedLock.tryConvertToReadLock_MethodID_16, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryConvertToReadLock", methodSig: "(J)J", methodCache: &StampedLock.tryConvertToReadLock_MethodID_20, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
@@ -327,13 +384,13 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public long java.util.concurrent.locks.StampedLock.tryConvertToOptimisticRead(long)
 
-    private static var tryConvertToOptimisticRead_MethodID_17: jmethodID?
+    private static var tryConvertToOptimisticRead_MethodID_21: jmethodID?
 
     open func tryConvertToOptimisticRead( stamp: Int64 ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryConvertToOptimisticRead", methodSig: "(J)J", methodCache: &StampedLock.tryConvertToOptimisticRead_MethodID_17, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "tryConvertToOptimisticRead", methodSig: "(J)J", methodCache: &StampedLock.tryConvertToOptimisticRead_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
@@ -343,48 +400,48 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     /// public boolean java.util.concurrent.locks.StampedLock.tryUnlockWrite()
 
-    private static var tryUnlockWrite_MethodID_18: jmethodID?
+    private static var tryUnlockWrite_MethodID_22: jmethodID?
 
     open func tryUnlockWrite() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryUnlockWrite", methodSig: "()Z", methodCache: &StampedLock.tryUnlockWrite_MethodID_18, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryUnlockWrite", methodSig: "()Z", methodCache: &StampedLock.tryUnlockWrite_MethodID_22, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.concurrent.locks.StampedLock.tryUnlockRead()
 
-    private static var tryUnlockRead_MethodID_19: jmethodID?
+    private static var tryUnlockRead_MethodID_23: jmethodID?
 
     open func tryUnlockRead() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryUnlockRead", methodSig: "()Z", methodCache: &StampedLock.tryUnlockRead_MethodID_19, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryUnlockRead", methodSig: "()Z", methodCache: &StampedLock.tryUnlockRead_MethodID_23, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.concurrent.locks.StampedLock.isReadLocked()
 
-    private static var isReadLocked_MethodID_20: jmethodID?
+    private static var isReadLocked_MethodID_24: jmethodID?
 
     open func isReadLocked() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isReadLocked", methodSig: "()Z", methodCache: &StampedLock.isReadLocked_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isReadLocked", methodSig: "()Z", methodCache: &StampedLock.isReadLocked_MethodID_24, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public java.util.concurrent.locks.ReadWriteLock java.util.concurrent.locks.StampedLock.asReadWriteLock()
 
-    private static var asReadWriteLock_MethodID_21: jmethodID?
+    private static var asReadWriteLock_MethodID_25: jmethodID?
 
     open func asReadWriteLock() -> ReadWriteLock! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asReadWriteLock", methodSig: "()Ljava/util/concurrent/locks/ReadWriteLock;", methodCache: &StampedLock.asReadWriteLock_MethodID_21, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asReadWriteLock", methodSig: "()Ljava/util/concurrent/locks/ReadWriteLock;", methodCache: &StampedLock.asReadWriteLock_MethodID_25, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ReadWriteLockForward( javaObject: __return ) : nil
     }
@@ -399,63 +456,6 @@ open class StampedLock: java_swift.JavaObject, /* java.io.Serializable */ Unclas
     /// private long java.util.concurrent.locks.StampedLock.acquireRead(boolean,long)
 
     /// private long java.util.concurrent.locks.StampedLock.cancelWaiter(java.util.concurrent.locks.StampedLock$WNode,java.util.concurrent.locks.StampedLock$WNode,boolean)
-
-    /// public void java.util.concurrent.locks.StampedLock.unlock(long)
-
-    private static var unlock_MethodID_22: jmethodID?
-
-    open func unlock( stamp: Int64 ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "unlock", methodSig: "(J)V", methodCache: &StampedLock.unlock_MethodID_22, args: &__args, locals: &__locals )
-    }
-
-    open func unlock( _ _stamp: Int64 ) {
-        unlock( stamp: _stamp )
-    }
-
-    /// private void java.util.concurrent.locks.StampedLock.release(java.util.concurrent.locks.StampedLock$WNode)
-
-    /// public long java.util.concurrent.locks.StampedLock.readLock()
-
-    private static var readLock_MethodID_23: jmethodID?
-
-    open func readLock() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "readLock", methodSig: "()J", methodCache: &StampedLock.readLock_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public long java.util.concurrent.locks.StampedLock.writeLock()
-
-    private static var writeLock_MethodID_24: jmethodID?
-
-    open func writeLock() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "writeLock", methodSig: "()J", methodCache: &StampedLock.writeLock_MethodID_24, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public boolean java.util.concurrent.locks.StampedLock.validate(long)
-
-    private static var validate_MethodID_25: jmethodID?
-
-    open func validate( stamp: Int64 ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: stamp, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "validate", methodSig: "(J)Z", methodCache: &StampedLock.validate_MethodID_25, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func validate( _ _stamp: Int64 ) -> Bool {
-        return validate( stamp: _stamp )
-    }
 
 }
 

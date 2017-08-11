@@ -97,7 +97,7 @@ open class ReentrantLock: java_swift.JavaObject, Lock, /* java.io.Serializable *
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: time, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryLock", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ReentrantLock.tryLock_MethodID_6, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -213,7 +213,7 @@ open class ReentrantLock: java_swift.JavaObject, Lock, /* java.io.Serializable *
     open func hasQueuedThread( thread: java_lang.Thread? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: thread != nil ? thread! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: thread, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasQueuedThread", methodSig: "(Ljava/lang/Thread;)Z", methodCache: &ReentrantLock.hasQueuedThread_MethodID_15, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

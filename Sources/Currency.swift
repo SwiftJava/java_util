@@ -100,17 +100,32 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// static void java.util.Currency.access$300(java.util.regex.Pattern,java.lang.String,java.lang.String)
 
-    /// private static java.util.Currency java.util.Currency.getInstance(java.lang.String,int,int)
+    /// public static java.util.Currency java.util.Currency.getInstance(java.lang.String)
+
+    private static var getInstance_MethodID_1: jmethodID?
+
+    open class func getInstance( arg0: String? ) -> Currency! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getInstance", methodSig: "(Ljava/lang/String;)Ljava/util/Currency;", methodCache: &getInstance_MethodID_1, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Currency( javaObject: __return ) : nil
+    }
+
+    open class func getInstance( _ _arg0: String? ) -> Currency! {
+        return getInstance( arg0: _arg0 )
+    }
 
     /// public static java.util.Currency java.util.Currency.getInstance(java.util.Locale)
 
-    private static var getInstance_MethodID_1: jmethodID?
+    private static var getInstance_MethodID_2: jmethodID?
 
     open class func getInstance( arg0: JavaLocale? ) -> Currency! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getInstance", methodSig: "(Ljava/util/Locale;)Ljava/util/Currency;", methodCache: &getInstance_MethodID_1, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getInstance", methodSig: "(Ljava/util/Locale;)Ljava/util/Currency;", methodCache: &getInstance_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Currency( javaObject: __return ) : nil
     }
@@ -119,22 +134,7 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         return getInstance( arg0: _arg0 )
     }
 
-    /// public static java.util.Currency java.util.Currency.getInstance(java.lang.String)
-
-    private static var getInstance_MethodID_2: jmethodID?
-
-    open class func getInstance( arg0: String? ) -> Currency! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getInstance", methodSig: "(Ljava/lang/String;)Ljava/util/Currency;", methodCache: &getInstance_MethodID_2, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Currency( javaObject: __return ) : nil
-    }
-
-    open class func getInstance( _ _arg0: String? ) -> Currency! {
-        return getInstance( arg0: _arg0 )
-    }
+    /// private static java.util.Currency java.util.Currency.getInstance(java.lang.String,int,int)
 
     /// static int[] java.util.Currency.access$000(java.io.DataInputStream,int) throws java.io.IOException
 
@@ -144,43 +144,27 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// private static void java.util.Currency.info(java.lang.String,java.lang.Throwable)
 
-    /// public java.lang.String java.util.Currency.getDisplayName(java.util.Locale)
+    /// public java.lang.String java.util.Currency.getSymbol()
 
-    private static var getDisplayName_MethodID_3: jmethodID?
+    private static var getSymbol_MethodID_3: jmethodID?
 
-    open func getDisplayName( arg0: JavaLocale? ) -> String! {
+    open func getSymbol() -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &Currency.getDisplayName_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getDisplayName( _ _arg0: JavaLocale? ) -> String! {
-        return getDisplayName( arg0: _arg0 )
-    }
-
-    /// public java.lang.String java.util.Currency.getDisplayName()
-
-    private static var getDisplayName_MethodID_4: jmethodID?
-
-    open func getDisplayName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getDisplayName_MethodID_4, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getSymbol_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
 
     /// public java.lang.String java.util.Currency.getSymbol(java.util.Locale)
 
-    private static var getSymbol_MethodID_5: jmethodID?
+    private static var getSymbol_MethodID_4: jmethodID?
 
     open func getSymbol( arg0: JavaLocale? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &Currency.getSymbol_MethodID_5, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &Currency.getSymbol_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
@@ -188,26 +172,14 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         return getSymbol( arg0: _arg0 )
     }
 
-    /// public java.lang.String java.util.Currency.getSymbol()
-
-    private static var getSymbol_MethodID_6: jmethodID?
-
-    open func getSymbol() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getSymbol_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
     /// public static java.util.Set java.util.Currency.getAvailableCurrencies()
 
-    private static var getAvailableCurrencies_MethodID_7: jmethodID?
+    private static var getAvailableCurrencies_MethodID_5: jmethodID?
 
     open class func getAvailableCurrencies() -> java_swift.JavaSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getAvailableCurrencies", methodSig: "()Ljava/util/Set;", methodCache: &getAvailableCurrencies_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getAvailableCurrencies", methodSig: "()Ljava/util/Set;", methodCache: &getAvailableCurrencies_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
     }
@@ -215,36 +187,36 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public java.lang.String java.util.Currency.getCurrencyCode()
 
-    private static var getCurrencyCode_MethodID_8: jmethodID?
+    private static var getCurrencyCode_MethodID_6: jmethodID?
 
     open func getCurrencyCode() -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCurrencyCode", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getCurrencyCode_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCurrencyCode", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getCurrencyCode_MethodID_6, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
 
 
     /// public int java.util.Currency.getDefaultFractionDigits()
 
-    private static var getDefaultFractionDigits_MethodID_9: jmethodID?
+    private static var getDefaultFractionDigits_MethodID_7: jmethodID?
 
     open func getDefaultFractionDigits() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getDefaultFractionDigits", methodSig: "()I", methodCache: &Currency.getDefaultFractionDigits_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getDefaultFractionDigits", methodSig: "()I", methodCache: &Currency.getDefaultFractionDigits_MethodID_7, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.Currency.getNumericCode()
 
-    private static var getNumericCode_MethodID_10: jmethodID?
+    private static var getNumericCode_MethodID_8: jmethodID?
 
     open func getNumericCode() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getNumericCode", methodSig: "()I", methodCache: &Currency.getNumericCode_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getNumericCode", methodSig: "()I", methodCache: &Currency.getNumericCode_MethodID_8, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -264,6 +236,34 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     /// private static boolean java.util.Currency.isPastCutoverDate(java.lang.String) throws java.text.ParseException
 
     /// private static int java.util.Currency.countOccurrences(java.lang.String,char)
+
+    /// public java.lang.String java.util.Currency.getDisplayName(java.util.Locale)
+
+    private static var getDisplayName_MethodID_9: jmethodID?
+
+    open func getDisplayName( arg0: JavaLocale? ) -> String! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &Currency.getDisplayName_MethodID_9, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: String(), from: __return )
+    }
+
+    open func getDisplayName( _ _arg0: JavaLocale? ) -> String! {
+        return getDisplayName( arg0: _arg0 )
+    }
+
+    /// public java.lang.String java.util.Currency.getDisplayName()
+
+    private static var getDisplayName_MethodID_10: jmethodID?
+
+    open func getDisplayName() -> String! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getDisplayName_MethodID_10, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: String(), from: __return )
+    }
+
 
 }
 

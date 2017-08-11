@@ -73,7 +73,7 @@ open class CountedCompleter: ForkJoinTask {
     public convenience init( completer: CountedCompleter? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: completer != nil ? completer! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: completer, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/CountedCompleter", classCache: &CountedCompleter.CountedCompleterJNIClass, methodSig: "(Ljava/util/concurrent/CountedCompleter;)V", methodCache: &CountedCompleter.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -90,7 +90,7 @@ open class CountedCompleter: ForkJoinTask {
     public convenience init( completer: CountedCompleter?, initialPendingCount: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: completer != nil ? completer! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: completer, locals: &__locals )
         __args[1] = JNIType.toJava( value: initialPendingCount, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/CountedCompleter", classCache: &CountedCompleter.CountedCompleterJNIClass, methodSig: "(Ljava/util/concurrent/CountedCompleter;I)V", methodCache: &CountedCompleter.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -186,7 +186,7 @@ open class CountedCompleter: ForkJoinTask {
     open func onCompletion( caller: CountedCompleter? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: caller != nil ? caller! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: caller, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "onCompletion", methodSig: "(Ljava/util/concurrent/CountedCompleter;)V", methodCache: &CountedCompleter.onCompletion_MethodID_10, args: &__args, locals: &__locals )
     }
 
@@ -201,8 +201,8 @@ open class CountedCompleter: ForkJoinTask {
     open func onExceptionalCompletion( ex: java_swift.Throwable?, caller: CountedCompleter? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: ex != nil ? ex! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: caller != nil ? caller! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: ex, locals: &__locals )
+        __args[1] = JNIType.toJava( value: caller, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "onExceptionalCompletion", methodSig: "(Ljava/lang/Throwable;Ljava/util/concurrent/CountedCompleter;)Z", methodCache: &CountedCompleter.onExceptionalCompletion_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -282,7 +282,7 @@ open class CountedCompleter: ForkJoinTask {
     open func complete( rawResult: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: rawResult != nil ? rawResult! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: rawResult, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "complete", methodSig: "(Ljava/lang/Object;)V", methodCache: &CountedCompleter.complete_MethodID_17, args: &__args, locals: &__locals )
     }
 
@@ -353,7 +353,7 @@ open class CountedCompleter: ForkJoinTask {
     open func setRawResult( t: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawResult", methodSig: "(Ljava/lang/Object;)V", methodCache: &CountedCompleter.setRawResult_MethodID_22, args: &__args, locals: &__locals )
     }
 

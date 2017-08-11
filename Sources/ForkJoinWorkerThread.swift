@@ -103,7 +103,7 @@ open class ForkJoinWorkerThread: java_lang.Thread {
     public convenience init( pool: ForkJoinPool? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: pool != nil ? pool! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: pool, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/ForkJoinWorkerThread", classCache: &ForkJoinWorkerThread.ForkJoinWorkerThreadJNIClass, methodSig: "(Ljava/util/concurrent/ForkJoinPool;)V", methodCache: &ForkJoinWorkerThread.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -162,7 +162,7 @@ open class ForkJoinWorkerThread: java_lang.Thread {
     open func onTermination( exception: java_swift.Throwable? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: exception != nil ? exception! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: exception, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "onTermination", methodSig: "(Ljava/lang/Throwable;)V", methodCache: &ForkJoinWorkerThread.onTermination_MethodID_5, args: &__args, locals: &__locals )
     }
 

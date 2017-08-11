@@ -26,7 +26,7 @@ open class RejectedExecutionHandlerForward: JNIObjectForward, RejectedExecutionH
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: r, locals: &__locals )
-        __args[1] = JNIType.toJava( value: executor != nil ? executor! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: executor, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "rejectedExecution", methodSig: "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", methodCache: &RejectedExecutionHandlerForward.rejectedExecution_MethodID_2, args: &__args, locals: &__locals )
     }
 

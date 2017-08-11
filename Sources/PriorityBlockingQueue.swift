@@ -121,7 +121,7 @@ open class PriorityBlockingQueue: AbstractQueue, /* java.io.Serializable */ Uncl
     open func put( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;)V", methodCache: &PriorityBlockingQueue.put_MethodID_5, args: &__args, locals: &__locals )
     }
 
@@ -161,7 +161,7 @@ open class PriorityBlockingQueue: AbstractQueue, /* java.io.Serializable */ Uncl
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &PriorityBlockingQueue.poll_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
@@ -189,44 +189,16 @@ open class PriorityBlockingQueue: AbstractQueue, /* java.io.Serializable */ Uncl
     }
 
 
-    /// private void java.util.concurrent.PriorityBlockingQueue.tryGrow(java.lang.Object[],int)
-
-    /// private static void java.util.concurrent.PriorityBlockingQueue.siftUpComparable(int,java.lang.Object,java.lang.Object[])
-
-    /// private static void java.util.concurrent.PriorityBlockingQueue.siftUpUsingComparator(int,java.lang.Object,java.lang.Object[],java.util.Comparator)
-
-    /// private static void java.util.concurrent.PriorityBlockingQueue.siftDownComparable(int,java.lang.Object,java.lang.Object[],int)
-
-    /// private static void java.util.concurrent.PriorityBlockingQueue.siftDownUsingComparator(int,java.lang.Object,java.lang.Object[],int,java.util.Comparator)
-
-    /// public boolean java.util.concurrent.PriorityBlockingQueue.offer(java.lang.Object)
-
-    /// public boolean java.util.concurrent.PriorityBlockingQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit)
-
-    private static var offer_MethodID_8: jmethodID?
-
-    open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &PriorityBlockingQueue.offer_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func offer( _ _e: java_swift.JavaObject?, _ _timeout: Int64, _ _unit: TimeUnit? ) -> Bool {
-        return offer( e: _e, timeout: _timeout, unit: _unit )
-    }
+    /// private void java.util.concurrent.PriorityBlockingQueue.heapify()
 
     /// public java.lang.Object java.util.concurrent.PriorityBlockingQueue.take() throws java.lang.InterruptedException
 
-    private static var take_MethodID_9: jmethodID?
+    private static var take_MethodID_8: jmethodID?
 
     open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &PriorityBlockingQueue.take_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &PriorityBlockingQueue.take_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -237,26 +209,26 @@ open class PriorityBlockingQueue: AbstractQueue, /* java.io.Serializable */ Uncl
 
     /// public int java.util.concurrent.PriorityBlockingQueue.remainingCapacity()
 
-    private static var remainingCapacity_MethodID_10: jmethodID?
+    private static var remainingCapacity_MethodID_9: jmethodID?
 
     open func remainingCapacity() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &PriorityBlockingQueue.remainingCapacity_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &PriorityBlockingQueue.remainingCapacity_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.concurrent.PriorityBlockingQueue.drainTo(java.util.Collection,int)
 
-    private static var drainTo_MethodID_11: jmethodID?
+    private static var drainTo_MethodID_10: jmethodID?
 
     open func drainTo( c: Collection?, maxElements: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
         __args[1] = JNIType.toJava( value: maxElements, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &PriorityBlockingQueue.drainTo_MethodID_11, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &PriorityBlockingQueue.drainTo_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -266,13 +238,13 @@ open class PriorityBlockingQueue: AbstractQueue, /* java.io.Serializable */ Uncl
 
     /// public int java.util.concurrent.PriorityBlockingQueue.drainTo(java.util.Collection)
 
-    private static var drainTo_MethodID_12: jmethodID?
+    private static var drainTo_MethodID_11: jmethodID?
 
     open func drainTo( c: Collection? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &PriorityBlockingQueue.drainTo_MethodID_12, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &PriorityBlockingQueue.drainTo_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -280,13 +252,41 @@ open class PriorityBlockingQueue: AbstractQueue, /* java.io.Serializable */ Uncl
         return drainTo( c: _c )
     }
 
+    /// public boolean java.util.concurrent.PriorityBlockingQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit)
+
+    private static var offer_MethodID_12: jmethodID?
+
+    open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &PriorityBlockingQueue.offer_MethodID_12, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func offer( _ _e: java_swift.JavaObject?, _ _timeout: Int64, _ _unit: TimeUnit? ) -> Bool {
+        return offer( e: _e, timeout: _timeout, unit: _unit )
+    }
+
+    /// public boolean java.util.concurrent.PriorityBlockingQueue.offer(java.lang.Object)
+
+    /// void java.util.concurrent.PriorityBlockingQueue.removeEQ(java.lang.Object)
+
     /// private void java.util.concurrent.PriorityBlockingQueue.removeAt(int)
 
     /// private java.lang.Object java.util.concurrent.PriorityBlockingQueue.dequeue()
 
-    /// private void java.util.concurrent.PriorityBlockingQueue.heapify()
+    /// private void java.util.concurrent.PriorityBlockingQueue.tryGrow(java.lang.Object[],int)
 
-    /// void java.util.concurrent.PriorityBlockingQueue.removeEQ(java.lang.Object)
+    /// private static void java.util.concurrent.PriorityBlockingQueue.siftUpComparable(int,java.lang.Object,java.lang.Object[])
+
+    /// private static void java.util.concurrent.PriorityBlockingQueue.siftUpUsingComparator(int,java.lang.Object,java.lang.Object[],java.util.Comparator)
+
+    /// private static void java.util.concurrent.PriorityBlockingQueue.siftDownComparable(int,java.lang.Object,java.lang.Object[],int)
+
+    /// private static void java.util.concurrent.PriorityBlockingQueue.siftDownUsingComparator(int,java.lang.Object,java.lang.Object[],int,java.util.Comparator)
 
     /// In declared protocol but not defined.. ///
 
@@ -297,7 +297,7 @@ open class PriorityBlockingQueue: AbstractQueue, /* java.io.Serializable */ Uncl
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &PriorityBlockingQueue.equals_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

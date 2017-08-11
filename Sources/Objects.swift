@@ -41,8 +41,8 @@ open class Objects: java_swift.JavaObject {
     open class func equals( a: java_swift.JavaObject?, b: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: a != nil ? a! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: b != nil ? b! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: a, locals: &__locals )
+        __args[1] = JNIType.toJava( value: b, locals: &__locals )
         let __return = JNIMethod.CallStaticBooleanMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "equals", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &equals_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -58,7 +58,7 @@ open class Objects: java_swift.JavaObject {
     open class func toString( o: java_swift.JavaObject? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "toString", methodSig: "(Ljava/lang/Object;)Ljava/lang/String;", methodCache: &toString_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -74,7 +74,7 @@ open class Objects: java_swift.JavaObject {
     open class func toString( o: java_swift.JavaObject?, nullDefault: String? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         __args[1] = JNIType.toJava( value: nullDefault, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "toString", methodSig: "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;", methodCache: &toString_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
@@ -91,7 +91,7 @@ open class Objects: java_swift.JavaObject {
     open class func hashCode( o: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "hashCode", methodSig: "(Ljava/lang/Object;)I", methodCache: &hashCode_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -107,7 +107,7 @@ open class Objects: java_swift.JavaObject {
     open class func requireNonNull( obj: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "requireNonNull", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &requireNonNull_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -124,7 +124,7 @@ open class Objects: java_swift.JavaObject {
     open class func requireNonNull( obj: java_swift.JavaObject?, message: String? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         __args[1] = JNIType.toJava( value: message, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "requireNonNull", methodSig: "(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;", methodCache: &requireNonNull_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -142,7 +142,7 @@ open class Objects: java_swift.JavaObject {
     open class func requireNonNull( obj: java_swift.JavaObject?, messageSupplier: Supplier? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         __args[1] = JNIType.toJava( value: messageSupplier, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "requireNonNull", methodSig: "(Ljava/lang/Object;Ljava/util/function/Supplier;)Ljava/lang/Object;", methodCache: &requireNonNull_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -160,8 +160,8 @@ open class Objects: java_swift.JavaObject {
     open class func compare( a: java_swift.JavaObject?, b: java_swift.JavaObject?, c: JavaComparator? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: a != nil ? a! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: b != nil ? b! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: a, locals: &__locals )
+        __args[1] = JNIType.toJava( value: b, locals: &__locals )
         __args[2] = JNIType.toJava( value: c, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "compare", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)I", methodCache: &compare_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -178,8 +178,8 @@ open class Objects: java_swift.JavaObject {
     open class func deepEquals( a: java_swift.JavaObject?, b: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: a != nil ? a! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: b != nil ? b! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: a, locals: &__locals )
+        __args[1] = JNIType.toJava( value: b, locals: &__locals )
         let __return = JNIMethod.CallStaticBooleanMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "deepEquals", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &deepEquals_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -195,7 +195,7 @@ open class Objects: java_swift.JavaObject {
     open class func isNull( obj: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallStaticBooleanMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "isNull", methodSig: "(Ljava/lang/Object;)Z", methodCache: &isNull_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -211,7 +211,7 @@ open class Objects: java_swift.JavaObject {
     open class func nonNull( obj: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj != nil ? obj! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallStaticBooleanMethod( className: "java/util/Objects", classCache: &ObjectsJNIClass, methodName: "nonNull", methodSig: "(Ljava/lang/Object;)Z", methodCache: &nonNull_MethodID_12, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

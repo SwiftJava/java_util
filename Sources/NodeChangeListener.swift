@@ -29,7 +29,7 @@ open class NodeChangeListenerForward: EventListenerForward, NodeChangeListener {
     open func childAdded( evt: NodeChangeEvent? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: evt != nil ? evt! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: evt, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "childAdded", methodSig: "(Ljava/util/prefs/NodeChangeEvent;)V", methodCache: &NodeChangeListenerForward.childAdded_MethodID_3, args: &__args, locals: &__locals )
     }
 
@@ -44,7 +44,7 @@ open class NodeChangeListenerForward: EventListenerForward, NodeChangeListener {
     open func childRemoved( evt: NodeChangeEvent? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: evt != nil ? evt! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: evt, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "childRemoved", methodSig: "(Ljava/util/prefs/NodeChangeEvent;)V", methodCache: &NodeChangeListenerForward.childRemoved_MethodID_4, args: &__args, locals: &__locals )
     }
 

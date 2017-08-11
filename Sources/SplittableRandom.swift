@@ -76,44 +76,27 @@ open class SplittableRandom: java_swift.JavaObject {
     }
 
 
-    /// public int java.util.SplittableRandom.nextInt(int,int)
-
-    private static var nextInt_MethodID_4: jmethodID?
-
-    open func nextInt( origin: Int, bound: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: origin, locals: &__locals )
-        __args[1] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(II)I", methodCache: &SplittableRandom.nextInt_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func nextInt( _ _origin: Int, _ _bound: Int ) -> Int {
-        return nextInt( origin: _origin, bound: _bound )
-    }
-
     /// public int java.util.SplittableRandom.nextInt()
 
-    private static var nextInt_MethodID_5: jmethodID?
+    private static var nextInt_MethodID_4: jmethodID?
 
     open func nextInt() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "()I", methodCache: &SplittableRandom.nextInt_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "()I", methodCache: &SplittableRandom.nextInt_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.SplittableRandom.nextInt(int)
 
-    private static var nextInt_MethodID_6: jmethodID?
+    private static var nextInt_MethodID_5: jmethodID?
 
     open func nextInt( bound: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(I)I", methodCache: &SplittableRandom.nextInt_MethodID_6, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(I)I", methodCache: &SplittableRandom.nextInt_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -121,34 +104,51 @@ open class SplittableRandom: java_swift.JavaObject {
         return nextInt( bound: _bound )
     }
 
-    /// public double java.util.SplittableRandom.nextDouble()
+    /// public int java.util.SplittableRandom.nextInt(int,int)
 
-    private static var nextDouble_MethodID_7: jmethodID?
+    private static var nextInt_MethodID_6: jmethodID?
 
-    open func nextDouble() -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func nextInt( origin: Int, bound: Int ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "()D", methodCache: &SplittableRandom.nextDouble_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        __args[0] = JNIType.toJava( value: origin, locals: &__locals )
+        __args[1] = JNIType.toJava( value: bound, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(II)I", methodCache: &SplittableRandom.nextInt_MethodID_6, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
     }
 
+    open func nextInt( _ _origin: Int, _ _bound: Int ) -> Int {
+        return nextInt( origin: _origin, bound: _bound )
+    }
 
     /// public double java.util.SplittableRandom.nextDouble(double,double)
 
-    private static var nextDouble_MethodID_8: jmethodID?
+    private static var nextDouble_MethodID_7: jmethodID?
 
     open func nextDouble( origin: Double, bound: Double ) -> Double {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: origin, locals: &__locals )
         __args[1] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(DD)D", methodCache: &SplittableRandom.nextDouble_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(DD)D", methodCache: &SplittableRandom.nextDouble_MethodID_7, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Double(), from: __return )
     }
 
     open func nextDouble( _ _origin: Double, _ _bound: Double ) -> Double {
         return nextDouble( origin: _origin, bound: _bound )
     }
+
+    /// public double java.util.SplittableRandom.nextDouble()
+
+    private static var nextDouble_MethodID_8: jmethodID?
+
+    open func nextDouble() -> Double {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "()D", methodCache: &SplittableRandom.nextDouble_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Double(), from: __return )
+    }
+
 
     /// public double java.util.SplittableRandom.nextDouble(double)
 
@@ -233,21 +233,17 @@ open class SplittableRandom: java_swift.JavaObject {
         return longs( streamSize: _streamSize )
     }
 
-    /// public long java.util.SplittableRandom.nextLong(long)
+    /// public boolean java.util.SplittableRandom.nextBoolean()
 
-    private static var nextLong_MethodID_14: jmethodID?
+    private static var nextBoolean_MethodID_14: jmethodID?
 
-    open func nextLong( bound: Int64 ) -> Int64 {
+    open func nextBoolean() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(J)J", methodCache: &SplittableRandom.nextLong_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "nextBoolean", methodSig: "()Z", methodCache: &SplittableRandom.nextBoolean_MethodID_14, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
     }
 
-    open func nextLong( _ _bound: Int64 ) -> Int64 {
-        return nextLong( bound: _bound )
-    }
 
     /// public long java.util.SplittableRandom.nextLong(long,long)
 
@@ -278,6 +274,22 @@ open class SplittableRandom: java_swift.JavaObject {
     }
 
 
+    /// public long java.util.SplittableRandom.nextLong(long)
+
+    private static var nextLong_MethodID_17: jmethodID?
+
+    open func nextLong( bound: Int64 ) -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: bound, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(J)J", methodCache: &SplittableRandom.nextLong_MethodID_17, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+    open func nextLong( _ _bound: Int64 ) -> Int64 {
+        return nextLong( bound: _bound )
+    }
+
     /// final double java.util.SplittableRandom.internalNextDouble(double,double)
 
     /// final int java.util.SplittableRandom.internalNextInt(int,int)
@@ -294,23 +306,6 @@ open class SplittableRandom: java_swift.JavaObject {
 
     /// private static long java.util.SplittableRandom.initialSeed()
 
-    /// public java.util.stream.IntStream java.util.SplittableRandom.ints(long)
-
-    private static var ints_MethodID_17: jmethodID?
-
-    open func ints( streamSize: Int64 ) -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(J)Ljava/util/stream/IntStream;", methodCache: &SplittableRandom.ints_MethodID_17, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-    open func ints( _ _streamSize: Int64 ) -> IntStream! {
-        return ints( streamSize: _streamSize )
-    }
-
     /// public java.util.stream.IntStream java.util.SplittableRandom.ints()
 
     private static var ints_MethodID_18: jmethodID?
@@ -324,27 +319,9 @@ open class SplittableRandom: java_swift.JavaObject {
     }
 
 
-    /// public java.util.stream.IntStream java.util.SplittableRandom.ints(int,int)
-
-    private static var ints_MethodID_19: jmethodID?
-
-    open func ints( randomNumberOrigin: Int, randomNumberBound: Int ) -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
-        __args[1] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(II)Ljava/util/stream/IntStream;", methodCache: &SplittableRandom.ints_MethodID_19, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-    open func ints( _ _randomNumberOrigin: Int, _ _randomNumberBound: Int ) -> IntStream! {
-        return ints( randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
-    }
-
     /// public java.util.stream.IntStream java.util.SplittableRandom.ints(long,int,int)
 
-    private static var ints_MethodID_20: jmethodID?
+    private static var ints_MethodID_19: jmethodID?
 
     open func ints( streamSize: Int64, randomNumberOrigin: Int, randomNumberBound: Int ) -> IntStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
@@ -352,7 +329,7 @@ open class SplittableRandom: java_swift.JavaObject {
         __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
         __args[1] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
         __args[2] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(JII)Ljava/util/stream/IntStream;", methodCache: &SplittableRandom.ints_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(JII)Ljava/util/stream/IntStream;", methodCache: &SplittableRandom.ints_MethodID_19, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? IntStreamForward( javaObject: __return ) : nil
     }
@@ -361,35 +338,64 @@ open class SplittableRandom: java_swift.JavaObject {
         return ints( streamSize: _streamSize, randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
     }
 
-    /// public java.util.stream.DoubleStream java.util.SplittableRandom.doubles(long,double,double)
+    /// public java.util.stream.IntStream java.util.SplittableRandom.ints(long)
 
-    private static var doubles_MethodID_21: jmethodID?
+    private static var ints_MethodID_20: jmethodID?
 
-    open func doubles( streamSize: Int64, randomNumberOrigin: Double, randomNumberBound: Double ) -> DoubleStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    open func ints( streamSize: Int64 ) -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
-        __args[1] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
-        __args[2] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(JDD)Ljava/util/stream/DoubleStream;", methodCache: &SplittableRandom.doubles_MethodID_21, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(J)Ljava/util/stream/IntStream;", methodCache: &SplittableRandom.ints_MethodID_20, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+    open func ints( _ _streamSize: Int64 ) -> IntStream! {
+        return ints( streamSize: _streamSize )
+    }
+
+    /// public java.util.stream.IntStream java.util.SplittableRandom.ints(int,int)
+
+    private static var ints_MethodID_21: jmethodID?
+
+    open func ints( randomNumberOrigin: Int, randomNumberBound: Int ) -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
+        __args[1] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ints", methodSig: "(II)Ljava/util/stream/IntStream;", methodCache: &SplittableRandom.ints_MethodID_21, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+    open func ints( _ _randomNumberOrigin: Int, _ _randomNumberBound: Int ) -> IntStream! {
+        return ints( randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
+    }
+
+    /// public java.util.stream.DoubleStream java.util.SplittableRandom.doubles()
+
+    private static var doubles_MethodID_22: jmethodID?
+
+    open func doubles() -> DoubleStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "()Ljava/util/stream/DoubleStream;", methodCache: &SplittableRandom.doubles_MethodID_22, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
     }
 
-    open func doubles( _ _streamSize: Int64, _ _randomNumberOrigin: Double, _ _randomNumberBound: Double ) -> DoubleStream! {
-        return doubles( streamSize: _streamSize, randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
-    }
 
     /// public java.util.stream.DoubleStream java.util.SplittableRandom.doubles(double,double)
 
-    private static var doubles_MethodID_22: jmethodID?
+    private static var doubles_MethodID_23: jmethodID?
 
     open func doubles( randomNumberOrigin: Double, randomNumberBound: Double ) -> DoubleStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
         __args[1] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(DD)Ljava/util/stream/DoubleStream;", methodCache: &SplittableRandom.doubles_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(DD)Ljava/util/stream/DoubleStream;", methodCache: &SplittableRandom.doubles_MethodID_23, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
     }
@@ -398,15 +404,34 @@ open class SplittableRandom: java_swift.JavaObject {
         return doubles( randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
     }
 
+    /// public java.util.stream.DoubleStream java.util.SplittableRandom.doubles(long,double,double)
+
+    private static var doubles_MethodID_24: jmethodID?
+
+    open func doubles( streamSize: Int64, randomNumberOrigin: Double, randomNumberBound: Double ) -> DoubleStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
+        __args[1] = JNIType.toJava( value: randomNumberOrigin, locals: &__locals )
+        __args[2] = JNIType.toJava( value: randomNumberBound, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(JDD)Ljava/util/stream/DoubleStream;", methodCache: &SplittableRandom.doubles_MethodID_24, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+    }
+
+    open func doubles( _ _streamSize: Int64, _ _randomNumberOrigin: Double, _ _randomNumberBound: Double ) -> DoubleStream! {
+        return doubles( streamSize: _streamSize, randomNumberOrigin: _randomNumberOrigin, randomNumberBound: _randomNumberBound )
+    }
+
     /// public java.util.stream.DoubleStream java.util.SplittableRandom.doubles(long)
 
-    private static var doubles_MethodID_23: jmethodID?
+    private static var doubles_MethodID_25: jmethodID?
 
     open func doubles( streamSize: Int64 ) -> DoubleStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: streamSize, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(J)Ljava/util/stream/DoubleStream;", methodCache: &SplittableRandom.doubles_MethodID_23, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "(J)Ljava/util/stream/DoubleStream;", methodCache: &SplittableRandom.doubles_MethodID_25, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
     }
@@ -414,31 +439,6 @@ open class SplittableRandom: java_swift.JavaObject {
     open func doubles( _ _streamSize: Int64 ) -> DoubleStream! {
         return doubles( streamSize: _streamSize )
     }
-
-    /// public java.util.stream.DoubleStream java.util.SplittableRandom.doubles()
-
-    private static var doubles_MethodID_24: jmethodID?
-
-    open func doubles() -> DoubleStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "doubles", methodSig: "()Ljava/util/stream/DoubleStream;", methodCache: &SplittableRandom.doubles_MethodID_24, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
-    }
-
-
-    /// public boolean java.util.SplittableRandom.nextBoolean()
-
-    private static var nextBoolean_MethodID_25: jmethodID?
-
-    open func nextBoolean() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "nextBoolean", methodSig: "()Z", methodCache: &SplittableRandom.nextBoolean_MethodID_25, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
 
 }
 

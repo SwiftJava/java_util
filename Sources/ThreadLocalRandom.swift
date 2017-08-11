@@ -140,34 +140,15 @@ open class ThreadLocalRandom: Random {
         return nextInt( origin: _origin, bound: _bound )
     }
 
-    /// public double java.util.concurrent.ThreadLocalRandom.nextDouble()
-
-    /// public double java.util.concurrent.ThreadLocalRandom.nextDouble(double,double)
-
-    private static var nextDouble_MethodID_4: jmethodID?
-
-    open func nextDouble( origin: Double, bound: Double ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: origin, locals: &__locals )
-        __args[1] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(DD)D", methodCache: &ThreadLocalRandom.nextDouble_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
-    }
-
-    open func nextDouble( _ _origin: Double, _ _bound: Double ) -> Double {
-        return nextDouble( origin: _origin, bound: _bound )
-    }
-
     /// public double java.util.concurrent.ThreadLocalRandom.nextDouble(double)
 
-    private static var nextDouble_MethodID_5: jmethodID?
+    private static var nextDouble_MethodID_4: jmethodID?
 
     open func nextDouble( bound: Double ) -> Double {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(D)D", methodCache: &ThreadLocalRandom.nextDouble_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(D)D", methodCache: &ThreadLocalRandom.nextDouble_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Double(), from: __return )
     }
 
@@ -175,54 +156,36 @@ open class ThreadLocalRandom: Random {
         return nextDouble( bound: _bound )
     }
 
-    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs()
+    /// public double java.util.concurrent.ThreadLocalRandom.nextDouble(double,double)
 
-    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long,long,long)
+    private static var nextDouble_MethodID_5: jmethodID?
 
-    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long)
-
-    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long,long)
-
-    /// public long java.util.concurrent.ThreadLocalRandom.nextLong()
-
-    /// public long java.util.concurrent.ThreadLocalRandom.nextLong(long,long)
-
-    private static var nextLong_MethodID_6: jmethodID?
-
-    open func nextLong( origin: Int64, bound: Int64 ) -> Int64 {
+    open func nextDouble( origin: Double, bound: Double ) -> Double {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: origin, locals: &__locals )
         __args[1] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(JJ)J", methodCache: &ThreadLocalRandom.nextLong_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(DD)D", methodCache: &ThreadLocalRandom.nextDouble_MethodID_5, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Double(), from: __return )
     }
 
-    open func nextLong( _ _origin: Int64, _ _bound: Int64 ) -> Int64 {
-        return nextLong( origin: _origin, bound: _bound )
+    open func nextDouble( _ _origin: Double, _ _bound: Double ) -> Double {
+        return nextDouble( origin: _origin, bound: _bound )
     }
 
-    /// public long java.util.concurrent.ThreadLocalRandom.nextLong(long)
+    /// public double java.util.concurrent.ThreadLocalRandom.nextDouble()
 
-    private static var nextLong_MethodID_7: jmethodID?
+    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long,long)
 
-    open func nextLong( bound: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(J)J", methodCache: &ThreadLocalRandom.nextLong_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
+    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long,long,long)
 
-    open func nextLong( _ _bound: Int64 ) -> Int64 {
-        return nextLong( bound: _bound )
-    }
+    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs()
 
-    /// final double java.util.concurrent.ThreadLocalRandom.internalNextDouble(double,double)
+    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long)
 
-    /// final int java.util.concurrent.ThreadLocalRandom.internalNextInt(int,int)
+    /// public boolean java.util.concurrent.ThreadLocalRandom.nextBoolean()
 
-    /// final long java.util.concurrent.ThreadLocalRandom.internalNextLong(long,long)
+    /// public float java.util.concurrent.ThreadLocalRandom.nextFloat()
 
     /// static final int java.util.concurrent.ThreadLocalRandom.getProbe()
 
@@ -230,9 +193,46 @@ open class ThreadLocalRandom: Random {
 
     /// static final int java.util.concurrent.ThreadLocalRandom.advanceProbe(int)
 
-    /// public void java.util.concurrent.ThreadLocalRandom.setSeed(long)
+    /// public long java.util.concurrent.ThreadLocalRandom.nextLong(long)
 
-    /// public double java.util.concurrent.ThreadLocalRandom.nextGaussian()
+    private static var nextLong_MethodID_6: jmethodID?
+
+    open func nextLong( bound: Int64 ) -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: bound, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(J)J", methodCache: &ThreadLocalRandom.nextLong_MethodID_6, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+    open func nextLong( _ _bound: Int64 ) -> Int64 {
+        return nextLong( bound: _bound )
+    }
+
+    /// public long java.util.concurrent.ThreadLocalRandom.nextLong(long,long)
+
+    private static var nextLong_MethodID_7: jmethodID?
+
+    open func nextLong( origin: Int64, bound: Int64 ) -> Int64 {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: origin, locals: &__locals )
+        __args[1] = JNIType.toJava( value: bound, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(JJ)J", methodCache: &ThreadLocalRandom.nextLong_MethodID_7, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int64(), from: __return )
+    }
+
+    open func nextLong( _ _origin: Int64, _ _bound: Int64 ) -> Int64 {
+        return nextLong( origin: _origin, bound: _bound )
+    }
+
+    /// public long java.util.concurrent.ThreadLocalRandom.nextLong()
+
+    /// final double java.util.concurrent.ThreadLocalRandom.internalNextDouble(double,double)
+
+    /// final int java.util.concurrent.ThreadLocalRandom.internalNextInt(int,int)
+
+    /// final long java.util.concurrent.ThreadLocalRandom.internalNextLong(long,long)
 
     /// private static long java.util.concurrent.ThreadLocalRandom.mix64(long)
 
@@ -242,13 +242,15 @@ open class ThreadLocalRandom: Random {
 
     /// private static long java.util.concurrent.ThreadLocalRandom.initialSeed()
 
-    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(long)
+    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(long,int,int)
 
     /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints()
 
-    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(long,int,int)
+    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(long)
 
     /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(int,int)
+
+    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(long,double,double)
 
     /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(long)
 
@@ -256,13 +258,11 @@ open class ThreadLocalRandom: Random {
 
     /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(double,double)
 
-    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(long,double,double)
+    /// public void java.util.concurrent.ThreadLocalRandom.setSeed(long)
+
+    /// public double java.util.concurrent.ThreadLocalRandom.nextGaussian()
 
     /// static final int java.util.concurrent.ThreadLocalRandom.nextSecondarySeed()
-
-    /// public boolean java.util.concurrent.ThreadLocalRandom.nextBoolean()
-
-    /// public float java.util.concurrent.ThreadLocalRandom.nextFloat()
 
 }
 

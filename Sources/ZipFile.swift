@@ -74,7 +74,7 @@ open class ZipFile: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        __args[1] = JNIType.toJava( value: charset != nil ? charset! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: charset, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipFile", classCache: &ZipFile.ZipFileJNIClass, methodSig: "(Ljava/lang/String;Ljava/nio/charset/Charset;)V", methodCache: &ZipFile.new_MethodID_1, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -94,9 +94,9 @@ open class ZipFile: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     public convenience init( file: /* java.io.File */ UnclassedObject?, mode: Int, charset: /* java.nio.charset.Charset */ UnclassedObject? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         __args[1] = JNIType.toJava( value: mode, locals: &__locals )
-        __args[2] = JNIType.toJava( value: charset != nil ? charset! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: charset, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipFile", classCache: &ZipFile.ZipFileJNIClass, methodSig: "(Ljava/io/File;ILjava/nio/charset/Charset;)V", methodCache: &ZipFile.new_MethodID_2, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -116,7 +116,7 @@ open class ZipFile: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     public convenience init( file: /* java.io.File */ UnclassedObject? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipFile", classCache: &ZipFile.ZipFileJNIClass, methodSig: "(Ljava/io/File;)V", methodCache: &ZipFile.new_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw ZipException( javaObject: throwable )
@@ -136,8 +136,8 @@ open class ZipFile: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     public convenience init( file: /* java.io.File */ UnclassedObject?, charset: /* java.nio.charset.Charset */ UnclassedObject? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: charset != nil ? charset! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
+        __args[1] = JNIType.toJava( value: charset, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipFile", classCache: &ZipFile.ZipFileJNIClass, methodSig: "(Ljava/io/File;Ljava/nio/charset/Charset;)V", methodCache: &ZipFile.new_MethodID_4, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -177,7 +177,7 @@ open class ZipFile: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     public convenience init( file: /* java.io.File */ UnclassedObject?, mode: Int ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file != nil ? file! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
         __args[1] = JNIType.toJava( value: mode, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/ZipFile", classCache: &ZipFile.ZipFileJNIClass, methodSig: "(Ljava/io/File;I)V", methodCache: &ZipFile.new_MethodID_6, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
@@ -281,7 +281,7 @@ open class ZipFile: java_swift.JavaObject, /* java.io.Closeable */ UnclassedProt
     open func getInputStream( entry: ZipEntry? ) throws /* java.io.IOException */ -> /* java.io.InputStream */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: entry != nil ? entry! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: entry, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getInputStream", methodSig: "(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;", methodCache: &ZipFile.getInputStream_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {

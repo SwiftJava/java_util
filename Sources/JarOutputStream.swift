@@ -140,7 +140,7 @@ open class JarOutputStream: ZipOutputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &JarOutputStream.def_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -180,7 +180,7 @@ open class JarOutputStream: ZipOutputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &JarOutputStream.out_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -192,8 +192,8 @@ open class JarOutputStream: ZipOutputStream {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, man: Manifest? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: man != nil ? man! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = JNIType.toJava( value: man, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarOutputStream", classCache: &JarOutputStream.JarOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/jar/Manifest;)V", methodCache: &JarOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -213,7 +213,7 @@ open class JarOutputStream: ZipOutputStream {
     public convenience init( out: /* java.io.OutputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarOutputStream", classCache: &JarOutputStream.JarOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;)V", methodCache: &JarOutputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -223,6 +223,8 @@ open class JarOutputStream: ZipOutputStream {
         self.init( out: _out )
     }
 
+    /// private static int java.util.jar.JarOutputStream.get16(byte[],int)
+
     /// public void java.util.jar.JarOutputStream.putNextEntry(java.util.zip.ZipEntry) throws java.io.IOException
 
     private static var putNextEntry_MethodID_3: jmethodID?
@@ -230,7 +232,7 @@ open class JarOutputStream: ZipOutputStream {
     open func putNextEntry( ze: ZipEntry? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: ze != nil ? ze! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: ze, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "putNextEntry", methodSig: "(Ljava/util/zip/ZipEntry;)V", methodCache: &JarOutputStream.putNextEntry_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -244,8 +246,6 @@ open class JarOutputStream: ZipOutputStream {
     /// private static boolean java.util.jar.JarOutputStream.hasMagic(byte[])
 
     /// private static void java.util.jar.JarOutputStream.set16(byte[],int,int)
-
-    /// private static int java.util.jar.JarOutputStream.get16(byte[],int)
 
 }
 

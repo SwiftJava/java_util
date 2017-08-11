@@ -64,7 +64,7 @@ open class IllegalFormatConversionException: IllegalFormatException {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg != nil ? arg! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/IllegalFormatConversionException", classCache: &IllegalFormatConversionException.IllegalFormatConversionExceptionJNIClass, methodSig: "(CLjava/lang/Class;)V", methodCache: &IllegalFormatConversionException.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )

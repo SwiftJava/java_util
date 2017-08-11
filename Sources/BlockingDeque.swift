@@ -56,6 +56,10 @@ public protocol BlockingDeque: Deque {
 
     func element() -> java_swift.JavaObject!
 
+    /// public abstract java.lang.Object java.util.concurrent.BlockingDeque.take() throws java.lang.InterruptedException
+
+    func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject!
+
     /// public abstract void java.util.concurrent.BlockingDeque.addFirst(java.lang.Object)
 
     func addFirst( e: java_swift.JavaObject? )
@@ -104,10 +108,6 @@ public protocol BlockingDeque: Deque {
 
     func offer( e: java_swift.JavaObject? ) -> Bool
 
-    /// public abstract java.lang.Object java.util.concurrent.BlockingDeque.take() throws java.lang.InterruptedException
-
-    func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject!
-
     /// public abstract void java.util.concurrent.BlockingDeque.putFirst(java.lang.Object) throws java.lang.InterruptedException
 
     func putFirst( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */
@@ -138,7 +138,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     override open func add( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "add", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.add_MethodID_30, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -167,7 +167,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     override open func remove( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.remove_MethodID_32, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -183,7 +183,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     override open func put( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;)V", methodCache: &BlockingDequeForward.put_MethodID_33, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -201,7 +201,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     override open func contains( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "contains", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.contains_MethodID_34, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -242,7 +242,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     open func push( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "push", methodSig: "(Ljava/lang/Object;)V", methodCache: &BlockingDequeForward.push_MethodID_37, args: &__args, locals: &__locals )
     }
 
@@ -258,7 +258,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &BlockingDequeForward.poll_MethodID_38, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
@@ -310,15 +310,31 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     }
 
 
+    /// public abstract java.lang.Object java.util.concurrent.BlockingDeque.take() throws java.lang.InterruptedException
+
+    private static var take_MethodID_42: jmethodID?
+
+    override open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &BlockingDequeForward.take_MethodID_42, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
     /// public abstract void java.util.concurrent.BlockingDeque.addFirst(java.lang.Object)
 
-    private static var addFirst_MethodID_42: jmethodID?
+    private static var addFirst_MethodID_43: jmethodID?
 
     open func addFirst( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addFirst", methodSig: "(Ljava/lang/Object;)V", methodCache: &BlockingDequeForward.addFirst_MethodID_42, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addFirst", methodSig: "(Ljava/lang/Object;)V", methodCache: &BlockingDequeForward.addFirst_MethodID_43, args: &__args, locals: &__locals )
     }
 
     open func addFirst( _ _e: java_swift.JavaObject? ) {
@@ -327,13 +343,13 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract void java.util.concurrent.BlockingDeque.addLast(java.lang.Object)
 
-    private static var addLast_MethodID_43: jmethodID?
+    private static var addLast_MethodID_44: jmethodID?
 
     open func addLast( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addLast", methodSig: "(Ljava/lang/Object;)V", methodCache: &BlockingDequeForward.addLast_MethodID_43, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addLast", methodSig: "(Ljava/lang/Object;)V", methodCache: &BlockingDequeForward.addLast_MethodID_44, args: &__args, locals: &__locals )
     }
 
     open func addLast( _ _e: java_swift.JavaObject? ) {
@@ -342,15 +358,15 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract boolean java.util.concurrent.BlockingDeque.offerFirst(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var offerFirst_MethodID_44: jmethodID?
+    private static var offerFirst_MethodID_45: jmethodID?
 
     open func offerFirst( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerFirst", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &BlockingDequeForward.offerFirst_MethodID_44, args: &__args, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerFirst", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &BlockingDequeForward.offerFirst_MethodID_45, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -363,13 +379,13 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract boolean java.util.concurrent.BlockingDeque.offerFirst(java.lang.Object)
 
-    private static var offerFirst_MethodID_45: jmethodID?
+    private static var offerFirst_MethodID_46: jmethodID?
 
     open func offerFirst( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerFirst", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.offerFirst_MethodID_45, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerFirst", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.offerFirst_MethodID_46, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -379,13 +395,13 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract boolean java.util.concurrent.BlockingDeque.offerLast(java.lang.Object)
 
-    private static var offerLast_MethodID_46: jmethodID?
+    private static var offerLast_MethodID_47: jmethodID?
 
     open func offerLast( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerLast", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.offerLast_MethodID_46, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerLast", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.offerLast_MethodID_47, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -395,15 +411,15 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract boolean java.util.concurrent.BlockingDeque.offerLast(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var offerLast_MethodID_47: jmethodID?
+    private static var offerLast_MethodID_48: jmethodID?
 
     open func offerLast( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerLast", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &BlockingDequeForward.offerLast_MethodID_47, args: &__args, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerLast", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &BlockingDequeForward.offerLast_MethodID_48, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -416,14 +432,14 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract java.lang.Object java.util.concurrent.BlockingDeque.pollFirst(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var pollFirst_MethodID_48: jmethodID?
+    private static var pollFirst_MethodID_49: jmethodID?
 
     open func pollFirst( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollFirst", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &BlockingDequeForward.pollFirst_MethodID_48, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollFirst", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &BlockingDequeForward.pollFirst_MethodID_49, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -437,14 +453,14 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract java.lang.Object java.util.concurrent.BlockingDeque.pollLast(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var pollLast_MethodID_49: jmethodID?
+    private static var pollLast_MethodID_50: jmethodID?
 
     open func pollLast( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollLast", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &BlockingDequeForward.pollLast_MethodID_49, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollLast", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &BlockingDequeForward.pollLast_MethodID_50, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -458,13 +474,13 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract boolean java.util.concurrent.BlockingDeque.removeFirstOccurrence(java.lang.Object)
 
-    private static var removeFirstOccurrence_MethodID_50: jmethodID?
+    private static var removeFirstOccurrence_MethodID_51: jmethodID?
 
     open func removeFirstOccurrence( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeFirstOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.removeFirstOccurrence_MethodID_50, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeFirstOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.removeFirstOccurrence_MethodID_51, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -474,13 +490,13 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract boolean java.util.concurrent.BlockingDeque.removeLastOccurrence(java.lang.Object)
 
-    private static var removeLastOccurrence_MethodID_51: jmethodID?
+    private static var removeLastOccurrence_MethodID_52: jmethodID?
 
     open func removeLastOccurrence( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeLastOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.removeLastOccurrence_MethodID_51, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeLastOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.removeLastOccurrence_MethodID_52, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -490,15 +506,15 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract boolean java.util.concurrent.BlockingDeque.offer(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var offer_MethodID_52: jmethodID?
+    private static var offer_MethodID_53: jmethodID?
 
     override open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &BlockingDequeForward.offer_MethodID_52, args: &__args, locals: &__locals )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &BlockingDequeForward.offer_MethodID_53, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -511,35 +527,19 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
 
     /// public abstract boolean java.util.concurrent.BlockingDeque.offer(java.lang.Object)
 
-    private static var offer_MethodID_53: jmethodID?
+    private static var offer_MethodID_54: jmethodID?
 
     override open func offer( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.offer_MethodID_53, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.offer_MethodID_54, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
     override open func offer( _ _e: java_swift.JavaObject? ) -> Bool {
         return offer( e: _e )
     }
-
-    /// public abstract java.lang.Object java.util.concurrent.BlockingDeque.take() throws java.lang.InterruptedException
-
-    private static var take_MethodID_54: jmethodID?
-
-    override open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &BlockingDequeForward.take_MethodID_54, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
 
     /// public abstract void java.util.concurrent.BlockingDeque.putFirst(java.lang.Object) throws java.lang.InterruptedException
 
@@ -548,7 +548,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     open func putFirst( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "putFirst", methodSig: "(Ljava/lang/Object;)V", methodCache: &BlockingDequeForward.putFirst_MethodID_55, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -566,7 +566,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     open func putLast( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "putLast", methodSig: "(Ljava/lang/Object;)V", methodCache: &BlockingDequeForward.putLast_MethodID_56, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
@@ -621,37 +621,37 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     }
 
 
-    /// public abstract int java.util.concurrent.BlockingQueue.drainTo(java.util.Collection)
-
-    private static var drainTo_MethodID_60: jmethodID?
-
-    override open func drainTo( c: Collection? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &BlockingDequeForward.drainTo_MethodID_60, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    override open func drainTo( _ _c: Collection? ) -> Int {
-        return drainTo( c: _c )
-    }
-
     /// public abstract int java.util.concurrent.BlockingQueue.drainTo(java.util.Collection,int)
 
-    private static var drainTo_MethodID_61: jmethodID?
+    private static var drainTo_MethodID_60: jmethodID?
 
     override open func drainTo( c: Collection?, maxElements: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
         __args[1] = JNIType.toJava( value: maxElements, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &BlockingDequeForward.drainTo_MethodID_61, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &BlockingDequeForward.drainTo_MethodID_60, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
     override open func drainTo( _ _c: Collection?, _ _maxElements: Int ) -> Int {
         return drainTo( c: _c, maxElements: _maxElements )
+    }
+
+    /// public abstract int java.util.concurrent.BlockingQueue.drainTo(java.util.Collection)
+
+    private static var drainTo_MethodID_61: jmethodID?
+
+    override open func drainTo( c: Collection? ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &BlockingDequeForward.drainTo_MethodID_61, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    override open func drainTo( _ _c: Collection? ) -> Int {
+        return drainTo( c: _c )
     }
 
     /// public abstract boolean java.util.Collection.equals(java.lang.Object)
@@ -661,7 +661,7 @@ open class BlockingDequeForward: BlockingQueueForward, BlockingDeque {
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BlockingDequeForward.equals_MethodID_62, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

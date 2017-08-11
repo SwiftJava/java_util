@@ -65,31 +65,9 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// static final boolean java.util.concurrent.AbstractExecutorService.$assertionsDisabled
 
-    /// public java.util.concurrent.ThreadPoolExecutor(int,int,long,java.util.concurrent.TimeUnit,java.util.concurrent.BlockingQueue,java.util.concurrent.RejectedExecutionHandler)
-
-    private static var new_MethodID_1: jmethodID?
-
-    public convenience init( corePoolSize: Int, maximumPoolSize: Int, keepAliveTime: Int64, unit: TimeUnit?, workQueue: BlockingQueue?, handler: RejectedExecutionHandler? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 6 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
-        __args[1] = JNIType.toJava( value: maximumPoolSize, locals: &__locals )
-        __args[2] = JNIType.toJava( value: keepAliveTime, locals: &__locals )
-        __args[3] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        __args[4] = JNIType.toJava( value: workQueue, locals: &__locals )
-        __args[5] = JNIType.toJava( value: handler, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ThreadPoolExecutor", classCache: &ThreadPoolExecutor.ThreadPoolExecutorJNIClass, methodSig: "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ThreadPoolExecutor.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _corePoolSize: Int, _ _maximumPoolSize: Int, _ _keepAliveTime: Int64, _ _unit: TimeUnit?, _ _workQueue: BlockingQueue?, _ _handler: RejectedExecutionHandler? ) {
-        self.init( corePoolSize: _corePoolSize, maximumPoolSize: _maximumPoolSize, keepAliveTime: _keepAliveTime, unit: _unit, workQueue: _workQueue, handler: _handler )
-    }
-
     /// public java.util.concurrent.ThreadPoolExecutor(int,int,long,java.util.concurrent.TimeUnit,java.util.concurrent.BlockingQueue,java.util.concurrent.ThreadFactory,java.util.concurrent.RejectedExecutionHandler)
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_1: jmethodID?
 
     public convenience init( corePoolSize: Int, maximumPoolSize: Int, keepAliveTime: Int64, unit: TimeUnit?, workQueue: BlockingQueue?, threadFactory: ThreadFactory?, handler: RejectedExecutionHandler? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 7 )
@@ -97,11 +75,11 @@ open class ThreadPoolExecutor: AbstractExecutorService {
         __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
         __args[1] = JNIType.toJava( value: maximumPoolSize, locals: &__locals )
         __args[2] = JNIType.toJava( value: keepAliveTime, locals: &__locals )
-        __args[3] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: unit, locals: &__locals )
         __args[4] = JNIType.toJava( value: workQueue, locals: &__locals )
         __args[5] = JNIType.toJava( value: threadFactory, locals: &__locals )
         __args[6] = JNIType.toJava( value: handler, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ThreadPoolExecutor", classCache: &ThreadPoolExecutor.ThreadPoolExecutorJNIClass, methodSig: "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ThreadPoolExecutor.new_MethodID_2, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ThreadPoolExecutor", classCache: &ThreadPoolExecutor.ThreadPoolExecutorJNIClass, methodSig: "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ThreadPoolExecutor.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -110,30 +88,31 @@ open class ThreadPoolExecutor: AbstractExecutorService {
         self.init( corePoolSize: _corePoolSize, maximumPoolSize: _maximumPoolSize, keepAliveTime: _keepAliveTime, unit: _unit, workQueue: _workQueue, threadFactory: _threadFactory, handler: _handler )
     }
 
-    /// public java.util.concurrent.ThreadPoolExecutor(int,int,long,java.util.concurrent.TimeUnit,java.util.concurrent.BlockingQueue)
+    /// public java.util.concurrent.ThreadPoolExecutor(int,int,long,java.util.concurrent.TimeUnit,java.util.concurrent.BlockingQueue,java.util.concurrent.RejectedExecutionHandler)
 
-    private static var new_MethodID_3: jmethodID?
+    private static var new_MethodID_2: jmethodID?
 
-    public convenience init( corePoolSize: Int, maximumPoolSize: Int, keepAliveTime: Int64, unit: TimeUnit?, workQueue: BlockingQueue? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+    public convenience init( corePoolSize: Int, maximumPoolSize: Int, keepAliveTime: Int64, unit: TimeUnit?, workQueue: BlockingQueue?, handler: RejectedExecutionHandler? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 6 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
         __args[1] = JNIType.toJava( value: maximumPoolSize, locals: &__locals )
         __args[2] = JNIType.toJava( value: keepAliveTime, locals: &__locals )
-        __args[3] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: unit, locals: &__locals )
         __args[4] = JNIType.toJava( value: workQueue, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ThreadPoolExecutor", classCache: &ThreadPoolExecutor.ThreadPoolExecutorJNIClass, methodSig: "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;)V", methodCache: &ThreadPoolExecutor.new_MethodID_3, args: &__args, locals: &__locals )
+        __args[5] = JNIType.toJava( value: handler, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ThreadPoolExecutor", classCache: &ThreadPoolExecutor.ThreadPoolExecutorJNIClass, methodSig: "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ThreadPoolExecutor.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _corePoolSize: Int, _ _maximumPoolSize: Int, _ _keepAliveTime: Int64, _ _unit: TimeUnit?, _ _workQueue: BlockingQueue? ) {
-        self.init( corePoolSize: _corePoolSize, maximumPoolSize: _maximumPoolSize, keepAliveTime: _keepAliveTime, unit: _unit, workQueue: _workQueue )
+    public convenience init( _ _corePoolSize: Int, _ _maximumPoolSize: Int, _ _keepAliveTime: Int64, _ _unit: TimeUnit?, _ _workQueue: BlockingQueue?, _ _handler: RejectedExecutionHandler? ) {
+        self.init( corePoolSize: _corePoolSize, maximumPoolSize: _maximumPoolSize, keepAliveTime: _keepAliveTime, unit: _unit, workQueue: _workQueue, handler: _handler )
     }
 
     /// public java.util.concurrent.ThreadPoolExecutor(int,int,long,java.util.concurrent.TimeUnit,java.util.concurrent.BlockingQueue,java.util.concurrent.ThreadFactory)
 
-    private static var new_MethodID_4: jmethodID?
+    private static var new_MethodID_3: jmethodID?
 
     public convenience init( corePoolSize: Int, maximumPoolSize: Int, keepAliveTime: Int64, unit: TimeUnit?, workQueue: BlockingQueue?, threadFactory: ThreadFactory? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 6 )
@@ -141,16 +120,37 @@ open class ThreadPoolExecutor: AbstractExecutorService {
         __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
         __args[1] = JNIType.toJava( value: maximumPoolSize, locals: &__locals )
         __args[2] = JNIType.toJava( value: keepAliveTime, locals: &__locals )
-        __args[3] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: unit, locals: &__locals )
         __args[4] = JNIType.toJava( value: workQueue, locals: &__locals )
         __args[5] = JNIType.toJava( value: threadFactory, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ThreadPoolExecutor", classCache: &ThreadPoolExecutor.ThreadPoolExecutorJNIClass, methodSig: "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V", methodCache: &ThreadPoolExecutor.new_MethodID_4, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ThreadPoolExecutor", classCache: &ThreadPoolExecutor.ThreadPoolExecutorJNIClass, methodSig: "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;Ljava/util/concurrent/ThreadFactory;)V", methodCache: &ThreadPoolExecutor.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
     public convenience init( _ _corePoolSize: Int, _ _maximumPoolSize: Int, _ _keepAliveTime: Int64, _ _unit: TimeUnit?, _ _workQueue: BlockingQueue?, _ _threadFactory: ThreadFactory? ) {
         self.init( corePoolSize: _corePoolSize, maximumPoolSize: _maximumPoolSize, keepAliveTime: _keepAliveTime, unit: _unit, workQueue: _workQueue, threadFactory: _threadFactory )
+    }
+
+    /// public java.util.concurrent.ThreadPoolExecutor(int,int,long,java.util.concurrent.TimeUnit,java.util.concurrent.BlockingQueue)
+
+    private static var new_MethodID_4: jmethodID?
+
+    public convenience init( corePoolSize: Int, maximumPoolSize: Int, keepAliveTime: Int64, unit: TimeUnit?, workQueue: BlockingQueue? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
+        __args[1] = JNIType.toJava( value: maximumPoolSize, locals: &__locals )
+        __args[2] = JNIType.toJava( value: keepAliveTime, locals: &__locals )
+        __args[3] = JNIType.toJava( value: unit, locals: &__locals )
+        __args[4] = JNIType.toJava( value: workQueue, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ThreadPoolExecutor", classCache: &ThreadPoolExecutor.ThreadPoolExecutorJNIClass, methodSig: "(IIJLjava/util/concurrent/TimeUnit;Ljava/util/concurrent/BlockingQueue;)V", methodCache: &ThreadPoolExecutor.new_MethodID_4, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _corePoolSize: Int, _ _maximumPoolSize: Int, _ _keepAliveTime: Int64, _ _unit: TimeUnit?, _ _workQueue: BlockingQueue? ) {
+        self.init( corePoolSize: _corePoolSize, maximumPoolSize: _maximumPoolSize, keepAliveTime: _keepAliveTime, unit: _unit, workQueue: _workQueue )
     }
 
     /// public boolean java.util.concurrent.ThreadPoolExecutor.remove(java.lang.Runnable)
@@ -186,16 +186,65 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public void java.util.concurrent.ThreadPoolExecutor.execute(java.lang.Runnable)
 
+    /// private static boolean java.util.concurrent.ThreadPoolExecutor.isRunning(int)
+
+    /// public void java.util.concurrent.ThreadPoolExecutor.purge()
+
+    private static var purge_MethodID_7: jmethodID?
+
+    open func purge() {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "purge", methodSig: "()V", methodCache: &ThreadPoolExecutor.purge_MethodID_7, args: &__args, locals: &__locals )
+    }
+
+
+    /// final void java.util.concurrent.ThreadPoolExecutor.tryTerminate()
+
+    /// public int java.util.concurrent.ThreadPoolExecutor.getPoolSize()
+
+    private static var getPoolSize_MethodID_8: jmethodID?
+
+    open func getPoolSize() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getPoolSize", methodSig: "()I", methodCache: &ThreadPoolExecutor.getPoolSize_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public java.util.List java.util.concurrent.ThreadPoolExecutor.shutdownNow()
+
+    /// public boolean java.util.concurrent.ThreadPoolExecutor.isTerminated()
+
+    /// public boolean java.util.concurrent.ThreadPoolExecutor.isTerminating()
+
+    private static var isTerminating_MethodID_9: jmethodID?
+
+    open func isTerminating() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminating", methodSig: "()Z", methodCache: &ThreadPoolExecutor.isTerminating_MethodID_9, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public boolean java.util.concurrent.ThreadPoolExecutor.isShutdown()
+
+    /// public boolean java.util.concurrent.ThreadPoolExecutor.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
+
+    /// final void java.util.concurrent.ThreadPoolExecutor.runWorker(java.util.concurrent.ThreadPoolExecutor$Worker)
+
     /// void java.util.concurrent.ThreadPoolExecutor.onShutdown()
 
     /// public java.util.concurrent.BlockingQueue java.util.concurrent.ThreadPoolExecutor.getQueue()
 
-    private static var getQueue_MethodID_7: jmethodID?
+    private static var getQueue_MethodID_10: jmethodID?
 
     open func getQueue() -> BlockingQueue! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getQueue", methodSig: "()Ljava/util/concurrent/BlockingQueue;", methodCache: &ThreadPoolExecutor.getQueue_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getQueue", methodSig: "()Ljava/util/concurrent/BlockingQueue;", methodCache: &ThreadPoolExecutor.getQueue_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BlockingQueueForward( javaObject: __return ) : nil
     }
@@ -209,13 +258,13 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public void java.util.concurrent.ThreadPoolExecutor.allowCoreThreadTimeOut(boolean)
 
-    private static var allowCoreThreadTimeOut_MethodID_8: jmethodID?
+    private static var allowCoreThreadTimeOut_MethodID_11: jmethodID?
 
     open func allowCoreThreadTimeOut( value: Bool ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: value, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "allowCoreThreadTimeOut", methodSig: "(Z)V", methodCache: &ThreadPoolExecutor.allowCoreThreadTimeOut_MethodID_8, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "allowCoreThreadTimeOut", methodSig: "(Z)V", methodCache: &ThreadPoolExecutor.allowCoreThreadTimeOut_MethodID_11, args: &__args, locals: &__locals )
     }
 
     open func allowCoreThreadTimeOut( _ _value: Bool ) {
@@ -260,13 +309,13 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public void java.util.concurrent.ThreadPoolExecutor.setThreadFactory(java.util.concurrent.ThreadFactory)
 
-    private static var setThreadFactory_MethodID_9: jmethodID?
+    private static var setThreadFactory_MethodID_12: jmethodID?
 
     open func setThreadFactory( threadFactory: ThreadFactory? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: threadFactory, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setThreadFactory", methodSig: "(Ljava/util/concurrent/ThreadFactory;)V", methodCache: &ThreadPoolExecutor.setThreadFactory_MethodID_9, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setThreadFactory", methodSig: "(Ljava/util/concurrent/ThreadFactory;)V", methodCache: &ThreadPoolExecutor.setThreadFactory_MethodID_12, args: &__args, locals: &__locals )
     }
 
     open func setThreadFactory( _ _threadFactory: ThreadFactory? ) {
@@ -275,12 +324,12 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public java.util.concurrent.ThreadFactory java.util.concurrent.ThreadPoolExecutor.getThreadFactory()
 
-    private static var getThreadFactory_MethodID_10: jmethodID?
+    private static var getThreadFactory_MethodID_13: jmethodID?
 
     open func getThreadFactory() -> ThreadFactory! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getThreadFactory", methodSig: "()Ljava/util/concurrent/ThreadFactory;", methodCache: &ThreadPoolExecutor.getThreadFactory_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getThreadFactory", methodSig: "()Ljava/util/concurrent/ThreadFactory;", methodCache: &ThreadPoolExecutor.getThreadFactory_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ThreadFactoryForward( javaObject: __return ) : nil
     }
@@ -288,13 +337,13 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public void java.util.concurrent.ThreadPoolExecutor.setRejectedExecutionHandler(java.util.concurrent.RejectedExecutionHandler)
 
-    private static var setRejectedExecutionHandler_MethodID_11: jmethodID?
+    private static var setRejectedExecutionHandler_MethodID_14: jmethodID?
 
     open func setRejectedExecutionHandler( handler: RejectedExecutionHandler? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: handler, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRejectedExecutionHandler", methodSig: "(Ljava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ThreadPoolExecutor.setRejectedExecutionHandler_MethodID_11, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRejectedExecutionHandler", methodSig: "(Ljava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ThreadPoolExecutor.setRejectedExecutionHandler_MethodID_14, args: &__args, locals: &__locals )
     }
 
     open func setRejectedExecutionHandler( _ _handler: RejectedExecutionHandler? ) {
@@ -303,12 +352,12 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public java.util.concurrent.RejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor.getRejectedExecutionHandler()
 
-    private static var getRejectedExecutionHandler_MethodID_12: jmethodID?
+    private static var getRejectedExecutionHandler_MethodID_15: jmethodID?
 
     open func getRejectedExecutionHandler() -> RejectedExecutionHandler! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getRejectedExecutionHandler", methodSig: "()Ljava/util/concurrent/RejectedExecutionHandler;", methodCache: &ThreadPoolExecutor.getRejectedExecutionHandler_MethodID_12, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getRejectedExecutionHandler", methodSig: "()Ljava/util/concurrent/RejectedExecutionHandler;", methodCache: &ThreadPoolExecutor.getRejectedExecutionHandler_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? RejectedExecutionHandlerForward( javaObject: __return ) : nil
     }
@@ -316,13 +365,13 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public void java.util.concurrent.ThreadPoolExecutor.setCorePoolSize(int)
 
-    private static var setCorePoolSize_MethodID_13: jmethodID?
+    private static var setCorePoolSize_MethodID_16: jmethodID?
 
     open func setCorePoolSize( corePoolSize: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setCorePoolSize", methodSig: "(I)V", methodCache: &ThreadPoolExecutor.setCorePoolSize_MethodID_13, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setCorePoolSize", methodSig: "(I)V", methodCache: &ThreadPoolExecutor.setCorePoolSize_MethodID_16, args: &__args, locals: &__locals )
     }
 
     open func setCorePoolSize( _ _corePoolSize: Int ) {
@@ -331,61 +380,61 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public int java.util.concurrent.ThreadPoolExecutor.getCorePoolSize()
 
-    private static var getCorePoolSize_MethodID_14: jmethodID?
+    private static var getCorePoolSize_MethodID_17: jmethodID?
 
     open func getCorePoolSize() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getCorePoolSize", methodSig: "()I", methodCache: &ThreadPoolExecutor.getCorePoolSize_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getCorePoolSize", methodSig: "()I", methodCache: &ThreadPoolExecutor.getCorePoolSize_MethodID_17, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public boolean java.util.concurrent.ThreadPoolExecutor.prestartCoreThread()
 
-    private static var prestartCoreThread_MethodID_15: jmethodID?
+    private static var prestartCoreThread_MethodID_18: jmethodID?
 
     open func prestartCoreThread() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "prestartCoreThread", methodSig: "()Z", methodCache: &ThreadPoolExecutor.prestartCoreThread_MethodID_15, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "prestartCoreThread", methodSig: "()Z", methodCache: &ThreadPoolExecutor.prestartCoreThread_MethodID_18, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public int java.util.concurrent.ThreadPoolExecutor.prestartAllCoreThreads()
 
-    private static var prestartAllCoreThreads_MethodID_16: jmethodID?
+    private static var prestartAllCoreThreads_MethodID_19: jmethodID?
 
     open func prestartAllCoreThreads() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "prestartAllCoreThreads", methodSig: "()I", methodCache: &ThreadPoolExecutor.prestartAllCoreThreads_MethodID_16, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "prestartAllCoreThreads", methodSig: "()I", methodCache: &ThreadPoolExecutor.prestartAllCoreThreads_MethodID_19, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public boolean java.util.concurrent.ThreadPoolExecutor.allowsCoreThreadTimeOut()
 
-    private static var allowsCoreThreadTimeOut_MethodID_17: jmethodID?
+    private static var allowsCoreThreadTimeOut_MethodID_20: jmethodID?
 
     open func allowsCoreThreadTimeOut() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "allowsCoreThreadTimeOut", methodSig: "()Z", methodCache: &ThreadPoolExecutor.allowsCoreThreadTimeOut_MethodID_17, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "allowsCoreThreadTimeOut", methodSig: "()Z", methodCache: &ThreadPoolExecutor.allowsCoreThreadTimeOut_MethodID_20, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public void java.util.concurrent.ThreadPoolExecutor.setMaximumPoolSize(int)
 
-    private static var setMaximumPoolSize_MethodID_18: jmethodID?
+    private static var setMaximumPoolSize_MethodID_21: jmethodID?
 
     open func setMaximumPoolSize( maximumPoolSize: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: maximumPoolSize, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMaximumPoolSize", methodSig: "(I)V", methodCache: &ThreadPoolExecutor.setMaximumPoolSize_MethodID_18, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMaximumPoolSize", methodSig: "(I)V", methodCache: &ThreadPoolExecutor.setMaximumPoolSize_MethodID_21, args: &__args, locals: &__locals )
     }
 
     open func setMaximumPoolSize( _ _maximumPoolSize: Int ) {
@@ -394,26 +443,26 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public int java.util.concurrent.ThreadPoolExecutor.getMaximumPoolSize()
 
-    private static var getMaximumPoolSize_MethodID_19: jmethodID?
+    private static var getMaximumPoolSize_MethodID_22: jmethodID?
 
     open func getMaximumPoolSize() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMaximumPoolSize", methodSig: "()I", methodCache: &ThreadPoolExecutor.getMaximumPoolSize_MethodID_19, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getMaximumPoolSize", methodSig: "()I", methodCache: &ThreadPoolExecutor.getMaximumPoolSize_MethodID_22, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public void java.util.concurrent.ThreadPoolExecutor.setKeepAliveTime(long,java.util.concurrent.TimeUnit)
 
-    private static var setKeepAliveTime_MethodID_20: jmethodID?
+    private static var setKeepAliveTime_MethodID_23: jmethodID?
 
     open func setKeepAliveTime( time: Int64, unit: TimeUnit? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: time, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setKeepAliveTime", methodSig: "(JLjava/util/concurrent/TimeUnit;)V", methodCache: &ThreadPoolExecutor.setKeepAliveTime_MethodID_20, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setKeepAliveTime", methodSig: "(JLjava/util/concurrent/TimeUnit;)V", methodCache: &ThreadPoolExecutor.setKeepAliveTime_MethodID_23, args: &__args, locals: &__locals )
     }
 
     open func setKeepAliveTime( _ _time: Int64, _ _unit: TimeUnit? ) {
@@ -422,13 +471,13 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public long java.util.concurrent.ThreadPoolExecutor.getKeepAliveTime(java.util.concurrent.TimeUnit)
 
-    private static var getKeepAliveTime_MethodID_21: jmethodID?
+    private static var getKeepAliveTime_MethodID_24: jmethodID?
 
     open func getKeepAliveTime( unit: TimeUnit? ) -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: unit != nil ? unit! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getKeepAliveTime", methodSig: "(Ljava/util/concurrent/TimeUnit;)J", methodCache: &ThreadPoolExecutor.getKeepAliveTime_MethodID_21, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getKeepAliveTime", methodSig: "(Ljava/util/concurrent/TimeUnit;)J", methodCache: &ThreadPoolExecutor.getKeepAliveTime_MethodID_24, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
@@ -438,62 +487,62 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// public int java.util.concurrent.ThreadPoolExecutor.getActiveCount()
 
-    private static var getActiveCount_MethodID_22: jmethodID?
+    private static var getActiveCount_MethodID_25: jmethodID?
 
     open func getActiveCount() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActiveCount", methodSig: "()I", methodCache: &ThreadPoolExecutor.getActiveCount_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getActiveCount", methodSig: "()I", methodCache: &ThreadPoolExecutor.getActiveCount_MethodID_25, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public int java.util.concurrent.ThreadPoolExecutor.getLargestPoolSize()
 
-    private static var getLargestPoolSize_MethodID_23: jmethodID?
+    private static var getLargestPoolSize_MethodID_26: jmethodID?
 
     open func getLargestPoolSize() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getLargestPoolSize", methodSig: "()I", methodCache: &ThreadPoolExecutor.getLargestPoolSize_MethodID_23, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getLargestPoolSize", methodSig: "()I", methodCache: &ThreadPoolExecutor.getLargestPoolSize_MethodID_26, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public long java.util.concurrent.ThreadPoolExecutor.getTaskCount()
 
-    private static var getTaskCount_MethodID_24: jmethodID?
+    private static var getTaskCount_MethodID_27: jmethodID?
 
     open func getTaskCount() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getTaskCount", methodSig: "()J", methodCache: &ThreadPoolExecutor.getTaskCount_MethodID_24, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getTaskCount", methodSig: "()J", methodCache: &ThreadPoolExecutor.getTaskCount_MethodID_27, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
 
     /// public long java.util.concurrent.ThreadPoolExecutor.getCompletedTaskCount()
 
-    private static var getCompletedTaskCount_MethodID_25: jmethodID?
+    private static var getCompletedTaskCount_MethodID_28: jmethodID?
 
     open func getCompletedTaskCount() -> Int64 {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getCompletedTaskCount", methodSig: "()J", methodCache: &ThreadPoolExecutor.getCompletedTaskCount_MethodID_25, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getCompletedTaskCount", methodSig: "()J", methodCache: &ThreadPoolExecutor.getCompletedTaskCount_MethodID_28, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int64(), from: __return )
     }
 
 
     /// protected void java.util.concurrent.ThreadPoolExecutor.beforeExecute(java.lang.Thread,java.lang.Runnable)
 
-    private static var beforeExecute_MethodID_26: jmethodID?
+    private static var beforeExecute_MethodID_29: jmethodID?
 
     open func beforeExecute( t: java_lang.Thread?, r: java_swift.Runnable? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
         __args[1] = JNIType.toJava( value: r, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "beforeExecute", methodSig: "(Ljava/lang/Thread;Ljava/lang/Runnable;)V", methodCache: &ThreadPoolExecutor.beforeExecute_MethodID_26, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "beforeExecute", methodSig: "(Ljava/lang/Thread;Ljava/lang/Runnable;)V", methodCache: &ThreadPoolExecutor.beforeExecute_MethodID_29, args: &__args, locals: &__locals )
     }
 
     open func beforeExecute( _ _t: java_lang.Thread?, _ _r: java_swift.Runnable? ) {
@@ -502,14 +551,14 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// protected void java.util.concurrent.ThreadPoolExecutor.afterExecute(java.lang.Runnable,java.lang.Throwable)
 
-    private static var afterExecute_MethodID_27: jmethodID?
+    private static var afterExecute_MethodID_30: jmethodID?
 
     open func afterExecute( r: java_swift.Runnable?, t: java_swift.Throwable? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: r, locals: &__locals )
-        __args[1] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "afterExecute", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Throwable;)V", methodCache: &ThreadPoolExecutor.afterExecute_MethodID_27, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: t, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "afterExecute", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Throwable;)V", methodCache: &ThreadPoolExecutor.afterExecute_MethodID_30, args: &__args, locals: &__locals )
     }
 
     open func afterExecute( _ _r: java_swift.Runnable?, _ _t: java_swift.Throwable? ) {
@@ -518,63 +567,14 @@ open class ThreadPoolExecutor: AbstractExecutorService {
 
     /// protected void java.util.concurrent.ThreadPoolExecutor.terminated()
 
-    private static var terminated_MethodID_28: jmethodID?
+    private static var terminated_MethodID_31: jmethodID?
 
     open func terminated() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "terminated", methodSig: "()V", methodCache: &ThreadPoolExecutor.terminated_MethodID_28, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "terminated", methodSig: "()V", methodCache: &ThreadPoolExecutor.terminated_MethodID_31, args: &__args, locals: &__locals )
     }
 
-
-    /// final void java.util.concurrent.ThreadPoolExecutor.runWorker(java.util.concurrent.ThreadPoolExecutor$Worker)
-
-    /// final void java.util.concurrent.ThreadPoolExecutor.tryTerminate()
-
-    /// public int java.util.concurrent.ThreadPoolExecutor.getPoolSize()
-
-    private static var getPoolSize_MethodID_29: jmethodID?
-
-    open func getPoolSize() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getPoolSize", methodSig: "()I", methodCache: &ThreadPoolExecutor.getPoolSize_MethodID_29, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public java.util.List java.util.concurrent.ThreadPoolExecutor.shutdownNow()
-
-    /// public boolean java.util.concurrent.ThreadPoolExecutor.isTerminated()
-
-    /// public boolean java.util.concurrent.ThreadPoolExecutor.isTerminating()
-
-    private static var isTerminating_MethodID_30: jmethodID?
-
-    open func isTerminating() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminating", methodSig: "()Z", methodCache: &ThreadPoolExecutor.isTerminating_MethodID_30, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public boolean java.util.concurrent.ThreadPoolExecutor.isShutdown()
-
-    /// public boolean java.util.concurrent.ThreadPoolExecutor.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
-
-    /// public void java.util.concurrent.ThreadPoolExecutor.purge()
-
-    private static var purge_MethodID_31: jmethodID?
-
-    open func purge() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "purge", methodSig: "()V", methodCache: &ThreadPoolExecutor.purge_MethodID_31, args: &__args, locals: &__locals )
-    }
-
-
-    /// private static boolean java.util.concurrent.ThreadPoolExecutor.isRunning(int)
 
 }
 

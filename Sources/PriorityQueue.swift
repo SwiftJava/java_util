@@ -78,7 +78,7 @@ open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedPro
     public convenience init( c: PriorityQueue? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c != nil ? c! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(Ljava/util/PriorityQueue;)V", methodCache: &PriorityQueue.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -202,6 +202,12 @@ open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedPro
 
     /// boolean java.util.PriorityQueue.removeEq(java.lang.Object)
 
+    /// private void java.util.PriorityQueue.heapify()
+
+    /// public boolean java.util.PriorityQueue.offer(java.lang.Object)
+
+    /// private java.lang.Object java.util.PriorityQueue.removeAt(int)
+
     /// private void java.util.PriorityQueue.siftUpComparable(int,java.lang.Object)
 
     /// private void java.util.PriorityQueue.siftUpUsingComparator(int,java.lang.Object)
@@ -219,12 +225,6 @@ open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedPro
     /// private void java.util.PriorityQueue.siftUp(int,java.lang.Object)
 
     /// private void java.util.PriorityQueue.siftDown(int,java.lang.Object)
-
-    /// public boolean java.util.PriorityQueue.offer(java.lang.Object)
-
-    /// private java.lang.Object java.util.PriorityQueue.removeAt(int)
-
-    /// private void java.util.PriorityQueue.heapify()
 
 }
 

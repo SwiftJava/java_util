@@ -69,183 +69,15 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
     }
 
 
-    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.hasQueuedThreads()
-
-    private static var hasQueuedThreads_MethodID_3: jmethodID?
-
-    open func hasQueuedThreads() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasQueuedThreads", methodSig: "()Z", methodCache: &AbstractQueuedSynchronizer.hasQueuedThreads_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public final int java.util.concurrent.locks.AbstractQueuedSynchronizer.getQueueLength()
-
-    private static var getQueueLength_MethodID_4: jmethodID?
-
-    open func getQueueLength() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getQueueLength", methodSig: "()I", methodCache: &AbstractQueuedSynchronizer.getQueueLength_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public final java.util.Collection java.util.concurrent.locks.AbstractQueuedSynchronizer.getQueuedThreads()
-
-    private static var getQueuedThreads_MethodID_5: jmethodID?
-
-    open func getQueuedThreads() -> Collection! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getQueuedThreads", methodSig: "()Ljava/util/Collection;", methodCache: &AbstractQueuedSynchronizer.getQueuedThreads_MethodID_5, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? CollectionForward( javaObject: __return ) : nil
-    }
-
-
-    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.hasWaiters(java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
-
-    private static var hasWaiters_MethodID_6: jmethodID?
-
-    open func hasWaiters( condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: condition != nil ? condition! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasWaiters", methodSig: "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;)Z", methodCache: &AbstractQueuedSynchronizer.hasWaiters_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func hasWaiters( _ _condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Bool {
-        return hasWaiters( condition: _condition )
-    }
-
-    /// public final int java.util.concurrent.locks.AbstractQueuedSynchronizer.getWaitQueueLength(java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
-
-    private static var getWaitQueueLength_MethodID_7: jmethodID?
-
-    open func getWaitQueueLength( condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: condition != nil ? condition! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getWaitQueueLength", methodSig: "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;)I", methodCache: &AbstractQueuedSynchronizer.getWaitQueueLength_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func getWaitQueueLength( _ _condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Int {
-        return getWaitQueueLength( condition: _condition )
-    }
-
-    /// public final java.util.Collection java.util.concurrent.locks.AbstractQueuedSynchronizer.getWaitingThreads(java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
-
-    private static var getWaitingThreads_MethodID_8: jmethodID?
-
-    open func getWaitingThreads( condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Collection! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: condition != nil ? condition! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getWaitingThreads", methodSig: "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;)Ljava/util/Collection;", methodCache: &AbstractQueuedSynchronizer.getWaitingThreads_MethodID_8, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? CollectionForward( javaObject: __return ) : nil
-    }
-
-    open func getWaitingThreads( _ _condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Collection! {
-        return getWaitingThreads( condition: _condition )
-    }
-
-    /// public final void java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireInterruptibly(int) throws java.lang.InterruptedException
-
-    private static var acquireInterruptibly_MethodID_9: jmethodID?
-
-    open func acquireInterruptibly( arg: Int ) throws /* java.lang.InterruptedException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "acquireInterruptibly", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.acquireInterruptibly_MethodID_9, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-    }
-
-    open func acquireInterruptibly( _ _arg: Int ) throws /* java.lang.InterruptedException */ {
-        try acquireInterruptibly( arg: _arg )
-    }
-
-    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireNanos(int,long) throws java.lang.InterruptedException
-
-    private static var tryAcquireNanos_MethodID_10: jmethodID?
-
-    open func tryAcquireNanos( arg: Int, nanosTimeout: Int64 ) throws /* java.lang.InterruptedException */ -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        __args[1] = JNIType.toJava( value: nanosTimeout, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryAcquireNanos", methodSig: "(IJ)Z", methodCache: &AbstractQueuedSynchronizer.tryAcquireNanos_MethodID_10, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func tryAcquireNanos( _ _arg: Int, _ _nanosTimeout: Int64 ) throws /* java.lang.InterruptedException */ -> Bool {
-        return try tryAcquireNanos( arg: _arg, nanosTimeout: _nanosTimeout )
-    }
-
-    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.release(int)
-
-    private static var release_MethodID_11: jmethodID?
-
-    open func release( arg: Int ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "release", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.release_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func release( _ _arg: Int ) -> Bool {
-        return release( arg: _arg )
-    }
-
-    /// protected boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.isHeldExclusively()
-
-    private static var isHeldExclusively_MethodID_12: jmethodID?
-
-    open func isHeldExclusively() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isHeldExclusively", methodSig: "()Z", methodCache: &AbstractQueuedSynchronizer.isHeldExclusively_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.isQueued(java.lang.Thread)
-
-    private static var isQueued_MethodID_13: jmethodID?
-
-    open func isQueued( thread: java_lang.Thread? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: thread != nil ? thread! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isQueued", methodSig: "(Ljava/lang/Thread;)Z", methodCache: &AbstractQueuedSynchronizer.isQueued_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func isQueued( _ _thread: java_lang.Thread? ) -> Bool {
-        return isQueued( thread: _thread )
-    }
-
     /// protected boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquire(int)
 
-    private static var tryAcquire_MethodID_14: jmethodID?
+    private static var tryAcquire_MethodID_3: jmethodID?
 
     open func tryAcquire( arg: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryAcquire", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.tryAcquire_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryAcquire", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.tryAcquire_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -255,14 +87,14 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// protected final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.compareAndSetState(int,int)
 
-    private static var compareAndSetState_MethodID_15: jmethodID?
+    private static var compareAndSetState_MethodID_4: jmethodID?
 
     open func compareAndSetState( expect: Int, update: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: expect, locals: &__locals )
         __args[1] = JNIType.toJava( value: update, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSetState", methodSig: "(II)Z", methodCache: &AbstractQueuedSynchronizer.compareAndSetState_MethodID_15, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSetState", methodSig: "(II)Z", methodCache: &AbstractQueuedSynchronizer.compareAndSetState_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -272,13 +104,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final void java.util.concurrent.locks.AbstractQueuedSynchronizer.acquire(int)
 
-    private static var acquire_MethodID_16: jmethodID?
+    private static var acquire_MethodID_5: jmethodID?
 
     open func acquire( arg: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "acquire", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.acquire_MethodID_16, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "acquire", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.acquire_MethodID_5, args: &__args, locals: &__locals )
     }
 
     open func acquire( _ _arg: Int ) {
@@ -287,13 +119,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// protected boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.tryRelease(int)
 
-    private static var tryRelease_MethodID_17: jmethodID?
+    private static var tryRelease_MethodID_6: jmethodID?
 
     open func tryRelease( arg: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryRelease", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.tryRelease_MethodID_17, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryRelease", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.tryRelease_MethodID_6, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -303,13 +135,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// protected final void java.util.concurrent.locks.AbstractQueuedSynchronizer.setState(int)
 
-    private static var setState_MethodID_18: jmethodID?
+    private static var setState_MethodID_7: jmethodID?
 
     open func setState( newState: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: newState, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setState", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.setState_MethodID_18, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setState", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.setState_MethodID_7, args: &__args, locals: &__locals )
     }
 
     open func setState( _ _newState: Int ) {
@@ -350,13 +182,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// protected int java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireShared(int)
 
-    private static var tryAcquireShared_MethodID_19: jmethodID?
+    private static var tryAcquireShared_MethodID_8: jmethodID?
 
     open func tryAcquireShared( arg: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "tryAcquireShared", methodSig: "(I)I", methodCache: &AbstractQueuedSynchronizer.tryAcquireShared_MethodID_19, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "tryAcquireShared", methodSig: "(I)I", methodCache: &AbstractQueuedSynchronizer.tryAcquireShared_MethodID_8, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
@@ -366,13 +198,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// protected boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.tryReleaseShared(int)
 
-    private static var tryReleaseShared_MethodID_20: jmethodID?
+    private static var tryReleaseShared_MethodID_9: jmethodID?
 
     open func tryReleaseShared( arg: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryReleaseShared", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.tryReleaseShared_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryReleaseShared", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.tryReleaseShared_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -382,13 +214,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final void java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireShared(int)
 
-    private static var acquireShared_MethodID_21: jmethodID?
+    private static var acquireShared_MethodID_10: jmethodID?
 
     open func acquireShared( arg: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "acquireShared", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.acquireShared_MethodID_21, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "acquireShared", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.acquireShared_MethodID_10, args: &__args, locals: &__locals )
     }
 
     open func acquireShared( _ _arg: Int ) {
@@ -397,13 +229,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final void java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireSharedInterruptibly(int) throws java.lang.InterruptedException
 
-    private static var acquireSharedInterruptibly_MethodID_22: jmethodID?
+    private static var acquireSharedInterruptibly_MethodID_11: jmethodID?
 
     open func acquireSharedInterruptibly( arg: Int ) throws /* java.lang.InterruptedException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "acquireSharedInterruptibly", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.acquireSharedInterruptibly_MethodID_22, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "acquireSharedInterruptibly", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.acquireSharedInterruptibly_MethodID_11, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -415,14 +247,14 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireSharedNanos(int,long) throws java.lang.InterruptedException
 
-    private static var tryAcquireSharedNanos_MethodID_23: jmethodID?
+    private static var tryAcquireSharedNanos_MethodID_12: jmethodID?
 
     open func tryAcquireSharedNanos( arg: Int, nanosTimeout: Int64 ) throws /* java.lang.InterruptedException */ -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
         __args[1] = JNIType.toJava( value: nanosTimeout, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryAcquireSharedNanos", methodSig: "(IJ)Z", methodCache: &AbstractQueuedSynchronizer.tryAcquireSharedNanos_MethodID_23, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryAcquireSharedNanos", methodSig: "(IJ)Z", methodCache: &AbstractQueuedSynchronizer.tryAcquireSharedNanos_MethodID_12, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.InterruptedException( javaObject: throwable )
         }
@@ -435,13 +267,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.releaseShared(int)
 
-    private static var releaseShared_MethodID_24: jmethodID?
+    private static var releaseShared_MethodID_13: jmethodID?
 
     open func releaseShared( arg: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "releaseShared", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.releaseShared_MethodID_24, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "releaseShared", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.releaseShared_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -451,24 +283,24 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.hasContended()
 
-    private static var hasContended_MethodID_25: jmethodID?
+    private static var hasContended_MethodID_14: jmethodID?
 
     open func hasContended() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasContended", methodSig: "()Z", methodCache: &AbstractQueuedSynchronizer.hasContended_MethodID_25, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasContended", methodSig: "()Z", methodCache: &AbstractQueuedSynchronizer.hasContended_MethodID_14, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public final java.lang.Thread java.util.concurrent.locks.AbstractQueuedSynchronizer.getFirstQueuedThread()
 
-    private static var getFirstQueuedThread_MethodID_26: jmethodID?
+    private static var getFirstQueuedThread_MethodID_15: jmethodID?
 
     open func getFirstQueuedThread() -> java_lang.Thread! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFirstQueuedThread", methodSig: "()Ljava/lang/Thread;", methodCache: &AbstractQueuedSynchronizer.getFirstQueuedThread_MethodID_26, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFirstQueuedThread", methodSig: "()Ljava/lang/Thread;", methodCache: &AbstractQueuedSynchronizer.getFirstQueuedThread_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_lang.Thread( javaObject: __return ) : nil
     }
@@ -480,24 +312,24 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.hasQueuedPredecessors()
 
-    private static var hasQueuedPredecessors_MethodID_27: jmethodID?
+    private static var hasQueuedPredecessors_MethodID_16: jmethodID?
 
     open func hasQueuedPredecessors() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasQueuedPredecessors", methodSig: "()Z", methodCache: &AbstractQueuedSynchronizer.hasQueuedPredecessors_MethodID_27, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasQueuedPredecessors", methodSig: "()Z", methodCache: &AbstractQueuedSynchronizer.hasQueuedPredecessors_MethodID_16, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public final java.util.Collection java.util.concurrent.locks.AbstractQueuedSynchronizer.getExclusiveQueuedThreads()
 
-    private static var getExclusiveQueuedThreads_MethodID_28: jmethodID?
+    private static var getExclusiveQueuedThreads_MethodID_17: jmethodID?
 
     open func getExclusiveQueuedThreads() -> Collection! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getExclusiveQueuedThreads", methodSig: "()Ljava/util/Collection;", methodCache: &AbstractQueuedSynchronizer.getExclusiveQueuedThreads_MethodID_28, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getExclusiveQueuedThreads", methodSig: "()Ljava/util/Collection;", methodCache: &AbstractQueuedSynchronizer.getExclusiveQueuedThreads_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectionForward( javaObject: __return ) : nil
     }
@@ -505,12 +337,12 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final java.util.Collection java.util.concurrent.locks.AbstractQueuedSynchronizer.getSharedQueuedThreads()
 
-    private static var getSharedQueuedThreads_MethodID_29: jmethodID?
+    private static var getSharedQueuedThreads_MethodID_18: jmethodID?
 
     open func getSharedQueuedThreads() -> Collection! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSharedQueuedThreads", methodSig: "()Ljava/util/Collection;", methodCache: &AbstractQueuedSynchronizer.getSharedQueuedThreads_MethodID_29, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSharedQueuedThreads", methodSig: "()Ljava/util/Collection;", methodCache: &AbstractQueuedSynchronizer.getSharedQueuedThreads_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectionForward( javaObject: __return ) : nil
     }
@@ -528,13 +360,13 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
 
     /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.owns(java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
 
-    private static var owns_MethodID_30: jmethodID?
+    private static var owns_MethodID_19: jmethodID?
 
     open func owns( condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: condition != nil ? condition! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "owns", methodSig: "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;)Z", methodCache: &AbstractQueuedSynchronizer.owns_MethodID_30, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: condition, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "owns", methodSig: "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;)Z", methodCache: &AbstractQueuedSynchronizer.owns_MethodID_19, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -549,6 +381,174 @@ open class AbstractQueuedSynchronizer: AbstractOwnableSynchronizer {
     /// private static final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.compareAndSetWaitStatus(java.util.concurrent.locks.AbstractQueuedSynchronizer$Node,int,int)
 
     /// private static final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.compareAndSetNext(java.util.concurrent.locks.AbstractQueuedSynchronizer$Node,java.util.concurrent.locks.AbstractQueuedSynchronizer$Node,java.util.concurrent.locks.AbstractQueuedSynchronizer$Node)
+
+    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.hasQueuedThreads()
+
+    private static var hasQueuedThreads_MethodID_20: jmethodID?
+
+    open func hasQueuedThreads() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasQueuedThreads", methodSig: "()Z", methodCache: &AbstractQueuedSynchronizer.hasQueuedThreads_MethodID_20, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public final int java.util.concurrent.locks.AbstractQueuedSynchronizer.getQueueLength()
+
+    private static var getQueueLength_MethodID_21: jmethodID?
+
+    open func getQueueLength() -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getQueueLength", methodSig: "()I", methodCache: &AbstractQueuedSynchronizer.getQueueLength_MethodID_21, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+
+    /// public final java.util.Collection java.util.concurrent.locks.AbstractQueuedSynchronizer.getQueuedThreads()
+
+    private static var getQueuedThreads_MethodID_22: jmethodID?
+
+    open func getQueuedThreads() -> Collection! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getQueuedThreads", methodSig: "()Ljava/util/Collection;", methodCache: &AbstractQueuedSynchronizer.getQueuedThreads_MethodID_22, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? CollectionForward( javaObject: __return ) : nil
+    }
+
+
+    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.hasWaiters(java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+
+    private static var hasWaiters_MethodID_23: jmethodID?
+
+    open func hasWaiters( condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: condition, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasWaiters", methodSig: "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;)Z", methodCache: &AbstractQueuedSynchronizer.hasWaiters_MethodID_23, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func hasWaiters( _ _condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Bool {
+        return hasWaiters( condition: _condition )
+    }
+
+    /// public final int java.util.concurrent.locks.AbstractQueuedSynchronizer.getWaitQueueLength(java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+
+    private static var getWaitQueueLength_MethodID_24: jmethodID?
+
+    open func getWaitQueueLength( condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: condition, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getWaitQueueLength", methodSig: "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;)I", methodCache: &AbstractQueuedSynchronizer.getWaitQueueLength_MethodID_24, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func getWaitQueueLength( _ _condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Int {
+        return getWaitQueueLength( condition: _condition )
+    }
+
+    /// public final java.util.Collection java.util.concurrent.locks.AbstractQueuedSynchronizer.getWaitingThreads(java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+
+    private static var getWaitingThreads_MethodID_25: jmethodID?
+
+    open func getWaitingThreads( condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Collection! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: condition, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getWaitingThreads", methodSig: "(Ljava/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject;)Ljava/util/Collection;", methodCache: &AbstractQueuedSynchronizer.getWaitingThreads_MethodID_25, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? CollectionForward( javaObject: __return ) : nil
+    }
+
+    open func getWaitingThreads( _ _condition: /* java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject */ UnclassedObject? ) -> Collection! {
+        return getWaitingThreads( condition: _condition )
+    }
+
+    /// public final void java.util.concurrent.locks.AbstractQueuedSynchronizer.acquireInterruptibly(int) throws java.lang.InterruptedException
+
+    private static var acquireInterruptibly_MethodID_26: jmethodID?
+
+    open func acquireInterruptibly( arg: Int ) throws /* java.lang.InterruptedException */ {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "acquireInterruptibly", methodSig: "(I)V", methodCache: &AbstractQueuedSynchronizer.acquireInterruptibly_MethodID_26, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+    }
+
+    open func acquireInterruptibly( _ _arg: Int ) throws /* java.lang.InterruptedException */ {
+        try acquireInterruptibly( arg: _arg )
+    }
+
+    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.tryAcquireNanos(int,long) throws java.lang.InterruptedException
+
+    private static var tryAcquireNanos_MethodID_27: jmethodID?
+
+    open func tryAcquireNanos( arg: Int, nanosTimeout: Int64 ) throws /* java.lang.InterruptedException */ -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        __args[1] = JNIType.toJava( value: nanosTimeout, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryAcquireNanos", methodSig: "(IJ)Z", methodCache: &AbstractQueuedSynchronizer.tryAcquireNanos_MethodID_27, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func tryAcquireNanos( _ _arg: Int, _ _nanosTimeout: Int64 ) throws /* java.lang.InterruptedException */ -> Bool {
+        return try tryAcquireNanos( arg: _arg, nanosTimeout: _nanosTimeout )
+    }
+
+    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.release(int)
+
+    private static var release_MethodID_28: jmethodID?
+
+    open func release( arg: Int ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "release", methodSig: "(I)Z", methodCache: &AbstractQueuedSynchronizer.release_MethodID_28, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func release( _ _arg: Int ) -> Bool {
+        return release( arg: _arg )
+    }
+
+    /// protected boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.isHeldExclusively()
+
+    private static var isHeldExclusively_MethodID_29: jmethodID?
+
+    open func isHeldExclusively() -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isHeldExclusively", methodSig: "()Z", methodCache: &AbstractQueuedSynchronizer.isHeldExclusively_MethodID_29, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+
+    /// public final boolean java.util.concurrent.locks.AbstractQueuedSynchronizer.isQueued(java.lang.Thread)
+
+    private static var isQueued_MethodID_30: jmethodID?
+
+    open func isQueued( thread: java_lang.Thread? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: thread, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isQueued", methodSig: "(Ljava/lang/Thread;)Z", methodCache: &AbstractQueuedSynchronizer.isQueued_MethodID_30, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func isQueued( _ _thread: java_lang.Thread? ) -> Bool {
+        return isQueued( thread: _thread )
+    }
 
 }
 

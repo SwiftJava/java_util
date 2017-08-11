@@ -102,9 +102,25 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     }
 
 
-    /// public abstract int java.util.TimeZone.getOffset(int,int,int,int,int,int)
+    /// public int java.util.TimeZone.getOffset(long)
 
     private static var getOffset_MethodID_4: jmethodID?
+
+    open func getOffset( arg0: Int64 ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getOffset", methodSig: "(J)I", methodCache: &TimeZone.getOffset_MethodID_4, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func getOffset( _ _arg0: Int64 ) -> Int {
+        return getOffset( arg0: _arg0 )
+    }
+
+    /// public abstract int java.util.TimeZone.getOffset(int,int,int,int,int,int)
+
+    private static var getOffset_MethodID_5: jmethodID?
 
     open func getOffset( arg0: Int, arg1: Int, arg2: Int, arg3: Int, arg4: Int, arg5: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 6 )
@@ -115,28 +131,12 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         __args[3] = JNIType.toJava( value: arg3, locals: &__locals )
         __args[4] = JNIType.toJava( value: arg4, locals: &__locals )
         __args[5] = JNIType.toJava( value: arg5, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getOffset", methodSig: "(IIIIII)I", methodCache: &TimeZone.getOffset_MethodID_4, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getOffset", methodSig: "(IIIIII)I", methodCache: &TimeZone.getOffset_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
     open func getOffset( _ _arg0: Int, _ _arg1: Int, _ _arg2: Int, _ _arg3: Int, _ _arg4: Int, _ _arg5: Int ) -> Int {
         return getOffset( arg0: _arg0, arg1: _arg1, arg2: _arg2, arg3: _arg3, arg4: _arg4, arg5: _arg5 )
-    }
-
-    /// public int java.util.TimeZone.getOffset(long)
-
-    private static var getOffset_MethodID_5: jmethodID?
-
-    open func getOffset( arg0: Int64 ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getOffset", methodSig: "(J)I", methodCache: &TimeZone.getOffset_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func getOffset( _ _arg0: Int64 ) -> Int {
-        return getOffset( arg0: _arg0 )
     }
 
     /// public static void java.util.TimeZone.setDefault(java.util.TimeZone)
@@ -146,7 +146,7 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     open class func setDefault( arg0: TimeZone? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         JNIMethod.CallStaticVoidMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "setDefault", methodSig: "(Ljava/util/TimeZone;)V", methodCache: &setDefault_MethodID_6, args: &__args, locals: &__locals )
     }
 
@@ -180,7 +180,7 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2 != nil ? arg2! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(ZILjava/util/Locale;)Ljava/lang/String;", methodCache: &TimeZone.getDisplayName_MethodID_8, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -208,7 +208,7 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     open func getDisplayName( arg0: JavaLocale? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &TimeZone.getDisplayName_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: String(), from: __return )
     }
@@ -229,63 +229,31 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
     }
 
 
-    /// private static java.util.TimeZone java.util.TimeZone.getTimeZone(java.lang.String,boolean)
+    /// private static java.lang.String[] java.util.TimeZone.getDisplayNames(java.lang.String,java.util.Locale)
 
-    /// public static synchronized java.util.TimeZone java.util.TimeZone.getTimeZone(java.lang.String)
-
-    private static var getTimeZone_MethodID_12: jmethodID?
-
-    open class func getTimeZone( arg0: String? ) -> TimeZone! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "getTimeZone", methodSig: "(Ljava/lang/String;)Ljava/util/TimeZone;", methodCache: &getTimeZone_MethodID_12, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? TimeZone( javaObject: __return ) : nil
-    }
-
-    open class func getTimeZone( _ _arg0: String? ) -> TimeZone! {
-        return getTimeZone( arg0: _arg0 )
-    }
-
-    /// public static java.util.TimeZone java.util.TimeZone.getTimeZone(java.time.ZoneId)
-
-    private static var getTimeZone_MethodID_13: jmethodID?
-
-    open class func getTimeZone( arg0: /* java.time.ZoneId */ UnclassedObject? ) -> TimeZone! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "getTimeZone", methodSig: "(Ljava/time/ZoneId;)Ljava/util/TimeZone;", methodCache: &getTimeZone_MethodID_13, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? TimeZone( javaObject: __return ) : nil
-    }
-
-    open class func getTimeZone( _ _arg0: /* java.time.ZoneId */ UnclassedObject? ) -> TimeZone! {
-        return getTimeZone( arg0: _arg0 )
-    }
+    /// static java.util.TimeZone java.util.TimeZone.getDefaultRef()
 
     /// public abstract int java.util.TimeZone.getRawOffset()
 
-    private static var getRawOffset_MethodID_14: jmethodID?
+    private static var getRawOffset_MethodID_12: jmethodID?
 
     open func getRawOffset() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getRawOffset", methodSig: "()I", methodCache: &TimeZone.getRawOffset_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getRawOffset", methodSig: "()I", methodCache: &TimeZone.getRawOffset_MethodID_12, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public boolean java.util.TimeZone.hasSameRules(java.util.TimeZone)
 
-    private static var hasSameRules_MethodID_15: jmethodID?
+    private static var hasSameRules_MethodID_13: jmethodID?
 
     open func hasSameRules( arg0: TimeZone? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasSameRules", methodSig: "(Ljava/util/TimeZone;)Z", methodCache: &TimeZone.hasSameRules_MethodID_15, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasSameRules", methodSig: "(Ljava/util/TimeZone;)Z", methodCache: &TimeZone.hasSameRules_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -297,13 +265,13 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public abstract void java.util.TimeZone.setRawOffset(int)
 
-    private static var setRawOffset_MethodID_16: jmethodID?
+    private static var setRawOffset_MethodID_14: jmethodID?
 
     open func setRawOffset( arg0: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawOffset", methodSig: "(I)V", methodCache: &TimeZone.setRawOffset_MethodID_16, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawOffset", methodSig: "(I)V", methodCache: &TimeZone.setRawOffset_MethodID_14, args: &__args, locals: &__locals )
     }
 
     open func setRawOffset( _ _arg0: Int ) {
@@ -312,13 +280,13 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public void java.util.TimeZone.setID(java.lang.String)
 
-    private static var setID_MethodID_17: jmethodID?
+    private static var setID_MethodID_15: jmethodID?
 
     open func setID( arg0: String? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setID", methodSig: "(Ljava/lang/String;)V", methodCache: &TimeZone.setID_MethodID_17, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setID", methodSig: "(Ljava/lang/String;)V", methodCache: &TimeZone.setID_MethodID_15, args: &__args, locals: &__locals )
     }
 
     open func setID( _ _arg0: String? ) {
@@ -327,49 +295,49 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public int java.util.TimeZone.getDSTSavings()
 
-    private static var getDSTSavings_MethodID_18: jmethodID?
+    private static var getDSTSavings_MethodID_16: jmethodID?
 
     open func getDSTSavings() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getDSTSavings", methodSig: "()I", methodCache: &TimeZone.getDSTSavings_MethodID_18, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getDSTSavings", methodSig: "()I", methodCache: &TimeZone.getDSTSavings_MethodID_16, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
 
 
     /// public abstract boolean java.util.TimeZone.useDaylightTime()
 
-    private static var useDaylightTime_MethodID_19: jmethodID?
+    private static var useDaylightTime_MethodID_17: jmethodID?
 
     open func useDaylightTime() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "useDaylightTime", methodSig: "()Z", methodCache: &TimeZone.useDaylightTime_MethodID_19, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "useDaylightTime", methodSig: "()Z", methodCache: &TimeZone.useDaylightTime_MethodID_17, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public boolean java.util.TimeZone.observesDaylightTime()
 
-    private static var observesDaylightTime_MethodID_20: jmethodID?
+    private static var observesDaylightTime_MethodID_18: jmethodID?
 
     open func observesDaylightTime() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "observesDaylightTime", methodSig: "()Z", methodCache: &TimeZone.observesDaylightTime_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "observesDaylightTime", methodSig: "()Z", methodCache: &TimeZone.observesDaylightTime_MethodID_18, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
 
     /// public abstract boolean java.util.TimeZone.inDaylightTime(java.util.Date)
 
-    private static var inDaylightTime_MethodID_21: jmethodID?
+    private static var inDaylightTime_MethodID_19: jmethodID?
 
     open func inDaylightTime( arg0: Date? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "inDaylightTime", methodSig: "(Ljava/util/Date;)Z", methodCache: &TimeZone.inDaylightTime_MethodID_21, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "inDaylightTime", methodSig: "(Ljava/util/Date;)Z", methodCache: &TimeZone.inDaylightTime_MethodID_19, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
 
@@ -379,44 +347,44 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public java.time.ZoneId java.util.TimeZone.toZoneId()
 
-    private static var toZoneId_MethodID_22: jmethodID?
+    private static var toZoneId_MethodID_20: jmethodID?
 
     open func toZoneId() -> /* java.time.ZoneId */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toZoneId", methodSig: "()Ljava/time/ZoneId;", methodCache: &TimeZone.toZoneId_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toZoneId", methodSig: "()Ljava/time/ZoneId;", methodCache: &TimeZone.toZoneId_MethodID_20, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? /* java.time.ZoneId */ UnclassedObject( javaObject: __return ) : nil
     }
 
 
+    /// public static synchronized java.lang.String[] java.util.TimeZone.getAvailableIDs()
+
+    private static var getAvailableIDs_MethodID_21: jmethodID?
+
+    open class func getAvailableIDs() -> [String]! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "getAvailableIDs", methodSig: "()[Ljava/lang/String;", methodCache: &getAvailableIDs_MethodID_21, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [String](), from: __return )
+    }
+
+
     /// public static synchronized java.lang.String[] java.util.TimeZone.getAvailableIDs(int)
 
-    private static var getAvailableIDs_MethodID_23: jmethodID?
+    private static var getAvailableIDs_MethodID_22: jmethodID?
 
     open class func getAvailableIDs( arg0: Int ) -> [String]! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "getAvailableIDs", methodSig: "(I)[Ljava/lang/String;", methodCache: &getAvailableIDs_MethodID_23, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "getAvailableIDs", methodSig: "(I)[Ljava/lang/String;", methodCache: &getAvailableIDs_MethodID_22, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: [String](), from: __return )
     }
 
     open class func getAvailableIDs( _ _arg0: Int ) -> [String]! {
         return getAvailableIDs( arg0: _arg0 )
     }
-
-    /// public static synchronized java.lang.String[] java.util.TimeZone.getAvailableIDs()
-
-    private static var getAvailableIDs_MethodID_24: jmethodID?
-
-    open class func getAvailableIDs() -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "getAvailableIDs", methodSig: "()[Ljava/lang/String;", methodCache: &getAvailableIDs_MethodID_24, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
 
     /// private static native java.lang.String java.util.TimeZone.getSystemTimeZoneID(java.lang.String)
 
@@ -426,9 +394,41 @@ open class TimeZone: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// private static final java.util.TimeZone java.util.TimeZone.parseCustomTimeZone(java.lang.String)
 
-    /// private static java.lang.String[] java.util.TimeZone.getDisplayNames(java.lang.String,java.util.Locale)
+    /// public static synchronized java.util.TimeZone java.util.TimeZone.getTimeZone(java.lang.String)
 
-    /// static java.util.TimeZone java.util.TimeZone.getDefaultRef()
+    private static var getTimeZone_MethodID_23: jmethodID?
+
+    open class func getTimeZone( arg0: String? ) -> TimeZone! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "getTimeZone", methodSig: "(Ljava/lang/String;)Ljava/util/TimeZone;", methodCache: &getTimeZone_MethodID_23, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? TimeZone( javaObject: __return ) : nil
+    }
+
+    open class func getTimeZone( _ _arg0: String? ) -> TimeZone! {
+        return getTimeZone( arg0: _arg0 )
+    }
+
+    /// private static java.util.TimeZone java.util.TimeZone.getTimeZone(java.lang.String,boolean)
+
+    /// public static java.util.TimeZone java.util.TimeZone.getTimeZone(java.time.ZoneId)
+
+    private static var getTimeZone_MethodID_24: jmethodID?
+
+    open class func getTimeZone( arg0: /* java.time.ZoneId */ UnclassedObject? ) -> TimeZone! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/TimeZone", classCache: &TimeZoneJNIClass, methodName: "getTimeZone", methodSig: "(Ljava/time/ZoneId;)Ljava/util/TimeZone;", methodCache: &getTimeZone_MethodID_24, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? TimeZone( javaObject: __return ) : nil
+    }
+
+    open class func getTimeZone( _ _arg0: /* java.time.ZoneId */ UnclassedObject? ) -> TimeZone! {
+        return getTimeZone( arg0: _arg0 )
+    }
 
 }
 

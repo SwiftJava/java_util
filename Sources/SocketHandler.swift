@@ -81,9 +81,9 @@ open class SocketHandler: StreamHandler {
 
     /// public synchronized void java.util.logging.SocketHandler.close() throws java.lang.SecurityException
 
-    /// public synchronized void java.util.logging.SocketHandler.publish(java.util.logging.LogRecord)
-
     /// private void java.util.logging.SocketHandler.configure()
+
+    /// public synchronized void java.util.logging.SocketHandler.publish(java.util.logging.LogRecord)
 
 }
 

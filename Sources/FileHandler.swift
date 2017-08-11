@@ -164,7 +164,7 @@ open class FileHandler: StreamHandler {
 
     /// private void java.util.logging.FileHandler.open(java.io.File,boolean) throws java.io.IOException
 
-    /// public synchronized void java.util.logging.FileHandler.publish(java.util.logging.LogRecord)
+    /// private java.io.File java.util.logging.FileHandler.generate(java.lang.String,int,int) throws java.io.IOException
 
     /// private boolean java.util.logging.FileHandler.isParentWritable(java.nio.file.Path)
 
@@ -172,9 +172,9 @@ open class FileHandler: StreamHandler {
 
     /// private static native boolean java.util.logging.FileHandler.isSetUID()
 
-    /// private java.io.File java.util.logging.FileHandler.generate(java.lang.String,int,int) throws java.io.IOException
-
     /// private void java.util.logging.FileHandler.configure()
+
+    /// public synchronized void java.util.logging.FileHandler.publish(java.util.logging.LogRecord)
 
 }
 

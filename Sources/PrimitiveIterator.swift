@@ -25,7 +25,7 @@ open class PrimitiveIteratorForward: IteratorForward, PrimitiveIterator {
     open func forEachRemaining( action: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: action != nil ? action! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: action, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachRemaining", methodSig: "(Ljava/lang/Object;)V", methodCache: &PrimitiveIteratorForward.forEachRemaining_MethodID_2, args: &__args, locals: &__locals )
     }
 

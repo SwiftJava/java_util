@@ -11,11 +11,11 @@ public protocol IntConsumer: JavaProtocol {
 
     func accept( value: Int )
 
+    /// private void java.util.function.IntConsumer.lambda$andThen$0(java.util.function.IntConsumer,int)
+
     /// public default java.util.function.IntConsumer java.util.function.IntConsumer.andThen(java.util.function.IntConsumer)
 
     func andThen( after: IntConsumer? ) -> IntConsumer!
-
-    /// private void java.util.function.IntConsumer.lambda$andThen$0(java.util.function.IntConsumer,int)
 
 }
 

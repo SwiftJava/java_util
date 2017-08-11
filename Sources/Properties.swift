@@ -150,7 +150,7 @@ open class Properties: Hashtable {
     open func list( arg0: /* java.io.PrintWriter */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "list", methodSig: "(Ljava/io/PrintWriter;)V", methodCache: &Properties.list_MethodID_6, args: &__args, locals: &__locals )
     }
 
@@ -167,7 +167,7 @@ open class Properties: Hashtable {
     open func load( arg0: /* java.io.Reader */ UnclassedObject? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "load", methodSig: "(Ljava/io/Reader;)V", methodCache: &Properties.load_MethodID_7, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -197,7 +197,7 @@ open class Properties: Hashtable {
     open func save( arg0: /* java.io.OutputStream */ UnclassedObject?, arg1: String? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "save", methodSig: "(Ljava/io/OutputStream;Ljava/lang/String;)V", methodCache: &Properties.save_MethodID_8, args: &__args, locals: &__locals )
     }
@@ -213,7 +213,7 @@ open class Properties: Hashtable {
     open func store( arg0: /* java.io.OutputStream */ UnclassedObject?, arg1: String? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "store", methodSig: "(Ljava/io/OutputStream;Ljava/lang/String;)V", methodCache: &Properties.store_MethodID_9, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
@@ -236,7 +236,7 @@ open class Properties: Hashtable {
     open func loadFromXML( arg0: /* java.io.InputStream */ UnclassedObject? ) throws /* java.io.IOException, java.util.InvalidPropertiesFormatException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "loadFromXML", methodSig: "(Ljava/io/InputStream;)V", methodCache: &Properties.loadFromXML_MethodID_10, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -254,7 +254,7 @@ open class Properties: Hashtable {
     open func storeToXML( arg0: /* java.io.OutputStream */ UnclassedObject?, arg1: String? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "storeToXML", methodSig: "(Ljava/io/OutputStream;Ljava/lang/String;)V", methodCache: &Properties.storeToXML_MethodID_11, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
@@ -273,7 +273,7 @@ open class Properties: Hashtable {
     open func storeToXML( arg0: /* java.io.OutputStream */ UnclassedObject?, arg1: String?, arg2: String? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "storeToXML", methodSig: "(Ljava/io/OutputStream;Ljava/lang/String;Ljava/lang/String;)V", methodCache: &Properties.storeToXML_MethodID_12, args: &__args, locals: &__locals )

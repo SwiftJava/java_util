@@ -35,7 +35,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func get( arg0: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)I", methodCache: &AtomicIntegerFieldUpdater.get_MethodID_2, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -51,7 +51,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func set( arg0: java_swift.JavaObject?, arg1: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(Ljava/lang/Object;I)V", methodCache: &AtomicIntegerFieldUpdater.set_MethodID_3, args: &__args, locals: &__locals )
     }
@@ -67,7 +67,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func lazySet( arg0: java_swift.JavaObject?, arg1: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "lazySet", methodSig: "(Ljava/lang/Object;I)V", methodCache: &AtomicIntegerFieldUpdater.lazySet_MethodID_4, args: &__args, locals: &__locals )
     }
@@ -83,7 +83,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func getAndAdd( arg0: java_swift.JavaObject?, arg1: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAndAdd", methodSig: "(Ljava/lang/Object;I)I", methodCache: &AtomicIntegerFieldUpdater.getAndAdd_MethodID_5, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -100,7 +100,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func getAndSet( arg0: java_swift.JavaObject?, arg1: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAndSet", methodSig: "(Ljava/lang/Object;I)I", methodCache: &AtomicIntegerFieldUpdater.getAndSet_MethodID_6, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -117,7 +117,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func compareAndSet( arg0: java_swift.JavaObject?, arg1: Int, arg2: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSet", methodSig: "(Ljava/lang/Object;II)Z", methodCache: &AtomicIntegerFieldUpdater.compareAndSet_MethodID_7, args: &__args, locals: &__locals )
@@ -135,7 +135,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func weakCompareAndSet( arg0: java_swift.JavaObject?, arg1: Int, arg2: Int ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "weakCompareAndSet", methodSig: "(Ljava/lang/Object;II)Z", methodCache: &AtomicIntegerFieldUpdater.weakCompareAndSet_MethodID_8, args: &__args, locals: &__locals )
@@ -153,7 +153,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func getAndIncrement( arg0: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAndIncrement", methodSig: "(Ljava/lang/Object;)I", methodCache: &AtomicIntegerFieldUpdater.getAndIncrement_MethodID_9, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -169,7 +169,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func getAndDecrement( arg0: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAndDecrement", methodSig: "(Ljava/lang/Object;)I", methodCache: &AtomicIntegerFieldUpdater.getAndDecrement_MethodID_10, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -185,7 +185,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func incrementAndGet( arg0: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "incrementAndGet", methodSig: "(Ljava/lang/Object;)I", methodCache: &AtomicIntegerFieldUpdater.incrementAndGet_MethodID_11, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -201,7 +201,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func decrementAndGet( arg0: java_swift.JavaObject? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "decrementAndGet", methodSig: "(Ljava/lang/Object;)I", methodCache: &AtomicIntegerFieldUpdater.decrementAndGet_MethodID_12, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -217,7 +217,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func addAndGet( arg0: java_swift.JavaObject?, arg1: Int ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "addAndGet", methodSig: "(Ljava/lang/Object;I)I", methodCache: &AtomicIntegerFieldUpdater.addAndGet_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -234,7 +234,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func getAndUpdate( arg0: java_swift.JavaObject?, arg1: IntUnaryOperator? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAndUpdate", methodSig: "(Ljava/lang/Object;Ljava/util/function/IntUnaryOperator;)I", methodCache: &AtomicIntegerFieldUpdater.getAndUpdate_MethodID_14, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -251,7 +251,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func updateAndGet( arg0: java_swift.JavaObject?, arg1: IntUnaryOperator? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "updateAndGet", methodSig: "(Ljava/lang/Object;Ljava/util/function/IntUnaryOperator;)I", methodCache: &AtomicIntegerFieldUpdater.updateAndGet_MethodID_15, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -268,7 +268,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func getAndAccumulate( arg0: java_swift.JavaObject?, arg1: Int, arg2: IntBinaryOperator? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAndAccumulate", methodSig: "(Ljava/lang/Object;ILjava/util/function/IntBinaryOperator;)I", methodCache: &AtomicIntegerFieldUpdater.getAndAccumulate_MethodID_16, args: &__args, locals: &__locals )
@@ -286,7 +286,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open func accumulateAndGet( arg0: java_swift.JavaObject?, arg1: Int, arg2: IntBinaryOperator? ) -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "accumulateAndGet", methodSig: "(Ljava/lang/Object;ILjava/util/function/IntBinaryOperator;)I", methodCache: &AtomicIntegerFieldUpdater.accumulateAndGet_MethodID_17, args: &__args, locals: &__locals )
@@ -304,7 +304,7 @@ open class AtomicIntegerFieldUpdater: java_swift.JavaObject {
     open class func newUpdater( arg0: java_swift.JavaClass?, arg1: String? ) -> AtomicIntegerFieldUpdater! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0 != nil ? arg0! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/atomic/AtomicIntegerFieldUpdater", classCache: &AtomicIntegerFieldUpdaterJNIClass, methodName: "newUpdater", methodSig: "(Ljava/lang/Class;Ljava/lang/String;)Ljava/util/concurrent/atomic/AtomicIntegerFieldUpdater;", methodCache: &newUpdater_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }

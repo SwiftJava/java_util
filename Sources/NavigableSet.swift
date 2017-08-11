@@ -19,18 +19,6 @@ public protocol NavigableSet: JavaProtocol {
 
     func floor( e: java_swift.JavaObject? ) -> java_swift.JavaObject!
 
-    /// public abstract java.lang.Object java.util.NavigableSet.pollFirst()
-
-    func pollFirst() -> java_swift.JavaObject!
-
-    /// public abstract java.lang.Object java.util.NavigableSet.pollLast()
-
-    func pollLast() -> java_swift.JavaObject!
-
-    /// public abstract java.util.Iterator java.util.NavigableSet.descendingIterator()
-
-    func descendingIterator() -> Iterator!
-
     /// public abstract java.util.NavigableSet java.util.NavigableSet.subSet(java.lang.Object,boolean,java.lang.Object,boolean)
 
     func subSet( fromElement: java_swift.JavaObject?, fromInclusive: Bool, toElement: java_swift.JavaObject?, toInclusive: Bool ) -> NavigableSet!
@@ -67,6 +55,18 @@ public protocol NavigableSet: JavaProtocol {
 
     func descendingSet() -> NavigableSet!
 
+    /// public abstract java.lang.Object java.util.NavigableSet.pollFirst()
+
+    func pollFirst() -> java_swift.JavaObject!
+
+    /// public abstract java.lang.Object java.util.NavigableSet.pollLast()
+
+    func pollLast() -> java_swift.JavaObject!
+
+    /// public abstract java.util.Iterator java.util.NavigableSet.descendingIterator()
+
+    func descendingIterator() -> Iterator!
+
 }
 
 
@@ -94,7 +94,7 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
     open func lower( e: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "lower", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &NavigableSetForward.lower_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -111,7 +111,7 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
     open func floor( e: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "floor", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &NavigableSetForward.floor_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -121,57 +121,18 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
         return floor( e: _e )
     }
 
-    /// public abstract java.lang.Object java.util.NavigableSet.pollFirst()
-
-    private static var pollFirst_MethodID_19: jmethodID?
-
-    open func pollFirst() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollFirst", methodSig: "()Ljava/lang/Object;", methodCache: &NavigableSetForward.pollFirst_MethodID_19, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract java.lang.Object java.util.NavigableSet.pollLast()
-
-    private static var pollLast_MethodID_20: jmethodID?
-
-    open func pollLast() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollLast", methodSig: "()Ljava/lang/Object;", methodCache: &NavigableSetForward.pollLast_MethodID_20, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract java.util.Iterator java.util.NavigableSet.descendingIterator()
-
-    private static var descendingIterator_MethodID_21: jmethodID?
-
-    open func descendingIterator() -> Iterator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingIterator", methodSig: "()Ljava/util/Iterator;", methodCache: &NavigableSetForward.descendingIterator_MethodID_21, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IteratorForward( javaObject: __return ) : nil
-    }
-
-
     /// public abstract java.util.NavigableSet java.util.NavigableSet.subSet(java.lang.Object,boolean,java.lang.Object,boolean)
 
-    private static var subSet_MethodID_22: jmethodID?
+    private static var subSet_MethodID_19: jmethodID?
 
     open func subSet( fromElement: java_swift.JavaObject?, fromInclusive: Bool, toElement: java_swift.JavaObject?, toInclusive: Bool ) -> NavigableSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
         __args[1] = JNIType.toJava( value: fromInclusive, locals: &__locals )
-        __args[2] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: toElement, locals: &__locals )
         __args[3] = JNIType.toJava( value: toInclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &NavigableSetForward.subSet_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;ZLjava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &NavigableSetForward.subSet_MethodID_19, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
     }
@@ -182,14 +143,14 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
 
     /// public abstract java.util.SortedSet java.util.NavigableSet.subSet(java.lang.Object,java.lang.Object)
 
-    private static var subSet_MethodID_23: jmethodID?
+    private static var subSet_MethodID_20: jmethodID?
 
     override open func subSet( fromElement: java_swift.JavaObject?, toElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &NavigableSetForward.subSet_MethodID_23, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
+        __args[1] = JNIType.toJava( value: toElement, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subSet", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &NavigableSetForward.subSet_MethodID_20, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
     }
@@ -200,13 +161,13 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
 
     /// public abstract java.util.SortedSet java.util.NavigableSet.headSet(java.lang.Object)
 
-    private static var headSet_MethodID_24: jmethodID?
+    private static var headSet_MethodID_21: jmethodID?
 
     override open func headSet( toElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &NavigableSetForward.headSet_MethodID_24, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: toElement, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &NavigableSetForward.headSet_MethodID_21, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
     }
@@ -217,14 +178,14 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
 
     /// public abstract java.util.NavigableSet java.util.NavigableSet.headSet(java.lang.Object,boolean)
 
-    private static var headSet_MethodID_25: jmethodID?
+    private static var headSet_MethodID_22: jmethodID?
 
     open func headSet( toElement: java_swift.JavaObject?, inclusive: Bool ) -> NavigableSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: toElement != nil ? toElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: toElement, locals: &__locals )
         __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &NavigableSetForward.headSet_MethodID_25, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &NavigableSetForward.headSet_MethodID_22, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
     }
@@ -235,14 +196,14 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
 
     /// public abstract java.util.NavigableSet java.util.NavigableSet.tailSet(java.lang.Object,boolean)
 
-    private static var tailSet_MethodID_26: jmethodID?
+    private static var tailSet_MethodID_23: jmethodID?
 
     open func tailSet( fromElement: java_swift.JavaObject?, inclusive: Bool ) -> NavigableSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
         __args[1] = JNIType.toJava( value: inclusive, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &NavigableSetForward.tailSet_MethodID_26, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableSet;", methodCache: &NavigableSetForward.tailSet_MethodID_23, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
     }
@@ -253,13 +214,13 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
 
     /// public abstract java.util.SortedSet java.util.NavigableSet.tailSet(java.lang.Object)
 
-    private static var tailSet_MethodID_27: jmethodID?
+    private static var tailSet_MethodID_24: jmethodID?
 
     override open func tailSet( fromElement: java_swift.JavaObject? ) -> SortedSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromElement != nil ? fromElement! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &NavigableSetForward.tailSet_MethodID_27, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: fromElement, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &NavigableSetForward.tailSet_MethodID_24, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SortedSetForward( javaObject: __return ) : nil
     }
@@ -270,13 +231,13 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
 
     /// public abstract java.lang.Object java.util.NavigableSet.ceiling(java.lang.Object)
 
-    private static var ceiling_MethodID_28: jmethodID?
+    private static var ceiling_MethodID_25: jmethodID?
 
     open func ceiling( e: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ceiling", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &NavigableSetForward.ceiling_MethodID_28, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "ceiling", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &NavigableSetForward.ceiling_MethodID_25, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -287,13 +248,13 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
 
     /// public abstract java.lang.Object java.util.NavigableSet.higher(java.lang.Object)
 
-    private static var higher_MethodID_29: jmethodID?
+    private static var higher_MethodID_26: jmethodID?
 
     open func higher( e: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "higher", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &NavigableSetForward.higher_MethodID_29, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "higher", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &NavigableSetForward.higher_MethodID_26, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -304,14 +265,53 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
 
     /// public abstract java.util.NavigableSet java.util.NavigableSet.descendingSet()
 
-    private static var descendingSet_MethodID_30: jmethodID?
+    private static var descendingSet_MethodID_27: jmethodID?
 
     open func descendingSet() -> NavigableSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingSet", methodSig: "()Ljava/util/NavigableSet;", methodCache: &NavigableSetForward.descendingSet_MethodID_30, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingSet", methodSig: "()Ljava/util/NavigableSet;", methodCache: &NavigableSetForward.descendingSet_MethodID_27, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.lang.Object java.util.NavigableSet.pollFirst()
+
+    private static var pollFirst_MethodID_28: jmethodID?
+
+    open func pollFirst() -> java_swift.JavaObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollFirst", methodSig: "()Ljava/lang/Object;", methodCache: &NavigableSetForward.pollFirst_MethodID_28, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.lang.Object java.util.NavigableSet.pollLast()
+
+    private static var pollLast_MethodID_29: jmethodID?
+
+    open func pollLast() -> java_swift.JavaObject! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollLast", methodSig: "()Ljava/lang/Object;", methodCache: &NavigableSetForward.pollLast_MethodID_29, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.Iterator java.util.NavigableSet.descendingIterator()
+
+    private static var descendingIterator_MethodID_30: jmethodID?
+
+    open func descendingIterator() -> Iterator! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingIterator", methodSig: "()Ljava/util/Iterator;", methodCache: &NavigableSetForward.descendingIterator_MethodID_30, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IteratorForward( javaObject: __return ) : nil
     }
 
 
@@ -374,7 +374,7 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
     override open func add( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "add", methodSig: "(Ljava/lang/Object;)Z", methodCache: &NavigableSetForward.add_MethodID_35, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -390,7 +390,7 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
     override open func remove( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Z", methodCache: &NavigableSetForward.remove_MethodID_36, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -406,7 +406,7 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &NavigableSetForward.equals_MethodID_37, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -457,7 +457,7 @@ open class NavigableSetForward: SortedSetForward, NavigableSet {
     override open func contains( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "contains", methodSig: "(Ljava/lang/Object;)Z", methodCache: &NavigableSetForward.contains_MethodID_41, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

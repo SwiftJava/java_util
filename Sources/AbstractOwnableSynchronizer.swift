@@ -40,7 +40,7 @@ open class AbstractOwnableSynchronizer: java_swift.JavaObject, /* java.io.Serial
     open func setExclusiveOwnerThread( thread: java_lang.Thread? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: thread != nil ? thread! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: thread, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setExclusiveOwnerThread", methodSig: "(Ljava/lang/Thread;)V", methodCache: &AbstractOwnableSynchronizer.setExclusiveOwnerThread_MethodID_2, args: &__args, locals: &__locals )
     }
 

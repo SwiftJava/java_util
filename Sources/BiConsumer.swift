@@ -11,11 +11,11 @@ public protocol BiConsumer: JavaProtocol {
 
     func accept( t: java_swift.JavaObject?, u: java_swift.JavaObject? )
 
+    /// private void java.util.function.BiConsumer.lambda$andThen$0(java.util.function.BiConsumer,java.lang.Object,java.lang.Object)
+
     /// public default java.util.function.BiConsumer java.util.function.BiConsumer.andThen(java.util.function.BiConsumer)
 
     func andThen( after: BiConsumer? ) -> BiConsumer!
-
-    /// private void java.util.function.BiConsumer.lambda$andThen$0(java.util.function.BiConsumer,java.lang.Object,java.lang.Object)
 
 }
 
@@ -31,8 +31,8 @@ open class BiConsumerForward: JNIObjectForward, BiConsumer {
     open func accept( t: java_swift.JavaObject?, u: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t != nil ? t! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: u != nil ? u! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
+        __args[1] = JNIType.toJava( value: u, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "accept", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)V", methodCache: &BiConsumerForward.accept_MethodID_3, args: &__args, locals: &__locals )
     }
 

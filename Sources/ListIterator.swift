@@ -57,7 +57,7 @@ open class ListIteratorForward: IteratorForward, ListIterator {
     open func add( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "add", methodSig: "(Ljava/lang/Object;)V", methodCache: &ListIteratorForward.add_MethodID_10, args: &__args, locals: &__locals )
     }
 
@@ -108,7 +108,7 @@ open class ListIteratorForward: IteratorForward, ListIterator {
     open func set( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(Ljava/lang/Object;)V", methodCache: &ListIteratorForward.set_MethodID_14, args: &__args, locals: &__locals )
     }
 

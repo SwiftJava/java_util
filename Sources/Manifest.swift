@@ -31,7 +31,7 @@ open class Manifest: java_swift.JavaObject, java_lang.Cloneable {
     public convenience init( man: Manifest? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: man != nil ? man! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: man, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/Manifest", classCache: &Manifest.ManifestJNIClass, methodSig: "(Ljava/util/jar/Manifest;)V", methodCache: &Manifest.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -48,7 +48,7 @@ open class Manifest: java_swift.JavaObject, java_lang.Cloneable {
     public convenience init( _is: /* java.io.InputStream */ UnclassedObject? ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _is != nil ? _is! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _is, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/Manifest", classCache: &Manifest.ManifestJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &Manifest.new_MethodID_2, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -80,7 +80,7 @@ open class Manifest: java_swift.JavaObject, java_lang.Cloneable {
     open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Manifest.equals_MethodID_4, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -122,7 +122,7 @@ open class Manifest: java_swift.JavaObject, java_lang.Cloneable {
     open func write( out: /* java.io.OutputStream */ UnclassedObject? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out != nil ? out! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "write", methodSig: "(Ljava/io/OutputStream;)V", methodCache: &Manifest.write_MethodID_7, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
@@ -140,7 +140,7 @@ open class Manifest: java_swift.JavaObject, java_lang.Cloneable {
     open func read( _is: /* java.io.InputStream */ UnclassedObject? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _is != nil ? _is! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _is, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "read", methodSig: "(Ljava/io/InputStream;)V", methodCache: &Manifest.read_MethodID_8, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )

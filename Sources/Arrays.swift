@@ -577,7 +577,7 @@ open class Arrays: java_swift.JavaObject {
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: original, locals: &__locals )
         __args[1] = JNIType.toJava( value: newLength, locals: &__locals )
-        __args[2] = JNIType.toJava( value: newType != nil ? newType! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: newType, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Arrays", classCache: &ArraysJNIClass, methodName: "copyOf", methodSig: "([Ljava/lang/Object;ILjava/lang/Class;)[Ljava/lang/Object;", methodCache: &copyOf_MethodID_34, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: [JavaObject](), from: __return )
     }
@@ -683,7 +683,7 @@ open class Arrays: java_swift.JavaObject {
         __args[0] = JNIType.toJava( value: original, locals: &__locals )
         __args[1] = JNIType.toJava( value: from, locals: &__locals )
         __args[2] = JNIType.toJava( value: to, locals: &__locals )
-        __args[3] = JNIType.toJava( value: newType != nil ? newType! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: newType, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Arrays", classCache: &ArraysJNIClass, methodName: "copyOfRange", methodSig: "([Ljava/lang/Object;IILjava/lang/Class;)[Ljava/lang/Object;", methodCache: &copyOfRange_MethodID_40, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: [JavaObject](), from: __return )
     }
@@ -1217,7 +1217,7 @@ open class Arrays: java_swift.JavaObject {
         __args[0] = JNIType.toJava( value: a, locals: &__locals )
         __args[1] = JNIType.toJava( value: fromIndex, locals: &__locals )
         __args[2] = JNIType.toJava( value: toIndex, locals: &__locals )
-        __args[3] = JNIType.toJava( value: val != nil ? val! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: val, locals: &__locals )
         JNIMethod.CallStaticVoidMethod( className: "java/util/Arrays", classCache: &ArraysJNIClass, methodName: "fill", methodSig: "([Ljava/lang/Object;IILjava/lang/Object;)V", methodCache: &fill_MethodID_70, args: &__args, locals: &__locals )
     }
 
@@ -1233,7 +1233,7 @@ open class Arrays: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: a, locals: &__locals )
-        __args[1] = JNIType.toJava( value: val != nil ? val! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: val, locals: &__locals )
         JNIMethod.CallStaticVoidMethod( className: "java/util/Arrays", classCache: &ArraysJNIClass, methodName: "fill", methodSig: "([Ljava/lang/Object;Ljava/lang/Object;)V", methodCache: &fill_MethodID_71, args: &__args, locals: &__locals )
     }
 
@@ -1801,7 +1801,7 @@ open class Arrays: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: a, locals: &__locals )
-        __args[1] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Arrays", classCache: &ArraysJNIClass, methodName: "binarySearch", methodSig: "([Ljava/lang/Object;Ljava/lang/Object;)I", methodCache: &binarySearch_MethodID_105, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -1875,7 +1875,7 @@ open class Arrays: java_swift.JavaObject {
         __args[0] = JNIType.toJava( value: a, locals: &__locals )
         __args[1] = JNIType.toJava( value: fromIndex, locals: &__locals )
         __args[2] = JNIType.toJava( value: toIndex, locals: &__locals )
-        __args[3] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Arrays", classCache: &ArraysJNIClass, methodName: "binarySearch", methodSig: "([Ljava/lang/Object;IILjava/lang/Object;)I", methodCache: &binarySearch_MethodID_109, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
     }
@@ -1892,7 +1892,7 @@ open class Arrays: java_swift.JavaObject {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: a, locals: &__locals )
-        __args[1] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[1] = JNIType.toJava( value: key, locals: &__locals )
         __args[2] = JNIType.toJava( value: c, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Arrays", classCache: &ArraysJNIClass, methodName: "binarySearch", methodSig: "([Ljava/lang/Object;Ljava/lang/Object;Ljava/util/Comparator;)I", methodCache: &binarySearch_MethodID_110, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )
@@ -1912,7 +1912,7 @@ open class Arrays: java_swift.JavaObject {
         __args[0] = JNIType.toJava( value: a, locals: &__locals )
         __args[1] = JNIType.toJava( value: fromIndex, locals: &__locals )
         __args[2] = JNIType.toJava( value: toIndex, locals: &__locals )
-        __args[3] = JNIType.toJava( value: key != nil ? key! as JNIObject : nil, locals: &__locals )
+        __args[3] = JNIType.toJava( value: key, locals: &__locals )
         __args[4] = JNIType.toJava( value: c, locals: &__locals )
         let __return = JNIMethod.CallStaticIntMethod( className: "java/util/Arrays", classCache: &ArraysJNIClass, methodName: "binarySearch", methodSig: "([Ljava/lang/Object;IILjava/lang/Object;Ljava/util/Comparator;)I", methodCache: &binarySearch_MethodID_111, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Int(), from: __return )

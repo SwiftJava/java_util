@@ -54,9 +54,9 @@ open class MemoryHandler: Handler {
     public convenience init( target: Handler?, size: Int, pushLevel: Level? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: target != nil ? target! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: target, locals: &__locals )
         __args[1] = JNIType.toJava( value: size, locals: &__locals )
-        __args[2] = JNIType.toJava( value: pushLevel != nil ? pushLevel! as JNIObject : nil, locals: &__locals )
+        __args[2] = JNIType.toJava( value: pushLevel, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/logging/MemoryHandler", classCache: &MemoryHandler.MemoryHandlerJNIClass, methodSig: "(Ljava/util/logging/Handler;ILjava/util/logging/Level;)V", methodCache: &MemoryHandler.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -95,9 +95,7 @@ open class MemoryHandler: Handler {
 
     /// public void java.util.logging.MemoryHandler.close() throws java.lang.SecurityException
 
-    /// public synchronized void java.util.logging.MemoryHandler.publish(java.util.logging.LogRecord)
-
-    /// private void java.util.logging.MemoryHandler.configure()
+    /// public boolean java.util.logging.MemoryHandler.isLoggable(java.util.logging.LogRecord)
 
     /// public synchronized void java.util.logging.MemoryHandler.setPushLevel(java.util.logging.Level) throws java.lang.SecurityException
 
@@ -106,7 +104,7 @@ open class MemoryHandler: Handler {
     open func setPushLevel( newLevel: Level? ) throws /* java.lang.SecurityException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newLevel != nil ? newLevel! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: newLevel, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setPushLevel", methodSig: "(Ljava/util/logging/Level;)V", methodCache: &MemoryHandler.setPushLevel_MethodID_4, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
             throw java_lang.JavaSecurityException( javaObject: throwable )
@@ -130,7 +128,9 @@ open class MemoryHandler: Handler {
     }
 
 
-    /// public boolean java.util.logging.MemoryHandler.isLoggable(java.util.logging.LogRecord)
+    /// private void java.util.logging.MemoryHandler.configure()
+
+    /// public synchronized void java.util.logging.MemoryHandler.publish(java.util.logging.LogRecord)
 
 }
 

@@ -99,6 +99,14 @@ public protocol IntStream: BaseStream {
 
     /// public default java.util.stream.BaseStream java.util.stream.IntStream.parallel()
 
+    /// public static java.util.stream.IntStream java.util.stream.IntStream.generate(java.util.function.IntSupplier)
+
+    //    class func generate( s: IntSupplier? ) -> IntStream!
+
+    /// public abstract java.util.stream.Stream java.util.stream.IntStream.mapToObj(java.util.function.IntFunction)
+
+    func mapToObj( mapper: IntFunction? ) -> Stream!
+
     /// public abstract java.util.OptionalInt java.util.stream.IntStream.reduce(java.util.function.IntBinaryOperator)
 
     func reduce( op: IntBinaryOperator? ) -> OptionalInt!
@@ -106,6 +114,30 @@ public protocol IntStream: BaseStream {
     /// public abstract int java.util.stream.IntStream.reduce(int,java.util.function.IntBinaryOperator)
 
     func reduce( identity: Int, op: IntBinaryOperator? ) -> Int
+
+    /// public abstract java.util.OptionalDouble java.util.stream.IntStream.average()
+
+    func average() -> OptionalDouble!
+
+    /// public abstract java.util.IntSummaryStatistics java.util.stream.IntStream.summaryStatistics()
+
+    func summaryStatistics() -> IntSummaryStatistics!
+
+    /// public abstract java.util.stream.DoubleStream java.util.stream.IntStream.asDoubleStream()
+
+    func asDoubleStream() -> DoubleStream!
+
+    /// public abstract java.util.stream.Stream java.util.stream.IntStream.boxed()
+
+    func boxed() -> Stream!
+
+    /// public static java.util.stream.IntStream java.util.stream.IntStream.rangeClosed(int,int)
+
+    //    class func rangeClosed( startInclusive: Int, endInclusive: Int ) -> IntStream!
+
+    /// public abstract java.util.stream.LongStream java.util.stream.IntStream.asLongStream()
+
+    func asLongStream() -> LongStream!
 
     /// public abstract java.util.stream.LongStream java.util.stream.IntStream.mapToLong(java.util.function.IntToLongFunction)
 
@@ -151,43 +183,11 @@ public protocol IntStream: BaseStream {
 
     func findAny() -> OptionalInt!
 
-    /// public default java.util.stream.BaseStream java.util.stream.IntStream.sequential()
-
-    func sequential() -> BaseStream!
-
     /// public abstract java.util.stream.IntStream java.util.stream.IntStream.sequential()
 
-    /// public static java.util.stream.IntStream java.util.stream.IntStream.generate(java.util.function.IntSupplier)
+    func sequential() -> IntStream!
 
-    //    class func generate( s: IntSupplier? ) -> IntStream!
-
-    /// public abstract java.util.stream.Stream java.util.stream.IntStream.mapToObj(java.util.function.IntFunction)
-
-    func mapToObj( mapper: IntFunction? ) -> Stream!
-
-    /// public abstract java.util.OptionalDouble java.util.stream.IntStream.average()
-
-    func average() -> OptionalDouble!
-
-    /// public abstract java.util.IntSummaryStatistics java.util.stream.IntStream.summaryStatistics()
-
-    func summaryStatistics() -> IntSummaryStatistics!
-
-    /// public abstract java.util.stream.DoubleStream java.util.stream.IntStream.asDoubleStream()
-
-    func asDoubleStream() -> DoubleStream!
-
-    /// public abstract java.util.stream.Stream java.util.stream.IntStream.boxed()
-
-    func boxed() -> Stream!
-
-    /// public static java.util.stream.IntStream java.util.stream.IntStream.rangeClosed(int,int)
-
-    //    class func rangeClosed( startInclusive: Int, endInclusive: Int ) -> IntStream!
-
-    /// public abstract java.util.stream.LongStream java.util.stream.IntStream.asLongStream()
-
-    func asLongStream() -> LongStream!
+    /// public default java.util.stream.BaseStream java.util.stream.IntStream.sequential()
 
 }
 
@@ -525,230 +525,15 @@ open class IntStreamForward: BaseStreamForward, IntStream {
 
     /// public default java.util.stream.BaseStream java.util.stream.IntStream.parallel()
 
-    /// public abstract java.util.OptionalInt java.util.stream.IntStream.reduce(java.util.function.IntBinaryOperator)
-
-    private static var reduce_MethodID_65: jmethodID?
-
-    open func reduce( op: IntBinaryOperator? ) -> OptionalInt! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: op, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduce", methodSig: "(Ljava/util/function/IntBinaryOperator;)Ljava/util/OptionalInt;", methodCache: &IntStreamForward.reduce_MethodID_65, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? OptionalInt( javaObject: __return ) : nil
-    }
-
-    open func reduce( _ _op: IntBinaryOperator? ) -> OptionalInt! {
-        return reduce( op: _op )
-    }
-
-    /// public abstract int java.util.stream.IntStream.reduce(int,java.util.function.IntBinaryOperator)
-
-    private static var reduce_MethodID_66: jmethodID?
-
-    open func reduce( identity: Int, op: IntBinaryOperator? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: identity, locals: &__locals )
-        __args[1] = JNIType.toJava( value: op, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduce", methodSig: "(ILjava/util/function/IntBinaryOperator;)I", methodCache: &IntStreamForward.reduce_MethodID_66, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func reduce( _ _identity: Int, _ _op: IntBinaryOperator? ) -> Int {
-        return reduce( identity: _identity, op: _op )
-    }
-
-    /// public abstract java.util.stream.LongStream java.util.stream.IntStream.mapToLong(java.util.function.IntToLongFunction)
-
-    private static var mapToLong_MethodID_67: jmethodID?
-
-    open func mapToLong( mapper: IntToLongFunction? ) -> LongStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "mapToLong", methodSig: "(Ljava/util/function/IntToLongFunction;)Ljava/util/stream/LongStream;", methodCache: &IntStreamForward.mapToLong_MethodID_67, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? LongStreamForward( javaObject: __return ) : nil
-    }
-
-    open func mapToLong( _ _mapper: IntToLongFunction? ) -> LongStream! {
-        return mapToLong( mapper: _mapper )
-    }
-
-    /// public abstract java.util.stream.DoubleStream java.util.stream.IntStream.mapToDouble(java.util.function.IntToDoubleFunction)
-
-    private static var mapToDouble_MethodID_68: jmethodID?
-
-    open func mapToDouble( mapper: IntToDoubleFunction? ) -> DoubleStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "mapToDouble", methodSig: "(Ljava/util/function/IntToDoubleFunction;)Ljava/util/stream/DoubleStream;", methodCache: &IntStreamForward.mapToDouble_MethodID_68, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
-    }
-
-    open func mapToDouble( _ _mapper: IntToDoubleFunction? ) -> DoubleStream! {
-        return mapToDouble( mapper: _mapper )
-    }
-
-    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.flatMap(java.util.function.IntFunction)
-
-    private static var flatMap_MethodID_69: jmethodID?
-
-    open func flatMap( mapper: IntFunction? ) -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "flatMap", methodSig: "(Ljava/util/function/IntFunction;)Ljava/util/stream/IntStream;", methodCache: &IntStreamForward.flatMap_MethodID_69, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-    open func flatMap( _ _mapper: IntFunction? ) -> IntStream! {
-        return flatMap( mapper: _mapper )
-    }
-
-    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.distinct()
-
-    private static var distinct_MethodID_70: jmethodID?
-
-    open func distinct() -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "distinct", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &IntStreamForward.distinct_MethodID_70, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.sorted()
-
-    private static var sorted_MethodID_71: jmethodID?
-
-    open func sorted() -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sorted", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &IntStreamForward.sorted_MethodID_71, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract void java.util.stream.IntStream.forEachOrdered(java.util.function.IntConsumer)
-
-    private static var forEachOrdered_MethodID_72: jmethodID?
-
-    open func forEachOrdered( action: IntConsumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachOrdered", methodSig: "(Ljava/util/function/IntConsumer;)V", methodCache: &IntStreamForward.forEachOrdered_MethodID_72, args: &__args, locals: &__locals )
-    }
-
-    open func forEachOrdered( _ _action: IntConsumer? ) {
-        forEachOrdered( action: _action )
-    }
-
-    /// public abstract boolean java.util.stream.IntStream.anyMatch(java.util.function.IntPredicate)
-
-    private static var anyMatch_MethodID_73: jmethodID?
-
-    open func anyMatch( predicate: IntPredicate? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: predicate, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "anyMatch", methodSig: "(Ljava/util/function/IntPredicate;)Z", methodCache: &IntStreamForward.anyMatch_MethodID_73, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func anyMatch( _ _predicate: IntPredicate? ) -> Bool {
-        return anyMatch( predicate: _predicate )
-    }
-
-    /// public abstract boolean java.util.stream.IntStream.allMatch(java.util.function.IntPredicate)
-
-    private static var allMatch_MethodID_74: jmethodID?
-
-    open func allMatch( predicate: IntPredicate? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: predicate, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "allMatch", methodSig: "(Ljava/util/function/IntPredicate;)Z", methodCache: &IntStreamForward.allMatch_MethodID_74, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func allMatch( _ _predicate: IntPredicate? ) -> Bool {
-        return allMatch( predicate: _predicate )
-    }
-
-    /// public abstract boolean java.util.stream.IntStream.noneMatch(java.util.function.IntPredicate)
-
-    private static var noneMatch_MethodID_75: jmethodID?
-
-    open func noneMatch( predicate: IntPredicate? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: predicate, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "noneMatch", methodSig: "(Ljava/util/function/IntPredicate;)Z", methodCache: &IntStreamForward.noneMatch_MethodID_75, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func noneMatch( _ _predicate: IntPredicate? ) -> Bool {
-        return noneMatch( predicate: _predicate )
-    }
-
-    /// public abstract java.util.OptionalInt java.util.stream.IntStream.findFirst()
-
-    private static var findFirst_MethodID_76: jmethodID?
-
-    open func findFirst() -> OptionalInt! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findFirst", methodSig: "()Ljava/util/OptionalInt;", methodCache: &IntStreamForward.findFirst_MethodID_76, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? OptionalInt( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract java.util.OptionalInt java.util.stream.IntStream.findAny()
-
-    private static var findAny_MethodID_77: jmethodID?
-
-    open func findAny() -> OptionalInt! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findAny", methodSig: "()Ljava/util/OptionalInt;", methodCache: &IntStreamForward.findAny_MethodID_77, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? OptionalInt( javaObject: __return ) : nil
-    }
-
-
-    /// public default java.util.stream.BaseStream java.util.stream.IntStream.sequential()
-
-    private static var sequential_MethodID_78: jmethodID?
-
-    override open func sequential() -> BaseStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &IntStreamForward.sequential_MethodID_78, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.sequential()
-
     /// public static java.util.stream.IntStream java.util.stream.IntStream.generate(java.util.function.IntSupplier)
 
-    private static var generate_MethodID_79: jmethodID?
+    private static var generate_MethodID_65: jmethodID?
 
     open class func generate( s: IntSupplier? ) -> IntStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: s, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/IntStream", classCache: &IntStreamJNIClass, methodName: "generate", methodSig: "(Ljava/util/function/IntSupplier;)Ljava/util/stream/IntStream;", methodCache: &generate_MethodID_79, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/IntStream", classCache: &IntStreamJNIClass, methodName: "generate", methodSig: "(Ljava/util/function/IntSupplier;)Ljava/util/stream/IntStream;", methodCache: &generate_MethodID_65, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? IntStreamForward( javaObject: __return ) : nil
     }
@@ -759,13 +544,13 @@ open class IntStreamForward: BaseStreamForward, IntStream {
 
     /// public abstract java.util.stream.Stream java.util.stream.IntStream.mapToObj(java.util.function.IntFunction)
 
-    private static var mapToObj_MethodID_80: jmethodID?
+    private static var mapToObj_MethodID_66: jmethodID?
 
     open func mapToObj( mapper: IntFunction? ) -> Stream! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "mapToObj", methodSig: "(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;", methodCache: &IntStreamForward.mapToObj_MethodID_80, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "mapToObj", methodSig: "(Ljava/util/function/IntFunction;)Ljava/util/stream/Stream;", methodCache: &IntStreamForward.mapToObj_MethodID_66, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? StreamForward( javaObject: __return ) : nil
     }
@@ -774,14 +559,48 @@ open class IntStreamForward: BaseStreamForward, IntStream {
         return mapToObj( mapper: _mapper )
     }
 
+    /// public abstract java.util.OptionalInt java.util.stream.IntStream.reduce(java.util.function.IntBinaryOperator)
+
+    private static var reduce_MethodID_67: jmethodID?
+
+    open func reduce( op: IntBinaryOperator? ) -> OptionalInt! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: op, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduce", methodSig: "(Ljava/util/function/IntBinaryOperator;)Ljava/util/OptionalInt;", methodCache: &IntStreamForward.reduce_MethodID_67, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? OptionalInt( javaObject: __return ) : nil
+    }
+
+    open func reduce( _ _op: IntBinaryOperator? ) -> OptionalInt! {
+        return reduce( op: _op )
+    }
+
+    /// public abstract int java.util.stream.IntStream.reduce(int,java.util.function.IntBinaryOperator)
+
+    private static var reduce_MethodID_68: jmethodID?
+
+    open func reduce( identity: Int, op: IntBinaryOperator? ) -> Int {
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: identity, locals: &__locals )
+        __args[1] = JNIType.toJava( value: op, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduce", methodSig: "(ILjava/util/function/IntBinaryOperator;)I", methodCache: &IntStreamForward.reduce_MethodID_68, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Int(), from: __return )
+    }
+
+    open func reduce( _ _identity: Int, _ _op: IntBinaryOperator? ) -> Int {
+        return reduce( identity: _identity, op: _op )
+    }
+
     /// public abstract java.util.OptionalDouble java.util.stream.IntStream.average()
 
-    private static var average_MethodID_81: jmethodID?
+    private static var average_MethodID_69: jmethodID?
 
     open func average() -> OptionalDouble! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "average", methodSig: "()Ljava/util/OptionalDouble;", methodCache: &IntStreamForward.average_MethodID_81, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "average", methodSig: "()Ljava/util/OptionalDouble;", methodCache: &IntStreamForward.average_MethodID_69, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? OptionalDouble( javaObject: __return ) : nil
     }
@@ -789,12 +608,12 @@ open class IntStreamForward: BaseStreamForward, IntStream {
 
     /// public abstract java.util.IntSummaryStatistics java.util.stream.IntStream.summaryStatistics()
 
-    private static var summaryStatistics_MethodID_82: jmethodID?
+    private static var summaryStatistics_MethodID_70: jmethodID?
 
     open func summaryStatistics() -> IntSummaryStatistics! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "summaryStatistics", methodSig: "()Ljava/util/IntSummaryStatistics;", methodCache: &IntStreamForward.summaryStatistics_MethodID_82, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "summaryStatistics", methodSig: "()Ljava/util/IntSummaryStatistics;", methodCache: &IntStreamForward.summaryStatistics_MethodID_70, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? IntSummaryStatistics( javaObject: __return ) : nil
     }
@@ -802,12 +621,12 @@ open class IntStreamForward: BaseStreamForward, IntStream {
 
     /// public abstract java.util.stream.DoubleStream java.util.stream.IntStream.asDoubleStream()
 
-    private static var asDoubleStream_MethodID_83: jmethodID?
+    private static var asDoubleStream_MethodID_71: jmethodID?
 
     open func asDoubleStream() -> DoubleStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asDoubleStream", methodSig: "()Ljava/util/stream/DoubleStream;", methodCache: &IntStreamForward.asDoubleStream_MethodID_83, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asDoubleStream", methodSig: "()Ljava/util/stream/DoubleStream;", methodCache: &IntStreamForward.asDoubleStream_MethodID_71, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
     }
@@ -815,12 +634,12 @@ open class IntStreamForward: BaseStreamForward, IntStream {
 
     /// public abstract java.util.stream.Stream java.util.stream.IntStream.boxed()
 
-    private static var boxed_MethodID_84: jmethodID?
+    private static var boxed_MethodID_72: jmethodID?
 
     open func boxed() -> Stream! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "boxed", methodSig: "()Ljava/util/stream/Stream;", methodCache: &IntStreamForward.boxed_MethodID_84, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "boxed", methodSig: "()Ljava/util/stream/Stream;", methodCache: &IntStreamForward.boxed_MethodID_72, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? StreamForward( javaObject: __return ) : nil
     }
@@ -828,14 +647,14 @@ open class IntStreamForward: BaseStreamForward, IntStream {
 
     /// public static java.util.stream.IntStream java.util.stream.IntStream.rangeClosed(int,int)
 
-    private static var rangeClosed_MethodID_85: jmethodID?
+    private static var rangeClosed_MethodID_73: jmethodID?
 
     open class func rangeClosed( startInclusive: Int, endInclusive: Int ) -> IntStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: startInclusive, locals: &__locals )
         __args[1] = JNIType.toJava( value: endInclusive, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/IntStream", classCache: &IntStreamJNIClass, methodName: "rangeClosed", methodSig: "(II)Ljava/util/stream/IntStream;", methodCache: &rangeClosed_MethodID_85, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/IntStream", classCache: &IntStreamJNIClass, methodName: "rangeClosed", methodSig: "(II)Ljava/util/stream/IntStream;", methodCache: &rangeClosed_MethodID_73, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? IntStreamForward( javaObject: __return ) : nil
     }
@@ -846,16 +665,197 @@ open class IntStreamForward: BaseStreamForward, IntStream {
 
     /// public abstract java.util.stream.LongStream java.util.stream.IntStream.asLongStream()
 
-    private static var asLongStream_MethodID_86: jmethodID?
+    private static var asLongStream_MethodID_74: jmethodID?
 
     open func asLongStream() -> LongStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asLongStream", methodSig: "()Ljava/util/stream/LongStream;", methodCache: &IntStreamForward.asLongStream_MethodID_86, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "asLongStream", methodSig: "()Ljava/util/stream/LongStream;", methodCache: &IntStreamForward.asLongStream_MethodID_74, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LongStreamForward( javaObject: __return ) : nil
     }
 
+
+    /// public abstract java.util.stream.LongStream java.util.stream.IntStream.mapToLong(java.util.function.IntToLongFunction)
+
+    private static var mapToLong_MethodID_75: jmethodID?
+
+    open func mapToLong( mapper: IntToLongFunction? ) -> LongStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "mapToLong", methodSig: "(Ljava/util/function/IntToLongFunction;)Ljava/util/stream/LongStream;", methodCache: &IntStreamForward.mapToLong_MethodID_75, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? LongStreamForward( javaObject: __return ) : nil
+    }
+
+    open func mapToLong( _ _mapper: IntToLongFunction? ) -> LongStream! {
+        return mapToLong( mapper: _mapper )
+    }
+
+    /// public abstract java.util.stream.DoubleStream java.util.stream.IntStream.mapToDouble(java.util.function.IntToDoubleFunction)
+
+    private static var mapToDouble_MethodID_76: jmethodID?
+
+    open func mapToDouble( mapper: IntToDoubleFunction? ) -> DoubleStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "mapToDouble", methodSig: "(Ljava/util/function/IntToDoubleFunction;)Ljava/util/stream/DoubleStream;", methodCache: &IntStreamForward.mapToDouble_MethodID_76, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+    }
+
+    open func mapToDouble( _ _mapper: IntToDoubleFunction? ) -> DoubleStream! {
+        return mapToDouble( mapper: _mapper )
+    }
+
+    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.flatMap(java.util.function.IntFunction)
+
+    private static var flatMap_MethodID_77: jmethodID?
+
+    open func flatMap( mapper: IntFunction? ) -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: mapper, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "flatMap", methodSig: "(Ljava/util/function/IntFunction;)Ljava/util/stream/IntStream;", methodCache: &IntStreamForward.flatMap_MethodID_77, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+    open func flatMap( _ _mapper: IntFunction? ) -> IntStream! {
+        return flatMap( mapper: _mapper )
+    }
+
+    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.distinct()
+
+    private static var distinct_MethodID_78: jmethodID?
+
+    open func distinct() -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "distinct", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &IntStreamForward.distinct_MethodID_78, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.sorted()
+
+    private static var sorted_MethodID_79: jmethodID?
+
+    open func sorted() -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sorted", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &IntStreamForward.sorted_MethodID_79, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract void java.util.stream.IntStream.forEachOrdered(java.util.function.IntConsumer)
+
+    private static var forEachOrdered_MethodID_80: jmethodID?
+
+    open func forEachOrdered( action: IntConsumer? ) {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: action, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachOrdered", methodSig: "(Ljava/util/function/IntConsumer;)V", methodCache: &IntStreamForward.forEachOrdered_MethodID_80, args: &__args, locals: &__locals )
+    }
+
+    open func forEachOrdered( _ _action: IntConsumer? ) {
+        forEachOrdered( action: _action )
+    }
+
+    /// public abstract boolean java.util.stream.IntStream.anyMatch(java.util.function.IntPredicate)
+
+    private static var anyMatch_MethodID_81: jmethodID?
+
+    open func anyMatch( predicate: IntPredicate? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: predicate, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "anyMatch", methodSig: "(Ljava/util/function/IntPredicate;)Z", methodCache: &IntStreamForward.anyMatch_MethodID_81, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func anyMatch( _ _predicate: IntPredicate? ) -> Bool {
+        return anyMatch( predicate: _predicate )
+    }
+
+    /// public abstract boolean java.util.stream.IntStream.allMatch(java.util.function.IntPredicate)
+
+    private static var allMatch_MethodID_82: jmethodID?
+
+    open func allMatch( predicate: IntPredicate? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: predicate, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "allMatch", methodSig: "(Ljava/util/function/IntPredicate;)Z", methodCache: &IntStreamForward.allMatch_MethodID_82, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func allMatch( _ _predicate: IntPredicate? ) -> Bool {
+        return allMatch( predicate: _predicate )
+    }
+
+    /// public abstract boolean java.util.stream.IntStream.noneMatch(java.util.function.IntPredicate)
+
+    private static var noneMatch_MethodID_83: jmethodID?
+
+    open func noneMatch( predicate: IntPredicate? ) -> Bool {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        __args[0] = JNIType.toJava( value: predicate, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "noneMatch", methodSig: "(Ljava/util/function/IntPredicate;)Z", methodCache: &IntStreamForward.noneMatch_MethodID_83, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Bool(), from: __return )
+    }
+
+    open func noneMatch( _ _predicate: IntPredicate? ) -> Bool {
+        return noneMatch( predicate: _predicate )
+    }
+
+    /// public abstract java.util.OptionalInt java.util.stream.IntStream.findFirst()
+
+    private static var findFirst_MethodID_84: jmethodID?
+
+    open func findFirst() -> OptionalInt! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findFirst", methodSig: "()Ljava/util/OptionalInt;", methodCache: &IntStreamForward.findFirst_MethodID_84, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? OptionalInt( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.OptionalInt java.util.stream.IntStream.findAny()
+
+    private static var findAny_MethodID_85: jmethodID?
+
+    open func findAny() -> OptionalInt! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "findAny", methodSig: "()Ljava/util/OptionalInt;", methodCache: &IntStreamForward.findAny_MethodID_85, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? OptionalInt( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.sequential()
+
+    private static var sequential_MethodID_86: jmethodID?
+
+    open func sequential() -> IntStream! {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &IntStreamForward.sequential_MethodID_86, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public default java.util.stream.BaseStream java.util.stream.IntStream.sequential()
 
     /// public abstract void java.util.stream.BaseStream.close()
 

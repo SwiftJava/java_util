@@ -66,7 +66,7 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func copyOf( s: EnumSet? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: s != nil ? s! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: s, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "copyOf", methodSig: "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", methodCache: &copyOf_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -106,10 +106,10 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func of( e1: java_lang.Enum?, e2: java_lang.Enum?, e3: java_lang.Enum?, e4: java_lang.Enum? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e1 != nil ? e1! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: e2 != nil ? e2! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: e3 != nil ? e3! as JNIObject : nil, locals: &__locals )
-        __args[3] = JNIType.toJava( value: e4 != nil ? e4! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e1, locals: &__locals )
+        __args[1] = JNIType.toJava( value: e2, locals: &__locals )
+        __args[2] = JNIType.toJava( value: e3, locals: &__locals )
+        __args[3] = JNIType.toJava( value: e4, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "of", methodSig: "(Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;", methodCache: &of_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -126,11 +126,11 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func of( e1: java_lang.Enum?, e2: java_lang.Enum?, e3: java_lang.Enum?, e4: java_lang.Enum?, e5: java_lang.Enum? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 5 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e1 != nil ? e1! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: e2 != nil ? e2! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: e3 != nil ? e3! as JNIObject : nil, locals: &__locals )
-        __args[3] = JNIType.toJava( value: e4 != nil ? e4! as JNIObject : nil, locals: &__locals )
-        __args[4] = JNIType.toJava( value: e5 != nil ? e5! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e1, locals: &__locals )
+        __args[1] = JNIType.toJava( value: e2, locals: &__locals )
+        __args[2] = JNIType.toJava( value: e3, locals: &__locals )
+        __args[3] = JNIType.toJava( value: e4, locals: &__locals )
+        __args[4] = JNIType.toJava( value: e5, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "of", methodSig: "(Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;", methodCache: &of_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -147,7 +147,7 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func of( first: java_lang.Enum?, rest: [Enum]? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: first != nil ? first! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: first, locals: &__locals )
         __args[1] = JNIType.toJava( value: rest, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "of", methodSig: "(Ljava/lang/Enum;[Ljava/lang/Enum;)Ljava/util/EnumSet;", methodCache: &of_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -165,7 +165,7 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func of( e: java_lang.Enum? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "of", methodSig: "(Ljava/lang/Enum;)Ljava/util/EnumSet;", methodCache: &of_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -182,8 +182,8 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func of( e1: java_lang.Enum?, e2: java_lang.Enum? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e1 != nil ? e1! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: e2 != nil ? e2! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e1, locals: &__locals )
+        __args[1] = JNIType.toJava( value: e2, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "of", methodSig: "(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;", methodCache: &of_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -200,9 +200,9 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func of( e1: java_lang.Enum?, e2: java_lang.Enum?, e3: java_lang.Enum? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e1 != nil ? e1! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: e2 != nil ? e2! as JNIObject : nil, locals: &__locals )
-        __args[2] = JNIType.toJava( value: e3 != nil ? e3! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e1, locals: &__locals )
+        __args[1] = JNIType.toJava( value: e2, locals: &__locals )
+        __args[2] = JNIType.toJava( value: e3, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "of", methodSig: "(Ljava/lang/Enum;Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;", methodCache: &of_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -223,8 +223,8 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func range( from: java_lang.Enum?, to: java_lang.Enum? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: from != nil ? from! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: to != nil ? to! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: from, locals: &__locals )
+        __args[1] = JNIType.toJava( value: to, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "range", methodSig: "(Ljava/lang/Enum;Ljava/lang/Enum;)Ljava/util/EnumSet;", methodCache: &range_MethodID_11, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -234,6 +234,8 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
         return range( from: _from, to: _to )
     }
 
+    /// final void java.util.EnumSet.typeCheck(java.lang.Enum)
+
     /// public static java.util.EnumSet java.util.EnumSet.noneOf(java.lang.Class)
 
     private static var noneOf_MethodID_12: jmethodID?
@@ -241,7 +243,7 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func noneOf( elementType: java_swift.JavaClass? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: elementType != nil ? elementType! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: elementType, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "noneOf", methodSig: "(Ljava/lang/Class;)Ljava/util/EnumSet;", methodCache: &noneOf_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -258,7 +260,7 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func allOf( elementType: java_swift.JavaClass? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: elementType != nil ? elementType! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: elementType, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "allOf", methodSig: "(Ljava/lang/Class;)Ljava/util/EnumSet;", methodCache: &allOf_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -275,7 +277,7 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     open class func complementOf( s: EnumSet? ) -> EnumSet! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: s != nil ? s! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: s, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/EnumSet", classCache: &EnumSetJNIClass, methodName: "complementOf", methodSig: "(Ljava/util/EnumSet;)Ljava/util/EnumSet;", methodCache: &complementOf_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EnumSet( javaObject: __return ) : nil
@@ -288,8 +290,6 @@ open class EnumSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
     /// abstract void java.util.EnumSet.addRange(java.lang.Enum,java.lang.Enum)
 
     /// private static java.lang.Enum[] java.util.EnumSet.getUniverse(java.lang.Class)
-
-    /// final void java.util.EnumSet.typeCheck(java.lang.Enum)
 
 }
 

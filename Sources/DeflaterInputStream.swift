@@ -58,7 +58,7 @@ open class DeflaterInputStream: /* java.io.FilterInputStream */ UnclassedObject 
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &DeflaterInputStream._in_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -72,8 +72,8 @@ open class DeflaterInputStream: /* java.io.FilterInputStream */ UnclassedObject 
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, defl: Deflater?, bufLen: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: defl != nil ? defl! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
+        __args[1] = JNIType.toJava( value: defl, locals: &__locals )
         __args[2] = JNIType.toJava( value: bufLen, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/util/zip/Deflater;I)V", methodCache: &DeflaterInputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -91,7 +91,7 @@ open class DeflaterInputStream: /* java.io.FilterInputStream */ UnclassedObject 
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &DeflaterInputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -108,8 +108,8 @@ open class DeflaterInputStream: /* java.io.FilterInputStream */ UnclassedObject 
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, defl: Deflater? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
-        __args[1] = JNIType.toJava( value: defl != nil ? defl! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
+        __args[1] = JNIType.toJava( value: defl, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/util/zip/Deflater;)V", methodCache: &DeflaterInputStream.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )

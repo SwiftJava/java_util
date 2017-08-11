@@ -95,15 +95,15 @@ open class ConcurrentLinkedQueue: AbstractQueue, /* java.io.Serializable */ Uncl
 
     /// final java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.succ(java.util.concurrent.ConcurrentLinkedQueue$Node)
 
-    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.offer(java.lang.Object)
-
-    /// private static void java.util.concurrent.ConcurrentLinkedQueue.checkNotNull(java.lang.Object)
-
     /// final void java.util.concurrent.ConcurrentLinkedQueue.updateHead(java.util.concurrent.ConcurrentLinkedQueue$Node,java.util.concurrent.ConcurrentLinkedQueue$Node)
+
+    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.offer(java.lang.Object)
 
     /// private boolean java.util.concurrent.ConcurrentLinkedQueue.casHead(java.util.concurrent.ConcurrentLinkedQueue$Node,java.util.concurrent.ConcurrentLinkedQueue$Node)
 
     /// private boolean java.util.concurrent.ConcurrentLinkedQueue.casTail(java.util.concurrent.ConcurrentLinkedQueue$Node,java.util.concurrent.ConcurrentLinkedQueue$Node)
+
+    /// private static void java.util.concurrent.ConcurrentLinkedQueue.checkNotNull(java.lang.Object)
 
     /// In declared protocol but not defined.. ///
 
@@ -114,7 +114,7 @@ open class ConcurrentLinkedQueue: AbstractQueue, /* java.io.Serializable */ Uncl
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentLinkedQueue.equals_MethodID_3, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }

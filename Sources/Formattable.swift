@@ -25,7 +25,7 @@ open class FormattableForward: JNIObjectForward, Formattable {
     open func formatTo( formatter: Formatter?, flags: Int, width: Int, precision: Int ) {
         var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: formatter != nil ? formatter! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: formatter, locals: &__locals )
         __args[1] = JNIType.toJava( value: flags, locals: &__locals )
         __args[2] = JNIType.toJava( value: width, locals: &__locals )
         __args[3] = JNIType.toJava( value: precision, locals: &__locals )

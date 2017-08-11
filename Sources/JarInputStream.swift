@@ -142,7 +142,7 @@ open class JarInputStream: ZipInputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &JarInputStream.inf_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -203,7 +203,7 @@ open class JarInputStream: ZipInputStream {
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue != nil ? newValue! as JNIObject : nil, locals: &__locals )
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
             JNIField.SetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &JarInputStream._in_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
@@ -217,7 +217,7 @@ open class JarInputStream: ZipInputStream {
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarInputStream", classCache: &JarInputStream.JarInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &JarInputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -234,7 +234,7 @@ open class JarInputStream: ZipInputStream {
     public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, verify: Bool ) throws {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in != nil ? _in! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         __args[1] = JNIType.toJava( value: verify, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarInputStream", classCache: &JarInputStream.JarInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Z)V", methodCache: &JarInputStream.new_MethodID_2, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
@@ -264,6 +264,8 @@ open class JarInputStream: ZipInputStream {
         return __return != nil ? Manifest( javaObject: __return ) : nil
     }
 
+
+    /// public java.util.zip.ZipEntry java.util.jar.JarInputStream.getNextEntry() throws java.io.IOException
 
     /// private java.util.jar.JarEntry java.util.jar.JarInputStream.checkManifest(java.util.jar.JarEntry) throws java.io.IOException
 
@@ -299,8 +301,6 @@ open class JarInputStream: ZipInputStream {
     override open func createZipEntry( _ _name: String? ) -> ZipEntry! {
         return createZipEntry( name: _name )
     }
-
-    /// public java.util.zip.ZipEntry java.util.jar.JarInputStream.getNextEntry() throws java.io.IOException
 
 }
 

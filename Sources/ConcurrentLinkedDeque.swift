@@ -40,33 +40,33 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
 
     /// private static final int java.util.AbstractCollection.MAX_ARRAY_SIZE
 
-    /// public java.util.concurrent.ConcurrentLinkedDeque()
-
-    private static var new_MethodID_1: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentLinkedDeque", classCache: &ConcurrentLinkedDeque.ConcurrentLinkedDequeJNIClass, methodSig: "()V", methodCache: &ConcurrentLinkedDeque.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
     /// public java.util.concurrent.ConcurrentLinkedDeque(java.util.Collection)
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_1: jmethodID?
 
     public convenience init( c: Collection? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentLinkedDeque", classCache: &ConcurrentLinkedDeque.ConcurrentLinkedDequeJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &ConcurrentLinkedDeque.new_MethodID_2, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentLinkedDeque", classCache: &ConcurrentLinkedDeque.ConcurrentLinkedDequeJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &ConcurrentLinkedDeque.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
     public convenience init( _ _c: Collection? ) {
         self.init( c: _c )
+    }
+
+    /// public java.util.concurrent.ConcurrentLinkedDeque()
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init() {
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        var __locals = [jobject]()
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentLinkedDeque", classCache: &ConcurrentLinkedDeque.ConcurrentLinkedDequeJNIClass, methodSig: "()V", methodCache: &ConcurrentLinkedDeque.new_MethodID_2, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
     }
 
     /// public boolean java.util.concurrent.ConcurrentLinkedDeque.add(java.lang.Object)
@@ -126,7 +126,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     open func push( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "push", methodSig: "(Ljava/lang/Object;)V", methodCache: &ConcurrentLinkedDeque.push_MethodID_5, args: &__args, locals: &__locals )
     }
 
@@ -196,6 +196,20 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
 
     /// final java.util.concurrent.ConcurrentLinkedDeque$Node java.util.concurrent.ConcurrentLinkedDeque.pred(java.util.concurrent.ConcurrentLinkedDeque$Node)
 
+    /// java.util.concurrent.ConcurrentLinkedDeque$Node java.util.concurrent.ConcurrentLinkedDeque.prevTerminator()
+
+    /// java.util.concurrent.ConcurrentLinkedDeque$Node java.util.concurrent.ConcurrentLinkedDeque.nextTerminator()
+
+    /// private final void java.util.concurrent.ConcurrentLinkedDeque.updateHead()
+
+    /// private final void java.util.concurrent.ConcurrentLinkedDeque.updateTail()
+
+    /// private void java.util.concurrent.ConcurrentLinkedDeque.skipDeletedPredecessors(java.util.concurrent.ConcurrentLinkedDeque$Node)
+
+    /// private void java.util.concurrent.ConcurrentLinkedDeque.skipDeletedSuccessors(java.util.concurrent.ConcurrentLinkedDeque$Node)
+
+    /// private java.lang.Object java.util.concurrent.ConcurrentLinkedDeque.screenNullResult(java.lang.Object)
+
     /// public void java.util.concurrent.ConcurrentLinkedDeque.addFirst(java.lang.Object)
 
     private static var addFirst_MethodID_10: jmethodID?
@@ -203,7 +217,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     open func addFirst( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "addFirst", methodSig: "(Ljava/lang/Object;)V", methodCache: &ConcurrentLinkedDeque.addFirst_MethodID_10, args: &__args, locals: &__locals )
     }
 
@@ -218,7 +232,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     open func addLast( e: java_swift.JavaObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "addLast", methodSig: "(Ljava/lang/Object;)V", methodCache: &ConcurrentLinkedDeque.addLast_MethodID_11, args: &__args, locals: &__locals )
     }
 
@@ -233,7 +247,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     open func offerFirst( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerFirst", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentLinkedDeque.offerFirst_MethodID_12, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -249,7 +263,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     open func offerLast( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerLast", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentLinkedDeque.offerLast_MethodID_13, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -356,7 +370,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     open func removeFirstOccurrence( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeFirstOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentLinkedDeque.removeFirstOccurrence_MethodID_21, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -372,7 +386,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     open func removeLastOccurrence( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeLastOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentLinkedDeque.removeLastOccurrence_MethodID_22, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -388,7 +402,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     open func offer( e: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e != nil ? e! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentLinkedDeque.offer_MethodID_23, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
@@ -420,22 +434,6 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
 
     /// void java.util.concurrent.ConcurrentLinkedDeque.unlink(java.util.concurrent.ConcurrentLinkedDeque$Node)
 
-    /// private static void java.util.concurrent.ConcurrentLinkedDeque.checkNotNull(java.lang.Object)
-
-    /// java.util.concurrent.ConcurrentLinkedDeque$Node java.util.concurrent.ConcurrentLinkedDeque.prevTerminator()
-
-    /// java.util.concurrent.ConcurrentLinkedDeque$Node java.util.concurrent.ConcurrentLinkedDeque.nextTerminator()
-
-    /// private final void java.util.concurrent.ConcurrentLinkedDeque.updateHead()
-
-    /// private final void java.util.concurrent.ConcurrentLinkedDeque.updateTail()
-
-    /// private void java.util.concurrent.ConcurrentLinkedDeque.skipDeletedPredecessors(java.util.concurrent.ConcurrentLinkedDeque$Node)
-
-    /// private void java.util.concurrent.ConcurrentLinkedDeque.skipDeletedSuccessors(java.util.concurrent.ConcurrentLinkedDeque$Node)
-
-    /// private java.lang.Object java.util.concurrent.ConcurrentLinkedDeque.screenNullResult(java.lang.Object)
-
     /// private java.util.ArrayList java.util.concurrent.ConcurrentLinkedDeque.toArrayList()
 
     /// private void java.util.concurrent.ConcurrentLinkedDeque.initHeadTail(java.util.concurrent.ConcurrentLinkedDeque$Node,java.util.concurrent.ConcurrentLinkedDeque$Node)
@@ -443,6 +441,8 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     /// private boolean java.util.concurrent.ConcurrentLinkedDeque.casHead(java.util.concurrent.ConcurrentLinkedDeque$Node,java.util.concurrent.ConcurrentLinkedDeque$Node)
 
     /// private boolean java.util.concurrent.ConcurrentLinkedDeque.casTail(java.util.concurrent.ConcurrentLinkedDeque$Node,java.util.concurrent.ConcurrentLinkedDeque$Node)
+
+    /// private static void java.util.concurrent.ConcurrentLinkedDeque.checkNotNull(java.lang.Object)
 
     /// In declared protocol but not defined.. ///
 
@@ -453,7 +453,7 @@ open class ConcurrentLinkedDeque: AbstractCollection, Deque, /* java.io.Serializ
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o != nil ? o! as JNIObject : nil, locals: &__locals )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentLinkedDeque.equals_MethodID_25, args: &__args, locals: &__locals )
         return JNIType.toSwift( type: Bool(), from: __return )
     }
