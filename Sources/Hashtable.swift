@@ -6,21 +6,27 @@ import java_lang
 
 /// class java.util.Hashtable ///
 
-open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* java.io.Serializable */ UnclassedProtocol {
-    public func computeIfAbsent(arg0: JavaObject?, arg1: UnclassedProtocol?) -> JavaObject! {
+open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* interface java.io.Serializable */ UnavailableProtocol {
+    public func compute(arg0: JavaObject?, arg1: UnavailableProtocol?) -> JavaObject! {
         return nil
     }
 
-    public func computeIfPresent(arg0: JavaObject?, arg1: UnclassedProtocol?) -> JavaObject! {
+    public func computeIfAbsent(arg0: JavaObject?, arg1: UnavailableProtocol?) -> JavaObject! {
         return nil
     }
 
-    public func compute(arg0: JavaObject?, arg1: UnclassedProtocol?) -> JavaObject! {
+    public func computeIfPresent(arg0: JavaObject?, arg1: UnavailableProtocol?) -> JavaObject! {
         return nil
     }
 
-    public func merge(arg0: JavaObject?, arg1: JavaObject?, arg2: UnclassedProtocol?) -> JavaObject! {
+    public func forEach(arg0: UnavailableProtocol?) {
+    }
+
+    public func merge(arg0: JavaObject?, arg1: JavaObject?, arg2: UnavailableProtocol?) -> JavaObject! {
         return nil
+    }
+
+    public func replaceAll(arg0: UnavailableProtocol?) {
     }
 
 
@@ -36,70 +42,53 @@ open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* ja
 
     private static var HashtableJNIClass: jclass?
 
-    /// private transient java.util.Hashtable$Entry[] java.util.Hashtable.table
+    /// private static final int java.util.Hashtable.ENTRIES
+
+    /// private static final int java.util.Hashtable.KEYS
+
+    /// private static final int java.util.Hashtable.MAX_ARRAY_SIZE
+
+    /// private static final int java.util.Hashtable.VALUES
+
+    /// private static final long java.util.Hashtable.serialVersionUID
 
     /// private transient int java.util.Hashtable.count
 
-    /// private int java.util.Hashtable.threshold
+    /// private transient volatile java.util.Set java.util.Hashtable.entrySet
+
+    /// private transient volatile java.util.Set java.util.Hashtable.keySet
 
     /// private float java.util.Hashtable.loadFactor
 
     /// private transient int java.util.Hashtable.modCount
 
-    /// private static final long java.util.Hashtable.serialVersionUID
+    /// private transient java.util.Hashtable$Entry[] java.util.Hashtable.table
 
-    /// private static final int java.util.Hashtable.MAX_ARRAY_SIZE
-
-    /// private transient volatile java.util.Set java.util.Hashtable.keySet
-
-    /// private transient volatile java.util.Set java.util.Hashtable.entrySet
+    /// private int java.util.Hashtable.threshold
 
     /// private transient volatile java.util.Collection java.util.Hashtable.values
 
-    /// private static final int java.util.Hashtable.KEYS
-
-    /// private static final int java.util.Hashtable.VALUES
-
-    /// private static final int java.util.Hashtable.ENTRIES
-
-    /// public java.util.Hashtable(java.util.Map)
+    /// public java.util.Hashtable()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( arg0: java_swift.JavaMap? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, mapClass: "java/util/Map", locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Hashtable", classCache: &Hashtable.HashtableJNIClass, methodSig: "(Ljava/util/Map;)V", methodCache: &Hashtable.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _arg0: java_swift.JavaMap? ) {
-        self.init( arg0: _arg0 )
-    }
-
-    /// public java.util.Hashtable()
-
-    private static var new_MethodID_2: jmethodID?
-
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/Hashtable", classCache: &Hashtable.HashtableJNIClass, methodSig: "()V", methodCache: &Hashtable.new_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/Hashtable", classCache: &Hashtable.HashtableJNIClass, methodSig: "()V", methodCache: &Hashtable.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
     /// public java.util.Hashtable(int)
 
-    private static var new_MethodID_3: jmethodID?
+    private static var new_MethodID_2: jmethodID?
 
     public convenience init( arg0: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Hashtable", classCache: &Hashtable.HashtableJNIClass, methodSig: "(I)V", methodCache: &Hashtable.new_MethodID_3, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(arg0) )
+        let __object = JNIMethod.NewObject( className: "java/util/Hashtable", classCache: &Hashtable.HashtableJNIClass, methodSig: "(I)V", methodCache: &Hashtable.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -110,14 +99,14 @@ open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* ja
 
     /// public java.util.Hashtable(int,float)
 
-    private static var new_MethodID_4: jmethodID?
+    private static var new_MethodID_3: jmethodID?
 
     public convenience init( arg0: Int, arg1: Float ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Hashtable", classCache: &Hashtable.HashtableJNIClass, methodSig: "(IF)V", methodCache: &Hashtable.new_MethodID_4, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(arg0) )
+        __args[1] = jvalue( f: arg1 )
+        let __object = JNIMethod.NewObject( className: "java/util/Hashtable", classCache: &Hashtable.HashtableJNIClass, methodSig: "(IF)V", methodCache: &Hashtable.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -126,308 +115,101 @@ open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* ja
         self.init( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public synchronized java.lang.Object java.util.Hashtable.remove(java.lang.Object)
+    /// public java.util.Hashtable(java.util.Map)
 
-    /// public synchronized boolean java.util.Hashtable.remove(java.lang.Object,java.lang.Object)
+    private static var new_MethodID_4: jmethodID?
 
-    private static var remove_MethodID_5: jmethodID?
-
-    open func remove( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( arg0: java_swift.JavaMap? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &Hashtable.remove_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func remove( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> Bool {
-        return remove( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// public synchronized java.lang.Object java.util.Hashtable.get(java.lang.Object)
-
-    /// public synchronized java.lang.Object java.util.Hashtable.put(java.lang.Object,java.lang.Object)
-
-    /// public synchronized boolean java.util.Hashtable.equals(java.lang.Object)
-
-    /// public synchronized java.lang.String java.util.Hashtable.toString()
-
-    /// public java.util.Collection java.util.Hashtable.values()
-
-    private static var values_MethodID_6: jmethodID?
-
-    open func values() -> Collection! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "values", methodSig: "()Ljava/util/Collection;", methodCache: &Hashtable.values_MethodID_6, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? CollectionForward( javaObject: __return ) : nil
+        __args[0] = JNIType.toJava( value: arg0, mapClass: "java/util/Map", locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/Hashtable", classCache: &Hashtable.HashtableJNIClass, methodSig: "(Ljava/util/Map;)V", methodCache: &Hashtable.new_MethodID_4, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
     }
 
-
-    /// public synchronized int java.util.Hashtable.hashCode()
-
-    /// public synchronized java.lang.Object java.util.Hashtable.clone()
-
-    private static var clone_MethodID_7: jmethodID?
-
-    override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &Hashtable.clone_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    public convenience init( _ _arg0: java_swift.JavaMap? ) {
+        self.init( arg0: _arg0 )
     }
-
-
-    /// public synchronized void java.util.Hashtable.clear()
-
-    private static var clear_MethodID_8: jmethodID?
-
-    open func clear() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "()V", methodCache: &Hashtable.clear_MethodID_8, args: &__args, locals: &__locals )
-    }
-
-
-    /// public synchronized boolean java.util.Hashtable.isEmpty()
-
-    /// public synchronized boolean java.util.Hashtable.replace(java.lang.Object,java.lang.Object,java.lang.Object)
-
-    private static var replace_MethodID_9: jmethodID?
-
-    open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &Hashtable.replace_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: java_swift.JavaObject? ) -> Bool {
-        return replace( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
-    }
-
-    /// public synchronized java.lang.Object java.util.Hashtable.replace(java.lang.Object,java.lang.Object)
-
-    private static var replace_MethodID_10: jmethodID?
-
-    open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Hashtable.replace_MethodID_10, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return replace( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// public synchronized boolean java.util.Hashtable.contains(java.lang.Object)
-
-    private static var contains_MethodID_11: jmethodID?
-
-    open func contains( arg0: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "contains", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Hashtable.contains_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func contains( _ _arg0: java_swift.JavaObject? ) -> Bool {
-        return contains( arg0: _arg0 )
-    }
-
-    /// public synchronized void java.util.Hashtable.replaceAll(java.util.function.BiFunction)
-
-    private static var replaceAll_MethodID_12: jmethodID?
-
-    open func replaceAll( arg0: BiFunction? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "replaceAll", methodSig: "(Ljava/util/function/BiFunction;)V", methodCache: &Hashtable.replaceAll_MethodID_12, args: &__args, locals: &__locals )
-    }
-
-    open func replaceAll( _ _arg0: BiFunction? ) {
-        replaceAll( arg0: _arg0 )
-    }
-
-    /// public synchronized java.util.Enumeration java.util.Hashtable.elements()
-
-    /// public synchronized int java.util.Hashtable.size()
 
     /// static java.util.Iterator java.util.Hashtable.access$100(java.util.Hashtable,int)
 
+    // Skipping method: true false false false false 
+
     /// static int java.util.Hashtable.access$200(java.util.Hashtable)
 
-    /// public java.util.Set java.util.Hashtable.entrySet()
+    // Skipping method: true false false false false 
 
-    private static var entrySet_MethodID_13: jmethodID?
+    /// static int java.util.Hashtable.access$210(java.util.Hashtable)
 
-    open func entrySet() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "entrySet", methodSig: "()Ljava/util/Set;", methodCache: &Hashtable.entrySet_MethodID_13, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
-    }
-
-
-    /// public synchronized void java.util.Hashtable.putAll(java.util.Map)
-
-    private static var putAll_MethodID_14: jmethodID?
-
-    open func putAll( arg0: java_swift.JavaMap? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, mapClass: "java/util/Map", locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "putAll", methodSig: "(Ljava/util/Map;)V", methodCache: &Hashtable.putAll_MethodID_14, args: &__args, locals: &__locals )
-    }
-
-    open func putAll( _ _arg0: java_swift.JavaMap? ) {
-        putAll( arg0: _arg0 )
-    }
-
-    /// public synchronized java.lang.Object java.util.Hashtable.putIfAbsent(java.lang.Object,java.lang.Object)
-
-    private static var putIfAbsent_MethodID_15: jmethodID?
-
-    open func putIfAbsent( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Hashtable.putIfAbsent_MethodID_15, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func putIfAbsent( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return putIfAbsent( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// private void java.util.Hashtable.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.Hashtable.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+    // Skipping method: true false false false false 
 
     /// static java.util.Hashtable$Entry[] java.util.Hashtable.access$400(java.util.Hashtable)
 
-    /// public synchronized java.util.Enumeration java.util.Hashtable.keys()
+    // Skipping method: true false false false false 
 
-    /// public java.util.Set java.util.Hashtable.keySet()
+    /// static int java.util.Hashtable.access$500(java.util.Hashtable)
 
-    private static var keySet_MethodID_16: jmethodID?
+    // Skipping method: true false false false false 
 
-    open func keySet() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keySet", methodSig: "()Ljava/util/Set;", methodCache: &Hashtable.keySet_MethodID_16, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
-    }
+    /// static int java.util.Hashtable.access$508(java.util.Hashtable)
 
-
-    /// public boolean java.util.Hashtable.containsValue(java.lang.Object)
-
-    private static var containsValue_MethodID_17: jmethodID?
-
-    open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Hashtable.containsValue_MethodID_17, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func containsValue( _ _arg0: java_swift.JavaObject? ) -> Bool {
-        return containsValue( arg0: _arg0 )
-    }
-
-    /// public synchronized boolean java.util.Hashtable.containsKey(java.lang.Object)
-
-    private static var containsKey_MethodID_18: jmethodID?
-
-    open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Hashtable.containsKey_MethodID_18, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func containsKey( _ _arg0: java_swift.JavaObject? ) -> Bool {
-        return containsKey( arg0: _arg0 )
-    }
-
-    /// protected void java.util.Hashtable.rehash()
-
-    private static var rehash_MethodID_19: jmethodID?
-
-    open func rehash() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "rehash", methodSig: "()V", methodCache: &Hashtable.rehash_MethodID_19, args: &__args, locals: &__locals )
-    }
-
+    // Skipping method: true false false false false 
 
     /// private void java.util.Hashtable.addEntry(int,java.lang.Object,java.lang.Object,int)
 
-    /// private java.util.Enumeration java.util.Hashtable.getEnumeration(int)
+    /// public synchronized void java.util.Hashtable.clear()
 
-    /// private java.util.Iterator java.util.Hashtable.getIterator(int)
+    private static var clear_MethodID_5: jmethodID?
 
-    /// public synchronized java.lang.Object java.util.Hashtable.getOrDefault(java.lang.Object,java.lang.Object)
-
-    private static var getOrDefault_MethodID_20: jmethodID?
-
-    open func getOrDefault( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open func clear() {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getOrDefault", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Hashtable.getOrDefault_MethodID_20, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "()V", methodCache: &Hashtable.clear_MethodID_5, args: &__args, locals: &__locals )
+    }
+
+
+    /// public synchronized java.lang.Object java.util.Hashtable.clone()
+
+    private static var clone_MethodID_6: jmethodID?
+
+    override open func clone() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &Hashtable.clone_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-    open func getOrDefault( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return getOrDefault( arg0: _arg0, arg1: _arg1 )
-    }
 
-    /// public synchronized void java.util.Hashtable.forEach(java.util.function.BiConsumer)
+    /// public synchronized java.lang.Object java.util.Hashtable.compute(java.lang.Object,java.util.function.BiFunction)
 
-    private static var forEach_MethodID_21: jmethodID?
+    private static var compute_MethodID_7: jmethodID?
 
-    open func forEach( arg0: BiConsumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func compute( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(Ljava/util/function/BiConsumer;)V", methodCache: &Hashtable.forEach_MethodID_21, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compute", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Hashtable.compute_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-    open func forEach( _ _arg0: BiConsumer? ) {
-        forEach( arg0: _arg0 )
+    open func compute( _ _arg0: java_swift.JavaObject?, _ _arg1: BiFunction? ) -> java_swift.JavaObject! {
+        return compute( arg0: _arg0, arg1: _arg1 )
     }
 
     /// public synchronized java.lang.Object java.util.Hashtable.computeIfAbsent(java.lang.Object,java.util.function.Function)
 
-    private static var computeIfAbsent_MethodID_22: jmethodID?
+    private static var computeIfAbsent_MethodID_8: jmethodID?
 
     open func computeIfAbsent( arg0: java_swift.JavaObject?, arg1: Function? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", methodCache: &Hashtable.computeIfAbsent_MethodID_22, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", methodCache: &Hashtable.computeIfAbsent_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -438,14 +220,14 @@ open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* ja
 
     /// public synchronized java.lang.Object java.util.Hashtable.computeIfPresent(java.lang.Object,java.util.function.BiFunction)
 
-    private static var computeIfPresent_MethodID_23: jmethodID?
+    private static var computeIfPresent_MethodID_9: jmethodID?
 
     open func computeIfPresent( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfPresent", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Hashtable.computeIfPresent_MethodID_23, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfPresent", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Hashtable.computeIfPresent_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -454,35 +236,152 @@ open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* ja
         return computeIfPresent( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public synchronized java.lang.Object java.util.Hashtable.compute(java.lang.Object,java.util.function.BiFunction)
+    /// public synchronized boolean java.util.Hashtable.contains(java.lang.Object)
 
-    private static var compute_MethodID_24: jmethodID?
+    private static var contains_MethodID_10: jmethodID?
 
-    open func compute( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open func contains( arg0: java_swift.JavaObject? ) -> Bool {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "contains", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Hashtable.contains_MethodID_10, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func contains( _ _arg0: java_swift.JavaObject? ) -> Bool {
+        return contains( arg0: _arg0 )
+    }
+
+    /// public synchronized boolean java.util.Hashtable.containsKey(java.lang.Object)
+
+    private static var containsKey_MethodID_11: jmethodID?
+
+    open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Hashtable.containsKey_MethodID_11, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func containsKey( _ _arg0: java_swift.JavaObject? ) -> Bool {
+        return containsKey( arg0: _arg0 )
+    }
+
+    /// public boolean java.util.Hashtable.containsValue(java.lang.Object)
+
+    private static var containsValue_MethodID_12: jmethodID?
+
+    open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Hashtable.containsValue_MethodID_12, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func containsValue( _ _arg0: java_swift.JavaObject? ) -> Bool {
+        return containsValue( arg0: _arg0 )
+    }
+
+    /// public synchronized java.util.Enumeration java.util.Hashtable.elements()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Set java.util.Hashtable.entrySet()
+
+    private static var entrySet_MethodID_13: jmethodID?
+
+    open func entrySet() -> java_swift.JavaSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "entrySet", methodSig: "()Ljava/util/Set;", methodCache: &Hashtable.entrySet_MethodID_13, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public synchronized boolean java.util.Hashtable.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized void java.util.Hashtable.forEach(java.util.function.BiConsumer)
+
+    private static var forEach_MethodID_14: jmethodID?
+
+    open func forEach( arg0: BiConsumer? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(Ljava/util/function/BiConsumer;)V", methodCache: &Hashtable.forEach_MethodID_14, args: &__args, locals: &__locals )
+    }
+
+    open func forEach( _ _arg0: BiConsumer? ) {
+        forEach( arg0: _arg0 )
+    }
+
+    /// public synchronized java.lang.Object java.util.Hashtable.get(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// private java.util.Enumeration java.util.Hashtable.getEnumeration(int)
+
+    /// private java.util.Iterator java.util.Hashtable.getIterator(int)
+
+    /// public synchronized java.lang.Object java.util.Hashtable.getOrDefault(java.lang.Object,java.lang.Object)
+
+    private static var getOrDefault_MethodID_15: jmethodID?
+
+    open func getOrDefault( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compute", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Hashtable.compute_MethodID_24, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getOrDefault", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Hashtable.getOrDefault_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-    open func compute( _ _arg0: java_swift.JavaObject?, _ _arg1: BiFunction? ) -> java_swift.JavaObject! {
-        return compute( arg0: _arg0, arg1: _arg1 )
+    open func getOrDefault( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return getOrDefault( arg0: _arg0, arg1: _arg1 )
     }
+
+    /// public synchronized int java.util.Hashtable.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized boolean java.util.Hashtable.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Set java.util.Hashtable.keySet()
+
+    private static var keySet_MethodID_16: jmethodID?
+
+    open func keySet() -> java_swift.JavaSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keySet", methodSig: "()Ljava/util/Set;", methodCache: &Hashtable.keySet_MethodID_16, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public synchronized java.util.Enumeration java.util.Hashtable.keys()
+
+    // Skipping method: false true false false false 
 
     /// public synchronized java.lang.Object java.util.Hashtable.merge(java.lang.Object,java.lang.Object,java.util.function.BiFunction)
 
-    private static var merge_MethodID_25: jmethodID?
+    private static var merge_MethodID_17: jmethodID?
 
     open func merge( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Hashtable.merge_MethodID_25, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Hashtable.merge_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -491,29 +390,182 @@ open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* ja
         return merge( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
     }
 
+    /// public synchronized java.lang.Object java.util.Hashtable.put(java.lang.Object,java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized void java.util.Hashtable.putAll(java.util.Map)
+
+    private static var putAll_MethodID_18: jmethodID?
+
+    open func putAll( arg0: java_swift.JavaMap? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, mapClass: "java/util/Map", locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "putAll", methodSig: "(Ljava/util/Map;)V", methodCache: &Hashtable.putAll_MethodID_18, args: &__args, locals: &__locals )
+    }
+
+    open func putAll( _ _arg0: java_swift.JavaMap? ) {
+        putAll( arg0: _arg0 )
+    }
+
+    /// public synchronized java.lang.Object java.util.Hashtable.putIfAbsent(java.lang.Object,java.lang.Object)
+
+    private static var putIfAbsent_MethodID_19: jmethodID?
+
+    open func putIfAbsent( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Hashtable.putIfAbsent_MethodID_19, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func putIfAbsent( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return putIfAbsent( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// private void java.util.Hashtable.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
     /// private void java.util.Hashtable.reconstitutionPut(java.util.Hashtable$Entry[],java.lang.Object,java.lang.Object) throws java.io.StreamCorruptedException
 
-    /// static int java.util.Hashtable.access$508(java.util.Hashtable)
+    /// protected void java.util.Hashtable.rehash()
 
-    /// static int java.util.Hashtable.access$210(java.util.Hashtable)
+    private static var rehash_MethodID_20: jmethodID?
 
-    /// static int java.util.Hashtable.access$500(java.util.Hashtable)
+    open func rehash() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "rehash", methodSig: "()V", methodCache: &Hashtable.rehash_MethodID_20, args: &__args, locals: &__locals )
+    }
+
+
+    /// public synchronized java.lang.Object java.util.Hashtable.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized boolean java.util.Hashtable.remove(java.lang.Object,java.lang.Object)
+
+    private static var remove_MethodID_21: jmethodID?
+
+    open func remove( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &Hashtable.remove_MethodID_21, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func remove( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> Bool {
+        return remove( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public synchronized java.lang.Object java.util.Hashtable.replace(java.lang.Object,java.lang.Object)
+
+    private static var replace_MethodID_22: jmethodID?
+
+    open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Hashtable.replace_MethodID_22, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return replace( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public synchronized boolean java.util.Hashtable.replace(java.lang.Object,java.lang.Object,java.lang.Object)
+
+    private static var replace_MethodID_23: jmethodID?
+
+    open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &Hashtable.replace_MethodID_23, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: java_swift.JavaObject? ) -> Bool {
+        return replace( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
+    }
+
+    /// public synchronized void java.util.Hashtable.replaceAll(java.util.function.BiFunction)
+
+    private static var replaceAll_MethodID_24: jmethodID?
+
+    open func replaceAll( arg0: BiFunction? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "replaceAll", methodSig: "(Ljava/util/function/BiFunction;)V", methodCache: &Hashtable.replaceAll_MethodID_24, args: &__args, locals: &__locals )
+    }
+
+    open func replaceAll( _ _arg0: BiFunction? ) {
+        replaceAll( arg0: _arg0 )
+    }
+
+    /// public synchronized int java.util.Hashtable.size()
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.lang.String java.util.Hashtable.toString()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Collection java.util.Hashtable.values()
+
+    private static var values_MethodID_25: jmethodID?
+
+    open func values() -> Collection! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "values", methodSig: "()Ljava/util/Collection;", methodCache: &Hashtable.values_MethodID_25, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? CollectionForward( javaObject: __return ) : nil
+    }
+
+
+    /// private void java.util.Hashtable.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
     /// In declared protocol but not defined.. ///
 
     /// public abstract boolean java.util.Map.equals(java.lang.Object)
 
+    // Skipping method: false true false false false 
+
     /// public abstract java.lang.Object java.util.Map.get(java.lang.Object)
 
-    /// public abstract java.lang.Object java.util.Map.remove(java.lang.Object)
+    // Skipping method: false true false false false 
 
     /// public abstract int java.util.Map.hashCode()
 
+    // Skipping method: false true false false false 
+
     /// public abstract boolean java.util.Map.isEmpty()
+
+    // Skipping method: false true false false false 
 
     /// public abstract java.lang.Object java.util.Map.put(java.lang.Object,java.lang.Object)
 
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Map.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
     /// public abstract int java.util.Map.size()
+
+    // Skipping method: false true false false false 
 
 }
 

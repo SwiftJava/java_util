@@ -21,8 +21,8 @@ open class logging_Formatter: java_swift.JavaObject {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/logging/Formatter", classCache: &logging_Formatter.logging_FormatterJNIClass, methodSig: "()V", methodCache: &logging_Formatter.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -33,27 +33,46 @@ open class logging_Formatter: java_swift.JavaObject {
     private static var format_MethodID_2: jmethodID?
 
     open func format( record: LogRecord? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: record, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "format", methodSig: "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", methodCache: &logging_Formatter.format_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open func format( _ _record: LogRecord? ) -> String! {
         return format( record: _record )
     }
 
+    /// public synchronized java.lang.String java.util.logging.Formatter.formatMessage(java.util.logging.LogRecord)
+
+    private static var formatMessage_MethodID_3: jmethodID?
+
+    open func formatMessage( record: LogRecord? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: record, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "formatMessage", methodSig: "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", methodCache: &logging_Formatter.formatMessage_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func formatMessage( _ _record: LogRecord? ) -> String! {
+        return formatMessage( record: _record )
+    }
+
     /// public java.lang.String java.util.logging.Formatter.getHead(java.util.logging.Handler)
 
-    private static var getHead_MethodID_3: jmethodID?
+    private static var getHead_MethodID_4: jmethodID?
 
     open func getHead( h: Handler? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: h, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getHead", methodSig: "(Ljava/util/logging/Handler;)Ljava/lang/String;", methodCache: &logging_Formatter.getHead_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getHead", methodSig: "(Ljava/util/logging/Handler;)Ljava/lang/String;", methodCache: &logging_Formatter.getHead_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open func getHead( _ _h: Handler? ) -> String! {
@@ -62,34 +81,19 @@ open class logging_Formatter: java_swift.JavaObject {
 
     /// public java.lang.String java.util.logging.Formatter.getTail(java.util.logging.Handler)
 
-    private static var getTail_MethodID_4: jmethodID?
+    private static var getTail_MethodID_5: jmethodID?
 
     open func getTail( h: Handler? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: h, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getTail", methodSig: "(Ljava/util/logging/Handler;)Ljava/lang/String;", methodCache: &logging_Formatter.getTail_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getTail", methodSig: "(Ljava/util/logging/Handler;)Ljava/lang/String;", methodCache: &logging_Formatter.getTail_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open func getTail( _ _h: Handler? ) -> String! {
         return getTail( h: _h )
-    }
-
-    /// public synchronized java.lang.String java.util.logging.Formatter.formatMessage(java.util.logging.LogRecord)
-
-    private static var formatMessage_MethodID_5: jmethodID?
-
-    open func formatMessage( record: LogRecord? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: record, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "formatMessage", methodSig: "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", methodCache: &logging_Formatter.formatMessage_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func formatMessage( _ _record: LogRecord? ) -> String! {
-        return formatMessage( record: _record )
     }
 
 }

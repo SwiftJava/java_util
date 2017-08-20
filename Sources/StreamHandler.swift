@@ -17,15 +17,17 @@ open class StreamHandler: Handler {
 
     private static var StreamHandlerJNIClass: jclass?
 
-    /// private java.io.OutputStream java.util.logging.StreamHandler.output
-
     /// private boolean java.util.logging.StreamHandler.doneHeader
+
+    /// private java.io.OutputStream java.util.logging.StreamHandler.output
 
     /// private volatile java.io.Writer java.util.logging.StreamHandler.writer
 
     /// private static final int java.util.logging.Handler.offValue
 
-    /// private final java.util.logging.LogManager java.util.logging.Handler.manager
+    /// private volatile java.lang.String java.util.logging.Handler.encoding
+
+    /// private volatile java.util.logging.ErrorManager java.util.logging.Handler.errorManager
 
     /// private volatile java.util.logging.Filter java.util.logging.Handler.filter
 
@@ -33,73 +35,84 @@ open class StreamHandler: Handler {
 
     /// private volatile java.util.logging.Level java.util.logging.Handler.logLevel
 
-    /// private volatile java.util.logging.ErrorManager java.util.logging.Handler.errorManager
-
-    /// private volatile java.lang.String java.util.logging.Handler.encoding
+    /// private final java.util.logging.LogManager java.util.logging.Handler.manager
 
     /// boolean java.util.logging.Handler.sealed
 
-    /// public java.util.logging.StreamHandler(java.io.OutputStream,java.util.logging.Formatter)
-
-    private static var new_MethodID_1: jmethodID?
-
-    public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, formatter: logging_Formatter? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out, locals: &__locals )
-        __args[1] = JNIType.toJava( value: formatter, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/logging/StreamHandler", classCache: &StreamHandler.StreamHandlerJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/logging/Formatter;)V", methodCache: &StreamHandler.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _out: /* java.io.OutputStream */ UnclassedObject?, _ _formatter: logging_Formatter? ) {
-        self.init( out: _out, formatter: _formatter )
-    }
+    // Skipping field: true false false false false false 
 
     /// public java.util.logging.StreamHandler()
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/logging/StreamHandler", classCache: &StreamHandler.StreamHandlerJNIClass, methodSig: "()V", methodCache: &StreamHandler.new_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/logging/StreamHandler", classCache: &StreamHandler.StreamHandlerJNIClass, methodSig: "()V", methodCache: &StreamHandler.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    /// public synchronized void java.util.logging.StreamHandler.flush()
+    /// public java.util.logging.StreamHandler(java.io.OutputStream,java.util.logging.Formatter)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( out: /* class java.io.OutputStream */ UnavailableObject?, formatter: logging_Formatter? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = JNIType.toJava( value: formatter, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/logging/StreamHandler", classCache: &StreamHandler.StreamHandlerJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/logging/Formatter;)V", methodCache: &StreamHandler.new_MethodID_2, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _out: /* class java.io.OutputStream */ UnavailableObject?, _ _formatter: logging_Formatter? ) {
+        self.init( out: _out, formatter: _formatter )
+    }
 
     /// public synchronized void java.util.logging.StreamHandler.close() throws java.lang.SecurityException
 
-    /// public boolean java.util.logging.StreamHandler.isLoggable(java.util.logging.LogRecord)
+    // Skipping method: false true false false false 
 
     /// private void java.util.logging.StreamHandler.configure()
 
+    /// public synchronized void java.util.logging.StreamHandler.flush()
+
+    // Skipping method: false true false false false 
+
+    /// private synchronized void java.util.logging.StreamHandler.flushAndClose() throws java.lang.SecurityException
+
+    /// public boolean java.util.logging.StreamHandler.isLoggable(java.util.logging.LogRecord)
+
+    // Skipping method: false true false false false 
+
     /// public synchronized void java.util.logging.StreamHandler.publish(java.util.logging.LogRecord)
 
+    // Skipping method: false true false false false 
+
     /// public synchronized void java.util.logging.StreamHandler.setEncoding(java.lang.String) throws java.lang.SecurityException,java.io.UnsupportedEncodingException
+
+    // Skipping method: false true false false false 
 
     /// protected synchronized void java.util.logging.StreamHandler.setOutputStream(java.io.OutputStream) throws java.lang.SecurityException
 
     private static var setOutputStream_MethodID_3: jmethodID?
 
-    open func setOutputStream( out: /* java.io.OutputStream */ UnclassedObject? ) throws /* java.lang.SecurityException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func setOutputStream( out: /* class java.io.OutputStream */ UnavailableObject? ) throws /* java.lang.SecurityException */ {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: out, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setOutputStream", methodSig: "(Ljava/io/OutputStream;)V", methodCache: &StreamHandler.setOutputStream_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.JavaSecurityException( javaObject: throwable )
         }
     }
 
-    open func setOutputStream( _ _out: /* java.io.OutputStream */ UnclassedObject? ) throws /* java.lang.SecurityException */ {
+    open func setOutputStream( _ _out: /* class java.io.OutputStream */ UnavailableObject? ) throws /* java.lang.SecurityException */ {
         try setOutputStream( out: _out )
     }
-
-    /// private synchronized void java.util.logging.StreamHandler.flushAndClose() throws java.lang.SecurityException
 
 }
 

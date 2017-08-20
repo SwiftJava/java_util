@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.concurrent.atomic.AtomicBoolean ///
 
-open class AtomicBoolean: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProtocol {
+open class AtomicBoolean: java_swift.JavaObject, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -24,15 +24,27 @@ open class AtomicBoolean: java_swift.JavaObject, /* java.io.Serializable */ Uncl
 
     /// private volatile int java.util.concurrent.atomic.AtomicBoolean.value
 
-    /// public java.util.concurrent.atomic.AtomicBoolean(boolean)
+    /// public java.util.concurrent.atomic.AtomicBoolean()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( initialValue: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init() {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialValue, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/atomic/AtomicBoolean", classCache: &AtomicBoolean.AtomicBooleanJNIClass, methodSig: "(Z)V", methodCache: &AtomicBoolean.new_MethodID_1, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/atomic/AtomicBoolean", classCache: &AtomicBoolean.AtomicBooleanJNIClass, methodSig: "()V", methodCache: &AtomicBoolean.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.concurrent.atomic.AtomicBoolean(boolean)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( initialValue: Bool ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(initialValue ? JNI_TRUE : JNI_FALSE) )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/atomic/AtomicBoolean", classCache: &AtomicBoolean.AtomicBooleanJNIClass, methodSig: "(Z)V", methodCache: &AtomicBoolean.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -41,106 +53,96 @@ open class AtomicBoolean: java_swift.JavaObject, /* java.io.Serializable */ Uncl
         self.init( initialValue: _initialValue )
     }
 
-    /// public java.util.concurrent.atomic.AtomicBoolean()
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/atomic/AtomicBoolean", classCache: &AtomicBoolean.AtomicBooleanJNIClass, methodSig: "()V", methodCache: &AtomicBoolean.new_MethodID_2, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    /// public final boolean java.util.concurrent.atomic.AtomicBoolean.get()
-
-    private static var get_MethodID_3: jmethodID?
-
-    open func get() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "get", methodSig: "()Z", methodCache: &AtomicBoolean.get_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.concurrent.atomic.AtomicBoolean.toString()
-
-    /// public final void java.util.concurrent.atomic.AtomicBoolean.set(boolean)
-
-    private static var set_MethodID_4: jmethodID?
-
-    open func set( newValue: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newValue, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(Z)V", methodCache: &AtomicBoolean.set_MethodID_4, args: &__args, locals: &__locals )
-    }
-
-    open func set( _ _newValue: Bool ) {
-        set( newValue: _newValue )
-    }
-
-    /// public final void java.util.concurrent.atomic.AtomicBoolean.lazySet(boolean)
-
-    private static var lazySet_MethodID_5: jmethodID?
-
-    open func lazySet( newValue: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newValue, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "lazySet", methodSig: "(Z)V", methodCache: &AtomicBoolean.lazySet_MethodID_5, args: &__args, locals: &__locals )
-    }
-
-    open func lazySet( _ _newValue: Bool ) {
-        lazySet( newValue: _newValue )
-    }
-
-    /// public final boolean java.util.concurrent.atomic.AtomicBoolean.getAndSet(boolean)
-
-    private static var getAndSet_MethodID_6: jmethodID?
-
-    open func getAndSet( newValue: Bool ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newValue, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getAndSet", methodSig: "(Z)Z", methodCache: &AtomicBoolean.getAndSet_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func getAndSet( _ _newValue: Bool ) -> Bool {
-        return getAndSet( newValue: _newValue )
-    }
-
     /// public final boolean java.util.concurrent.atomic.AtomicBoolean.compareAndSet(boolean,boolean)
 
-    private static var compareAndSet_MethodID_7: jmethodID?
+    private static var compareAndSet_MethodID_3: jmethodID?
 
     open func compareAndSet( expect: Bool, update: Bool ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: expect, locals: &__locals )
-        __args[1] = JNIType.toJava( value: update, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSet", methodSig: "(ZZ)Z", methodCache: &AtomicBoolean.compareAndSet_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( z: jboolean(expect ? JNI_TRUE : JNI_FALSE) )
+        __args[1] = jvalue( z: jboolean(update ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "compareAndSet", methodSig: "(ZZ)Z", methodCache: &AtomicBoolean.compareAndSet_MethodID_3, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func compareAndSet( _ _expect: Bool, _ _update: Bool ) -> Bool {
         return compareAndSet( expect: _expect, update: _update )
     }
 
+    /// public final boolean java.util.concurrent.atomic.AtomicBoolean.get()
+
+    private static var get_MethodID_4: jmethodID?
+
+    open func get() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "get", methodSig: "()Z", methodCache: &AtomicBoolean.get_MethodID_4, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public final boolean java.util.concurrent.atomic.AtomicBoolean.getAndSet(boolean)
+
+    private static var getAndSet_MethodID_5: jmethodID?
+
+    open func getAndSet( newValue: Bool ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(newValue ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getAndSet", methodSig: "(Z)Z", methodCache: &AtomicBoolean.getAndSet_MethodID_5, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func getAndSet( _ _newValue: Bool ) -> Bool {
+        return getAndSet( newValue: _newValue )
+    }
+
+    /// public final void java.util.concurrent.atomic.AtomicBoolean.lazySet(boolean)
+
+    private static var lazySet_MethodID_6: jmethodID?
+
+    open func lazySet( newValue: Bool ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(newValue ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "lazySet", methodSig: "(Z)V", methodCache: &AtomicBoolean.lazySet_MethodID_6, args: &__args, locals: &__locals )
+    }
+
+    open func lazySet( _ _newValue: Bool ) {
+        lazySet( newValue: _newValue )
+    }
+
+    /// public final void java.util.concurrent.atomic.AtomicBoolean.set(boolean)
+
+    private static var set_MethodID_7: jmethodID?
+
+    open func set( newValue: Bool ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(newValue ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(Z)V", methodCache: &AtomicBoolean.set_MethodID_7, args: &__args, locals: &__locals )
+    }
+
+    open func set( _ _newValue: Bool ) {
+        set( newValue: _newValue )
+    }
+
+    /// public java.lang.String java.util.concurrent.atomic.AtomicBoolean.toString()
+
+    // Skipping method: false true false false false 
+
     /// public boolean java.util.concurrent.atomic.AtomicBoolean.weakCompareAndSet(boolean,boolean)
 
     private static var weakCompareAndSet_MethodID_8: jmethodID?
 
     open func weakCompareAndSet( expect: Bool, update: Bool ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: expect, locals: &__locals )
-        __args[1] = JNIType.toJava( value: update, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( z: jboolean(expect ? JNI_TRUE : JNI_FALSE) )
+        __args[1] = jvalue( z: jboolean(update ? JNI_TRUE : JNI_FALSE) )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "weakCompareAndSet", methodSig: "(ZZ)Z", methodCache: &AtomicBoolean.weakCompareAndSet_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func weakCompareAndSet( _ _expect: Bool, _ _update: Bool ) -> Bool {

@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.PropertyPermission ///
 
-open class PropertyPermission: /* java.security.BasicPermission */ UnclassedObject {
+open class PropertyPermission: /* class java.security.BasicPermission */ UnavailableObject {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -16,27 +16,27 @@ open class PropertyPermission: /* java.security.BasicPermission */ UnclassedObje
 
     private static var PropertyPermissionJNIClass: jclass?
 
-    /// private static final int java.util.PropertyPermission.READ
-
-    /// private static final int java.util.PropertyPermission.WRITE
-
     /// private static final int java.util.PropertyPermission.ALL
 
     /// private static final int java.util.PropertyPermission.NONE
 
-    /// private transient int java.util.PropertyPermission.mask
+    /// private static final int java.util.PropertyPermission.READ
 
-    /// private java.lang.String java.util.PropertyPermission.actions
+    /// private static final int java.util.PropertyPermission.WRITE
 
     /// private static final long java.util.PropertyPermission.serialVersionUID
 
+    /// private java.lang.String java.util.PropertyPermission.actions
+
+    /// private transient int java.util.PropertyPermission.mask
+
     /// private static final long java.security.BasicPermission.serialVersionUID
 
-    /// private transient boolean java.security.BasicPermission.wildcard
+    /// private transient boolean java.security.BasicPermission.exitVM
 
     /// private transient java.lang.String java.security.BasicPermission.path
 
-    /// private transient boolean java.security.BasicPermission.exitVM
+    /// private transient boolean java.security.BasicPermission.wildcard
 
     /// private static final long java.security.Permission.serialVersionUID
 
@@ -47,8 +47,8 @@ open class PropertyPermission: /* java.security.BasicPermission */ UnclassedObje
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( name: String?, actions: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
         __args[1] = JNIType.toJava( value: actions, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/PropertyPermission", classCache: &PropertyPermission.PropertyPermissionJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/String;)V", methodCache: &PropertyPermission.new_MethodID_1, args: &__args, locals: &__locals )
@@ -60,27 +60,91 @@ open class PropertyPermission: /* java.security.BasicPermission */ UnclassedObje
         self.init( name: _name, actions: _actions )
     }
 
+    /// static java.lang.String java.util.PropertyPermission.getActions(int)
+
+    // Skipping method: true false false false false 
+
+    /// private static int java.util.PropertyPermission.getMask(java.lang.String)
+
+    /// private void java.util.PropertyPermission.init(int)
+
     /// public boolean java.util.PropertyPermission.equals(java.lang.Object)
+
+    private static var equals_MethodID_2: jmethodID?
+
+    open func equals( obj: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &PropertyPermission.equals_MethodID_2, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
+        return equals( obj: _obj )
+    }
+
+    /// public java.lang.String java.util.PropertyPermission.getActions()
+
+    private static var getActions_MethodID_3: jmethodID?
+
+    open func getActions() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getActions", methodSig: "()Ljava/lang/String;", methodCache: &PropertyPermission.getActions_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// int java.util.PropertyPermission.getMask()
+
+    // Skipping method: true false false false false 
 
     /// public int java.util.PropertyPermission.hashCode()
 
-    /// private void java.util.PropertyPermission.init(int)
+    private static var hashCode_MethodID_4: jmethodID?
+
+    override open func hashCode() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "hashCode", methodSig: "()I", methodCache: &PropertyPermission.hashCode_MethodID_4, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public boolean java.util.PropertyPermission.implies(java.security.Permission)
+
+    private static var implies_MethodID_5: jmethodID?
+
+    open func implies( p: /* class java.security.Permission */ UnavailableObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: p, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "implies", methodSig: "(Ljava/security/Permission;)Z", methodCache: &PropertyPermission.implies_MethodID_5, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func implies( _ _p: /* class java.security.Permission */ UnavailableObject? ) -> Bool {
+        return implies( p: _p )
+    }
+
+    /// public java.security.PermissionCollection java.util.PropertyPermission.newPermissionCollection()
+
+    private static var newPermissionCollection_MethodID_6: jmethodID?
+
+    open func newPermissionCollection() -> /* class java.security.PermissionCollection */ UnavailableObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "newPermissionCollection", methodSig: "()Ljava/security/PermissionCollection;", methodCache: &PropertyPermission.newPermissionCollection_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* class java.security.PermissionCollection */ UnavailableObject( javaObject: __return ) : nil
+    }
+
 
     /// private synchronized void java.util.PropertyPermission.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
 
     /// private synchronized void java.util.PropertyPermission.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// public boolean java.util.PropertyPermission.implies(java.security.Permission)
-
-    /// static java.lang.String java.util.PropertyPermission.getActions(int)
-
-    /// public java.lang.String java.util.PropertyPermission.getActions()
-
-    /// public java.security.PermissionCollection java.util.PropertyPermission.newPermissionCollection()
-
-    /// private static int java.util.PropertyPermission.getMask(java.lang.String)
-
-    /// int java.util.PropertyPermission.getMask()
 
 }
 

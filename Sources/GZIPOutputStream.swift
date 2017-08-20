@@ -16,14 +16,18 @@ open class GZIPOutputStream: DeflaterOutputStream {
 
     private static var GZIPOutputStreamJNIClass: jclass?
 
+    /// private static final int java.util.zip.GZIPOutputStream.GZIP_MAGIC
+
+    /// private static final int java.util.zip.GZIPOutputStream.TRAILER_SIZE
+
     /// protected java.util.zip.CRC32 java.util.zip.GZIPOutputStream.crc
 
     private static var crc_FieldID: jfieldID?
 
     open var crc: CRC32! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "crc", fieldType: "Ljava/util/zip/CRC32;", fieldCache: &GZIPOutputStream.crc_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "crc", fieldType: "Ljava/util/zip/CRC32;", fieldCache: &GZIPOutputStream.crc_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? CRC32( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -33,36 +37,14 @@ open class GZIPOutputStream: DeflaterOutputStream {
         }
     }
 
-    /// private static final int java.util.zip.GZIPOutputStream.GZIP_MAGIC
-
-    /// private static final int java.util.zip.GZIPOutputStream.TRAILER_SIZE
-
-    /// protected java.util.zip.Deflater java.util.zip.DeflaterOutputStream.def
-
-    private static var def_FieldID: jfieldID?
-
-    override open var def: Deflater! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &GZIPOutputStream.def_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? Deflater( javaObject: __value ) : nil
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &GZIPOutputStream.def_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
     /// protected byte[] java.util.zip.DeflaterOutputStream.buf
 
     private static var buf_FieldID: jfieldID?
 
     override open var buf: [Int8]! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &GZIPOutputStream.buf_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int8](), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &GZIPOutputStream.buf_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int8].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -73,19 +55,38 @@ open class GZIPOutputStream: DeflaterOutputStream {
 
     /// private boolean java.util.zip.DeflaterOutputStream.closed
 
+    /// protected java.util.zip.Deflater java.util.zip.DeflaterOutputStream.def
+
+    private static var def_FieldID: jfieldID?
+
+    override open var def: Deflater! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &GZIPOutputStream.def_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? Deflater( javaObject: __value ) : nil
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &GZIPOutputStream.def_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
     /// private final boolean java.util.zip.DeflaterOutputStream.syncFlush
 
     /// boolean java.util.zip.DeflaterOutputStream.usesDefaultDeflater
+
+    // Skipping field: true false false false false false 
 
     /// protected java.io.OutputStream java.io.FilterOutputStream.out
 
     private static var out_FieldID: jfieldID?
 
-    override open var out: /* java.io.OutputStream */ UnclassedObject! {
+    override open var out: /* class java.io.OutputStream */ UnavailableObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &GZIPOutputStream.out_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? /* java.io.OutputStream */ UnclassedObject( javaObject: __value ) : nil
+            let __value = JNIField.GetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &GZIPOutputStream.out_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* class java.io.OutputStream */ UnavailableObject( javaObject: __value ) : nil
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -94,111 +95,116 @@ open class GZIPOutputStream: DeflaterOutputStream {
         }
     }
 
-    /// public java.util.zip.GZIPOutputStream(java.io.OutputStream,boolean) throws java.io.IOException
+    /// public java.util.zip.GZIPOutputStream(java.io.OutputStream) throws java.io.IOException
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, syncFlush: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( out: /* class java.io.OutputStream */ UnavailableObject? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out, locals: &__locals )
-        __args[1] = JNIType.toJava( value: syncFlush, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Z)V", methodCache: &GZIPOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _out: /* java.io.OutputStream */ UnclassedObject?, _ _syncFlush: Bool ) {
-        self.init( out: _out, syncFlush: _syncFlush )
-    }
-
-    /// public java.util.zip.GZIPOutputStream(java.io.OutputStream) throws java.io.IOException
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init( out: /* java.io.OutputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: out, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;)V", methodCache: &GZIPOutputStream.new_MethodID_2, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;)V", methodCache: &GZIPOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _out: /* java.io.OutputStream */ UnclassedObject? ) {
+    public convenience init( _ _out: /* class java.io.OutputStream */ UnavailableObject? ) {
         self.init( out: _out )
     }
 
-    /// public java.util.zip.GZIPOutputStream(java.io.OutputStream,int,boolean) throws java.io.IOException
+    /// public java.util.zip.GZIPOutputStream(java.io.OutputStream,boolean) throws java.io.IOException
 
-    private static var new_MethodID_3: jmethodID?
+    private static var new_MethodID_2: jmethodID?
 
-    public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, size: Int, syncFlush: Bool ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    public convenience init( out: /* class java.io.OutputStream */ UnavailableObject?, syncFlush: Bool ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: out, locals: &__locals )
-        __args[1] = JNIType.toJava( value: size, locals: &__locals )
-        __args[2] = JNIType.toJava( value: syncFlush, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;IZ)V", methodCache: &GZIPOutputStream.new_MethodID_3, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
+        __args[1] = jvalue( z: jboolean(syncFlush ? JNI_TRUE : JNI_FALSE) )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Z)V", methodCache: &GZIPOutputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _out: /* java.io.OutputStream */ UnclassedObject?, _ _size: Int, _ _syncFlush: Bool ) throws {
-        try self.init( out: _out, size: _size, syncFlush: _syncFlush )
+    public convenience init( _ _out: /* class java.io.OutputStream */ UnavailableObject?, _ _syncFlush: Bool ) {
+        self.init( out: _out, syncFlush: _syncFlush )
     }
 
     /// public java.util.zip.GZIPOutputStream(java.io.OutputStream,int) throws java.io.IOException
 
-    private static var new_MethodID_4: jmethodID?
+    private static var new_MethodID_3: jmethodID?
 
-    public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, size: Int ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( out: /* class java.io.OutputStream */ UnavailableObject?, size: Int ) throws {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: out, locals: &__locals )
-        __args[1] = JNIType.toJava( value: size, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;I)V", methodCache: &GZIPOutputStream.new_MethodID_4, args: &__args, locals: &__locals )
+        __args[1] = jvalue( i: jint(size) )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;I)V", methodCache: &GZIPOutputStream.new_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _out: /* java.io.OutputStream */ UnclassedObject?, _ _size: Int ) throws {
+    public convenience init( _ _out: /* class java.io.OutputStream */ UnavailableObject?, _ _size: Int ) throws {
         try self.init( out: _out, size: _size )
     }
+
+    /// public java.util.zip.GZIPOutputStream(java.io.OutputStream,int,boolean) throws java.io.IOException
+
+    private static var new_MethodID_4: jmethodID?
+
+    public convenience init( out: /* class java.io.OutputStream */ UnavailableObject?, size: Int, syncFlush: Bool ) throws {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        __args[1] = jvalue( i: jint(size) )
+        __args[2] = jvalue( z: jboolean(syncFlush ? JNI_TRUE : JNI_FALSE) )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPOutputStream", classCache: &GZIPOutputStream.GZIPOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;IZ)V", methodCache: &GZIPOutputStream.new_MethodID_4, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _out: /* class java.io.OutputStream */ UnavailableObject?, _ _size: Int, _ _syncFlush: Bool ) throws {
+        try self.init( out: _out, size: _size, syncFlush: _syncFlush )
+    }
+
+    /// public void java.util.zip.GZIPOutputStream.finish() throws java.io.IOException
+
+    // Skipping method: false true false false false 
 
     /// public synchronized void java.util.zip.GZIPOutputStream.write(byte[],int,int) throws java.io.IOException
 
     private static var write_MethodID_5: jmethodID?
 
     open func write( buf: [Int8]?, off: Int, len: Int ) throws /* java.io.IOException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: buf, locals: &__locals )
-        __args[1] = JNIType.toJava( value: off, locals: &__locals )
-        __args[2] = JNIType.toJava( value: len, locals: &__locals )
+        __args[1] = jvalue( i: jint(off) )
+        __args[2] = jvalue( i: jint(len) )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "write", methodSig: "([BII)V", methodCache: &GZIPOutputStream.write_MethodID_5, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
     }
 
-    open func write( _ _buf: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.io.IOException */ {
+    override open func write( _ _buf: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.io.IOException */ {
         try write( buf: _buf, off: _off, len: _len )
     }
 
+    /// private void java.util.zip.GZIPOutputStream.writeHeader() throws java.io.IOException
+
     /// private void java.util.zip.GZIPOutputStream.writeInt(int,byte[],int) throws java.io.IOException
 
-    /// public void java.util.zip.GZIPOutputStream.finish() throws java.io.IOException
-
     /// private void java.util.zip.GZIPOutputStream.writeShort(int,byte[],int) throws java.io.IOException
-
-    /// private void java.util.zip.GZIPOutputStream.writeHeader() throws java.io.IOException
 
     /// private void java.util.zip.GZIPOutputStream.writeTrailer(byte[],int) throws java.io.IOException
 

@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.concurrent.atomic.DoubleAdder ///
 
-open class DoubleAdder: /* java.util.concurrent.atomic.Striped64 */ UnclassedObject {
+open class DoubleAdder: /* class java.util.concurrent.atomic.Striped64 */ UnavailableObject {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -18,21 +18,29 @@ open class DoubleAdder: /* java.util.concurrent.atomic.Striped64 */ UnclassedObj
 
     /// private static final long java.util.concurrent.atomic.DoubleAdder.serialVersionUID
 
-    /// static final int java.util.concurrent.atomic.Striped64.NCPU
-
-    /// transient volatile java.util.concurrent.atomic.Striped64$Cell[] java.util.concurrent.atomic.Striped64.cells
-
-    /// transient volatile long java.util.concurrent.atomic.Striped64.base
-
-    /// transient volatile int java.util.concurrent.atomic.Striped64.cellsBusy
-
-    /// private static final sun.misc.Unsafe java.util.concurrent.atomic.Striped64.UNSAFE
-
     /// private static final long java.util.concurrent.atomic.Striped64.BASE
 
     /// private static final long java.util.concurrent.atomic.Striped64.CELLSBUSY
 
+    /// static final int java.util.concurrent.atomic.Striped64.NCPU
+
+    // Skipping field: true false false false false false 
+
     /// private static final long java.util.concurrent.atomic.Striped64.PROBE
+
+    /// private static final sun.misc.Unsafe java.util.concurrent.atomic.Striped64.UNSAFE
+
+    /// transient volatile long java.util.concurrent.atomic.Striped64.base
+
+    // Skipping field: true false false false false false 
+
+    /// transient volatile java.util.concurrent.atomic.Striped64$Cell[] java.util.concurrent.atomic.Striped64.cells
+
+    // Skipping field: true false false false false false 
+
+    /// transient volatile int java.util.concurrent.atomic.Striped64.cellsBusy
+
+    // Skipping field: true false false false false false 
 
     /// private static final long java.lang.Number.serialVersionUID
 
@@ -41,8 +49,8 @@ open class DoubleAdder: /* java.util.concurrent.atomic.Striped64 */ UnclassedObj
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/atomic/DoubleAdder", classCache: &DoubleAdder.DoubleAdderJNIClass, methodSig: "()V", methodCache: &DoubleAdder.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -53,9 +61,9 @@ open class DoubleAdder: /* java.util.concurrent.atomic.Striped64 */ UnclassedObj
     private static var add_MethodID_2: jmethodID?
 
     open func add( x: Double ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: x, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: x )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "add", methodSig: "(D)V", methodCache: &DoubleAdder.add_MethodID_2, args: &__args, locals: &__locals )
     }
 
@@ -63,54 +71,105 @@ open class DoubleAdder: /* java.util.concurrent.atomic.Striped64 */ UnclassedObj
         add( x: _x )
     }
 
-    /// public java.lang.String java.util.concurrent.atomic.DoubleAdder.toString()
+    /// public double java.util.concurrent.atomic.DoubleAdder.doubleValue()
 
-    /// public int java.util.concurrent.atomic.DoubleAdder.intValue()
+    private static var doubleValue_MethodID_3: jmethodID?
 
-    /// public long java.util.concurrent.atomic.DoubleAdder.longValue()
+    open func doubleValue() -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "doubleValue", methodSig: "()D", methodCache: &DoubleAdder.doubleValue_MethodID_3, args: &__args, locals: &__locals )
+        return __return
+    }
+
 
     /// public float java.util.concurrent.atomic.DoubleAdder.floatValue()
 
-    /// public double java.util.concurrent.atomic.DoubleAdder.doubleValue()
+    private static var floatValue_MethodID_4: jmethodID?
+
+    open func floatValue() -> Float {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "floatValue", methodSig: "()F", methodCache: &DoubleAdder.floatValue_MethodID_4, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public int java.util.concurrent.atomic.DoubleAdder.intValue()
+
+    private static var intValue_MethodID_5: jmethodID?
+
+    open func intValue() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "intValue", methodSig: "()I", methodCache: &DoubleAdder.intValue_MethodID_5, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public long java.util.concurrent.atomic.DoubleAdder.longValue()
+
+    private static var longValue_MethodID_6: jmethodID?
+
+    open func longValue() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "longValue", methodSig: "()J", methodCache: &DoubleAdder.longValue_MethodID_6, args: &__args, locals: &__locals )
+        return __return
+    }
+
 
     /// private void java.util.concurrent.atomic.DoubleAdder.readObject(java.io.ObjectInputStream) throws java.io.InvalidObjectException
 
     /// public void java.util.concurrent.atomic.DoubleAdder.reset()
 
-    private static var reset_MethodID_3: jmethodID?
+    private static var reset_MethodID_7: jmethodID?
 
     open func reset() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &DoubleAdder.reset_MethodID_3, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &DoubleAdder.reset_MethodID_7, args: &__args, locals: &__locals )
     }
 
 
     /// public double java.util.concurrent.atomic.DoubleAdder.sum()
 
-    private static var sum_MethodID_4: jmethodID?
+    private static var sum_MethodID_8: jmethodID?
 
     open func sum() -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "sum", methodSig: "()D", methodCache: &DoubleAdder.sum_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "sum", methodSig: "()D", methodCache: &DoubleAdder.sum_MethodID_8, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public double java.util.concurrent.atomic.DoubleAdder.sumThenReset()
+
+    private static var sumThenReset_MethodID_9: jmethodID?
+
+    open func sumThenReset() -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "sumThenReset", methodSig: "()D", methodCache: &DoubleAdder.sumThenReset_MethodID_9, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public java.lang.String java.util.concurrent.atomic.DoubleAdder.toString()
+
+    private static var toString_MethodID_10: jmethodID?
+
+    override open func toString() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toString", methodSig: "()Ljava/lang/String;", methodCache: &DoubleAdder.toString_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
 
     /// private java.lang.Object java.util.concurrent.atomic.DoubleAdder.writeReplace()
-
-    /// public double java.util.concurrent.atomic.DoubleAdder.sumThenReset()
-
-    private static var sumThenReset_MethodID_5: jmethodID?
-
-    open func sumThenReset() -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "sumThenReset", methodSig: "()D", methodCache: &DoubleAdder.sumThenReset_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
-    }
-
 
 }
 

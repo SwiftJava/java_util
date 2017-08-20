@@ -17,45 +17,27 @@ open class CyclicBarrier: java_swift.JavaObject {
 
     private static var CyclicBarrierJNIClass: jclass?
 
-    /// private final java.util.concurrent.locks.ReentrantLock java.util.concurrent.CyclicBarrier.lock
-
-    /// private final java.util.concurrent.locks.Condition java.util.concurrent.CyclicBarrier.trip
-
-    /// private final int java.util.concurrent.CyclicBarrier.parties
-
     /// private final java.lang.Runnable java.util.concurrent.CyclicBarrier.barrierCommand
-
-    /// private java.util.concurrent.CyclicBarrier$Generation java.util.concurrent.CyclicBarrier.generation
 
     /// private int java.util.concurrent.CyclicBarrier.count
 
-    /// public java.util.concurrent.CyclicBarrier(int,java.lang.Runnable)
+    /// private java.util.concurrent.CyclicBarrier$Generation java.util.concurrent.CyclicBarrier.generation
 
-    private static var new_MethodID_1: jmethodID?
+    /// private final java.util.concurrent.locks.ReentrantLock java.util.concurrent.CyclicBarrier.lock
 
-    public convenience init( parties: Int, barrierAction: java_swift.Runnable? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parties, locals: &__locals )
-        __args[1] = JNIType.toJava( value: barrierAction, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/CyclicBarrier", classCache: &CyclicBarrier.CyclicBarrierJNIClass, methodSig: "(ILjava/lang/Runnable;)V", methodCache: &CyclicBarrier.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    /// private final int java.util.concurrent.CyclicBarrier.parties
 
-    public convenience init( _ _parties: Int, _ _barrierAction: java_swift.Runnable? ) {
-        self.init( parties: _parties, barrierAction: _barrierAction )
-    }
+    /// private final java.util.concurrent.locks.Condition java.util.concurrent.CyclicBarrier.trip
 
     /// public java.util.concurrent.CyclicBarrier(int)
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_1: jmethodID?
 
     public convenience init( parties: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parties, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/CyclicBarrier", classCache: &CyclicBarrier.CyclicBarrierJNIClass, methodSig: "(I)V", methodCache: &CyclicBarrier.new_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(parties) )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/CyclicBarrier", classCache: &CyclicBarrier.CyclicBarrierJNIClass, methodSig: "(I)V", methodCache: &CyclicBarrier.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -64,73 +46,39 @@ open class CyclicBarrier: java_swift.JavaObject {
         self.init( parties: _parties )
     }
 
-    /// public void java.util.concurrent.CyclicBarrier.reset()
+    /// public java.util.concurrent.CyclicBarrier(int,java.lang.Runnable)
 
-    private static var reset_MethodID_3: jmethodID?
+    private static var new_MethodID_2: jmethodID?
 
-    open func reset() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init( parties: Int, barrierAction: java_swift.Runnable? ) {
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &CyclicBarrier.reset_MethodID_3, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(parties) )
+        __args[1] = JNIType.toJava( value: barrierAction, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/CyclicBarrier", classCache: &CyclicBarrier.CyclicBarrierJNIClass, methodSig: "(ILjava/lang/Runnable;)V", methodCache: &CyclicBarrier.new_MethodID_2, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
     }
 
-
-    /// private void java.util.concurrent.CyclicBarrier.nextGeneration()
-
-    /// private void java.util.concurrent.CyclicBarrier.breakBarrier()
-
-    /// private int java.util.concurrent.CyclicBarrier.dowait(boolean,long) throws java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException,java.util.concurrent.TimeoutException
-
-    /// public int java.util.concurrent.CyclicBarrier.getParties()
-
-    private static var getParties_MethodID_4: jmethodID?
-
-    open func getParties() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getParties", methodSig: "()I", methodCache: &CyclicBarrier.getParties_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+    public convenience init( _ _parties: Int, _ _barrierAction: java_swift.Runnable? ) {
+        self.init( parties: _parties, barrierAction: _barrierAction )
     }
-
-
-    /// public boolean java.util.concurrent.CyclicBarrier.isBroken()
-
-    private static var isBroken_MethodID_5: jmethodID?
-
-    open func isBroken() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isBroken", methodSig: "()Z", methodCache: &CyclicBarrier.isBroken_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public int java.util.concurrent.CyclicBarrier.getNumberWaiting()
-
-    private static var getNumberWaiting_MethodID_6: jmethodID?
-
-    open func getNumberWaiting() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getNumberWaiting", methodSig: "()I", methodCache: &CyclicBarrier.getNumberWaiting_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
 
     /// public int java.util.concurrent.CyclicBarrier.await(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException,java.util.concurrent.TimeoutException
 
-    private static var await_MethodID_7: jmethodID?
+    private static var await_MethodID_3: jmethodID?
 
     open func await( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException, java.util.concurrent.BrokenBarrierException, java.util.concurrent.TimeoutException */ -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: timeout )
         __args[1] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "await", methodSig: "(JLjava/util/concurrent/TimeUnit;)I", methodCache: &CyclicBarrier.await_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "await", methodSig: "(JLjava/util/concurrent/TimeUnit;)I", methodCache: &CyclicBarrier.await_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     open func await( _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException, java.util.concurrent.BrokenBarrierException, java.util.concurrent.TimeoutException */ -> Int {
@@ -139,16 +87,70 @@ open class CyclicBarrier: java_swift.JavaObject {
 
     /// public int java.util.concurrent.CyclicBarrier.await() throws java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException
 
-    private static var await_MethodID_8: jmethodID?
+    private static var await_MethodID_4: jmethodID?
 
     open func await() throws /* java.lang.InterruptedException, java.util.concurrent.BrokenBarrierException */ -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "await", methodSig: "()I", methodCache: &CyclicBarrier.await_MethodID_8, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "await", methodSig: "()I", methodCache: &CyclicBarrier.await_MethodID_4, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
+    }
+
+
+    /// private void java.util.concurrent.CyclicBarrier.breakBarrier()
+
+    /// private int java.util.concurrent.CyclicBarrier.dowait(boolean,long) throws java.lang.InterruptedException,java.util.concurrent.BrokenBarrierException,java.util.concurrent.TimeoutException
+
+    /// public int java.util.concurrent.CyclicBarrier.getNumberWaiting()
+
+    private static var getNumberWaiting_MethodID_5: jmethodID?
+
+    open func getNumberWaiting() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getNumberWaiting", methodSig: "()I", methodCache: &CyclicBarrier.getNumberWaiting_MethodID_5, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public int java.util.concurrent.CyclicBarrier.getParties()
+
+    private static var getParties_MethodID_6: jmethodID?
+
+    open func getParties() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getParties", methodSig: "()I", methodCache: &CyclicBarrier.getParties_MethodID_6, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public boolean java.util.concurrent.CyclicBarrier.isBroken()
+
+    private static var isBroken_MethodID_7: jmethodID?
+
+    open func isBroken() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isBroken", methodSig: "()Z", methodCache: &CyclicBarrier.isBroken_MethodID_7, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// private void java.util.concurrent.CyclicBarrier.nextGeneration()
+
+    /// public void java.util.concurrent.CyclicBarrier.reset()
+
+    private static var reset_MethodID_8: jmethodID?
+
+    open func reset() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &CyclicBarrier.reset_MethodID_8, args: &__args, locals: &__locals )
     }
 
 

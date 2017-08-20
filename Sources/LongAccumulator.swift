@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.concurrent.atomic.LongAccumulator ///
 
-open class LongAccumulator: /* java.util.concurrent.atomic.Striped64 */ UnclassedObject {
+open class LongAccumulator: /* class java.util.concurrent.atomic.Striped64 */ UnavailableObject {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -22,21 +22,29 @@ open class LongAccumulator: /* java.util.concurrent.atomic.Striped64 */ Unclasse
 
     /// private final long java.util.concurrent.atomic.LongAccumulator.identity
 
-    /// static final int java.util.concurrent.atomic.Striped64.NCPU
-
-    /// transient volatile java.util.concurrent.atomic.Striped64$Cell[] java.util.concurrent.atomic.Striped64.cells
-
-    /// transient volatile long java.util.concurrent.atomic.Striped64.base
-
-    /// transient volatile int java.util.concurrent.atomic.Striped64.cellsBusy
-
-    /// private static final sun.misc.Unsafe java.util.concurrent.atomic.Striped64.UNSAFE
-
     /// private static final long java.util.concurrent.atomic.Striped64.BASE
 
     /// private static final long java.util.concurrent.atomic.Striped64.CELLSBUSY
 
+    /// static final int java.util.concurrent.atomic.Striped64.NCPU
+
+    // Skipping field: true false false false false false 
+
     /// private static final long java.util.concurrent.atomic.Striped64.PROBE
+
+    /// private static final sun.misc.Unsafe java.util.concurrent.atomic.Striped64.UNSAFE
+
+    /// transient volatile long java.util.concurrent.atomic.Striped64.base
+
+    // Skipping field: true false false false false false 
+
+    /// transient volatile java.util.concurrent.atomic.Striped64$Cell[] java.util.concurrent.atomic.Striped64.cells
+
+    // Skipping field: true false false false false false 
+
+    /// transient volatile int java.util.concurrent.atomic.Striped64.cellsBusy
+
+    // Skipping field: true false false false false false 
 
     /// private static final long java.lang.Number.serialVersionUID
 
@@ -45,10 +53,10 @@ open class LongAccumulator: /* java.util.concurrent.atomic.Striped64 */ Unclasse
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( accumulatorFunction: LongBinaryOperator?, identity: Int64 ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: accumulatorFunction, locals: &__locals )
-        __args[1] = JNIType.toJava( value: identity, locals: &__locals )
+        __args[1] = jvalue( j: identity )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/atomic/LongAccumulator", classCache: &LongAccumulator.LongAccumulatorJNIClass, methodSig: "(Ljava/util/function/LongBinaryOperator;J)V", methodCache: &LongAccumulator.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -58,73 +66,128 @@ open class LongAccumulator: /* java.util.concurrent.atomic.Striped64 */ Unclasse
         self.init( accumulatorFunction: _accumulatorFunction, identity: _identity )
     }
 
-    /// public long java.util.concurrent.atomic.LongAccumulator.get()
+    /// static java.util.function.LongBinaryOperator java.util.concurrent.atomic.LongAccumulator.access$000(java.util.concurrent.atomic.LongAccumulator)
 
-    private static var get_MethodID_2: jmethodID?
-
-    open func get() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "get", methodSig: "()J", methodCache: &LongAccumulator.get_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.concurrent.atomic.LongAccumulator.toString()
-
-    /// public int java.util.concurrent.atomic.LongAccumulator.intValue()
-
-    /// public long java.util.concurrent.atomic.LongAccumulator.longValue()
-
-    /// public float java.util.concurrent.atomic.LongAccumulator.floatValue()
-
-    /// public double java.util.concurrent.atomic.LongAccumulator.doubleValue()
+    // Skipping method: true false false false false 
 
     /// static long java.util.concurrent.atomic.LongAccumulator.access$100(java.util.concurrent.atomic.LongAccumulator)
 
-    /// static java.util.function.LongBinaryOperator java.util.concurrent.atomic.LongAccumulator.access$000(java.util.concurrent.atomic.LongAccumulator)
-
-    /// private void java.util.concurrent.atomic.LongAccumulator.readObject(java.io.ObjectInputStream) throws java.io.InvalidObjectException
-
-    /// public void java.util.concurrent.atomic.LongAccumulator.reset()
-
-    private static var reset_MethodID_3: jmethodID?
-
-    open func reset() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &LongAccumulator.reset_MethodID_3, args: &__args, locals: &__locals )
-    }
-
-
-    /// private java.lang.Object java.util.concurrent.atomic.LongAccumulator.writeReplace()
+    // Skipping method: true false false false false 
 
     /// public void java.util.concurrent.atomic.LongAccumulator.accumulate(long)
 
-    private static var accumulate_MethodID_4: jmethodID?
+    private static var accumulate_MethodID_2: jmethodID?
 
     open func accumulate( x: Int64 ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: x, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "accumulate", methodSig: "(J)V", methodCache: &LongAccumulator.accumulate_MethodID_4, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: x )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "accumulate", methodSig: "(J)V", methodCache: &LongAccumulator.accumulate_MethodID_2, args: &__args, locals: &__locals )
     }
 
     open func accumulate( _ _x: Int64 ) {
         accumulate( x: _x )
     }
 
-    /// public long java.util.concurrent.atomic.LongAccumulator.getThenReset()
+    /// public double java.util.concurrent.atomic.LongAccumulator.doubleValue()
 
-    private static var getThenReset_MethodID_5: jmethodID?
+    private static var doubleValue_MethodID_3: jmethodID?
 
-    open func getThenReset() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func doubleValue() -> Double {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getThenReset", methodSig: "()J", methodCache: &LongAccumulator.getThenReset_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "doubleValue", methodSig: "()D", methodCache: &LongAccumulator.doubleValue_MethodID_3, args: &__args, locals: &__locals )
+        return __return
     }
 
+
+    /// public float java.util.concurrent.atomic.LongAccumulator.floatValue()
+
+    private static var floatValue_MethodID_4: jmethodID?
+
+    open func floatValue() -> Float {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallFloatMethod( object: javaObject, methodName: "floatValue", methodSig: "()F", methodCache: &LongAccumulator.floatValue_MethodID_4, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public long java.util.concurrent.atomic.LongAccumulator.get()
+
+    private static var get_MethodID_5: jmethodID?
+
+    open func get() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "get", methodSig: "()J", methodCache: &LongAccumulator.get_MethodID_5, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public long java.util.concurrent.atomic.LongAccumulator.getThenReset()
+
+    private static var getThenReset_MethodID_6: jmethodID?
+
+    open func getThenReset() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getThenReset", methodSig: "()J", methodCache: &LongAccumulator.getThenReset_MethodID_6, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public int java.util.concurrent.atomic.LongAccumulator.intValue()
+
+    private static var intValue_MethodID_7: jmethodID?
+
+    open func intValue() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "intValue", methodSig: "()I", methodCache: &LongAccumulator.intValue_MethodID_7, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public long java.util.concurrent.atomic.LongAccumulator.longValue()
+
+    private static var longValue_MethodID_8: jmethodID?
+
+    open func longValue() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "longValue", methodSig: "()J", methodCache: &LongAccumulator.longValue_MethodID_8, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// private void java.util.concurrent.atomic.LongAccumulator.readObject(java.io.ObjectInputStream) throws java.io.InvalidObjectException
+
+    /// public void java.util.concurrent.atomic.LongAccumulator.reset()
+
+    private static var reset_MethodID_9: jmethodID?
+
+    open func reset() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &LongAccumulator.reset_MethodID_9, args: &__args, locals: &__locals )
+    }
+
+
+    /// public java.lang.String java.util.concurrent.atomic.LongAccumulator.toString()
+
+    private static var toString_MethodID_10: jmethodID?
+
+    override open func toString() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toString", methodSig: "()Ljava/lang/String;", methodCache: &LongAccumulator.toString_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// private java.lang.Object java.util.concurrent.atomic.LongAccumulator.writeReplace()
 
 }
 

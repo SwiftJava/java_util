@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.concurrent.ConcurrentLinkedQueue ///
 
-open class ConcurrentLinkedQueue: AbstractQueue, /* java.io.Serializable */ UnclassedProtocol {
+open class ConcurrentLinkedQueue: AbstractQueue, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,17 +20,17 @@ open class ConcurrentLinkedQueue: AbstractQueue, /* java.io.Serializable */ Uncl
 
     private static var ConcurrentLinkedQueueJNIClass: jclass?
 
-    /// private static final long java.util.concurrent.ConcurrentLinkedQueue.serialVersionUID
-
-    /// private transient volatile java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.head
-
-    /// private transient volatile java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.tail
-
     /// private static final sun.misc.Unsafe java.util.concurrent.ConcurrentLinkedQueue.UNSAFE
 
     /// private static final long java.util.concurrent.ConcurrentLinkedQueue.headOffset
 
+    /// private static final long java.util.concurrent.ConcurrentLinkedQueue.serialVersionUID
+
     /// private static final long java.util.concurrent.ConcurrentLinkedQueue.tailOffset
+
+    /// private transient volatile java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.head
+
+    /// private transient volatile java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.tail
 
     /// private static final int java.util.AbstractCollection.MAX_ARRAY_SIZE
 
@@ -39,8 +39,8 @@ open class ConcurrentLinkedQueue: AbstractQueue, /* java.io.Serializable */ Uncl
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentLinkedQueue", classCache: &ConcurrentLinkedQueue.ConcurrentLinkedQueueJNIClass, methodSig: "()V", methodCache: &ConcurrentLinkedQueue.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -51,8 +51,8 @@ open class ConcurrentLinkedQueue: AbstractQueue, /* java.io.Serializable */ Uncl
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( c: Collection? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentLinkedQueue", classCache: &ConcurrentLinkedQueue.ConcurrentLinkedQueueJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &ConcurrentLinkedQueue.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -63,113 +63,193 @@ open class ConcurrentLinkedQueue: AbstractQueue, /* java.io.Serializable */ Uncl
         self.init( c: _c )
     }
 
+    /// private static void java.util.concurrent.ConcurrentLinkedQueue.checkNotNull(java.lang.Object)
+
     /// public boolean java.util.concurrent.ConcurrentLinkedQueue.add(java.lang.Object)
 
-    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.remove(java.lang.Object)
-
-    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.isEmpty()
-
-    /// java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.first()
-
-    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.contains(java.lang.Object)
-
-    /// public int java.util.concurrent.ConcurrentLinkedQueue.size()
-
-    /// public java.lang.Object[] java.util.concurrent.ConcurrentLinkedQueue.toArray()
-
-    /// public java.lang.Object[] java.util.concurrent.ConcurrentLinkedQueue.toArray(java.lang.Object[])
-
-    /// public java.util.Iterator java.util.concurrent.ConcurrentLinkedQueue.iterator()
-
-    /// public java.util.Spliterator java.util.concurrent.ConcurrentLinkedQueue.spliterator()
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.concurrent.ConcurrentLinkedQueue.addAll(java.util.Collection)
 
-    /// private void java.util.concurrent.ConcurrentLinkedQueue.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.concurrent.ConcurrentLinkedQueue.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentLinkedQueue.poll()
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentLinkedQueue.peek()
-
-    /// final java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.succ(java.util.concurrent.ConcurrentLinkedQueue$Node)
-
-    /// final void java.util.concurrent.ConcurrentLinkedQueue.updateHead(java.util.concurrent.ConcurrentLinkedQueue$Node,java.util.concurrent.ConcurrentLinkedQueue$Node)
-
-    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.offer(java.lang.Object)
+    // Skipping method: false true false false false 
 
     /// private boolean java.util.concurrent.ConcurrentLinkedQueue.casHead(java.util.concurrent.ConcurrentLinkedQueue$Node,java.util.concurrent.ConcurrentLinkedQueue$Node)
 
     /// private boolean java.util.concurrent.ConcurrentLinkedQueue.casTail(java.util.concurrent.ConcurrentLinkedQueue$Node,java.util.concurrent.ConcurrentLinkedQueue$Node)
 
-    /// private static void java.util.concurrent.ConcurrentLinkedQueue.checkNotNull(java.lang.Object)
+    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.first()
+
+    // Skipping method: true false false false false 
+
+    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Iterator java.util.concurrent.ConcurrentLinkedQueue.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.offer(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentLinkedQueue.peek()
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentLinkedQueue.poll()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.concurrent.ConcurrentLinkedQueue.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public boolean java.util.concurrent.ConcurrentLinkedQueue.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.concurrent.ConcurrentLinkedQueue.size()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Spliterator java.util.concurrent.ConcurrentLinkedQueue.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// final java.util.concurrent.ConcurrentLinkedQueue$Node java.util.concurrent.ConcurrentLinkedQueue.succ(java.util.concurrent.ConcurrentLinkedQueue$Node)
+
+    // Skipping method: true false false false false 
+
+    /// public java.lang.Object[] java.util.concurrent.ConcurrentLinkedQueue.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object[] java.util.concurrent.ConcurrentLinkedQueue.toArray()
+
+    // Skipping method: false true false false false 
+
+    /// final void java.util.concurrent.ConcurrentLinkedQueue.updateHead(java.util.concurrent.ConcurrentLinkedQueue$Node,java.util.concurrent.ConcurrentLinkedQueue$Node)
+
+    // Skipping method: true false false false false 
+
+    /// private void java.util.concurrent.ConcurrentLinkedQueue.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
     /// In declared protocol but not defined.. ///
+
+    /// public abstract boolean java.util.Collection.add(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract void java.util.Collection.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Queue.element()
+
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.equals(java.lang.Object)
 
     private static var equals_MethodID_3: jmethodID?
 
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentLinkedQueue.equals_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     override open func equals( _ _o: java_swift.JavaObject? ) -> Bool {
         return equals( o: _o )
     }
 
-    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
 
-    /// public abstract java.lang.Object java.util.Queue.peek()
-
-    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray()
-
-    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+    // Skipping method: false true false false false 
 
     /// public abstract int java.util.Collection.hashCode()
 
-    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
-
-    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
-
-    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
-
-    /// public abstract void java.util.Collection.clear()
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.isEmpty()
 
-    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
-
-    /// public abstract boolean java.util.Queue.offer(java.lang.Object)
-
-    /// public abstract java.lang.Object java.util.Queue.element()
-
-    /// public abstract java.lang.Object java.util.Queue.remove()
-
-    /// public abstract java.lang.Object java.util.Queue.poll()
-
-    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+    // Skipping method: false true false false false 
 
     /// public abstract java.util.Iterator java.lang.Iterable.iterator()
 
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Queue.offer(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Queue.peek()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Queue.poll()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Queue.remove()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.size()
+
+    // Skipping method: false true false false false 
+
     /// public default java.util.Spliterator java.lang.Iterable.spliterator()
 
-    /// public abstract boolean java.util.Collection.add(java.lang.Object)
+    // Skipping method: false true false false false 
 
     /// public default java.util.stream.Stream java.util.Collection.stream()
 
-    /// public abstract int java.util.Collection.size()
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

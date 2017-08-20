@@ -23,12 +23,12 @@ open class FormattableForward: JNIObjectForward, Formattable {
     private static var formatTo_MethodID_2: jmethodID?
 
     open func formatTo( formatter: Formatter?, flags: Int, width: Int, precision: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         __args[0] = JNIType.toJava( value: formatter, locals: &__locals )
-        __args[1] = JNIType.toJava( value: flags, locals: &__locals )
-        __args[2] = JNIType.toJava( value: width, locals: &__locals )
-        __args[3] = JNIType.toJava( value: precision, locals: &__locals )
+        __args[1] = jvalue( i: jint(flags) )
+        __args[2] = jvalue( i: jint(width) )
+        __args[3] = jvalue( i: jint(precision) )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "formatTo", methodSig: "(Ljava/util/Formatter;III)V", methodCache: &FormattableForward.formatTo_MethodID_2, args: &__args, locals: &__locals )
     }
 
@@ -37,5 +37,4 @@ open class FormattableForward: JNIObjectForward, Formattable {
     }
 
 }
-
 

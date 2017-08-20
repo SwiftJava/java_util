@@ -23,8 +23,8 @@ open class EventListenerProxy: java_swift.JavaObject, EventListener {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( listener: EventListener? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: listener, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/EventListenerProxy", classCache: &EventListenerProxy.EventListenerProxyJNIClass, methodSig: "(Ljava/util/EventListener;)V", methodCache: &EventListenerProxy.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -40,8 +40,8 @@ open class EventListenerProxy: java_swift.JavaObject, EventListener {
     private static var getListener_MethodID_2: jmethodID?
 
     open func getListener() -> EventListener! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getListener", methodSig: "()Ljava/util/EventListener;", methodCache: &EventListenerProxy.getListener_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? EventListenerForward( javaObject: __return ) : nil

@@ -23,11 +23,11 @@ open class ToDoubleFunctionForward: JNIObjectForward, ToDoubleFunction {
     private static var applyAsDouble_MethodID_2: jmethodID?
 
     open func applyAsDouble( value: java_swift.JavaObject? ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: value, locals: &__locals )
         let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "applyAsDouble", methodSig: "(Ljava/lang/Object;)D", methodCache: &ToDoubleFunctionForward.applyAsDouble_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        return __return
     }
 
     open func applyAsDouble( _ _value: java_swift.JavaObject? ) -> Double {
@@ -35,5 +35,4 @@ open class ToDoubleFunctionForward: JNIObjectForward, ToDoubleFunction {
     }
 
 }
-
 

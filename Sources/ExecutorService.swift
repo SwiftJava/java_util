@@ -8,9 +8,9 @@ import java_lang
 
 public protocol ExecutorService: Executor {
 
-    /// public abstract void java.util.concurrent.ExecutorService.shutdown()
+    /// public abstract boolean java.util.concurrent.ExecutorService.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    func shutdown()
+    func awaitTermination( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool
 
     /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection) throws java.lang.InterruptedException
 
@@ -20,34 +20,6 @@ public protocol ExecutorService: Executor {
 
     func invokeAll( tasks: Collection?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> List!
 
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.util.concurrent.Callable)
-
-    func submit( task: Callable? ) -> Future!
-
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable,java.lang.Object)
-
-    func submit( task: java_swift.Runnable?, result: java_swift.JavaObject? ) -> Future!
-
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
-
-    func submit( task: java_swift.Runnable? ) -> Future!
-
-    /// public abstract java.util.List java.util.concurrent.ExecutorService.shutdownNow()
-
-    func shutdownNow() -> List!
-
-    /// public abstract boolean java.util.concurrent.ExecutorService.isTerminated()
-
-    func isTerminated() -> Bool
-
-    /// public abstract boolean java.util.concurrent.ExecutorService.isShutdown()
-
-    func isShutdown() -> Bool
-
-    /// public abstract boolean java.util.concurrent.ExecutorService.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
-
-    func awaitTermination( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool
-
     /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException
 
     func invokeAny( tasks: Collection? ) throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException */ -> java_swift.JavaObject!
@@ -56,6 +28,34 @@ public protocol ExecutorService: Executor {
 
     func invokeAny( tasks: Collection?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException, java.util.concurrent.TimeoutException */ -> java_swift.JavaObject!
 
+    /// public abstract boolean java.util.concurrent.ExecutorService.isShutdown()
+
+    func isShutdown() -> Bool
+
+    /// public abstract boolean java.util.concurrent.ExecutorService.isTerminated()
+
+    func isTerminated() -> Bool
+
+    /// public abstract void java.util.concurrent.ExecutorService.shutdown()
+
+    func shutdown()
+
+    /// public abstract java.util.List java.util.concurrent.ExecutorService.shutdownNow()
+
+    func shutdownNow() -> List!
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.util.concurrent.Callable)
+
+    func submit( task: Callable? ) -> Future!
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
+
+    func submit( task: java_swift.Runnable? ) -> Future!
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable,java.lang.Object)
+
+    func submit( task: java_swift.Runnable?, result: java_swift.JavaObject? ) -> Future!
+
 }
 
 
@@ -63,28 +63,54 @@ open class ExecutorServiceForward: ExecutorForward, ExecutorService {
 
     private static var ExecutorServiceJNIClass: jclass?
 
-    /// public abstract void java.util.concurrent.ExecutorService.shutdown()
+    /// public abstract boolean java.util.concurrent.ExecutorService.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var shutdown_MethodID_13: jmethodID?
+    private static var awaitTermination_MethodID_13: jmethodID?
 
-    open func shutdown() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func awaitTermination( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "shutdown", methodSig: "()V", methodCache: &ExecutorServiceForward.shutdown_MethodID_13, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: timeout )
+        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitTermination", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ExecutorServiceForward.awaitTermination_MethodID_13, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return __return != jboolean(JNI_FALSE)
     }
 
+    open func awaitTermination( _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
+        return try awaitTermination( timeout: _timeout, unit: _unit )
+    }
+
+    /// public abstract void java.util.concurrent.Executor.execute(java.lang.Runnable)
+
+    private static var execute_MethodID_14: jmethodID?
+
+    override open func execute( command: java_swift.Runnable? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: command, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "execute", methodSig: "(Ljava/lang/Runnable;)V", methodCache: &ExecutorServiceForward.execute_MethodID_14, args: &__args, locals: &__locals )
+    }
+
+    override open func execute( _ _command: java_swift.Runnable? ) {
+        execute( command: _command )
+    }
 
     /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection) throws java.lang.InterruptedException
 
-    private static var invokeAll_MethodID_14: jmethodID?
+    private static var invokeAll_MethodID_15: jmethodID?
 
     open func invokeAll( tasks: Collection? ) throws /* java.lang.InterruptedException */ -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAll", methodSig: "(Ljava/util/Collection;)Ljava/util/List;", methodCache: &ExecutorServiceForward.invokeAll_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAll", methodSig: "(Ljava/util/Collection;)Ljava/util/List;", methodCache: &ExecutorServiceForward.invokeAll_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
         return __return != nil ? ListForward( javaObject: __return ) : nil
@@ -96,17 +122,18 @@ open class ExecutorServiceForward: ExecutorForward, ExecutorService {
 
     /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var invokeAll_MethodID_15: jmethodID?
+    private static var invokeAll_MethodID_16: jmethodID?
 
     open func invokeAll( tasks: Collection?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
-        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
+        __args[1] = jvalue( j: timeout )
         __args[2] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAll", methodSig: "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", methodCache: &ExecutorServiceForward.invokeAll_MethodID_15, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAll", methodSig: "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/util/List;", methodCache: &ExecutorServiceForward.invokeAll_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
         return __return != nil ? ListForward( javaObject: __return ) : nil
@@ -116,126 +143,18 @@ open class ExecutorServiceForward: ExecutorForward, ExecutorService {
         return try invokeAll( tasks: _tasks, timeout: _timeout, unit: _unit )
     }
 
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.util.concurrent.Callable)
-
-    private static var submit_MethodID_16: jmethodID?
-
-    open func submit( task: Callable? ) -> Future! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", methodCache: &ExecutorServiceForward.submit_MethodID_16, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? FutureForward( javaObject: __return ) : nil
-    }
-
-    open func submit( _ _task: Callable? ) -> Future! {
-        return submit( task: _task )
-    }
-
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable,java.lang.Object)
-
-    private static var submit_MethodID_17: jmethodID?
-
-    open func submit( task: java_swift.Runnable?, result: java_swift.JavaObject? ) -> Future! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task, locals: &__locals )
-        __args[1] = JNIType.toJava( value: result, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", methodCache: &ExecutorServiceForward.submit_MethodID_17, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? FutureForward( javaObject: __return ) : nil
-    }
-
-    open func submit( _ _task: java_swift.Runnable?, _ _result: java_swift.JavaObject? ) -> Future! {
-        return submit( task: _task, result: _result )
-    }
-
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
-
-    private static var submit_MethodID_18: jmethodID?
-
-    open func submit( task: java_swift.Runnable? ) -> Future! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: task, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", methodCache: &ExecutorServiceForward.submit_MethodID_18, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? FutureForward( javaObject: __return ) : nil
-    }
-
-    open func submit( _ _task: java_swift.Runnable? ) -> Future! {
-        return submit( task: _task )
-    }
-
-    /// public abstract java.util.List java.util.concurrent.ExecutorService.shutdownNow()
-
-    private static var shutdownNow_MethodID_19: jmethodID?
-
-    open func shutdownNow() -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "shutdownNow", methodSig: "()Ljava/util/List;", methodCache: &ExecutorServiceForward.shutdownNow_MethodID_19, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ListForward( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract boolean java.util.concurrent.ExecutorService.isTerminated()
-
-    private static var isTerminated_MethodID_20: jmethodID?
-
-    open func isTerminated() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminated", methodSig: "()Z", methodCache: &ExecutorServiceForward.isTerminated_MethodID_20, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public abstract boolean java.util.concurrent.ExecutorService.isShutdown()
-
-    private static var isShutdown_MethodID_21: jmethodID?
-
-    open func isShutdown() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isShutdown", methodSig: "()Z", methodCache: &ExecutorServiceForward.isShutdown_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public abstract boolean java.util.concurrent.ExecutorService.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
-
-    private static var awaitTermination_MethodID_22: jmethodID?
-
-    open func awaitTermination( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[1] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitTermination", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ExecutorServiceForward.awaitTermination_MethodID_22, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func awaitTermination( _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        return try awaitTermination( timeout: _timeout, unit: _unit )
-    }
-
     /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException
 
-    private static var invokeAny_MethodID_23: jmethodID?
+    private static var invokeAny_MethodID_17: jmethodID?
 
     open func invokeAny( tasks: Collection? ) throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAny", methodSig: "(Ljava/util/Collection;)Ljava/lang/Object;", methodCache: &ExecutorServiceForward.invokeAny_MethodID_23, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAny", methodSig: "(Ljava/util/Collection;)Ljava/lang/Object;", methodCache: &ExecutorServiceForward.invokeAny_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -247,17 +166,18 @@ open class ExecutorServiceForward: ExecutorForward, ExecutorService {
 
     /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException
 
-    private static var invokeAny_MethodID_24: jmethodID?
+    private static var invokeAny_MethodID_18: jmethodID?
 
     open func invokeAny( tasks: Collection?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException, java.util.concurrent.TimeoutException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: tasks, locals: &__locals )
-        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
+        __args[1] = jvalue( j: timeout )
         __args[2] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAny", methodSig: "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &ExecutorServiceForward.invokeAny_MethodID_24, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "invokeAny", methodSig: "(Ljava/util/Collection;JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &ExecutorServiceForward.invokeAny_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -267,21 +187,105 @@ open class ExecutorServiceForward: ExecutorForward, ExecutorService {
         return try invokeAny( tasks: _tasks, timeout: _timeout, unit: _unit )
     }
 
-    /// public abstract void java.util.concurrent.Executor.execute(java.lang.Runnable)
+    /// public abstract boolean java.util.concurrent.ExecutorService.isShutdown()
 
-    private static var execute_MethodID_25: jmethodID?
+    private static var isShutdown_MethodID_19: jmethodID?
 
-    override open func execute( command: java_swift.Runnable? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func isShutdown() -> Bool {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: command, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "execute", methodSig: "(Ljava/lang/Runnable;)V", methodCache: &ExecutorServiceForward.execute_MethodID_25, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isShutdown", methodSig: "()Z", methodCache: &ExecutorServiceForward.isShutdown_MethodID_19, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
-    override open func execute( _ _command: java_swift.Runnable? ) {
-        execute( command: _command )
+
+    /// public abstract boolean java.util.concurrent.ExecutorService.isTerminated()
+
+    private static var isTerminated_MethodID_20: jmethodID?
+
+    open func isTerminated() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isTerminated", methodSig: "()Z", methodCache: &ExecutorServiceForward.isTerminated_MethodID_20, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public abstract void java.util.concurrent.ExecutorService.shutdown()
+
+    private static var shutdown_MethodID_21: jmethodID?
+
+    open func shutdown() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "shutdown", methodSig: "()V", methodCache: &ExecutorServiceForward.shutdown_MethodID_21, args: &__args, locals: &__locals )
+    }
+
+
+    /// public abstract java.util.List java.util.concurrent.ExecutorService.shutdownNow()
+
+    private static var shutdownNow_MethodID_22: jmethodID?
+
+    open func shutdownNow() -> List! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "shutdownNow", methodSig: "()Ljava/util/List;", methodCache: &ExecutorServiceForward.shutdownNow_MethodID_22, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ListForward( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.util.concurrent.Callable)
+
+    private static var submit_MethodID_23: jmethodID?
+
+    open func submit( task: Callable? ) -> Future! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/util/concurrent/Callable;)Ljava/util/concurrent/Future;", methodCache: &ExecutorServiceForward.submit_MethodID_23, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? FutureForward( javaObject: __return ) : nil
+    }
+
+    open func submit( _ _task: Callable? ) -> Future! {
+        return submit( task: _task )
+    }
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
+
+    private static var submit_MethodID_24: jmethodID?
+
+    open func submit( task: java_swift.Runnable? ) -> Future! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;", methodCache: &ExecutorServiceForward.submit_MethodID_24, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? FutureForward( javaObject: __return ) : nil
+    }
+
+    open func submit( _ _task: java_swift.Runnable? ) -> Future! {
+        return submit( task: _task )
+    }
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable,java.lang.Object)
+
+    private static var submit_MethodID_25: jmethodID?
+
+    open func submit( task: java_swift.Runnable?, result: java_swift.JavaObject? ) -> Future! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: task, locals: &__locals )
+        __args[1] = JNIType.toJava( value: result, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "submit", methodSig: "(Ljava/lang/Runnable;Ljava/lang/Object;)Ljava/util/concurrent/Future;", methodCache: &ExecutorServiceForward.submit_MethodID_25, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? FutureForward( javaObject: __return ) : nil
+    }
+
+    open func submit( _ _task: java_swift.Runnable?, _ _result: java_swift.JavaObject? ) -> Future! {
+        return submit( task: _task, result: _result )
     }
 
 }
-
 

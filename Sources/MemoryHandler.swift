@@ -19,21 +19,27 @@ open class MemoryHandler: Handler {
 
     /// private static final int java.util.logging.MemoryHandler.DEFAULT_SIZE
 
+    /// private java.util.logging.LogRecord[] java.util.logging.MemoryHandler.buffer
+
+    /// int java.util.logging.MemoryHandler.count
+
+    // Skipping field: true false false false false false 
+
     /// private volatile java.util.logging.Level java.util.logging.MemoryHandler.pushLevel
 
     /// private int java.util.logging.MemoryHandler.size
 
-    /// private java.util.logging.Handler java.util.logging.MemoryHandler.target
-
-    /// private java.util.logging.LogRecord[] java.util.logging.MemoryHandler.buffer
-
     /// int java.util.logging.MemoryHandler.start
 
-    /// int java.util.logging.MemoryHandler.count
+    // Skipping field: true false false false false false 
+
+    /// private java.util.logging.Handler java.util.logging.MemoryHandler.target
 
     /// private static final int java.util.logging.Handler.offValue
 
-    /// private final java.util.logging.LogManager java.util.logging.Handler.manager
+    /// private volatile java.lang.String java.util.logging.Handler.encoding
+
+    /// private volatile java.util.logging.ErrorManager java.util.logging.Handler.errorManager
 
     /// private volatile java.util.logging.Filter java.util.logging.Handler.filter
 
@@ -41,23 +47,35 @@ open class MemoryHandler: Handler {
 
     /// private volatile java.util.logging.Level java.util.logging.Handler.logLevel
 
-    /// private volatile java.util.logging.ErrorManager java.util.logging.Handler.errorManager
-
-    /// private volatile java.lang.String java.util.logging.Handler.encoding
+    /// private final java.util.logging.LogManager java.util.logging.Handler.manager
 
     /// boolean java.util.logging.Handler.sealed
 
-    /// public java.util.logging.MemoryHandler(java.util.logging.Handler,int,java.util.logging.Level)
+    // Skipping field: true false false false false false 
+
+    /// public java.util.logging.MemoryHandler()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( target: Handler?, size: Int, pushLevel: Level? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    public convenience init() {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/logging/MemoryHandler", classCache: &MemoryHandler.MemoryHandlerJNIClass, methodSig: "()V", methodCache: &MemoryHandler.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.logging.MemoryHandler(java.util.logging.Handler,int,java.util.logging.Level)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( target: Handler?, size: Int, pushLevel: Level? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: target, locals: &__locals )
-        __args[1] = JNIType.toJava( value: size, locals: &__locals )
+        __args[1] = jvalue( i: jint(size) )
         __args[2] = JNIType.toJava( value: pushLevel, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/logging/MemoryHandler", classCache: &MemoryHandler.MemoryHandlerJNIClass, methodSig: "(Ljava/util/logging/Handler;ILjava/util/logging/Level;)V", methodCache: &MemoryHandler.new_MethodID_1, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/logging/MemoryHandler", classCache: &MemoryHandler.MemoryHandlerJNIClass, methodSig: "(Ljava/util/logging/Handler;ILjava/util/logging/Level;)V", methodCache: &MemoryHandler.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -66,47 +84,61 @@ open class MemoryHandler: Handler {
         self.init( target: _target, size: _size, pushLevel: _pushLevel )
     }
 
-    /// public java.util.logging.MemoryHandler()
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/logging/MemoryHandler", classCache: &MemoryHandler.MemoryHandlerJNIClass, methodSig: "()V", methodCache: &MemoryHandler.new_MethodID_2, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    /// public synchronized void java.util.logging.MemoryHandler.push()
-
-    private static var push_MethodID_3: jmethodID?
-
-    open func push() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "push", methodSig: "()V", methodCache: &MemoryHandler.push_MethodID_3, args: &__args, locals: &__locals )
-    }
-
-
     /// private void java.util.logging.MemoryHandler.init()
-
-    /// public void java.util.logging.MemoryHandler.flush()
 
     /// public void java.util.logging.MemoryHandler.close() throws java.lang.SecurityException
 
+    // Skipping method: false true false false false 
+
+    /// private void java.util.logging.MemoryHandler.configure()
+
+    /// public void java.util.logging.MemoryHandler.flush()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.logging.Level java.util.logging.MemoryHandler.getPushLevel()
+
+    private static var getPushLevel_MethodID_3: jmethodID?
+
+    open func getPushLevel() -> Level! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getPushLevel", methodSig: "()Ljava/util/logging/Level;", methodCache: &MemoryHandler.getPushLevel_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Level( javaObject: __return ) : nil
+    }
+
+
     /// public boolean java.util.logging.MemoryHandler.isLoggable(java.util.logging.LogRecord)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized void java.util.logging.MemoryHandler.publish(java.util.logging.LogRecord)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized void java.util.logging.MemoryHandler.push()
+
+    private static var push_MethodID_4: jmethodID?
+
+    open func push() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "push", methodSig: "()V", methodCache: &MemoryHandler.push_MethodID_4, args: &__args, locals: &__locals )
+    }
+
 
     /// public synchronized void java.util.logging.MemoryHandler.setPushLevel(java.util.logging.Level) throws java.lang.SecurityException
 
-    private static var setPushLevel_MethodID_4: jmethodID?
+    private static var setPushLevel_MethodID_5: jmethodID?
 
     open func setPushLevel( newLevel: Level? ) throws /* java.lang.SecurityException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: newLevel, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setPushLevel", methodSig: "(Ljava/util/logging/Level;)V", methodCache: &MemoryHandler.setPushLevel_MethodID_4, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setPushLevel", methodSig: "(Ljava/util/logging/Level;)V", methodCache: &MemoryHandler.setPushLevel_MethodID_5, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.JavaSecurityException( javaObject: throwable )
         }
     }
@@ -114,23 +146,6 @@ open class MemoryHandler: Handler {
     open func setPushLevel( _ _newLevel: Level? ) throws /* java.lang.SecurityException */ {
         try setPushLevel( newLevel: _newLevel )
     }
-
-    /// public java.util.logging.Level java.util.logging.MemoryHandler.getPushLevel()
-
-    private static var getPushLevel_MethodID_5: jmethodID?
-
-    open func getPushLevel() -> Level! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getPushLevel", methodSig: "()Ljava/util/logging/Level;", methodCache: &MemoryHandler.getPushLevel_MethodID_5, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Level( javaObject: __return ) : nil
-    }
-
-
-    /// private void java.util.logging.MemoryHandler.configure()
-
-    /// public synchronized void java.util.logging.MemoryHandler.publish(java.util.logging.LogRecord)
 
 }
 

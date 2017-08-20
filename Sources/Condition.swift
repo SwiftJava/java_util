@@ -8,10 +8,6 @@ import java_lang
 
 public protocol Condition: JavaProtocol {
 
-    /// public abstract void java.util.concurrent.locks.Condition.signal()
-
-    func signal()
-
     /// public abstract boolean java.util.concurrent.locks.Condition.await(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
     func await( time: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool
@@ -32,6 +28,10 @@ public protocol Condition: JavaProtocol {
 
     func awaitUntil( deadline: Date? ) throws /* java.lang.InterruptedException */ -> Bool
 
+    /// public abstract void java.util.concurrent.locks.Condition.signal()
+
+    func signal()
+
     /// public abstract void java.util.concurrent.locks.Condition.signalAll()
 
     func signalAll()
@@ -43,31 +43,21 @@ open class ConditionForward: JNIObjectForward, Condition {
 
     private static var ConditionJNIClass: jclass?
 
-    /// public abstract void java.util.concurrent.locks.Condition.signal()
-
-    private static var signal_MethodID_8: jmethodID?
-
-    open func signal() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "signal", methodSig: "()V", methodCache: &ConditionForward.signal_MethodID_8, args: &__args, locals: &__locals )
-    }
-
-
     /// public abstract boolean java.util.concurrent.locks.Condition.await(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var await_MethodID_9: jmethodID?
+    private static var await_MethodID_8: jmethodID?
 
     open func await( time: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: time, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: time )
         __args[1] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "await", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ConditionForward.await_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "await", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &ConditionForward.await_MethodID_8, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func await( _ _time: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
@@ -76,13 +66,14 @@ open class ConditionForward: JNIObjectForward, Condition {
 
     /// public abstract void java.util.concurrent.locks.Condition.await() throws java.lang.InterruptedException
 
-    private static var await_MethodID_10: jmethodID?
+    private static var await_MethodID_9: jmethodID?
 
     open func await() throws /* java.lang.InterruptedException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "await", methodSig: "()V", methodCache: &ConditionForward.await_MethodID_10, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "await", methodSig: "()V", methodCache: &ConditionForward.await_MethodID_9, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
     }
@@ -90,17 +81,18 @@ open class ConditionForward: JNIObjectForward, Condition {
 
     /// public abstract long java.util.concurrent.locks.Condition.awaitNanos(long) throws java.lang.InterruptedException
 
-    private static var awaitNanos_MethodID_11: jmethodID?
+    private static var awaitNanos_MethodID_10: jmethodID?
 
     open func awaitNanos( nanosTimeout: Int64 ) throws /* java.lang.InterruptedException */ -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: nanosTimeout, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "awaitNanos", methodSig: "(J)J", methodCache: &ConditionForward.awaitNanos_MethodID_11, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: nanosTimeout )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "awaitNanos", methodSig: "(J)J", methodCache: &ConditionForward.awaitNanos_MethodID_10, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Int64(), from: __return )
+        return __return
     }
 
     open func awaitNanos( _ _nanosTimeout: Int64 ) throws /* java.lang.InterruptedException */ -> Int64 {
@@ -109,45 +101,56 @@ open class ConditionForward: JNIObjectForward, Condition {
 
     /// public abstract void java.util.concurrent.locks.Condition.awaitUninterruptibly()
 
-    private static var awaitUninterruptibly_MethodID_12: jmethodID?
+    private static var awaitUninterruptibly_MethodID_11: jmethodID?
 
     open func awaitUninterruptibly() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "awaitUninterruptibly", methodSig: "()V", methodCache: &ConditionForward.awaitUninterruptibly_MethodID_12, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "awaitUninterruptibly", methodSig: "()V", methodCache: &ConditionForward.awaitUninterruptibly_MethodID_11, args: &__args, locals: &__locals )
     }
 
 
     /// public abstract boolean java.util.concurrent.locks.Condition.awaitUntil(java.util.Date) throws java.lang.InterruptedException
 
-    private static var awaitUntil_MethodID_13: jmethodID?
+    private static var awaitUntil_MethodID_12: jmethodID?
 
     open func awaitUntil( deadline: Date? ) throws /* java.lang.InterruptedException */ -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: deadline, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitUntil", methodSig: "(Ljava/util/Date;)Z", methodCache: &ConditionForward.awaitUntil_MethodID_13, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "awaitUntil", methodSig: "(Ljava/util/Date;)Z", methodCache: &ConditionForward.awaitUntil_MethodID_12, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func awaitUntil( _ _deadline: Date? ) throws /* java.lang.InterruptedException */ -> Bool {
         return try awaitUntil( deadline: _deadline )
     }
 
+    /// public abstract void java.util.concurrent.locks.Condition.signal()
+
+    private static var signal_MethodID_13: jmethodID?
+
+    open func signal() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "signal", methodSig: "()V", methodCache: &ConditionForward.signal_MethodID_13, args: &__args, locals: &__locals )
+    }
+
+
     /// public abstract void java.util.concurrent.locks.Condition.signalAll()
 
     private static var signalAll_MethodID_14: jmethodID?
 
     open func signalAll() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "signalAll", methodSig: "()V", methodCache: &ConditionForward.signalAll_MethodID_14, args: &__args, locals: &__locals )
     }
 
 
 }
-
 

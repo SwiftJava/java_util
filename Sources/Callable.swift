@@ -23,11 +23,12 @@ open class CallableForward: JNIObjectForward, Callable {
     private static var call_MethodID_2: jmethodID?
 
     open func call() throws /* java.lang.Exception */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "call", methodSig: "()Ljava/lang/Object;", methodCache: &CallableForward.call_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_swift.Exception( javaObject: throwable )
         }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -35,5 +36,4 @@ open class CallableForward: JNIObjectForward, Callable {
 
 
 }
-
 

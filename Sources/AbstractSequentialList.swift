@@ -22,13 +22,12 @@ open class AbstractSequentialList: AbstractList {
 
     override open var modCount: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &AbstractSequentialList.modCount_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &AbstractSequentialList.modCount_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &AbstractSequentialList.modCount_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
@@ -40,8 +39,8 @@ open class AbstractSequentialList: AbstractList {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/AbstractSequentialList", classCache: &AbstractSequentialList.AbstractSequentialListJNIClass, methodSig: "()V", methodCache: &AbstractSequentialList.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -49,17 +48,31 @@ open class AbstractSequentialList: AbstractList {
 
     /// public void java.util.AbstractSequentialList.add(int,java.lang.Object)
 
-    /// public java.lang.Object java.util.AbstractSequentialList.remove(int)
-
-    /// public java.lang.Object java.util.AbstractSequentialList.get(int)
-
-    /// public java.util.Iterator java.util.AbstractSequentialList.iterator()
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.AbstractSequentialList.addAll(int,java.util.Collection)
 
-    /// public java.lang.Object java.util.AbstractSequentialList.set(int,java.lang.Object)
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.AbstractSequentialList.get(int)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Iterator java.util.AbstractSequentialList.iterator()
+
+    // Skipping method: false true false false false 
 
     /// public abstract java.util.ListIterator java.util.AbstractSequentialList.listIterator(int)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.AbstractSequentialList.remove(int)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.AbstractSequentialList.set(int,java.lang.Object)
+
+    // Skipping method: false true false false false 
 
 }
 

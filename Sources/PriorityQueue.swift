@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.PriorityQueue ///
 
-open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedProtocol {
+open class PriorityQueue: AbstractQueue, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,38 +20,36 @@ open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedPro
 
     private static var PriorityQueueJNIClass: jclass?
 
-    /// private static final long java.util.PriorityQueue.serialVersionUID
-
     /// private static final int java.util.PriorityQueue.DEFAULT_INITIAL_CAPACITY
 
-    /// transient java.lang.Object[] java.util.PriorityQueue.queue
+    /// private static final int java.util.PriorityQueue.MAX_ARRAY_SIZE
 
-    /// private int java.util.PriorityQueue.size
+    /// private static final long java.util.PriorityQueue.serialVersionUID
 
     /// private final java.util.Comparator java.util.PriorityQueue.comparator
 
     /// transient int java.util.PriorityQueue.modCount
 
-    /// private static final int java.util.PriorityQueue.MAX_ARRAY_SIZE
+    // Skipping field: true false false false false false 
+
+    /// transient java.lang.Object[] java.util.PriorityQueue.queue
+
+    // Skipping field: true false false false false false 
+
+    /// private int java.util.PriorityQueue.size
 
     /// private static final int java.util.AbstractCollection.MAX_ARRAY_SIZE
 
-    /// public java.util.PriorityQueue(int,java.util.Comparator)
+    /// public java.util.PriorityQueue()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( initialCapacity: Int, comparator: JavaComparator? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init() {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        __args[1] = JNIType.toJava( value: comparator, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(ILjava/util/Comparator;)V", methodCache: &PriorityQueue.new_MethodID_1, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "()V", methodCache: &PriorityQueue.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _initialCapacity: Int, _ _comparator: JavaComparator? ) {
-        self.init( initialCapacity: _initialCapacity, comparator: _comparator )
     }
 
     /// public java.util.PriorityQueue(java.util.Collection)
@@ -59,8 +57,8 @@ open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedPro
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( c: Collection? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &PriorityQueue.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -71,15 +69,67 @@ open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedPro
         self.init( c: _c )
     }
 
-    /// public java.util.PriorityQueue(java.util.PriorityQueue)
+    /// public java.util.PriorityQueue(int)
 
     private static var new_MethodID_3: jmethodID?
 
-    public convenience init( c: PriorityQueue? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init( initialCapacity: Int ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(I)V", methodCache: &PriorityQueue.new_MethodID_3, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _initialCapacity: Int ) {
+        self.init( initialCapacity: _initialCapacity )
+    }
+
+    /// public java.util.PriorityQueue(int,java.util.Comparator)
+
+    private static var new_MethodID_4: jmethodID?
+
+    public convenience init( initialCapacity: Int, comparator: JavaComparator? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        __args[1] = JNIType.toJava( value: comparator, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(ILjava/util/Comparator;)V", methodCache: &PriorityQueue.new_MethodID_4, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _initialCapacity: Int, _ _comparator: JavaComparator? ) {
+        self.init( initialCapacity: _initialCapacity, comparator: _comparator )
+    }
+
+    /// public java.util.PriorityQueue(java.util.Comparator)
+
+    private static var new_MethodID_5: jmethodID?
+
+    public convenience init( comparator: JavaComparator? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: comparator, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(Ljava/util/Comparator;)V", methodCache: &PriorityQueue.new_MethodID_5, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _comparator: JavaComparator? ) {
+        self.init( comparator: _comparator )
+    }
+
+    /// public java.util.PriorityQueue(java.util.PriorityQueue)
+
+    private static var new_MethodID_6: jmethodID?
+
+    public convenience init( c: PriorityQueue? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(Ljava/util/PriorityQueue;)V", methodCache: &PriorityQueue.new_MethodID_3, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(Ljava/util/PriorityQueue;)V", methodCache: &PriorityQueue.new_MethodID_6, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -90,13 +140,13 @@ open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedPro
 
     /// public java.util.PriorityQueue(java.util.SortedSet)
 
-    private static var new_MethodID_4: jmethodID?
+    private static var new_MethodID_7: jmethodID?
 
     public convenience init( c: SortedSet? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(Ljava/util/SortedSet;)V", methodCache: &PriorityQueue.new_MethodID_4, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(Ljava/util/SortedSet;)V", methodCache: &PriorityQueue.new_MethodID_7, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -105,126 +155,110 @@ open class PriorityQueue: AbstractQueue, /* java.io.Serializable */ UnclassedPro
         self.init( c: _c )
     }
 
-    /// public java.util.PriorityQueue()
-
-    private static var new_MethodID_5: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "()V", methodCache: &PriorityQueue.new_MethodID_5, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    /// public java.util.PriorityQueue(int)
-
-    private static var new_MethodID_6: jmethodID?
-
-    public convenience init( initialCapacity: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(I)V", methodCache: &PriorityQueue.new_MethodID_6, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _initialCapacity: Int ) {
-        self.init( initialCapacity: _initialCapacity )
-    }
-
-    /// public java.util.PriorityQueue(java.util.Comparator)
-
-    private static var new_MethodID_7: jmethodID?
-
-    public convenience init( comparator: JavaComparator? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: comparator, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/PriorityQueue", classCache: &PriorityQueue.PriorityQueueJNIClass, methodSig: "(Ljava/util/Comparator;)V", methodCache: &PriorityQueue.new_MethodID_7, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _comparator: JavaComparator? ) {
-        self.init( comparator: _comparator )
-    }
-
-    /// public boolean java.util.PriorityQueue.add(java.lang.Object)
-
-    /// public boolean java.util.PriorityQueue.remove(java.lang.Object)
-
-    /// private int java.util.PriorityQueue.indexOf(java.lang.Object)
-
-    /// public void java.util.PriorityQueue.clear()
-
-    /// public boolean java.util.PriorityQueue.contains(java.lang.Object)
-
-    /// public int java.util.PriorityQueue.size()
-
-    /// public java.lang.Object[] java.util.PriorityQueue.toArray()
-
-    /// public java.lang.Object[] java.util.PriorityQueue.toArray(java.lang.Object[])
-
-    /// public java.util.Iterator java.util.PriorityQueue.iterator()
-
-    /// public final java.util.Spliterator java.util.PriorityQueue.spliterator()
-
     /// static int java.util.PriorityQueue.access$100(java.util.PriorityQueue)
+
+    // Skipping method: true false false false false 
 
     /// static java.lang.Object java.util.PriorityQueue.access$200(java.util.PriorityQueue,int)
 
-    /// private void java.util.PriorityQueue.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+    // Skipping method: true false false false false 
 
-    /// private void java.util.PriorityQueue.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+    /// private static int java.util.PriorityQueue.hugeCapacity(int)
 
-    /// public java.lang.Object java.util.PriorityQueue.poll()
+    /// public boolean java.util.PriorityQueue.add(java.lang.Object)
 
-    /// public java.lang.Object java.util.PriorityQueue.peek()
+    // Skipping method: false true false false false 
+
+    /// public void java.util.PriorityQueue.clear()
+
+    // Skipping method: false true false false false 
 
     /// public java.util.Comparator java.util.PriorityQueue.comparator()
 
     private static var comparator_MethodID_8: jmethodID?
 
     open func comparator() -> JavaComparator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "comparator", methodSig: "()Ljava/util/Comparator;", methodCache: &PriorityQueue.comparator_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? JavaComparatorForward( javaObject: __return ) : nil
     }
 
 
+    /// public boolean java.util.PriorityQueue.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
     /// private void java.util.PriorityQueue.grow(int)
-
-    /// private static int java.util.PriorityQueue.hugeCapacity(int)
-
-    /// boolean java.util.PriorityQueue.removeEq(java.lang.Object)
 
     /// private void java.util.PriorityQueue.heapify()
 
-    /// public boolean java.util.PriorityQueue.offer(java.lang.Object)
-
-    /// private java.lang.Object java.util.PriorityQueue.removeAt(int)
-
-    /// private void java.util.PriorityQueue.siftUpComparable(int,java.lang.Object)
-
-    /// private void java.util.PriorityQueue.siftUpUsingComparator(int,java.lang.Object)
-
-    /// private void java.util.PriorityQueue.siftDownComparable(int,java.lang.Object)
-
-    /// private void java.util.PriorityQueue.siftDownUsingComparator(int,java.lang.Object)
-
-    /// private void java.util.PriorityQueue.initFromPriorityQueue(java.util.PriorityQueue)
+    /// private int java.util.PriorityQueue.indexOf(java.lang.Object)
 
     /// private void java.util.PriorityQueue.initElementsFromCollection(java.util.Collection)
 
     /// private void java.util.PriorityQueue.initFromCollection(java.util.Collection)
 
-    /// private void java.util.PriorityQueue.siftUp(int,java.lang.Object)
+    /// private void java.util.PriorityQueue.initFromPriorityQueue(java.util.PriorityQueue)
+
+    /// public java.util.Iterator java.util.PriorityQueue.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.PriorityQueue.offer(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.PriorityQueue.peek()
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.PriorityQueue.poll()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.PriorityQueue.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public boolean java.util.PriorityQueue.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// private java.lang.Object java.util.PriorityQueue.removeAt(int)
+
+    /// boolean java.util.PriorityQueue.removeEq(java.lang.Object)
+
+    // Skipping method: true false false false false 
 
     /// private void java.util.PriorityQueue.siftDown(int,java.lang.Object)
+
+    /// private void java.util.PriorityQueue.siftDownComparable(int,java.lang.Object)
+
+    /// private void java.util.PriorityQueue.siftDownUsingComparator(int,java.lang.Object)
+
+    /// private void java.util.PriorityQueue.siftUp(int,java.lang.Object)
+
+    /// private void java.util.PriorityQueue.siftUpComparable(int,java.lang.Object)
+
+    /// private void java.util.PriorityQueue.siftUpUsingComparator(int,java.lang.Object)
+
+    /// public int java.util.PriorityQueue.size()
+
+    // Skipping method: false true false false false 
+
+    /// public final java.util.Spliterator java.util.PriorityQueue.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object[] java.util.PriorityQueue.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object[] java.util.PriorityQueue.toArray()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.PriorityQueue.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
 }
 

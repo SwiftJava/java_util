@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.UUID ///
 
-open class UUID: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProtocol, java_lang.JavaComparable {
+open class UUID: java_swift.JavaObject, /* interface java.io.Serializable */ UnavailableProtocol, java_lang.JavaComparable {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,25 +20,25 @@ open class UUID: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProt
 
     private static var UUIDJNIClass: jclass?
 
-    /// private static final long java.util.UUID.serialVersionUID
+    /// static final boolean java.util.UUID.$assertionsDisabled
 
-    /// private final long java.util.UUID.mostSigBits
+    // Skipping field: true false false false false false 
+
+    /// private static final long java.util.UUID.serialVersionUID
 
     /// private final long java.util.UUID.leastSigBits
 
-    /// static final boolean java.util.UUID.$assertionsDisabled
-
-    /// private java.util.UUID(byte[])
+    /// private final long java.util.UUID.mostSigBits
 
     /// public java.util.UUID(long,long)
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( mostSigBits: Int64, leastSigBits: Int64 ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mostSigBits, locals: &__locals )
-        __args[1] = JNIType.toJava( value: leastSigBits, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: mostSigBits )
+        __args[1] = jvalue( j: leastSigBits )
         let __object = JNIMethod.NewObject( className: "java/util/UUID", classCache: &UUID.UUIDJNIClass, methodSig: "(JJ)V", methodCache: &UUID.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -48,147 +48,19 @@ open class UUID: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProt
         self.init( mostSigBits: _mostSigBits, leastSigBits: _leastSigBits )
     }
 
-    /// public boolean java.util.UUID.equals(java.lang.Object)
-
-    private static var equals_MethodID_2: jmethodID?
-
-    open func equals( obj: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &UUID.equals_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
-        return equals( obj: _obj )
-    }
-
-    /// public java.lang.String java.util.UUID.toString()
-
-    /// public int java.util.UUID.hashCode()
-
-    /// public int java.util.UUID.compareTo(java.lang.Object)
-
-    private static var compareTo_MethodID_3: jmethodID?
-
-    open func compareTo( arg0: java_swift.JavaObject? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/lang/Object;)I", methodCache: &UUID.compareTo_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func compareTo( _ _arg0: java_swift.JavaObject? ) -> Int {
-        return compareTo( arg0: _arg0 )
-    }
-
-    /// public int java.util.UUID.compareTo(java.util.UUID)
-
-    private static var compareTo_MethodID_4: jmethodID?
-
-    open func compareTo( val: UUID? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: val, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/util/UUID;)I", methodCache: &UUID.compareTo_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func compareTo( _ _val: UUID? ) -> Int {
-        return compareTo( val: _val )
-    }
-
-    /// public long java.util.UUID.timestamp()
-
-    private static var timestamp_MethodID_5: jmethodID?
-
-    open func timestamp() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "timestamp", methodSig: "()J", methodCache: &UUID.timestamp_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
+    /// private java.util.UUID(byte[])
 
     /// private static java.lang.String java.util.UUID.digits(long,int)
 
-    /// public long java.util.UUID.node()
-
-    private static var node_MethodID_6: jmethodID?
-
-    open func node() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "node", methodSig: "()J", methodCache: &UUID.node_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public int java.util.UUID.version()
-
-    private static var version_MethodID_7: jmethodID?
-
-    open func version() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "version", methodSig: "()I", methodCache: &UUID.version_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public int java.util.UUID.variant()
-
-    private static var variant_MethodID_8: jmethodID?
-
-    open func variant() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "variant", methodSig: "()I", methodCache: &UUID.variant_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public static java.util.UUID java.util.UUID.randomUUID()
-
-    private static var randomUUID_MethodID_9: jmethodID?
-
-    open class func randomUUID() -> UUID! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/UUID", classCache: &UUIDJNIClass, methodName: "randomUUID", methodSig: "()Ljava/util/UUID;", methodCache: &randomUUID_MethodID_9, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? UUID( javaObject: __return ) : nil
-    }
-
-
-    /// public static java.util.UUID java.util.UUID.nameUUIDFromBytes(byte[])
-
-    private static var nameUUIDFromBytes_MethodID_10: jmethodID?
-
-    open class func nameUUIDFromBytes( name: [Int8]? ) -> UUID! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/UUID", classCache: &UUIDJNIClass, methodName: "nameUUIDFromBytes", methodSig: "([B)Ljava/util/UUID;", methodCache: &nameUUIDFromBytes_MethodID_10, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? UUID( javaObject: __return ) : nil
-    }
-
-    open class func nameUUIDFromBytes( _ _name: [Int8]? ) -> UUID! {
-        return nameUUIDFromBytes( name: _name )
-    }
-
     /// public static java.util.UUID java.util.UUID.fromString(java.lang.String)
 
-    private static var fromString_MethodID_11: jmethodID?
+    private static var fromString_MethodID_2: jmethodID?
 
     open class func fromString( name: String? ) -> UUID! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/UUID", classCache: &UUIDJNIClass, methodName: "fromString", methodSig: "(Ljava/lang/String;)Ljava/util/UUID;", methodCache: &fromString_MethodID_11, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/UUID", classCache: &UUIDJNIClass, methodName: "fromString", methodSig: "(Ljava/lang/String;)Ljava/util/UUID;", methodCache: &fromString_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? UUID( javaObject: __return ) : nil
     }
@@ -197,39 +69,173 @@ open class UUID: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProt
         return fromString( name: _name )
     }
 
-    /// public long java.util.UUID.getLeastSignificantBits()
+    /// public static java.util.UUID java.util.UUID.nameUUIDFromBytes(byte[])
 
-    private static var getLeastSignificantBits_MethodID_12: jmethodID?
+    private static var nameUUIDFromBytes_MethodID_3: jmethodID?
 
-    open func getLeastSignificantBits() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func nameUUIDFromBytes( name: [Int8]? ) -> UUID! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getLeastSignificantBits", methodSig: "()J", methodCache: &UUID.getLeastSignificantBits_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: name, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/UUID", classCache: &UUIDJNIClass, methodName: "nameUUIDFromBytes", methodSig: "([B)Ljava/util/UUID;", methodCache: &nameUUIDFromBytes_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? UUID( javaObject: __return ) : nil
     }
 
+    open class func nameUUIDFromBytes( _ _name: [Int8]? ) -> UUID! {
+        return nameUUIDFromBytes( name: _name )
+    }
 
-    /// public long java.util.UUID.getMostSignificantBits()
+    /// public static java.util.UUID java.util.UUID.randomUUID()
 
-    private static var getMostSignificantBits_MethodID_13: jmethodID?
+    private static var randomUUID_MethodID_4: jmethodID?
 
-    open func getMostSignificantBits() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func randomUUID() -> UUID! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getMostSignificantBits", methodSig: "()J", methodCache: &UUID.getMostSignificantBits_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/UUID", classCache: &UUIDJNIClass, methodName: "randomUUID", methodSig: "()Ljava/util/UUID;", methodCache: &randomUUID_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? UUID( javaObject: __return ) : nil
     }
 
 
     /// public int java.util.UUID.clockSequence()
 
-    private static var clockSequence_MethodID_14: jmethodID?
+    private static var clockSequence_MethodID_5: jmethodID?
 
     open func clockSequence() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "clockSequence", methodSig: "()I", methodCache: &UUID.clockSequence_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "clockSequence", methodSig: "()I", methodCache: &UUID.clockSequence_MethodID_5, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public int java.util.UUID.compareTo(java.util.UUID)
+
+    private static var compareTo_MethodID_6: jmethodID?
+
+    open func compareTo( val: UUID? ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: val, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/util/UUID;)I", methodCache: &UUID.compareTo_MethodID_6, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func compareTo( _ _val: UUID? ) -> Int {
+        return compareTo( val: _val )
+    }
+
+    /// public int java.util.UUID.compareTo(java.lang.Object)
+
+    private static var compareTo_MethodID_7: jmethodID?
+
+    open func compareTo( arg0: java_swift.JavaObject? ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/lang/Object;)I", methodCache: &UUID.compareTo_MethodID_7, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func compareTo( _ _arg0: java_swift.JavaObject? ) -> Int {
+        return compareTo( arg0: _arg0 )
+    }
+
+    /// public boolean java.util.UUID.equals(java.lang.Object)
+
+    private static var equals_MethodID_8: jmethodID?
+
+    open func equals( obj: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &UUID.equals_MethodID_8, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
+        return equals( obj: _obj )
+    }
+
+    /// public long java.util.UUID.getLeastSignificantBits()
+
+    private static var getLeastSignificantBits_MethodID_9: jmethodID?
+
+    open func getLeastSignificantBits() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getLeastSignificantBits", methodSig: "()J", methodCache: &UUID.getLeastSignificantBits_MethodID_9, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public long java.util.UUID.getMostSignificantBits()
+
+    private static var getMostSignificantBits_MethodID_10: jmethodID?
+
+    open func getMostSignificantBits() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getMostSignificantBits", methodSig: "()J", methodCache: &UUID.getMostSignificantBits_MethodID_10, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public int java.util.UUID.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public long java.util.UUID.node()
+
+    private static var node_MethodID_11: jmethodID?
+
+    open func node() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "node", methodSig: "()J", methodCache: &UUID.node_MethodID_11, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public long java.util.UUID.timestamp()
+
+    private static var timestamp_MethodID_12: jmethodID?
+
+    open func timestamp() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "timestamp", methodSig: "()J", methodCache: &UUID.timestamp_MethodID_12, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public java.lang.String java.util.UUID.toString()
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.UUID.variant()
+
+    private static var variant_MethodID_13: jmethodID?
+
+    open func variant() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "variant", methodSig: "()I", methodCache: &UUID.variant_MethodID_13, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public int java.util.UUID.version()
+
+    private static var version_MethodID_14: jmethodID?
+
+    open func version() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "version", methodSig: "()I", methodCache: &UUID.version_MethodID_14, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
 

@@ -16,38 +16,17 @@ open class AbstractPreferences: Preferences {
 
     private static var AbstractPreferencesJNIClass: jclass?
 
-    /// private final java.lang.String java.util.prefs.AbstractPreferences.name
+    /// private static final java.util.prefs.AbstractPreferences[] java.util.prefs.AbstractPreferences.EMPTY_ABSTRACT_PREFS_ARRAY
+
+    /// private static final java.lang.String[] java.util.prefs.AbstractPreferences.EMPTY_STRING_ARRAY
+
+    /// private static java.lang.Thread java.util.prefs.AbstractPreferences.eventDispatchThread
+
+    /// private static final java.util.List java.util.prefs.AbstractPreferences.eventQueue
 
     /// private final java.lang.String java.util.prefs.AbstractPreferences.absolutePath
 
-    /// final java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.parent
-
-    /// private final java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.root
-
-    /// protected boolean java.util.prefs.AbstractPreferences.newNode
-
-    private static var newNode_FieldID: jfieldID?
-
-    open var newNode: Bool {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetBooleanField( fieldName: "newNode", fieldType: "Z", fieldCache: &AbstractPreferences.newNode_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Bool(), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetBooleanField( fieldName: "newNode", fieldType: "Z", fieldCache: &AbstractPreferences.newNode_FieldID, object: javaObject, value: __value.z, locals: &__locals )
-        }
-    }
-
     /// private java.util.Map java.util.prefs.AbstractPreferences.kidCache
-
-    /// private boolean java.util.prefs.AbstractPreferences.removed
-
-    /// private java.util.prefs.PreferenceChangeListener[] java.util.prefs.AbstractPreferences.prefListeners
-
-    /// private java.util.prefs.NodeChangeListener[] java.util.prefs.AbstractPreferences.nodeListeners
 
     /// protected final java.lang.Object java.util.prefs.AbstractPreferences.lock
 
@@ -55,27 +34,55 @@ open class AbstractPreferences: Preferences {
 
     open var lock: java_swift.JavaObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "lock", fieldType: "Ljava/lang/Object;", fieldCache: &AbstractPreferences.lock_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "lock", fieldType: "Ljava/lang/Object;", fieldCache: &AbstractPreferences.lock_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? java_swift.JavaObject( javaObject: __value ) : nil
         }
     }
 
-    /// private static final java.lang.String[] java.util.prefs.AbstractPreferences.EMPTY_STRING_ARRAY
+    /// private final java.lang.String java.util.prefs.AbstractPreferences.name
 
-    /// private static final java.util.prefs.AbstractPreferences[] java.util.prefs.AbstractPreferences.EMPTY_ABSTRACT_PREFS_ARRAY
+    /// protected boolean java.util.prefs.AbstractPreferences.newNode
 
-    /// private static final java.util.List java.util.prefs.AbstractPreferences.eventQueue
+    private static var newNode_FieldID: jfieldID?
 
-    /// private static java.lang.Thread java.util.prefs.AbstractPreferences.eventDispatchThread
+    open var newNode: Bool {
+        get {
+            let __value = JNIField.GetBooleanField( fieldName: "newNode", fieldType: "Z", fieldCache: &AbstractPreferences.newNode_FieldID, object: javaObject )
+            return __value != jboolean(JNI_FALSE)
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = jvalue( z: jboolean(newValue ? JNI_TRUE : JNI_FALSE) )
+            JNIField.SetBooleanField( fieldName: "newNode", fieldType: "Z", fieldCache: &AbstractPreferences.newNode_FieldID, object: javaObject, value: __value.z, locals: &__locals )
+        }
+    }
 
-    /// private static final java.util.prefs.PreferencesFactory java.util.prefs.Preferences.factory
+    /// private java.util.prefs.NodeChangeListener[] java.util.prefs.AbstractPreferences.nodeListeners
+
+    /// final java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.parent
+
+    // Skipping field: true false false false false false 
+
+    /// private java.util.prefs.PreferenceChangeListener[] java.util.prefs.AbstractPreferences.prefListeners
+
+    /// private boolean java.util.prefs.AbstractPreferences.removed
+
+    /// private final java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.root
 
     /// public static final int java.util.prefs.Preferences.MAX_KEY_LENGTH
 
-    /// public static final int java.util.prefs.Preferences.MAX_VALUE_LENGTH
+    // Skipping field: false true false false false false 
 
     /// public static final int java.util.prefs.Preferences.MAX_NAME_LENGTH
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.prefs.Preferences.MAX_VALUE_LENGTH
+
+    // Skipping field: false true false false false false 
+
+    /// private static final java.util.prefs.PreferencesFactory java.util.prefs.Preferences.factory
 
     /// private static java.security.Permission java.util.prefs.Preferences.prefsPerm
 
@@ -84,8 +91,8 @@ open class AbstractPreferences: Preferences {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( parent: AbstractPreferences?, name: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: parent, locals: &__locals )
         __args[1] = JNIType.toJava( value: name, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/prefs/AbstractPreferences", classCache: &AbstractPreferences.AbstractPreferencesJNIClass, methodSig: "(Ljava/util/prefs/AbstractPreferences;Ljava/lang/String;)V", methodCache: &AbstractPreferences.new_MethodID_1, args: &__args, locals: &__locals )
@@ -97,59 +104,231 @@ open class AbstractPreferences: Preferences {
         self.init( parent: _parent, name: _name )
     }
 
-    /// public java.lang.String java.util.prefs.AbstractPreferences.name()
+    /// static java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.access$000(java.util.prefs.AbstractPreferences)
 
-    /// public void java.util.prefs.AbstractPreferences.remove(java.lang.String)
-
-    /// public java.util.prefs.Preferences java.util.prefs.AbstractPreferences.parent()
-
-    /// public java.lang.String java.util.prefs.AbstractPreferences.get(java.lang.String,java.lang.String)
-
-    /// public void java.util.prefs.AbstractPreferences.put(java.lang.String,java.lang.String)
-
-    /// public java.lang.String java.util.prefs.AbstractPreferences.toString()
-
-    /// public boolean java.util.prefs.AbstractPreferences.getBoolean(java.lang.String,boolean)
-
-    /// public void java.util.prefs.AbstractPreferences.putBoolean(java.lang.String,boolean)
-
-    /// public int java.util.prefs.AbstractPreferences.getInt(java.lang.String,int)
-
-    /// public void java.util.prefs.AbstractPreferences.putInt(java.lang.String,int)
-
-    /// public long java.util.prefs.AbstractPreferences.getLong(java.lang.String,long)
-
-    /// public void java.util.prefs.AbstractPreferences.putLong(java.lang.String,long)
-
-    /// public float java.util.prefs.AbstractPreferences.getFloat(java.lang.String,float)
-
-    /// public void java.util.prefs.AbstractPreferences.putFloat(java.lang.String,float)
-
-    /// public double java.util.prefs.AbstractPreferences.getDouble(java.lang.String,double)
-
-    /// public void java.util.prefs.AbstractPreferences.putDouble(java.lang.String,double)
-
-    /// public void java.util.prefs.AbstractPreferences.clear() throws java.util.prefs.BackingStoreException
+    // Skipping method: true false false false false 
 
     /// static java.util.List java.util.prefs.AbstractPreferences.access$100()
 
-    /// static java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.access$000(java.util.prefs.AbstractPreferences)
+    // Skipping method: true false false false false 
 
-    /// public java.lang.String[] java.util.prefs.AbstractPreferences.keys() throws java.util.prefs.BackingStoreException
+    /// private static synchronized void java.util.prefs.AbstractPreferences.startEventDispatchThreadIfNecessary()
+
+    /// public java.lang.String java.util.prefs.AbstractPreferences.absolutePath()
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.addNodeChangeListener(java.util.prefs.NodeChangeListener)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.addPreferenceChangeListener(java.util.prefs.PreferenceChangeListener)
+
+    // Skipping method: false true false false false 
+
+    /// protected final java.util.prefs.AbstractPreferences[] java.util.prefs.AbstractPreferences.cachedChildren()
+
+    private static var cachedChildren_MethodID_2: jmethodID?
+
+    open func cachedChildren() -> [AbstractPreferences]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "cachedChildren", methodSig: "()[Ljava/util/prefs/AbstractPreferences;", methodCache: &AbstractPreferences.cachedChildren_MethodID_2, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [AbstractPreferences].self, from: __return )
+    }
+
+
+    /// protected abstract java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.childSpi(java.lang.String)
+
+    private static var childSpi_MethodID_3: jmethodID?
+
+    open func childSpi( name: String? ) -> AbstractPreferences! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: name, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "childSpi", methodSig: "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", methodCache: &AbstractPreferences.childSpi_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? AbstractPreferences( javaObject: __return ) : nil
+    }
+
+    open func childSpi( _ _name: String? ) -> AbstractPreferences! {
+        return childSpi( name: _name )
+    }
+
+    /// public java.lang.String[] java.util.prefs.AbstractPreferences.childrenNames() throws java.util.prefs.BackingStoreException
+
+    // Skipping method: false true false false false 
+
+    /// protected abstract java.lang.String[] java.util.prefs.AbstractPreferences.childrenNamesSpi() throws java.util.prefs.BackingStoreException
+
+    private static var childrenNamesSpi_MethodID_4: jmethodID?
+
+    open func childrenNamesSpi() throws /* java.util.prefs.BackingStoreException */ -> [String]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "childrenNamesSpi", methodSig: "()[Ljava/lang/String;", methodCache: &AbstractPreferences.childrenNamesSpi_MethodID_4, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw BackingStoreException( javaObject: throwable )
+        }
+        return JNIType.toSwift( type: [String].self, from: __return )
+    }
+
+
+    /// public void java.util.prefs.AbstractPreferences.clear() throws java.util.prefs.BackingStoreException
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.prefs.AbstractPreferences.enqueueNodeAddedEvent(java.util.prefs.Preferences)
+
+    /// private void java.util.prefs.AbstractPreferences.enqueueNodeRemovedEvent(java.util.prefs.Preferences)
+
+    /// private void java.util.prefs.AbstractPreferences.enqueuePreferenceChangeEvent(java.lang.String,java.lang.String)
+
+    /// public void java.util.prefs.AbstractPreferences.exportNode(java.io.OutputStream) throws java.io.IOException,java.util.prefs.BackingStoreException
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.exportSubtree(java.io.OutputStream) throws java.io.IOException,java.util.prefs.BackingStoreException
+
+    // Skipping method: false true false false false 
 
     /// public void java.util.prefs.AbstractPreferences.flush() throws java.util.prefs.BackingStoreException
 
-    /// public void java.util.prefs.AbstractPreferences.removeNode() throws java.util.prefs.BackingStoreException
+    // Skipping method: false true false false false 
+
+    /// private void java.util.prefs.AbstractPreferences.flush2() throws java.util.prefs.BackingStoreException
+
+    /// protected abstract void java.util.prefs.AbstractPreferences.flushSpi() throws java.util.prefs.BackingStoreException
+
+    private static var flushSpi_MethodID_5: jmethodID?
+
+    open func flushSpi() throws /* java.util.prefs.BackingStoreException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "flushSpi", methodSig: "()V", methodCache: &AbstractPreferences.flushSpi_MethodID_5, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw BackingStoreException( javaObject: throwable )
+        }
+    }
+
+
+    /// public java.lang.String java.util.prefs.AbstractPreferences.get(java.lang.String,java.lang.String)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.prefs.AbstractPreferences.getBoolean(java.lang.String,boolean)
+
+    // Skipping method: false true false false false 
+
+    /// public byte[] java.util.prefs.AbstractPreferences.getByteArray(java.lang.String,byte[])
+
+    // Skipping method: false true false false false 
+
+    /// protected java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.getChild(java.lang.String) throws java.util.prefs.BackingStoreException
+
+    private static var getChild_MethodID_6: jmethodID?
+
+    open func getChild( nodeName: String? ) throws /* java.util.prefs.BackingStoreException */ -> AbstractPreferences! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: nodeName, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getChild", methodSig: "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", methodCache: &AbstractPreferences.getChild_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw BackingStoreException( javaObject: throwable )
+        }
+        return __return != nil ? AbstractPreferences( javaObject: __return ) : nil
+    }
+
+    open func getChild( _ _nodeName: String? ) throws /* java.util.prefs.BackingStoreException */ -> AbstractPreferences! {
+        return try getChild( nodeName: _nodeName )
+    }
+
+    /// public double java.util.prefs.AbstractPreferences.getDouble(java.lang.String,double)
+
+    // Skipping method: false true false false false 
+
+    /// public float java.util.prefs.AbstractPreferences.getFloat(java.lang.String,float)
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.prefs.AbstractPreferences.getInt(java.lang.String,int)
+
+    // Skipping method: false true false false false 
+
+    /// public long java.util.prefs.AbstractPreferences.getLong(java.lang.String,long)
+
+    // Skipping method: false true false false false 
+
+    /// protected abstract java.lang.String java.util.prefs.AbstractPreferences.getSpi(java.lang.String)
+
+    private static var getSpi_MethodID_7: jmethodID?
+
+    open func getSpi( key: String? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSpi", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &AbstractPreferences.getSpi_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getSpi( _ _key: String? ) -> String! {
+        return getSpi( key: _key )
+    }
+
+    /// protected boolean java.util.prefs.AbstractPreferences.isRemoved()
+
+    private static var isRemoved_MethodID_8: jmethodID?
+
+    open func isRemoved() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isRemoved", methodSig: "()Z", methodCache: &AbstractPreferences.isRemoved_MethodID_8, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public boolean java.util.prefs.AbstractPreferences.isUserNode()
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.String[] java.util.prefs.AbstractPreferences.keys() throws java.util.prefs.BackingStoreException
+
+    // Skipping method: false true false false false 
+
+    /// protected abstract java.lang.String[] java.util.prefs.AbstractPreferences.keysSpi() throws java.util.prefs.BackingStoreException
+
+    private static var keysSpi_MethodID_9: jmethodID?
+
+    open func keysSpi() throws /* java.util.prefs.BackingStoreException */ -> [String]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keysSpi", methodSig: "()[Ljava/lang/String;", methodCache: &AbstractPreferences.keysSpi_MethodID_9, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw BackingStoreException( javaObject: throwable )
+        }
+        return JNIType.toSwift( type: [String].self, from: __return )
+    }
+
+
+    /// public java.lang.String java.util.prefs.AbstractPreferences.name()
+
+    // Skipping method: false true false false false 
 
     /// public java.util.prefs.Preferences java.util.prefs.AbstractPreferences.node(java.lang.String)
 
-    private static var node_MethodID_2: jmethodID?
+    private static var node_MethodID_10: jmethodID?
 
     open func node( path: String? ) -> Preferences! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: path, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "node", methodSig: "(Ljava/lang/String;)Ljava/util/prefs/Preferences;", methodCache: &AbstractPreferences.node_MethodID_2, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "node", methodSig: "(Ljava/lang/String;)Ljava/util/prefs/Preferences;", methodCache: &AbstractPreferences.node_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Preferences( javaObject: __return ) : nil
     }
@@ -160,248 +339,156 @@ open class AbstractPreferences: Preferences {
 
     /// private java.util.prefs.Preferences java.util.prefs.AbstractPreferences.node(java.util.StringTokenizer)
 
-    /// public void java.util.prefs.AbstractPreferences.sync() throws java.util.prefs.BackingStoreException
-
-    /// public void java.util.prefs.AbstractPreferences.putByteArray(java.lang.String,byte[])
-
-    /// public boolean java.util.prefs.AbstractPreferences.isUserNode()
-
-    /// java.util.prefs.PreferenceChangeListener[] java.util.prefs.AbstractPreferences.prefListeners()
-
-    /// java.util.prefs.NodeChangeListener[] java.util.prefs.AbstractPreferences.nodeListeners()
-
-    /// protected java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.getChild(java.lang.String) throws java.util.prefs.BackingStoreException
-
-    private static var getChild_MethodID_3: jmethodID?
-
-    open func getChild( nodeName: String? ) throws /* java.util.prefs.BackingStoreException */ -> AbstractPreferences! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: nodeName, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getChild", methodSig: "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", methodCache: &AbstractPreferences.getChild_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw BackingStoreException( javaObject: throwable )
-        }
-        return __return != nil ? AbstractPreferences( javaObject: __return ) : nil
-    }
-
-    open func getChild( _ _nodeName: String? ) throws /* java.util.prefs.BackingStoreException */ -> AbstractPreferences! {
-        return try getChild( nodeName: _nodeName )
-    }
-
-    /// public java.lang.String java.util.prefs.AbstractPreferences.absolutePath()
-
-    /// public byte[] java.util.prefs.AbstractPreferences.getByteArray(java.lang.String,byte[])
-
-    /// public java.lang.String[] java.util.prefs.AbstractPreferences.childrenNames() throws java.util.prefs.BackingStoreException
-
-    /// protected final java.util.prefs.AbstractPreferences[] java.util.prefs.AbstractPreferences.cachedChildren()
-
-    private static var cachedChildren_MethodID_4: jmethodID?
-
-    open func cachedChildren() -> [AbstractPreferences]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "cachedChildren", methodSig: "()[Ljava/util/prefs/AbstractPreferences;", methodCache: &AbstractPreferences.cachedChildren_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [AbstractPreferences](), from: __return )
-    }
-
-
-    /// private boolean java.util.prefs.AbstractPreferences.nodeExists(java.util.StringTokenizer) throws java.util.prefs.BackingStoreException
-
     /// public boolean java.util.prefs.AbstractPreferences.nodeExists(java.lang.String) throws java.util.prefs.BackingStoreException
 
-    private static var nodeExists_MethodID_5: jmethodID?
+    private static var nodeExists_MethodID_11: jmethodID?
 
     open func nodeExists( path: String? ) throws /* java.util.prefs.BackingStoreException */ -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: path, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "nodeExists", methodSig: "(Ljava/lang/String;)Z", methodCache: &AbstractPreferences.nodeExists_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "nodeExists", methodSig: "(Ljava/lang/String;)Z", methodCache: &AbstractPreferences.nodeExists_MethodID_11, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw BackingStoreException( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     override open func nodeExists( _ _path: String? ) throws /* java.util.prefs.BackingStoreException */ -> Bool {
         return try nodeExists( path: _path )
     }
 
-    /// private void java.util.prefs.AbstractPreferences.removeNode2() throws java.util.prefs.BackingStoreException
+    /// private boolean java.util.prefs.AbstractPreferences.nodeExists(java.util.StringTokenizer) throws java.util.prefs.BackingStoreException
 
-    /// public void java.util.prefs.AbstractPreferences.addPreferenceChangeListener(java.util.prefs.PreferenceChangeListener)
+    /// java.util.prefs.NodeChangeListener[] java.util.prefs.AbstractPreferences.nodeListeners()
 
-    /// public void java.util.prefs.AbstractPreferences.removePreferenceChangeListener(java.util.prefs.PreferenceChangeListener)
+    // Skipping method: true false false false false 
 
-    /// public void java.util.prefs.AbstractPreferences.addNodeChangeListener(java.util.prefs.NodeChangeListener)
+    /// public java.util.prefs.Preferences java.util.prefs.AbstractPreferences.parent()
 
-    /// public void java.util.prefs.AbstractPreferences.removeNodeChangeListener(java.util.prefs.NodeChangeListener)
+    // Skipping method: false true false false false 
+
+    /// java.util.prefs.PreferenceChangeListener[] java.util.prefs.AbstractPreferences.prefListeners()
+
+    // Skipping method: true false false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.put(java.lang.String,java.lang.String)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.putBoolean(java.lang.String,boolean)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.putByteArray(java.lang.String,byte[])
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.putDouble(java.lang.String,double)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.putFloat(java.lang.String,float)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.putInt(java.lang.String,int)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.prefs.AbstractPreferences.putLong(java.lang.String,long)
+
+    // Skipping method: false true false false false 
 
     /// protected abstract void java.util.prefs.AbstractPreferences.putSpi(java.lang.String,java.lang.String)
 
-    private static var putSpi_MethodID_6: jmethodID?
+    private static var putSpi_MethodID_12: jmethodID?
 
     open func putSpi( key: String?, value: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: key, locals: &__locals )
         __args[1] = JNIType.toJava( value: value, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "putSpi", methodSig: "(Ljava/lang/String;Ljava/lang/String;)V", methodCache: &AbstractPreferences.putSpi_MethodID_6, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "putSpi", methodSig: "(Ljava/lang/String;Ljava/lang/String;)V", methodCache: &AbstractPreferences.putSpi_MethodID_12, args: &__args, locals: &__locals )
     }
 
     open func putSpi( _ _key: String?, _ _value: String? ) {
         putSpi( key: _key, value: _value )
     }
 
-    /// protected abstract java.lang.String java.util.prefs.AbstractPreferences.getSpi(java.lang.String)
+    /// public void java.util.prefs.AbstractPreferences.remove(java.lang.String)
 
-    private static var getSpi_MethodID_7: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func getSpi( key: String? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    /// public void java.util.prefs.AbstractPreferences.removeNode() throws java.util.prefs.BackingStoreException
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.prefs.AbstractPreferences.removeNode2() throws java.util.prefs.BackingStoreException
+
+    /// public void java.util.prefs.AbstractPreferences.removeNodeChangeListener(java.util.prefs.NodeChangeListener)
+
+    // Skipping method: false true false false false 
+
+    /// protected abstract void java.util.prefs.AbstractPreferences.removeNodeSpi() throws java.util.prefs.BackingStoreException
+
+    private static var removeNodeSpi_MethodID_13: jmethodID?
+
+    open func removeNodeSpi() throws /* java.util.prefs.BackingStoreException */ {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSpi", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &AbstractPreferences.getSpi_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeNodeSpi", methodSig: "()V", methodCache: &AbstractPreferences.removeNodeSpi_MethodID_13, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw BackingStoreException( javaObject: throwable )
+        }
     }
 
-    open func getSpi( _ _key: String? ) -> String! {
-        return getSpi( key: _key )
-    }
+
+    /// public void java.util.prefs.AbstractPreferences.removePreferenceChangeListener(java.util.prefs.PreferenceChangeListener)
+
+    // Skipping method: false true false false false 
 
     /// protected abstract void java.util.prefs.AbstractPreferences.removeSpi(java.lang.String)
 
-    private static var removeSpi_MethodID_8: jmethodID?
+    private static var removeSpi_MethodID_14: jmethodID?
 
     open func removeSpi( key: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: key, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeSpi", methodSig: "(Ljava/lang/String;)V", methodCache: &AbstractPreferences.removeSpi_MethodID_8, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeSpi", methodSig: "(Ljava/lang/String;)V", methodCache: &AbstractPreferences.removeSpi_MethodID_14, args: &__args, locals: &__locals )
     }
 
     open func removeSpi( _ _key: String? ) {
         removeSpi( key: _key )
     }
 
-    /// protected abstract void java.util.prefs.AbstractPreferences.removeNodeSpi() throws java.util.prefs.BackingStoreException
+    /// public void java.util.prefs.AbstractPreferences.sync() throws java.util.prefs.BackingStoreException
 
-    private static var removeNodeSpi_MethodID_9: jmethodID?
-
-    open func removeNodeSpi() throws /* java.util.prefs.BackingStoreException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeNodeSpi", methodSig: "()V", methodCache: &AbstractPreferences.removeNodeSpi_MethodID_9, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw BackingStoreException( javaObject: throwable )
-        }
-    }
-
-
-    /// protected abstract java.lang.String[] java.util.prefs.AbstractPreferences.keysSpi() throws java.util.prefs.BackingStoreException
-
-    private static var keysSpi_MethodID_10: jmethodID?
-
-    open func keysSpi() throws /* java.util.prefs.BackingStoreException */ -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keysSpi", methodSig: "()[Ljava/lang/String;", methodCache: &AbstractPreferences.keysSpi_MethodID_10, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw BackingStoreException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
-
-    /// protected abstract java.lang.String[] java.util.prefs.AbstractPreferences.childrenNamesSpi() throws java.util.prefs.BackingStoreException
-
-    private static var childrenNamesSpi_MethodID_11: jmethodID?
-
-    open func childrenNamesSpi() throws /* java.util.prefs.BackingStoreException */ -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "childrenNamesSpi", methodSig: "()[Ljava/lang/String;", methodCache: &AbstractPreferences.childrenNamesSpi_MethodID_11, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw BackingStoreException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
-
-    /// protected abstract java.util.prefs.AbstractPreferences java.util.prefs.AbstractPreferences.childSpi(java.lang.String)
-
-    private static var childSpi_MethodID_12: jmethodID?
-
-    open func childSpi( name: String? ) -> AbstractPreferences! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "childSpi", methodSig: "(Ljava/lang/String;)Ljava/util/prefs/AbstractPreferences;", methodCache: &AbstractPreferences.childSpi_MethodID_12, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? AbstractPreferences( javaObject: __return ) : nil
-    }
-
-    open func childSpi( _ _name: String? ) -> AbstractPreferences! {
-        return childSpi( name: _name )
-    }
+    // Skipping method: false true false false false 
 
     /// private void java.util.prefs.AbstractPreferences.sync2() throws java.util.prefs.BackingStoreException
 
     /// protected abstract void java.util.prefs.AbstractPreferences.syncSpi() throws java.util.prefs.BackingStoreException
 
-    private static var syncSpi_MethodID_13: jmethodID?
+    private static var syncSpi_MethodID_15: jmethodID?
 
     open func syncSpi() throws /* java.util.prefs.BackingStoreException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "syncSpi", methodSig: "()V", methodCache: &AbstractPreferences.syncSpi_MethodID_13, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "syncSpi", methodSig: "()V", methodCache: &AbstractPreferences.syncSpi_MethodID_15, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw BackingStoreException( javaObject: throwable )
         }
     }
 
 
-    /// private void java.util.prefs.AbstractPreferences.flush2() throws java.util.prefs.BackingStoreException
+    /// public java.lang.String java.util.prefs.AbstractPreferences.toString()
 
-    /// protected abstract void java.util.prefs.AbstractPreferences.flushSpi() throws java.util.prefs.BackingStoreException
-
-    private static var flushSpi_MethodID_14: jmethodID?
-
-    open func flushSpi() throws /* java.util.prefs.BackingStoreException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "flushSpi", methodSig: "()V", methodCache: &AbstractPreferences.flushSpi_MethodID_14, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw BackingStoreException( javaObject: throwable )
-        }
-    }
-
-
-    /// protected boolean java.util.prefs.AbstractPreferences.isRemoved()
-
-    private static var isRemoved_MethodID_15: jmethodID?
-
-    open func isRemoved() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isRemoved", methodSig: "()Z", methodCache: &AbstractPreferences.isRemoved_MethodID_15, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// private static synchronized void java.util.prefs.AbstractPreferences.startEventDispatchThreadIfNecessary()
-
-    /// private void java.util.prefs.AbstractPreferences.enqueuePreferenceChangeEvent(java.lang.String,java.lang.String)
-
-    /// private void java.util.prefs.AbstractPreferences.enqueueNodeAddedEvent(java.util.prefs.Preferences)
-
-    /// private void java.util.prefs.AbstractPreferences.enqueueNodeRemovedEvent(java.util.prefs.Preferences)
-
-    /// public void java.util.prefs.AbstractPreferences.exportNode(java.io.OutputStream) throws java.io.IOException,java.util.prefs.BackingStoreException
-
-    /// public void java.util.prefs.AbstractPreferences.exportSubtree(java.io.OutputStream) throws java.io.IOException,java.util.prefs.BackingStoreException
+    // Skipping method: false true false false false 
 
 }
 

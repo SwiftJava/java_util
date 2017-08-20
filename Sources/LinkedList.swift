@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.LinkedList ///
 
-open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* java.io.Serializable */ UnclassedProtocol {
+open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,13 +20,19 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
 
     private static var LinkedListJNIClass: jclass?
 
-    /// transient int java.util.LinkedList.size
+    /// private static final long java.util.LinkedList.serialVersionUID
 
     /// transient java.util.LinkedList$Node java.util.LinkedList.first
 
+    // Skipping field: true false false false false false 
+
     /// transient java.util.LinkedList$Node java.util.LinkedList.last
 
-    /// private static final long java.util.LinkedList.serialVersionUID
+    // Skipping field: true false false false false false 
+
+    /// transient int java.util.LinkedList.size
+
+    // Skipping field: true false false false true false 
 
     /// protected transient int java.util.AbstractList.modCount
 
@@ -34,13 +40,12 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
 
     override open var modCount: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &LinkedList.modCount_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &LinkedList.modCount_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &LinkedList.modCount_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
@@ -52,8 +57,8 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/LinkedList", classCache: &LinkedList.LinkedListJNIClass, methodSig: "()V", methodCache: &LinkedList.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -64,8 +69,8 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( c: Collection? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/LinkedList", classCache: &LinkedList.LinkedListJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &LinkedList.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -76,163 +81,31 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
         self.init( c: _c )
     }
 
-    /// public boolean java.util.LinkedList.add(java.lang.Object)
-
     /// public void java.util.LinkedList.add(int,java.lang.Object)
 
-    /// public boolean java.util.LinkedList.remove(java.lang.Object)
+    // Skipping method: false true false false false 
 
-    /// public java.lang.Object java.util.LinkedList.remove()
+    /// public boolean java.util.LinkedList.add(java.lang.Object)
 
-    private static var remove_MethodID_3: jmethodID?
-
-    open func remove() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.remove_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public java.lang.Object java.util.LinkedList.remove(int)
-
-    /// public java.lang.Object java.util.LinkedList.get(int)
-
-    /// public java.lang.Object java.util.LinkedList.clone()
-
-    private static var clone_MethodID_4: jmethodID?
-
-    override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.clone_MethodID_4, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public int java.util.LinkedList.indexOf(java.lang.Object)
-
-    /// public void java.util.LinkedList.clear()
-
-    /// public int java.util.LinkedList.lastIndexOf(java.lang.Object)
-
-    /// public boolean java.util.LinkedList.contains(java.lang.Object)
-
-    /// public int java.util.LinkedList.size()
-
-    /// public java.lang.Object[] java.util.LinkedList.toArray(java.lang.Object[])
-
-    /// public java.lang.Object[] java.util.LinkedList.toArray()
-
-    /// public java.util.Spliterator java.util.LinkedList.spliterator()
-
-    /// public boolean java.util.LinkedList.addAll(int,java.util.Collection)
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.LinkedList.addAll(java.util.Collection)
 
-    /// public java.lang.Object java.util.LinkedList.getFirst()
+    // Skipping method: false true false false false 
 
-    private static var getFirst_MethodID_5: jmethodID?
+    /// public boolean java.util.LinkedList.addAll(int,java.util.Collection)
 
-    open func getFirst() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFirst", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.getFirst_MethodID_5, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public void java.util.LinkedList.push(java.lang.Object)
-
-    private static var push_MethodID_6: jmethodID?
-
-    open func push( e: java_swift.JavaObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "push", methodSig: "(Ljava/lang/Object;)V", methodCache: &LinkedList.push_MethodID_6, args: &__args, locals: &__locals )
-    }
-
-    open func push( _ _e: java_swift.JavaObject? ) {
-        push( e: _e )
-    }
-
-    /// public java.lang.Object java.util.LinkedList.pop()
-
-    private static var pop_MethodID_7: jmethodID?
-
-    open func pop() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pop", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.pop_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// private void java.util.LinkedList.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.LinkedList.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// public java.lang.Object java.util.LinkedList.poll()
-
-    private static var poll_MethodID_8: jmethodID?
-
-    open func poll() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.poll_MethodID_8, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public java.lang.Object java.util.LinkedList.set(int,java.lang.Object)
-
-    /// public java.lang.Object java.util.LinkedList.peek()
-
-    private static var peek_MethodID_9: jmethodID?
-
-    open func peek() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peek", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.peek_MethodID_9, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public java.lang.Object java.util.LinkedList.element()
-
-    private static var element_MethodID_10: jmethodID?
-
-    open func element() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "element", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.element_MethodID_10, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.ListIterator java.util.LinkedList.listIterator(int)
-
-    /// private java.lang.String java.util.LinkedList.outOfBoundsMsg(int)
-
-    /// java.util.LinkedList$Node java.util.LinkedList.node(int)
+    // Skipping method: false true false false false 
 
     /// public void java.util.LinkedList.addFirst(java.lang.Object)
 
-    private static var addFirst_MethodID_11: jmethodID?
+    private static var addFirst_MethodID_3: jmethodID?
 
     open func addFirst( e: java_swift.JavaObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addFirst", methodSig: "(Ljava/lang/Object;)V", methodCache: &LinkedList.addFirst_MethodID_11, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addFirst", methodSig: "(Ljava/lang/Object;)V", methodCache: &LinkedList.addFirst_MethodID_3, args: &__args, locals: &__locals )
     }
 
     open func addFirst( _ _e: java_swift.JavaObject? ) {
@@ -241,29 +114,156 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
 
     /// public void java.util.LinkedList.addLast(java.lang.Object)
 
-    private static var addLast_MethodID_12: jmethodID?
+    private static var addLast_MethodID_4: jmethodID?
 
     open func addLast( e: java_swift.JavaObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addLast", methodSig: "(Ljava/lang/Object;)V", methodCache: &LinkedList.addLast_MethodID_12, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addLast", methodSig: "(Ljava/lang/Object;)V", methodCache: &LinkedList.addLast_MethodID_4, args: &__args, locals: &__locals )
     }
 
     open func addLast( _ _e: java_swift.JavaObject? ) {
         addLast( e: _e )
     }
 
+    /// private void java.util.LinkedList.checkElementIndex(int)
+
+    /// private void java.util.LinkedList.checkPositionIndex(int)
+
+    /// public void java.util.LinkedList.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.LinkedList.clone()
+
+    private static var clone_MethodID_5: jmethodID?
+
+    override open func clone() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.clone_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public boolean java.util.LinkedList.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Iterator java.util.LinkedList.descendingIterator()
+
+    private static var descendingIterator_MethodID_6: jmethodID?
+
+    open func descendingIterator() -> Iterator! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingIterator", methodSig: "()Ljava/util/Iterator;", methodCache: &LinkedList.descendingIterator_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IteratorForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.Object java.util.LinkedList.element()
+
+    private static var element_MethodID_7: jmethodID?
+
+    open func element() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "element", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.element_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.Object java.util.LinkedList.get(int)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.LinkedList.getFirst()
+
+    private static var getFirst_MethodID_8: jmethodID?
+
+    open func getFirst() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFirst", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.getFirst_MethodID_8, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.Object java.util.LinkedList.getLast()
+
+    private static var getLast_MethodID_9: jmethodID?
+
+    open func getLast() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLast", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.getLast_MethodID_9, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public int java.util.LinkedList.indexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// private boolean java.util.LinkedList.isElementIndex(int)
+
+    /// private boolean java.util.LinkedList.isPositionIndex(int)
+
+    /// public int java.util.LinkedList.lastIndexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// void java.util.LinkedList.linkBefore(java.lang.Object,java.util.LinkedList$Node)
+
+    // Skipping method: true false false false false 
+
+    /// private void java.util.LinkedList.linkFirst(java.lang.Object)
+
+    /// void java.util.LinkedList.linkLast(java.lang.Object)
+
+    // Skipping method: true false false false false 
+
+    /// public java.util.ListIterator java.util.LinkedList.listIterator(int)
+
+    // Skipping method: false true false false false 
+
+    /// java.util.LinkedList$Node java.util.LinkedList.node(int)
+
+    // Skipping method: true false false false false 
+
+    /// public boolean java.util.LinkedList.offer(java.lang.Object)
+
+    private static var offer_MethodID_10: jmethodID?
+
+    open func offer( e: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.offer_MethodID_10, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func offer( _ _e: java_swift.JavaObject? ) -> Bool {
+        return offer( e: _e )
+    }
+
     /// public boolean java.util.LinkedList.offerFirst(java.lang.Object)
 
-    private static var offerFirst_MethodID_13: jmethodID?
+    private static var offerFirst_MethodID_11: jmethodID?
 
     open func offerFirst( e: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerFirst", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.offerFirst_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerFirst", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.offerFirst_MethodID_11, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func offerFirst( _ _e: java_swift.JavaObject? ) -> Bool {
@@ -272,41 +272,69 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
 
     /// public boolean java.util.LinkedList.offerLast(java.lang.Object)
 
-    private static var offerLast_MethodID_14: jmethodID?
+    private static var offerLast_MethodID_12: jmethodID?
 
     open func offerLast( e: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerLast", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.offerLast_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offerLast", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.offerLast_MethodID_12, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func offerLast( _ _e: java_swift.JavaObject? ) -> Bool {
         return offerLast( e: _e )
     }
 
-    /// public java.lang.Object java.util.LinkedList.removeFirst()
+    /// private java.lang.String java.util.LinkedList.outOfBoundsMsg(int)
 
-    private static var removeFirst_MethodID_15: jmethodID?
+    /// public java.lang.Object java.util.LinkedList.peek()
 
-    open func removeFirst() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    private static var peek_MethodID_13: jmethodID?
+
+    open func peek() -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "removeFirst", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.removeFirst_MethodID_15, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peek", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.peek_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public java.lang.Object java.util.LinkedList.removeLast()
+    /// public java.lang.Object java.util.LinkedList.peekFirst()
 
-    private static var removeLast_MethodID_16: jmethodID?
+    private static var peekFirst_MethodID_14: jmethodID?
 
-    open func removeLast() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func peekFirst() -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "removeLast", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.removeLast_MethodID_16, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peekFirst", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.peekFirst_MethodID_14, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.Object java.util.LinkedList.peekLast()
+
+    private static var peekLast_MethodID_15: jmethodID?
+
+    open func peekLast() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peekLast", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.peekLast_MethodID_15, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.Object java.util.LinkedList.poll()
+
+    private static var poll_MethodID_16: jmethodID?
+
+    open func poll() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.poll_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -317,8 +345,8 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
     private static var pollFirst_MethodID_17: jmethodID?
 
     open func pollFirst() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollFirst", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.pollFirst_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -330,48 +358,73 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
     private static var pollLast_MethodID_18: jmethodID?
 
     open func pollLast() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pollLast", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.pollLast_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public java.lang.Object java.util.LinkedList.getLast()
+    /// public java.lang.Object java.util.LinkedList.pop()
 
-    private static var getLast_MethodID_19: jmethodID?
+    private static var pop_MethodID_19: jmethodID?
 
-    open func getLast() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func pop() -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLast", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.getLast_MethodID_19, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pop", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.pop_MethodID_19, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public java.lang.Object java.util.LinkedList.peekFirst()
+    /// public void java.util.LinkedList.push(java.lang.Object)
 
-    private static var peekFirst_MethodID_20: jmethodID?
+    private static var push_MethodID_20: jmethodID?
 
-    open func peekFirst() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func push( e: java_swift.JavaObject? ) {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peekFirst", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.peekFirst_MethodID_20, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "push", methodSig: "(Ljava/lang/Object;)V", methodCache: &LinkedList.push_MethodID_20, args: &__args, locals: &__locals )
+    }
+
+    open func push( _ _e: java_swift.JavaObject? ) {
+        push( e: _e )
+    }
+
+    /// private void java.util.LinkedList.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public java.lang.Object java.util.LinkedList.remove(int)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.LinkedList.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.LinkedList.remove()
+
+    private static var remove_MethodID_21: jmethodID?
+
+    open func remove() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.remove_MethodID_21, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public java.lang.Object java.util.LinkedList.peekLast()
+    /// public java.lang.Object java.util.LinkedList.removeFirst()
 
-    private static var peekLast_MethodID_21: jmethodID?
+    private static var removeFirst_MethodID_22: jmethodID?
 
-    open func peekLast() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func removeFirst() -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peekLast", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.peekLast_MethodID_21, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "removeFirst", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.removeFirst_MethodID_22, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -379,152 +432,210 @@ open class LinkedList: AbstractSequentialList, Deque, java_lang.Cloneable, /* ja
 
     /// public boolean java.util.LinkedList.removeFirstOccurrence(java.lang.Object)
 
-    private static var removeFirstOccurrence_MethodID_22: jmethodID?
+    private static var removeFirstOccurrence_MethodID_23: jmethodID?
 
     open func removeFirstOccurrence( o: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeFirstOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.removeFirstOccurrence_MethodID_22, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeFirstOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.removeFirstOccurrence_MethodID_23, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func removeFirstOccurrence( _ _o: java_swift.JavaObject? ) -> Bool {
         return removeFirstOccurrence( o: _o )
     }
 
+    /// public java.lang.Object java.util.LinkedList.removeLast()
+
+    private static var removeLast_MethodID_24: jmethodID?
+
+    open func removeLast() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "removeLast", methodSig: "()Ljava/lang/Object;", methodCache: &LinkedList.removeLast_MethodID_24, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
     /// public boolean java.util.LinkedList.removeLastOccurrence(java.lang.Object)
 
-    private static var removeLastOccurrence_MethodID_23: jmethodID?
+    private static var removeLastOccurrence_MethodID_25: jmethodID?
 
     open func removeLastOccurrence( o: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeLastOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.removeLastOccurrence_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeLastOccurrence", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.removeLastOccurrence_MethodID_25, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func removeLastOccurrence( _ _o: java_swift.JavaObject? ) -> Bool {
         return removeLastOccurrence( o: _o )
     }
 
-    /// public boolean java.util.LinkedList.offer(java.lang.Object)
+    /// public java.lang.Object java.util.LinkedList.set(int,java.lang.Object)
 
-    private static var offer_MethodID_24: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func offer( e: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &LinkedList.offer_MethodID_24, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
+    /// public int java.util.LinkedList.size()
 
-    open func offer( _ _e: java_swift.JavaObject? ) -> Bool {
-        return offer( e: _e )
-    }
+    // Skipping method: false true false false false 
 
-    /// public java.util.Iterator java.util.LinkedList.descendingIterator()
+    /// public java.util.Spliterator java.util.LinkedList.spliterator()
 
-    private static var descendingIterator_MethodID_25: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func descendingIterator() -> Iterator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingIterator", methodSig: "()Ljava/util/Iterator;", methodCache: &LinkedList.descendingIterator_MethodID_25, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IteratorForward( javaObject: __return ) : nil
-    }
+    /// private java.util.LinkedList java.util.LinkedList.superClone()
 
+    /// public java.lang.Object[] java.util.LinkedList.toArray(java.lang.Object[])
 
-    /// private void java.util.LinkedList.linkFirst(java.lang.Object)
+    // Skipping method: false true false false false 
 
-    /// void java.util.LinkedList.linkLast(java.lang.Object)
+    /// public java.lang.Object[] java.util.LinkedList.toArray()
 
-    /// void java.util.LinkedList.linkBefore(java.lang.Object,java.util.LinkedList$Node)
+    // Skipping method: false true false false false 
+
+    /// java.lang.Object java.util.LinkedList.unlink(java.util.LinkedList$Node)
+
+    // Skipping method: true false false false false 
 
     /// private java.lang.Object java.util.LinkedList.unlinkFirst(java.util.LinkedList$Node)
 
     /// private java.lang.Object java.util.LinkedList.unlinkLast(java.util.LinkedList$Node)
 
-    /// java.lang.Object java.util.LinkedList.unlink(java.util.LinkedList$Node)
-
-    /// private boolean java.util.LinkedList.isElementIndex(int)
-
-    /// private boolean java.util.LinkedList.isPositionIndex(int)
-
-    /// private void java.util.LinkedList.checkElementIndex(int)
-
-    /// private void java.util.LinkedList.checkPositionIndex(int)
-
-    /// private java.util.LinkedList java.util.LinkedList.superClone()
+    /// private void java.util.LinkedList.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
     /// In declared protocol but not defined.. ///
 
-    /// public abstract boolean java.util.Collection.equals(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
-
-    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
-
-    /// public abstract java.util.ListIterator java.util.List.listIterator()
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray()
-
-    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
-
-    /// public abstract java.lang.Object java.util.List.get(int)
-
-    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
-
-    /// public abstract void java.util.Collection.clear()
-
     /// public abstract void java.util.List.add(int,java.lang.Object)
 
-    /// public abstract boolean java.util.Collection.isEmpty()
-
-    /// public abstract java.util.List java.util.List.subList(int,int)
-
-    /// public abstract int java.util.List.lastIndexOf(java.lang.Object)
-
-    /// public abstract int java.util.List.indexOf(java.lang.Object)
-
-    /// public abstract java.lang.Object java.util.List.set(int,java.lang.Object)
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.add(java.lang.Object)
 
-    /// public default java.util.stream.Stream java.util.Collection.stream()
-
-    /// public abstract java.lang.Object java.util.List.remove(int)
-
-    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
-
-    /// public abstract int java.util.Collection.hashCode()
-
-    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
-
-    /// public default void java.util.List.sort(java.util.Comparator)
-
-    /// public abstract java.util.ListIterator java.util.List.listIterator(int)
-
-    /// public abstract boolean java.util.List.addAll(int,java.util.Collection)
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
 
-    /// public default void java.util.List.replaceAll(java.util.function.UnaryOperator)
+    // Skipping method: false true false false false 
 
-    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+    /// public abstract boolean java.util.List.addAll(int,java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract void java.util.Collection.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.get(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.List.indexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.isEmpty()
+
+    // Skipping method: false true false false false 
 
     /// public abstract java.util.Iterator java.lang.Iterable.iterator()
 
-    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.List.lastIndexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.ListIterator java.util.List.listIterator(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.ListIterator java.util.List.listIterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.remove(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.util.List.replaceAll(java.util.function.UnaryOperator)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.set(int,java.lang.Object)
+
+    // Skipping method: false true false false false 
 
     /// public abstract int java.util.Collection.size()
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.util.List.sort(java.util.Comparator)
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.stream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.List java.util.List.subList(int,int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

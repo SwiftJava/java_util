@@ -7,13 +7,13 @@ import java_swift
 
 public protocol PreferencesFactory: JavaProtocol {
 
-    /// public abstract java.util.prefs.Preferences java.util.prefs.PreferencesFactory.userRoot()
-
-    func userRoot() -> Preferences!
-
     /// public abstract java.util.prefs.Preferences java.util.prefs.PreferencesFactory.systemRoot()
 
     func systemRoot() -> Preferences!
+
+    /// public abstract java.util.prefs.Preferences java.util.prefs.PreferencesFactory.userRoot()
+
+    func userRoot() -> Preferences!
 
 }
 
@@ -22,32 +22,31 @@ open class PreferencesFactoryForward: JNIObjectForward, PreferencesFactory {
 
     private static var PreferencesFactoryJNIClass: jclass?
 
-    /// public abstract java.util.prefs.Preferences java.util.prefs.PreferencesFactory.userRoot()
+    /// public abstract java.util.prefs.Preferences java.util.prefs.PreferencesFactory.systemRoot()
 
-    private static var userRoot_MethodID_3: jmethodID?
+    private static var systemRoot_MethodID_3: jmethodID?
 
-    open func userRoot() -> Preferences! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func systemRoot() -> Preferences! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "userRoot", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &PreferencesFactoryForward.userRoot_MethodID_3, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "systemRoot", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &PreferencesFactoryForward.systemRoot_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Preferences( javaObject: __return ) : nil
     }
 
 
-    /// public abstract java.util.prefs.Preferences java.util.prefs.PreferencesFactory.systemRoot()
+    /// public abstract java.util.prefs.Preferences java.util.prefs.PreferencesFactory.userRoot()
 
-    private static var systemRoot_MethodID_4: jmethodID?
+    private static var userRoot_MethodID_4: jmethodID?
 
-    open func systemRoot() -> Preferences! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func userRoot() -> Preferences! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "systemRoot", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &PreferencesFactoryForward.systemRoot_MethodID_4, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "userRoot", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &PreferencesFactoryForward.userRoot_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Preferences( javaObject: __return ) : nil
     }
 
 
 }
-
 

@@ -23,13 +23,12 @@ open class DoubleSupplierForward: JNIObjectForward, DoubleSupplier {
     private static var getAsDouble_MethodID_2: jmethodID?
 
     open func getAsDouble() -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "getAsDouble", methodSig: "()D", methodCache: &DoubleSupplierForward.getAsDouble_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        return __return
     }
 
 
 }
-
 

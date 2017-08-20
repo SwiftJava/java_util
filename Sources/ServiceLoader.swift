@@ -22,46 +22,72 @@ open class ServiceLoader: java_swift.JavaObject, java_lang.Iterable {
 
     /// private static final java.lang.String java.util.ServiceLoader.PREFIX
 
-    /// private final java.lang.Class java.util.ServiceLoader.service
+    /// private final java.security.AccessControlContext java.util.ServiceLoader.acc
 
     /// private final java.lang.ClassLoader java.util.ServiceLoader.loader
 
-    /// private final java.security.AccessControlContext java.util.ServiceLoader.acc
+    /// private java.util.ServiceLoader$LazyIterator java.util.ServiceLoader.lookupIterator
 
     /// private java.util.LinkedHashMap java.util.ServiceLoader.providers
 
-    /// private java.util.ServiceLoader$LazyIterator java.util.ServiceLoader.lookupIterator
+    /// private final java.lang.Class java.util.ServiceLoader.service
 
     /// private java.util.ServiceLoader(java.lang.Class,java.lang.ClassLoader)
 
-    /// public java.lang.String java.util.ServiceLoader.toString()
-
-    /// public java.util.Iterator java.util.ServiceLoader.iterator()
-
-    private static var iterator_MethodID_1: jmethodID?
-
-    open func iterator() -> Iterator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "iterator", methodSig: "()Ljava/util/Iterator;", methodCache: &ServiceLoader.iterator_MethodID_1, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IteratorForward( javaObject: __return ) : nil
-    }
-
-
     /// static void java.util.ServiceLoader.access$100(java.lang.Class,java.lang.String,java.lang.Throwable) throws java.util.ServiceConfigurationError
+
+    // Skipping method: true false false false false 
 
     /// static java.util.Iterator java.util.ServiceLoader.access$200(java.util.ServiceLoader,java.lang.Class,java.net.URL) throws java.util.ServiceConfigurationError
 
+    // Skipping method: true false false false false 
+
     /// static void java.util.ServiceLoader.access$300(java.lang.Class,java.lang.String) throws java.util.ServiceConfigurationError
+
+    // Skipping method: true false false false false 
+
+    /// static java.util.LinkedHashMap java.util.ServiceLoader.access$400(java.util.ServiceLoader)
+
+    // Skipping method: true false false false false 
+
+    /// static java.security.AccessControlContext java.util.ServiceLoader.access$500(java.util.ServiceLoader)
+
+    // Skipping method: true false false false false 
+
+    /// static java.util.ServiceLoader$LazyIterator java.util.ServiceLoader.access$800(java.util.ServiceLoader)
+
+    // Skipping method: true false false false false 
+
+    /// private static void java.util.ServiceLoader.fail(java.lang.Class,java.lang.String) throws java.util.ServiceConfigurationError
+
+    /// private static void java.util.ServiceLoader.fail(java.lang.Class,java.lang.String,java.lang.Throwable) throws java.util.ServiceConfigurationError
+
+    /// private static void java.util.ServiceLoader.fail(java.lang.Class,java.net.URL,int,java.lang.String) throws java.util.ServiceConfigurationError
+
+    /// public static java.util.ServiceLoader java.util.ServiceLoader.load(java.lang.Class)
+
+    private static var load_MethodID_1: jmethodID?
+
+    open class func load( service: java_swift.JavaClass? ) -> ServiceLoader! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: service, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ServiceLoader", classCache: &ServiceLoaderJNIClass, methodName: "load", methodSig: "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", methodCache: &load_MethodID_1, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ServiceLoader( javaObject: __return ) : nil
+    }
+
+    open class func load( _ _service: java_swift.JavaClass? ) -> ServiceLoader! {
+        return load( service: _service )
+    }
 
     /// public static java.util.ServiceLoader java.util.ServiceLoader.load(java.lang.Class,java.lang.ClassLoader)
 
     private static var load_MethodID_2: jmethodID?
 
     open class func load( service: java_swift.JavaClass?, loader: java_lang.ClassLoader? ) -> ServiceLoader! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: service, locals: &__locals )
         __args[1] = JNIType.toJava( value: loader, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ServiceLoader", classCache: &ServiceLoaderJNIClass, methodName: "load", methodSig: "(Ljava/lang/Class;Ljava/lang/ClassLoader;)Ljava/util/ServiceLoader;", methodCache: &load_MethodID_2, args: &__args, locals: &__locals )
@@ -73,59 +99,15 @@ open class ServiceLoader: java_swift.JavaObject, java_lang.Iterable {
         return load( service: _service, loader: _loader )
     }
 
-    /// public static java.util.ServiceLoader java.util.ServiceLoader.load(java.lang.Class)
-
-    private static var load_MethodID_3: jmethodID?
-
-    open class func load( service: java_swift.JavaClass? ) -> ServiceLoader! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: service, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ServiceLoader", classCache: &ServiceLoaderJNIClass, methodName: "load", methodSig: "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", methodCache: &load_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ServiceLoader( javaObject: __return ) : nil
-    }
-
-    open class func load( _ _service: java_swift.JavaClass? ) -> ServiceLoader! {
-        return load( service: _service )
-    }
-
-    /// static java.util.LinkedHashMap java.util.ServiceLoader.access$400(java.util.ServiceLoader)
-
-    /// static java.security.AccessControlContext java.util.ServiceLoader.access$500(java.util.ServiceLoader)
-
-    /// private static void java.util.ServiceLoader.fail(java.lang.Class,java.net.URL,int,java.lang.String) throws java.util.ServiceConfigurationError
-
-    /// private static void java.util.ServiceLoader.fail(java.lang.Class,java.lang.String,java.lang.Throwable) throws java.util.ServiceConfigurationError
-
-    /// private static void java.util.ServiceLoader.fail(java.lang.Class,java.lang.String) throws java.util.ServiceConfigurationError
-
-    /// private java.util.Iterator java.util.ServiceLoader.parse(java.lang.Class,java.net.URL) throws java.util.ServiceConfigurationError
-
-    /// static java.util.ServiceLoader$LazyIterator java.util.ServiceLoader.access$800(java.util.ServiceLoader)
-
-    /// public void java.util.ServiceLoader.reload()
-
-    private static var reload_MethodID_4: jmethodID?
-
-    open func reload() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reload", methodSig: "()V", methodCache: &ServiceLoader.reload_MethodID_4, args: &__args, locals: &__locals )
-    }
-
-
-    /// private int java.util.ServiceLoader.parseLine(java.lang.Class,java.net.URL,java.io.BufferedReader,int,java.util.List) throws java.io.IOException,java.util.ServiceConfigurationError
-
     /// public static java.util.ServiceLoader java.util.ServiceLoader.loadInstalled(java.lang.Class)
 
-    private static var loadInstalled_MethodID_5: jmethodID?
+    private static var loadInstalled_MethodID_3: jmethodID?
 
     open class func loadInstalled( service: java_swift.JavaClass? ) -> ServiceLoader! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: service, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ServiceLoader", classCache: &ServiceLoaderJNIClass, methodName: "loadInstalled", methodSig: "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", methodCache: &loadInstalled_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ServiceLoader", classCache: &ServiceLoaderJNIClass, methodName: "loadInstalled", methodSig: "(Ljava/lang/Class;)Ljava/util/ServiceLoader;", methodCache: &loadInstalled_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ServiceLoader( javaObject: __return ) : nil
     }
@@ -134,6 +116,38 @@ open class ServiceLoader: java_swift.JavaObject, java_lang.Iterable {
         return loadInstalled( service: _service )
     }
 
+    /// public java.util.Iterator java.util.ServiceLoader.iterator()
+
+    private static var iterator_MethodID_4: jmethodID?
+
+    open func iterator() -> Iterator! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "iterator", methodSig: "()Ljava/util/Iterator;", methodCache: &ServiceLoader.iterator_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IteratorForward( javaObject: __return ) : nil
+    }
+
+
+    /// private java.util.Iterator java.util.ServiceLoader.parse(java.lang.Class,java.net.URL) throws java.util.ServiceConfigurationError
+
+    /// private int java.util.ServiceLoader.parseLine(java.lang.Class,java.net.URL,java.io.BufferedReader,int,java.util.List) throws java.io.IOException,java.util.ServiceConfigurationError
+
+    /// public void java.util.ServiceLoader.reload()
+
+    private static var reload_MethodID_5: jmethodID?
+
+    open func reload() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reload", methodSig: "()V", methodCache: &ServiceLoader.reload_MethodID_5, args: &__args, locals: &__locals )
+    }
+
+
+    /// public java.lang.String java.util.ServiceLoader.toString()
+
+    // Skipping method: false true false false false 
+
     /// In declared protocol but not defined.. ///
 
     /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
@@ -141,8 +155,8 @@ open class ServiceLoader: java_swift.JavaObject, java_lang.Iterable {
     private static var forEach_MethodID_6: jmethodID?
 
     open func forEach( action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: action, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(Ljava/util/function/Consumer;)V", methodCache: &ServiceLoader.forEach_MethodID_6, args: &__args, locals: &__locals )
     }
@@ -156,8 +170,8 @@ open class ServiceLoader: java_swift.JavaObject, java_lang.Iterable {
     private static var spliterator_MethodID_7: jmethodID?
 
     open func spliterator() -> Spliterator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "spliterator", methodSig: "()Ljava/util/Spliterator;", methodCache: &ServiceLoader.spliterator_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? SpliteratorForward( javaObject: __return ) : nil

@@ -25,8 +25,8 @@ open class Observable: java_swift.JavaObject {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/Observable", classCache: &Observable.ObservableJNIClass, methodSig: "()V", methodCache: &Observable.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -37,8 +37,8 @@ open class Observable: java_swift.JavaObject {
     private static var addObserver_MethodID_2: jmethodID?
 
     open func addObserver( o: Observer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "addObserver", methodSig: "(Ljava/util/Observer;)V", methodCache: &Observable.addObserver_MethodID_2, args: &__args, locals: &__locals )
     }
@@ -47,30 +47,76 @@ open class Observable: java_swift.JavaObject {
         addObserver( o: _o )
     }
 
+    /// protected synchronized void java.util.Observable.clearChanged()
+
+    private static var clearChanged_MethodID_3: jmethodID?
+
+    open func clearChanged() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clearChanged", methodSig: "()V", methodCache: &Observable.clearChanged_MethodID_3, args: &__args, locals: &__locals )
+    }
+
+
+    /// public synchronized int java.util.Observable.countObservers()
+
+    private static var countObservers_MethodID_4: jmethodID?
+
+    open func countObservers() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "countObservers", methodSig: "()I", methodCache: &Observable.countObservers_MethodID_4, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
     /// public synchronized void java.util.Observable.deleteObserver(java.util.Observer)
 
-    private static var deleteObserver_MethodID_3: jmethodID?
+    private static var deleteObserver_MethodID_5: jmethodID?
 
     open func deleteObserver( o: Observer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "deleteObserver", methodSig: "(Ljava/util/Observer;)V", methodCache: &Observable.deleteObserver_MethodID_3, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "deleteObserver", methodSig: "(Ljava/util/Observer;)V", methodCache: &Observable.deleteObserver_MethodID_5, args: &__args, locals: &__locals )
     }
 
     open func deleteObserver( _ _o: Observer? ) {
         deleteObserver( o: _o )
     }
 
+    /// public synchronized void java.util.Observable.deleteObservers()
+
+    private static var deleteObservers_MethodID_6: jmethodID?
+
+    open func deleteObservers() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "deleteObservers", methodSig: "()V", methodCache: &Observable.deleteObservers_MethodID_6, args: &__args, locals: &__locals )
+    }
+
+
+    /// public synchronized boolean java.util.Observable.hasChanged()
+
+    private static var hasChanged_MethodID_7: jmethodID?
+
+    open func hasChanged() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasChanged", methodSig: "()Z", methodCache: &Observable.hasChanged_MethodID_7, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
     /// public void java.util.Observable.notifyObservers(java.lang.Object)
 
-    private static var notifyObservers_MethodID_4: jmethodID?
+    private static var notifyObservers_MethodID_8: jmethodID?
 
     open func notifyObservers( arg: java_swift.JavaObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "notifyObservers", methodSig: "(Ljava/lang/Object;)V", methodCache: &Observable.notifyObservers_MethodID_4, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "notifyObservers", methodSig: "(Ljava/lang/Object;)V", methodCache: &Observable.notifyObservers_MethodID_8, args: &__args, locals: &__locals )
     }
 
     open func notifyObservers( _ _arg: java_swift.JavaObject? ) {
@@ -79,69 +125,23 @@ open class Observable: java_swift.JavaObject {
 
     /// public void java.util.Observable.notifyObservers()
 
-    private static var notifyObservers_MethodID_5: jmethodID?
+    private static var notifyObservers_MethodID_9: jmethodID?
 
     open func notifyObservers() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "notifyObservers", methodSig: "()V", methodCache: &Observable.notifyObservers_MethodID_5, args: &__args, locals: &__locals )
-    }
-
-
-    /// public synchronized void java.util.Observable.deleteObservers()
-
-    private static var deleteObservers_MethodID_6: jmethodID?
-
-    open func deleteObservers() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "deleteObservers", methodSig: "()V", methodCache: &Observable.deleteObservers_MethodID_6, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "notifyObservers", methodSig: "()V", methodCache: &Observable.notifyObservers_MethodID_9, args: &__args, locals: &__locals )
     }
 
 
     /// protected synchronized void java.util.Observable.setChanged()
 
-    private static var setChanged_MethodID_7: jmethodID?
+    private static var setChanged_MethodID_10: jmethodID?
 
     open func setChanged() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setChanged", methodSig: "()V", methodCache: &Observable.setChanged_MethodID_7, args: &__args, locals: &__locals )
-    }
-
-
-    /// protected synchronized void java.util.Observable.clearChanged()
-
-    private static var clearChanged_MethodID_8: jmethodID?
-
-    open func clearChanged() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clearChanged", methodSig: "()V", methodCache: &Observable.clearChanged_MethodID_8, args: &__args, locals: &__locals )
-    }
-
-
-    /// public synchronized boolean java.util.Observable.hasChanged()
-
-    private static var hasChanged_MethodID_9: jmethodID?
-
-    open func hasChanged() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasChanged", methodSig: "()Z", methodCache: &Observable.hasChanged_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public synchronized int java.util.Observable.countObservers()
-
-    private static var countObservers_MethodID_10: jmethodID?
-
-    open func countObservers() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "countObservers", methodSig: "()I", methodCache: &Observable.countObservers_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setChanged", methodSig: "()V", methodCache: &Observable.setChanged_MethodID_10, args: &__args, locals: &__locals )
     }
 
 

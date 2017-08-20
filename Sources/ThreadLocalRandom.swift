@@ -16,140 +16,219 @@ open class ThreadLocalRandom: Random {
 
     private static var ThreadLocalRandomJNIClass: jclass?
 
-    /// private static final java.util.concurrent.atomic.AtomicInteger java.util.concurrent.ThreadLocalRandom.probeGenerator
+    /// static final java.lang.String java.util.concurrent.ThreadLocalRandom.BadBound
 
-    /// private static final java.util.concurrent.atomic.AtomicLong java.util.concurrent.ThreadLocalRandom.seeder
+    // Skipping field: true false false false false false 
 
-    /// private static final long java.util.concurrent.ThreadLocalRandom.GAMMA
+    /// static final java.lang.String java.util.concurrent.ThreadLocalRandom.BadRange
 
-    /// private static final int java.util.concurrent.ThreadLocalRandom.PROBE_INCREMENT
+    // Skipping field: true false false false false false 
 
-    /// private static final long java.util.concurrent.ThreadLocalRandom.SEEDER_INCREMENT
+    /// static final java.lang.String java.util.concurrent.ThreadLocalRandom.BadSize
+
+    // Skipping field: true false false false false false 
 
     /// private static final double java.util.concurrent.ThreadLocalRandom.DOUBLE_UNIT
 
     /// private static final float java.util.concurrent.ThreadLocalRandom.FLOAT_UNIT
 
-    /// private static final java.lang.ThreadLocal java.util.concurrent.ThreadLocalRandom.nextLocalGaussian
-
-    /// boolean java.util.concurrent.ThreadLocalRandom.initialized
-
-    /// static final java.util.concurrent.ThreadLocalRandom java.util.concurrent.ThreadLocalRandom.instance
-
-    /// static final java.lang.String java.util.concurrent.ThreadLocalRandom.BadBound
-
-    /// static final java.lang.String java.util.concurrent.ThreadLocalRandom.BadRange
-
-    /// static final java.lang.String java.util.concurrent.ThreadLocalRandom.BadSize
-
-    /// private static final long java.util.concurrent.ThreadLocalRandom.serialVersionUID
-
-    /// private static final java.io.ObjectStreamField[] java.util.concurrent.ThreadLocalRandom.serialPersistentFields
-
-    /// private static final sun.misc.Unsafe java.util.concurrent.ThreadLocalRandom.UNSAFE
-
-    /// private static final long java.util.concurrent.ThreadLocalRandom.SEED
+    /// private static final long java.util.concurrent.ThreadLocalRandom.GAMMA
 
     /// private static final long java.util.concurrent.ThreadLocalRandom.PROBE
 
+    /// private static final int java.util.concurrent.ThreadLocalRandom.PROBE_INCREMENT
+
     /// private static final long java.util.concurrent.ThreadLocalRandom.SECONDARY
 
-    /// static final long java.util.Random.serialVersionUID
+    /// private static final long java.util.concurrent.ThreadLocalRandom.SEED
 
-    /// private final java.util.concurrent.atomic.AtomicLong java.util.Random.seed
+    /// private static final long java.util.concurrent.ThreadLocalRandom.SEEDER_INCREMENT
 
-    /// private static final long java.util.Random.multiplier
+    /// private static final sun.misc.Unsafe java.util.concurrent.ThreadLocalRandom.UNSAFE
+
+    /// static final java.util.concurrent.ThreadLocalRandom java.util.concurrent.ThreadLocalRandom.instance
+
+    // Skipping field: true false false false false false 
+
+    /// private static final java.lang.ThreadLocal java.util.concurrent.ThreadLocalRandom.nextLocalGaussian
+
+    /// private static final java.util.concurrent.atomic.AtomicInteger java.util.concurrent.ThreadLocalRandom.probeGenerator
+
+    /// private static final java.util.concurrent.atomic.AtomicLong java.util.concurrent.ThreadLocalRandom.seeder
+
+    /// private static final java.io.ObjectStreamField[] java.util.concurrent.ThreadLocalRandom.serialPersistentFields
+
+    /// private static final long java.util.concurrent.ThreadLocalRandom.serialVersionUID
+
+    /// boolean java.util.concurrent.ThreadLocalRandom.initialized
+
+    // Skipping field: true false false false false false 
+
+    /// static final java.lang.String java.util.Random.BadBound
+
+    // Skipping field: true false false false false false 
+
+    /// static final java.lang.String java.util.Random.BadRange
+
+    // Skipping field: true false false false false false 
+
+    /// static final java.lang.String java.util.Random.BadSize
+
+    // Skipping field: true false false false false false 
+
+    /// private static final double java.util.Random.DOUBLE_UNIT
 
     /// private static final long java.util.Random.addend
 
     /// private static final long java.util.Random.mask
 
-    /// private static final double java.util.Random.DOUBLE_UNIT
-
-    /// static final java.lang.String java.util.Random.BadBound
-
-    /// static final java.lang.String java.util.Random.BadRange
-
-    /// static final java.lang.String java.util.Random.BadSize
-
-    /// private static final java.util.concurrent.atomic.AtomicLong java.util.Random.seedUniquifier
-
-    /// private double java.util.Random.nextNextGaussian
-
-    /// private boolean java.util.Random.haveNextNextGaussian
-
-    /// private static final java.io.ObjectStreamField[] java.util.Random.serialPersistentFields
-
-    /// private static final sun.misc.Unsafe java.util.Random.unsafe
+    /// private static final long java.util.Random.multiplier
 
     /// private static final long java.util.Random.seedOffset
 
+    /// private static final java.util.concurrent.atomic.AtomicLong java.util.Random.seedUniquifier
+
+    /// private static final java.io.ObjectStreamField[] java.util.Random.serialPersistentFields
+
+    /// static final long java.util.Random.serialVersionUID
+
+    // Skipping field: true true false false false false 
+
+    /// private static final sun.misc.Unsafe java.util.Random.unsafe
+
+    /// private boolean java.util.Random.haveNextNextGaussian
+
+    /// private double java.util.Random.nextNextGaussian
+
+    /// private final java.util.concurrent.atomic.AtomicLong java.util.Random.seed
+
     /// private java.util.concurrent.ThreadLocalRandom()
+
+    /// static final int java.util.concurrent.ThreadLocalRandom.advanceProbe(int)
+
+    // Skipping method: true false false false false 
+
+    /// public static java.util.concurrent.ThreadLocalRandom java.util.concurrent.ThreadLocalRandom.current()
+
+    private static var current_MethodID_1: jmethodID?
+
+    open class func current() -> ThreadLocalRandom! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/ThreadLocalRandom", classCache: &ThreadLocalRandomJNIClass, methodName: "current", methodSig: "()Ljava/util/concurrent/ThreadLocalRandom;", methodCache: &current_MethodID_1, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ThreadLocalRandom( javaObject: __return ) : nil
+    }
+
+
+    /// static final int java.util.concurrent.ThreadLocalRandom.getProbe()
+
+    // Skipping method: true false false false false 
+
+    /// private static long java.util.concurrent.ThreadLocalRandom.initialSeed()
+
+    /// static final void java.util.concurrent.ThreadLocalRandom.localInit()
+
+    // Skipping method: true false false false false 
+
+    /// private static int java.util.concurrent.ThreadLocalRandom.mix32(long)
+
+    /// private static long java.util.concurrent.ThreadLocalRandom.mix64(long)
+
+    /// static final int java.util.concurrent.ThreadLocalRandom.nextSecondarySeed()
+
+    // Skipping method: true false false false false 
+
+    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(double,double)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(long)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(long,double,double)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles()
+
+    // Skipping method: false true false false false 
+
+    /// final double java.util.concurrent.ThreadLocalRandom.internalNextDouble(double,double)
+
+    // Skipping method: true false false false false 
+
+    /// final int java.util.concurrent.ThreadLocalRandom.internalNextInt(int,int)
+
+    // Skipping method: true false false false false 
+
+    /// final long java.util.concurrent.ThreadLocalRandom.internalNextLong(long,long)
+
+    // Skipping method: true false false false false 
+
+    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(int,int)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(long)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(long,int,int)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long,long)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long,long,long)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs()
+
+    // Skipping method: false true false false false 
 
     /// protected int java.util.concurrent.ThreadLocalRandom.next(int)
 
-    private static var next_MethodID_1: jmethodID?
+    private static var next_MethodID_2: jmethodID?
 
     override open func next( bits: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bits, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "next", methodSig: "(I)I", methodCache: &ThreadLocalRandom.next_MethodID_1, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(bits) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "next", methodSig: "(I)I", methodCache: &ThreadLocalRandom.next_MethodID_2, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
     override open func next( _ _bits: Int ) -> Int {
         return next( bits: _bits )
     }
 
-    /// public static java.util.concurrent.ThreadLocalRandom java.util.concurrent.ThreadLocalRandom.current()
+    /// public boolean java.util.concurrent.ThreadLocalRandom.nextBoolean()
 
-    private static var current_MethodID_2: jmethodID?
-
-    open class func current() -> ThreadLocalRandom! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/ThreadLocalRandom", classCache: &ThreadLocalRandomJNIClass, methodName: "current", methodSig: "()Ljava/util/concurrent/ThreadLocalRandom;", methodCache: &current_MethodID_2, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ThreadLocalRandom( javaObject: __return ) : nil
-    }
-
-
-    /// private void java.util.concurrent.ThreadLocalRandom.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// private java.lang.Object java.util.concurrent.ThreadLocalRandom.readResolve()
-
-    /// public int java.util.concurrent.ThreadLocalRandom.nextInt()
-
-    /// public int java.util.concurrent.ThreadLocalRandom.nextInt(int)
-
-    /// public int java.util.concurrent.ThreadLocalRandom.nextInt(int,int)
-
-    private static var nextInt_MethodID_3: jmethodID?
-
-    open func nextInt( origin: Int, bound: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: origin, locals: &__locals )
-        __args[1] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(II)I", methodCache: &ThreadLocalRandom.nextInt_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func nextInt( _ _origin: Int, _ _bound: Int ) -> Int {
-        return nextInt( origin: _origin, bound: _bound )
-    }
+    // Skipping method: false true false false false 
 
     /// public double java.util.concurrent.ThreadLocalRandom.nextDouble(double)
 
-    private static var nextDouble_MethodID_4: jmethodID?
+    private static var nextDouble_MethodID_3: jmethodID?
 
     open func nextDouble( bound: Double ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(D)D", methodCache: &ThreadLocalRandom.nextDouble_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: bound )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(D)D", methodCache: &ThreadLocalRandom.nextDouble_MethodID_3, args: &__args, locals: &__locals )
+        return __return
     }
 
     open func nextDouble( _ _bound: Double ) -> Double {
@@ -158,15 +237,15 @@ open class ThreadLocalRandom: Random {
 
     /// public double java.util.concurrent.ThreadLocalRandom.nextDouble(double,double)
 
-    private static var nextDouble_MethodID_5: jmethodID?
+    private static var nextDouble_MethodID_4: jmethodID?
 
     open func nextDouble( origin: Double, bound: Double ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: origin, locals: &__locals )
-        __args[1] = JNIType.toJava( value: bound, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(DD)D", methodCache: &ThreadLocalRandom.nextDouble_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( d: origin )
+        __args[1] = jvalue( d: bound )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "nextDouble", methodSig: "(DD)D", methodCache: &ThreadLocalRandom.nextDouble_MethodID_4, args: &__args, locals: &__locals )
+        return __return
     }
 
     open func nextDouble( _ _origin: Double, _ _bound: Double ) -> Double {
@@ -175,34 +254,51 @@ open class ThreadLocalRandom: Random {
 
     /// public double java.util.concurrent.ThreadLocalRandom.nextDouble()
 
-    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long,long)
-
-    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long,long,long)
-
-    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs()
-
-    /// public java.util.stream.LongStream java.util.concurrent.ThreadLocalRandom.longs(long)
-
-    /// public boolean java.util.concurrent.ThreadLocalRandom.nextBoolean()
+    // Skipping method: false true false false false 
 
     /// public float java.util.concurrent.ThreadLocalRandom.nextFloat()
 
-    /// static final int java.util.concurrent.ThreadLocalRandom.getProbe()
+    // Skipping method: false true false false false 
 
-    /// static final void java.util.concurrent.ThreadLocalRandom.localInit()
+    /// public double java.util.concurrent.ThreadLocalRandom.nextGaussian()
 
-    /// static final int java.util.concurrent.ThreadLocalRandom.advanceProbe(int)
+    // Skipping method: false true false false false 
+
+    /// public int java.util.concurrent.ThreadLocalRandom.nextInt(int)
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.concurrent.ThreadLocalRandom.nextInt(int,int)
+
+    private static var nextInt_MethodID_5: jmethodID?
+
+    open func nextInt( origin: Int, bound: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(origin) )
+        __args[1] = jvalue( i: jint(bound) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextInt", methodSig: "(II)I", methodCache: &ThreadLocalRandom.nextInt_MethodID_5, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func nextInt( _ _origin: Int, _ _bound: Int ) -> Int {
+        return nextInt( origin: _origin, bound: _bound )
+    }
+
+    /// public int java.util.concurrent.ThreadLocalRandom.nextInt()
+
+    // Skipping method: false true false false false 
 
     /// public long java.util.concurrent.ThreadLocalRandom.nextLong(long)
 
     private static var nextLong_MethodID_6: jmethodID?
 
     open func nextLong( bound: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bound, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: bound )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(J)J", methodCache: &ThreadLocalRandom.nextLong_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        return __return
     }
 
     open func nextLong( _ _bound: Int64 ) -> Int64 {
@@ -214,12 +310,12 @@ open class ThreadLocalRandom: Random {
     private static var nextLong_MethodID_7: jmethodID?
 
     open func nextLong( origin: Int64, bound: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: origin, locals: &__locals )
-        __args[1] = JNIType.toJava( value: bound, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: origin )
+        __args[1] = jvalue( j: bound )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "nextLong", methodSig: "(JJ)J", methodCache: &ThreadLocalRandom.nextLong_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        return __return
     }
 
     open func nextLong( _ _origin: Int64, _ _bound: Int64 ) -> Int64 {
@@ -228,41 +324,19 @@ open class ThreadLocalRandom: Random {
 
     /// public long java.util.concurrent.ThreadLocalRandom.nextLong()
 
-    /// final double java.util.concurrent.ThreadLocalRandom.internalNextDouble(double,double)
-
-    /// final int java.util.concurrent.ThreadLocalRandom.internalNextInt(int,int)
-
-    /// final long java.util.concurrent.ThreadLocalRandom.internalNextLong(long,long)
-
-    /// private static long java.util.concurrent.ThreadLocalRandom.mix64(long)
-
-    /// private static int java.util.concurrent.ThreadLocalRandom.mix32(long)
+    // Skipping method: false true false false false 
 
     /// final long java.util.concurrent.ThreadLocalRandom.nextSeed()
 
-    /// private static long java.util.concurrent.ThreadLocalRandom.initialSeed()
+    // Skipping method: true false false false false 
 
-    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(long,int,int)
-
-    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints()
-
-    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(long)
-
-    /// public java.util.stream.IntStream java.util.concurrent.ThreadLocalRandom.ints(int,int)
-
-    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(long,double,double)
-
-    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(long)
-
-    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles()
-
-    /// public java.util.stream.DoubleStream java.util.concurrent.ThreadLocalRandom.doubles(double,double)
+    /// private java.lang.Object java.util.concurrent.ThreadLocalRandom.readResolve()
 
     /// public void java.util.concurrent.ThreadLocalRandom.setSeed(long)
 
-    /// public double java.util.concurrent.ThreadLocalRandom.nextGaussian()
+    // Skipping method: false true false false false 
 
-    /// static final int java.util.concurrent.ThreadLocalRandom.nextSecondarySeed()
+    /// private void java.util.concurrent.ThreadLocalRandom.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
 }
 

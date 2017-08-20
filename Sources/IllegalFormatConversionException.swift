@@ -18,9 +18,9 @@ open class IllegalFormatConversionException: IllegalFormatException {
 
     /// private static final long java.util.IllegalFormatConversionException.serialVersionUID
 
-    /// private char java.util.IllegalFormatConversionException.c
-
     /// private java.lang.Class java.util.IllegalFormatConversionException.arg
+
+    /// private char java.util.IllegalFormatConversionException.c
 
     /// private static final long java.util.IllegalFormatException.serialVersionUID
 
@@ -28,42 +28,48 @@ open class IllegalFormatConversionException: IllegalFormatException {
 
     /// static final long java.lang.RuntimeException.serialVersionUID
 
+    // Skipping field: true true false false false false 
+
     /// static final long java.lang.Exception.serialVersionUID
 
-    /// private static final long java.lang.Throwable.serialVersionUID
+    // Skipping field: true true false false false false 
 
-    /// private java.lang.String java.lang.Throwable.detailMessage
+    /// static final boolean java.lang.Throwable.$assertionsDisabled
 
-    /// private static final java.lang.StackTraceElement[] java.lang.Throwable.UNASSIGNED_STACK
+    // Skipping field: true false false false false false 
 
-    /// private java.lang.Throwable java.lang.Throwable.cause
+    /// private static final java.lang.String java.lang.Throwable.CAUSE_CAPTION
 
-    /// private java.lang.StackTraceElement[] java.lang.Throwable.stackTrace
-
-    /// private static final java.util.List java.lang.Throwable.SUPPRESSED_SENTINEL
-
-    /// private java.util.List java.lang.Throwable.suppressedExceptions
+    /// private static final java.lang.Throwable[] java.lang.Throwable.EMPTY_THROWABLE_ARRAY
 
     /// private static final java.lang.String java.lang.Throwable.NULL_CAUSE_MESSAGE
 
     /// private static final java.lang.String java.lang.Throwable.SELF_SUPPRESSION_MESSAGE
 
-    /// private static final java.lang.String java.lang.Throwable.CAUSE_CAPTION
-
     /// private static final java.lang.String java.lang.Throwable.SUPPRESSED_CAPTION
 
-    /// private static final java.lang.Throwable[] java.lang.Throwable.EMPTY_THROWABLE_ARRAY
+    /// private static final java.util.List java.lang.Throwable.SUPPRESSED_SENTINEL
 
-    /// static final boolean java.lang.Throwable.$assertionsDisabled
+    /// private static final java.lang.StackTraceElement[] java.lang.Throwable.UNASSIGNED_STACK
+
+    /// private static final long java.lang.Throwable.serialVersionUID
+
+    /// private java.lang.Throwable java.lang.Throwable.cause
+
+    /// private java.lang.String java.lang.Throwable.detailMessage
+
+    /// private java.lang.StackTraceElement[] java.lang.Throwable.stackTrace
+
+    /// private java.util.List java.lang.Throwable.suppressedExceptions
 
     /// public java.util.IllegalFormatConversionException(char,java.lang.Class)
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( c: UInt16, arg: java_swift.JavaClass? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( c: c )
         __args[1] = JNIType.toJava( value: arg, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/IllegalFormatConversionException", classCache: &IllegalFormatConversionException.IllegalFormatConversionExceptionJNIClass, methodSig: "(CLjava/lang/Class;)V", methodCache: &IllegalFormatConversionException.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -74,32 +80,34 @@ open class IllegalFormatConversionException: IllegalFormatException {
         self.init( c: _c, arg: _arg )
     }
 
-    /// public java.lang.String java.util.IllegalFormatConversionException.getMessage()
-
-    /// public char java.util.IllegalFormatConversionException.getConversion()
-
-    private static var getConversion_MethodID_2: jmethodID?
-
-    open func getConversion() -> UInt16 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallCharMethod( object: javaObject, methodName: "getConversion", methodSig: "()C", methodCache: &IllegalFormatConversionException.getConversion_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: UInt16(), from: __return )
-    }
-
-
     /// public java.lang.Class java.util.IllegalFormatConversionException.getArgumentClass()
 
-    private static var getArgumentClass_MethodID_3: jmethodID?
+    private static var getArgumentClass_MethodID_2: jmethodID?
 
     open func getArgumentClass() -> java_swift.JavaClass! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getArgumentClass", methodSig: "()Ljava/lang/Class;", methodCache: &IllegalFormatConversionException.getArgumentClass_MethodID_3, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getArgumentClass", methodSig: "()Ljava/lang/Class;", methodCache: &IllegalFormatConversionException.getArgumentClass_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaClass( javaObject: __return ) : nil
     }
 
+
+    /// public char java.util.IllegalFormatConversionException.getConversion()
+
+    private static var getConversion_MethodID_3: jmethodID?
+
+    open func getConversion() -> UInt16 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallCharMethod( object: javaObject, methodName: "getConversion", methodSig: "()C", methodCache: &IllegalFormatConversionException.getConversion_MethodID_3, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public java.lang.String java.util.IllegalFormatConversionException.getMessage()
+
+    // Skipping method: false true false false false 
 
 }
 

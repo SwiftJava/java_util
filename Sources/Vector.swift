@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.Vector ///
 
-open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.Serializable */ UnclassedProtocol {
+open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,20 +20,23 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
 
     private static var VectorJNIClass: jclass?
 
-    /// protected java.lang.Object[] java.util.Vector.elementData
+    /// private static final int java.util.Vector.MAX_ARRAY_SIZE
 
-    private static var elementData_FieldID: jfieldID?
+    /// private static final long java.util.Vector.serialVersionUID
 
-    open var elementData: [JavaObject]! {
+    /// protected int java.util.Vector.capacityIncrement
+
+    private static var capacityIncrement_FieldID: jfieldID?
+
+    open var capacityIncrement: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "elementData", fieldType: "[Ljava/lang/Object;", fieldCache: &Vector.elementData_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [JavaObject](), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "capacityIncrement", fieldType: "I", fieldCache: &Vector.capacityIncrement_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "elementData", fieldType: "[Ljava/lang/Object;", fieldCache: &Vector.elementData_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
+            JNIField.SetIntField( fieldName: "capacityIncrement", fieldType: "I", fieldCache: &Vector.capacityIncrement_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
 
@@ -43,37 +46,31 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
 
     open var elementCount: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "elementCount", fieldType: "I", fieldCache: &Vector.elementCount_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "elementCount", fieldType: "I", fieldCache: &Vector.elementCount_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "elementCount", fieldType: "I", fieldCache: &Vector.elementCount_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
 
-    /// protected int java.util.Vector.capacityIncrement
+    /// protected java.lang.Object[] java.util.Vector.elementData
 
-    private static var capacityIncrement_FieldID: jfieldID?
+    private static var elementData_FieldID: jfieldID?
 
-    open var capacityIncrement: Int {
+    open var elementData: [JavaObject]! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "capacityIncrement", fieldType: "I", fieldCache: &Vector.capacityIncrement_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "elementData", fieldType: "[Ljava/lang/Object;", fieldCache: &Vector.elementData_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [JavaObject].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
             let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetIntField( fieldName: "capacityIncrement", fieldType: "I", fieldCache: &Vector.capacityIncrement_FieldID, object: javaObject, value: __value.i, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "elementData", fieldType: "[Ljava/lang/Object;", fieldCache: &Vector.elementData_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
-
-    /// private static final long java.util.Vector.serialVersionUID
-
-    /// private static final int java.util.Vector.MAX_ARRAY_SIZE
 
     /// protected transient int java.util.AbstractList.modCount
 
@@ -81,28 +78,39 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
 
     override open var modCount: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &Vector.modCount_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &Vector.modCount_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &Vector.modCount_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
 
     /// private static final int java.util.AbstractCollection.MAX_ARRAY_SIZE
 
-    /// public java.util.Vector(java.util.Collection)
+    /// public java.util.Vector()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( c: Collection? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init() {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/Vector", classCache: &Vector.VectorJNIClass, methodSig: "()V", methodCache: &Vector.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.Vector(java.util.Collection)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( c: Collection? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/Vector", classCache: &Vector.VectorJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &Vector.new_MethodID_1, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/Vector", classCache: &Vector.VectorJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &Vector.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -111,26 +119,14 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
         self.init( c: _c )
     }
 
-    /// public java.util.Vector()
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/Vector", classCache: &Vector.VectorJNIClass, methodSig: "()V", methodCache: &Vector.new_MethodID_2, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
     /// public java.util.Vector(int)
 
     private static var new_MethodID_3: jmethodID?
 
     public convenience init( initialCapacity: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
         let __object = JNIMethod.NewObject( className: "java/util/Vector", classCache: &Vector.VectorJNIClass, methodSig: "(I)V", methodCache: &Vector.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -145,10 +141,10 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
     private static var new_MethodID_4: jmethodID?
 
     public convenience init( initialCapacity: Int, capacityIncrement: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        __args[1] = JNIType.toJava( value: capacityIncrement, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        __args[1] = jvalue( i: jint(capacityIncrement) )
         let __object = JNIMethod.NewObject( className: "java/util/Vector", classCache: &Vector.VectorJNIClass, methodSig: "(II)V", methodCache: &Vector.new_MethodID_4, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -158,134 +154,100 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
         self.init( initialCapacity: _initialCapacity, capacityIncrement: _capacityIncrement )
     }
 
-    /// public synchronized boolean java.util.Vector.add(java.lang.Object)
+    /// private static int java.util.Vector.hugeCapacity(int)
 
     /// public void java.util.Vector.add(int,java.lang.Object)
 
-    /// public synchronized java.lang.Object java.util.Vector.remove(int)
+    // Skipping method: false true false false false 
 
-    /// public boolean java.util.Vector.remove(java.lang.Object)
+    /// public synchronized boolean java.util.Vector.add(java.lang.Object)
 
-    /// public synchronized java.lang.Object java.util.Vector.get(int)
-
-    /// public synchronized boolean java.util.Vector.equals(java.lang.Object)
-
-    /// public synchronized java.lang.String java.util.Vector.toString()
-
-    /// public synchronized int java.util.Vector.hashCode()
-
-    /// public synchronized java.lang.Object java.util.Vector.clone()
-
-    private static var clone_MethodID_5: jmethodID?
-
-    override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &Vector.clone_MethodID_5, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public int java.util.Vector.indexOf(java.lang.Object)
-
-    /// public synchronized int java.util.Vector.indexOf(java.lang.Object,int)
-
-    private static var indexOf_MethodID_6: jmethodID?
-
-    open func indexOf( o: java_swift.JavaObject?, index: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o, locals: &__locals )
-        __args[1] = JNIType.toJava( value: index, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "indexOf", methodSig: "(Ljava/lang/Object;I)I", methodCache: &Vector.indexOf_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func indexOf( _ _o: java_swift.JavaObject?, _ _index: Int ) -> Int {
-        return indexOf( o: _o, index: _index )
-    }
-
-    /// public void java.util.Vector.clear()
-
-    /// public synchronized boolean java.util.Vector.isEmpty()
-
-    /// public synchronized int java.util.Vector.lastIndexOf(java.lang.Object,int)
-
-    private static var lastIndexOf_MethodID_7: jmethodID?
-
-    open func lastIndexOf( o: java_swift.JavaObject?, index: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o, locals: &__locals )
-        __args[1] = JNIType.toJava( value: index, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "lastIndexOf", methodSig: "(Ljava/lang/Object;I)I", methodCache: &Vector.lastIndexOf_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func lastIndexOf( _ _o: java_swift.JavaObject?, _ _index: Int ) -> Int {
-        return lastIndexOf( o: _o, index: _index )
-    }
-
-    /// public synchronized int java.util.Vector.lastIndexOf(java.lang.Object)
-
-    /// public boolean java.util.Vector.contains(java.lang.Object)
-
-    /// public synchronized void java.util.Vector.replaceAll(java.util.function.UnaryOperator)
-
-    /// public java.util.Enumeration java.util.Vector.elements()
-
-    private static var elements_MethodID_8: jmethodID?
-
-    open func elements() -> Enumeration! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "elements", methodSig: "()Ljava/util/Enumeration;", methodCache: &Vector.elements_MethodID_8, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
-    }
-
-
-    /// public synchronized int java.util.Vector.size()
-
-    /// public synchronized java.util.List java.util.Vector.subList(int,int)
-
-    /// public synchronized java.lang.Object[] java.util.Vector.toArray()
-
-    /// public synchronized java.lang.Object[] java.util.Vector.toArray(java.lang.Object[])
-
-    /// public synchronized java.util.Iterator java.util.Vector.iterator()
-
-    /// public java.util.Spliterator java.util.Vector.spliterator()
+    // Skipping method: false true false false false 
 
     /// public synchronized boolean java.util.Vector.addAll(java.util.Collection)
 
+    // Skipping method: false true false false false 
+
     /// public synchronized boolean java.util.Vector.addAll(int,java.util.Collection)
+
+    // Skipping method: false true false false false 
 
     /// public synchronized void java.util.Vector.addElement(java.lang.Object)
 
-    private static var addElement_MethodID_9: jmethodID?
+    private static var addElement_MethodID_5: jmethodID?
 
     open func addElement( obj: java_swift.JavaObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addElement", methodSig: "(Ljava/lang/Object;)V", methodCache: &Vector.addElement_MethodID_9, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "addElement", methodSig: "(Ljava/lang/Object;)V", methodCache: &Vector.addElement_MethodID_5, args: &__args, locals: &__locals )
     }
 
     open func addElement( _ _obj: java_swift.JavaObject? ) {
         addElement( obj: _obj )
     }
 
+    /// public synchronized int java.util.Vector.capacity()
+
+    private static var capacity_MethodID_6: jmethodID?
+
+    open func capacity() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "capacity", methodSig: "()I", methodCache: &Vector.capacity_MethodID_6, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public void java.util.Vector.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.lang.Object java.util.Vector.clone()
+
+    private static var clone_MethodID_7: jmethodID?
+
+    override open func clone() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &Vector.clone_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public boolean java.util.Vector.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized boolean java.util.Vector.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized void java.util.Vector.copyInto(java.lang.Object[])
+
+    private static var copyInto_MethodID_8: jmethodID?
+
+    open func copyInto( anArray: [JavaObject]? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: anArray, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "copyInto", methodSig: "([Ljava/lang/Object;)V", methodCache: &Vector.copyInto_MethodID_8, args: &__args, locals: &__locals )
+    }
+
+    open func copyInto( _ _anArray: [JavaObject]? ) {
+        copyInto( anArray: _anArray )
+    }
+
     /// public synchronized java.lang.Object java.util.Vector.elementAt(int)
 
-    private static var elementAt_MethodID_10: jmethodID?
+    private static var elementAt_MethodID_9: jmethodID?
 
     open func elementAt( index: Int ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: index, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "elementAt", methodSig: "(I)Ljava/lang/Object;", methodCache: &Vector.elementAt_MethodID_10, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(index) )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "elementAt", methodSig: "(I)Ljava/lang/Object;", methodCache: &Vector.elementAt_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -294,128 +256,195 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
         return elementAt( index: _index )
     }
 
-    /// private void java.util.Vector.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+    /// java.lang.Object java.util.Vector.elementData(int)
 
-    /// public synchronized void java.util.Vector.forEach(java.util.function.Consumer)
+    // Skipping method: true false false false false 
 
-    /// public synchronized java.lang.Object java.util.Vector.set(int,java.lang.Object)
+    /// public java.util.Enumeration java.util.Vector.elements()
 
-    /// public synchronized int java.util.Vector.capacity()
+    private static var elements_MethodID_10: jmethodID?
 
-    private static var capacity_MethodID_11: jmethodID?
-
-    open func capacity() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func elements() -> Enumeration! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "capacity", methodSig: "()I", methodCache: &Vector.capacity_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "elements", methodSig: "()Ljava/util/Enumeration;", methodCache: &Vector.elements_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
     }
 
 
     /// public synchronized void java.util.Vector.ensureCapacity(int)
 
-    private static var ensureCapacity_MethodID_12: jmethodID?
+    private static var ensureCapacity_MethodID_11: jmethodID?
 
     open func ensureCapacity( minCapacity: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: minCapacity, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "ensureCapacity", methodSig: "(I)V", methodCache: &Vector.ensureCapacity_MethodID_12, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(minCapacity) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "ensureCapacity", methodSig: "(I)V", methodCache: &Vector.ensureCapacity_MethodID_11, args: &__args, locals: &__locals )
     }
 
     open func ensureCapacity( _ _minCapacity: Int ) {
         ensureCapacity( minCapacity: _minCapacity )
     }
 
-    /// public synchronized void java.util.Vector.trimToSize()
-
-    private static var trimToSize_MethodID_13: jmethodID?
-
-    open func trimToSize() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "trimToSize", methodSig: "()V", methodCache: &Vector.trimToSize_MethodID_13, args: &__args, locals: &__locals )
-    }
-
-
-    /// public synchronized void java.util.Vector.copyInto(java.lang.Object[])
-
-    private static var copyInto_MethodID_14: jmethodID?
-
-    open func copyInto( anArray: [JavaObject]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: anArray, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "copyInto", methodSig: "([Ljava/lang/Object;)V", methodCache: &Vector.copyInto_MethodID_14, args: &__args, locals: &__locals )
-    }
-
-    open func copyInto( _ _anArray: [JavaObject]? ) {
-        copyInto( anArray: _anArray )
-    }
-
-    /// java.lang.Object java.util.Vector.elementData(int)
-
     /// private void java.util.Vector.ensureCapacityHelper(int)
 
-    /// private void java.util.Vector.grow(int)
+    /// public synchronized boolean java.util.Vector.equals(java.lang.Object)
 
-    /// private static int java.util.Vector.hugeCapacity(int)
-
-    /// public synchronized void java.util.Vector.setSize(int)
-
-    private static var setSize_MethodID_15: jmethodID?
-
-    open func setSize( newSize: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: newSize, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSize", methodSig: "(I)V", methodCache: &Vector.setSize_MethodID_15, args: &__args, locals: &__locals )
-    }
-
-    open func setSize( _ _newSize: Int ) {
-        setSize( newSize: _newSize )
-    }
+    // Skipping method: false true false false false 
 
     /// public synchronized java.lang.Object java.util.Vector.firstElement()
 
-    private static var firstElement_MethodID_16: jmethodID?
+    private static var firstElement_MethodID_12: jmethodID?
 
     open func firstElement() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "firstElement", methodSig: "()Ljava/lang/Object;", methodCache: &Vector.firstElement_MethodID_16, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "firstElement", methodSig: "()Ljava/lang/Object;", methodCache: &Vector.firstElement_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
+
+    /// public synchronized void java.util.Vector.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.lang.Object java.util.Vector.get(int)
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.Vector.grow(int)
+
+    /// public synchronized int java.util.Vector.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.Vector.indexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized int java.util.Vector.indexOf(java.lang.Object,int)
+
+    private static var indexOf_MethodID_13: jmethodID?
+
+    open func indexOf( o: java_swift.JavaObject?, index: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
+        __args[1] = jvalue( i: jint(index) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "indexOf", methodSig: "(Ljava/lang/Object;I)I", methodCache: &Vector.indexOf_MethodID_13, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func indexOf( _ _o: java_swift.JavaObject?, _ _index: Int ) -> Int {
+        return indexOf( o: _o, index: _index )
+    }
+
+    /// public synchronized void java.util.Vector.insertElementAt(java.lang.Object,int)
+
+    private static var insertElementAt_MethodID_14: jmethodID?
+
+    open func insertElementAt( obj: java_swift.JavaObject?, index: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        __args[1] = jvalue( i: jint(index) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "insertElementAt", methodSig: "(Ljava/lang/Object;I)V", methodCache: &Vector.insertElementAt_MethodID_14, args: &__args, locals: &__locals )
+    }
+
+    open func insertElementAt( _ _obj: java_swift.JavaObject?, _ _index: Int ) {
+        insertElementAt( obj: _obj, index: _index )
+    }
+
+    /// public synchronized boolean java.util.Vector.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.util.Iterator java.util.Vector.iterator()
+
+    // Skipping method: false true false false false 
 
     /// public synchronized java.lang.Object java.util.Vector.lastElement()
 
-    private static var lastElement_MethodID_17: jmethodID?
+    private static var lastElement_MethodID_15: jmethodID?
 
     open func lastElement() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "lastElement", methodSig: "()Ljava/lang/Object;", methodCache: &Vector.lastElement_MethodID_17, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "lastElement", methodSig: "()Ljava/lang/Object;", methodCache: &Vector.lastElement_MethodID_15, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public synchronized void java.util.Vector.setElementAt(java.lang.Object,int)
+    /// public synchronized int java.util.Vector.lastIndexOf(java.lang.Object)
 
-    private static var setElementAt_MethodID_18: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func setElementAt( obj: java_swift.JavaObject?, index: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    /// public synchronized int java.util.Vector.lastIndexOf(java.lang.Object,int)
+
+    private static var lastIndexOf_MethodID_16: jmethodID?
+
+    open func lastIndexOf( o: java_swift.JavaObject?, index: Int ) -> Int {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        __args[1] = JNIType.toJava( value: index, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setElementAt", methodSig: "(Ljava/lang/Object;I)V", methodCache: &Vector.setElementAt_MethodID_18, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
+        __args[1] = jvalue( i: jint(index) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "lastIndexOf", methodSig: "(Ljava/lang/Object;I)I", methodCache: &Vector.lastIndexOf_MethodID_16, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
-    open func setElementAt( _ _obj: java_swift.JavaObject?, _ _index: Int ) {
-        setElementAt( obj: _obj, index: _index )
+    open func lastIndexOf( _ _o: java_swift.JavaObject?, _ _index: Int ) -> Int {
+        return lastIndexOf( o: _o, index: _index )
+    }
+
+    /// public synchronized java.util.ListIterator java.util.Vector.listIterator(int)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.util.ListIterator java.util.Vector.listIterator()
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.lang.Object java.util.Vector.remove(int)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.Vector.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized boolean java.util.Vector.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized void java.util.Vector.removeAllElements()
+
+    private static var removeAllElements_MethodID_17: jmethodID?
+
+    open func removeAllElements() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeAllElements", methodSig: "()V", methodCache: &Vector.removeAllElements_MethodID_17, args: &__args, locals: &__locals )
+    }
+
+
+    /// public synchronized boolean java.util.Vector.removeElement(java.lang.Object)
+
+    private static var removeElement_MethodID_18: jmethodID?
+
+    open func removeElement( obj: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeElement", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Vector.removeElement_MethodID_18, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func removeElement( _ _obj: java_swift.JavaObject? ) -> Bool {
+        return removeElement( obj: _obj )
     }
 
     /// public synchronized void java.util.Vector.removeElementAt(int)
@@ -423,9 +452,9 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
     private static var removeElementAt_MethodID_19: jmethodID?
 
     open func removeElementAt( index: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: index, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(index) )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeElementAt", methodSig: "(I)V", methodCache: &Vector.removeElementAt_MethodID_19, args: &__args, locals: &__locals )
     }
 
@@ -433,144 +462,239 @@ open class Vector: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.S
         removeElementAt( index: _index )
     }
 
-    /// public synchronized void java.util.Vector.insertElementAt(java.lang.Object,int)
+    /// public synchronized boolean java.util.Vector.removeIf(java.util.function.Predicate)
 
-    private static var insertElementAt_MethodID_20: jmethodID?
-
-    open func insertElementAt( obj: java_swift.JavaObject?, index: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        __args[1] = JNIType.toJava( value: index, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "insertElementAt", methodSig: "(Ljava/lang/Object;I)V", methodCache: &Vector.insertElementAt_MethodID_20, args: &__args, locals: &__locals )
-    }
-
-    open func insertElementAt( _ _obj: java_swift.JavaObject?, _ _index: Int ) {
-        insertElementAt( obj: _obj, index: _index )
-    }
-
-    /// public synchronized boolean java.util.Vector.removeElement(java.lang.Object)
-
-    private static var removeElement_MethodID_21: jmethodID?
-
-    open func removeElement( obj: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "removeElement", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Vector.removeElement_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func removeElement( _ _obj: java_swift.JavaObject? ) -> Bool {
-        return removeElement( obj: _obj )
-    }
-
-    /// public synchronized void java.util.Vector.removeAllElements()
-
-    private static var removeAllElements_MethodID_22: jmethodID?
-
-    open func removeAllElements() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeAllElements", methodSig: "()V", methodCache: &Vector.removeAllElements_MethodID_22, args: &__args, locals: &__locals )
-    }
-
-
-    /// public synchronized boolean java.util.Vector.containsAll(java.util.Collection)
-
-    /// public synchronized boolean java.util.Vector.removeAll(java.util.Collection)
-
-    /// public synchronized boolean java.util.Vector.retainAll(java.util.Collection)
+    // Skipping method: false true false false false 
 
     /// protected synchronized void java.util.Vector.removeRange(int,int)
 
-    private static var removeRange_MethodID_23: jmethodID?
+    private static var removeRange_MethodID_20: jmethodID?
 
     override open func removeRange( fromIndex: Int, toIndex: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toIndex, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeRange", methodSig: "(II)V", methodCache: &Vector.removeRange_MethodID_23, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        __args[1] = jvalue( i: jint(toIndex) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeRange", methodSig: "(II)V", methodCache: &Vector.removeRange_MethodID_20, args: &__args, locals: &__locals )
     }
 
     override open func removeRange( _ _fromIndex: Int, _ _toIndex: Int ) {
         removeRange( fromIndex: _fromIndex, toIndex: _toIndex )
     }
 
-    /// public synchronized java.util.ListIterator java.util.Vector.listIterator()
+    /// public synchronized void java.util.Vector.replaceAll(java.util.function.UnaryOperator)
 
-    /// public synchronized java.util.ListIterator java.util.Vector.listIterator(int)
+    // Skipping method: false true false false false 
 
-    /// public synchronized boolean java.util.Vector.removeIf(java.util.function.Predicate)
+    /// public synchronized boolean java.util.Vector.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.lang.Object java.util.Vector.set(int,java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized void java.util.Vector.setElementAt(java.lang.Object,int)
+
+    private static var setElementAt_MethodID_21: jmethodID?
+
+    open func setElementAt( obj: java_swift.JavaObject?, index: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        __args[1] = jvalue( i: jint(index) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setElementAt", methodSig: "(Ljava/lang/Object;I)V", methodCache: &Vector.setElementAt_MethodID_21, args: &__args, locals: &__locals )
+    }
+
+    open func setElementAt( _ _obj: java_swift.JavaObject?, _ _index: Int ) {
+        setElementAt( obj: _obj, index: _index )
+    }
+
+    /// public synchronized void java.util.Vector.setSize(int)
+
+    private static var setSize_MethodID_22: jmethodID?
+
+    open func setSize( newSize: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(newSize) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSize", methodSig: "(I)V", methodCache: &Vector.setSize_MethodID_22, args: &__args, locals: &__locals )
+    }
+
+    open func setSize( _ _newSize: Int ) {
+        setSize( newSize: _newSize )
+    }
+
+    /// public synchronized int java.util.Vector.size()
+
+    // Skipping method: false true false false false 
 
     /// public synchronized void java.util.Vector.sort(java.util.Comparator)
 
+    // Skipping method: false true false false false 
+
+    /// public java.util.Spliterator java.util.Vector.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.util.List java.util.Vector.subList(int,int)
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.lang.Object[] java.util.Vector.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.lang.Object[] java.util.Vector.toArray()
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized java.lang.String java.util.Vector.toString()
+
+    // Skipping method: false true false false false 
+
+    /// public synchronized void java.util.Vector.trimToSize()
+
+    private static var trimToSize_MethodID_23: jmethodID?
+
+    open func trimToSize() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "trimToSize", methodSig: "()V", methodCache: &Vector.trimToSize_MethodID_23, args: &__args, locals: &__locals )
+    }
+
+
+    /// private void java.util.Vector.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+
     /// In declared protocol but not defined.. ///
-
-    /// public abstract boolean java.util.Collection.equals(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
-
-    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
-
-    /// public abstract java.util.ListIterator java.util.List.listIterator()
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray()
-
-    /// public abstract java.lang.Object java.util.List.remove(int)
-
-    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
-
-    /// public abstract int java.util.Collection.hashCode()
-
-    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
-
-    /// public abstract java.lang.Object java.util.List.get(int)
-
-    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
-
-    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
-
-    /// public default void java.util.List.sort(java.util.Comparator)
-
-    /// public abstract java.util.ListIterator java.util.List.listIterator(int)
-
-    /// public abstract void java.util.Collection.clear()
 
     /// public abstract void java.util.List.add(int,java.lang.Object)
 
-    /// public abstract boolean java.util.List.addAll(int,java.util.Collection)
-
-    /// public abstract boolean java.util.Collection.isEmpty()
-
-    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
-
-    /// public abstract java.util.List java.util.List.subList(int,int)
-
-    /// public abstract int java.util.List.lastIndexOf(java.lang.Object)
-
-    /// public abstract int java.util.List.indexOf(java.lang.Object)
-
-    /// public default void java.util.List.replaceAll(java.util.function.UnaryOperator)
-
-    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
-
-    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
-
-    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
-
-    /// public abstract java.lang.Object java.util.List.set(int,java.lang.Object)
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.add(java.lang.Object)
 
-    /// public default java.util.stream.Stream java.util.Collection.stream()
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.List.addAll(int,java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract void java.util.Collection.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.get(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.List.indexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.List.lastIndexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.ListIterator java.util.List.listIterator(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.ListIterator java.util.List.listIterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.remove(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.util.List.replaceAll(java.util.function.UnaryOperator)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.set(int,java.lang.Object)
+
+    // Skipping method: false true false false false 
 
     /// public abstract int java.util.Collection.size()
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.util.List.sort(java.util.Comparator)
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.stream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.List java.util.List.subList(int,int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

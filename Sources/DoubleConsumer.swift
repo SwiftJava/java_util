@@ -11,11 +11,11 @@ public protocol DoubleConsumer: JavaProtocol {
 
     func accept( value: Double )
 
-    /// private void java.util.function.DoubleConsumer.lambda$andThen$0(java.util.function.DoubleConsumer,double)
-
     /// public default java.util.function.DoubleConsumer java.util.function.DoubleConsumer.andThen(java.util.function.DoubleConsumer)
 
     func andThen( after: DoubleConsumer? ) -> DoubleConsumer!
+
+    /// private void java.util.function.DoubleConsumer.lambda$andThen$0(java.util.function.DoubleConsumer,double)
 
 }
 
@@ -29,9 +29,9 @@ open class DoubleConsumerForward: JNIObjectForward, DoubleConsumer {
     private static var accept_MethodID_3: jmethodID?
 
     open func accept( value: Double ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: value )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "accept", methodSig: "(D)V", methodCache: &DoubleConsumerForward.accept_MethodID_3, args: &__args, locals: &__locals )
     }
 
@@ -44,8 +44,8 @@ open class DoubleConsumerForward: JNIObjectForward, DoubleConsumer {
     private static var andThen_MethodID_4: jmethodID?
 
     open func andThen( after: DoubleConsumer? ) -> DoubleConsumer! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: after, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/DoubleConsumer;)Ljava/util/function/DoubleConsumer;", methodCache: &DoubleConsumerForward.andThen_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -57,5 +57,4 @@ open class DoubleConsumerForward: JNIObjectForward, DoubleConsumer {
     }
 
 }
-
 

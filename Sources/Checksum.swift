@@ -7,14 +7,6 @@ import java_swift
 
 public protocol Checksum: JavaProtocol {
 
-    /// public abstract void java.util.zip.Checksum.update(int)
-
-    func update( b: Int )
-
-    /// public abstract void java.util.zip.Checksum.update(byte[],int,int)
-
-    func update( b: [Int8]?, off: Int, len: Int )
-
     /// public abstract long java.util.zip.Checksum.getValue()
 
     func getValue() -> Int64
@@ -23,6 +15,14 @@ public protocol Checksum: JavaProtocol {
 
     func reset()
 
+    /// public abstract void java.util.zip.Checksum.update(int)
+
+    func update( b: Int )
+
+    /// public abstract void java.util.zip.Checksum.update(byte[],int,int)
+
+    func update( b: [Int8]?, off: Int, len: Int )
+
 }
 
 
@@ -30,15 +30,38 @@ open class ChecksumForward: JNIObjectForward, Checksum {
 
     private static var ChecksumJNIClass: jclass?
 
+    /// public abstract long java.util.zip.Checksum.getValue()
+
+    private static var getValue_MethodID_5: jmethodID?
+
+    open func getValue() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getValue", methodSig: "()J", methodCache: &ChecksumForward.getValue_MethodID_5, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public abstract void java.util.zip.Checksum.reset()
+
+    private static var reset_MethodID_6: jmethodID?
+
+    open func reset() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &ChecksumForward.reset_MethodID_6, args: &__args, locals: &__locals )
+    }
+
+
     /// public abstract void java.util.zip.Checksum.update(int)
 
-    private static var update_MethodID_5: jmethodID?
+    private static var update_MethodID_7: jmethodID?
 
     open func update( b: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "update", methodSig: "(I)V", methodCache: &ChecksumForward.update_MethodID_5, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(b) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "update", methodSig: "(I)V", methodCache: &ChecksumForward.update_MethodID_7, args: &__args, locals: &__locals )
     }
 
     open func update( _ _b: Int ) {
@@ -47,44 +70,20 @@ open class ChecksumForward: JNIObjectForward, Checksum {
 
     /// public abstract void java.util.zip.Checksum.update(byte[],int,int)
 
-    private static var update_MethodID_6: jmethodID?
+    private static var update_MethodID_8: jmethodID?
 
     open func update( b: [Int8]?, off: Int, len: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: b, locals: &__locals )
-        __args[1] = JNIType.toJava( value: off, locals: &__locals )
-        __args[2] = JNIType.toJava( value: len, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "update", methodSig: "([BII)V", methodCache: &ChecksumForward.update_MethodID_6, args: &__args, locals: &__locals )
+        __args[1] = jvalue( i: jint(off) )
+        __args[2] = jvalue( i: jint(len) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "update", methodSig: "([BII)V", methodCache: &ChecksumForward.update_MethodID_8, args: &__args, locals: &__locals )
     }
 
     open func update( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) {
         update( b: _b, off: _off, len: _len )
     }
 
-    /// public abstract long java.util.zip.Checksum.getValue()
-
-    private static var getValue_MethodID_7: jmethodID?
-
-    open func getValue() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getValue", methodSig: "()J", methodCache: &ChecksumForward.getValue_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public abstract void java.util.zip.Checksum.reset()
-
-    private static var reset_MethodID_8: jmethodID?
-
-    open func reset() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &ChecksumForward.reset_MethodID_8, args: &__args, locals: &__locals )
-    }
-
-
 }
-
 

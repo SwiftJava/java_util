@@ -11,6 +11,12 @@ public protocol IntUnaryOperator: JavaProtocol {
 
     //    class func identity() -> IntUnaryOperator!
 
+    /// private static int java.util.function.IntUnaryOperator.lambda$identity$2(int)
+
+    /// public default java.util.function.IntUnaryOperator java.util.function.IntUnaryOperator.andThen(java.util.function.IntUnaryOperator)
+
+    func andThen( after: IntUnaryOperator? ) -> IntUnaryOperator!
+
     /// public abstract int java.util.function.IntUnaryOperator.applyAsInt(int)
 
     func applyAsInt( operand: Int ) -> Int
@@ -18,12 +24,6 @@ public protocol IntUnaryOperator: JavaProtocol {
     /// public default java.util.function.IntUnaryOperator java.util.function.IntUnaryOperator.compose(java.util.function.IntUnaryOperator)
 
     func compose( before: IntUnaryOperator? ) -> IntUnaryOperator!
-
-    /// public default java.util.function.IntUnaryOperator java.util.function.IntUnaryOperator.andThen(java.util.function.IntUnaryOperator)
-
-    func andThen( after: IntUnaryOperator? ) -> IntUnaryOperator!
-
-    /// private static int java.util.function.IntUnaryOperator.lambda$identity$2(int)
 
     /// private int java.util.function.IntUnaryOperator.lambda$andThen$1(java.util.function.IntUnaryOperator,int)
 
@@ -41,56 +41,23 @@ open class IntUnaryOperatorForward: JNIObjectForward, IntUnaryOperator {
     private static var identity_MethodID_5: jmethodID?
 
     open class func identity() -> IntUnaryOperator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/function/IntUnaryOperator", classCache: &IntUnaryOperatorJNIClass, methodName: "identity", methodSig: "()Ljava/util/function/IntUnaryOperator;", methodCache: &identity_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? IntUnaryOperatorForward( javaObject: __return ) : nil
     }
 
 
-    /// public abstract int java.util.function.IntUnaryOperator.applyAsInt(int)
-
-    private static var applyAsInt_MethodID_6: jmethodID?
-
-    open func applyAsInt( operand: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: operand, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "applyAsInt", methodSig: "(I)I", methodCache: &IntUnaryOperatorForward.applyAsInt_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func applyAsInt( _ _operand: Int ) -> Int {
-        return applyAsInt( operand: _operand )
-    }
-
-    /// public default java.util.function.IntUnaryOperator java.util.function.IntUnaryOperator.compose(java.util.function.IntUnaryOperator)
-
-    private static var compose_MethodID_7: jmethodID?
-
-    open func compose( before: IntUnaryOperator? ) -> IntUnaryOperator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: before, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compose", methodSig: "(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;", methodCache: &IntUnaryOperatorForward.compose_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntUnaryOperatorForward( javaObject: __return ) : nil
-    }
-
-    open func compose( _ _before: IntUnaryOperator? ) -> IntUnaryOperator! {
-        return compose( before: _before )
-    }
-
     /// public default java.util.function.IntUnaryOperator java.util.function.IntUnaryOperator.andThen(java.util.function.IntUnaryOperator)
 
-    private static var andThen_MethodID_8: jmethodID?
+    private static var andThen_MethodID_6: jmethodID?
 
     open func andThen( after: IntUnaryOperator? ) -> IntUnaryOperator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: after, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;", methodCache: &IntUnaryOperatorForward.andThen_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;", methodCache: &IntUnaryOperatorForward.andThen_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? IntUnaryOperatorForward( javaObject: __return ) : nil
     }
@@ -99,6 +66,38 @@ open class IntUnaryOperatorForward: JNIObjectForward, IntUnaryOperator {
         return andThen( after: _after )
     }
 
-}
+    /// public abstract int java.util.function.IntUnaryOperator.applyAsInt(int)
 
+    private static var applyAsInt_MethodID_7: jmethodID?
+
+    open func applyAsInt( operand: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(operand) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "applyAsInt", methodSig: "(I)I", methodCache: &IntUnaryOperatorForward.applyAsInt_MethodID_7, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func applyAsInt( _ _operand: Int ) -> Int {
+        return applyAsInt( operand: _operand )
+    }
+
+    /// public default java.util.function.IntUnaryOperator java.util.function.IntUnaryOperator.compose(java.util.function.IntUnaryOperator)
+
+    private static var compose_MethodID_8: jmethodID?
+
+    open func compose( before: IntUnaryOperator? ) -> IntUnaryOperator! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: before, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compose", methodSig: "(Ljava/util/function/IntUnaryOperator;)Ljava/util/function/IntUnaryOperator;", methodCache: &IntUnaryOperatorForward.compose_MethodID_8, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntUnaryOperatorForward( javaObject: __return ) : nil
+    }
+
+    open func compose( _ _before: IntUnaryOperator? ) -> IntUnaryOperator! {
+        return compose( before: _before )
+    }
+
+}
 

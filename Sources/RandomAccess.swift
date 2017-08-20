@@ -16,4 +16,3 @@ open class RandomAccessForward: JNIObjectForward, RandomAccess {
 
 }
 
-

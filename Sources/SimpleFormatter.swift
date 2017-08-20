@@ -25,8 +25,8 @@ open class SimpleFormatter: logging_Formatter {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/logging/SimpleFormatter", classCache: &SimpleFormatter.SimpleFormatterJNIClass, methodSig: "()V", methodCache: &SimpleFormatter.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -37,11 +37,12 @@ open class SimpleFormatter: logging_Formatter {
     private static var format_MethodID_2: jmethodID?
 
     open func format( arg0: LogRecord? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "format", methodSig: "(Ljava/util/logging/LogRecord;)Ljava/lang/String;", methodCache: &SimpleFormatter.format_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     override open func format( _ _arg0: LogRecord? ) -> String! {

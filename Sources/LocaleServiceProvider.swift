@@ -21,8 +21,8 @@ open class LocaleServiceProvider: java_swift.JavaObject {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/spi/LocaleServiceProvider", classCache: &LocaleServiceProvider.LocaleServiceProviderJNIClass, methodSig: "()V", methodCache: &LocaleServiceProvider.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -33,10 +33,10 @@ open class LocaleServiceProvider: java_swift.JavaObject {
     private static var getAvailableLocales_MethodID_2: jmethodID?
 
     open func getAvailableLocales() -> [JavaLocale]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getAvailableLocales", methodSig: "()[Ljava/util/Locale;", methodCache: &LocaleServiceProvider.getAvailableLocales_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [JavaLocale](), from: __return )
+        return JNIType.toSwift( type: [JavaLocale].self, from: __return )
     }
 
 
@@ -45,11 +45,11 @@ open class LocaleServiceProvider: java_swift.JavaObject {
     private static var isSupportedLocale_MethodID_3: jmethodID?
 
     open func isSupportedLocale( locale: JavaLocale? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isSupportedLocale", methodSig: "(Ljava/util/Locale;)Z", methodCache: &LocaleServiceProvider.isSupportedLocale_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func isSupportedLocale( _ _locale: JavaLocale? ) -> Bool {

@@ -17,13 +17,29 @@ open class ResourceBundle: java_swift.JavaObject {
 
     private static var ResourceBundleJNIClass: jclass?
 
+    /// static final boolean java.util.ResourceBundle.$assertionsDisabled
+
+    // Skipping field: true false false false false false 
+
     /// private static final int java.util.ResourceBundle.INITIAL_CACHE_SIZE
 
     /// private static final java.util.ResourceBundle java.util.ResourceBundle.NONEXISTENT_BUNDLE
 
     /// private static final java.util.concurrent.ConcurrentMap java.util.ResourceBundle.cacheList
 
+    /// private static final java.util.List java.util.ResourceBundle.providers
+
     /// private static final java.lang.ref.ReferenceQueue java.util.ResourceBundle.referenceQueue
+
+    /// private volatile java.util.ResourceBundle$CacheKey java.util.ResourceBundle.cacheKey
+
+    /// private volatile boolean java.util.ResourceBundle.expired
+
+    /// private volatile java.util.Set java.util.ResourceBundle.keySet
+
+    /// private java.util.Locale java.util.ResourceBundle.locale
+
+    /// private java.lang.String java.util.ResourceBundle.name
 
     /// protected java.util.ResourceBundle java.util.ResourceBundle.parent
 
@@ -31,8 +47,8 @@ open class ResourceBundle: java_swift.JavaObject {
 
     open var parent: ResourceBundle! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "parent", fieldType: "Ljava/util/ResourceBundle;", fieldCache: &ResourceBundle.parent_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "parent", fieldType: "Ljava/util/ResourceBundle;", fieldCache: &ResourceBundle.parent_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? ResourceBundle( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -42,106 +58,119 @@ open class ResourceBundle: java_swift.JavaObject {
         }
     }
 
-    /// private java.util.Locale java.util.ResourceBundle.locale
-
-    /// private java.lang.String java.util.ResourceBundle.name
-
-    /// private volatile boolean java.util.ResourceBundle.expired
-
-    /// private volatile java.util.ResourceBundle$CacheKey java.util.ResourceBundle.cacheKey
-
-    /// private volatile java.util.Set java.util.ResourceBundle.keySet
-
-    /// private static final java.util.List java.util.ResourceBundle.providers
-
-    /// static final boolean java.util.ResourceBundle.$assertionsDisabled
-
     /// public java.util.ResourceBundle()
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/ResourceBundle", classCache: &ResourceBundle.ResourceBundleJNIClass, methodSig: "()V", methodCache: &ResourceBundle.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    /// public final java.lang.Object java.util.ResourceBundle.getObject(java.lang.String)
-
-    private static var getObject_MethodID_2: jmethodID?
-
-    open func getObject( key: String? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getObject", methodSig: "(Ljava/lang/String;)Ljava/lang/Object;", methodCache: &ResourceBundle.getObject_MethodID_2, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func getObject( _ _key: String? ) -> java_swift.JavaObject! {
-        return getObject( key: _key )
-    }
-
     /// static java.lang.ref.ReferenceQueue java.util.ResourceBundle.access$200()
 
-    /// public java.util.Set java.util.ResourceBundle.keySet()
+    // Skipping method: true false false false false 
 
-    private static var keySet_MethodID_3: jmethodID?
+    /// private static boolean java.util.ResourceBundle.checkList(java.util.List)
 
-    open func keySet() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    /// public static final void java.util.ResourceBundle.clearCache(java.lang.ClassLoader)
+
+    private static var clearCache_MethodID_2: jmethodID?
+
+    open class func clearCache( loader: java_lang.ClassLoader? ) {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keySet", methodSig: "()Ljava/util/Set;", methodCache: &ResourceBundle.keySet_MethodID_3, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: loader, locals: &__locals )
+        JNIMethod.CallStaticVoidMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "clearCache", methodSig: "(Ljava/lang/ClassLoader;)V", methodCache: &clearCache_MethodID_2, args: &__args, locals: &__locals )
+    }
+
+    open class func clearCache( _ _loader: java_lang.ClassLoader? ) {
+        clearCache( loader: _loader )
+    }
+
+    /// public static final void java.util.ResourceBundle.clearCache()
+
+    private static var clearCache_MethodID_3: jmethodID?
+
+    open class func clearCache() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallStaticVoidMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "clearCache", methodSig: "()V", methodCache: &clearCache_MethodID_3, args: &__args, locals: &__locals )
+    }
+
+
+    /// private static java.util.ResourceBundle java.util.ResourceBundle.findBundle(java.util.ResourceBundle$CacheKey,java.util.List,java.util.List,int,java.util.ResourceBundle$Control,java.util.ResourceBundle)
+
+    /// private static java.util.ResourceBundle java.util.ResourceBundle.findBundleInCache(java.util.ResourceBundle$CacheKey,java.util.ResourceBundle$Control)
+
+    /// public static final java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String)
+
+    private static var getBundle_MethodID_4: jmethodID?
+
+    open class func getBundle( baseName: String? ) -> ResourceBundle! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+        return __return != nil ? ResourceBundle( javaObject: __return ) : nil
     }
 
+    open class func getBundle( _ _baseName: String? ) -> ResourceBundle! {
+        return getBundle( baseName: _baseName )
+    }
 
-    /// public boolean java.util.ResourceBundle.containsKey(java.lang.String)
+    /// public static final java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale)
 
-    private static var containsKey_MethodID_4: jmethodID?
+    private static var getBundle_MethodID_5: jmethodID?
 
-    open func containsKey( key: String? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getBundle( baseName: String?, locale: JavaLocale? ) -> ResourceBundle! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/String;)Z", methodCache: &ResourceBundle.containsKey_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
+        __args[1] = JNIType.toJava( value: locale, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ResourceBundle( javaObject: __return ) : nil
     }
 
-    open func containsKey( _ _key: String? ) -> Bool {
-        return containsKey( key: _key )
+    open class func getBundle( _ _baseName: String?, _ _locale: JavaLocale? ) -> ResourceBundle! {
+        return getBundle( baseName: _baseName, locale: _locale )
     }
 
-    /// protected void java.util.ResourceBundle.setParent(java.util.ResourceBundle)
+    /// public static final java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.util.ResourceBundle$Control)
 
-    private static var setParent_MethodID_5: jmethodID?
+    private static var getBundle_MethodID_6: jmethodID?
 
-    open func setParent( parent: ResourceBundle? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getBundle( baseName: String?, targetLocale: JavaLocale?, control: /* class java.util.ResourceBundle$Control */ UnavailableObject? ) -> ResourceBundle! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parent, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setParent", methodSig: "(Ljava/util/ResourceBundle;)V", methodCache: &ResourceBundle.setParent_MethodID_5, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
+        __args[1] = JNIType.toJava( value: targetLocale, locals: &__locals )
+        __args[2] = JNIType.toJava( value: control, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ResourceBundle( javaObject: __return ) : nil
     }
 
-    open func setParent( _ _parent: ResourceBundle? ) {
-        setParent( parent: _parent )
+    open class func getBundle( _ _baseName: String?, _ _targetLocale: JavaLocale?, _ _control: /* class java.util.ResourceBundle$Control */ UnavailableObject? ) -> ResourceBundle! {
+        return getBundle( baseName: _baseName, targetLocale: _targetLocale, control: _control )
     }
 
     /// public static java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader)
 
-    private static var getBundle_MethodID_6: jmethodID?
+    private static var getBundle_MethodID_7: jmethodID?
 
     open class func getBundle( baseName: String?, locale: JavaLocale?, loader: java_lang.ClassLoader? ) -> ResourceBundle! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
         __args[1] = JNIType.toJava( value: locale, locals: &__locals )
         __args[2] = JNIType.toJava( value: loader, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_6, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;Ljava/util/Locale;Ljava/lang/ClassLoader;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ResourceBundle( javaObject: __return ) : nil
     }
@@ -150,32 +179,13 @@ open class ResourceBundle: java_swift.JavaObject {
         return getBundle( baseName: _baseName, locale: _locale, loader: _loader )
     }
 
-    /// public static final java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.util.ResourceBundle$Control)
-
-    private static var getBundle_MethodID_7: jmethodID?
-
-    open class func getBundle( baseName: String?, targetLocale: JavaLocale?, control: /* java.util.ResourceBundle$Control */ UnclassedObject? ) -> ResourceBundle! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
-        __args[1] = JNIType.toJava( value: targetLocale, locals: &__locals )
-        __args[2] = JNIType.toJava( value: control, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;Ljava/util/Locale;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ResourceBundle( javaObject: __return ) : nil
-    }
-
-    open class func getBundle( _ _baseName: String?, _ _targetLocale: JavaLocale?, _ _control: /* java.util.ResourceBundle$Control */ UnclassedObject? ) -> ResourceBundle! {
-        return getBundle( baseName: _baseName, targetLocale: _targetLocale, control: _control )
-    }
-
     /// public static java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader,java.util.ResourceBundle$Control)
 
     private static var getBundle_MethodID_8: jmethodID?
 
-    open class func getBundle( baseName: String?, targetLocale: JavaLocale?, loader: java_lang.ClassLoader?, control: /* java.util.ResourceBundle$Control */ UnclassedObject? ) -> ResourceBundle! {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+    open class func getBundle( baseName: String?, targetLocale: JavaLocale?, loader: java_lang.ClassLoader?, control: /* class java.util.ResourceBundle$Control */ UnavailableObject? ) -> ResourceBundle! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
         __args[1] = JNIType.toJava( value: targetLocale, locals: &__locals )
         __args[2] = JNIType.toJava( value: loader, locals: &__locals )
@@ -185,132 +195,160 @@ open class ResourceBundle: java_swift.JavaObject {
         return __return != nil ? ResourceBundle( javaObject: __return ) : nil
     }
 
-    open class func getBundle( _ _baseName: String?, _ _targetLocale: JavaLocale?, _ _loader: java_lang.ClassLoader?, _ _control: /* java.util.ResourceBundle$Control */ UnclassedObject? ) -> ResourceBundle! {
+    open class func getBundle( _ _baseName: String?, _ _targetLocale: JavaLocale?, _ _loader: java_lang.ClassLoader?, _ _control: /* class java.util.ResourceBundle$Control */ UnavailableObject? ) -> ResourceBundle! {
         return getBundle( baseName: _baseName, targetLocale: _targetLocale, loader: _loader, control: _control )
-    }
-
-    /// public static final java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale)
-
-    private static var getBundle_MethodID_9: jmethodID?
-
-    open class func getBundle( baseName: String?, locale: JavaLocale? ) -> ResourceBundle! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
-        __args[1] = JNIType.toJava( value: locale, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_9, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ResourceBundle( javaObject: __return ) : nil
-    }
-
-    open class func getBundle( _ _baseName: String?, _ _locale: JavaLocale? ) -> ResourceBundle! {
-        return getBundle( baseName: _baseName, locale: _locale )
-    }
-
-    /// public static final java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String)
-
-    private static var getBundle_MethodID_10: jmethodID?
-
-    open class func getBundle( baseName: String? ) -> ResourceBundle! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_10, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ResourceBundle( javaObject: __return ) : nil
-    }
-
-    open class func getBundle( _ _baseName: String? ) -> ResourceBundle! {
-        return getBundle( baseName: _baseName )
     }
 
     /// public static final java.util.ResourceBundle java.util.ResourceBundle.getBundle(java.lang.String,java.util.ResourceBundle$Control)
 
-    private static var getBundle_MethodID_11: jmethodID?
+    private static var getBundle_MethodID_9: jmethodID?
 
-    open class func getBundle( baseName: String?, control: /* java.util.ResourceBundle$Control */ UnclassedObject? ) -> ResourceBundle! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open class func getBundle( baseName: String?, control: /* class java.util.ResourceBundle$Control */ UnavailableObject? ) -> ResourceBundle! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: baseName, locals: &__locals )
         __args[1] = JNIType.toJava( value: control, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_11, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "getBundle", methodSig: "(Ljava/lang/String;Ljava/util/ResourceBundle$Control;)Ljava/util/ResourceBundle;", methodCache: &getBundle_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ResourceBundle( javaObject: __return ) : nil
     }
 
-    open class func getBundle( _ _baseName: String?, _ _control: /* java.util.ResourceBundle$Control */ UnclassedObject? ) -> ResourceBundle! {
+    open class func getBundle( _ _baseName: String?, _ _control: /* class java.util.ResourceBundle$Control */ UnavailableObject? ) -> ResourceBundle! {
         return getBundle( baseName: _baseName, control: _control )
     }
 
-    /// public java.lang.String java.util.ResourceBundle.getBaseBundleName()
-
-    private static var getBaseBundleName_MethodID_12: jmethodID?
-
-    open func getBaseBundleName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getBaseBundleName", methodSig: "()Ljava/lang/String;", methodCache: &ResourceBundle.getBaseBundleName_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
+    /// private static java.util.ResourceBundle java.util.ResourceBundle.getBundleImpl(java.lang.String,java.util.Locale,java.lang.ClassLoader,java.util.ResourceBundle$Control)
 
     /// private static java.util.ResourceBundle$Control java.util.ResourceBundle.getDefaultControl(java.lang.String)
 
-    /// private static java.util.ResourceBundle java.util.ResourceBundle.getBundleImpl(java.lang.String,java.util.Locale,java.lang.ClassLoader,java.util.ResourceBundle$Control)
-
-    /// private static boolean java.util.ResourceBundle.checkList(java.util.List)
-
-    /// private static java.util.ResourceBundle java.util.ResourceBundle.findBundle(java.util.ResourceBundle$CacheKey,java.util.List,java.util.List,int,java.util.ResourceBundle$Control,java.util.ResourceBundle)
-
-    /// private static java.util.ResourceBundle java.util.ResourceBundle.loadBundle(java.util.ResourceBundle$CacheKey,java.util.List,java.util.ResourceBundle$Control,boolean)
-
-    /// private static boolean java.util.ResourceBundle.isValidBundle(java.util.ResourceBundle)
+    /// private static java.lang.ClassLoader java.util.ResourceBundle.getLoader(java.lang.Class)
 
     /// private static boolean java.util.ResourceBundle.hasValidParentChain(java.util.ResourceBundle)
 
-    /// private static void java.util.ResourceBundle.throwMissingResourceException(java.lang.String,java.util.Locale,java.lang.Throwable)
+    /// private static boolean java.util.ResourceBundle.isValidBundle(java.util.ResourceBundle)
 
-    /// private static java.util.ResourceBundle java.util.ResourceBundle.findBundleInCache(java.util.ResourceBundle$CacheKey,java.util.ResourceBundle$Control)
+    /// private static java.util.ResourceBundle java.util.ResourceBundle.loadBundle(java.util.ResourceBundle$CacheKey,java.util.List,java.util.ResourceBundle$Control,boolean)
 
     /// private static java.util.ResourceBundle java.util.ResourceBundle.putBundleInCache(java.util.ResourceBundle$CacheKey,java.util.ResourceBundle,java.util.ResourceBundle$Control)
 
     /// private static void java.util.ResourceBundle.setExpirationTime(java.util.ResourceBundle$CacheKey,java.util.ResourceBundle$Control)
 
-    /// public static final void java.util.ResourceBundle.clearCache(java.lang.ClassLoader)
+    /// private static void java.util.ResourceBundle.throwMissingResourceException(java.lang.String,java.util.Locale,java.lang.Throwable)
 
-    private static var clearCache_MethodID_13: jmethodID?
+    /// public boolean java.util.ResourceBundle.containsKey(java.lang.String)
 
-    open class func clearCache( loader: java_lang.ClassLoader? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    private static var containsKey_MethodID_10: jmethodID?
+
+    open func containsKey( key: String? ) -> Bool {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: loader, locals: &__locals )
-        JNIMethod.CallStaticVoidMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "clearCache", methodSig: "(Ljava/lang/ClassLoader;)V", methodCache: &clearCache_MethodID_13, args: &__args, locals: &__locals )
-    }
-
-    open class func clearCache( _ _loader: java_lang.ClassLoader? ) {
-        clearCache( loader: _loader )
-    }
-
-    /// public static final void java.util.ResourceBundle.clearCache()
-
-    private static var clearCache_MethodID_14: jmethodID?
-
-    open class func clearCache() {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallStaticVoidMethod( className: "java/util/ResourceBundle", classCache: &ResourceBundleJNIClass, methodName: "clearCache", methodSig: "()V", methodCache: &clearCache_MethodID_14, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/String;)Z", methodCache: &ResourceBundle.containsKey_MethodID_10, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
+    open func containsKey( _ _key: String? ) -> Bool {
+        return containsKey( key: _key )
+    }
+
+    /// public java.lang.String java.util.ResourceBundle.getBaseBundleName()
+
+    private static var getBaseBundleName_MethodID_11: jmethodID?
+
+    open func getBaseBundleName() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getBaseBundleName", methodSig: "()Ljava/lang/String;", methodCache: &ResourceBundle.getBaseBundleName_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.Enumeration java.util.ResourceBundle.getKeys()
+
+    private static var getKeys_MethodID_12: jmethodID?
+
+    open func getKeys() -> Enumeration! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getKeys", methodSig: "()Ljava/util/Enumeration;", methodCache: &ResourceBundle.getKeys_MethodID_12, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.Locale java.util.ResourceBundle.getLocale()
+
+    private static var getLocale_MethodID_13: jmethodID?
+
+    open func getLocale() -> JavaLocale! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLocale", methodSig: "()Ljava/util/Locale;", methodCache: &ResourceBundle.getLocale_MethodID_13, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? JavaLocale( javaObject: __return ) : nil
+    }
+
+
+    /// public final java.lang.Object java.util.ResourceBundle.getObject(java.lang.String)
+
+    private static var getObject_MethodID_14: jmethodID?
+
+    open func getObject( key: String? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getObject", methodSig: "(Ljava/lang/String;)Ljava/lang/Object;", methodCache: &ResourceBundle.getObject_MethodID_14, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func getObject( _ _key: String? ) -> java_swift.JavaObject! {
+        return getObject( key: _key )
+    }
+
+    /// public final java.lang.String java.util.ResourceBundle.getString(java.lang.String)
+
+    private static var getString_MethodID_15: jmethodID?
+
+    open func getString( key: String? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getString", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &ResourceBundle.getString_MethodID_15, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getString( _ _key: String? ) -> String! {
+        return getString( key: _key )
+    }
+
+    /// public final java.lang.String[] java.util.ResourceBundle.getStringArray(java.lang.String)
+
+    private static var getStringArray_MethodID_16: jmethodID?
+
+    open func getStringArray( key: String? ) -> [String]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: key, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getStringArray", methodSig: "(Ljava/lang/String;)[Ljava/lang/String;", methodCache: &ResourceBundle.getStringArray_MethodID_16, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [String].self, from: __return )
+    }
+
+    open func getStringArray( _ _key: String? ) -> [String]! {
+        return getStringArray( key: _key )
+    }
 
     /// protected abstract java.lang.Object java.util.ResourceBundle.handleGetObject(java.lang.String)
 
-    private static var handleGetObject_MethodID_15: jmethodID?
+    private static var handleGetObject_MethodID_17: jmethodID?
 
     open func handleGetObject( key: String? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: key, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "handleGetObject", methodSig: "(Ljava/lang/String;)Ljava/lang/Object;", methodCache: &ResourceBundle.handleGetObject_MethodID_15, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "handleGetObject", methodSig: "(Ljava/lang/String;)Ljava/lang/Object;", methodCache: &ResourceBundle.handleGetObject_MethodID_17, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -321,75 +359,43 @@ open class ResourceBundle: java_swift.JavaObject {
 
     /// protected java.util.Set java.util.ResourceBundle.handleKeySet()
 
-    private static var handleKeySet_MethodID_16: jmethodID?
+    private static var handleKeySet_MethodID_18: jmethodID?
 
     open func handleKeySet() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "handleKeySet", methodSig: "()Ljava/util/Set;", methodCache: &ResourceBundle.handleKeySet_MethodID_16, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "handleKeySet", methodSig: "()Ljava/util/Set;", methodCache: &ResourceBundle.handleKeySet_MethodID_18, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
     }
 
 
-    /// public final java.lang.String[] java.util.ResourceBundle.getStringArray(java.lang.String)
+    /// public java.util.Set java.util.ResourceBundle.keySet()
 
-    private static var getStringArray_MethodID_17: jmethodID?
+    private static var keySet_MethodID_19: jmethodID?
 
-    open func getStringArray( key: String? ) -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func keySet() -> java_swift.JavaSet! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getStringArray", methodSig: "(Ljava/lang/String;)[Ljava/lang/String;", methodCache: &ResourceBundle.getStringArray_MethodID_17, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
-    open func getStringArray( _ _key: String? ) -> [String]! {
-        return getStringArray( key: _key )
-    }
-
-    /// public abstract java.util.Enumeration java.util.ResourceBundle.getKeys()
-
-    private static var getKeys_MethodID_18: jmethodID?
-
-    open func getKeys() -> Enumeration! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getKeys", methodSig: "()Ljava/util/Enumeration;", methodCache: &ResourceBundle.getKeys_MethodID_18, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keySet", methodSig: "()Ljava/util/Set;", methodCache: &ResourceBundle.keySet_MethodID_19, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
     }
 
 
-    /// public java.util.Locale java.util.ResourceBundle.getLocale()
+    /// protected void java.util.ResourceBundle.setParent(java.util.ResourceBundle)
 
-    private static var getLocale_MethodID_19: jmethodID?
+    private static var setParent_MethodID_20: jmethodID?
 
-    open func getLocale() -> JavaLocale! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func setParent( parent: ResourceBundle? ) {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLocale", methodSig: "()Ljava/util/Locale;", methodCache: &ResourceBundle.getLocale_MethodID_19, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? JavaLocale( javaObject: __return ) : nil
-    }
-
-
-    /// private static java.lang.ClassLoader java.util.ResourceBundle.getLoader(java.lang.Class)
-
-    /// public final java.lang.String java.util.ResourceBundle.getString(java.lang.String)
-
-    private static var getString_MethodID_20: jmethodID?
-
-    open func getString( key: String? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: key, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getString", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &ResourceBundle.getString_MethodID_20, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        __args[0] = JNIType.toJava( value: parent, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setParent", methodSig: "(Ljava/util/ResourceBundle;)V", methodCache: &ResourceBundle.setParent_MethodID_20, args: &__args, locals: &__locals )
     }
 
-    open func getString( _ _key: String? ) -> String! {
-        return getString( key: _key )
+    open func setParent( _ _parent: ResourceBundle? ) {
+        setParent( parent: _parent )
     }
 
 }

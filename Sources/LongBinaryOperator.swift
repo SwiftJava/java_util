@@ -23,12 +23,12 @@ open class LongBinaryOperatorForward: JNIObjectForward, LongBinaryOperator {
     private static var applyAsLong_MethodID_2: jmethodID?
 
     open func applyAsLong( left: Int64, right: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: left, locals: &__locals )
-        __args[1] = JNIType.toJava( value: right, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: left )
+        __args[1] = jvalue( j: right )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "applyAsLong", methodSig: "(JJ)J", methodCache: &LongBinaryOperatorForward.applyAsLong_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        return __return
     }
 
     open func applyAsLong( _ _left: Int64, _ _right: Int64 ) -> Int64 {
@@ -36,5 +36,4 @@ open class LongBinaryOperatorForward: JNIObjectForward, LongBinaryOperator {
     }
 
 }
-
 

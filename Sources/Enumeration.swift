@@ -27,10 +27,10 @@ open class EnumerationForward: JNIObjectForward, Enumeration {
     private static var hasMoreElements_MethodID_3: jmethodID?
 
     open func hasMoreElements() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasMoreElements", methodSig: "()Z", methodCache: &EnumerationForward.hasMoreElements_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
 
@@ -39,8 +39,8 @@ open class EnumerationForward: JNIObjectForward, Enumeration {
     private static var nextElement_MethodID_4: jmethodID?
 
     open func nextElement() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextElement", methodSig: "()Ljava/lang/Object;", methodCache: &EnumerationForward.nextElement_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -48,5 +48,4 @@ open class EnumerationForward: JNIObjectForward, Enumeration {
 
 
 }
-
 

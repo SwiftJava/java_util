@@ -21,37 +21,33 @@ open class Dictionary: java_swift.JavaObject {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/Dictionary", classCache: &Dictionary.DictionaryJNIClass, methodSig: "()V", methodCache: &Dictionary.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    /// public abstract java.lang.Object java.util.Dictionary.remove(java.lang.Object)
+    /// public abstract java.util.Enumeration java.util.Dictionary.elements()
 
-    private static var remove_MethodID_2: jmethodID?
+    private static var elements_MethodID_2: jmethodID?
 
-    open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func elements() -> Enumeration! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Dictionary.remove_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "elements", methodSig: "()Ljava/util/Enumeration;", methodCache: &Dictionary.elements_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
     }
 
-    open func remove( _ _arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return remove( arg0: _arg0 )
-    }
 
     /// public abstract java.lang.Object java.util.Dictionary.get(java.lang.Object)
 
     private static var get_MethodID_3: jmethodID?
 
     open func get( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Dictionary.get_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -62,16 +58,41 @@ open class Dictionary: java_swift.JavaObject {
         return get( arg0: _arg0 )
     }
 
+    /// public abstract boolean java.util.Dictionary.isEmpty()
+
+    private static var isEmpty_MethodID_4: jmethodID?
+
+    open func isEmpty() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isEmpty", methodSig: "()Z", methodCache: &Dictionary.isEmpty_MethodID_4, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public abstract java.util.Enumeration java.util.Dictionary.keys()
+
+    private static var keys_MethodID_5: jmethodID?
+
+    open func keys() -> Enumeration! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keys", methodSig: "()Ljava/util/Enumeration;", methodCache: &Dictionary.keys_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
+    }
+
+
     /// public abstract java.lang.Object java.util.Dictionary.put(java.lang.Object,java.lang.Object)
 
-    private static var put_MethodID_4: jmethodID?
+    private static var put_MethodID_6: jmethodID?
 
     open func put( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Dictionary.put_MethodID_4, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Dictionary.put_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -80,53 +101,32 @@ open class Dictionary: java_swift.JavaObject {
         return put( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public abstract boolean java.util.Dictionary.isEmpty()
+    /// public abstract java.lang.Object java.util.Dictionary.remove(java.lang.Object)
 
-    private static var isEmpty_MethodID_5: jmethodID?
+    private static var remove_MethodID_7: jmethodID?
 
-    open func isEmpty() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isEmpty", methodSig: "()Z", methodCache: &Dictionary.isEmpty_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public abstract java.util.Enumeration java.util.Dictionary.elements()
-
-    private static var elements_MethodID_6: jmethodID?
-
-    open func elements() -> Enumeration! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "elements", methodSig: "()Ljava/util/Enumeration;", methodCache: &Dictionary.elements_MethodID_6, args: &__args, locals: &__locals )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Dictionary.remove_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
+    open func remove( _ _arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return remove( arg0: _arg0 )
+    }
 
     /// public abstract int java.util.Dictionary.size()
 
-    private static var size_MethodID_7: jmethodID?
+    private static var size_MethodID_8: jmethodID?
 
     open func size() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "size", methodSig: "()I", methodCache: &Dictionary.size_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public abstract java.util.Enumeration java.util.Dictionary.keys()
-
-    private static var keys_MethodID_8: jmethodID?
-
-    open func keys() -> Enumeration! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keys", methodSig: "()Ljava/util/Enumeration;", methodCache: &Dictionary.keys_MethodID_8, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "size", methodSig: "()I", methodCache: &Dictionary.size_MethodID_8, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
 

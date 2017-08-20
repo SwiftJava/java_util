@@ -20,19 +20,37 @@ open class RecursiveTask: ForkJoinTask {
 
     /// java.lang.Object java.util.concurrent.RecursiveTask.result
 
-    /// volatile int java.util.concurrent.ForkJoinTask.status
-
-    /// static final int java.util.concurrent.ForkJoinTask.DONE_MASK
-
-    /// static final int java.util.concurrent.ForkJoinTask.NORMAL
+    // Skipping field: true false false false false false 
 
     /// static final int java.util.concurrent.ForkJoinTask.CANCELLED
 
+    // Skipping field: true false false false false false 
+
+    /// static final int java.util.concurrent.ForkJoinTask.DONE_MASK
+
+    // Skipping field: true false false false false false 
+
     /// static final int java.util.concurrent.ForkJoinTask.EXCEPTIONAL
+
+    // Skipping field: true false false false false false 
+
+    /// private static final int java.util.concurrent.ForkJoinTask.EXCEPTION_MAP_CAPACITY
+
+    /// static final int java.util.concurrent.ForkJoinTask.NORMAL
+
+    // Skipping field: true false false false false false 
 
     /// static final int java.util.concurrent.ForkJoinTask.SIGNAL
 
+    // Skipping field: true false false false false false 
+
     /// static final int java.util.concurrent.ForkJoinTask.SMASK
+
+    // Skipping field: true false false false false false 
+
+    /// private static final long java.util.concurrent.ForkJoinTask.STATUS
+
+    /// private static final sun.misc.Unsafe java.util.concurrent.ForkJoinTask.U
 
     /// private static final java.util.concurrent.ForkJoinTask$ExceptionNode[] java.util.concurrent.ForkJoinTask.exceptionTable
 
@@ -40,21 +58,19 @@ open class RecursiveTask: ForkJoinTask {
 
     /// private static final java.lang.ref.ReferenceQueue java.util.concurrent.ForkJoinTask.exceptionTableRefQueue
 
-    /// private static final int java.util.concurrent.ForkJoinTask.EXCEPTION_MAP_CAPACITY
-
     /// private static final long java.util.concurrent.ForkJoinTask.serialVersionUID
 
-    /// private static final sun.misc.Unsafe java.util.concurrent.ForkJoinTask.U
+    /// volatile int java.util.concurrent.ForkJoinTask.status
 
-    /// private static final long java.util.concurrent.ForkJoinTask.STATUS
+    // Skipping field: true false false false false false 
 
     /// public java.util.concurrent.RecursiveTask()
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/RecursiveTask", classCache: &RecursiveTask.RecursiveTaskJNIClass, methodSig: "()V", methodCache: &RecursiveTask.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -65,8 +81,8 @@ open class RecursiveTask: ForkJoinTask {
     private static var compute_MethodID_2: jmethodID?
 
     open func compute() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compute", methodSig: "()Ljava/lang/Object;", methodCache: &RecursiveTask.compute_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -78,22 +94,24 @@ open class RecursiveTask: ForkJoinTask {
     private static var exec_MethodID_3: jmethodID?
 
     override open func exec() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "exec", methodSig: "()Z", methodCache: &RecursiveTask.exec_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
 
     /// public final java.lang.Object java.util.concurrent.RecursiveTask.getRawResult()
+
+    // Skipping method: false true false false false 
 
     /// protected final void java.util.concurrent.RecursiveTask.setRawResult(java.lang.Object)
 
     private static var setRawResult_MethodID_4: jmethodID?
 
     override open func setRawResult( value: java_swift.JavaObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: value, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawResult", methodSig: "(Ljava/lang/Object;)V", methodCache: &RecursiveTask.setRawResult_MethodID_4, args: &__args, locals: &__locals )
     }

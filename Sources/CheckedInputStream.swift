@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.zip.CheckedInputStream ///
 
-open class CheckedInputStream: /* java.io.FilterInputStream */ UnclassedObject {
+open class CheckedInputStream: /* class java.io.FilterInputStream */ UnavailableObject {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -22,11 +22,11 @@ open class CheckedInputStream: /* java.io.FilterInputStream */ UnclassedObject {
 
     private static var _in_FieldID: jfieldID?
 
-    open var _in: /* java.io.InputStream */ UnclassedObject! {
+    open var _in: /* class java.io.InputStream */ UnavailableObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &CheckedInputStream._in_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? /* java.io.InputStream */ UnclassedObject( javaObject: __value ) : nil
+            let __value = JNIField.GetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &CheckedInputStream._in_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* class java.io.InputStream */ UnavailableObject( javaObject: __value ) : nil
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -41,9 +41,9 @@ open class CheckedInputStream: /* java.io.FilterInputStream */ UnclassedObject {
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, cksum: Checksum? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( _in: /* class java.io.InputStream */ UnavailableObject?, cksum: Checksum? ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         __args[1] = JNIType.toJava( value: cksum, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/CheckedInputStream", classCache: &CheckedInputStream.CheckedInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/util/zip/Checksum;)V", methodCache: &CheckedInputStream.new_MethodID_1, args: &__args, locals: &__locals )
@@ -51,25 +51,39 @@ open class CheckedInputStream: /* java.io.FilterInputStream */ UnclassedObject {
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ __in: /* java.io.InputStream */ UnclassedObject?, _ _cksum: Checksum? ) {
+    public convenience init( _ __in: /* class java.io.InputStream */ UnavailableObject?, _ _cksum: Checksum? ) {
         self.init( _in: __in, cksum: _cksum )
     }
 
+    /// public java.util.zip.Checksum java.util.zip.CheckedInputStream.getChecksum()
+
+    private static var getChecksum_MethodID_2: jmethodID?
+
+    open func getChecksum() -> Checksum! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getChecksum", methodSig: "()Ljava/util/zip/Checksum;", methodCache: &CheckedInputStream.getChecksum_MethodID_2, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ChecksumForward( javaObject: __return ) : nil
+    }
+
+
     /// public int java.util.zip.CheckedInputStream.read(byte[],int,int) throws java.io.IOException
 
-    private static var read_MethodID_2: jmethodID?
+    private static var read_MethodID_3: jmethodID?
 
     open func read( buf: [Int8]?, off: Int, len: Int ) throws /* java.io.IOException */ -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: buf, locals: &__locals )
-        __args[1] = JNIType.toJava( value: off, locals: &__locals )
-        __args[2] = JNIType.toJava( value: len, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "read", methodSig: "([BII)I", methodCache: &CheckedInputStream.read_MethodID_2, args: &__args, locals: &__locals )
+        __args[1] = jvalue( i: jint(off) )
+        __args[2] = jvalue( i: jint(len) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "read", methodSig: "([BII)I", methodCache: &CheckedInputStream.read_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     open func read( _ _buf: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.io.IOException */ -> Int {
@@ -78,20 +92,39 @@ open class CheckedInputStream: /* java.io.FilterInputStream */ UnclassedObject {
 
     /// public int java.util.zip.CheckedInputStream.read() throws java.io.IOException
 
-    /// public long java.util.zip.CheckedInputStream.skip(long) throws java.io.IOException
+    private static var read_MethodID_4: jmethodID?
 
-    /// public java.util.zip.Checksum java.util.zip.CheckedInputStream.getChecksum()
-
-    private static var getChecksum_MethodID_3: jmethodID?
-
-    open func getChecksum() -> Checksum! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func read() throws /* java.io.IOException */ -> Int {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getChecksum", methodSig: "()Ljava/util/zip/Checksum;", methodCache: &CheckedInputStream.getChecksum_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ChecksumForward( javaObject: __return ) : nil
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "read", methodSig: "()I", methodCache: &CheckedInputStream.read_MethodID_4, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return Int(__return)
     }
 
+
+    /// public long java.util.zip.CheckedInputStream.skip(long) throws java.io.IOException
+
+    private static var skip_MethodID_5: jmethodID?
+
+    open func skip( n: Int64 ) throws /* java.io.IOException */ -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: n )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "skip", methodSig: "(J)J", methodCache: &CheckedInputStream.skip_MethodID_5, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return __return
+    }
+
+    open func skip( _ _n: Int64 ) throws /* java.io.IOException */ -> Int64 {
+        return try skip( n: _n )
+    }
 
 }
 

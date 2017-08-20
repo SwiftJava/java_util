@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.HashSet ///
 
-open class HashSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializable */ UnclassedProtocol {
+open class HashSet: AbstractSet, java_lang.Cloneable {////}, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,25 +20,54 @@ open class HashSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     private static var HashSetJNIClass: jclass?
 
+    /// private static final java.lang.Object java.util.HashSet.PRESENT
+
     /// static final long java.util.HashSet.serialVersionUID
+
+    // Skipping field: true true false false false false 
 
     /// private transient java.util.HashMap java.util.HashSet.map
 
-    /// private static final java.lang.Object java.util.HashSet.PRESENT
-
     /// private static final int java.util.AbstractCollection.MAX_ARRAY_SIZE
 
-    /// java.util.HashSet(int,float,boolean)
-
-    /// public java.util.HashSet(int)
+    /// public java.util.HashSet()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( initialCapacity: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init() {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/HashSet", classCache: &HashSet.HashSetJNIClass, methodSig: "(I)V", methodCache: &HashSet.new_MethodID_1, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/HashSet", classCache: &HashSet.HashSetJNIClass, methodSig: "()V", methodCache: &HashSet.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.HashSet(java.util.Collection)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( c: Collection? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/HashSet", classCache: &HashSet.HashSetJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &HashSet.new_MethodID_2, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _c: Collection? ) {
+        self.init( c: _c )
+    }
+
+    /// public java.util.HashSet(int)
+
+    private static var new_MethodID_3: jmethodID?
+
+    public convenience init( initialCapacity: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        let __object = JNIMethod.NewObject( className: "java/util/HashSet", classCache: &HashSet.HashSetJNIClass, methodSig: "(I)V", methodCache: &HashSet.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -49,14 +78,14 @@ open class HashSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
 
     /// public java.util.HashSet(int,float)
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_4: jmethodID?
 
     public convenience init( initialCapacity: Int, loadFactor: Float ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        __args[1] = JNIType.toJava( value: loadFactor, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/HashSet", classCache: &HashSet.HashSetJNIClass, methodSig: "(IF)V", methodCache: &HashSet.new_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        __args[1] = jvalue( f: loadFactor )
+        let __object = JNIMethod.NewObject( className: "java/util/HashSet", classCache: &HashSet.HashSetJNIClass, methodSig: "(IF)V", methodCache: &HashSet.new_MethodID_4, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -65,109 +94,140 @@ open class HashSet: AbstractSet, java_lang.Cloneable {////}, /* java.io.Serializ
         self.init( initialCapacity: _initialCapacity, loadFactor: _loadFactor )
     }
 
-    /// public java.util.HashSet(java.util.Collection)
+    /// java.util.HashSet(int,float,boolean)
 
-    private static var new_MethodID_3: jmethodID?
-
-    public convenience init( c: Collection? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/HashSet", classCache: &HashSet.HashSetJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &HashSet.new_MethodID_3, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _c: Collection? ) {
-        self.init( c: _c )
-    }
-
-    /// public java.util.HashSet()
-
-    private static var new_MethodID_4: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/HashSet", classCache: &HashSet.HashSetJNIClass, methodSig: "()V", methodCache: &HashSet.new_MethodID_4, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    // Skipping init: true false false 
 
     /// public boolean java.util.HashSet.add(java.lang.Object)
 
-    /// public boolean java.util.HashSet.remove(java.lang.Object)
+    // Skipping method: false true false false false 
+
+    /// public void java.util.HashSet.clear()
+
+    // Skipping method: false true false false false 
 
     /// public java.lang.Object java.util.HashSet.clone()
 
     private static var clone_MethodID_5: jmethodID?
 
     override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &HashSet.clone_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public void java.util.HashSet.clear()
+    /// public boolean java.util.HashSet.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.HashSet.isEmpty()
 
-    /// public boolean java.util.HashSet.contains(java.lang.Object)
-
-    /// public int java.util.HashSet.size()
+    // Skipping method: false true false false false 
 
     /// public java.util.Iterator java.util.HashSet.iterator()
 
-    /// public java.util.Spliterator java.util.HashSet.spliterator()
+    // Skipping method: false true false false false 
 
     /// private void java.util.HashSet.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public boolean java.util.HashSet.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.HashSet.size()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Spliterator java.util.HashSet.spliterator()
+
+    // Skipping method: false true false false false 
 
     /// private void java.util.HashSet.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
     /// In declared protocol but not defined.. ///
 
-    /// public abstract boolean java.util.Collection.equals(java.lang.Object)
+    /// public abstract boolean java.util.Collection.add(java.lang.Object)
 
-    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
-
-    /// public abstract boolean java.util.Collection.isEmpty()
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
 
-    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray()
-
-    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
-
-    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
-
-    /// public abstract int java.util.Collection.hashCode()
-
-    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
-
-    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
-
-    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
-
-    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
-
-    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
-
-    /// public abstract boolean java.util.Collection.add(java.lang.Object)
-
-    /// public default java.util.stream.Stream java.util.Collection.stream()
+    // Skipping method: false true false false false 
 
     /// public abstract void java.util.Collection.clear()
 
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
     /// public abstract int java.util.Collection.size()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.stream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

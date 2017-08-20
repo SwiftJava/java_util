@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.logging.LoggingPermission ///
 
-open class LoggingPermission: /* java.security.BasicPermission */ UnclassedObject {
+open class LoggingPermission: /* class java.security.BasicPermission */ UnavailableObject {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,11 +20,11 @@ open class LoggingPermission: /* java.security.BasicPermission */ UnclassedObjec
 
     /// private static final long java.security.BasicPermission.serialVersionUID
 
-    /// private transient boolean java.security.BasicPermission.wildcard
+    /// private transient boolean java.security.BasicPermission.exitVM
 
     /// private transient java.lang.String java.security.BasicPermission.path
 
-    /// private transient boolean java.security.BasicPermission.exitVM
+    /// private transient boolean java.security.BasicPermission.wildcard
 
     /// private static final long java.security.Permission.serialVersionUID
 
@@ -35,8 +35,8 @@ open class LoggingPermission: /* java.security.BasicPermission */ UnclassedObjec
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( name: String?, actions: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
         __args[1] = JNIType.toJava( value: actions, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/logging/LoggingPermission", classCache: &LoggingPermission.LoggingPermissionJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/String;)V", methodCache: &LoggingPermission.new_MethodID_1, args: &__args, locals: &__locals )

@@ -23,8 +23,8 @@ open class AbstractQueue: AbstractCollection, Queue {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/AbstractQueue", classCache: &AbstractQueue.AbstractQueueJNIClass, methodSig: "()V", methodCache: &AbstractQueue.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -32,31 +32,37 @@ open class AbstractQueue: AbstractCollection, Queue {
 
     /// public boolean java.util.AbstractQueue.add(java.lang.Object)
 
-    /// public java.lang.Object java.util.AbstractQueue.remove()
+    // Skipping method: false true false false false 
 
-    private static var remove_MethodID_2: jmethodID?
+    /// public boolean java.util.AbstractQueue.addAll(java.util.Collection)
 
-    open func remove() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    // Skipping method: false true false false false 
+
+    /// public void java.util.AbstractQueue.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.AbstractQueue.element()
+
+    private static var element_MethodID_2: jmethodID?
+
+    open func element() -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "()Ljava/lang/Object;", methodCache: &AbstractQueue.remove_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "element", methodSig: "()Ljava/lang/Object;", methodCache: &AbstractQueue.element_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public void java.util.AbstractQueue.clear()
+    /// public java.lang.Object java.util.AbstractQueue.remove()
 
-    /// public boolean java.util.AbstractQueue.addAll(java.util.Collection)
+    private static var remove_MethodID_3: jmethodID?
 
-    /// public java.lang.Object java.util.AbstractQueue.element()
-
-    private static var element_MethodID_3: jmethodID?
-
-    open func element() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func remove() -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "element", methodSig: "()Ljava/lang/Object;", methodCache: &AbstractQueue.element_MethodID_3, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "()Ljava/lang/Object;", methodCache: &AbstractQueue.remove_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -64,32 +70,99 @@ open class AbstractQueue: AbstractCollection, Queue {
 
     /// In declared protocol but not defined.. ///
 
+    /// public abstract boolean java.util.Collection.add(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract void java.util.Collection.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
     /// public abstract boolean java.util.Collection.equals(java.lang.Object)
 
     private static var equals_MethodID_4: jmethodID?
 
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &AbstractQueue.equals_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     override open func equals( _ _o: java_swift.JavaObject? ) -> Bool {
         return equals( o: _o )
     }
 
-    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Queue.offer(java.lang.Object)
+
+    private static var offer_MethodID_5: jmethodID?
+
+    open func offer( e: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &AbstractQueue.offer_MethodID_5, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func offer( _ _e: java_swift.JavaObject? ) -> Bool {
+        return offer( e: _e )
+    }
+
+    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
+
+    // Skipping method: false true false false false 
 
     /// public abstract java.lang.Object java.util.Queue.peek()
 
-    private static var peek_MethodID_5: jmethodID?
+    private static var peek_MethodID_6: jmethodID?
 
     open func peek() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peek", methodSig: "()Ljava/lang/Object;", methodCache: &AbstractQueue.peek_MethodID_5, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peek", methodSig: "()Ljava/lang/Object;", methodCache: &AbstractQueue.peek_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.lang.Object java.util.Queue.poll()
+
+    private static var poll_MethodID_7: jmethodID?
+
+    open func poll() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "()Ljava/lang/Object;", methodCache: &AbstractQueue.poll_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -97,68 +170,39 @@ open class AbstractQueue: AbstractCollection, Queue {
 
     /// public abstract boolean java.util.Collection.remove(java.lang.Object)
 
+    // Skipping method: false true false false false 
+
     /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
 
-    /// public abstract java.lang.Object[] java.util.Collection.toArray()
-
-    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
-
-    /// public abstract int java.util.Collection.hashCode()
-
-    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
+    // Skipping method: false true false false false 
 
     /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
 
-    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
-
-    /// public abstract void java.util.Collection.clear()
-
-    /// public abstract boolean java.util.Collection.isEmpty()
-
-    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
-
-    /// public abstract boolean java.util.Queue.offer(java.lang.Object)
-
-    private static var offer_MethodID_6: jmethodID?
-
-    open func offer( e: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;)Z", methodCache: &AbstractQueue.offer_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func offer( _ _e: java_swift.JavaObject? ) -> Bool {
-        return offer( e: _e )
-    }
-
-    /// public abstract java.lang.Object java.util.Queue.poll()
-
-    private static var poll_MethodID_7: jmethodID?
-
-    open func poll() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "()Ljava/lang/Object;", methodCache: &AbstractQueue.poll_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
 
-    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.size()
+
+    // Skipping method: false true false false false 
 
     /// public default java.util.Spliterator java.lang.Iterable.spliterator()
 
-    /// public abstract boolean java.util.Collection.add(java.lang.Object)
+    // Skipping method: false true false false false 
 
     /// public default java.util.stream.Stream java.util.Collection.stream()
 
-    /// public abstract int java.util.Collection.size()
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

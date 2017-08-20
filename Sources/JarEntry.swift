@@ -18,129 +18,245 @@ open class JarEntry: ZipEntry {
 
     /// java.util.jar.Attributes java.util.jar.JarEntry.attr
 
+    // Skipping field: true false false false false false 
+
     /// java.security.cert.Certificate[] java.util.jar.JarEntry.certs
+
+    // Skipping field: true false false false false false 
 
     /// java.security.CodeSigner[] java.util.jar.JarEntry.signers
 
-    /// java.lang.String java.util.zip.ZipEntry.name
-
-    /// long java.util.zip.ZipEntry.xdostime
-
-    /// java.nio.file.attribute.FileTime java.util.zip.ZipEntry.mtime
-
-    /// java.nio.file.attribute.FileTime java.util.zip.ZipEntry.atime
-
-    /// java.nio.file.attribute.FileTime java.util.zip.ZipEntry.ctime
-
-    /// long java.util.zip.ZipEntry.crc
-
-    /// long java.util.zip.ZipEntry.size
-
-    /// long java.util.zip.ZipEntry.csize
-
-    /// int java.util.zip.ZipEntry.method
-
-    /// int java.util.zip.ZipEntry.flag
-
-    /// byte[] java.util.zip.ZipEntry.extra
-
-    /// java.lang.String java.util.zip.ZipEntry.comment
-
-    /// public static final int java.util.zip.ZipEntry.STORED
+    // Skipping field: true false false false false false 
 
     /// public static final int java.util.zip.ZipEntry.DEFLATED
 
+    // Skipping field: false true false false false false 
+
     /// static final long java.util.zip.ZipEntry.DOSTIME_BEFORE_1980
+
+    // Skipping field: true false false false false false 
+
+    /// public static final int java.util.zip.ZipEntry.STORED
+
+    // Skipping field: false true false false false false 
 
     /// private static final long java.util.zip.ZipEntry.UPPER_DOSTIME_BOUND
 
-    /// public static final long java.util.zip.ZipConstants.LOCSIG
+    /// java.nio.file.attribute.FileTime java.util.zip.ZipEntry.atime
 
-    /// public static final long java.util.zip.ZipConstants.EXTSIG
+    // Skipping field: true false false false false false 
 
-    /// public static final long java.util.zip.ZipConstants.CENSIG
+    /// java.lang.String java.util.zip.ZipEntry.comment
 
-    /// public static final long java.util.zip.ZipConstants.ENDSIG
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.LOCHDR
+    /// long java.util.zip.ZipEntry.crc
 
-    /// public static final int java.util.zip.ZipConstants.EXTHDR
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.CENHDR
+    /// long java.util.zip.ZipEntry.csize
 
-    /// public static final int java.util.zip.ZipConstants.ENDHDR
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.LOCVER
+    /// java.nio.file.attribute.FileTime java.util.zip.ZipEntry.ctime
 
-    /// public static final int java.util.zip.ZipConstants.LOCFLG
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.LOCHOW
+    /// byte[] java.util.zip.ZipEntry.extra
 
-    /// public static final int java.util.zip.ZipConstants.LOCTIM
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.LOCCRC
+    /// int java.util.zip.ZipEntry.flag
 
-    /// public static final int java.util.zip.ZipConstants.LOCSIZ
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.LOCLEN
+    /// int java.util.zip.ZipEntry.method
 
-    /// public static final int java.util.zip.ZipConstants.LOCNAM
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.LOCEXT
+    /// java.nio.file.attribute.FileTime java.util.zip.ZipEntry.mtime
 
-    /// public static final int java.util.zip.ZipConstants.EXTCRC
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.EXTSIZ
+    /// java.lang.String java.util.zip.ZipEntry.name
 
-    /// public static final int java.util.zip.ZipConstants.EXTLEN
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.CENVEM
+    /// long java.util.zip.ZipEntry.size
 
-    /// public static final int java.util.zip.ZipConstants.CENVER
+    // Skipping field: true false false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.CENFLG
+    /// long java.util.zip.ZipEntry.xdostime
 
-    /// public static final int java.util.zip.ZipConstants.CENHOW
-
-    /// public static final int java.util.zip.ZipConstants.CENTIM
-
-    /// public static final int java.util.zip.ZipConstants.CENCRC
-
-    /// public static final int java.util.zip.ZipConstants.CENSIZ
-
-    /// public static final int java.util.zip.ZipConstants.CENLEN
-
-    /// public static final int java.util.zip.ZipConstants.CENNAM
-
-    /// public static final int java.util.zip.ZipConstants.CENEXT
-
-    /// public static final int java.util.zip.ZipConstants.CENCOM
-
-    /// public static final int java.util.zip.ZipConstants.CENDSK
+    // Skipping field: true false false false false false 
 
     /// public static final int java.util.zip.ZipConstants.CENATT
 
+    // Skipping field: false true false false false false 
+
     /// public static final int java.util.zip.ZipConstants.CENATX
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENCOM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENCRC
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENDSK
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENEXT
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENFLG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENHOW
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENNAM
+
+    // Skipping field: false true false false false false 
 
     /// public static final int java.util.zip.ZipConstants.CENOFF
 
-    /// public static final int java.util.zip.ZipConstants.ENDSUB
+    // Skipping field: false true false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.ENDTOT
+    /// public static final long java.util.zip.ZipConstants.CENSIG
 
-    /// public static final int java.util.zip.ZipConstants.ENDSIZ
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENTIM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENVEM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENVER
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDCOM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDHDR
+
+    // Skipping field: false true false false false false 
 
     /// public static final int java.util.zip.ZipConstants.ENDOFF
 
-    /// public static final int java.util.zip.ZipConstants.ENDCOM
+    // Skipping field: false true false false false false 
+
+    /// public static final long java.util.zip.ZipConstants.ENDSIG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDSUB
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDTOT
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTCRC
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final long java.util.zip.ZipConstants.EXTSIG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCCRC
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCEXT
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCFLG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCHOW
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCNAM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final long java.util.zip.ZipConstants.LOCSIG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCTIM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCVER
+
+    // Skipping field: false true false false false false 
 
     /// public java.util.jar.JarEntry(java.util.jar.JarEntry)
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( je: JarEntry? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: je, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarEntry", classCache: &JarEntry.JarEntryJNIClass, methodSig: "(Ljava/util/jar/JarEntry;)V", methodCache: &JarEntry.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -151,32 +267,15 @@ open class JarEntry: ZipEntry {
         self.init( je: _je )
     }
 
-    /// public java.util.jar.JarEntry(java.util.zip.ZipEntry)
+    /// public java.util.jar.JarEntry(java.lang.String)
 
     private static var new_MethodID_2: jmethodID?
 
-    public convenience init( ze: ZipEntry? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: ze, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/JarEntry", classCache: &JarEntry.JarEntryJNIClass, methodSig: "(Ljava/util/zip/ZipEntry;)V", methodCache: &JarEntry.new_MethodID_2, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _ze: ZipEntry? ) {
-        self.init( ze: _ze )
-    }
-
-    /// public java.util.jar.JarEntry(java.lang.String)
-
-    private static var new_MethodID_3: jmethodID?
-
     public convenience init( name: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/JarEntry", classCache: &JarEntry.JarEntryJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &JarEntry.new_MethodID_3, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/JarEntry", classCache: &JarEntry.JarEntryJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &JarEntry.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -185,43 +284,60 @@ open class JarEntry: ZipEntry {
         self.init( name: _name )
     }
 
+    /// public java.util.jar.JarEntry(java.util.zip.ZipEntry)
+
+    private static var new_MethodID_3: jmethodID?
+
+    public convenience init( ze: ZipEntry? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: ze, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/JarEntry", classCache: &JarEntry.JarEntryJNIClass, methodSig: "(Ljava/util/zip/ZipEntry;)V", methodCache: &JarEntry.new_MethodID_3, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _ze: ZipEntry? ) {
+        self.init( ze: _ze )
+    }
+
+    /// public java.util.jar.Attributes java.util.jar.JarEntry.getAttributes() throws java.io.IOException
+
+    private static var getAttributes_MethodID_4: jmethodID?
+
+    open func getAttributes() throws /* java.io.IOException */ -> Attributes! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getAttributes", methodSig: "()Ljava/util/jar/Attributes;", methodCache: &JarEntry.getAttributes_MethodID_4, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return JNIType.toSwift( type: Attributes.self, from: __return )
+    }
+
+
     /// public java.security.cert.Certificate[] java.util.jar.JarEntry.getCertificates()
 
-    private static var getCertificates_MethodID_4: jmethodID?
+    private static var getCertificates_MethodID_5: jmethodID?
 
-    open func getCertificates() -> [/* java.security.cert.Certificate */ UnclassedObject]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func getCertificates() -> [/* class java.security.cert.Certificate */ UnavailableObject]! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCertificates", methodSig: "()[Ljava/security/cert/Certificate;", methodCache: &JarEntry.getCertificates_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [/* java.security.cert.Certificate */ UnclassedObject](), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCertificates", methodSig: "()[Ljava/security/cert/Certificate;", methodCache: &JarEntry.getCertificates_MethodID_5, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [/* class java.security.cert.Certificate */ UnavailableObject].self, from: __return )
     }
 
 
     /// public java.security.CodeSigner[] java.util.jar.JarEntry.getCodeSigners()
 
-    private static var getCodeSigners_MethodID_5: jmethodID?
+    private static var getCodeSigners_MethodID_6: jmethodID?
 
-    open func getCodeSigners() -> [/* java.security.CodeSigner */ UnclassedObject]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func getCodeSigners() -> [/* class java.security.CodeSigner */ UnavailableObject]! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCodeSigners", methodSig: "()[Ljava/security/CodeSigner;", methodCache: &JarEntry.getCodeSigners_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [/* java.security.CodeSigner */ UnclassedObject](), from: __return )
-    }
-
-
-    /// public java.util.jar.Attributes java.util.jar.JarEntry.getAttributes() throws java.io.IOException
-
-    private static var getAttributes_MethodID_6: jmethodID?
-
-    open func getAttributes() throws /* java.io.IOException */ -> Attributes! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getAttributes", methodSig: "()Ljava/util/jar/Attributes;", methodCache: &JarEntry.getAttributes_MethodID_6, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: Attributes(), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCodeSigners", methodSig: "()[Ljava/security/CodeSigner;", methodCache: &JarEntry.getCodeSigners_MethodID_6, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [/* class java.security.CodeSigner */ UnavailableObject].self, from: __return )
     }
 
 

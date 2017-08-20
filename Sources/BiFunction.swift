@@ -7,15 +7,15 @@ import java_swift
 
 public protocol BiFunction: JavaProtocol {
 
+    /// public default java.util.function.BiFunction java.util.function.BiFunction.andThen(java.util.function.Function)
+
+    func andThen( after: Function? ) -> BiFunction!
+
     /// public abstract java.lang.Object java.util.function.BiFunction.apply(java.lang.Object,java.lang.Object)
 
     func apply( t: java_swift.JavaObject?, u: java_swift.JavaObject? ) -> java_swift.JavaObject!
 
     /// private java.lang.Object java.util.function.BiFunction.lambda$andThen$0(java.util.function.Function,java.lang.Object,java.lang.Object)
-
-    /// public default java.util.function.BiFunction java.util.function.BiFunction.andThen(java.util.function.Function)
-
-    func andThen( after: Function? ) -> BiFunction!
 
 }
 
@@ -24,33 +24,15 @@ open class BiFunctionForward: JNIObjectForward, BiFunction {
 
     private static var BiFunctionJNIClass: jclass?
 
-    /// public abstract java.lang.Object java.util.function.BiFunction.apply(java.lang.Object,java.lang.Object)
-
-    private static var apply_MethodID_3: jmethodID?
-
-    open func apply( t: java_swift.JavaObject?, u: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: t, locals: &__locals )
-        __args[1] = JNIType.toJava( value: u, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "apply", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &BiFunctionForward.apply_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func apply( _ _t: java_swift.JavaObject?, _ _u: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return apply( t: _t, u: _u )
-    }
-
     /// public default java.util.function.BiFunction java.util.function.BiFunction.andThen(java.util.function.Function)
 
-    private static var andThen_MethodID_4: jmethodID?
+    private static var andThen_MethodID_3: jmethodID?
 
     open func andThen( after: Function? ) -> BiFunction! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: after, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/Function;)Ljava/util/function/BiFunction;", methodCache: &BiFunctionForward.andThen_MethodID_4, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/Function;)Ljava/util/function/BiFunction;", methodCache: &BiFunctionForward.andThen_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BiFunctionForward( javaObject: __return ) : nil
     }
@@ -59,6 +41,23 @@ open class BiFunctionForward: JNIObjectForward, BiFunction {
         return andThen( after: _after )
     }
 
-}
+    /// public abstract java.lang.Object java.util.function.BiFunction.apply(java.lang.Object,java.lang.Object)
 
+    private static var apply_MethodID_4: jmethodID?
+
+    open func apply( t: java_swift.JavaObject?, u: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: t, locals: &__locals )
+        __args[1] = JNIType.toJava( value: u, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "apply", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &BiFunctionForward.apply_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func apply( _ _t: java_swift.JavaObject?, _ _u: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return apply( t: _t, u: _u )
+    }
+
+}
 

@@ -16,15 +16,17 @@ open class ConsoleHandler: StreamHandler {
 
     private static var ConsoleHandlerJNIClass: jclass?
 
-    /// private java.io.OutputStream java.util.logging.StreamHandler.output
-
     /// private boolean java.util.logging.StreamHandler.doneHeader
+
+    /// private java.io.OutputStream java.util.logging.StreamHandler.output
 
     /// private volatile java.io.Writer java.util.logging.StreamHandler.writer
 
     /// private static final int java.util.logging.Handler.offValue
 
-    /// private final java.util.logging.LogManager java.util.logging.Handler.manager
+    /// private volatile java.lang.String java.util.logging.Handler.encoding
+
+    /// private volatile java.util.logging.ErrorManager java.util.logging.Handler.errorManager
 
     /// private volatile java.util.logging.Filter java.util.logging.Handler.filter
 
@@ -32,19 +34,19 @@ open class ConsoleHandler: StreamHandler {
 
     /// private volatile java.util.logging.Level java.util.logging.Handler.logLevel
 
-    /// private volatile java.util.logging.ErrorManager java.util.logging.Handler.errorManager
-
-    /// private volatile java.lang.String java.util.logging.Handler.encoding
+    /// private final java.util.logging.LogManager java.util.logging.Handler.manager
 
     /// boolean java.util.logging.Handler.sealed
+
+    // Skipping field: true false false false false false 
 
     /// public java.util.logging.ConsoleHandler()
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/logging/ConsoleHandler", classCache: &ConsoleHandler.ConsoleHandlerJNIClass, methodSig: "()V", methodCache: &ConsoleHandler.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -52,9 +54,13 @@ open class ConsoleHandler: StreamHandler {
 
     /// public void java.util.logging.ConsoleHandler.close()
 
+    // Skipping method: false true false false false 
+
     /// private void java.util.logging.ConsoleHandler.configure()
 
     /// public void java.util.logging.ConsoleHandler.publish(java.util.logging.LogRecord)
+
+    // Skipping method: false true false false false 
 
 }
 

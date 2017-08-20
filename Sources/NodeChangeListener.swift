@@ -27,8 +27,8 @@ open class NodeChangeListenerForward: EventListenerForward, NodeChangeListener {
     private static var childAdded_MethodID_3: jmethodID?
 
     open func childAdded( evt: NodeChangeEvent? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: evt, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "childAdded", methodSig: "(Ljava/util/prefs/NodeChangeEvent;)V", methodCache: &NodeChangeListenerForward.childAdded_MethodID_3, args: &__args, locals: &__locals )
     }
@@ -42,8 +42,8 @@ open class NodeChangeListenerForward: EventListenerForward, NodeChangeListener {
     private static var childRemoved_MethodID_4: jmethodID?
 
     open func childRemoved( evt: NodeChangeEvent? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: evt, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "childRemoved", methodSig: "(Ljava/util/prefs/NodeChangeEvent;)V", methodCache: &NodeChangeListenerForward.childRemoved_MethodID_4, args: &__args, locals: &__locals )
     }
@@ -54,21 +54,16 @@ open class NodeChangeListenerForward: EventListenerForward, NodeChangeListener {
 
 }
 
-
 private typealias NodeChangeListener_childAdded_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
 
 private func NodeChangeListener_childAdded_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ evt: jobject? ) -> () {
-    JNI.inNative = true;
     NodeChangeListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).childAdded( evt: evt != nil ? NodeChangeEvent( javaObject: evt ) : nil )
-    JNI.inNative = false;
 }
 
 private typealias NodeChangeListener_childRemoved_1_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
 
 private func NodeChangeListener_childRemoved_1( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ evt: jobject? ) -> () {
-    JNI.inNative = true;
     NodeChangeListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).childRemoved( evt: evt != nil ? NodeChangeEvent( javaObject: evt ) : nil )
-    JNI.inNative = false;
 }
 
 fileprivate class NodeChangeListenerLocal_: JNILocalProxy<NodeChangeListener, Any> {
@@ -118,17 +113,11 @@ open class NodeChangeListenerBase: NodeChangeListener {
     open func childAdded( evt: NodeChangeEvent? ) /**/ {
     }
 
-    open func childAdded( _ _evt: NodeChangeEvent? ) /**/ {
-        childAdded( evt: _evt )
-    }
 
     /// public abstract void java.util.prefs.NodeChangeListener.childRemoved(java.util.prefs.NodeChangeEvent)
 
     open func childRemoved( evt: NodeChangeEvent? ) /**/ {
     }
 
-    open func childRemoved( _ _evt: NodeChangeEvent? ) /**/ {
-        childRemoved( evt: _evt )
-    }
 
 }

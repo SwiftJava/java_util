@@ -23,13 +23,12 @@ open class LongSupplierForward: JNIObjectForward, LongSupplier {
     private static var getAsLong_MethodID_2: jmethodID?
 
     open func getAsLong() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAsLong", methodSig: "()J", methodCache: &LongSupplierForward.getAsLong_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        return __return
     }
 
 
 }
-
 

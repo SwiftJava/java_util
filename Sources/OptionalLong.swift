@@ -26,34 +26,27 @@ open class OptionalLong: java_swift.JavaObject {
 
     /// private java.util.OptionalLong(long)
 
-    /// public boolean java.util.OptionalLong.equals(java.lang.Object)
+    /// public static java.util.OptionalLong java.util.OptionalLong.empty()
 
-    private static var equals_MethodID_1: jmethodID?
+    private static var empty_MethodID_1: jmethodID?
 
-    open func equals( obj: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func empty() -> OptionalLong! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &OptionalLong.equals_MethodID_1, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalLong", classCache: &OptionalLongJNIClass, methodName: "empty", methodSig: "()Ljava/util/OptionalLong;", methodCache: &empty_MethodID_1, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? OptionalLong( javaObject: __return ) : nil
     }
 
-    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
-        return equals( obj: _obj )
-    }
-
-    /// public java.lang.String java.util.OptionalLong.toString()
-
-    /// public int java.util.OptionalLong.hashCode()
 
     /// public static java.util.OptionalLong java.util.OptionalLong.of(long)
 
     private static var of_MethodID_2: jmethodID?
 
     open class func of( value: Int64 ) -> OptionalLong! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: value )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalLong", classCache: &OptionalLongJNIClass, methodName: "of", methodSig: "(J)Ljava/util/OptionalLong;", methodCache: &of_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? OptionalLong( javaObject: __return ) : nil
@@ -63,38 +56,45 @@ open class OptionalLong: java_swift.JavaObject {
         return of( value: _value )
     }
 
-    /// public static java.util.OptionalLong java.util.OptionalLong.empty()
+    /// public boolean java.util.OptionalLong.equals(java.lang.Object)
 
-    private static var empty_MethodID_3: jmethodID?
+    private static var equals_MethodID_3: jmethodID?
 
-    open class func empty() -> OptionalLong! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func equals( obj: java_swift.JavaObject? ) -> Bool {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalLong", classCache: &OptionalLongJNIClass, methodName: "empty", methodSig: "()Ljava/util/OptionalLong;", methodCache: &empty_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? OptionalLong( javaObject: __return ) : nil
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &OptionalLong.equals_MethodID_3, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
+        return equals( obj: _obj )
+    }
+
+    /// public long java.util.OptionalLong.getAsLong()
+
+    private static var getAsLong_MethodID_4: jmethodID?
+
+    open func getAsLong() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAsLong", methodSig: "()J", methodCache: &OptionalLong.getAsLong_MethodID_4, args: &__args, locals: &__locals )
+        return __return
     }
 
 
-    /// public boolean java.util.OptionalLong.isPresent()
+    /// public int java.util.OptionalLong.hashCode()
 
-    private static var isPresent_MethodID_4: jmethodID?
-
-    open func isPresent() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isPresent", methodSig: "()Z", methodCache: &OptionalLong.isPresent_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
+    // Skipping method: false true false false false 
 
     /// public void java.util.OptionalLong.ifPresent(java.util.function.LongConsumer)
 
     private static var ifPresent_MethodID_5: jmethodID?
 
     open func ifPresent( consumer: LongConsumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: consumer, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "ifPresent", methodSig: "(Ljava/util/function/LongConsumer;)V", methodCache: &OptionalLong.ifPresent_MethodID_5, args: &__args, locals: &__locals )
     }
@@ -103,16 +103,28 @@ open class OptionalLong: java_swift.JavaObject {
         ifPresent( consumer: _consumer )
     }
 
+    /// public boolean java.util.OptionalLong.isPresent()
+
+    private static var isPresent_MethodID_6: jmethodID?
+
+    open func isPresent() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isPresent", methodSig: "()Z", methodCache: &OptionalLong.isPresent_MethodID_6, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
     /// public long java.util.OptionalLong.orElse(long)
 
-    private static var orElse_MethodID_6: jmethodID?
+    private static var orElse_MethodID_7: jmethodID?
 
     open func orElse( other: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: other, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "orElse", methodSig: "(J)J", methodCache: &OptionalLong.orElse_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: other )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "orElse", methodSig: "(J)J", methodCache: &OptionalLong.orElse_MethodID_7, args: &__args, locals: &__locals )
+        return __return
     }
 
     open func orElse( _ _other: Int64 ) -> Int64 {
@@ -121,14 +133,14 @@ open class OptionalLong: java_swift.JavaObject {
 
     /// public long java.util.OptionalLong.orElseGet(java.util.function.LongSupplier)
 
-    private static var orElseGet_MethodID_7: jmethodID?
+    private static var orElseGet_MethodID_8: jmethodID?
 
     open func orElseGet( other: LongSupplier? ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: other, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "orElseGet", methodSig: "(Ljava/util/function/LongSupplier;)J", methodCache: &OptionalLong.orElseGet_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "orElseGet", methodSig: "(Ljava/util/function/LongSupplier;)J", methodCache: &OptionalLong.orElseGet_MethodID_8, args: &__args, locals: &__locals )
+        return __return
     }
 
     open func orElseGet( _ _other: LongSupplier? ) -> Int64 {
@@ -137,34 +149,27 @@ open class OptionalLong: java_swift.JavaObject {
 
     /// public long java.util.OptionalLong.orElseThrow(java.util.function.Supplier) throws java.lang.Throwable
 
-    private static var orElseThrow_MethodID_8: jmethodID?
+    private static var orElseThrow_MethodID_9: jmethodID?
 
     open func orElseThrow( exceptionSupplier: Supplier? ) throws /* java.lang.Throwable */ -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: exceptionSupplier, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "orElseThrow", methodSig: "(Ljava/util/function/Supplier;)J", methodCache: &OptionalLong.orElseThrow_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "orElseThrow", methodSig: "(Ljava/util/function/Supplier;)J", methodCache: &OptionalLong.orElseThrow_MethodID_9, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_swift.Throwable( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Int64(), from: __return )
+        return __return
     }
 
     open func orElseThrow( _ _exceptionSupplier: Supplier? ) throws /* java.lang.Throwable */ -> Int64 {
         return try orElseThrow( exceptionSupplier: _exceptionSupplier )
     }
 
-    /// public long java.util.OptionalLong.getAsLong()
+    /// public java.lang.String java.util.OptionalLong.toString()
 
-    private static var getAsLong_MethodID_9: jmethodID?
-
-    open func getAsLong() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getAsLong", methodSig: "()J", methodCache: &OptionalLong.getAsLong_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
+    // Skipping method: false true false false false 
 
 }
 

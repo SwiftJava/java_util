@@ -23,11 +23,11 @@ open class LongToIntFunctionForward: JNIObjectForward, LongToIntFunction {
     private static var applyAsInt_MethodID_2: jmethodID?
 
     open func applyAsInt( value: Int64 ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: value )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "applyAsInt", methodSig: "(J)I", methodCache: &LongToIntFunctionForward.applyAsInt_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     open func applyAsInt( _ _value: Int64 ) -> Int {
@@ -35,5 +35,4 @@ open class LongToIntFunctionForward: JNIObjectForward, LongToIntFunction {
     }
 
 }
-
 

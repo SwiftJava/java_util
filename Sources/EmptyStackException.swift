@@ -24,41 +24,47 @@ open class EmptyStackException: java_lang.RuntimeException {
 
     /// static final long java.lang.RuntimeException.serialVersionUID
 
+    // Skipping field: true true false false false false 
+
     /// static final long java.lang.Exception.serialVersionUID
 
-    /// private static final long java.lang.Throwable.serialVersionUID
+    // Skipping field: true true false false false false 
 
-    /// private java.lang.String java.lang.Throwable.detailMessage
+    /// static final boolean java.lang.Throwable.$assertionsDisabled
 
-    /// private static final java.lang.StackTraceElement[] java.lang.Throwable.UNASSIGNED_STACK
+    // Skipping field: true false false false false false 
 
-    /// private java.lang.Throwable java.lang.Throwable.cause
+    /// private static final java.lang.String java.lang.Throwable.CAUSE_CAPTION
 
-    /// private java.lang.StackTraceElement[] java.lang.Throwable.stackTrace
-
-    /// private static final java.util.List java.lang.Throwable.SUPPRESSED_SENTINEL
-
-    /// private java.util.List java.lang.Throwable.suppressedExceptions
+    /// private static final java.lang.Throwable[] java.lang.Throwable.EMPTY_THROWABLE_ARRAY
 
     /// private static final java.lang.String java.lang.Throwable.NULL_CAUSE_MESSAGE
 
     /// private static final java.lang.String java.lang.Throwable.SELF_SUPPRESSION_MESSAGE
 
-    /// private static final java.lang.String java.lang.Throwable.CAUSE_CAPTION
-
     /// private static final java.lang.String java.lang.Throwable.SUPPRESSED_CAPTION
 
-    /// private static final java.lang.Throwable[] java.lang.Throwable.EMPTY_THROWABLE_ARRAY
+    /// private static final java.util.List java.lang.Throwable.SUPPRESSED_SENTINEL
 
-    /// static final boolean java.lang.Throwable.$assertionsDisabled
+    /// private static final java.lang.StackTraceElement[] java.lang.Throwable.UNASSIGNED_STACK
+
+    /// private static final long java.lang.Throwable.serialVersionUID
+
+    /// private java.lang.Throwable java.lang.Throwable.cause
+
+    /// private java.lang.String java.lang.Throwable.detailMessage
+
+    /// private java.lang.StackTraceElement[] java.lang.Throwable.stackTrace
+
+    /// private java.util.List java.lang.Throwable.suppressedExceptions
 
     /// public java.util.EmptyStackException()
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/EmptyStackException", classCache: &EmptyStackException.EmptyStackExceptionJNIClass, methodSig: "()V", methodCache: &EmptyStackException.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )

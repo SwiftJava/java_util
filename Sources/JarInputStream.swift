@@ -16,119 +16,219 @@ open class JarInputStream: ZipInputStream {
 
     private static var JarInputStreamJNIClass: jclass?
 
-    /// private java.util.jar.Manifest java.util.jar.JarInputStream.man
+    /// private final boolean java.util.jar.JarInputStream.doVerify
 
     /// private java.util.jar.JarEntry java.util.jar.JarInputStream.first
 
     /// private java.util.jar.JarVerifier java.util.jar.JarInputStream.jv
 
-    /// private sun.security.util.ManifestEntryVerifier java.util.jar.JarInputStream.mev
+    /// private java.util.jar.Manifest java.util.jar.JarInputStream.man
 
-    /// private final boolean java.util.jar.JarInputStream.doVerify
+    /// private sun.security.util.ManifestEntryVerifier java.util.jar.JarInputStream.mev
 
     /// private boolean java.util.jar.JarInputStream.tryManifest
 
-    /// private java.util.zip.ZipEntry java.util.zip.ZipInputStream.entry
+    /// private static final int java.util.zip.ZipInputStream.DEFLATED
 
-    /// private int java.util.zip.ZipInputStream.flag
+    /// private static final int java.util.zip.ZipInputStream.STORED
+
+    /// private byte[] java.util.zip.ZipInputStream.b
+
+    /// private boolean java.util.zip.ZipInputStream.closed
 
     /// private java.util.zip.CRC32 java.util.zip.ZipInputStream.crc
+
+    /// private java.util.zip.ZipEntry java.util.zip.ZipInputStream.entry
+
+    /// private boolean java.util.zip.ZipInputStream.entryEOF
+
+    /// private int java.util.zip.ZipInputStream.flag
 
     /// private long java.util.zip.ZipInputStream.remaining
 
     /// private byte[] java.util.zip.ZipInputStream.tmpbuf
 
-    /// private static final int java.util.zip.ZipInputStream.STORED
-
-    /// private static final int java.util.zip.ZipInputStream.DEFLATED
-
-    /// private boolean java.util.zip.ZipInputStream.closed
-
-    /// private boolean java.util.zip.ZipInputStream.entryEOF
-
     /// private java.util.zip.ZipCoder java.util.zip.ZipInputStream.zc
-
-    /// private byte[] java.util.zip.ZipInputStream.b
-
-    /// public static final long java.util.zip.ZipConstants.LOCSIG
-
-    /// public static final long java.util.zip.ZipConstants.EXTSIG
-
-    /// public static final long java.util.zip.ZipConstants.CENSIG
-
-    /// public static final long java.util.zip.ZipConstants.ENDSIG
-
-    /// public static final int java.util.zip.ZipConstants.LOCHDR
-
-    /// public static final int java.util.zip.ZipConstants.EXTHDR
-
-    /// public static final int java.util.zip.ZipConstants.CENHDR
-
-    /// public static final int java.util.zip.ZipConstants.ENDHDR
-
-    /// public static final int java.util.zip.ZipConstants.LOCVER
-
-    /// public static final int java.util.zip.ZipConstants.LOCFLG
-
-    /// public static final int java.util.zip.ZipConstants.LOCHOW
-
-    /// public static final int java.util.zip.ZipConstants.LOCTIM
-
-    /// public static final int java.util.zip.ZipConstants.LOCCRC
-
-    /// public static final int java.util.zip.ZipConstants.LOCSIZ
-
-    /// public static final int java.util.zip.ZipConstants.LOCLEN
-
-    /// public static final int java.util.zip.ZipConstants.LOCNAM
-
-    /// public static final int java.util.zip.ZipConstants.LOCEXT
-
-    /// public static final int java.util.zip.ZipConstants.EXTCRC
-
-    /// public static final int java.util.zip.ZipConstants.EXTSIZ
-
-    /// public static final int java.util.zip.ZipConstants.EXTLEN
-
-    /// public static final int java.util.zip.ZipConstants.CENVEM
-
-    /// public static final int java.util.zip.ZipConstants.CENVER
-
-    /// public static final int java.util.zip.ZipConstants.CENFLG
-
-    /// public static final int java.util.zip.ZipConstants.CENHOW
-
-    /// public static final int java.util.zip.ZipConstants.CENTIM
-
-    /// public static final int java.util.zip.ZipConstants.CENCRC
-
-    /// public static final int java.util.zip.ZipConstants.CENSIZ
-
-    /// public static final int java.util.zip.ZipConstants.CENLEN
-
-    /// public static final int java.util.zip.ZipConstants.CENNAM
-
-    /// public static final int java.util.zip.ZipConstants.CENEXT
-
-    /// public static final int java.util.zip.ZipConstants.CENCOM
-
-    /// public static final int java.util.zip.ZipConstants.CENDSK
 
     /// public static final int java.util.zip.ZipConstants.CENATT
 
+    // Skipping field: false true false false false false 
+
     /// public static final int java.util.zip.ZipConstants.CENATX
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENCOM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENCRC
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENDSK
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENEXT
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENFLG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENHOW
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENNAM
+
+    // Skipping field: false true false false false false 
 
     /// public static final int java.util.zip.ZipConstants.CENOFF
 
-    /// public static final int java.util.zip.ZipConstants.ENDSUB
+    // Skipping field: false true false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.ENDTOT
+    /// public static final long java.util.zip.ZipConstants.CENSIG
 
-    /// public static final int java.util.zip.ZipConstants.ENDSIZ
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENTIM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENVEM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENVER
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDCOM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDHDR
+
+    // Skipping field: false true false false false false 
 
     /// public static final int java.util.zip.ZipConstants.ENDOFF
 
-    /// public static final int java.util.zip.ZipConstants.ENDCOM
+    // Skipping field: false true false false false false 
+
+    /// public static final long java.util.zip.ZipConstants.ENDSIG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDSUB
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.ENDTOT
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTCRC
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final long java.util.zip.ZipConstants.EXTSIG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCCRC
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCEXT
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCFLG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCHOW
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCNAM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final long java.util.zip.ZipConstants.LOCSIG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCTIM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCVER
+
+    // Skipping field: false true false false false false 
+
+    /// private byte[] java.util.zip.InflaterInputStream.b
+
+    /// protected byte[] java.util.zip.InflaterInputStream.buf
+
+    private static var buf_FieldID: jfieldID?
+
+    override open var buf: [Int8]! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &JarInputStream.buf_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int8].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &JarInputStream.buf_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+        }
+    }
+
+    /// private boolean java.util.zip.InflaterInputStream.closed
 
     /// protected java.util.zip.Inflater java.util.zip.InflaterInputStream.inf
 
@@ -136,8 +236,8 @@ open class JarInputStream: ZipInputStream {
 
     override open var inf: Inflater! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &JarInputStream.inf_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &JarInputStream.inf_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? Inflater( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -147,59 +247,39 @@ open class JarInputStream: ZipInputStream {
         }
     }
 
-    /// protected byte[] java.util.zip.InflaterInputStream.buf
-
-    private static var buf_FieldID: jfieldID?
-
-    override open var buf: [Int8]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &JarInputStream.buf_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int8](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &JarInputStream.buf_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
     /// protected int java.util.zip.InflaterInputStream.len
 
     private static var len_FieldID: jfieldID?
 
     override open var len: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "len", fieldType: "I", fieldCache: &JarInputStream.len_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "len", fieldType: "I", fieldCache: &JarInputStream.len_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "len", fieldType: "I", fieldCache: &JarInputStream.len_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
 
-    /// private boolean java.util.zip.InflaterInputStream.closed
-
     /// private boolean java.util.zip.InflaterInputStream.reachEOF
-
-    /// boolean java.util.zip.InflaterInputStream.usesDefaultInflater
 
     /// private byte[] java.util.zip.InflaterInputStream.singleByteBuf
 
-    /// private byte[] java.util.zip.InflaterInputStream.b
+    /// boolean java.util.zip.InflaterInputStream.usesDefaultInflater
+
+    // Skipping field: true false false false false false 
 
     /// protected volatile java.io.InputStream java.io.FilterInputStream.in
 
     private static var _in_FieldID: jfieldID?
 
-    override open var _in: /* java.io.InputStream */ UnclassedObject! {
+    override open var _in: /* class java.io.InputStream */ UnavailableObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &JarInputStream._in_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? /* java.io.InputStream */ UnclassedObject( javaObject: __value ) : nil
+            let __value = JNIField.GetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &JarInputStream._in_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* class java.io.InputStream */ UnavailableObject( javaObject: __value ) : nil
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -214,16 +294,16 @@ open class JarInputStream: ZipInputStream {
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( _in: /* java.io.InputStream */ UnclassedObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init( _in: /* class java.io.InputStream */ UnavailableObject? ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarInputStream", classCache: &JarInputStream.JarInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &JarInputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ __in: /* java.io.InputStream */ UnclassedObject? ) {
+    public convenience init( _ __in: /* class java.io.InputStream */ UnavailableObject? ) {
         self.init( _in: __in )
     }
 
@@ -231,69 +311,35 @@ open class JarInputStream: ZipInputStream {
 
     private static var new_MethodID_2: jmethodID?
 
-    public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, verify: Bool ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( _in: /* class java.io.InputStream */ UnavailableObject?, verify: Bool ) throws {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: _in, locals: &__locals )
-        __args[1] = JNIType.toJava( value: verify, locals: &__locals )
+        __args[1] = jvalue( z: jboolean(verify ? JNI_TRUE : JNI_FALSE) )
         let __object = JNIMethod.NewObject( className: "java/util/jar/JarInputStream", classCache: &JarInputStream.JarInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Z)V", methodCache: &JarInputStream.new_MethodID_2, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ __in: /* java.io.InputStream */ UnclassedObject?, _ _verify: Bool ) throws {
+    public convenience init( _ __in: /* class java.io.InputStream */ UnavailableObject?, _ _verify: Bool ) throws {
         try self.init( _in: __in, verify: _verify )
     }
 
-    /// private byte[] java.util.jar.JarInputStream.getBytes(java.io.InputStream) throws java.io.IOException
-
-    /// public int java.util.jar.JarInputStream.read(byte[],int,int) throws java.io.IOException
-
-    /// public java.util.jar.Manifest java.util.jar.JarInputStream.getManifest()
-
-    private static var getManifest_MethodID_3: jmethodID?
-
-    open func getManifest() -> Manifest! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getManifest", methodSig: "()Ljava/util/jar/Manifest;", methodCache: &JarInputStream.getManifest_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Manifest( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.zip.ZipEntry java.util.jar.JarInputStream.getNextEntry() throws java.io.IOException
-
     /// private java.util.jar.JarEntry java.util.jar.JarInputStream.checkManifest(java.util.jar.JarEntry) throws java.io.IOException
-
-    /// public java.util.jar.JarEntry java.util.jar.JarInputStream.getNextJarEntry() throws java.io.IOException
-
-    private static var getNextJarEntry_MethodID_4: jmethodID?
-
-    open func getNextJarEntry() throws /* java.io.IOException */ -> JarEntry! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getNextJarEntry", methodSig: "()Ljava/util/jar/JarEntry;", methodCache: &JarInputStream.getNextJarEntry_MethodID_4, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-        return __return != nil ? JarEntry( javaObject: __return ) : nil
-    }
-
 
     /// protected java.util.zip.ZipEntry java.util.jar.JarInputStream.createZipEntry(java.lang.String)
 
-    private static var createZipEntry_MethodID_5: jmethodID?
+    private static var createZipEntry_MethodID_3: jmethodID?
 
     override open func createZipEntry( name: String? ) -> ZipEntry! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "createZipEntry", methodSig: "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", methodCache: &JarInputStream.createZipEntry_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "createZipEntry", methodSig: "(Ljava/lang/String;)Ljava/util/zip/ZipEntry;", methodCache: &JarInputStream.createZipEntry_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ZipEntry( javaObject: __return ) : nil
     }
@@ -301,6 +347,46 @@ open class JarInputStream: ZipInputStream {
     override open func createZipEntry( _ _name: String? ) -> ZipEntry! {
         return createZipEntry( name: _name )
     }
+
+    /// private byte[] java.util.jar.JarInputStream.getBytes(java.io.InputStream) throws java.io.IOException
+
+    /// public java.util.jar.Manifest java.util.jar.JarInputStream.getManifest()
+
+    private static var getManifest_MethodID_4: jmethodID?
+
+    open func getManifest() -> Manifest! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getManifest", methodSig: "()Ljava/util/jar/Manifest;", methodCache: &JarInputStream.getManifest_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Manifest( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.zip.ZipEntry java.util.jar.JarInputStream.getNextEntry() throws java.io.IOException
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.jar.JarEntry java.util.jar.JarInputStream.getNextJarEntry() throws java.io.IOException
+
+    private static var getNextJarEntry_MethodID_5: jmethodID?
+
+    open func getNextJarEntry() throws /* java.io.IOException */ -> JarEntry! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getNextJarEntry", methodSig: "()Ljava/util/jar/JarEntry;", methodCache: &JarInputStream.getNextJarEntry_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return __return != nil ? JarEntry( javaObject: __return ) : nil
+    }
+
+
+    /// public int java.util.jar.JarInputStream.read(byte[],int,int) throws java.io.IOException
+
+    // Skipping method: false true false false false 
 
 }
 

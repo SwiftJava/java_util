@@ -16,6 +16,10 @@ public protocol Lock: JavaProtocol {
 
     func lockInterruptibly() throws /* java.lang.InterruptedException */
 
+    /// public abstract java.util.concurrent.locks.Condition java.util.concurrent.locks.Lock.newCondition()
+
+    func newCondition() -> Condition!
+
     /// public abstract boolean java.util.concurrent.locks.Lock.tryLock(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
     func tryLock( time: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool
@@ -27,10 +31,6 @@ public protocol Lock: JavaProtocol {
     /// public abstract void java.util.concurrent.locks.Lock.unlock()
 
     func unlock()
-
-    /// public abstract java.util.concurrent.locks.Condition java.util.concurrent.locks.Lock.newCondition()
-
-    func newCondition() -> Condition!
 
 }
 
@@ -44,8 +44,8 @@ open class LockForward: JNIObjectForward, Lock {
     private static var lock_MethodID_7: jmethodID?
 
     open func lock() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "lock", methodSig: "()V", methodCache: &LockForward.lock_MethodID_7, args: &__args, locals: &__locals )
     }
 
@@ -55,29 +55,44 @@ open class LockForward: JNIObjectForward, Lock {
     private static var lockInterruptibly_MethodID_8: jmethodID?
 
     open func lockInterruptibly() throws /* java.lang.InterruptedException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "lockInterruptibly", methodSig: "()V", methodCache: &LockForward.lockInterruptibly_MethodID_8, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
     }
 
 
+    /// public abstract java.util.concurrent.locks.Condition java.util.concurrent.locks.Lock.newCondition()
+
+    private static var newCondition_MethodID_9: jmethodID?
+
+    open func newCondition() -> Condition! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "newCondition", methodSig: "()Ljava/util/concurrent/locks/Condition;", methodCache: &LockForward.newCondition_MethodID_9, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? ConditionForward( javaObject: __return ) : nil
+    }
+
+
     /// public abstract boolean java.util.concurrent.locks.Lock.tryLock(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var tryLock_MethodID_9: jmethodID?
+    private static var tryLock_MethodID_10: jmethodID?
 
     open func tryLock( time: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: time, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: time )
         __args[1] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryLock", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &LockForward.tryLock_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryLock", methodSig: "(JLjava/util/concurrent/TimeUnit;)Z", methodCache: &LockForward.tryLock_MethodID_10, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func tryLock( _ _time: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
@@ -86,40 +101,26 @@ open class LockForward: JNIObjectForward, Lock {
 
     /// public abstract boolean java.util.concurrent.locks.Lock.tryLock()
 
-    private static var tryLock_MethodID_10: jmethodID?
+    private static var tryLock_MethodID_11: jmethodID?
 
     open func tryLock() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryLock", methodSig: "()Z", methodCache: &LockForward.tryLock_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryLock", methodSig: "()Z", methodCache: &LockForward.tryLock_MethodID_11, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
 
     /// public abstract void java.util.concurrent.locks.Lock.unlock()
 
-    private static var unlock_MethodID_11: jmethodID?
+    private static var unlock_MethodID_12: jmethodID?
 
     open func unlock() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "unlock", methodSig: "()V", methodCache: &LockForward.unlock_MethodID_11, args: &__args, locals: &__locals )
-    }
-
-
-    /// public abstract java.util.concurrent.locks.Condition java.util.concurrent.locks.Lock.newCondition()
-
-    private static var newCondition_MethodID_12: jmethodID?
-
-    open func newCondition() -> Condition! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "newCondition", methodSig: "()Ljava/util/concurrent/locks/Condition;", methodCache: &LockForward.newCondition_MethodID_12, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? ConditionForward( javaObject: __return ) : nil
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "unlock", methodSig: "()V", methodCache: &LockForward.unlock_MethodID_12, args: &__args, locals: &__locals )
     }
 
 
 }
-
 

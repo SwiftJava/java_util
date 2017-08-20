@@ -16,9 +16,9 @@ open class NodeChangeEvent: EventObject {
 
     private static var NodeChangeEventJNIClass: jclass?
 
-    /// private java.util.prefs.Preferences java.util.prefs.NodeChangeEvent.child
-
     /// private static final long java.util.prefs.NodeChangeEvent.serialVersionUID
+
+    /// private java.util.prefs.Preferences java.util.prefs.NodeChangeEvent.child
 
     /// private static final long java.util.EventObject.serialVersionUID
 
@@ -28,8 +28,8 @@ open class NodeChangeEvent: EventObject {
 
     override open var source: java_swift.JavaObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &NodeChangeEvent.source_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &NodeChangeEvent.source_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? java_swift.JavaObject( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -44,8 +44,8 @@ open class NodeChangeEvent: EventObject {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( parent: Preferences?, child: Preferences? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: parent, locals: &__locals )
         __args[1] = JNIType.toJava( value: child, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/prefs/NodeChangeEvent", classCache: &NodeChangeEvent.NodeChangeEventJNIClass, methodSig: "(Ljava/util/prefs/Preferences;Ljava/util/prefs/Preferences;)V", methodCache: &NodeChangeEvent.new_MethodID_1, args: &__args, locals: &__locals )
@@ -57,14 +57,27 @@ open class NodeChangeEvent: EventObject {
         self.init( parent: _parent, child: _child )
     }
 
+    /// public java.util.prefs.Preferences java.util.prefs.NodeChangeEvent.getChild()
+
+    private static var getChild_MethodID_2: jmethodID?
+
+    open func getChild() -> Preferences! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getChild", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &NodeChangeEvent.getChild_MethodID_2, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Preferences( javaObject: __return ) : nil
+    }
+
+
     /// public java.util.prefs.Preferences java.util.prefs.NodeChangeEvent.getParent()
 
-    private static var getParent_MethodID_2: jmethodID?
+    private static var getParent_MethodID_3: jmethodID?
 
     open func getParent() -> Preferences! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getParent", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &NodeChangeEvent.getParent_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getParent", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &NodeChangeEvent.getParent_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Preferences( javaObject: __return ) : nil
     }
@@ -73,19 +86,6 @@ open class NodeChangeEvent: EventObject {
     /// private void java.util.prefs.NodeChangeEvent.readObject(java.io.ObjectInputStream) throws java.io.NotSerializableException
 
     /// private void java.util.prefs.NodeChangeEvent.writeObject(java.io.ObjectOutputStream) throws java.io.NotSerializableException
-
-    /// public java.util.prefs.Preferences java.util.prefs.NodeChangeEvent.getChild()
-
-    private static var getChild_MethodID_3: jmethodID?
-
-    open func getChild() -> Preferences! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getChild", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &NodeChangeEvent.getChild_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Preferences( javaObject: __return ) : nil
-    }
-
 
 }
 

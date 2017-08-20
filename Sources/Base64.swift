@@ -18,73 +18,73 @@ open class Base64: java_swift.JavaObject {
 
     /// private java.util.Base64()
 
-    /// public static java.util.Base64$Encoder java.util.Base64.getEncoder()
+    /// public static java.util.Base64$Decoder java.util.Base64.getDecoder()
 
-    private static var getEncoder_MethodID_1: jmethodID?
+    private static var getDecoder_MethodID_1: jmethodID?
 
-    open class func getEncoder() -> /* java.util.Base64$Encoder */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getDecoder() -> /* class java.util.Base64$Decoder */ UnavailableObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getEncoder", methodSig: "()Ljava/util/Base64$Encoder;", methodCache: &getEncoder_MethodID_1, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getDecoder", methodSig: "()Ljava/util/Base64$Decoder;", methodCache: &getDecoder_MethodID_1, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.Base64$Encoder */ UnclassedObject( javaObject: __return ) : nil
+        return __return != nil ? /* class java.util.Base64$Decoder */ UnavailableObject( javaObject: __return ) : nil
     }
 
 
-    /// public static java.util.Base64$Encoder java.util.Base64.getUrlEncoder()
+    /// public static java.util.Base64$Encoder java.util.Base64.getEncoder()
 
-    private static var getUrlEncoder_MethodID_2: jmethodID?
+    private static var getEncoder_MethodID_2: jmethodID?
 
-    open class func getUrlEncoder() -> /* java.util.Base64$Encoder */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getEncoder() -> /* class java.util.Base64$Encoder */ UnavailableObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getUrlEncoder", methodSig: "()Ljava/util/Base64$Encoder;", methodCache: &getUrlEncoder_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getEncoder", methodSig: "()Ljava/util/Base64$Encoder;", methodCache: &getEncoder_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.Base64$Encoder */ UnclassedObject( javaObject: __return ) : nil
+        return __return != nil ? /* class java.util.Base64$Encoder */ UnavailableObject( javaObject: __return ) : nil
+    }
+
+
+    /// public static java.util.Base64$Decoder java.util.Base64.getMimeDecoder()
+
+    private static var getMimeDecoder_MethodID_3: jmethodID?
+
+    open class func getMimeDecoder() -> /* class java.util.Base64$Decoder */ UnavailableObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getMimeDecoder", methodSig: "()Ljava/util/Base64$Decoder;", methodCache: &getMimeDecoder_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* class java.util.Base64$Decoder */ UnavailableObject( javaObject: __return ) : nil
     }
 
 
     /// public static java.util.Base64$Encoder java.util.Base64.getMimeEncoder(int,byte[])
 
-    private static var getMimeEncoder_MethodID_3: jmethodID?
+    private static var getMimeEncoder_MethodID_4: jmethodID?
 
-    open class func getMimeEncoder( lineLength: Int, lineSeparator: [Int8]? ) -> /* java.util.Base64$Encoder */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open class func getMimeEncoder( lineLength: Int, lineSeparator: [Int8]? ) -> /* class java.util.Base64$Encoder */ UnavailableObject! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: lineLength, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(lineLength) )
         __args[1] = JNIType.toJava( value: lineSeparator, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getMimeEncoder", methodSig: "(I[B)Ljava/util/Base64$Encoder;", methodCache: &getMimeEncoder_MethodID_3, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getMimeEncoder", methodSig: "(I[B)Ljava/util/Base64$Encoder;", methodCache: &getMimeEncoder_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.Base64$Encoder */ UnclassedObject( javaObject: __return ) : nil
+        return __return != nil ? /* class java.util.Base64$Encoder */ UnavailableObject( javaObject: __return ) : nil
     }
 
-    open class func getMimeEncoder( _ _lineLength: Int, _ _lineSeparator: [Int8]? ) -> /* java.util.Base64$Encoder */ UnclassedObject! {
+    open class func getMimeEncoder( _ _lineLength: Int, _ _lineSeparator: [Int8]? ) -> /* class java.util.Base64$Encoder */ UnavailableObject! {
         return getMimeEncoder( lineLength: _lineLength, lineSeparator: _lineSeparator )
     }
 
     /// public static java.util.Base64$Encoder java.util.Base64.getMimeEncoder()
 
-    private static var getMimeEncoder_MethodID_4: jmethodID?
+    private static var getMimeEncoder_MethodID_5: jmethodID?
 
-    open class func getMimeEncoder() -> /* java.util.Base64$Encoder */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getMimeEncoder() -> /* class java.util.Base64$Encoder */ UnavailableObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getMimeEncoder", methodSig: "()Ljava/util/Base64$Encoder;", methodCache: &getMimeEncoder_MethodID_4, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.Base64$Encoder */ UnclassedObject( javaObject: __return ) : nil
-    }
-
-
-    /// public static java.util.Base64$Decoder java.util.Base64.getDecoder()
-
-    private static var getDecoder_MethodID_5: jmethodID?
-
-    open class func getDecoder() -> /* java.util.Base64$Decoder */ UnclassedObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getDecoder", methodSig: "()Ljava/util/Base64$Decoder;", methodCache: &getDecoder_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getMimeEncoder", methodSig: "()Ljava/util/Base64$Encoder;", methodCache: &getMimeEncoder_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.Base64$Decoder */ UnclassedObject( javaObject: __return ) : nil
+        return __return != nil ? /* class java.util.Base64$Encoder */ UnavailableObject( javaObject: __return ) : nil
     }
 
 
@@ -92,25 +92,25 @@ open class Base64: java_swift.JavaObject {
 
     private static var getUrlDecoder_MethodID_6: jmethodID?
 
-    open class func getUrlDecoder() -> /* java.util.Base64$Decoder */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getUrlDecoder() -> /* class java.util.Base64$Decoder */ UnavailableObject! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getUrlDecoder", methodSig: "()Ljava/util/Base64$Decoder;", methodCache: &getUrlDecoder_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.Base64$Decoder */ UnclassedObject( javaObject: __return ) : nil
+        return __return != nil ? /* class java.util.Base64$Decoder */ UnavailableObject( javaObject: __return ) : nil
     }
 
 
-    /// public static java.util.Base64$Decoder java.util.Base64.getMimeDecoder()
+    /// public static java.util.Base64$Encoder java.util.Base64.getUrlEncoder()
 
-    private static var getMimeDecoder_MethodID_7: jmethodID?
+    private static var getUrlEncoder_MethodID_7: jmethodID?
 
-    open class func getMimeDecoder() -> /* java.util.Base64$Decoder */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getUrlEncoder() -> /* class java.util.Base64$Encoder */ UnavailableObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getMimeDecoder", methodSig: "()Ljava/util/Base64$Decoder;", methodCache: &getMimeDecoder_MethodID_7, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Base64", classCache: &Base64JNIClass, methodName: "getUrlEncoder", methodSig: "()Ljava/util/Base64$Encoder;", methodCache: &getUrlEncoder_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.Base64$Decoder */ UnclassedObject( javaObject: __return ) : nil
+        return __return != nil ? /* class java.util.Base64$Encoder */ UnavailableObject( javaObject: __return ) : nil
     }
 
 

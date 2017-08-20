@@ -16,7 +16,6 @@ open class EventListenerForward: JNIObjectForward, EventListener {
 
 }
 
-
 fileprivate class EventListenerLocal_: JNILocalProxy<EventListener, Any> {
 
     fileprivate static let _proxyClass: jclass = {

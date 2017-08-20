@@ -9,6 +9,8 @@ public protocol ResourceBundleControlProvider: JavaProtocol {
 
     /// public abstract java.util.ResourceBundle$Control java.util.spi.ResourceBundleControlProvider.getControl(java.lang.String)
 
+    // Skipping method: false false true false false 
+
 }
 
 
@@ -18,6 +20,7 @@ open class ResourceBundleControlProviderForward: JNIObjectForward, ResourceBundl
 
     /// public abstract java.util.ResourceBundle$Control java.util.spi.ResourceBundleControlProvider.getControl(java.lang.String)
 
-}
+    // Skipping method: false false true false false 
 
+}
 

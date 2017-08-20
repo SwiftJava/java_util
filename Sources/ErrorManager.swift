@@ -16,27 +16,14 @@ open class ErrorManager: java_swift.JavaObject {
 
     private static var ErrorManagerJNIClass: jclass?
 
-    /// private boolean java.util.logging.ErrorManager.reported
+    /// public static final int java.util.logging.ErrorManager.CLOSE_FAILURE
 
-    /// public static final int java.util.logging.ErrorManager.GENERIC_FAILURE
+    private static var CLOSE_FAILURE_FieldID: jfieldID?
 
-    private static var GENERIC_FAILURE_FieldID: jfieldID?
-
-    open static var GENERIC_FAILURE: Int {
+    open static var CLOSE_FAILURE: Int {
         get {
-            let __value = JNIField.GetStaticIntField( fieldName: "GENERIC_FAILURE", fieldType: "I", fieldCache: &GENERIC_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-    }
-
-    /// public static final int java.util.logging.ErrorManager.WRITE_FAILURE
-
-    private static var WRITE_FAILURE_FieldID: jfieldID?
-
-    open static var WRITE_FAILURE: Int {
-        get {
-            let __value = JNIField.GetStaticIntField( fieldName: "WRITE_FAILURE", fieldType: "I", fieldCache: &WRITE_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetStaticIntField( fieldName: "CLOSE_FAILURE", fieldType: "I", fieldCache: &CLOSE_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
+            return Int(__value)
         }
     }
 
@@ -47,29 +34,7 @@ open class ErrorManager: java_swift.JavaObject {
     open static var FLUSH_FAILURE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FLUSH_FAILURE", fieldType: "I", fieldCache: &FLUSH_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-    }
-
-    /// public static final int java.util.logging.ErrorManager.CLOSE_FAILURE
-
-    private static var CLOSE_FAILURE_FieldID: jfieldID?
-
-    open static var CLOSE_FAILURE: Int {
-        get {
-            let __value = JNIField.GetStaticIntField( fieldName: "CLOSE_FAILURE", fieldType: "I", fieldCache: &CLOSE_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-    }
-
-    /// public static final int java.util.logging.ErrorManager.OPEN_FAILURE
-
-    private static var OPEN_FAILURE_FieldID: jfieldID?
-
-    open static var OPEN_FAILURE: Int {
-        get {
-            let __value = JNIField.GetStaticIntField( fieldName: "OPEN_FAILURE", fieldType: "I", fieldCache: &OPEN_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            return Int(__value)
         }
     }
 
@@ -80,17 +45,52 @@ open class ErrorManager: java_swift.JavaObject {
     open static var FORMAT_FAILURE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FORMAT_FAILURE", fieldType: "I", fieldCache: &FORMAT_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            return Int(__value)
         }
     }
+
+    /// public static final int java.util.logging.ErrorManager.GENERIC_FAILURE
+
+    private static var GENERIC_FAILURE_FieldID: jfieldID?
+
+    open static var GENERIC_FAILURE: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "GENERIC_FAILURE", fieldType: "I", fieldCache: &GENERIC_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
+            return Int(__value)
+        }
+    }
+
+    /// public static final int java.util.logging.ErrorManager.OPEN_FAILURE
+
+    private static var OPEN_FAILURE_FieldID: jfieldID?
+
+    open static var OPEN_FAILURE: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "OPEN_FAILURE", fieldType: "I", fieldCache: &OPEN_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
+            return Int(__value)
+        }
+    }
+
+    /// public static final int java.util.logging.ErrorManager.WRITE_FAILURE
+
+    private static var WRITE_FAILURE_FieldID: jfieldID?
+
+    open static var WRITE_FAILURE: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "WRITE_FAILURE", fieldType: "I", fieldCache: &WRITE_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
+            return Int(__value)
+        }
+    }
+
+    /// private boolean java.util.logging.ErrorManager.reported
 
     /// public java.util.logging.ErrorManager()
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/logging/ErrorManager", classCache: &ErrorManager.ErrorManagerJNIClass, methodSig: "()V", methodCache: &ErrorManager.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -101,11 +101,11 @@ open class ErrorManager: java_swift.JavaObject {
     private static var error_MethodID_2: jmethodID?
 
     open func error( msg: String?, ex: java_swift.Exception?, code: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: msg, locals: &__locals )
         __args[1] = JNIType.toJava( value: ex, locals: &__locals )
-        __args[2] = JNIType.toJava( value: code, locals: &__locals )
+        __args[2] = jvalue( i: jint(code) )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "error", methodSig: "(Ljava/lang/String;Ljava/lang/Exception;I)V", methodCache: &ErrorManager.error_MethodID_2, args: &__args, locals: &__locals )
     }
 

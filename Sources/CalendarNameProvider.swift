@@ -21,8 +21,8 @@ open class CalendarNameProvider: LocaleServiceProvider {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/spi/CalendarNameProvider", classCache: &CalendarNameProvider.CalendarNameProviderJNIClass, methodSig: "()V", methodCache: &CalendarNameProvider.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -33,15 +33,16 @@ open class CalendarNameProvider: LocaleServiceProvider {
     private static var getDisplayName_MethodID_2: jmethodID?
 
     open func getDisplayName( calendarType: String?, field: Int, value: Int, style: Int, locale: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 5 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
         __args[0] = JNIType.toJava( value: calendarType, locals: &__locals )
-        __args[1] = JNIType.toJava( value: field, locals: &__locals )
-        __args[2] = JNIType.toJava( value: value, locals: &__locals )
-        __args[3] = JNIType.toJava( value: style, locals: &__locals )
+        __args[1] = jvalue( i: jint(field) )
+        __args[2] = jvalue( i: jint(value) )
+        __args[3] = jvalue( i: jint(style) )
         __args[4] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/lang/String;IIILjava/util/Locale;)Ljava/lang/String;", methodCache: &CalendarNameProvider.getDisplayName_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open func getDisplayName( _ _calendarType: String?, _ _field: Int, _ _value: Int, _ _style: Int, _ _locale: JavaLocale? ) -> String! {
@@ -53,15 +54,14 @@ open class CalendarNameProvider: LocaleServiceProvider {
     private static var getDisplayNames_MethodID_3: jmethodID?
 
     open func getDisplayNames( calendarType: String?, field: Int, style: Int, locale: JavaLocale? ) -> java_swift.JavaMap! {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         __args[0] = JNIType.toJava( value: calendarType, locals: &__locals )
-        __args[1] = JNIType.toJava( value: field, locals: &__locals )
-        __args[2] = JNIType.toJava( value: style, locals: &__locals )
+        __args[1] = jvalue( i: jint(field) )
+        __args[2] = jvalue( i: jint(style) )
         __args[3] = JNIType.toJava( value: locale, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayNames", methodSig: "(Ljava/lang/String;IILjava/util/Locale;)Ljava/util/Map;", methodCache: &CalendarNameProvider.getDisplayNames_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: java_swift.JavaMapForward(), from: __return )
+        return JNIType.toSwift( type: java_swift.JavaMapForward.self, from: __return )
     }
 
     open func getDisplayNames( _ _calendarType: String?, _ _field: Int, _ _style: Int, _ _locale: JavaLocale? ) -> java_swift.JavaMap! {

@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.concurrent.ConcurrentHashMap ///
 
-open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedProtocol {
+open class ConcurrentHashMap: AbstractMap, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -16,69 +16,9 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
 
     private static var ConcurrentHashMapJNIClass: jclass?
 
-    /// private static final long java.util.concurrent.ConcurrentHashMap.serialVersionUID
+    /// private static final long java.util.concurrent.ConcurrentHashMap.ABASE
 
-    /// private static final int java.util.concurrent.ConcurrentHashMap.MAXIMUM_CAPACITY
-
-    /// private static final int java.util.concurrent.ConcurrentHashMap.DEFAULT_CAPACITY
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.MAX_ARRAY_SIZE
-
-    /// private static final int java.util.concurrent.ConcurrentHashMap.DEFAULT_CONCURRENCY_LEVEL
-
-    /// private static final float java.util.concurrent.ConcurrentHashMap.LOAD_FACTOR
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.TREEIFY_THRESHOLD
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.UNTREEIFY_THRESHOLD
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.MIN_TREEIFY_CAPACITY
-
-    /// private static final int java.util.concurrent.ConcurrentHashMap.MIN_TRANSFER_STRIDE
-
-    /// private static int java.util.concurrent.ConcurrentHashMap.RESIZE_STAMP_BITS
-
-    /// private static final int java.util.concurrent.ConcurrentHashMap.MAX_RESIZERS
-
-    /// private static final int java.util.concurrent.ConcurrentHashMap.RESIZE_STAMP_SHIFT
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.MOVED
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.TREEBIN
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.RESERVED
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.HASH_BITS
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.NCPU
-
-    /// private static final java.io.ObjectStreamField[] java.util.concurrent.ConcurrentHashMap.serialPersistentFields
-
-    /// transient volatile java.util.concurrent.ConcurrentHashMap$Node[] java.util.concurrent.ConcurrentHashMap.table
-
-    /// private transient volatile java.util.concurrent.ConcurrentHashMap$Node[] java.util.concurrent.ConcurrentHashMap.nextTable
-
-    /// private transient volatile long java.util.concurrent.ConcurrentHashMap.baseCount
-
-    /// private transient volatile int java.util.concurrent.ConcurrentHashMap.sizeCtl
-
-    /// private transient volatile int java.util.concurrent.ConcurrentHashMap.transferIndex
-
-    /// private transient volatile int java.util.concurrent.ConcurrentHashMap.cellsBusy
-
-    /// private transient volatile java.util.concurrent.ConcurrentHashMap$CounterCell[] java.util.concurrent.ConcurrentHashMap.counterCells
-
-    /// private transient java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.keySet
-
-    /// private transient java.util.concurrent.ConcurrentHashMap$ValuesView java.util.concurrent.ConcurrentHashMap.values
-
-    /// private transient java.util.concurrent.ConcurrentHashMap$EntrySetView java.util.concurrent.ConcurrentHashMap.entrySet
-
-    /// private static final sun.misc.Unsafe java.util.concurrent.ConcurrentHashMap.U
-
-    /// private static final long java.util.concurrent.ConcurrentHashMap.SIZECTL
-
-    /// private static final long java.util.concurrent.ConcurrentHashMap.TRANSFERINDEX
+    /// private static final int java.util.concurrent.ConcurrentHashMap.ASHIFT
 
     /// private static final long java.util.concurrent.ConcurrentHashMap.BASECOUNT
 
@@ -86,23 +26,119 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
 
     /// private static final long java.util.concurrent.ConcurrentHashMap.CELLVALUE
 
-    /// private static final long java.util.concurrent.ConcurrentHashMap.ABASE
+    /// private static final int java.util.concurrent.ConcurrentHashMap.DEFAULT_CAPACITY
 
-    /// private static final int java.util.concurrent.ConcurrentHashMap.ASHIFT
+    /// private static final int java.util.concurrent.ConcurrentHashMap.DEFAULT_CONCURRENCY_LEVEL
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.HASH_BITS
+
+    // Skipping field: true false false false false false 
+
+    /// private static final float java.util.concurrent.ConcurrentHashMap.LOAD_FACTOR
+
+    /// private static final int java.util.concurrent.ConcurrentHashMap.MAXIMUM_CAPACITY
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.MAX_ARRAY_SIZE
+
+    // Skipping field: true false false false false false 
+
+    /// private static final int java.util.concurrent.ConcurrentHashMap.MAX_RESIZERS
+
+    /// private static final int java.util.concurrent.ConcurrentHashMap.MIN_TRANSFER_STRIDE
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.MIN_TREEIFY_CAPACITY
+
+    // Skipping field: true false false false false false 
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.MOVED
+
+    // Skipping field: true false false false false false 
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.NCPU
+
+    // Skipping field: true false false false false false 
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.RESERVED
+
+    // Skipping field: true false false false false false 
+
+    /// private static int java.util.concurrent.ConcurrentHashMap.RESIZE_STAMP_BITS
+
+    /// private static final int java.util.concurrent.ConcurrentHashMap.RESIZE_STAMP_SHIFT
+
+    /// private static final long java.util.concurrent.ConcurrentHashMap.SIZECTL
+
+    /// private static final long java.util.concurrent.ConcurrentHashMap.TRANSFERINDEX
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.TREEBIN
+
+    // Skipping field: true false false false false false 
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.TREEIFY_THRESHOLD
+
+    // Skipping field: true false false false false false 
+
+    /// private static final sun.misc.Unsafe java.util.concurrent.ConcurrentHashMap.U
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.UNTREEIFY_THRESHOLD
+
+    // Skipping field: true false false false false false 
+
+    /// private static final java.io.ObjectStreamField[] java.util.concurrent.ConcurrentHashMap.serialPersistentFields
+
+    /// private static final long java.util.concurrent.ConcurrentHashMap.serialVersionUID
+
+    /// private transient volatile long java.util.concurrent.ConcurrentHashMap.baseCount
+
+    /// private transient volatile int java.util.concurrent.ConcurrentHashMap.cellsBusy
+
+    /// private transient volatile java.util.concurrent.ConcurrentHashMap$CounterCell[] java.util.concurrent.ConcurrentHashMap.counterCells
+
+    /// private transient java.util.concurrent.ConcurrentHashMap$EntrySetView java.util.concurrent.ConcurrentHashMap.entrySet
+
+    /// private transient java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.keySet
+
+    /// private transient volatile java.util.concurrent.ConcurrentHashMap$Node[] java.util.concurrent.ConcurrentHashMap.nextTable
+
+    /// private transient volatile int java.util.concurrent.ConcurrentHashMap.sizeCtl
+
+    /// transient volatile java.util.concurrent.ConcurrentHashMap$Node[] java.util.concurrent.ConcurrentHashMap.table
+
+    // Skipping field: true false false false false false 
+
+    /// private transient volatile int java.util.concurrent.ConcurrentHashMap.transferIndex
+
+    /// private transient java.util.concurrent.ConcurrentHashMap$ValuesView java.util.concurrent.ConcurrentHashMap.values
 
     /// transient java.util.Set java.util.AbstractMap.keySet
 
+    // Skipping field: true false false false true false 
+
     /// transient java.util.Collection java.util.AbstractMap.values
 
-    /// public java.util.concurrent.ConcurrentHashMap(int)
+    // Skipping field: true false false false true false 
+
+    /// public java.util.concurrent.ConcurrentHashMap()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( initialCapacity: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init() {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMap.ConcurrentHashMapJNIClass, methodSig: "(I)V", methodCache: &ConcurrentHashMap.new_MethodID_1, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMap.ConcurrentHashMapJNIClass, methodSig: "()V", methodCache: &ConcurrentHashMap.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.concurrent.ConcurrentHashMap(int)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( initialCapacity: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMap.ConcurrentHashMapJNIClass, methodSig: "(I)V", methodCache: &ConcurrentHashMap.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -111,27 +147,15 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
         self.init( initialCapacity: _initialCapacity )
     }
 
-    /// public java.util.concurrent.ConcurrentHashMap()
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMap.ConcurrentHashMapJNIClass, methodSig: "()V", methodCache: &ConcurrentHashMap.new_MethodID_2, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
     /// public java.util.concurrent.ConcurrentHashMap(int,float)
 
     private static var new_MethodID_3: jmethodID?
 
     public convenience init( initialCapacity: Int, loadFactor: Float ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        __args[1] = JNIType.toJava( value: loadFactor, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        __args[1] = jvalue( f: loadFactor )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMap.ConcurrentHashMapJNIClass, methodSig: "(IF)V", methodCache: &ConcurrentHashMap.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -146,11 +170,11 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
     private static var new_MethodID_4: jmethodID?
 
     public convenience init( initialCapacity: Int, loadFactor: Float, concurrencyLevel: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        __args[1] = JNIType.toJava( value: loadFactor, locals: &__locals )
-        __args[2] = JNIType.toJava( value: concurrencyLevel, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        __args[1] = jvalue( f: loadFactor )
+        __args[2] = jvalue( i: jint(concurrencyLevel) )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMap.ConcurrentHashMapJNIClass, methodSig: "(IFI)V", methodCache: &ConcurrentHashMap.new_MethodID_4, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -165,8 +189,8 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
     private static var new_MethodID_5: jmethodID?
 
     public convenience init( m: java_swift.JavaMap? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: m, mapClass: "java/util/Map", locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMap.ConcurrentHashMapJNIClass, methodSig: "(Ljava/util/Map;)V", methodCache: &ConcurrentHashMap.new_MethodID_5, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -177,263 +201,108 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
         self.init( m: _m )
     }
 
-    /// public boolean java.util.concurrent.ConcurrentHashMap.remove(java.lang.Object,java.lang.Object)
+    /// static final boolean java.util.concurrent.ConcurrentHashMap.casTabAt(java.util.concurrent.ConcurrentHashMap$Node[],int,java.util.concurrent.ConcurrentHashMap$Node,java.util.concurrent.ConcurrentHashMap$Node)
 
-    private static var remove_MethodID_6: jmethodID?
+    // Skipping method: true false false false false 
 
-    override open func remove( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    /// static java.lang.Class java.util.concurrent.ConcurrentHashMap.comparableClassFor(java.lang.Object)
+
+    // Skipping method: true false false false false 
+
+    /// static int java.util.concurrent.ConcurrentHashMap.compareComparables(java.lang.Class,java.lang.Object,java.lang.Object)
+
+    // Skipping method: true false false false false 
+
+    /// public static java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.newKeySet(int)
+
+    private static var newKeySet_MethodID_6: jmethodID?
+
+    open class func newKeySet( initialCapacity: Int ) -> /* class java.util.concurrent.ConcurrentHashMap$KeySetView */ UnavailableObject! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.remove_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMapJNIClass, methodName: "newKeySet", methodSig: "(I)Ljava/util/concurrent/ConcurrentHashMap$KeySetView;", methodCache: &newKeySet_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* class java.util.concurrent.ConcurrentHashMap$KeySetView */ UnavailableObject( javaObject: __return ) : nil
     }
 
-    override open func remove( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> Bool {
-        return remove( arg0: _arg0, arg1: _arg1 )
+    open class func newKeySet( _ _initialCapacity: Int ) -> /* class java.util.concurrent.ConcurrentHashMap$KeySetView */ UnavailableObject! {
+        return newKeySet( initialCapacity: _initialCapacity )
     }
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.remove(java.lang.Object)
+    /// public static java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.newKeySet()
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.get(java.lang.Object)
+    private static var newKeySet_MethodID_7: jmethodID?
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.put(java.lang.Object,java.lang.Object)
+    open class func newKeySet() -> /* class java.util.concurrent.ConcurrentHashMap$KeySetView */ UnavailableObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMapJNIClass, methodName: "newKeySet", methodSig: "()Ljava/util/concurrent/ConcurrentHashMap$KeySetView;", methodCache: &newKeySet_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* class java.util.concurrent.ConcurrentHashMap$KeySetView */ UnavailableObject( javaObject: __return ) : nil
+    }
 
-    /// public boolean java.util.concurrent.ConcurrentHashMap.equals(java.lang.Object)
 
-    /// public java.lang.String java.util.concurrent.ConcurrentHashMap.toString()
+    /// static final int java.util.concurrent.ConcurrentHashMap.resizeStamp(int)
 
-    /// public java.util.Collection java.util.concurrent.ConcurrentHashMap.values()
+    // Skipping method: true false false false false 
 
-    /// public int java.util.concurrent.ConcurrentHashMap.hashCode()
+    /// static final void java.util.concurrent.ConcurrentHashMap.setTabAt(java.util.concurrent.ConcurrentHashMap$Node[],int,java.util.concurrent.ConcurrentHashMap$Node)
+
+    // Skipping method: true false false false false 
+
+    /// static final int java.util.concurrent.ConcurrentHashMap.spread(int)
+
+    // Skipping method: true false false false false 
+
+    /// static final java.util.concurrent.ConcurrentHashMap$Node java.util.concurrent.ConcurrentHashMap.tabAt(java.util.concurrent.ConcurrentHashMap$Node[],int)
+
+    // Skipping method: true false false false false 
+
+    /// private static final int java.util.concurrent.ConcurrentHashMap.tableSizeFor(int)
+
+    /// static java.util.concurrent.ConcurrentHashMap$Node java.util.concurrent.ConcurrentHashMap.untreeify(java.util.concurrent.ConcurrentHashMap$Node)
+
+    // Skipping method: true false false false false 
+
+    /// private final void java.util.concurrent.ConcurrentHashMap.addCount(long,int)
+
+    /// final int java.util.concurrent.ConcurrentHashMap.batchFor(long)
+
+    // Skipping method: true false false false false 
 
     /// public void java.util.concurrent.ConcurrentHashMap.clear()
 
-    /// public boolean java.util.concurrent.ConcurrentHashMap.isEmpty()
+    // Skipping method: false true false false false 
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.replace(java.lang.Object,java.lang.Object)
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.compute(java.lang.Object,java.util.function.BiFunction)
 
-    private static var replace_MethodID_7: jmethodID?
+    private static var compute_MethodID_8: jmethodID?
 
-    override open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    override open func compute( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.replace_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compute", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.compute_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-    override open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return replace( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// public boolean java.util.concurrent.ConcurrentHashMap.replace(java.lang.Object,java.lang.Object,java.lang.Object)
-
-    private static var replace_MethodID_8: jmethodID?
-
-    override open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.replace_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    override open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: java_swift.JavaObject? ) -> Bool {
-        return replace( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
-    }
-
-    /// public boolean java.util.concurrent.ConcurrentHashMap.contains(java.lang.Object)
-
-    private static var contains_MethodID_9: jmethodID?
-
-    open func contains( value: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "contains", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.contains_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func contains( _ _value: java_swift.JavaObject? ) -> Bool {
-        return contains( value: _value )
-    }
-
-    /// public void java.util.concurrent.ConcurrentHashMap.replaceAll(java.util.function.BiFunction)
-
-    private static var replaceAll_MethodID_10: jmethodID?
-
-    override open func replaceAll( arg0: BiFunction? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "replaceAll", methodSig: "(Ljava/util/function/BiFunction;)V", methodCache: &ConcurrentHashMap.replaceAll_MethodID_10, args: &__args, locals: &__locals )
-    }
-
-    override open func replaceAll( _ _arg0: BiFunction? ) {
-        replaceAll( arg0: _arg0 )
-    }
-
-    /// public java.util.Enumeration java.util.concurrent.ConcurrentHashMap.elements()
-
-    private static var elements_MethodID_11: jmethodID?
-
-    open func elements() -> Enumeration! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "elements", methodSig: "()Ljava/util/Enumeration;", methodCache: &ConcurrentHashMap.elements_MethodID_11, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
-    }
-
-
-    /// public int java.util.concurrent.ConcurrentHashMap.size()
-
-    /// public java.util.Set java.util.concurrent.ConcurrentHashMap.entrySet()
-
-    /// public void java.util.concurrent.ConcurrentHashMap.putAll(java.util.Map)
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.putIfAbsent(java.lang.Object,java.lang.Object)
-
-    private static var putIfAbsent_MethodID_12: jmethodID?
-
-    override open func putIfAbsent( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.putIfAbsent_MethodID_12, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    override open func putIfAbsent( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return putIfAbsent( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// private void java.util.concurrent.ConcurrentHashMap.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.concurrent.ConcurrentHashMap.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// public java.util.Enumeration java.util.concurrent.ConcurrentHashMap.keys()
-
-    private static var keys_MethodID_13: jmethodID?
-
-    open func keys() -> Enumeration! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keys", methodSig: "()Ljava/util/Enumeration;", methodCache: &ConcurrentHashMap.keys_MethodID_13, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.keySet(java.lang.Object)
-
-    private static var keySet_MethodID_14: jmethodID?
-
-    open func keySet( mappedValue: java_swift.JavaObject? ) -> /* java.util.concurrent.ConcurrentHashMap$KeySetView */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mappedValue, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keySet", methodSig: "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$KeySetView;", methodCache: &ConcurrentHashMap.keySet_MethodID_14, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.concurrent.ConcurrentHashMap$KeySetView */ UnclassedObject( javaObject: __return ) : nil
-    }
-
-    open func keySet( _ _mappedValue: java_swift.JavaObject? ) -> /* java.util.concurrent.ConcurrentHashMap$KeySetView */ UnclassedObject! {
-        return keySet( mappedValue: _mappedValue )
-    }
-
-    /// public java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.keySet()
-
-    /// public java.util.Set java.util.concurrent.ConcurrentHashMap.keySet()
-
-    /// public boolean java.util.concurrent.ConcurrentHashMap.containsValue(java.lang.Object)
-
-    /// public boolean java.util.concurrent.ConcurrentHashMap.containsKey(java.lang.Object)
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.getOrDefault(java.lang.Object,java.lang.Object)
-
-    private static var getOrDefault_MethodID_15: jmethodID?
-
-    override open func getOrDefault( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getOrDefault", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.getOrDefault_MethodID_15, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    override open func getOrDefault( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return getOrDefault( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// public void java.util.concurrent.ConcurrentHashMap.forEach(java.util.function.BiConsumer)
-
-    private static var forEach_MethodID_16: jmethodID?
-
-    override open func forEach( arg0: BiConsumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(Ljava/util/function/BiConsumer;)V", methodCache: &ConcurrentHashMap.forEach_MethodID_16, args: &__args, locals: &__locals )
-    }
-
-    override open func forEach( _ _arg0: BiConsumer? ) {
-        forEach( arg0: _arg0 )
-    }
-
-    /// public void java.util.concurrent.ConcurrentHashMap.forEach(long,java.util.function.BiFunction,java.util.function.Consumer)
-
-    private static var forEach_MethodID_17: jmethodID?
-
-    open func forEach( parallelismThreshold: Int64, transformer: BiFunction?, action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(JLjava/util/function/BiFunction;Ljava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEach_MethodID_17, args: &__args, locals: &__locals )
-    }
-
-    open func forEach( _ _parallelismThreshold: Int64, _ _transformer: BiFunction?, _ _action: Consumer? ) {
-        forEach( parallelismThreshold: _parallelismThreshold, transformer: _transformer, action: _action )
-    }
-
-    /// public void java.util.concurrent.ConcurrentHashMap.forEach(long,java.util.function.BiConsumer)
-
-    private static var forEach_MethodID_18: jmethodID?
-
-    open func forEach( parallelismThreshold: Int64, action: BiConsumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(JLjava/util/function/BiConsumer;)V", methodCache: &ConcurrentHashMap.forEach_MethodID_18, args: &__args, locals: &__locals )
-    }
-
-    open func forEach( _ _parallelismThreshold: Int64, _ _action: BiConsumer? ) {
-        forEach( parallelismThreshold: _parallelismThreshold, action: _action )
+    override open func compute( _ _arg0: java_swift.JavaObject?, _ _arg1: BiFunction? ) -> java_swift.JavaObject! {
+        return compute( arg0: _arg0, arg1: _arg1 )
     }
 
     /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.computeIfAbsent(java.lang.Object,java.util.function.Function)
 
-    private static var computeIfAbsent_MethodID_19: jmethodID?
+    private static var computeIfAbsent_MethodID_9: jmethodID?
 
     override open func computeIfAbsent( arg0: java_swift.JavaObject?, arg1: Function? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.computeIfAbsent_MethodID_19, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.computeIfAbsent_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -444,14 +313,14 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
 
     /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.computeIfPresent(java.lang.Object,java.util.function.BiFunction)
 
-    private static var computeIfPresent_MethodID_20: jmethodID?
+    private static var computeIfPresent_MethodID_10: jmethodID?
 
     override open func computeIfPresent( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfPresent", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.computeIfPresent_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfPresent", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.computeIfPresent_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -460,229 +329,142 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
         return computeIfPresent( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.compute(java.lang.Object,java.util.function.BiFunction)
+    /// public boolean java.util.concurrent.ConcurrentHashMap.contains(java.lang.Object)
 
-    private static var compute_MethodID_21: jmethodID?
+    private static var contains_MethodID_11: jmethodID?
 
-    override open func compute( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open func contains( value: java_swift.JavaObject? ) -> Bool {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "contains", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.contains_MethodID_11, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func contains( _ _value: java_swift.JavaObject? ) -> Bool {
+        return contains( value: _value )
+    }
+
+    /// public boolean java.util.concurrent.ConcurrentHashMap.containsKey(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.ConcurrentHashMap.containsValue(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Enumeration java.util.concurrent.ConcurrentHashMap.elements()
+
+    private static var elements_MethodID_12: jmethodID?
+
+    open func elements() -> Enumeration! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "elements", methodSig: "()Ljava/util/Enumeration;", methodCache: &ConcurrentHashMap.elements_MethodID_12, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.Set java.util.concurrent.ConcurrentHashMap.entrySet()
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.ConcurrentHashMap.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.concurrent.ConcurrentHashMap.forEach(java.util.function.BiConsumer)
+
+    private static var forEach_MethodID_13: jmethodID?
+
+    override open func forEach( arg0: BiConsumer? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compute", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.compute_MethodID_21, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(Ljava/util/function/BiConsumer;)V", methodCache: &ConcurrentHashMap.forEach_MethodID_13, args: &__args, locals: &__locals )
     }
 
-    override open func compute( _ _arg0: java_swift.JavaObject?, _ _arg1: BiFunction? ) -> java_swift.JavaObject! {
-        return compute( arg0: _arg0, arg1: _arg1 )
+    override open func forEach( _ _arg0: BiConsumer? ) {
+        forEach( arg0: _arg0 )
     }
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.merge(java.lang.Object,java.lang.Object,java.util.function.BiFunction)
+    /// public void java.util.concurrent.ConcurrentHashMap.forEach(long,java.util.function.BiConsumer)
 
-    private static var merge_MethodID_22: jmethodID?
+    private static var forEach_MethodID_14: jmethodID?
 
-    override open func merge( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    open func forEach( parallelismThreshold: Int64, action: BiConsumer? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.merge_MethodID_22, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    override open func merge( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: BiFunction? ) -> java_swift.JavaObject! {
-        return merge( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
-    }
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.search(long,java.util.function.BiFunction)
-
-    private static var search_MethodID_23: jmethodID?
-
-    open func search( parallelismThreshold: Int64, searchFunction: BiFunction? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: action, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(JLjava/util/function/BiConsumer;)V", methodCache: &ConcurrentHashMap.forEach_MethodID_14, args: &__args, locals: &__locals )
+    }
+
+    open func forEach( _ _parallelismThreshold: Int64, _ _action: BiConsumer? ) {
+        forEach( parallelismThreshold: _parallelismThreshold, action: _action )
+    }
+
+    /// public void java.util.concurrent.ConcurrentHashMap.forEach(long,java.util.function.BiFunction,java.util.function.Consumer)
+
+    private static var forEach_MethodID_15: jmethodID?
+
+    open func forEach( parallelismThreshold: Int64, transformer: BiFunction?, action: Consumer? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: searchFunction, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "search", methodSig: "(JLjava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.search_MethodID_23, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func search( _ _parallelismThreshold: Int64, _ _searchFunction: BiFunction? ) -> java_swift.JavaObject! {
-        return search( parallelismThreshold: _parallelismThreshold, searchFunction: _searchFunction )
-    }
-
-    /// static java.lang.Class java.util.concurrent.ConcurrentHashMap.comparableClassFor(java.lang.Object)
-
-    /// static int java.util.concurrent.ConcurrentHashMap.compareComparables(java.lang.Class,java.lang.Object,java.lang.Object)
-
-    /// private static final int java.util.concurrent.ConcurrentHashMap.tableSizeFor(int)
-
-    /// final java.lang.Object java.util.concurrent.ConcurrentHashMap.putVal(java.lang.Object,java.lang.Object,boolean)
-
-    /// private final void java.util.concurrent.ConcurrentHashMap.treeifyBin(java.util.concurrent.ConcurrentHashMap$Node[],int)
-
-    /// private final void java.util.concurrent.ConcurrentHashMap.transfer(java.util.concurrent.ConcurrentHashMap$Node[],java.util.concurrent.ConcurrentHashMap$Node[])
-
-    /// static java.util.concurrent.ConcurrentHashMap$Node java.util.concurrent.ConcurrentHashMap.untreeify(java.util.concurrent.ConcurrentHashMap$Node)
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.spread(int)
-
-    /// static final java.util.concurrent.ConcurrentHashMap$Node java.util.concurrent.ConcurrentHashMap.tabAt(java.util.concurrent.ConcurrentHashMap$Node[],int)
-
-    /// static final boolean java.util.concurrent.ConcurrentHashMap.casTabAt(java.util.concurrent.ConcurrentHashMap$Node[],int,java.util.concurrent.ConcurrentHashMap$Node,java.util.concurrent.ConcurrentHashMap$Node)
-
-    /// static final void java.util.concurrent.ConcurrentHashMap.setTabAt(java.util.concurrent.ConcurrentHashMap$Node[],int,java.util.concurrent.ConcurrentHashMap$Node)
-
-    /// final java.lang.Object java.util.concurrent.ConcurrentHashMap.replaceNode(java.lang.Object,java.lang.Object,java.lang.Object)
-
-    /// public long java.util.concurrent.ConcurrentHashMap.mappingCount()
-
-    private static var mappingCount_MethodID_24: jmethodID?
-
-    open func mappingCount() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "mappingCount", methodSig: "()J", methodCache: &ConcurrentHashMap.mappingCount_MethodID_24, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public static java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.newKeySet()
-
-    private static var newKeySet_MethodID_25: jmethodID?
-
-    open class func newKeySet() -> /* java.util.concurrent.ConcurrentHashMap$KeySetView */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMapJNIClass, methodName: "newKeySet", methodSig: "()Ljava/util/concurrent/ConcurrentHashMap$KeySetView;", methodCache: &newKeySet_MethodID_25, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.concurrent.ConcurrentHashMap$KeySetView */ UnclassedObject( javaObject: __return ) : nil
-    }
-
-
-    /// public static java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.newKeySet(int)
-
-    private static var newKeySet_MethodID_26: jmethodID?
-
-    open class func newKeySet( initialCapacity: Int ) -> /* java.util.concurrent.ConcurrentHashMap$KeySetView */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/concurrent/ConcurrentHashMap", classCache: &ConcurrentHashMapJNIClass, methodName: "newKeySet", methodSig: "(I)Ljava/util/concurrent/ConcurrentHashMap$KeySetView;", methodCache: &newKeySet_MethodID_26, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.concurrent.ConcurrentHashMap$KeySetView */ UnclassedObject( javaObject: __return ) : nil
-    }
-
-    open class func newKeySet( _ _initialCapacity: Int ) -> /* java.util.concurrent.ConcurrentHashMap$KeySetView */ UnclassedObject! {
-        return newKeySet( initialCapacity: _initialCapacity )
-    }
-
-    /// static final int java.util.concurrent.ConcurrentHashMap.resizeStamp(int)
-
-    /// private final java.util.concurrent.ConcurrentHashMap$Node[] java.util.concurrent.ConcurrentHashMap.initTable()
-
-    /// private final void java.util.concurrent.ConcurrentHashMap.addCount(long,int)
-
-    /// final java.util.concurrent.ConcurrentHashMap$Node[] java.util.concurrent.ConcurrentHashMap.helpTransfer(java.util.concurrent.ConcurrentHashMap$Node[],java.util.concurrent.ConcurrentHashMap$Node)
-
-    /// private final void java.util.concurrent.ConcurrentHashMap.tryPresize(int)
-
-    /// final long java.util.concurrent.ConcurrentHashMap.sumCount()
-
-    /// private final void java.util.concurrent.ConcurrentHashMap.fullAddCount(long,boolean)
-
-    /// final int java.util.concurrent.ConcurrentHashMap.batchFor(long)
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduce(long,java.util.function.BiFunction,java.util.function.BiFunction)
-
-    private static var reduce_MethodID_27: jmethodID?
-
-    open func reduce( parallelismThreshold: Int64, transformer: BiFunction?, reducer: BiFunction? ) -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduce", methodSig: "(JLjava/util/function/BiFunction;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduce_MethodID_27, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+        __args[2] = JNIType.toJava( value: action, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(JLjava/util/function/BiFunction;Ljava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEach_MethodID_15, args: &__args, locals: &__locals )
     }
 
-    open func reduce( _ _parallelismThreshold: Int64, _ _transformer: BiFunction?, _ _reducer: BiFunction? ) -> java_swift.JavaObject! {
-        return reduce( parallelismThreshold: _parallelismThreshold, transformer: _transformer, reducer: _reducer )
+    open func forEach( _ _parallelismThreshold: Int64, _ _transformer: BiFunction?, _ _action: Consumer? ) {
+        forEach( parallelismThreshold: _parallelismThreshold, transformer: _transformer, action: _action )
     }
 
-    /// public double java.util.concurrent.ConcurrentHashMap.reduceToDouble(long,java.util.function.ToDoubleBiFunction,double,java.util.function.DoubleBinaryOperator)
+    /// public void java.util.concurrent.ConcurrentHashMap.forEachEntry(long,java.util.function.Consumer)
 
-    private static var reduceToDouble_MethodID_28: jmethodID?
+    private static var forEachEntry_MethodID_16: jmethodID?
 
-    open func reduceToDouble( parallelismThreshold: Int64, transformer: ToDoubleBiFunction?, basis: Double, reducer: DoubleBinaryOperator? ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+    open func forEachEntry( parallelismThreshold: Int64, action: Consumer? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "reduceToDouble", methodSig: "(JLjava/util/function/ToDoubleBiFunction;DLjava/util/function/DoubleBinaryOperator;)D", methodCache: &ConcurrentHashMap.reduceToDouble_MethodID_28, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: action, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachEntry", methodSig: "(JLjava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachEntry_MethodID_16, args: &__args, locals: &__locals )
     }
 
-    open func reduceToDouble( _ _parallelismThreshold: Int64, _ _transformer: ToDoubleBiFunction?, _ _basis: Double, _ _reducer: DoubleBinaryOperator? ) -> Double {
-        return reduceToDouble( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    open func forEachEntry( _ _parallelismThreshold: Int64, _ _action: Consumer? ) {
+        forEachEntry( parallelismThreshold: _parallelismThreshold, action: _action )
     }
 
-    /// public long java.util.concurrent.ConcurrentHashMap.reduceToLong(long,java.util.function.ToLongBiFunction,long,java.util.function.LongBinaryOperator)
+    /// public void java.util.concurrent.ConcurrentHashMap.forEachEntry(long,java.util.function.Function,java.util.function.Consumer)
 
-    private static var reduceToLong_MethodID_29: jmethodID?
+    private static var forEachEntry_MethodID_17: jmethodID?
 
-    open func reduceToLong( parallelismThreshold: Int64, transformer: ToLongBiFunction?, basis: Int64, reducer: LongBinaryOperator? ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+    open func forEachEntry( parallelismThreshold: Int64, transformer: Function?, action: Consumer? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "reduceToLong", methodSig: "(JLjava/util/function/ToLongBiFunction;JLjava/util/function/LongBinaryOperator;)J", methodCache: &ConcurrentHashMap.reduceToLong_MethodID_29, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        __args[2] = JNIType.toJava( value: action, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachEntry", methodSig: "(JLjava/util/function/Function;Ljava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachEntry_MethodID_17, args: &__args, locals: &__locals )
     }
 
-    open func reduceToLong( _ _parallelismThreshold: Int64, _ _transformer: ToLongBiFunction?, _ _basis: Int64, _ _reducer: LongBinaryOperator? ) -> Int64 {
-        return reduceToLong( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
-    }
-
-    /// public int java.util.concurrent.ConcurrentHashMap.reduceToInt(long,java.util.function.ToIntBiFunction,int,java.util.function.IntBinaryOperator)
-
-    private static var reduceToInt_MethodID_30: jmethodID?
-
-    open func reduceToInt( parallelismThreshold: Int64, transformer: ToIntBiFunction?, basis: Int, reducer: IntBinaryOperator? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduceToInt", methodSig: "(JLjava/util/function/ToIntBiFunction;ILjava/util/function/IntBinaryOperator;)I", methodCache: &ConcurrentHashMap.reduceToInt_MethodID_30, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func reduceToInt( _ _parallelismThreshold: Int64, _ _transformer: ToIntBiFunction?, _ _basis: Int, _ _reducer: IntBinaryOperator? ) -> Int {
-        return reduceToInt( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    open func forEachEntry( _ _parallelismThreshold: Int64, _ _transformer: Function?, _ _action: Consumer? ) {
+        forEachEntry( parallelismThreshold: _parallelismThreshold, transformer: _transformer, action: _action )
     }
 
     /// public void java.util.concurrent.ConcurrentHashMap.forEachKey(long,java.util.function.Consumer)
 
-    private static var forEachKey_MethodID_31: jmethodID?
+    private static var forEachKey_MethodID_18: jmethodID?
 
     open func forEachKey( parallelismThreshold: Int64, action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachKey", methodSig: "(JLjava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachKey_MethodID_31, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachKey", methodSig: "(JLjava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachKey_MethodID_18, args: &__args, locals: &__locals )
     }
 
     open func forEachKey( _ _parallelismThreshold: Int64, _ _action: Consumer? ) {
@@ -691,143 +473,31 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
 
     /// public void java.util.concurrent.ConcurrentHashMap.forEachKey(long,java.util.function.Function,java.util.function.Consumer)
 
-    private static var forEachKey_MethodID_32: jmethodID?
+    private static var forEachKey_MethodID_19: jmethodID?
 
     open func forEachKey( parallelismThreshold: Int64, transformer: Function?, action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
         __args[2] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachKey", methodSig: "(JLjava/util/function/Function;Ljava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachKey_MethodID_32, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachKey", methodSig: "(JLjava/util/function/Function;Ljava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachKey_MethodID_19, args: &__args, locals: &__locals )
     }
 
     open func forEachKey( _ _parallelismThreshold: Int64, _ _transformer: Function?, _ _action: Consumer? ) {
         forEachKey( parallelismThreshold: _parallelismThreshold, transformer: _transformer, action: _action )
     }
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.searchKeys(long,java.util.function.Function)
-
-    private static var searchKeys_MethodID_33: jmethodID?
-
-    open func searchKeys( parallelismThreshold: Int64, searchFunction: Function? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: searchFunction, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "searchKeys", methodSig: "(JLjava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.searchKeys_MethodID_33, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func searchKeys( _ _parallelismThreshold: Int64, _ _searchFunction: Function? ) -> java_swift.JavaObject! {
-        return searchKeys( parallelismThreshold: _parallelismThreshold, searchFunction: _searchFunction )
-    }
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduceKeys(long,java.util.function.Function,java.util.function.BiFunction)
-
-    private static var reduceKeys_MethodID_34: jmethodID?
-
-    open func reduceKeys( parallelismThreshold: Int64, transformer: Function?, reducer: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceKeys", methodSig: "(JLjava/util/function/Function;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduceKeys_MethodID_34, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func reduceKeys( _ _parallelismThreshold: Int64, _ _transformer: Function?, _ _reducer: BiFunction? ) -> java_swift.JavaObject! {
-        return reduceKeys( parallelismThreshold: _parallelismThreshold, transformer: _transformer, reducer: _reducer )
-    }
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduceKeys(long,java.util.function.BiFunction)
-
-    private static var reduceKeys_MethodID_35: jmethodID?
-
-    open func reduceKeys( parallelismThreshold: Int64, reducer: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceKeys", methodSig: "(JLjava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduceKeys_MethodID_35, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func reduceKeys( _ _parallelismThreshold: Int64, _ _reducer: BiFunction? ) -> java_swift.JavaObject! {
-        return reduceKeys( parallelismThreshold: _parallelismThreshold, reducer: _reducer )
-    }
-
-    /// public double java.util.concurrent.ConcurrentHashMap.reduceKeysToDouble(long,java.util.function.ToDoubleFunction,double,java.util.function.DoubleBinaryOperator)
-
-    private static var reduceKeysToDouble_MethodID_36: jmethodID?
-
-    open func reduceKeysToDouble( parallelismThreshold: Int64, transformer: ToDoubleFunction?, basis: Double, reducer: DoubleBinaryOperator? ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "reduceKeysToDouble", methodSig: "(JLjava/util/function/ToDoubleFunction;DLjava/util/function/DoubleBinaryOperator;)D", methodCache: &ConcurrentHashMap.reduceKeysToDouble_MethodID_36, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
-    }
-
-    open func reduceKeysToDouble( _ _parallelismThreshold: Int64, _ _transformer: ToDoubleFunction?, _ _basis: Double, _ _reducer: DoubleBinaryOperator? ) -> Double {
-        return reduceKeysToDouble( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
-    }
-
-    /// public long java.util.concurrent.ConcurrentHashMap.reduceKeysToLong(long,java.util.function.ToLongFunction,long,java.util.function.LongBinaryOperator)
-
-    private static var reduceKeysToLong_MethodID_37: jmethodID?
-
-    open func reduceKeysToLong( parallelismThreshold: Int64, transformer: ToLongFunction?, basis: Int64, reducer: LongBinaryOperator? ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "reduceKeysToLong", methodSig: "(JLjava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)J", methodCache: &ConcurrentHashMap.reduceKeysToLong_MethodID_37, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-    open func reduceKeysToLong( _ _parallelismThreshold: Int64, _ _transformer: ToLongFunction?, _ _basis: Int64, _ _reducer: LongBinaryOperator? ) -> Int64 {
-        return reduceKeysToLong( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
-    }
-
-    /// public int java.util.concurrent.ConcurrentHashMap.reduceKeysToInt(long,java.util.function.ToIntFunction,int,java.util.function.IntBinaryOperator)
-
-    private static var reduceKeysToInt_MethodID_38: jmethodID?
-
-    open func reduceKeysToInt( parallelismThreshold: Int64, transformer: ToIntFunction?, basis: Int, reducer: IntBinaryOperator? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduceKeysToInt", methodSig: "(JLjava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)I", methodCache: &ConcurrentHashMap.reduceKeysToInt_MethodID_38, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func reduceKeysToInt( _ _parallelismThreshold: Int64, _ _transformer: ToIntFunction?, _ _basis: Int, _ _reducer: IntBinaryOperator? ) -> Int {
-        return reduceKeysToInt( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
-    }
-
     /// public void java.util.concurrent.ConcurrentHashMap.forEachValue(long,java.util.function.Consumer)
 
-    private static var forEachValue_MethodID_39: jmethodID?
+    private static var forEachValue_MethodID_20: jmethodID?
 
     open func forEachValue( parallelismThreshold: Int64, action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachValue", methodSig: "(JLjava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachValue_MethodID_39, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachValue", methodSig: "(JLjava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachValue_MethodID_20, args: &__args, locals: &__locals )
     }
 
     open func forEachValue( _ _parallelismThreshold: Int64, _ _action: Consumer? ) {
@@ -836,37 +506,422 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
 
     /// public void java.util.concurrent.ConcurrentHashMap.forEachValue(long,java.util.function.Function,java.util.function.Consumer)
 
-    private static var forEachValue_MethodID_40: jmethodID?
+    private static var forEachValue_MethodID_21: jmethodID?
 
     open func forEachValue( parallelismThreshold: Int64, transformer: Function?, action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
         __args[2] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachValue", methodSig: "(JLjava/util/function/Function;Ljava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachValue_MethodID_40, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachValue", methodSig: "(JLjava/util/function/Function;Ljava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachValue_MethodID_21, args: &__args, locals: &__locals )
     }
 
     open func forEachValue( _ _parallelismThreshold: Int64, _ _transformer: Function?, _ _action: Consumer? ) {
         forEachValue( parallelismThreshold: _parallelismThreshold, transformer: _transformer, action: _action )
     }
 
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.searchValues(long,java.util.function.Function)
+    /// private final void java.util.concurrent.ConcurrentHashMap.fullAddCount(long,boolean)
 
-    private static var searchValues_MethodID_41: jmethodID?
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.get(java.lang.Object)
 
-    open func searchValues( parallelismThreshold: Int64, searchFunction: Function? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.getOrDefault(java.lang.Object,java.lang.Object)
+
+    private static var getOrDefault_MethodID_22: jmethodID?
+
+    override open func getOrDefault( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: searchFunction, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "searchValues", methodSig: "(JLjava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.searchValues_MethodID_41, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getOrDefault", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.getOrDefault_MethodID_22, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-    open func searchValues( _ _parallelismThreshold: Int64, _ _searchFunction: Function? ) -> java_swift.JavaObject! {
-        return searchValues( parallelismThreshold: _parallelismThreshold, searchFunction: _searchFunction )
+    override open func getOrDefault( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return getOrDefault( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public int java.util.concurrent.ConcurrentHashMap.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// final java.util.concurrent.ConcurrentHashMap$Node[] java.util.concurrent.ConcurrentHashMap.helpTransfer(java.util.concurrent.ConcurrentHashMap$Node[],java.util.concurrent.ConcurrentHashMap$Node)
+
+    // Skipping method: true false false false false 
+
+    /// private final java.util.concurrent.ConcurrentHashMap$Node[] java.util.concurrent.ConcurrentHashMap.initTable()
+
+    /// public boolean java.util.concurrent.ConcurrentHashMap.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.keySet(java.lang.Object)
+
+    private static var keySet_MethodID_23: jmethodID?
+
+    open func keySet( mappedValue: java_swift.JavaObject? ) -> /* class java.util.concurrent.ConcurrentHashMap$KeySetView */ UnavailableObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: mappedValue, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keySet", methodSig: "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentHashMap$KeySetView;", methodCache: &ConcurrentHashMap.keySet_MethodID_23, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* class java.util.concurrent.ConcurrentHashMap$KeySetView */ UnavailableObject( javaObject: __return ) : nil
+    }
+
+    open func keySet( _ _mappedValue: java_swift.JavaObject? ) -> /* class java.util.concurrent.ConcurrentHashMap$KeySetView */ UnavailableObject! {
+        return keySet( mappedValue: _mappedValue )
+    }
+
+    /// public java.util.concurrent.ConcurrentHashMap$KeySetView java.util.concurrent.ConcurrentHashMap.keySet()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Set java.util.concurrent.ConcurrentHashMap.keySet()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Enumeration java.util.concurrent.ConcurrentHashMap.keys()
+
+    private static var keys_MethodID_24: jmethodID?
+
+    open func keys() -> Enumeration! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keys", methodSig: "()Ljava/util/Enumeration;", methodCache: &ConcurrentHashMap.keys_MethodID_24, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? EnumerationForward( javaObject: __return ) : nil
+    }
+
+
+    /// public long java.util.concurrent.ConcurrentHashMap.mappingCount()
+
+    private static var mappingCount_MethodID_25: jmethodID?
+
+    open func mappingCount() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "mappingCount", methodSig: "()J", methodCache: &ConcurrentHashMap.mappingCount_MethodID_25, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.merge(java.lang.Object,java.lang.Object,java.util.function.BiFunction)
+
+    private static var merge_MethodID_26: jmethodID?
+
+    override open func merge( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: BiFunction? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.merge_MethodID_26, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    override open func merge( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: BiFunction? ) -> java_swift.JavaObject! {
+        return merge( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
+    }
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.put(java.lang.Object,java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.concurrent.ConcurrentHashMap.putAll(java.util.Map)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.putIfAbsent(java.lang.Object,java.lang.Object)
+
+    private static var putIfAbsent_MethodID_27: jmethodID?
+
+    override open func putIfAbsent( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.putIfAbsent_MethodID_27, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    override open func putIfAbsent( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return putIfAbsent( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// final java.lang.Object java.util.concurrent.ConcurrentHashMap.putVal(java.lang.Object,java.lang.Object,boolean)
+
+    // Skipping method: true false false false false 
+
+    /// private void java.util.concurrent.ConcurrentHashMap.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduce(long,java.util.function.BiFunction,java.util.function.BiFunction)
+
+    private static var reduce_MethodID_28: jmethodID?
+
+    open func reduce( parallelismThreshold: Int64, transformer: BiFunction?, reducer: BiFunction? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduce", methodSig: "(JLjava/util/function/BiFunction;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduce_MethodID_28, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func reduce( _ _parallelismThreshold: Int64, _ _transformer: BiFunction?, _ _reducer: BiFunction? ) -> java_swift.JavaObject! {
+        return reduce( parallelismThreshold: _parallelismThreshold, transformer: _transformer, reducer: _reducer )
+    }
+
+    /// public java.util.Map$Entry java.util.concurrent.ConcurrentHashMap.reduceEntries(long,java.util.function.BiFunction)
+
+    private static var reduceEntries_MethodID_29: jmethodID?
+
+    open func reduceEntries( parallelismThreshold: Int64, reducer: BiFunction? ) -> /* interface java.util.Map$Entry */ UnavailableProtocol! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceEntries", methodSig: "(JLjava/util/function/BiFunction;)Ljava/util/Map$Entry;", methodCache: &ConcurrentHashMap.reduceEntries_MethodID_29, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? /* interface java.util.Map$Entry */ UnavailableProtocolForward( javaObject: __return ) : nil
+    }
+
+    open func reduceEntries( _ _parallelismThreshold: Int64, _ _reducer: BiFunction? ) -> /* interface java.util.Map$Entry */ UnavailableProtocol! {
+        return reduceEntries( parallelismThreshold: _parallelismThreshold, reducer: _reducer )
+    }
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduceEntries(long,java.util.function.Function,java.util.function.BiFunction)
+
+    private static var reduceEntries_MethodID_30: jmethodID?
+
+    open func reduceEntries( parallelismThreshold: Int64, transformer: Function?, reducer: BiFunction? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceEntries", methodSig: "(JLjava/util/function/Function;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduceEntries_MethodID_30, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func reduceEntries( _ _parallelismThreshold: Int64, _ _transformer: Function?, _ _reducer: BiFunction? ) -> java_swift.JavaObject! {
+        return reduceEntries( parallelismThreshold: _parallelismThreshold, transformer: _transformer, reducer: _reducer )
+    }
+
+    /// public double java.util.concurrent.ConcurrentHashMap.reduceEntriesToDouble(long,java.util.function.ToDoubleFunction,double,java.util.function.DoubleBinaryOperator)
+
+    private static var reduceEntriesToDouble_MethodID_31: jmethodID?
+
+    open func reduceEntriesToDouble( parallelismThreshold: Int64, transformer: ToDoubleFunction?, basis: Double, reducer: DoubleBinaryOperator? ) -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( d: basis )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "reduceEntriesToDouble", methodSig: "(JLjava/util/function/ToDoubleFunction;DLjava/util/function/DoubleBinaryOperator;)D", methodCache: &ConcurrentHashMap.reduceEntriesToDouble_MethodID_31, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func reduceEntriesToDouble( _ _parallelismThreshold: Int64, _ _transformer: ToDoubleFunction?, _ _basis: Double, _ _reducer: DoubleBinaryOperator? ) -> Double {
+        return reduceEntriesToDouble( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public int java.util.concurrent.ConcurrentHashMap.reduceEntriesToInt(long,java.util.function.ToIntFunction,int,java.util.function.IntBinaryOperator)
+
+    private static var reduceEntriesToInt_MethodID_32: jmethodID?
+
+    open func reduceEntriesToInt( parallelismThreshold: Int64, transformer: ToIntFunction?, basis: Int, reducer: IntBinaryOperator? ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( i: jint(basis) )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduceEntriesToInt", methodSig: "(JLjava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)I", methodCache: &ConcurrentHashMap.reduceEntriesToInt_MethodID_32, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func reduceEntriesToInt( _ _parallelismThreshold: Int64, _ _transformer: ToIntFunction?, _ _basis: Int, _ _reducer: IntBinaryOperator? ) -> Int {
+        return reduceEntriesToInt( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public long java.util.concurrent.ConcurrentHashMap.reduceEntriesToLong(long,java.util.function.ToLongFunction,long,java.util.function.LongBinaryOperator)
+
+    private static var reduceEntriesToLong_MethodID_33: jmethodID?
+
+    open func reduceEntriesToLong( parallelismThreshold: Int64, transformer: ToLongFunction?, basis: Int64, reducer: LongBinaryOperator? ) -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( j: basis )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "reduceEntriesToLong", methodSig: "(JLjava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)J", methodCache: &ConcurrentHashMap.reduceEntriesToLong_MethodID_33, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func reduceEntriesToLong( _ _parallelismThreshold: Int64, _ _transformer: ToLongFunction?, _ _basis: Int64, _ _reducer: LongBinaryOperator? ) -> Int64 {
+        return reduceEntriesToLong( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduceKeys(long,java.util.function.BiFunction)
+
+    private static var reduceKeys_MethodID_34: jmethodID?
+
+    open func reduceKeys( parallelismThreshold: Int64, reducer: BiFunction? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceKeys", methodSig: "(JLjava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduceKeys_MethodID_34, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func reduceKeys( _ _parallelismThreshold: Int64, _ _reducer: BiFunction? ) -> java_swift.JavaObject! {
+        return reduceKeys( parallelismThreshold: _parallelismThreshold, reducer: _reducer )
+    }
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduceKeys(long,java.util.function.Function,java.util.function.BiFunction)
+
+    private static var reduceKeys_MethodID_35: jmethodID?
+
+    open func reduceKeys( parallelismThreshold: Int64, transformer: Function?, reducer: BiFunction? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceKeys", methodSig: "(JLjava/util/function/Function;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduceKeys_MethodID_35, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func reduceKeys( _ _parallelismThreshold: Int64, _ _transformer: Function?, _ _reducer: BiFunction? ) -> java_swift.JavaObject! {
+        return reduceKeys( parallelismThreshold: _parallelismThreshold, transformer: _transformer, reducer: _reducer )
+    }
+
+    /// public double java.util.concurrent.ConcurrentHashMap.reduceKeysToDouble(long,java.util.function.ToDoubleFunction,double,java.util.function.DoubleBinaryOperator)
+
+    private static var reduceKeysToDouble_MethodID_36: jmethodID?
+
+    open func reduceKeysToDouble( parallelismThreshold: Int64, transformer: ToDoubleFunction?, basis: Double, reducer: DoubleBinaryOperator? ) -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( d: basis )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "reduceKeysToDouble", methodSig: "(JLjava/util/function/ToDoubleFunction;DLjava/util/function/DoubleBinaryOperator;)D", methodCache: &ConcurrentHashMap.reduceKeysToDouble_MethodID_36, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func reduceKeysToDouble( _ _parallelismThreshold: Int64, _ _transformer: ToDoubleFunction?, _ _basis: Double, _ _reducer: DoubleBinaryOperator? ) -> Double {
+        return reduceKeysToDouble( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public int java.util.concurrent.ConcurrentHashMap.reduceKeysToInt(long,java.util.function.ToIntFunction,int,java.util.function.IntBinaryOperator)
+
+    private static var reduceKeysToInt_MethodID_37: jmethodID?
+
+    open func reduceKeysToInt( parallelismThreshold: Int64, transformer: ToIntFunction?, basis: Int, reducer: IntBinaryOperator? ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( i: jint(basis) )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduceKeysToInt", methodSig: "(JLjava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)I", methodCache: &ConcurrentHashMap.reduceKeysToInt_MethodID_37, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func reduceKeysToInt( _ _parallelismThreshold: Int64, _ _transformer: ToIntFunction?, _ _basis: Int, _ _reducer: IntBinaryOperator? ) -> Int {
+        return reduceKeysToInt( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public long java.util.concurrent.ConcurrentHashMap.reduceKeysToLong(long,java.util.function.ToLongFunction,long,java.util.function.LongBinaryOperator)
+
+    private static var reduceKeysToLong_MethodID_38: jmethodID?
+
+    open func reduceKeysToLong( parallelismThreshold: Int64, transformer: ToLongFunction?, basis: Int64, reducer: LongBinaryOperator? ) -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( j: basis )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "reduceKeysToLong", methodSig: "(JLjava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)J", methodCache: &ConcurrentHashMap.reduceKeysToLong_MethodID_38, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func reduceKeysToLong( _ _parallelismThreshold: Int64, _ _transformer: ToLongFunction?, _ _basis: Int64, _ _reducer: LongBinaryOperator? ) -> Int64 {
+        return reduceKeysToLong( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public double java.util.concurrent.ConcurrentHashMap.reduceToDouble(long,java.util.function.ToDoubleBiFunction,double,java.util.function.DoubleBinaryOperator)
+
+    private static var reduceToDouble_MethodID_39: jmethodID?
+
+    open func reduceToDouble( parallelismThreshold: Int64, transformer: ToDoubleBiFunction?, basis: Double, reducer: DoubleBinaryOperator? ) -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( d: basis )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "reduceToDouble", methodSig: "(JLjava/util/function/ToDoubleBiFunction;DLjava/util/function/DoubleBinaryOperator;)D", methodCache: &ConcurrentHashMap.reduceToDouble_MethodID_39, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func reduceToDouble( _ _parallelismThreshold: Int64, _ _transformer: ToDoubleBiFunction?, _ _basis: Double, _ _reducer: DoubleBinaryOperator? ) -> Double {
+        return reduceToDouble( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public int java.util.concurrent.ConcurrentHashMap.reduceToInt(long,java.util.function.ToIntBiFunction,int,java.util.function.IntBinaryOperator)
+
+    private static var reduceToInt_MethodID_40: jmethodID?
+
+    open func reduceToInt( parallelismThreshold: Int64, transformer: ToIntBiFunction?, basis: Int, reducer: IntBinaryOperator? ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( i: jint(basis) )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduceToInt", methodSig: "(JLjava/util/function/ToIntBiFunction;ILjava/util/function/IntBinaryOperator;)I", methodCache: &ConcurrentHashMap.reduceToInt_MethodID_40, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func reduceToInt( _ _parallelismThreshold: Int64, _ _transformer: ToIntBiFunction?, _ _basis: Int, _ _reducer: IntBinaryOperator? ) -> Int {
+        return reduceToInt( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public long java.util.concurrent.ConcurrentHashMap.reduceToLong(long,java.util.function.ToLongBiFunction,long,java.util.function.LongBinaryOperator)
+
+    private static var reduceToLong_MethodID_41: jmethodID?
+
+    open func reduceToLong( parallelismThreshold: Int64, transformer: ToLongBiFunction?, basis: Int64, reducer: LongBinaryOperator? ) -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
+        __args[2] = jvalue( j: basis )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "reduceToLong", methodSig: "(JLjava/util/function/ToLongBiFunction;JLjava/util/function/LongBinaryOperator;)J", methodCache: &ConcurrentHashMap.reduceToLong_MethodID_41, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func reduceToLong( _ _parallelismThreshold: Int64, _ _transformer: ToLongBiFunction?, _ _basis: Int64, _ _reducer: LongBinaryOperator? ) -> Int64 {
+        return reduceToLong( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
     }
 
     /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduceValues(long,java.util.function.BiFunction)
@@ -874,9 +929,9 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
     private static var reduceValues_MethodID_42: jmethodID?
 
     open func reduceValues( parallelismThreshold: Int64, reducer: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: reducer, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceValues", methodSig: "(JLjava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduceValues_MethodID_42, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -892,9 +947,9 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
     private static var reduceValues_MethodID_43: jmethodID?
 
     open func reduceValues( parallelismThreshold: Int64, transformer: Function?, reducer: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
         __args[2] = JNIType.toJava( value: reducer, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceValues", methodSig: "(JLjava/util/function/Function;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduceValues_MethodID_43, args: &__args, locals: &__locals )
@@ -911,101 +966,162 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
     private static var reduceValuesToDouble_MethodID_44: jmethodID?
 
     open func reduceValuesToDouble( parallelismThreshold: Int64, transformer: ToDoubleFunction?, basis: Double, reducer: DoubleBinaryOperator? ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
+        __args[2] = jvalue( d: basis )
         __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
         let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "reduceValuesToDouble", methodSig: "(JLjava/util/function/ToDoubleFunction;DLjava/util/function/DoubleBinaryOperator;)D", methodCache: &ConcurrentHashMap.reduceValuesToDouble_MethodID_44, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        return __return
     }
 
     open func reduceValuesToDouble( _ _parallelismThreshold: Int64, _ _transformer: ToDoubleFunction?, _ _basis: Double, _ _reducer: DoubleBinaryOperator? ) -> Double {
         return reduceValuesToDouble( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
     }
 
-    /// public long java.util.concurrent.ConcurrentHashMap.reduceValuesToLong(long,java.util.function.ToLongFunction,long,java.util.function.LongBinaryOperator)
-
-    private static var reduceValuesToLong_MethodID_45: jmethodID?
-
-    open func reduceValuesToLong( parallelismThreshold: Int64, transformer: ToLongFunction?, basis: Int64, reducer: LongBinaryOperator? ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "reduceValuesToLong", methodSig: "(JLjava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)J", methodCache: &ConcurrentHashMap.reduceValuesToLong_MethodID_45, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-    open func reduceValuesToLong( _ _parallelismThreshold: Int64, _ _transformer: ToLongFunction?, _ _basis: Int64, _ _reducer: LongBinaryOperator? ) -> Int64 {
-        return reduceValuesToLong( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
-    }
-
     /// public int java.util.concurrent.ConcurrentHashMap.reduceValuesToInt(long,java.util.function.ToIntFunction,int,java.util.function.IntBinaryOperator)
 
-    private static var reduceValuesToInt_MethodID_46: jmethodID?
+    private static var reduceValuesToInt_MethodID_45: jmethodID?
 
     open func reduceValuesToInt( parallelismThreshold: Int64, transformer: ToIntFunction?, basis: Int, reducer: IntBinaryOperator? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
+        __args[2] = jvalue( i: jint(basis) )
         __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduceValuesToInt", methodSig: "(JLjava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)I", methodCache: &ConcurrentHashMap.reduceValuesToInt_MethodID_46, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduceValuesToInt", methodSig: "(JLjava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)I", methodCache: &ConcurrentHashMap.reduceValuesToInt_MethodID_45, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
     open func reduceValuesToInt( _ _parallelismThreshold: Int64, _ _transformer: ToIntFunction?, _ _basis: Int, _ _reducer: IntBinaryOperator? ) -> Int {
         return reduceValuesToInt( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
     }
 
-    /// public void java.util.concurrent.ConcurrentHashMap.forEachEntry(long,java.util.function.Consumer)
+    /// public long java.util.concurrent.ConcurrentHashMap.reduceValuesToLong(long,java.util.function.ToLongFunction,long,java.util.function.LongBinaryOperator)
 
-    private static var forEachEntry_MethodID_47: jmethodID?
+    private static var reduceValuesToLong_MethodID_46: jmethodID?
 
-    open func forEachEntry( parallelismThreshold: Int64, action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open func reduceValuesToLong( parallelismThreshold: Int64, transformer: ToLongFunction?, basis: Int64, reducer: LongBinaryOperator? ) -> Int64 {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachEntry", methodSig: "(JLjava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachEntry_MethodID_47, args: &__args, locals: &__locals )
-    }
-
-    open func forEachEntry( _ _parallelismThreshold: Int64, _ _action: Consumer? ) {
-        forEachEntry( parallelismThreshold: _parallelismThreshold, action: _action )
-    }
-
-    /// public void java.util.concurrent.ConcurrentHashMap.forEachEntry(long,java.util.function.Function,java.util.function.Consumer)
-
-    private static var forEachEntry_MethodID_48: jmethodID?
-
-    open func forEachEntry( parallelismThreshold: Int64, transformer: Function?, action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachEntry", methodSig: "(JLjava/util/function/Function;Ljava/util/function/Consumer;)V", methodCache: &ConcurrentHashMap.forEachEntry_MethodID_48, args: &__args, locals: &__locals )
+        __args[2] = jvalue( j: basis )
+        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "reduceValuesToLong", methodSig: "(JLjava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)J", methodCache: &ConcurrentHashMap.reduceValuesToLong_MethodID_46, args: &__args, locals: &__locals )
+        return __return
     }
 
-    open func forEachEntry( _ _parallelismThreshold: Int64, _ _transformer: Function?, _ _action: Consumer? ) {
-        forEachEntry( parallelismThreshold: _parallelismThreshold, transformer: _transformer, action: _action )
+    open func reduceValuesToLong( _ _parallelismThreshold: Int64, _ _transformer: ToLongFunction?, _ _basis: Int64, _ _reducer: LongBinaryOperator? ) -> Int64 {
+        return reduceValuesToLong( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    }
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.ConcurrentHashMap.remove(java.lang.Object,java.lang.Object)
+
+    private static var remove_MethodID_47: jmethodID?
+
+    override open func remove( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.remove_MethodID_47, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func remove( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> Bool {
+        return remove( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.replace(java.lang.Object,java.lang.Object)
+
+    private static var replace_MethodID_48: jmethodID?
+
+    override open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.replace_MethodID_48, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    override open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return replace( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public boolean java.util.concurrent.ConcurrentHashMap.replace(java.lang.Object,java.lang.Object,java.lang.Object)
+
+    private static var replace_MethodID_49: jmethodID?
+
+    override open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.replace_MethodID_49, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: java_swift.JavaObject? ) -> Bool {
+        return replace( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
+    }
+
+    /// public void java.util.concurrent.ConcurrentHashMap.replaceAll(java.util.function.BiFunction)
+
+    private static var replaceAll_MethodID_50: jmethodID?
+
+    override open func replaceAll( arg0: BiFunction? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "replaceAll", methodSig: "(Ljava/util/function/BiFunction;)V", methodCache: &ConcurrentHashMap.replaceAll_MethodID_50, args: &__args, locals: &__locals )
+    }
+
+    override open func replaceAll( _ _arg0: BiFunction? ) {
+        replaceAll( arg0: _arg0 )
+    }
+
+    /// final java.lang.Object java.util.concurrent.ConcurrentHashMap.replaceNode(java.lang.Object,java.lang.Object,java.lang.Object)
+
+    // Skipping method: true false false false false 
+
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.search(long,java.util.function.BiFunction)
+
+    private static var search_MethodID_51: jmethodID?
+
+    open func search( parallelismThreshold: Int64, searchFunction: BiFunction? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: searchFunction, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "search", methodSig: "(JLjava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.search_MethodID_51, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func search( _ _parallelismThreshold: Int64, _ _searchFunction: BiFunction? ) -> java_swift.JavaObject! {
+        return search( parallelismThreshold: _parallelismThreshold, searchFunction: _searchFunction )
     }
 
     /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.searchEntries(long,java.util.function.Function)
 
-    private static var searchEntries_MethodID_49: jmethodID?
+    private static var searchEntries_MethodID_52: jmethodID?
 
     open func searchEntries( parallelismThreshold: Int64, searchFunction: Function? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
         __args[1] = JNIType.toJava( value: searchFunction, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "searchEntries", methodSig: "(JLjava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.searchEntries_MethodID_49, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "searchEntries", methodSig: "(JLjava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.searchEntries_MethodID_52, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -1014,112 +1130,118 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
         return searchEntries( parallelismThreshold: _parallelismThreshold, searchFunction: _searchFunction )
     }
 
-    /// public java.util.Map$Entry java.util.concurrent.ConcurrentHashMap.reduceEntries(long,java.util.function.BiFunction)
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.searchKeys(long,java.util.function.Function)
 
-    private static var reduceEntries_MethodID_50: jmethodID?
+    private static var searchKeys_MethodID_53: jmethodID?
 
-    open func reduceEntries( parallelismThreshold: Int64, reducer: BiFunction? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
+    open func searchKeys( parallelismThreshold: Int64, searchFunction: Function? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceEntries", methodSig: "(JLjava/util/function/BiFunction;)Ljava/util/Map$Entry;", methodCache: &ConcurrentHashMap.reduceEntries_MethodID_50, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.Map$Entry */ UnclassedProtocolForward( javaObject: __return ) : nil
-    }
-
-    open func reduceEntries( _ _parallelismThreshold: Int64, _ _reducer: BiFunction? ) -> /* java.util.Map$Entry */ UnclassedProtocol! {
-        return reduceEntries( parallelismThreshold: _parallelismThreshold, reducer: _reducer )
-    }
-
-    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.reduceEntries(long,java.util.function.Function,java.util.function.BiFunction)
-
-    private static var reduceEntries_MethodID_51: jmethodID?
-
-    open func reduceEntries( parallelismThreshold: Int64, transformer: Function?, reducer: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "reduceEntries", methodSig: "(JLjava/util/function/Function;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.reduceEntries_MethodID_51, args: &__args, locals: &__locals )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: searchFunction, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "searchKeys", methodSig: "(JLjava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.searchKeys_MethodID_53, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-    open func reduceEntries( _ _parallelismThreshold: Int64, _ _transformer: Function?, _ _reducer: BiFunction? ) -> java_swift.JavaObject! {
-        return reduceEntries( parallelismThreshold: _parallelismThreshold, transformer: _transformer, reducer: _reducer )
+    open func searchKeys( _ _parallelismThreshold: Int64, _ _searchFunction: Function? ) -> java_swift.JavaObject! {
+        return searchKeys( parallelismThreshold: _parallelismThreshold, searchFunction: _searchFunction )
     }
 
-    /// public double java.util.concurrent.ConcurrentHashMap.reduceEntriesToDouble(long,java.util.function.ToDoubleFunction,double,java.util.function.DoubleBinaryOperator)
+    /// public java.lang.Object java.util.concurrent.ConcurrentHashMap.searchValues(long,java.util.function.Function)
 
-    private static var reduceEntriesToDouble_MethodID_52: jmethodID?
+    private static var searchValues_MethodID_54: jmethodID?
 
-    open func reduceEntriesToDouble( parallelismThreshold: Int64, transformer: ToDoubleFunction?, basis: Double, reducer: DoubleBinaryOperator? ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+    open func searchValues( parallelismThreshold: Int64, searchFunction: Function? ) -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "reduceEntriesToDouble", methodSig: "(JLjava/util/function/ToDoubleFunction;DLjava/util/function/DoubleBinaryOperator;)D", methodCache: &ConcurrentHashMap.reduceEntriesToDouble_MethodID_52, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: parallelismThreshold )
+        __args[1] = JNIType.toJava( value: searchFunction, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "searchValues", methodSig: "(JLjava/util/function/Function;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.searchValues_MethodID_54, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-    open func reduceEntriesToDouble( _ _parallelismThreshold: Int64, _ _transformer: ToDoubleFunction?, _ _basis: Double, _ _reducer: DoubleBinaryOperator? ) -> Double {
-        return reduceEntriesToDouble( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
+    open func searchValues( _ _parallelismThreshold: Int64, _ _searchFunction: Function? ) -> java_swift.JavaObject! {
+        return searchValues( parallelismThreshold: _parallelismThreshold, searchFunction: _searchFunction )
     }
 
-    /// public long java.util.concurrent.ConcurrentHashMap.reduceEntriesToLong(long,java.util.function.ToLongFunction,long,java.util.function.LongBinaryOperator)
+    /// public int java.util.concurrent.ConcurrentHashMap.size()
 
-    private static var reduceEntriesToLong_MethodID_53: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func reduceEntriesToLong( parallelismThreshold: Int64, transformer: ToLongFunction?, basis: Int64, reducer: LongBinaryOperator? ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "reduceEntriesToLong", methodSig: "(JLjava/util/function/ToLongFunction;JLjava/util/function/LongBinaryOperator;)J", methodCache: &ConcurrentHashMap.reduceEntriesToLong_MethodID_53, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
+    /// final long java.util.concurrent.ConcurrentHashMap.sumCount()
 
-    open func reduceEntriesToLong( _ _parallelismThreshold: Int64, _ _transformer: ToLongFunction?, _ _basis: Int64, _ _reducer: LongBinaryOperator? ) -> Int64 {
-        return reduceEntriesToLong( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
-    }
+    // Skipping method: true false false false false 
 
-    /// public int java.util.concurrent.ConcurrentHashMap.reduceEntriesToInt(long,java.util.function.ToIntFunction,int,java.util.function.IntBinaryOperator)
+    /// public java.lang.String java.util.concurrent.ConcurrentHashMap.toString()
 
-    private static var reduceEntriesToInt_MethodID_54: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func reduceEntriesToInt( parallelismThreshold: Int64, transformer: ToIntFunction?, basis: Int, reducer: IntBinaryOperator? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: parallelismThreshold, locals: &__locals )
-        __args[1] = JNIType.toJava( value: transformer, locals: &__locals )
-        __args[2] = JNIType.toJava( value: basis, locals: &__locals )
-        __args[3] = JNIType.toJava( value: reducer, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "reduceEntriesToInt", methodSig: "(JLjava/util/function/ToIntFunction;ILjava/util/function/IntBinaryOperator;)I", methodCache: &ConcurrentHashMap.reduceEntriesToInt_MethodID_54, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
+    /// private final void java.util.concurrent.ConcurrentHashMap.transfer(java.util.concurrent.ConcurrentHashMap$Node[],java.util.concurrent.ConcurrentHashMap$Node[])
 
-    open func reduceEntriesToInt( _ _parallelismThreshold: Int64, _ _transformer: ToIntFunction?, _ _basis: Int, _ _reducer: IntBinaryOperator? ) -> Int {
-        return reduceEntriesToInt( parallelismThreshold: _parallelismThreshold, transformer: _transformer, basis: _basis, reducer: _reducer )
-    }
+    /// private final void java.util.concurrent.ConcurrentHashMap.treeifyBin(java.util.concurrent.ConcurrentHashMap$Node[],int)
+
+    /// private final void java.util.concurrent.ConcurrentHashMap.tryPresize(int)
+
+    /// public java.util.Collection java.util.concurrent.ConcurrentHashMap.values()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.concurrent.ConcurrentHashMap.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
     /// In declared protocol but not defined.. ///
 
+    /// public abstract void java.util.Map.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Map.containsKey(java.lang.Object)
+
+    private static var containsKey_MethodID_55: jmethodID?
+
+    override open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.containsKey_MethodID_55, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func containsKey( _ _arg0: java_swift.JavaObject? ) -> Bool {
+        return containsKey( arg0: _arg0 )
+    }
+
+    /// public abstract boolean java.util.Map.containsValue(java.lang.Object)
+
+    private static var containsValue_MethodID_56: jmethodID?
+
+    override open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.containsValue_MethodID_56, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func containsValue( _ _arg0: java_swift.JavaObject? ) -> Bool {
+        return containsValue( arg0: _arg0 )
+    }
+
+    /// public abstract java.util.Set java.util.Map.entrySet()
+
+    // Skipping method: false true false false false 
+
     /// public abstract boolean java.util.Map.equals(java.lang.Object)
 
-    private static var equals_MethodID_55: jmethodID?
+    private static var equals_MethodID_57: jmethodID?
 
     override open func equals( arg0: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.equals_MethodID_55, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.equals_MethodID_57, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     override open func equals( _ _arg0: java_swift.JavaObject? ) -> Bool {
@@ -1128,13 +1250,13 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
 
     /// public abstract java.lang.Object java.util.Map.get(java.lang.Object)
 
-    private static var get_MethodID_56: jmethodID?
+    private static var get_MethodID_58: jmethodID?
 
     override open func get( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.get_MethodID_56, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.get_MethodID_58, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -1143,90 +1265,28 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
         return get( arg0: _arg0 )
     }
 
-    /// public abstract java.lang.Object java.util.Map.remove(java.lang.Object)
-
-    private static var remove_MethodID_57: jmethodID?
-
-    override open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.remove_MethodID_57, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    override open func remove( _ _arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return remove( arg0: _arg0 )
-    }
-
-    /// public abstract boolean java.util.Map.containsValue(java.lang.Object)
-
-    private static var containsValue_MethodID_58: jmethodID?
-
-    override open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.containsValue_MethodID_58, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    override open func containsValue( _ _arg0: java_swift.JavaObject? ) -> Bool {
-        return containsValue( arg0: _arg0 )
-    }
-
     /// public abstract int java.util.Map.hashCode()
 
-    /// public abstract java.util.Collection java.util.Map.values()
-
-    /// public abstract void java.util.Map.putAll(java.util.Map)
-
-    private static var putAll_MethodID_59: jmethodID?
-
-    override open func putAll( arg0: java_swift.JavaMap? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, mapClass: "java/util/Map", locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "putAll", methodSig: "(Ljava/util/Map;)V", methodCache: &ConcurrentHashMap.putAll_MethodID_59, args: &__args, locals: &__locals )
-    }
-
-    override open func putAll( _ _arg0: java_swift.JavaMap? ) {
-        putAll( arg0: _arg0 )
-    }
-
-    /// public abstract void java.util.Map.clear()
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Map.isEmpty()
 
-    /// public abstract boolean java.util.Map.containsKey(java.lang.Object)
-
-    private static var containsKey_MethodID_60: jmethodID?
-
-    override open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &ConcurrentHashMap.containsKey_MethodID_60, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    override open func containsKey( _ _arg0: java_swift.JavaObject? ) -> Bool {
-        return containsKey( arg0: _arg0 )
-    }
+    // Skipping method: false true false false false 
 
     /// public abstract java.util.Set java.util.Map.keySet()
 
+    // Skipping method: false true false false false 
+
     /// public abstract java.lang.Object java.util.Map.put(java.lang.Object,java.lang.Object)
 
-    private static var put_MethodID_61: jmethodID?
+    private static var put_MethodID_59: jmethodID?
 
     override open func put( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.put_MethodID_61, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.put_MethodID_59, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -1235,9 +1295,45 @@ open class ConcurrentHashMap: AbstractMap, /* java.io.Serializable */ UnclassedP
         return put( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public abstract java.util.Set java.util.Map.entrySet()
+    /// public abstract void java.util.Map.putAll(java.util.Map)
+
+    private static var putAll_MethodID_60: jmethodID?
+
+    override open func putAll( arg0: java_swift.JavaMap? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, mapClass: "java/util/Map", locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "putAll", methodSig: "(Ljava/util/Map;)V", methodCache: &ConcurrentHashMap.putAll_MethodID_60, args: &__args, locals: &__locals )
+    }
+
+    override open func putAll( _ _arg0: java_swift.JavaMap? ) {
+        putAll( arg0: _arg0 )
+    }
+
+    /// public abstract java.lang.Object java.util.Map.remove(java.lang.Object)
+
+    private static var remove_MethodID_61: jmethodID?
+
+    override open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &ConcurrentHashMap.remove_MethodID_61, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    override open func remove( _ _arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return remove( arg0: _arg0 )
+    }
 
     /// public abstract int java.util.Map.size()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.Collection java.util.Map.values()
+
+    // Skipping method: false true false false false 
 
 }
 

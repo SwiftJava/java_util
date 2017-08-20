@@ -7,33 +7,33 @@ import java_swift
 
 public protocol Collector: JavaProtocol {
 
-    /// public abstract java.util.function.BinaryOperator java.util.stream.Collector.combiner()
-
-    func combiner() -> BinaryOperator!
-
     /// public static java.util.stream.Collector java.util.stream.Collector.of(java.util.function.Supplier,java.util.function.BiConsumer,java.util.function.BinaryOperator,java.util.function.Function,java.util.stream.Collector$Characteristics[])
 
-    //    class func of( supplier: Supplier?, accumulator: BiConsumer?, combiner: BinaryOperator?, finisher: Function?, characteristics: [/* java.util.stream.Collector$Characteristics */ UnclassedObject]? ) -> Collector!
+    //    class func of( supplier: Supplier?, accumulator: BiConsumer?, combiner: BinaryOperator?, finisher: Function?, characteristics: [/* class java.util.stream.Collector$Characteristics */ UnavailableEnum]? ) -> Collector!
 
     /// public static java.util.stream.Collector java.util.stream.Collector.of(java.util.function.Supplier,java.util.function.BiConsumer,java.util.function.BinaryOperator,java.util.stream.Collector$Characteristics[])
 
-    //    class func of( supplier: Supplier?, accumulator: BiConsumer?, combiner: BinaryOperator?, characteristics: [/* java.util.stream.Collector$Characteristics */ UnclassedObject]? ) -> Collector!
-
-    /// public abstract java.util.function.Supplier java.util.stream.Collector.supplier()
-
-    func supplier() -> Supplier!
-
-    /// public abstract java.util.Set java.util.stream.Collector.characteristics()
-
-    func characteristics() -> java_swift.JavaSet!
+    //    class func of( supplier: Supplier?, accumulator: BiConsumer?, combiner: BinaryOperator?, characteristics: [/* class java.util.stream.Collector$Characteristics */ UnavailableEnum]? ) -> Collector!
 
     /// public abstract java.util.function.BiConsumer java.util.stream.Collector.accumulator()
 
     func accumulator() -> BiConsumer!
 
+    /// public abstract java.util.Set java.util.stream.Collector.characteristics()
+
+    func characteristics() -> java_swift.JavaSet!
+
+    /// public abstract java.util.function.BinaryOperator java.util.stream.Collector.combiner()
+
+    func combiner() -> BinaryOperator!
+
     /// public abstract java.util.function.Function java.util.stream.Collector.finisher()
 
     func finisher() -> Function!
+
+    /// public abstract java.util.function.Supplier java.util.stream.Collector.supplier()
+
+    func supplier() -> Supplier!
 
 }
 
@@ -42,112 +42,111 @@ open class CollectorForward: JNIObjectForward, Collector {
 
     private static var CollectorJNIClass: jclass?
 
-    /// public abstract java.util.function.BinaryOperator java.util.stream.Collector.combiner()
-
-    private static var combiner_MethodID_8: jmethodID?
-
-    open func combiner() -> BinaryOperator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "combiner", methodSig: "()Ljava/util/function/BinaryOperator;", methodCache: &CollectorForward.combiner_MethodID_8, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? BinaryOperatorForward( javaObject: __return ) : nil
-    }
-
-
     /// public static java.util.stream.Collector java.util.stream.Collector.of(java.util.function.Supplier,java.util.function.BiConsumer,java.util.function.BinaryOperator,java.util.function.Function,java.util.stream.Collector$Characteristics[])
 
-    private static var of_MethodID_9: jmethodID?
+    private static var of_MethodID_8: jmethodID?
 
-    open class func of( supplier: Supplier?, accumulator: BiConsumer?, combiner: BinaryOperator?, finisher: Function?, characteristics: [/* java.util.stream.Collector$Characteristics */ UnclassedObject]? ) -> Collector! {
-        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+    open class func of( supplier: Supplier?, accumulator: BiConsumer?, combiner: BinaryOperator?, finisher: Function?, characteristics: [/* class java.util.stream.Collector$Characteristics */ UnavailableEnum]? ) -> Collector! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
         __args[0] = JNIType.toJava( value: supplier, locals: &__locals )
         __args[1] = JNIType.toJava( value: accumulator, locals: &__locals )
         __args[2] = JNIType.toJava( value: combiner, locals: &__locals )
         __args[3] = JNIType.toJava( value: finisher, locals: &__locals )
         __args[4] = JNIType.toJava( value: characteristics, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collector", classCache: &CollectorJNIClass, methodName: "of", methodSig: "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;", methodCache: &of_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collector", classCache: &CollectorJNIClass, methodName: "of", methodSig: "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;Ljava/util/function/Function;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;", methodCache: &of_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func of( _ _supplier: Supplier?, _ _accumulator: BiConsumer?, _ _combiner: BinaryOperator?, _ _finisher: Function?, _ _characteristics: [/* java.util.stream.Collector$Characteristics */ UnclassedObject]? ) -> Collector! {
+    open class func of( _ _supplier: Supplier?, _ _accumulator: BiConsumer?, _ _combiner: BinaryOperator?, _ _finisher: Function?, _ _characteristics: [/* class java.util.stream.Collector$Characteristics */ UnavailableEnum]? ) -> Collector! {
         return of( supplier: _supplier, accumulator: _accumulator, combiner: _combiner, finisher: _finisher, characteristics: _characteristics )
     }
 
     /// public static java.util.stream.Collector java.util.stream.Collector.of(java.util.function.Supplier,java.util.function.BiConsumer,java.util.function.BinaryOperator,java.util.stream.Collector$Characteristics[])
 
-    private static var of_MethodID_10: jmethodID?
+    private static var of_MethodID_9: jmethodID?
 
-    open class func of( supplier: Supplier?, accumulator: BiConsumer?, combiner: BinaryOperator?, characteristics: [/* java.util.stream.Collector$Characteristics */ UnclassedObject]? ) -> Collector! {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+    open class func of( supplier: Supplier?, accumulator: BiConsumer?, combiner: BinaryOperator?, characteristics: [/* class java.util.stream.Collector$Characteristics */ UnavailableEnum]? ) -> Collector! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         __args[0] = JNIType.toJava( value: supplier, locals: &__locals )
         __args[1] = JNIType.toJava( value: accumulator, locals: &__locals )
         __args[2] = JNIType.toJava( value: combiner, locals: &__locals )
         __args[3] = JNIType.toJava( value: characteristics, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collector", classCache: &CollectorJNIClass, methodName: "of", methodSig: "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;", methodCache: &of_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/Collector", classCache: &CollectorJNIClass, methodName: "of", methodSig: "(Ljava/util/function/Supplier;Ljava/util/function/BiConsumer;Ljava/util/function/BinaryOperator;[Ljava/util/stream/Collector$Characteristics;)Ljava/util/stream/Collector;", methodCache: &of_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? CollectorForward( javaObject: __return ) : nil
     }
 
-    open class func of( _ _supplier: Supplier?, _ _accumulator: BiConsumer?, _ _combiner: BinaryOperator?, _ _characteristics: [/* java.util.stream.Collector$Characteristics */ UnclassedObject]? ) -> Collector! {
+    open class func of( _ _supplier: Supplier?, _ _accumulator: BiConsumer?, _ _combiner: BinaryOperator?, _ _characteristics: [/* class java.util.stream.Collector$Characteristics */ UnavailableEnum]? ) -> Collector! {
         return of( supplier: _supplier, accumulator: _accumulator, combiner: _combiner, characteristics: _characteristics )
     }
 
-    /// public abstract java.util.function.Supplier java.util.stream.Collector.supplier()
-
-    private static var supplier_MethodID_11: jmethodID?
-
-    open func supplier() -> Supplier! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "supplier", methodSig: "()Ljava/util/function/Supplier;", methodCache: &CollectorForward.supplier_MethodID_11, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? SupplierForward( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract java.util.Set java.util.stream.Collector.characteristics()
-
-    private static var characteristics_MethodID_12: jmethodID?
-
-    open func characteristics() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "characteristics", methodSig: "()Ljava/util/Set;", methodCache: &CollectorForward.characteristics_MethodID_12, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
-    }
-
-
     /// public abstract java.util.function.BiConsumer java.util.stream.Collector.accumulator()
 
-    private static var accumulator_MethodID_13: jmethodID?
+    private static var accumulator_MethodID_10: jmethodID?
 
     open func accumulator() -> BiConsumer! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "accumulator", methodSig: "()Ljava/util/function/BiConsumer;", methodCache: &CollectorForward.accumulator_MethodID_13, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "accumulator", methodSig: "()Ljava/util/function/BiConsumer;", methodCache: &CollectorForward.accumulator_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BiConsumerForward( javaObject: __return ) : nil
     }
 
 
+    /// public abstract java.util.Set java.util.stream.Collector.characteristics()
+
+    private static var characteristics_MethodID_11: jmethodID?
+
+    open func characteristics() -> java_swift.JavaSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "characteristics", methodSig: "()Ljava/util/Set;", methodCache: &CollectorForward.characteristics_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.function.BinaryOperator java.util.stream.Collector.combiner()
+
+    private static var combiner_MethodID_12: jmethodID?
+
+    open func combiner() -> BinaryOperator! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "combiner", methodSig: "()Ljava/util/function/BinaryOperator;", methodCache: &CollectorForward.combiner_MethodID_12, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? BinaryOperatorForward( javaObject: __return ) : nil
+    }
+
+
     /// public abstract java.util.function.Function java.util.stream.Collector.finisher()
 
-    private static var finisher_MethodID_14: jmethodID?
+    private static var finisher_MethodID_13: jmethodID?
 
     open func finisher() -> Function! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "finisher", methodSig: "()Ljava/util/function/Function;", methodCache: &CollectorForward.finisher_MethodID_14, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "finisher", methodSig: "()Ljava/util/function/Function;", methodCache: &CollectorForward.finisher_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? FunctionForward( javaObject: __return ) : nil
     }
 
 
-}
+    /// public abstract java.util.function.Supplier java.util.stream.Collector.supplier()
 
+    private static var supplier_MethodID_14: jmethodID?
+
+    open func supplier() -> Supplier! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "supplier", methodSig: "()Ljava/util/function/Supplier;", methodCache: &CollectorForward.supplier_MethodID_14, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? SupplierForward( javaObject: __return ) : nil
+    }
+
+
+}
 

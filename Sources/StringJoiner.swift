@@ -17,23 +17,23 @@ open class StringJoiner: java_swift.JavaObject {
 
     private static var StringJoinerJNIClass: jclass?
 
-    /// private final java.lang.String java.util.StringJoiner.prefix
-
     /// private final java.lang.String java.util.StringJoiner.delimiter
+
+    /// private java.lang.String java.util.StringJoiner.emptyValue
+
+    /// private final java.lang.String java.util.StringJoiner.prefix
 
     /// private final java.lang.String java.util.StringJoiner.suffix
 
     /// private java.lang.StringBuilder java.util.StringJoiner.value
-
-    /// private java.lang.String java.util.StringJoiner.emptyValue
 
     /// public java.util.StringJoiner(java.lang.CharSequence)
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( delimiter: java_lang.CharSequence? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: delimiter, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/StringJoiner", classCache: &StringJoiner.StringJoinerJNIClass, methodSig: "(Ljava/lang/CharSequence;)V", methodCache: &StringJoiner.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -49,8 +49,8 @@ open class StringJoiner: java_swift.JavaObject {
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( delimiter: java_lang.CharSequence?, prefix: java_lang.CharSequence?, suffix: java_lang.CharSequence? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: delimiter, locals: &__locals )
         __args[1] = JNIType.toJava( value: prefix, locals: &__locals )
         __args[2] = JNIType.toJava( value: suffix, locals: &__locals )
@@ -68,8 +68,8 @@ open class StringJoiner: java_swift.JavaObject {
     private static var add_MethodID_3: jmethodID?
 
     open func add( newElement: java_lang.CharSequence? ) -> StringJoiner! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: newElement, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "add", methodSig: "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", methodCache: &StringJoiner.add_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -80,17 +80,15 @@ open class StringJoiner: java_swift.JavaObject {
         return add( newElement: _newElement )
     }
 
-    /// public java.lang.String java.util.StringJoiner.toString()
-
     /// public int java.util.StringJoiner.length()
 
     private static var length_MethodID_4: jmethodID?
 
     open func length() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "length", methodSig: "()I", methodCache: &StringJoiner.length_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
 
@@ -99,8 +97,8 @@ open class StringJoiner: java_swift.JavaObject {
     private static var merge_MethodID_5: jmethodID?
 
     open func merge( other: StringJoiner? ) -> StringJoiner! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: other, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/util/StringJoiner;)Ljava/util/StringJoiner;", methodCache: &StringJoiner.merge_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -111,13 +109,15 @@ open class StringJoiner: java_swift.JavaObject {
         return merge( other: _other )
     }
 
+    /// private java.lang.StringBuilder java.util.StringJoiner.prepareBuilder()
+
     /// public java.util.StringJoiner java.util.StringJoiner.setEmptyValue(java.lang.CharSequence)
 
     private static var setEmptyValue_MethodID_6: jmethodID?
 
     open func setEmptyValue( emptyValue: java_lang.CharSequence? ) -> StringJoiner! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: emptyValue, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "setEmptyValue", methodSig: "(Ljava/lang/CharSequence;)Ljava/util/StringJoiner;", methodCache: &StringJoiner.setEmptyValue_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -128,7 +128,9 @@ open class StringJoiner: java_swift.JavaObject {
         return setEmptyValue( emptyValue: _emptyValue )
     }
 
-    /// private java.lang.StringBuilder java.util.StringJoiner.prepareBuilder()
+    /// public java.lang.String java.util.StringJoiner.toString()
+
+    // Skipping method: false true false false false 
 
 }
 

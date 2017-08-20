@@ -23,12 +23,12 @@ open class ToIntBiFunctionForward: JNIObjectForward, ToIntBiFunction {
     private static var applyAsInt_MethodID_2: jmethodID?
 
     open func applyAsInt( t: java_swift.JavaObject?, u: java_swift.JavaObject? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: t, locals: &__locals )
         __args[1] = JNIType.toJava( value: u, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "applyAsInt", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)I", methodCache: &ToIntBiFunctionForward.applyAsInt_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     open func applyAsInt( _ _t: java_swift.JavaObject?, _ _u: java_swift.JavaObject? ) -> Int {
@@ -36,5 +36,4 @@ open class ToIntBiFunctionForward: JNIObjectForward, ToIntBiFunction {
     }
 
 }
-
 

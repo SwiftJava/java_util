@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.logging.Level ///
 
-open class Level: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProtocol {
+open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -17,58 +17,14 @@ open class Level: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPro
 
     private static var LevelJNIClass: jclass?
 
-    /// private static final java.lang.String java.util.logging.Level.defaultBundle
+    /// public static final java.util.logging.Level java.util.logging.Level.ALL
 
-    /// private final java.lang.String java.util.logging.Level.name
+    private static var ALL_FieldID: jfieldID?
 
-    /// private final int java.util.logging.Level.value
-
-    /// private final java.lang.String java.util.logging.Level.resourceBundleName
-
-    /// private transient java.lang.String java.util.logging.Level.localizedLevelName
-
-    /// private transient java.util.Locale java.util.logging.Level.cachedLocale
-
-    /// public static final java.util.logging.Level java.util.logging.Level.OFF
-
-    private static var OFF_FieldID: jfieldID?
-
-    open static var OFF: Level! {
+    open static var ALL: Level! {
         get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "OFF", fieldType: "Ljava/util/logging/Level;", fieldCache: &OFF_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
-            return __value != nil ? Level( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.logging.Level java.util.logging.Level.SEVERE
-
-    private static var SEVERE_FieldID: jfieldID?
-
-    open static var SEVERE: Level! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "SEVERE", fieldType: "Ljava/util/logging/Level;", fieldCache: &SEVERE_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
-            return __value != nil ? Level( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.logging.Level java.util.logging.Level.WARNING
-
-    private static var WARNING_FieldID: jfieldID?
-
-    open static var WARNING: Level! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "WARNING", fieldType: "Ljava/util/logging/Level;", fieldCache: &WARNING_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
-            return __value != nil ? Level( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.logging.Level java.util.logging.Level.INFO
-
-    private static var INFO_FieldID: jfieldID?
-
-    open static var INFO: Level! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "INFO", fieldType: "Ljava/util/logging/Level;", fieldCache: &INFO_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            let __value = JNIField.GetStaticObjectField( fieldName: "ALL", fieldType: "Ljava/util/logging/Level;", fieldCache: &ALL_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? Level( javaObject: __value ) : nil
         }
     }
@@ -80,6 +36,7 @@ open class Level: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPro
     open static var CONFIG: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "CONFIG", fieldType: "Ljava/util/logging/Level;", fieldCache: &CONFIG_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? Level( javaObject: __value ) : nil
         }
     }
@@ -91,6 +48,7 @@ open class Level: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPro
     open static var FINE: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "FINE", fieldType: "Ljava/util/logging/Level;", fieldCache: &FINE_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? Level( javaObject: __value ) : nil
         }
     }
@@ -102,6 +60,7 @@ open class Level: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPro
     open static var FINER: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "FINER", fieldType: "Ljava/util/logging/Level;", fieldCache: &FINER_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? Level( javaObject: __value ) : nil
         }
     }
@@ -113,56 +72,83 @@ open class Level: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPro
     open static var FINEST: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "FINEST", fieldType: "Ljava/util/logging/Level;", fieldCache: &FINEST_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? Level( javaObject: __value ) : nil
         }
     }
 
-    /// public static final java.util.logging.Level java.util.logging.Level.ALL
+    /// public static final java.util.logging.Level java.util.logging.Level.INFO
 
-    private static var ALL_FieldID: jfieldID?
+    private static var INFO_FieldID: jfieldID?
 
-    open static var ALL: Level! {
+    open static var INFO: Level! {
         get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "ALL", fieldType: "Ljava/util/logging/Level;", fieldCache: &ALL_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            let __value = JNIField.GetStaticObjectField( fieldName: "INFO", fieldType: "Ljava/util/logging/Level;", fieldCache: &INFO_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? Level( javaObject: __value ) : nil
         }
     }
+
+    /// public static final java.util.logging.Level java.util.logging.Level.OFF
+
+    private static var OFF_FieldID: jfieldID?
+
+    open static var OFF: Level! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "OFF", fieldType: "Ljava/util/logging/Level;", fieldCache: &OFF_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? Level( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.logging.Level java.util.logging.Level.SEVERE
+
+    private static var SEVERE_FieldID: jfieldID?
+
+    open static var SEVERE: Level! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "SEVERE", fieldType: "Ljava/util/logging/Level;", fieldCache: &SEVERE_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? Level( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.logging.Level java.util.logging.Level.WARNING
+
+    private static var WARNING_FieldID: jfieldID?
+
+    open static var WARNING: Level! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "WARNING", fieldType: "Ljava/util/logging/Level;", fieldCache: &WARNING_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? Level( javaObject: __value ) : nil
+        }
+    }
+
+    /// private static final java.lang.String java.util.logging.Level.defaultBundle
 
     /// private static final long java.util.logging.Level.serialVersionUID
 
-    /// java.util.logging.Level(java.lang.String,int,java.lang.String,boolean,java.util.logging.Level$1)
+    /// private transient java.util.Locale java.util.logging.Level.cachedLocale
 
-    /// private java.util.logging.Level(java.lang.String,int,java.lang.String,boolean)
+    /// private transient java.lang.String java.util.logging.Level.localizedLevelName
 
-    /// protected java.util.logging.Level(java.lang.String,int,java.lang.String)
+    /// private final java.lang.String java.util.logging.Level.name
 
-    private static var new_MethodID_1: jmethodID?
+    /// private final java.lang.String java.util.logging.Level.resourceBundleName
 
-    public convenience init( name: String?, value: Int, resourceBundleName: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        __args[1] = JNIType.toJava( value: value, locals: &__locals )
-        __args[2] = JNIType.toJava( value: resourceBundleName, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/logging/Level", classCache: &Level.LevelJNIClass, methodSig: "(Ljava/lang/String;ILjava/lang/String;)V", methodCache: &Level.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _name: String?, _ _value: Int, _ _resourceBundleName: String? ) {
-        self.init( name: _name, value: _value, resourceBundleName: _resourceBundleName )
-    }
+    /// private final int java.util.logging.Level.value
 
     /// protected java.util.logging.Level(java.lang.String,int)
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_1: jmethodID?
 
     public convenience init( name: String?, value: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        __args[1] = JNIType.toJava( value: value, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/logging/Level", classCache: &Level.LevelJNIClass, methodSig: "(Ljava/lang/String;I)V", methodCache: &Level.new_MethodID_2, args: &__args, locals: &__locals )
+        __args[1] = jvalue( i: jint(value) )
+        let __object = JNIMethod.NewObject( className: "java/util/logging/Level", classCache: &Level.LevelJNIClass, methodSig: "(Ljava/lang/String;I)V", methodCache: &Level.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -171,69 +157,59 @@ open class Level: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPro
         self.init( name: _name, value: _value )
     }
 
-    /// public boolean java.util.logging.Level.equals(java.lang.Object)
+    /// protected java.util.logging.Level(java.lang.String,int,java.lang.String)
 
-    private static var equals_MethodID_3: jmethodID?
+    private static var new_MethodID_2: jmethodID?
 
-    open func equals( ox: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init( name: String?, value: Int, resourceBundleName: String? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: ox, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Level.equals_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: name, locals: &__locals )
+        __args[1] = jvalue( i: jint(value) )
+        __args[2] = JNIType.toJava( value: resourceBundleName, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/logging/Level", classCache: &Level.LevelJNIClass, methodSig: "(Ljava/lang/String;ILjava/lang/String;)V", methodCache: &Level.new_MethodID_2, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
     }
 
-    override open func equals( _ _ox: java_swift.JavaObject? ) -> Bool {
-        return equals( ox: _ox )
+    public convenience init( _ _name: String?, _ _value: Int, _ _resourceBundleName: String? ) {
+        self.init( name: _name, value: _value, resourceBundleName: _resourceBundleName )
     }
 
-    /// public final java.lang.String java.util.logging.Level.toString()
+    /// private java.util.logging.Level(java.lang.String,int,java.lang.String,boolean)
 
-    /// public int java.util.logging.Level.hashCode()
+    /// java.util.logging.Level(java.lang.String,int,java.lang.String,boolean,java.util.logging.Level$1)
 
-    /// public final int java.util.logging.Level.intValue()
-
-    private static var intValue_MethodID_4: jmethodID?
-
-    open func intValue() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "intValue", methodSig: "()I", methodCache: &Level.intValue_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.logging.Level.getName()
-
-    private static var getName_MethodID_5: jmethodID?
-
-    open func getName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getName", methodSig: "()Ljava/lang/String;", methodCache: &Level.getName_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// static int java.util.logging.Level.access$100(java.util.logging.Level)
-
-    /// static java.lang.String java.util.logging.Level.access$200(java.util.logging.Level)
+    // Skipping init: true false false 
 
     /// static java.lang.String java.util.logging.Level.access$000(java.util.logging.Level)
 
-    /// private java.lang.Object java.util.logging.Level.readResolve()
+    // Skipping method: true false false false false 
+
+    /// static int java.util.logging.Level.access$100(java.util.logging.Level)
+
+    // Skipping method: true false false false false 
+
+    /// static java.lang.String java.util.logging.Level.access$200(java.util.logging.Level)
+
+    // Skipping method: true false false false false 
+
+    /// static java.util.logging.Level java.util.logging.Level.findLevel(java.lang.String)
+
+    // Skipping method: true false false false false 
 
     /// public static synchronized java.util.logging.Level java.util.logging.Level.parse(java.lang.String) throws java.lang.IllegalArgumentException
 
-    private static var parse_MethodID_6: jmethodID?
+    private static var parse_MethodID_3: jmethodID?
 
     open class func parse( name: String? ) throws /* java.lang.IllegalArgumentException */ -> Level! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/logging/Level", classCache: &LevelJNIClass, methodName: "parse", methodSig: "(Ljava/lang/String;)Ljava/util/logging/Level;", methodCache: &parse_MethodID_6, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/logging/Level", classCache: &LevelJNIClass, methodName: "parse", methodSig: "(Ljava/lang/String;)Ljava/util/logging/Level;", methodCache: &parse_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.IllegalArgumentException( javaObject: throwable )
         }
         return __return != nil ? Level( javaObject: __return ) : nil
@@ -243,39 +219,96 @@ open class Level: java_swift.JavaObject, /* java.io.Serializable */ UnclassedPro
         return try parse( name: _name )
     }
 
+    /// private java.lang.String java.util.logging.Level.computeLocalizedLevelName(java.util.Locale)
+
+    /// public boolean java.util.logging.Level.equals(java.lang.Object)
+
+    private static var equals_MethodID_4: jmethodID?
+
+    open func equals( ox: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: ox, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Level.equals_MethodID_4, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func equals( _ _ox: java_swift.JavaObject? ) -> Bool {
+        return equals( ox: _ox )
+    }
+
+    /// final java.lang.String java.util.logging.Level.getCachedLocalizedLevelName()
+
+    // Skipping method: true false false false false 
+
+    /// final java.lang.String java.util.logging.Level.getLevelName()
+
+    // Skipping method: true false false false false 
+
+    /// final synchronized java.lang.String java.util.logging.Level.getLocalizedLevelName()
+
+    // Skipping method: true false false false false 
+
+    /// public java.lang.String java.util.logging.Level.getLocalizedName()
+
+    private static var getLocalizedName_MethodID_5: jmethodID?
+
+    open func getLocalizedName() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLocalizedName", methodSig: "()Ljava/lang/String;", methodCache: &Level.getLocalizedName_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.logging.Level.getName()
+
+    private static var getName_MethodID_6: jmethodID?
+
+    open func getName() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getName", methodSig: "()Ljava/lang/String;", methodCache: &Level.getName_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
     /// public java.lang.String java.util.logging.Level.getResourceBundleName()
 
     private static var getResourceBundleName_MethodID_7: jmethodID?
 
     open func getResourceBundleName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getResourceBundleName", methodSig: "()Ljava/lang/String;", methodCache: &Level.getResourceBundleName_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
 
-    /// public java.lang.String java.util.logging.Level.getLocalizedName()
+    /// public int java.util.logging.Level.hashCode()
 
-    private static var getLocalizedName_MethodID_8: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func getLocalizedName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    /// public final int java.util.logging.Level.intValue()
+
+    private static var intValue_MethodID_8: jmethodID?
+
+    open func intValue() -> Int {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLocalizedName", methodSig: "()Ljava/lang/String;", methodCache: &Level.getLocalizedName_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "intValue", methodSig: "()I", methodCache: &Level.intValue_MethodID_8, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
 
-    /// final java.lang.String java.util.logging.Level.getLevelName()
+    /// private java.lang.Object java.util.logging.Level.readResolve()
 
-    /// private java.lang.String java.util.logging.Level.computeLocalizedLevelName(java.util.Locale)
+    /// public final java.lang.String java.util.logging.Level.toString()
 
-    /// final java.lang.String java.util.logging.Level.getCachedLocalizedLevelName()
-
-    /// final synchronized java.lang.String java.util.logging.Level.getLocalizedLevelName()
-
-    /// static java.util.logging.Level java.util.logging.Level.findLevel(java.lang.String)
+    // Skipping method: false true false false false 
 
 }
 

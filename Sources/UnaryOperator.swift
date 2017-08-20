@@ -25,23 +25,40 @@ open class UnaryOperatorForward: FunctionForward, UnaryOperator {
     private static var identity_MethodID_2: jmethodID?
 
     open class func identity() -> UnaryOperator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/function/UnaryOperator", classCache: &UnaryOperatorJNIClass, methodName: "identity", methodSig: "()Ljava/util/function/UnaryOperator;", methodCache: &identity_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? UnaryOperatorForward( javaObject: __return ) : nil
     }
 
 
+    /// public default java.util.function.Function java.util.function.Function.andThen(java.util.function.Function)
+
+    private static var andThen_MethodID_3: jmethodID?
+
+    override open func andThen( after: Function? ) -> Function! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: after, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/Function;)Ljava/util/function/Function;", methodCache: &UnaryOperatorForward.andThen_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? FunctionForward( javaObject: __return ) : nil
+    }
+
+    override open func andThen( _ _after: Function? ) -> Function! {
+        return andThen( after: _after )
+    }
+
     /// public abstract java.lang.Object java.util.function.Function.apply(java.lang.Object)
 
-    private static var apply_MethodID_3: jmethodID?
+    private static var apply_MethodID_4: jmethodID?
 
     override open func apply( t: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: t, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "apply", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &UnaryOperatorForward.apply_MethodID_3, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "apply", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &UnaryOperatorForward.apply_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -52,13 +69,13 @@ open class UnaryOperatorForward: FunctionForward, UnaryOperator {
 
     /// public default java.util.function.Function java.util.function.Function.compose(java.util.function.Function)
 
-    private static var compose_MethodID_4: jmethodID?
+    private static var compose_MethodID_5: jmethodID?
 
     override open func compose( before: Function? ) -> Function! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: before, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compose", methodSig: "(Ljava/util/function/Function;)Ljava/util/function/Function;", methodCache: &UnaryOperatorForward.compose_MethodID_4, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compose", methodSig: "(Ljava/util/function/Function;)Ljava/util/function/Function;", methodCache: &UnaryOperatorForward.compose_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? FunctionForward( javaObject: __return ) : nil
     }
@@ -67,23 +84,5 @@ open class UnaryOperatorForward: FunctionForward, UnaryOperator {
         return compose( before: _before )
     }
 
-    /// public default java.util.function.Function java.util.function.Function.andThen(java.util.function.Function)
-
-    private static var andThen_MethodID_5: jmethodID?
-
-    override open func andThen( after: Function? ) -> Function! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: after, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/Function;)Ljava/util/function/Function;", methodCache: &UnaryOperatorForward.andThen_MethodID_5, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? FunctionForward( javaObject: __return ) : nil
-    }
-
-    override open func andThen( _ _after: Function? ) -> Function! {
-        return andThen( after: _after )
-    }
-
 }
-
 

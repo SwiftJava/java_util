@@ -16,11 +16,11 @@ open class PreferenceChangeEvent: EventObject {
 
     private static var PreferenceChangeEventJNIClass: jclass?
 
+    /// private static final long java.util.prefs.PreferenceChangeEvent.serialVersionUID
+
     /// private java.lang.String java.util.prefs.PreferenceChangeEvent.key
 
     /// private java.lang.String java.util.prefs.PreferenceChangeEvent.newValue
-
-    /// private static final long java.util.prefs.PreferenceChangeEvent.serialVersionUID
 
     /// private static final long java.util.EventObject.serialVersionUID
 
@@ -30,8 +30,8 @@ open class PreferenceChangeEvent: EventObject {
 
     override open var source: java_swift.JavaObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &PreferenceChangeEvent.source_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &PreferenceChangeEvent.source_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? java_swift.JavaObject( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -46,8 +46,8 @@ open class PreferenceChangeEvent: EventObject {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( node: Preferences?, key: String?, newValue: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: node, locals: &__locals )
         __args[1] = JNIType.toJava( value: key, locals: &__locals )
         __args[2] = JNIType.toJava( value: newValue, locals: &__locals )
@@ -65,41 +65,43 @@ open class PreferenceChangeEvent: EventObject {
     private static var getKey_MethodID_2: jmethodID?
 
     open func getKey() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getKey", methodSig: "()Ljava/lang/String;", methodCache: &PreferenceChangeEvent.getKey_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.prefs.PreferenceChangeEvent.getNewValue()
+
+    private static var getNewValue_MethodID_3: jmethodID?
+
+    open func getNewValue() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getNewValue", methodSig: "()Ljava/lang/String;", methodCache: &PreferenceChangeEvent.getNewValue_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.prefs.Preferences java.util.prefs.PreferenceChangeEvent.getNode()
+
+    private static var getNode_MethodID_4: jmethodID?
+
+    open func getNode() -> Preferences! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getNode", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &PreferenceChangeEvent.getNode_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? Preferences( javaObject: __return ) : nil
     }
 
 
     /// private void java.util.prefs.PreferenceChangeEvent.readObject(java.io.ObjectInputStream) throws java.io.NotSerializableException
 
     /// private void java.util.prefs.PreferenceChangeEvent.writeObject(java.io.ObjectOutputStream) throws java.io.NotSerializableException
-
-    /// public java.util.prefs.Preferences java.util.prefs.PreferenceChangeEvent.getNode()
-
-    private static var getNode_MethodID_3: jmethodID?
-
-    open func getNode() -> Preferences! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getNode", methodSig: "()Ljava/util/prefs/Preferences;", methodCache: &PreferenceChangeEvent.getNode_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Preferences( javaObject: __return ) : nil
-    }
-
-
-    /// public java.lang.String java.util.prefs.PreferenceChangeEvent.getNewValue()
-
-    private static var getNewValue_MethodID_4: jmethodID?
-
-    open func getNewValue() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getNewValue", methodSig: "()Ljava/lang/String;", methodCache: &PreferenceChangeEvent.getNewValue_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
 
 }
 

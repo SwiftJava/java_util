@@ -27,8 +27,8 @@ open class ReadWriteLockForward: JNIObjectForward, ReadWriteLock {
     private static var readLock_MethodID_3: jmethodID?
 
     open func readLock() -> Lock! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "readLock", methodSig: "()Ljava/util/concurrent/locks/Lock;", methodCache: &ReadWriteLockForward.readLock_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LockForward( javaObject: __return ) : nil
@@ -40,8 +40,8 @@ open class ReadWriteLockForward: JNIObjectForward, ReadWriteLock {
     private static var writeLock_MethodID_4: jmethodID?
 
     open func writeLock() -> Lock! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "writeLock", methodSig: "()Ljava/util/concurrent/locks/Lock;", methodCache: &ReadWriteLockForward.writeLock_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LockForward( javaObject: __return ) : nil
@@ -49,5 +49,4 @@ open class ReadWriteLockForward: JNIObjectForward, ReadWriteLock {
 
 
 }
-
 

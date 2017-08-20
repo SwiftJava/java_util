@@ -23,8 +23,8 @@ open class RejectedExecutionHandlerForward: JNIObjectForward, RejectedExecutionH
     private static var rejectedExecution_MethodID_2: jmethodID?
 
     open func rejectedExecution( r: java_swift.Runnable?, executor: ThreadPoolExecutor? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: r, locals: &__locals )
         __args[1] = JNIType.toJava( value: executor, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "rejectedExecution", methodSig: "(Ljava/lang/Runnable;Ljava/util/concurrent/ThreadPoolExecutor;)V", methodCache: &RejectedExecutionHandlerForward.rejectedExecution_MethodID_2, args: &__args, locals: &__locals )
@@ -36,13 +36,10 @@ open class RejectedExecutionHandlerForward: JNIObjectForward, RejectedExecutionH
 
 }
 
-
 private typealias RejectedExecutionHandler_rejectedExecution_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject?, _: jobject? ) -> ()
 
 private func RejectedExecutionHandler_rejectedExecution_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ r: jobject?, _ executor: jobject? ) -> () {
-    JNI.inNative = true;
     RejectedExecutionHandlerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).rejectedExecution( r: r != nil ? java_swift.RunnableForward( javaObject: r ) : nil, executor: executor != nil ? ThreadPoolExecutor( javaObject: executor ) : nil )
-    JNI.inNative = false;
 }
 
 fileprivate class RejectedExecutionHandlerLocal_: JNILocalProxy<RejectedExecutionHandler, Any> {
@@ -89,8 +86,5 @@ open class RejectedExecutionHandlerBase: RejectedExecutionHandler {
     open func rejectedExecution( r: java_swift.Runnable?, executor: ThreadPoolExecutor? ) /**/ {
     }
 
-    open func rejectedExecution( _ _r: java_swift.Runnable?, _ _executor: ThreadPoolExecutor? ) /**/ {
-        rejectedExecution( r: _r, executor: _executor )
-    }
 
 }

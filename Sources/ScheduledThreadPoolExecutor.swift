@@ -16,19 +16,19 @@ open class ScheduledThreadPoolExecutor: ThreadPoolExecutor, ScheduledExecutorSer
 
     private static var ScheduledThreadPoolExecutorJNIClass: jclass?
 
+    /// private static final java.util.concurrent.atomic.AtomicLong java.util.concurrent.ScheduledThreadPoolExecutor.sequencer
+
     /// private volatile boolean java.util.concurrent.ScheduledThreadPoolExecutor.continueExistingPeriodicTasksAfterShutdown
 
     /// private volatile boolean java.util.concurrent.ScheduledThreadPoolExecutor.executeExistingDelayedTasksAfterShutdown
 
     /// private volatile boolean java.util.concurrent.ScheduledThreadPoolExecutor.removeOnCancel
 
-    /// private static final java.util.concurrent.atomic.AtomicLong java.util.concurrent.ScheduledThreadPoolExecutor.sequencer
-
-    /// private final java.util.concurrent.atomic.AtomicInteger java.util.concurrent.ThreadPoolExecutor.ctl
+    /// private static final int java.util.concurrent.ThreadPoolExecutor.CAPACITY
 
     /// private static final int java.util.concurrent.ThreadPoolExecutor.COUNT_BITS
 
-    /// private static final int java.util.concurrent.ThreadPoolExecutor.CAPACITY
+    /// private static final boolean java.util.concurrent.ThreadPoolExecutor.ONLY_ONE
 
     /// private static final int java.util.concurrent.ThreadPoolExecutor.RUNNING
 
@@ -36,70 +36,53 @@ open class ScheduledThreadPoolExecutor: ThreadPoolExecutor, ScheduledExecutorSer
 
     /// private static final int java.util.concurrent.ThreadPoolExecutor.STOP
 
-    /// private static final int java.util.concurrent.ThreadPoolExecutor.TIDYING
-
     /// private static final int java.util.concurrent.ThreadPoolExecutor.TERMINATED
 
-    /// private final java.util.concurrent.BlockingQueue java.util.concurrent.ThreadPoolExecutor.workQueue
-
-    /// private final java.util.concurrent.locks.ReentrantLock java.util.concurrent.ThreadPoolExecutor.mainLock
-
-    /// private final java.util.HashSet java.util.concurrent.ThreadPoolExecutor.workers
-
-    /// private final java.util.concurrent.locks.Condition java.util.concurrent.ThreadPoolExecutor.termination
-
-    /// private int java.util.concurrent.ThreadPoolExecutor.largestPoolSize
-
-    /// private long java.util.concurrent.ThreadPoolExecutor.completedTaskCount
-
-    /// private volatile java.util.concurrent.ThreadFactory java.util.concurrent.ThreadPoolExecutor.threadFactory
-
-    /// private volatile java.util.concurrent.RejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor.handler
-
-    /// private volatile long java.util.concurrent.ThreadPoolExecutor.keepAliveTime
-
-    /// private volatile boolean java.util.concurrent.ThreadPoolExecutor.allowCoreThreadTimeOut
-
-    /// private volatile int java.util.concurrent.ThreadPoolExecutor.corePoolSize
-
-    /// private volatile int java.util.concurrent.ThreadPoolExecutor.maximumPoolSize
+    /// private static final int java.util.concurrent.ThreadPoolExecutor.TIDYING
 
     /// private static final java.util.concurrent.RejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor.defaultHandler
 
     /// private static final java.lang.RuntimePermission java.util.concurrent.ThreadPoolExecutor.shutdownPerm
 
-    /// private static final boolean java.util.concurrent.ThreadPoolExecutor.ONLY_ONE
+    /// private volatile boolean java.util.concurrent.ThreadPoolExecutor.allowCoreThreadTimeOut
+
+    /// private long java.util.concurrent.ThreadPoolExecutor.completedTaskCount
+
+    /// private volatile int java.util.concurrent.ThreadPoolExecutor.corePoolSize
+
+    /// private final java.util.concurrent.atomic.AtomicInteger java.util.concurrent.ThreadPoolExecutor.ctl
+
+    /// private volatile java.util.concurrent.RejectedExecutionHandler java.util.concurrent.ThreadPoolExecutor.handler
+
+    /// private volatile long java.util.concurrent.ThreadPoolExecutor.keepAliveTime
+
+    /// private int java.util.concurrent.ThreadPoolExecutor.largestPoolSize
+
+    /// private final java.util.concurrent.locks.ReentrantLock java.util.concurrent.ThreadPoolExecutor.mainLock
+
+    /// private volatile int java.util.concurrent.ThreadPoolExecutor.maximumPoolSize
+
+    /// private final java.util.concurrent.locks.Condition java.util.concurrent.ThreadPoolExecutor.termination
+
+    /// private volatile java.util.concurrent.ThreadFactory java.util.concurrent.ThreadPoolExecutor.threadFactory
+
+    /// private final java.util.concurrent.BlockingQueue java.util.concurrent.ThreadPoolExecutor.workQueue
+
+    /// private final java.util.HashSet java.util.concurrent.ThreadPoolExecutor.workers
 
     /// static final boolean java.util.concurrent.AbstractExecutorService.$assertionsDisabled
 
-    /// public java.util.concurrent.ScheduledThreadPoolExecutor(int,java.util.concurrent.ThreadFactory,java.util.concurrent.RejectedExecutionHandler)
-
-    private static var new_MethodID_1: jmethodID?
-
-    public convenience init( corePoolSize: Int, threadFactory: ThreadFactory?, handler: RejectedExecutionHandler? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
-        __args[1] = JNIType.toJava( value: threadFactory, locals: &__locals )
-        __args[2] = JNIType.toJava( value: handler, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ScheduledThreadPoolExecutor", classCache: &ScheduledThreadPoolExecutor.ScheduledThreadPoolExecutorJNIClass, methodSig: "(ILjava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ScheduledThreadPoolExecutor.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _corePoolSize: Int, _ _threadFactory: ThreadFactory?, _ _handler: RejectedExecutionHandler? ) {
-        self.init( corePoolSize: _corePoolSize, threadFactory: _threadFactory, handler: _handler )
-    }
+    // Skipping field: true false false false false false 
 
     /// public java.util.concurrent.ScheduledThreadPoolExecutor(int)
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_1: jmethodID?
 
     public convenience init( corePoolSize: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ScheduledThreadPoolExecutor", classCache: &ScheduledThreadPoolExecutor.ScheduledThreadPoolExecutorJNIClass, methodSig: "(I)V", methodCache: &ScheduledThreadPoolExecutor.new_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(corePoolSize) )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ScheduledThreadPoolExecutor", classCache: &ScheduledThreadPoolExecutor.ScheduledThreadPoolExecutorJNIClass, methodSig: "(I)V", methodCache: &ScheduledThreadPoolExecutor.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -108,14 +91,32 @@ open class ScheduledThreadPoolExecutor: ThreadPoolExecutor, ScheduledExecutorSer
         self.init( corePoolSize: _corePoolSize )
     }
 
+    /// public java.util.concurrent.ScheduledThreadPoolExecutor(int,java.util.concurrent.RejectedExecutionHandler)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( corePoolSize: Int, handler: RejectedExecutionHandler? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(corePoolSize) )
+        __args[1] = JNIType.toJava( value: handler, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ScheduledThreadPoolExecutor", classCache: &ScheduledThreadPoolExecutor.ScheduledThreadPoolExecutorJNIClass, methodSig: "(ILjava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ScheduledThreadPoolExecutor.new_MethodID_2, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _corePoolSize: Int, _ _handler: RejectedExecutionHandler? ) {
+        self.init( corePoolSize: _corePoolSize, handler: _handler )
+    }
+
     /// public java.util.concurrent.ScheduledThreadPoolExecutor(int,java.util.concurrent.ThreadFactory)
 
     private static var new_MethodID_3: jmethodID?
 
     public convenience init( corePoolSize: Int, threadFactory: ThreadFactory? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(corePoolSize) )
         __args[1] = JNIType.toJava( value: threadFactory, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/ScheduledThreadPoolExecutor", classCache: &ScheduledThreadPoolExecutor.ScheduledThreadPoolExecutorJNIClass, methodSig: "(ILjava/util/concurrent/ThreadFactory;)V", methodCache: &ScheduledThreadPoolExecutor.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -126,45 +127,144 @@ open class ScheduledThreadPoolExecutor: ThreadPoolExecutor, ScheduledExecutorSer
         self.init( corePoolSize: _corePoolSize, threadFactory: _threadFactory )
     }
 
-    /// public java.util.concurrent.ScheduledThreadPoolExecutor(int,java.util.concurrent.RejectedExecutionHandler)
+    /// public java.util.concurrent.ScheduledThreadPoolExecutor(int,java.util.concurrent.ThreadFactory,java.util.concurrent.RejectedExecutionHandler)
 
     private static var new_MethodID_4: jmethodID?
 
-    public convenience init( corePoolSize: Int, handler: RejectedExecutionHandler? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( corePoolSize: Int, threadFactory: ThreadFactory?, handler: RejectedExecutionHandler? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: corePoolSize, locals: &__locals )
-        __args[1] = JNIType.toJava( value: handler, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ScheduledThreadPoolExecutor", classCache: &ScheduledThreadPoolExecutor.ScheduledThreadPoolExecutorJNIClass, methodSig: "(ILjava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ScheduledThreadPoolExecutor.new_MethodID_4, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( i: jint(corePoolSize) )
+        __args[1] = JNIType.toJava( value: threadFactory, locals: &__locals )
+        __args[2] = JNIType.toJava( value: handler, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/concurrent/ScheduledThreadPoolExecutor", classCache: &ScheduledThreadPoolExecutor.ScheduledThreadPoolExecutorJNIClass, methodSig: "(ILjava/util/concurrent/ThreadFactory;Ljava/util/concurrent/RejectedExecutionHandler;)V", methodCache: &ScheduledThreadPoolExecutor.new_MethodID_4, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _corePoolSize: Int, _ _handler: RejectedExecutionHandler? ) {
-        self.init( corePoolSize: _corePoolSize, handler: _handler )
+    public convenience init( _ _corePoolSize: Int, _ _threadFactory: ThreadFactory?, _ _handler: RejectedExecutionHandler? ) {
+        self.init( corePoolSize: _corePoolSize, threadFactory: _threadFactory, handler: _handler )
     }
-
-    /// public void java.util.concurrent.ScheduledThreadPoolExecutor.shutdown()
-
-    /// static boolean java.util.concurrent.ScheduledThreadPoolExecutor.access$100(java.util.concurrent.ScheduledThreadPoolExecutor)
 
     /// static java.util.concurrent.atomic.AtomicLong java.util.concurrent.ScheduledThreadPoolExecutor.access$000()
 
+    // Skipping method: true false false false false 
+
+    /// static boolean java.util.concurrent.ScheduledThreadPoolExecutor.access$100(java.util.concurrent.ScheduledThreadPoolExecutor)
+
+    // Skipping method: true false false false false 
+
+    /// boolean java.util.concurrent.ScheduledThreadPoolExecutor.canRunInCurrentRunState(boolean)
+
+    // Skipping method: true false false false false 
+
+    /// protected java.util.concurrent.RunnableScheduledFuture java.util.concurrent.ScheduledThreadPoolExecutor.decorateTask(java.util.concurrent.Callable,java.util.concurrent.RunnableScheduledFuture)
+
+    private static var decorateTask_MethodID_5: jmethodID?
+
+    open func decorateTask( callable: Callable?, task: RunnableScheduledFuture? ) -> RunnableScheduledFuture! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: callable, locals: &__locals )
+        __args[1] = JNIType.toJava( value: task, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "decorateTask", methodSig: "(Ljava/util/concurrent/Callable;Ljava/util/concurrent/RunnableScheduledFuture;)Ljava/util/concurrent/RunnableScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.decorateTask_MethodID_5, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? RunnableScheduledFutureForward( javaObject: __return ) : nil
+    }
+
+    open func decorateTask( _ _callable: Callable?, _ _task: RunnableScheduledFuture? ) -> RunnableScheduledFuture! {
+        return decorateTask( callable: _callable, task: _task )
+    }
+
+    /// protected java.util.concurrent.RunnableScheduledFuture java.util.concurrent.ScheduledThreadPoolExecutor.decorateTask(java.lang.Runnable,java.util.concurrent.RunnableScheduledFuture)
+
+    private static var decorateTask_MethodID_6: jmethodID?
+
+    open func decorateTask( runnable: java_swift.Runnable?, task: RunnableScheduledFuture? ) -> RunnableScheduledFuture! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: runnable, locals: &__locals )
+        __args[1] = JNIType.toJava( value: task, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "decorateTask", methodSig: "(Ljava/lang/Runnable;Ljava/util/concurrent/RunnableScheduledFuture;)Ljava/util/concurrent/RunnableScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.decorateTask_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? RunnableScheduledFutureForward( javaObject: __return ) : nil
+    }
+
+    open func decorateTask( _ _runnable: java_swift.Runnable?, _ _task: RunnableScheduledFuture? ) -> RunnableScheduledFuture! {
+        return decorateTask( runnable: _runnable, task: _task )
+    }
+
+    /// private void java.util.concurrent.ScheduledThreadPoolExecutor.delayedExecute(java.util.concurrent.RunnableScheduledFuture)
+
     /// public void java.util.concurrent.ScheduledThreadPoolExecutor.execute(java.lang.Runnable)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.ScheduledThreadPoolExecutor.getContinueExistingPeriodicTasksAfterShutdownPolicy()
+
+    private static var getContinueExistingPeriodicTasksAfterShutdownPolicy_MethodID_7: jmethodID?
+
+    open func getContinueExistingPeriodicTasksAfterShutdownPolicy() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getContinueExistingPeriodicTasksAfterShutdownPolicy", methodSig: "()Z", methodCache: &ScheduledThreadPoolExecutor.getContinueExistingPeriodicTasksAfterShutdownPolicy_MethodID_7, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public boolean java.util.concurrent.ScheduledThreadPoolExecutor.getExecuteExistingDelayedTasksAfterShutdownPolicy()
+
+    private static var getExecuteExistingDelayedTasksAfterShutdownPolicy_MethodID_8: jmethodID?
+
+    open func getExecuteExistingDelayedTasksAfterShutdownPolicy() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getExecuteExistingDelayedTasksAfterShutdownPolicy", methodSig: "()Z", methodCache: &ScheduledThreadPoolExecutor.getExecuteExistingDelayedTasksAfterShutdownPolicy_MethodID_8, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public java.util.concurrent.BlockingQueue java.util.concurrent.ScheduledThreadPoolExecutor.getQueue()
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.ScheduledThreadPoolExecutor.getRemoveOnCancelPolicy()
+
+    private static var getRemoveOnCancelPolicy_MethodID_9: jmethodID?
+
+    open func getRemoveOnCancelPolicy() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getRemoveOnCancelPolicy", methodSig: "()Z", methodCache: &ScheduledThreadPoolExecutor.getRemoveOnCancelPolicy_MethodID_9, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
 
     /// final long java.util.concurrent.ScheduledThreadPoolExecutor.now()
 
+    // Skipping method: true false false false false 
+
+    /// void java.util.concurrent.ScheduledThreadPoolExecutor.onShutdown()
+
+    // Skipping method: true false false false false 
+
+    /// private long java.util.concurrent.ScheduledThreadPoolExecutor.overflowFree(long)
+
+    /// void java.util.concurrent.ScheduledThreadPoolExecutor.reExecutePeriodic(java.util.concurrent.RunnableScheduledFuture)
+
+    // Skipping method: true false false false false 
+
     /// public java.util.concurrent.ScheduledFuture java.util.concurrent.ScheduledThreadPoolExecutor.schedule(java.util.concurrent.Callable,long,java.util.concurrent.TimeUnit)
 
-    private static var schedule_MethodID_5: jmethodID?
+    private static var schedule_MethodID_10: jmethodID?
 
     open func schedule( callable: Callable?, delay: Int64, unit: TimeUnit? ) -> ScheduledFuture! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: callable, locals: &__locals )
-        __args[1] = JNIType.toJava( value: delay, locals: &__locals )
+        __args[1] = jvalue( j: delay )
         __args[2] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.schedule_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/util/concurrent/Callable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.schedule_MethodID_10, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ScheduledFutureForward( javaObject: __return ) : nil
     }
@@ -175,15 +275,15 @@ open class ScheduledThreadPoolExecutor: ThreadPoolExecutor, ScheduledExecutorSer
 
     /// public java.util.concurrent.ScheduledFuture java.util.concurrent.ScheduledThreadPoolExecutor.schedule(java.lang.Runnable,long,java.util.concurrent.TimeUnit)
 
-    private static var schedule_MethodID_6: jmethodID?
+    private static var schedule_MethodID_11: jmethodID?
 
     open func schedule( command: java_swift.Runnable?, delay: Int64, unit: TimeUnit? ) -> ScheduledFuture! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: command, locals: &__locals )
-        __args[1] = JNIType.toJava( value: delay, locals: &__locals )
+        __args[1] = jvalue( j: delay )
         __args[2] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.schedule_MethodID_6, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "schedule", methodSig: "(Ljava/lang/Runnable;JLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.schedule_MethodID_11, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ScheduledFutureForward( javaObject: __return ) : nil
     }
@@ -194,16 +294,16 @@ open class ScheduledThreadPoolExecutor: ThreadPoolExecutor, ScheduledExecutorSer
 
     /// public java.util.concurrent.ScheduledFuture java.util.concurrent.ScheduledThreadPoolExecutor.scheduleAtFixedRate(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)
 
-    private static var scheduleAtFixedRate_MethodID_7: jmethodID?
+    private static var scheduleAtFixedRate_MethodID_12: jmethodID?
 
     open func scheduleAtFixedRate( command: java_swift.Runnable?, initialDelay: Int64, period: Int64, unit: TimeUnit? ) -> ScheduledFuture! {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         __args[0] = JNIType.toJava( value: command, locals: &__locals )
-        __args[1] = JNIType.toJava( value: initialDelay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: period, locals: &__locals )
+        __args[1] = jvalue( j: initialDelay )
+        __args[2] = jvalue( j: period )
         __args[3] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "scheduleAtFixedRate", methodSig: "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.scheduleAtFixedRate_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "scheduleAtFixedRate", methodSig: "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.scheduleAtFixedRate_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ScheduledFutureForward( javaObject: __return ) : nil
     }
@@ -212,26 +312,18 @@ open class ScheduledThreadPoolExecutor: ThreadPoolExecutor, ScheduledExecutorSer
         return scheduleAtFixedRate( command: _command, initialDelay: _initialDelay, period: _period, unit: _unit )
     }
 
-    /// public java.util.concurrent.Future java.util.concurrent.ScheduledThreadPoolExecutor.submit(java.util.concurrent.Callable)
-
-    /// public java.util.concurrent.Future java.util.concurrent.ScheduledThreadPoolExecutor.submit(java.lang.Runnable)
-
-    /// public java.util.concurrent.Future java.util.concurrent.ScheduledThreadPoolExecutor.submit(java.lang.Runnable,java.lang.Object)
-
-    /// public java.util.List java.util.concurrent.ScheduledThreadPoolExecutor.shutdownNow()
-
     /// public java.util.concurrent.ScheduledFuture java.util.concurrent.ScheduledThreadPoolExecutor.scheduleWithFixedDelay(java.lang.Runnable,long,long,java.util.concurrent.TimeUnit)
 
-    private static var scheduleWithFixedDelay_MethodID_8: jmethodID?
+    private static var scheduleWithFixedDelay_MethodID_13: jmethodID?
 
     open func scheduleWithFixedDelay( command: java_swift.Runnable?, initialDelay: Int64, delay: Int64, unit: TimeUnit? ) -> ScheduledFuture! {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         __args[0] = JNIType.toJava( value: command, locals: &__locals )
-        __args[1] = JNIType.toJava( value: initialDelay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: delay, locals: &__locals )
+        __args[1] = jvalue( j: initialDelay )
+        __args[2] = jvalue( j: delay )
         __args[3] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "scheduleWithFixedDelay", methodSig: "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.scheduleWithFixedDelay_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "scheduleWithFixedDelay", methodSig: "(Ljava/lang/Runnable;JJLjava/util/concurrent/TimeUnit;)Ljava/util/concurrent/ScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.scheduleWithFixedDelay_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ScheduledFutureForward( javaObject: __return ) : nil
     }
@@ -240,166 +332,130 @@ open class ScheduledThreadPoolExecutor: ThreadPoolExecutor, ScheduledExecutorSer
         return scheduleWithFixedDelay( command: _command, initialDelay: _initialDelay, delay: _delay, unit: _unit )
     }
 
-    /// private long java.util.concurrent.ScheduledThreadPoolExecutor.triggerTime(long,java.util.concurrent.TimeUnit)
-
-    /// long java.util.concurrent.ScheduledThreadPoolExecutor.triggerTime(long)
-
-    /// boolean java.util.concurrent.ScheduledThreadPoolExecutor.canRunInCurrentRunState(boolean)
-
-    /// void java.util.concurrent.ScheduledThreadPoolExecutor.reExecutePeriodic(java.util.concurrent.RunnableScheduledFuture)
-
-    /// private void java.util.concurrent.ScheduledThreadPoolExecutor.delayedExecute(java.util.concurrent.RunnableScheduledFuture)
-
-    /// void java.util.concurrent.ScheduledThreadPoolExecutor.onShutdown()
-
-    /// protected java.util.concurrent.RunnableScheduledFuture java.util.concurrent.ScheduledThreadPoolExecutor.decorateTask(java.lang.Runnable,java.util.concurrent.RunnableScheduledFuture)
-
-    private static var decorateTask_MethodID_9: jmethodID?
-
-    open func decorateTask( runnable: java_swift.Runnable?, task: RunnableScheduledFuture? ) -> RunnableScheduledFuture! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: runnable, locals: &__locals )
-        __args[1] = JNIType.toJava( value: task, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "decorateTask", methodSig: "(Ljava/lang/Runnable;Ljava/util/concurrent/RunnableScheduledFuture;)Ljava/util/concurrent/RunnableScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.decorateTask_MethodID_9, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? RunnableScheduledFutureForward( javaObject: __return ) : nil
-    }
-
-    open func decorateTask( _ _runnable: java_swift.Runnable?, _ _task: RunnableScheduledFuture? ) -> RunnableScheduledFuture! {
-        return decorateTask( runnable: _runnable, task: _task )
-    }
-
-    /// protected java.util.concurrent.RunnableScheduledFuture java.util.concurrent.ScheduledThreadPoolExecutor.decorateTask(java.util.concurrent.Callable,java.util.concurrent.RunnableScheduledFuture)
-
-    private static var decorateTask_MethodID_10: jmethodID?
-
-    open func decorateTask( callable: Callable?, task: RunnableScheduledFuture? ) -> RunnableScheduledFuture! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: callable, locals: &__locals )
-        __args[1] = JNIType.toJava( value: task, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "decorateTask", methodSig: "(Ljava/util/concurrent/Callable;Ljava/util/concurrent/RunnableScheduledFuture;)Ljava/util/concurrent/RunnableScheduledFuture;", methodCache: &ScheduledThreadPoolExecutor.decorateTask_MethodID_10, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? RunnableScheduledFutureForward( javaObject: __return ) : nil
-    }
-
-    open func decorateTask( _ _callable: Callable?, _ _task: RunnableScheduledFuture? ) -> RunnableScheduledFuture! {
-        return decorateTask( callable: _callable, task: _task )
-    }
-
-    /// private long java.util.concurrent.ScheduledThreadPoolExecutor.overflowFree(long)
-
     /// public void java.util.concurrent.ScheduledThreadPoolExecutor.setContinueExistingPeriodicTasksAfterShutdownPolicy(boolean)
 
-    private static var setContinueExistingPeriodicTasksAfterShutdownPolicy_MethodID_11: jmethodID?
+    private static var setContinueExistingPeriodicTasksAfterShutdownPolicy_MethodID_14: jmethodID?
 
     open func setContinueExistingPeriodicTasksAfterShutdownPolicy( value: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setContinueExistingPeriodicTasksAfterShutdownPolicy", methodSig: "(Z)V", methodCache: &ScheduledThreadPoolExecutor.setContinueExistingPeriodicTasksAfterShutdownPolicy_MethodID_11, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(value ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setContinueExistingPeriodicTasksAfterShutdownPolicy", methodSig: "(Z)V", methodCache: &ScheduledThreadPoolExecutor.setContinueExistingPeriodicTasksAfterShutdownPolicy_MethodID_14, args: &__args, locals: &__locals )
     }
 
     open func setContinueExistingPeriodicTasksAfterShutdownPolicy( _ _value: Bool ) {
         setContinueExistingPeriodicTasksAfterShutdownPolicy( value: _value )
     }
 
-    /// public boolean java.util.concurrent.ScheduledThreadPoolExecutor.getContinueExistingPeriodicTasksAfterShutdownPolicy()
-
-    private static var getContinueExistingPeriodicTasksAfterShutdownPolicy_MethodID_12: jmethodID?
-
-    open func getContinueExistingPeriodicTasksAfterShutdownPolicy() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getContinueExistingPeriodicTasksAfterShutdownPolicy", methodSig: "()Z", methodCache: &ScheduledThreadPoolExecutor.getContinueExistingPeriodicTasksAfterShutdownPolicy_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
     /// public void java.util.concurrent.ScheduledThreadPoolExecutor.setExecuteExistingDelayedTasksAfterShutdownPolicy(boolean)
 
-    private static var setExecuteExistingDelayedTasksAfterShutdownPolicy_MethodID_13: jmethodID?
+    private static var setExecuteExistingDelayedTasksAfterShutdownPolicy_MethodID_15: jmethodID?
 
     open func setExecuteExistingDelayedTasksAfterShutdownPolicy( value: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setExecuteExistingDelayedTasksAfterShutdownPolicy", methodSig: "(Z)V", methodCache: &ScheduledThreadPoolExecutor.setExecuteExistingDelayedTasksAfterShutdownPolicy_MethodID_13, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(value ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setExecuteExistingDelayedTasksAfterShutdownPolicy", methodSig: "(Z)V", methodCache: &ScheduledThreadPoolExecutor.setExecuteExistingDelayedTasksAfterShutdownPolicy_MethodID_15, args: &__args, locals: &__locals )
     }
 
     open func setExecuteExistingDelayedTasksAfterShutdownPolicy( _ _value: Bool ) {
         setExecuteExistingDelayedTasksAfterShutdownPolicy( value: _value )
     }
 
-    /// public boolean java.util.concurrent.ScheduledThreadPoolExecutor.getExecuteExistingDelayedTasksAfterShutdownPolicy()
-
-    private static var getExecuteExistingDelayedTasksAfterShutdownPolicy_MethodID_14: jmethodID?
-
-    open func getExecuteExistingDelayedTasksAfterShutdownPolicy() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getExecuteExistingDelayedTasksAfterShutdownPolicy", methodSig: "()Z", methodCache: &ScheduledThreadPoolExecutor.getExecuteExistingDelayedTasksAfterShutdownPolicy_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
     /// public void java.util.concurrent.ScheduledThreadPoolExecutor.setRemoveOnCancelPolicy(boolean)
 
-    private static var setRemoveOnCancelPolicy_MethodID_15: jmethodID?
+    private static var setRemoveOnCancelPolicy_MethodID_16: jmethodID?
 
     open func setRemoveOnCancelPolicy( value: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRemoveOnCancelPolicy", methodSig: "(Z)V", methodCache: &ScheduledThreadPoolExecutor.setRemoveOnCancelPolicy_MethodID_15, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(value ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRemoveOnCancelPolicy", methodSig: "(Z)V", methodCache: &ScheduledThreadPoolExecutor.setRemoveOnCancelPolicy_MethodID_16, args: &__args, locals: &__locals )
     }
 
     open func setRemoveOnCancelPolicy( _ _value: Bool ) {
         setRemoveOnCancelPolicy( value: _value )
     }
 
-    /// public boolean java.util.concurrent.ScheduledThreadPoolExecutor.getRemoveOnCancelPolicy()
+    /// public void java.util.concurrent.ScheduledThreadPoolExecutor.shutdown()
 
-    private static var getRemoveOnCancelPolicy_MethodID_16: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func getRemoveOnCancelPolicy() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getRemoveOnCancelPolicy", methodSig: "()Z", methodCache: &ScheduledThreadPoolExecutor.getRemoveOnCancelPolicy_MethodID_16, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
+    /// public java.util.List java.util.concurrent.ScheduledThreadPoolExecutor.shutdownNow()
 
+    // Skipping method: false true false false false 
 
-    /// public java.util.concurrent.BlockingQueue java.util.concurrent.ScheduledThreadPoolExecutor.getQueue()
+    /// public java.util.concurrent.Future java.util.concurrent.ScheduledThreadPoolExecutor.submit(java.util.concurrent.Callable)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.concurrent.Future java.util.concurrent.ScheduledThreadPoolExecutor.submit(java.lang.Runnable)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.concurrent.Future java.util.concurrent.ScheduledThreadPoolExecutor.submit(java.lang.Runnable,java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// long java.util.concurrent.ScheduledThreadPoolExecutor.triggerTime(long)
+
+    // Skipping method: true false false false false 
+
+    /// private long java.util.concurrent.ScheduledThreadPoolExecutor.triggerTime(long,java.util.concurrent.TimeUnit)
 
     /// In declared protocol but not defined.. ///
 
-    /// public abstract void java.util.concurrent.Executor.execute(java.lang.Runnable)
-
-    /// public abstract void java.util.concurrent.ExecutorService.shutdown()
-
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.util.concurrent.Callable)
-
-    /// public abstract java.util.List java.util.concurrent.ExecutorService.shutdownNow()
-
-    /// public abstract boolean java.util.concurrent.ExecutorService.isShutdown()
-
     /// public abstract boolean java.util.concurrent.ExecutorService.awaitTermination(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException
+    // Skipping method: false true false false false 
 
-    /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException
+    /// public abstract void java.util.concurrent.Executor.execute(java.lang.Runnable)
+
+    // Skipping method: false true false false false 
 
     /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection) throws java.lang.InterruptedException
 
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
+    // Skipping method: false true false false false 
 
     /// public abstract java.util.List java.util.concurrent.ExecutorService.invokeAll(java.util.Collection,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable,java.lang.Object)
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.concurrent.ExecutorService.invokeAny(java.util.Collection,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException,java.util.concurrent.ExecutionException,java.util.concurrent.TimeoutException
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.concurrent.ExecutorService.isShutdown()
+
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.concurrent.ExecutorService.isTerminated()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract void java.util.concurrent.ExecutorService.shutdown()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.List java.util.concurrent.ExecutorService.shutdownNow()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.util.concurrent.Callable)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.concurrent.Future java.util.concurrent.ExecutorService.submit(java.lang.Runnable,java.lang.Object)
+
+    // Skipping method: false true false false false 
 
 }
 

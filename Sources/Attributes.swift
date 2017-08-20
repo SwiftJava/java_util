@@ -7,20 +7,26 @@ import java_lang
 /// class java.util.jar.Attributes ///
 
 open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Cloneable {
-    public func computeIfAbsent(arg0: JavaObject?, arg1: UnclassedProtocol?) -> JavaObject! {
+    public func compute(arg0: JavaObject?, arg1: UnavailableProtocol?) -> JavaObject! {
         return nil
     }
 
-    public func computeIfPresent(arg0: JavaObject?, arg1: UnclassedProtocol?) -> JavaObject! {
+    public func computeIfAbsent(arg0: JavaObject?, arg1: UnavailableProtocol?) -> JavaObject! {
         return nil
     }
 
-    public func compute(arg0: JavaObject?, arg1: UnclassedProtocol?) -> JavaObject! {
+    public func computeIfPresent(arg0: JavaObject?, arg1: UnavailableProtocol?) -> JavaObject! {
         return nil
     }
 
-    public func merge(arg0: JavaObject?, arg1: JavaObject?, arg2: UnclassedProtocol?) -> JavaObject! {
+    public func forEach(arg0: UnavailableProtocol?) {
+    }
+
+    public func merge(arg0: JavaObject?, arg1: JavaObject?, arg2: UnavailableProtocol?) -> JavaObject! {
         return nil
+    }
+
+    public func replaceAll(arg0: UnavailableProtocol?) {
     }
 
 
@@ -42,9 +48,8 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
 
     open var map: java_swift.JavaMap! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "map", fieldType: "Ljava/util/Map;", fieldCache: &Attributes.map_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: java_swift.JavaMapForward(), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "map", fieldType: "Ljava/util/Map;", fieldCache: &Attributes.map_FieldID, object: javaObject )
+            return JNIType.toSwift( type: java_swift.JavaMapForward.self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -53,15 +58,27 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
         }
     }
 
-    /// public java.util.jar.Attributes(java.util.jar.Attributes)
+    /// public java.util.jar.Attributes()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( arg0: Attributes? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init() {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/Attributes", classCache: &Attributes.AttributesJNIClass, methodSig: "()V", methodCache: &Attributes.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.jar.Attributes(java.util.jar.Attributes)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( arg0: Attributes? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, mapClass: "java/util/jar/Attributes", locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/Attributes", classCache: &Attributes.AttributesJNIClass, methodSig: "(Ljava/util/jar/Attributes;)V", methodCache: &Attributes.new_MethodID_1, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/Attributes", classCache: &Attributes.AttributesJNIClass, methodSig: "(Ljava/util/jar/Attributes;)V", methodCache: &Attributes.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -72,13 +89,13 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
 
     /// public java.util.jar.Attributes(int)
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_3: jmethodID?
 
     public convenience init( arg0: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/Attributes", classCache: &Attributes.AttributesJNIClass, methodSig: "(I)V", methodCache: &Attributes.new_MethodID_2, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(arg0) )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/Attributes", classCache: &Attributes.AttributesJNIClass, methodSig: "(I)V", methodCache: &Attributes.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -87,44 +104,88 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
         self.init( arg0: _arg0 )
     }
 
-    /// public java.util.jar.Attributes()
+    /// public void java.util.jar.Attributes.clear()
 
-    private static var new_MethodID_3: jmethodID?
+    private static var clear_MethodID_4: jmethodID?
 
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func clear() {
         var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/jar/Attributes", classCache: &Attributes.AttributesJNIClass, methodSig: "()V", methodCache: &Attributes.new_MethodID_3, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "()V", methodCache: &Attributes.clear_MethodID_4, args: &__args, locals: &__locals )
     }
 
-    /// public java.lang.Object java.util.jar.Attributes.remove(java.lang.Object)
 
-    private static var remove_MethodID_4: jmethodID?
+    /// public java.lang.Object java.util.jar.Attributes.clone()
 
-    open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    private static var clone_MethodID_5: jmethodID?
+
+    override open func clone() -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.remove_MethodID_4, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &Attributes.clone_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-    open func remove( _ _arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return remove( arg0: _arg0 )
+
+    /// public boolean java.util.jar.Attributes.containsKey(java.lang.Object)
+
+    private static var containsKey_MethodID_6: jmethodID?
+
+    open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Attributes.containsKey_MethodID_6, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
+
+    open func containsKey( _ _arg0: java_swift.JavaObject? ) -> Bool {
+        return containsKey( arg0: _arg0 )
+    }
+
+    /// public boolean java.util.jar.Attributes.containsValue(java.lang.Object)
+
+    private static var containsValue_MethodID_7: jmethodID?
+
+    open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Attributes.containsValue_MethodID_7, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func containsValue( _ _arg0: java_swift.JavaObject? ) -> Bool {
+        return containsValue( arg0: _arg0 )
+    }
+
+    /// public java.util.Set java.util.jar.Attributes.entrySet()
+
+    private static var entrySet_MethodID_8: jmethodID?
+
+    open func entrySet() -> java_swift.JavaSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "entrySet", methodSig: "()Ljava/util/Set;", methodCache: &Attributes.entrySet_MethodID_8, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public boolean java.util.jar.Attributes.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
 
     /// public java.lang.Object java.util.jar.Attributes.get(java.lang.Object)
 
-    private static var get_MethodID_5: jmethodID?
+    private static var get_MethodID_9: jmethodID?
 
     open func get( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.get_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.get_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -133,16 +194,79 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
         return get( arg0: _arg0 )
     }
 
+    /// public java.lang.String java.util.jar.Attributes.getValue(java.lang.String)
+
+    private static var getValue_MethodID_10: jmethodID?
+
+    open func getValue( arg0: String? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getValue", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &Attributes.getValue_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getValue( _ _arg0: String? ) -> String! {
+        return getValue( arg0: _arg0 )
+    }
+
+    /// public java.lang.String java.util.jar.Attributes.getValue(java.util.jar.Attributes$Name)
+
+    private static var getValue_MethodID_11: jmethodID?
+
+    open func getValue( arg0: /* class java.util.jar.Attributes$Name */ UnavailableObject? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getValue", methodSig: "(Ljava/util/jar/Attributes$Name;)Ljava/lang/String;", methodCache: &Attributes.getValue_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getValue( _ _arg0: /* class java.util.jar.Attributes$Name */ UnavailableObject? ) -> String! {
+        return getValue( arg0: _arg0 )
+    }
+
+    /// public int java.util.jar.Attributes.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.jar.Attributes.isEmpty()
+
+    private static var isEmpty_MethodID_12: jmethodID?
+
+    open func isEmpty() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isEmpty", methodSig: "()Z", methodCache: &Attributes.isEmpty_MethodID_12, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public java.util.Set java.util.jar.Attributes.keySet()
+
+    private static var keySet_MethodID_13: jmethodID?
+
+    open func keySet() -> java_swift.JavaSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keySet", methodSig: "()Ljava/util/Set;", methodCache: &Attributes.keySet_MethodID_13, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+    }
+
+
     /// public java.lang.Object java.util.jar.Attributes.put(java.lang.Object,java.lang.Object)
 
-    private static var put_MethodID_6: jmethodID?
+    private static var put_MethodID_14: jmethodID?
 
     open func put( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.put_MethodID_6, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.put_MethodID_14, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -151,123 +275,13 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
         return put( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public boolean java.util.jar.Attributes.equals(java.lang.Object)
-
-    /// public java.util.Collection java.util.jar.Attributes.values()
-
-    private static var values_MethodID_7: jmethodID?
-
-    open func values() -> Collection! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "values", methodSig: "()Ljava/util/Collection;", methodCache: &Attributes.values_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? CollectionForward( javaObject: __return ) : nil
-    }
-
-
-    /// public int java.util.jar.Attributes.hashCode()
-
-    /// public java.lang.Object java.util.jar.Attributes.clone()
-
-    private static var clone_MethodID_8: jmethodID?
-
-    override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &Attributes.clone_MethodID_8, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public void java.util.jar.Attributes.clear()
-
-    private static var clear_MethodID_9: jmethodID?
-
-    open func clear() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "()V", methodCache: &Attributes.clear_MethodID_9, args: &__args, locals: &__locals )
-    }
-
-
-    /// public boolean java.util.jar.Attributes.isEmpty()
-
-    private static var isEmpty_MethodID_10: jmethodID?
-
-    open func isEmpty() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isEmpty", methodSig: "()Z", methodCache: &Attributes.isEmpty_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.jar.Attributes.getValue(java.util.jar.Attributes$Name)
-
-    private static var getValue_MethodID_11: jmethodID?
-
-    open func getValue( arg0: /* java.util.jar.Attributes$Name */ UnclassedObject? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getValue", methodSig: "(Ljava/util/jar/Attributes$Name;)Ljava/lang/String;", methodCache: &Attributes.getValue_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getValue( _ _arg0: /* java.util.jar.Attributes$Name */ UnclassedObject? ) -> String! {
-        return getValue( arg0: _arg0 )
-    }
-
-    /// public java.lang.String java.util.jar.Attributes.getValue(java.lang.String)
-
-    private static var getValue_MethodID_12: jmethodID?
-
-    open func getValue( arg0: String? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getValue", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &Attributes.getValue_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getValue( _ _arg0: String? ) -> String! {
-        return getValue( arg0: _arg0 )
-    }
-
-    /// public int java.util.jar.Attributes.size()
-
-    private static var size_MethodID_13: jmethodID?
-
-    open func size() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "size", methodSig: "()I", methodCache: &Attributes.size_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public java.util.Set java.util.jar.Attributes.entrySet()
-
-    private static var entrySet_MethodID_14: jmethodID?
-
-    open func entrySet() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "entrySet", methodSig: "()Ljava/util/Set;", methodCache: &Attributes.entrySet_MethodID_14, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
-    }
-
-
     /// public void java.util.jar.Attributes.putAll(java.util.Map)
 
     private static var putAll_MethodID_15: jmethodID?
 
     open func putAll( arg0: java_swift.JavaMap? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, mapClass: "java/util/Map", locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "putAll", methodSig: "(Ljava/util/Map;)V", methodCache: &Attributes.putAll_MethodID_15, args: &__args, locals: &__locals )
     }
@@ -276,88 +290,108 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
         putAll( arg0: _arg0 )
     }
 
-    /// void java.util.jar.Attributes.write(java.io.DataOutputStream) throws java.io.IOException
-
-    /// void java.util.jar.Attributes.read(java.util.jar.Manifest$FastInputStream,byte[]) throws java.io.IOException
-
-    /// public java.util.Set java.util.jar.Attributes.keySet()
-
-    private static var keySet_MethodID_16: jmethodID?
-
-    open func keySet() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "keySet", methodSig: "()Ljava/util/Set;", methodCache: &Attributes.keySet_MethodID_16, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
-    }
-
-
-    /// public boolean java.util.jar.Attributes.containsValue(java.lang.Object)
-
-    private static var containsValue_MethodID_17: jmethodID?
-
-    open func containsValue( arg0: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsValue", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Attributes.containsValue_MethodID_17, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func containsValue( _ _arg0: java_swift.JavaObject? ) -> Bool {
-        return containsValue( arg0: _arg0 )
-    }
-
-    /// public boolean java.util.jar.Attributes.containsKey(java.lang.Object)
-
-    private static var containsKey_MethodID_18: jmethodID?
-
-    open func containsKey( arg0: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "containsKey", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Attributes.containsKey_MethodID_18, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func containsKey( _ _arg0: java_swift.JavaObject? ) -> Bool {
-        return containsKey( arg0: _arg0 )
-    }
-
-    /// void java.util.jar.Attributes.writeMain(java.io.DataOutputStream) throws java.io.IOException
-
     /// public java.lang.String java.util.jar.Attributes.putValue(java.lang.String,java.lang.String)
 
-    private static var putValue_MethodID_19: jmethodID?
+    private static var putValue_MethodID_16: jmethodID?
 
     open func putValue( arg0: String?, arg1: String? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putValue", methodSig: "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", methodCache: &Attributes.putValue_MethodID_19, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putValue", methodSig: "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", methodCache: &Attributes.putValue_MethodID_16, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open func putValue( _ _arg0: String?, _ _arg1: String? ) -> String! {
         return putValue( arg0: _arg0, arg1: _arg1 )
     }
 
+    /// void java.util.jar.Attributes.read(java.util.jar.Manifest$FastInputStream,byte[]) throws java.io.IOException
+
+    // Skipping method: true false false false false 
+
+    /// public java.lang.Object java.util.jar.Attributes.remove(java.lang.Object)
+
+    private static var remove_MethodID_17: jmethodID?
+
+    open func remove( arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.remove_MethodID_17, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func remove( _ _arg0: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return remove( arg0: _arg0 )
+    }
+
+    /// public int java.util.jar.Attributes.size()
+
+    private static var size_MethodID_18: jmethodID?
+
+    open func size() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "size", methodSig: "()I", methodCache: &Attributes.size_MethodID_18, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public java.util.Collection java.util.jar.Attributes.values()
+
+    private static var values_MethodID_19: jmethodID?
+
+    open func values() -> Collection! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "values", methodSig: "()Ljava/util/Collection;", methodCache: &Attributes.values_MethodID_19, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? CollectionForward( javaObject: __return ) : nil
+    }
+
+
+    /// void java.util.jar.Attributes.write(java.io.DataOutputStream) throws java.io.IOException
+
+    // Skipping method: true false false false false 
+
+    /// void java.util.jar.Attributes.writeMain(java.io.DataOutputStream) throws java.io.IOException
+
+    // Skipping method: true false false false false 
+
     /// In declared protocol but not defined.. ///
 
-    /// public abstract boolean java.util.Map.equals(java.lang.Object)
+    /// public default java.lang.Object java.util.Map.compute(java.lang.Object,java.util.function.BiFunction)
+
+    private static var compute_MethodID_20: jmethodID?
+
+    open func compute( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compute", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Attributes.compute_MethodID_20, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func compute( _ _arg0: java_swift.JavaObject?, _ _arg1: BiFunction? ) -> java_swift.JavaObject! {
+        return compute( arg0: _arg0, arg1: _arg1 )
+    }
 
     /// public default java.lang.Object java.util.Map.computeIfAbsent(java.lang.Object,java.util.function.Function)
 
-    private static var computeIfAbsent_MethodID_20: jmethodID?
+    private static var computeIfAbsent_MethodID_21: jmethodID?
 
     open func computeIfAbsent( arg0: java_swift.JavaObject?, arg1: Function? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", methodCache: &Attributes.computeIfAbsent_MethodID_20, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/util/function/Function;)Ljava/lang/Object;", methodCache: &Attributes.computeIfAbsent_MethodID_21, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -366,105 +400,16 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
         return computeIfAbsent( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public default boolean java.util.Map.remove(java.lang.Object,java.lang.Object)
-
-    private static var remove_MethodID_21: jmethodID?
-
-    open func remove( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &Attributes.remove_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func remove( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> Bool {
-        return remove( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// public abstract int java.util.Map.hashCode()
-
-    /// public default java.lang.Object java.util.Map.getOrDefault(java.lang.Object,java.lang.Object)
-
-    private static var getOrDefault_MethodID_22: jmethodID?
-
-    open func getOrDefault( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getOrDefault", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.getOrDefault_MethodID_22, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func getOrDefault( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return getOrDefault( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// public default java.lang.Object java.util.Map.putIfAbsent(java.lang.Object,java.lang.Object)
-
-    private static var putIfAbsent_MethodID_23: jmethodID?
-
-    open func putIfAbsent( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.putIfAbsent_MethodID_23, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func putIfAbsent( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        return putIfAbsent( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// public default java.lang.Object java.util.Map.merge(java.lang.Object,java.lang.Object,java.util.function.BiFunction)
-
-    private static var merge_MethodID_24: jmethodID?
-
-    open func merge( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Attributes.merge_MethodID_24, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func merge( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: BiFunction? ) -> java_swift.JavaObject! {
-        return merge( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
-    }
-
-    /// public default void java.util.Map.forEach(java.util.function.BiConsumer)
-
-    private static var forEach_MethodID_25: jmethodID?
-
-    open func forEach( arg0: BiConsumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(Ljava/util/function/BiConsumer;)V", methodCache: &Attributes.forEach_MethodID_25, args: &__args, locals: &__locals )
-    }
-
-    open func forEach( _ _arg0: BiConsumer? ) {
-        forEach( arg0: _arg0 )
-    }
-
     /// public default java.lang.Object java.util.Map.computeIfPresent(java.lang.Object,java.util.function.BiFunction)
 
-    private static var computeIfPresent_MethodID_26: jmethodID?
+    private static var computeIfPresent_MethodID_22: jmethodID?
 
     open func computeIfPresent( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfPresent", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Attributes.computeIfPresent_MethodID_26, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "computeIfPresent", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Attributes.computeIfPresent_MethodID_22, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -473,16 +418,111 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
         return computeIfPresent( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public default java.lang.Object java.util.Map.replace(java.lang.Object,java.lang.Object)
+    /// public abstract boolean java.util.Map.equals(java.lang.Object)
 
-    private static var replace_MethodID_27: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    /// public default void java.util.Map.forEach(java.util.function.BiConsumer)
+
+    private static var forEach_MethodID_23: jmethodID?
+
+    open func forEach( arg0: BiConsumer? ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEach", methodSig: "(Ljava/util/function/BiConsumer;)V", methodCache: &Attributes.forEach_MethodID_23, args: &__args, locals: &__locals )
+    }
+
+    open func forEach( _ _arg0: BiConsumer? ) {
+        forEach( arg0: _arg0 )
+    }
+
+    /// public default java.lang.Object java.util.Map.getOrDefault(java.lang.Object,java.lang.Object)
+
+    private static var getOrDefault_MethodID_24: jmethodID?
+
+    open func getOrDefault( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.replace_MethodID_27, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getOrDefault", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.getOrDefault_MethodID_24, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func getOrDefault( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return getOrDefault( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public abstract int java.util.Map.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.lang.Object java.util.Map.merge(java.lang.Object,java.lang.Object,java.util.function.BiFunction)
+
+    private static var merge_MethodID_25: jmethodID?
+
+    open func merge( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: BiFunction? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "merge", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Attributes.merge_MethodID_25, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func merge( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: BiFunction? ) -> java_swift.JavaObject! {
+        return merge( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
+    }
+
+    /// public default java.lang.Object java.util.Map.putIfAbsent(java.lang.Object,java.lang.Object)
+
+    private static var putIfAbsent_MethodID_26: jmethodID?
+
+    open func putIfAbsent( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "putIfAbsent", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.putIfAbsent_MethodID_26, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+    open func putIfAbsent( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        return putIfAbsent( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public default boolean java.util.Map.remove(java.lang.Object,java.lang.Object)
+
+    private static var remove_MethodID_27: jmethodID?
+
+    open func remove( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "remove", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &Attributes.remove_MethodID_27, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func remove( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject? ) -> Bool {
+        return remove( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public default java.lang.Object java.util.Map.replace(java.lang.Object,java.lang.Object)
+
+    private static var replace_MethodID_28: jmethodID?
+
+    open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject? ) -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Attributes.replace_MethodID_28, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -493,16 +533,16 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
 
     /// public default boolean java.util.Map.replace(java.lang.Object,java.lang.Object,java.lang.Object)
 
-    private static var replace_MethodID_28: jmethodID?
+    private static var replace_MethodID_29: jmethodID?
 
     open func replace( arg0: java_swift.JavaObject?, arg1: java_swift.JavaObject?, arg2: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &Attributes.replace_MethodID_28, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "replace", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Z", methodCache: &Attributes.replace_MethodID_29, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func replace( _ _arg0: java_swift.JavaObject?, _ _arg1: java_swift.JavaObject?, _ _arg2: java_swift.JavaObject? ) -> Bool {
@@ -511,35 +551,17 @@ open class Attributes: java_swift.JavaObject, java_swift.JavaMap, java_lang.Clon
 
     /// public default void java.util.Map.replaceAll(java.util.function.BiFunction)
 
-    private static var replaceAll_MethodID_29: jmethodID?
+    private static var replaceAll_MethodID_30: jmethodID?
 
     open func replaceAll( arg0: BiFunction? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "replaceAll", methodSig: "(Ljava/util/function/BiFunction;)V", methodCache: &Attributes.replaceAll_MethodID_29, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "replaceAll", methodSig: "(Ljava/util/function/BiFunction;)V", methodCache: &Attributes.replaceAll_MethodID_30, args: &__args, locals: &__locals )
     }
 
     open func replaceAll( _ _arg0: BiFunction? ) {
         replaceAll( arg0: _arg0 )
-    }
-
-    /// public default java.lang.Object java.util.Map.compute(java.lang.Object,java.util.function.BiFunction)
-
-    private static var compute_MethodID_30: jmethodID?
-
-    open func compute( arg0: java_swift.JavaObject?, arg1: BiFunction? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compute", methodSig: "(Ljava/lang/Object;Ljava/util/function/BiFunction;)Ljava/lang/Object;", methodCache: &Attributes.compute_MethodID_30, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-    open func compute( _ _arg0: java_swift.JavaObject?, _ _arg1: BiFunction? ) -> java_swift.JavaObject! {
-        return compute( arg0: _arg0, arg1: _arg1 )
     }
 
 }

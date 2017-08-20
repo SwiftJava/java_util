@@ -26,34 +26,27 @@ open class OptionalDouble: java_swift.JavaObject {
 
     /// private java.util.OptionalDouble(double)
 
-    /// public boolean java.util.OptionalDouble.equals(java.lang.Object)
+    /// public static java.util.OptionalDouble java.util.OptionalDouble.empty()
 
-    private static var equals_MethodID_1: jmethodID?
+    private static var empty_MethodID_1: jmethodID?
 
-    open func equals( obj: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func empty() -> OptionalDouble! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &OptionalDouble.equals_MethodID_1, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalDouble", classCache: &OptionalDoubleJNIClass, methodName: "empty", methodSig: "()Ljava/util/OptionalDouble;", methodCache: &empty_MethodID_1, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? OptionalDouble( javaObject: __return ) : nil
     }
 
-    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
-        return equals( obj: _obj )
-    }
-
-    /// public java.lang.String java.util.OptionalDouble.toString()
-
-    /// public int java.util.OptionalDouble.hashCode()
 
     /// public static java.util.OptionalDouble java.util.OptionalDouble.of(double)
 
     private static var of_MethodID_2: jmethodID?
 
     open class func of( value: Double ) -> OptionalDouble! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: value )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalDouble", classCache: &OptionalDoubleJNIClass, methodName: "of", methodSig: "(D)Ljava/util/OptionalDouble;", methodCache: &of_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? OptionalDouble( javaObject: __return ) : nil
@@ -63,38 +56,45 @@ open class OptionalDouble: java_swift.JavaObject {
         return of( value: _value )
     }
 
-    /// public static java.util.OptionalDouble java.util.OptionalDouble.empty()
+    /// public boolean java.util.OptionalDouble.equals(java.lang.Object)
 
-    private static var empty_MethodID_3: jmethodID?
+    private static var equals_MethodID_3: jmethodID?
 
-    open class func empty() -> OptionalDouble! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func equals( obj: java_swift.JavaObject? ) -> Bool {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalDouble", classCache: &OptionalDoubleJNIClass, methodName: "empty", methodSig: "()Ljava/util/OptionalDouble;", methodCache: &empty_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? OptionalDouble( javaObject: __return ) : nil
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &OptionalDouble.equals_MethodID_3, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
+        return equals( obj: _obj )
+    }
+
+    /// public double java.util.OptionalDouble.getAsDouble()
+
+    private static var getAsDouble_MethodID_4: jmethodID?
+
+    open func getAsDouble() -> Double {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "getAsDouble", methodSig: "()D", methodCache: &OptionalDouble.getAsDouble_MethodID_4, args: &__args, locals: &__locals )
+        return __return
     }
 
 
-    /// public boolean java.util.OptionalDouble.isPresent()
+    /// public int java.util.OptionalDouble.hashCode()
 
-    private static var isPresent_MethodID_4: jmethodID?
-
-    open func isPresent() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isPresent", methodSig: "()Z", methodCache: &OptionalDouble.isPresent_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
+    // Skipping method: false true false false false 
 
     /// public void java.util.OptionalDouble.ifPresent(java.util.function.DoubleConsumer)
 
     private static var ifPresent_MethodID_5: jmethodID?
 
     open func ifPresent( consumer: DoubleConsumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: consumer, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "ifPresent", methodSig: "(Ljava/util/function/DoubleConsumer;)V", methodCache: &OptionalDouble.ifPresent_MethodID_5, args: &__args, locals: &__locals )
     }
@@ -103,16 +103,28 @@ open class OptionalDouble: java_swift.JavaObject {
         ifPresent( consumer: _consumer )
     }
 
+    /// public boolean java.util.OptionalDouble.isPresent()
+
+    private static var isPresent_MethodID_6: jmethodID?
+
+    open func isPresent() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isPresent", methodSig: "()Z", methodCache: &OptionalDouble.isPresent_MethodID_6, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
     /// public double java.util.OptionalDouble.orElse(double)
 
-    private static var orElse_MethodID_6: jmethodID?
+    private static var orElse_MethodID_7: jmethodID?
 
     open func orElse( other: Double ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: other, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "orElse", methodSig: "(D)D", methodCache: &OptionalDouble.orElse_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( d: other )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "orElse", methodSig: "(D)D", methodCache: &OptionalDouble.orElse_MethodID_7, args: &__args, locals: &__locals )
+        return __return
     }
 
     open func orElse( _ _other: Double ) -> Double {
@@ -121,14 +133,14 @@ open class OptionalDouble: java_swift.JavaObject {
 
     /// public double java.util.OptionalDouble.orElseGet(java.util.function.DoubleSupplier)
 
-    private static var orElseGet_MethodID_7: jmethodID?
+    private static var orElseGet_MethodID_8: jmethodID?
 
     open func orElseGet( other: DoubleSupplier? ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: other, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "orElseGet", methodSig: "(Ljava/util/function/DoubleSupplier;)D", methodCache: &OptionalDouble.orElseGet_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "orElseGet", methodSig: "(Ljava/util/function/DoubleSupplier;)D", methodCache: &OptionalDouble.orElseGet_MethodID_8, args: &__args, locals: &__locals )
+        return __return
     }
 
     open func orElseGet( _ _other: DoubleSupplier? ) -> Double {
@@ -137,34 +149,27 @@ open class OptionalDouble: java_swift.JavaObject {
 
     /// public double java.util.OptionalDouble.orElseThrow(java.util.function.Supplier) throws java.lang.Throwable
 
-    private static var orElseThrow_MethodID_8: jmethodID?
+    private static var orElseThrow_MethodID_9: jmethodID?
 
     open func orElseThrow( exceptionSupplier: Supplier? ) throws /* java.lang.Throwable */ -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: exceptionSupplier, locals: &__locals )
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "orElseThrow", methodSig: "(Ljava/util/function/Supplier;)D", methodCache: &OptionalDouble.orElseThrow_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "orElseThrow", methodSig: "(Ljava/util/function/Supplier;)D", methodCache: &OptionalDouble.orElseThrow_MethodID_9, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_swift.Throwable( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Double(), from: __return )
+        return __return
     }
 
     open func orElseThrow( _ _exceptionSupplier: Supplier? ) throws /* java.lang.Throwable */ -> Double {
         return try orElseThrow( exceptionSupplier: _exceptionSupplier )
     }
 
-    /// public double java.util.OptionalDouble.getAsDouble()
+    /// public java.lang.String java.util.OptionalDouble.toString()
 
-    private static var getAsDouble_MethodID_9: jmethodID?
-
-    open func getAsDouble() -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "getAsDouble", methodSig: "()D", methodCache: &OptionalDouble.getAsDouble_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
-    }
-
+    // Skipping method: false true false false false 
 
 }
 

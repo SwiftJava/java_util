@@ -11,11 +11,11 @@ public protocol IntConsumer: JavaProtocol {
 
     func accept( value: Int )
 
-    /// private void java.util.function.IntConsumer.lambda$andThen$0(java.util.function.IntConsumer,int)
-
     /// public default java.util.function.IntConsumer java.util.function.IntConsumer.andThen(java.util.function.IntConsumer)
 
     func andThen( after: IntConsumer? ) -> IntConsumer!
+
+    /// private void java.util.function.IntConsumer.lambda$andThen$0(java.util.function.IntConsumer,int)
 
 }
 
@@ -29,9 +29,9 @@ open class IntConsumerForward: JNIObjectForward, IntConsumer {
     private static var accept_MethodID_3: jmethodID?
 
     open func accept( value: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(value) )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "accept", methodSig: "(I)V", methodCache: &IntConsumerForward.accept_MethodID_3, args: &__args, locals: &__locals )
     }
 
@@ -44,8 +44,8 @@ open class IntConsumerForward: JNIObjectForward, IntConsumer {
     private static var andThen_MethodID_4: jmethodID?
 
     open func andThen( after: IntConsumer? ) -> IntConsumer! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: after, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;", methodCache: &IntConsumerForward.andThen_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -57,5 +57,4 @@ open class IntConsumerForward: JNIObjectForward, IntConsumer {
     }
 
 }
-
 

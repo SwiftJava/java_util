@@ -23,10 +23,10 @@ open class ObjDoubleConsumerForward: JNIObjectForward, ObjDoubleConsumer {
     private static var accept_MethodID_2: jmethodID?
 
     open func accept( t: java_swift.JavaObject?, value: Double ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: t, locals: &__locals )
-        __args[1] = JNIType.toJava( value: value, locals: &__locals )
+        __args[1] = jvalue( d: value )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "accept", methodSig: "(Ljava/lang/Object;D)V", methodCache: &ObjDoubleConsumerForward.accept_MethodID_2, args: &__args, locals: &__locals )
     }
 
@@ -35,5 +35,4 @@ open class ObjDoubleConsumerForward: JNIObjectForward, ObjDoubleConsumer {
     }
 
 }
-
 

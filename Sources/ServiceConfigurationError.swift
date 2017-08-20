@@ -24,39 +24,43 @@ open class ServiceConfigurationError: java_lang.JavaError {
 
     /// static final long java.lang.Error.serialVersionUID
 
-    /// private static final long java.lang.Throwable.serialVersionUID
+    // Skipping field: true true false false false false 
 
-    /// private java.lang.String java.lang.Throwable.detailMessage
+    /// static final boolean java.lang.Throwable.$assertionsDisabled
 
-    /// private static final java.lang.StackTraceElement[] java.lang.Throwable.UNASSIGNED_STACK
+    // Skipping field: true false false false false false 
 
-    /// private java.lang.Throwable java.lang.Throwable.cause
+    /// private static final java.lang.String java.lang.Throwable.CAUSE_CAPTION
 
-    /// private java.lang.StackTraceElement[] java.lang.Throwable.stackTrace
-
-    /// private static final java.util.List java.lang.Throwable.SUPPRESSED_SENTINEL
-
-    /// private java.util.List java.lang.Throwable.suppressedExceptions
+    /// private static final java.lang.Throwable[] java.lang.Throwable.EMPTY_THROWABLE_ARRAY
 
     /// private static final java.lang.String java.lang.Throwable.NULL_CAUSE_MESSAGE
 
     /// private static final java.lang.String java.lang.Throwable.SELF_SUPPRESSION_MESSAGE
 
-    /// private static final java.lang.String java.lang.Throwable.CAUSE_CAPTION
-
     /// private static final java.lang.String java.lang.Throwable.SUPPRESSED_CAPTION
 
-    /// private static final java.lang.Throwable[] java.lang.Throwable.EMPTY_THROWABLE_ARRAY
+    /// private static final java.util.List java.lang.Throwable.SUPPRESSED_SENTINEL
 
-    /// static final boolean java.lang.Throwable.$assertionsDisabled
+    /// private static final java.lang.StackTraceElement[] java.lang.Throwable.UNASSIGNED_STACK
+
+    /// private static final long java.lang.Throwable.serialVersionUID
+
+    /// private java.lang.Throwable java.lang.Throwable.cause
+
+    /// private java.lang.String java.lang.Throwable.detailMessage
+
+    /// private java.lang.StackTraceElement[] java.lang.Throwable.stackTrace
+
+    /// private java.util.List java.lang.Throwable.suppressedExceptions
 
     /// public java.util.ServiceConfigurationError(java.lang.String)
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( msg: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: msg, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/ServiceConfigurationError", classCache: &ServiceConfigurationError.ServiceConfigurationErrorJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &ServiceConfigurationError.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -72,8 +76,8 @@ open class ServiceConfigurationError: java_lang.JavaError {
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( msg: String?, cause: java_swift.Throwable? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: msg, locals: &__locals )
         __args[1] = JNIType.toJava( value: cause, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/ServiceConfigurationError", classCache: &ServiceConfigurationError.ServiceConfigurationErrorJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/Throwable;)V", methodCache: &ServiceConfigurationError.new_MethodID_2, args: &__args, locals: &__locals )

@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.concurrent.SynchronousQueue ///
 
-open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ UnclassedProtocol {
+open class SynchronousQueue: AbstractQueue, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,23 +20,31 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
 
     private static var SynchronousQueueJNIClass: jclass?
 
-    /// private static final long java.util.concurrent.SynchronousQueue.serialVersionUID
-
     /// static final int java.util.concurrent.SynchronousQueue.NCPUS
+
+    // Skipping field: true false false false false false 
 
     /// static final int java.util.concurrent.SynchronousQueue.maxTimedSpins
 
+    // Skipping field: true false false false false false 
+
     /// static final int java.util.concurrent.SynchronousQueue.maxUntimedSpins
+
+    // Skipping field: true false false false false false 
+
+    /// private static final long java.util.concurrent.SynchronousQueue.serialVersionUID
 
     /// static final long java.util.concurrent.SynchronousQueue.spinForTimeoutThreshold
 
-    /// private transient volatile java.util.concurrent.SynchronousQueue$Transferer java.util.concurrent.SynchronousQueue.transferer
+    // Skipping field: true false false false false false 
 
     /// private java.util.concurrent.locks.ReentrantLock java.util.concurrent.SynchronousQueue.qlock
 
-    /// private java.util.concurrent.SynchronousQueue$WaitQueue java.util.concurrent.SynchronousQueue.waitingProducers
+    /// private transient volatile java.util.concurrent.SynchronousQueue$Transferer java.util.concurrent.SynchronousQueue.transferer
 
     /// private java.util.concurrent.SynchronousQueue$WaitQueue java.util.concurrent.SynchronousQueue.waitingConsumers
+
+    /// private java.util.concurrent.SynchronousQueue$WaitQueue java.util.concurrent.SynchronousQueue.waitingProducers
 
     /// private static final int java.util.AbstractCollection.MAX_ARRAY_SIZE
 
@@ -45,8 +53,8 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/SynchronousQueue", classCache: &SynchronousQueue.SynchronousQueueJNIClass, methodSig: "()V", methodCache: &SynchronousQueue.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -57,9 +65,9 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( fair: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fair, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(fair ? JNI_TRUE : JNI_FALSE) )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/SynchronousQueue", classCache: &SynchronousQueue.SynchronousQueueJNIClass, methodSig: "(Z)V", methodCache: &SynchronousQueue.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -69,60 +77,106 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
         self.init( fair: _fair )
     }
 
-    /// public boolean java.util.concurrent.SynchronousQueue.remove(java.lang.Object)
+    /// static long java.util.concurrent.SynchronousQueue.objectFieldOffset(sun.misc.Unsafe,java.lang.String,java.lang.Class)
 
-    /// public void java.util.concurrent.SynchronousQueue.put(java.lang.Object) throws java.lang.InterruptedException
-
-    private static var put_MethodID_3: jmethodID?
-
-    open func put( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;)V", methodCache: &SynchronousQueue.put_MethodID_3, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-    }
-
-    open func put( _ _e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
-        try put( e: _e )
-    }
+    // Skipping method: true false false false false 
 
     /// public void java.util.concurrent.SynchronousQueue.clear()
 
-    /// public boolean java.util.concurrent.SynchronousQueue.isEmpty()
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.concurrent.SynchronousQueue.contains(java.lang.Object)
 
-    /// public int java.util.concurrent.SynchronousQueue.size()
+    // Skipping method: false true false false false 
 
-    /// public java.lang.Object[] java.util.concurrent.SynchronousQueue.toArray()
+    /// public boolean java.util.concurrent.SynchronousQueue.containsAll(java.util.Collection)
 
-    /// public java.lang.Object[] java.util.concurrent.SynchronousQueue.toArray(java.lang.Object[])
+    // Skipping method: false true false false false 
+
+    /// public int java.util.concurrent.SynchronousQueue.drainTo(java.util.Collection)
+
+    private static var drainTo_MethodID_3: jmethodID?
+
+    open func drainTo( c: Collection? ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &SynchronousQueue.drainTo_MethodID_3, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func drainTo( _ _c: Collection? ) -> Int {
+        return drainTo( c: _c )
+    }
+
+    /// public int java.util.concurrent.SynchronousQueue.drainTo(java.util.Collection,int)
+
+    private static var drainTo_MethodID_4: jmethodID?
+
+    open func drainTo( c: Collection?, maxElements: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: c, locals: &__locals )
+        __args[1] = jvalue( i: jint(maxElements) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &SynchronousQueue.drainTo_MethodID_4, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func drainTo( _ _c: Collection?, _ _maxElements: Int ) -> Int {
+        return drainTo( c: _c, maxElements: _maxElements )
+    }
+
+    /// public boolean java.util.concurrent.SynchronousQueue.isEmpty()
+
+    // Skipping method: false true false false false 
 
     /// public java.util.Iterator java.util.concurrent.SynchronousQueue.iterator()
 
-    /// public java.util.Spliterator java.util.concurrent.SynchronousQueue.spliterator()
+    // Skipping method: false true false false false 
 
-    /// private void java.util.concurrent.SynchronousQueue.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+    /// public boolean java.util.concurrent.SynchronousQueue.offer(java.lang.Object)
 
-    /// private void java.util.concurrent.SynchronousQueue.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+    // Skipping method: false true false false false 
 
-    /// public java.lang.Object java.util.concurrent.SynchronousQueue.poll()
+    /// public boolean java.util.concurrent.SynchronousQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
+
+    private static var offer_MethodID_5: jmethodID?
+
+    open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        __args[1] = jvalue( j: timeout )
+        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &SynchronousQueue.offer_MethodID_5, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func offer( _ _e: java_swift.JavaObject?, _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
+        return try offer( e: _e, timeout: _timeout, unit: _unit )
+    }
+
+    /// public java.lang.Object java.util.concurrent.SynchronousQueue.peek()
+
+    // Skipping method: false true false false false 
 
     /// public java.lang.Object java.util.concurrent.SynchronousQueue.poll(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
-    private static var poll_MethodID_4: jmethodID?
+    private static var poll_MethodID_6: jmethodID?
 
     open func poll( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: timeout )
         __args[1] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &SynchronousQueue.poll_MethodID_4, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "poll", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &SynchronousQueue.poll_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -132,165 +186,203 @@ open class SynchronousQueue: AbstractQueue, /* java.io.Serializable */ Unclassed
         return try poll( timeout: _timeout, unit: _unit )
     }
 
-    /// static long java.util.concurrent.SynchronousQueue.objectFieldOffset(sun.misc.Unsafe,java.lang.String,java.lang.Class)
+    /// public java.lang.Object java.util.concurrent.SynchronousQueue.poll()
 
-    /// public java.lang.Object java.util.concurrent.SynchronousQueue.peek()
+    // Skipping method: false true false false false 
 
-    /// public boolean java.util.concurrent.SynchronousQueue.containsAll(java.util.Collection)
+    /// public void java.util.concurrent.SynchronousQueue.put(java.lang.Object) throws java.lang.InterruptedException
+
+    private static var put_MethodID_7: jmethodID?
+
+    open func put( e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: e, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "put", methodSig: "(Ljava/lang/Object;)V", methodCache: &SynchronousQueue.put_MethodID_7, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw java_lang.InterruptedException( javaObject: throwable )
+        }
+    }
+
+    open func put( _ _e: java_swift.JavaObject? ) throws /* java.lang.InterruptedException */ {
+        try put( e: _e )
+    }
+
+    /// private void java.util.concurrent.SynchronousQueue.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public int java.util.concurrent.SynchronousQueue.remainingCapacity()
+
+    private static var remainingCapacity_MethodID_8: jmethodID?
+
+    open func remainingCapacity() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &SynchronousQueue.remainingCapacity_MethodID_8, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public boolean java.util.concurrent.SynchronousQueue.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.concurrent.SynchronousQueue.removeAll(java.util.Collection)
 
+    // Skipping method: false true false false false 
+
     /// public boolean java.util.concurrent.SynchronousQueue.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.concurrent.SynchronousQueue.size()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Spliterator java.util.concurrent.SynchronousQueue.spliterator()
+
+    // Skipping method: false true false false false 
 
     /// public java.lang.Object java.util.concurrent.SynchronousQueue.take() throws java.lang.InterruptedException
 
-    private static var take_MethodID_5: jmethodID?
+    private static var take_MethodID_9: jmethodID?
 
     open func take() throws /* java.lang.InterruptedException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &SynchronousQueue.take_MethodID_5, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "take", methodSig: "()Ljava/lang/Object;", methodCache: &SynchronousQueue.take_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public int java.util.concurrent.SynchronousQueue.remainingCapacity()
+    /// public java.lang.Object[] java.util.concurrent.SynchronousQueue.toArray(java.lang.Object[])
 
-    private static var remainingCapacity_MethodID_6: jmethodID?
+    // Skipping method: false true false false false 
 
-    open func remainingCapacity() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "remainingCapacity", methodSig: "()I", methodCache: &SynchronousQueue.remainingCapacity_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
+    /// public java.lang.Object[] java.util.concurrent.SynchronousQueue.toArray()
 
+    // Skipping method: false true false false false 
 
-    /// public int java.util.concurrent.SynchronousQueue.drainTo(java.util.Collection,int)
-
-    private static var drainTo_MethodID_7: jmethodID?
-
-    open func drainTo( c: Collection?, maxElements: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        __args[1] = JNIType.toJava( value: maxElements, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;I)I", methodCache: &SynchronousQueue.drainTo_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func drainTo( _ _c: Collection?, _ _maxElements: Int ) -> Int {
-        return drainTo( c: _c, maxElements: _maxElements )
-    }
-
-    /// public int java.util.concurrent.SynchronousQueue.drainTo(java.util.Collection)
-
-    private static var drainTo_MethodID_8: jmethodID?
-
-    open func drainTo( c: Collection? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "drainTo", methodSig: "(Ljava/util/Collection;)I", methodCache: &SynchronousQueue.drainTo_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func drainTo( _ _c: Collection? ) -> Int {
-        return drainTo( c: _c )
-    }
-
-    /// public boolean java.util.concurrent.SynchronousQueue.offer(java.lang.Object,long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
-
-    private static var offer_MethodID_9: jmethodID?
-
-    open func offer( e: java_swift.JavaObject?, timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: e, locals: &__locals )
-        __args[1] = JNIType.toJava( value: timeout, locals: &__locals )
-        __args[2] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "offer", methodSig: "(Ljava/lang/Object;JLjava/util/concurrent/TimeUnit;)Z", methodCache: &SynchronousQueue.offer_MethodID_9, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw java_lang.InterruptedException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func offer( _ _e: java_swift.JavaObject?, _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        return try offer( e: _e, timeout: _timeout, unit: _unit )
-    }
-
-    /// public boolean java.util.concurrent.SynchronousQueue.offer(java.lang.Object)
+    /// private void java.util.concurrent.SynchronousQueue.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
     /// In declared protocol but not defined.. ///
+
+    /// public abstract boolean java.util.Collection.add(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract void java.util.Collection.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Queue.element()
+
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.equals(java.lang.Object)
 
     private static var equals_MethodID_10: jmethodID?
 
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &SynchronousQueue.equals_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     override open func equals( _ _o: java_swift.JavaObject? ) -> Bool {
         return equals( o: _o )
     }
 
-    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
 
-    /// public abstract java.lang.Object java.util.Queue.peek()
-
-    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray()
-
-    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+    // Skipping method: false true false false false 
 
     /// public abstract int java.util.Collection.hashCode()
 
-    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
-
-    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
-
-    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
-
-    /// public abstract void java.util.Collection.clear()
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.isEmpty()
 
-    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
-
-    /// public abstract boolean java.util.Queue.offer(java.lang.Object)
-
-    /// public abstract java.lang.Object java.util.Queue.element()
-
-    /// public abstract java.lang.Object java.util.Queue.remove()
-
-    /// public abstract java.lang.Object java.util.Queue.poll()
-
-    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+    // Skipping method: false true false false false 
 
     /// public abstract java.util.Iterator java.lang.Iterable.iterator()
 
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Queue.offer(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Queue.peek()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Queue.poll()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.Queue.remove()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.size()
+
+    // Skipping method: false true false false false 
+
     /// public default java.util.Spliterator java.lang.Iterable.spliterator()
 
-    /// public abstract boolean java.util.Collection.add(java.lang.Object)
+    // Skipping method: false true false false false 
 
     /// public default java.util.stream.Stream java.util.Collection.stream()
 
-    /// public abstract int java.util.Collection.size()
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

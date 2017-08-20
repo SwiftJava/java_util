@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.concurrent.CopyOnWriteArraySet ///
 
-open class CopyOnWriteArraySet: AbstractSet {////}, /* java.io.Serializable */ UnclassedProtocol {
+open class CopyOnWriteArraySet: AbstractSet {////}, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -31,8 +31,8 @@ open class CopyOnWriteArraySet: AbstractSet {////}, /* java.io.Serializable */ U
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/CopyOnWriteArraySet", classCache: &CopyOnWriteArraySet.CopyOnWriteArraySetJNIClass, methodSig: "()V", methodCache: &CopyOnWriteArraySet.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -43,8 +43,8 @@ open class CopyOnWriteArraySet: AbstractSet {////}, /* java.io.Serializable */ U
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( c: Collection? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/concurrent/CopyOnWriteArraySet", classCache: &CopyOnWriteArraySet.CopyOnWriteArraySetJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &CopyOnWriteArraySet.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -55,41 +55,75 @@ open class CopyOnWriteArraySet: AbstractSet {////}, /* java.io.Serializable */ U
         self.init( c: _c )
     }
 
+    /// private static boolean java.util.concurrent.CopyOnWriteArraySet.eq(java.lang.Object,java.lang.Object)
+
     /// public boolean java.util.concurrent.CopyOnWriteArraySet.add(java.lang.Object)
 
-    /// public boolean java.util.concurrent.CopyOnWriteArraySet.remove(java.lang.Object)
-
-    /// public boolean java.util.concurrent.CopyOnWriteArraySet.equals(java.lang.Object)
-
-    /// public void java.util.concurrent.CopyOnWriteArraySet.clear()
-
-    /// public boolean java.util.concurrent.CopyOnWriteArraySet.isEmpty()
-
-    /// public boolean java.util.concurrent.CopyOnWriteArraySet.contains(java.lang.Object)
-
-    /// public int java.util.concurrent.CopyOnWriteArraySet.size()
-
-    /// public java.lang.Object[] java.util.concurrent.CopyOnWriteArraySet.toArray()
-
-    /// public java.lang.Object[] java.util.concurrent.CopyOnWriteArraySet.toArray(java.lang.Object[])
-
-    /// public java.util.Iterator java.util.concurrent.CopyOnWriteArraySet.iterator()
-
-    /// public java.util.Spliterator java.util.concurrent.CopyOnWriteArraySet.spliterator()
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.concurrent.CopyOnWriteArraySet.addAll(java.util.Collection)
 
-    /// public void java.util.concurrent.CopyOnWriteArraySet.forEach(java.util.function.Consumer)
+    // Skipping method: false true false false false 
+
+    /// public void java.util.concurrent.CopyOnWriteArraySet.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.CopyOnWriteArraySet.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.concurrent.CopyOnWriteArraySet.containsAll(java.util.Collection)
 
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.CopyOnWriteArraySet.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.concurrent.CopyOnWriteArraySet.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.CopyOnWriteArraySet.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Iterator java.util.concurrent.CopyOnWriteArraySet.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.CopyOnWriteArraySet.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
     /// public boolean java.util.concurrent.CopyOnWriteArraySet.removeAll(java.util.Collection)
 
-    /// public boolean java.util.concurrent.CopyOnWriteArraySet.retainAll(java.util.Collection)
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.concurrent.CopyOnWriteArraySet.removeIf(java.util.function.Predicate)
 
-    /// private static boolean java.util.concurrent.CopyOnWriteArraySet.eq(java.lang.Object,java.lang.Object)
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.concurrent.CopyOnWriteArraySet.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.concurrent.CopyOnWriteArraySet.size()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Spliterator java.util.concurrent.CopyOnWriteArraySet.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object[] java.util.concurrent.CopyOnWriteArraySet.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object[] java.util.concurrent.CopyOnWriteArraySet.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

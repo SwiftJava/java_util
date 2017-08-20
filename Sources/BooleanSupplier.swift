@@ -23,13 +23,12 @@ open class BooleanSupplierForward: JNIObjectForward, BooleanSupplier {
     private static var getAsBoolean_MethodID_2: jmethodID?
 
     open func getAsBoolean() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "getAsBoolean", methodSig: "()Z", methodCache: &BooleanSupplierForward.getAsBoolean_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
 
 }
-
 

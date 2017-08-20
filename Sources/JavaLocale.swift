@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.Locale ///
 
-open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serializable */ UnclassedProtocol {
+open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,216 +20,9 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
 
     private static var JavaLocaleJNIClass: jclass?
 
-    /// private static final java.util.Locale$Cache java.util.Locale.LOCALECACHE
+    /// static final boolean java.util.Locale.$assertionsDisabled
 
-    /// public static final java.util.Locale java.util.Locale.ENGLISH
-
-    private static var ENGLISH_FieldID: jfieldID?
-
-    open static var ENGLISH: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "ENGLISH", fieldType: "Ljava/util/Locale;", fieldCache: &ENGLISH_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.FRENCH
-
-    private static var FRENCH_FieldID: jfieldID?
-
-    open static var FRENCH: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "FRENCH", fieldType: "Ljava/util/Locale;", fieldCache: &FRENCH_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.GERMAN
-
-    private static var GERMAN_FieldID: jfieldID?
-
-    open static var GERMAN: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "GERMAN", fieldType: "Ljava/util/Locale;", fieldCache: &GERMAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.ITALIAN
-
-    private static var ITALIAN_FieldID: jfieldID?
-
-    open static var ITALIAN: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "ITALIAN", fieldType: "Ljava/util/Locale;", fieldCache: &ITALIAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.JAPANESE
-
-    private static var JAPANESE_FieldID: jfieldID?
-
-    open static var JAPANESE: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "JAPANESE", fieldType: "Ljava/util/Locale;", fieldCache: &JAPANESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.KOREAN
-
-    private static var KOREAN_FieldID: jfieldID?
-
-    open static var KOREAN: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "KOREAN", fieldType: "Ljava/util/Locale;", fieldCache: &KOREAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.CHINESE
-
-    private static var CHINESE_FieldID: jfieldID?
-
-    open static var CHINESE: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.SIMPLIFIED_CHINESE
-
-    private static var SIMPLIFIED_CHINESE_FieldID: jfieldID?
-
-    open static var SIMPLIFIED_CHINESE: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "SIMPLIFIED_CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &SIMPLIFIED_CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.TRADITIONAL_CHINESE
-
-    private static var TRADITIONAL_CHINESE_FieldID: jfieldID?
-
-    open static var TRADITIONAL_CHINESE: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "TRADITIONAL_CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &TRADITIONAL_CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.FRANCE
-
-    private static var FRANCE_FieldID: jfieldID?
-
-    open static var FRANCE: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "FRANCE", fieldType: "Ljava/util/Locale;", fieldCache: &FRANCE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.GERMANY
-
-    private static var GERMANY_FieldID: jfieldID?
-
-    open static var GERMANY: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "GERMANY", fieldType: "Ljava/util/Locale;", fieldCache: &GERMANY_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.ITALY
-
-    private static var ITALY_FieldID: jfieldID?
-
-    open static var ITALY: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "ITALY", fieldType: "Ljava/util/Locale;", fieldCache: &ITALY_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.JAPAN
-
-    private static var JAPAN_FieldID: jfieldID?
-
-    open static var JAPAN: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "JAPAN", fieldType: "Ljava/util/Locale;", fieldCache: &JAPAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.KOREA
-
-    private static var KOREA_FieldID: jfieldID?
-
-    open static var KOREA: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "KOREA", fieldType: "Ljava/util/Locale;", fieldCache: &KOREA_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.CHINA
-
-    private static var CHINA_FieldID: jfieldID?
-
-    open static var CHINA: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "CHINA", fieldType: "Ljava/util/Locale;", fieldCache: &CHINA_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.PRC
-
-    private static var PRC_FieldID: jfieldID?
-
-    open static var PRC: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "PRC", fieldType: "Ljava/util/Locale;", fieldCache: &PRC_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.TAIWAN
-
-    private static var TAIWAN_FieldID: jfieldID?
-
-    open static var TAIWAN: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "TAIWAN", fieldType: "Ljava/util/Locale;", fieldCache: &TAIWAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.UK
-
-    private static var UK_FieldID: jfieldID?
-
-    open static var UK: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "UK", fieldType: "Ljava/util/Locale;", fieldCache: &UK_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
-
-    /// public static final java.util.Locale java.util.Locale.US
-
-    private static var US_FieldID: jfieldID?
-
-    open static var US: JavaLocale! {
-        get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "US", fieldType: "Ljava/util/Locale;", fieldCache: &US_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return __value != nil ? JavaLocale( javaObject: __value ) : nil
-        }
-    }
+    // Skipping field: true false false false false false 
 
     /// public static final java.util.Locale java.util.Locale.CANADA
 
@@ -238,6 +31,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
     open static var CANADA: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "CANADA", fieldType: "Ljava/util/Locale;", fieldCache: &CANADA_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? JavaLocale( javaObject: __value ) : nil
         }
     }
@@ -249,17 +43,185 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
     open static var CANADA_FRENCH: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "CANADA_FRENCH", fieldType: "Ljava/util/Locale;", fieldCache: &CANADA_FRENCH_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? JavaLocale( javaObject: __value ) : nil
         }
     }
 
-    /// public static final java.util.Locale java.util.Locale.ROOT
+    /// public static final java.util.Locale java.util.Locale.CHINA
 
-    private static var ROOT_FieldID: jfieldID?
+    private static var CHINA_FieldID: jfieldID?
 
-    open static var ROOT: JavaLocale! {
+    open static var CHINA: JavaLocale! {
         get {
-            let __value = JNIField.GetStaticObjectField( fieldName: "ROOT", fieldType: "Ljava/util/Locale;", fieldCache: &ROOT_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            let __value = JNIField.GetStaticObjectField( fieldName: "CHINA", fieldType: "Ljava/util/Locale;", fieldCache: &CHINA_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.CHINESE
+
+    private static var CHINESE_FieldID: jfieldID?
+
+    open static var CHINESE: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// private static final int java.util.Locale.DISPLAY_COUNTRY
+
+    /// private static final int java.util.Locale.DISPLAY_LANGUAGE
+
+    /// private static final int java.util.Locale.DISPLAY_SCRIPT
+
+    /// private static final int java.util.Locale.DISPLAY_VARIANT
+
+    /// public static final java.util.Locale java.util.Locale.ENGLISH
+
+    private static var ENGLISH_FieldID: jfieldID?
+
+    open static var ENGLISH: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "ENGLISH", fieldType: "Ljava/util/Locale;", fieldCache: &ENGLISH_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.FRANCE
+
+    private static var FRANCE_FieldID: jfieldID?
+
+    open static var FRANCE: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "FRANCE", fieldType: "Ljava/util/Locale;", fieldCache: &FRANCE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.FRENCH
+
+    private static var FRENCH_FieldID: jfieldID?
+
+    open static var FRENCH: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "FRENCH", fieldType: "Ljava/util/Locale;", fieldCache: &FRENCH_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.GERMAN
+
+    private static var GERMAN_FieldID: jfieldID?
+
+    open static var GERMAN: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "GERMAN", fieldType: "Ljava/util/Locale;", fieldCache: &GERMAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.GERMANY
+
+    private static var GERMANY_FieldID: jfieldID?
+
+    open static var GERMANY: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "GERMANY", fieldType: "Ljava/util/Locale;", fieldCache: &GERMANY_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.ITALIAN
+
+    private static var ITALIAN_FieldID: jfieldID?
+
+    open static var ITALIAN: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "ITALIAN", fieldType: "Ljava/util/Locale;", fieldCache: &ITALIAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.ITALY
+
+    private static var ITALY_FieldID: jfieldID?
+
+    open static var ITALY: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "ITALY", fieldType: "Ljava/util/Locale;", fieldCache: &ITALY_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.JAPAN
+
+    private static var JAPAN_FieldID: jfieldID?
+
+    open static var JAPAN: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "JAPAN", fieldType: "Ljava/util/Locale;", fieldCache: &JAPAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.JAPANESE
+
+    private static var JAPANESE_FieldID: jfieldID?
+
+    open static var JAPANESE: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "JAPANESE", fieldType: "Ljava/util/Locale;", fieldCache: &JAPANESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.KOREA
+
+    private static var KOREA_FieldID: jfieldID?
+
+    open static var KOREA: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "KOREA", fieldType: "Ljava/util/Locale;", fieldCache: &KOREA_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.KOREAN
+
+    private static var KOREAN_FieldID: jfieldID?
+
+    open static var KOREAN: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "KOREAN", fieldType: "Ljava/util/Locale;", fieldCache: &KOREAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// private static final java.util.Locale$Cache java.util.Locale.LOCALECACHE
+
+    /// public static final java.util.Locale java.util.Locale.PRC
+
+    private static var PRC_FieldID: jfieldID?
+
+    open static var PRC: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "PRC", fieldType: "Ljava/util/Locale;", fieldCache: &PRC_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? JavaLocale( javaObject: __value ) : nil
         }
     }
@@ -271,7 +233,67 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
     open static var PRIVATE_USE_EXTENSION: UInt16 {
         get {
             let __value = JNIField.GetStaticCharField( fieldName: "PRIVATE_USE_EXTENSION", fieldType: "C", fieldCache: &PRIVATE_USE_EXTENSION_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return JNIType.toSwift( type: UInt16(), from: __value )
+            return __value
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.ROOT
+
+    private static var ROOT_FieldID: jfieldID?
+
+    open static var ROOT: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "ROOT", fieldType: "Ljava/util/Locale;", fieldCache: &ROOT_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.SIMPLIFIED_CHINESE
+
+    private static var SIMPLIFIED_CHINESE_FieldID: jfieldID?
+
+    open static var SIMPLIFIED_CHINESE: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "SIMPLIFIED_CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &SIMPLIFIED_CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.TAIWAN
+
+    private static var TAIWAN_FieldID: jfieldID?
+
+    open static var TAIWAN: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "TAIWAN", fieldType: "Ljava/util/Locale;", fieldCache: &TAIWAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.TRADITIONAL_CHINESE
+
+    private static var TRADITIONAL_CHINESE_FieldID: jfieldID?
+
+    open static var TRADITIONAL_CHINESE: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "TRADITIONAL_CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &TRADITIONAL_CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
+
+    /// public static final java.util.Locale java.util.Locale.UK
+
+    private static var UK_FieldID: jfieldID?
+
+    open static var UK: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "UK", fieldType: "Ljava/util/Locale;", fieldCache: &UK_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
         }
     }
 
@@ -282,51 +304,53 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
     open static var UNICODE_LOCALE_EXTENSION: UInt16 {
         get {
             let __value = JNIField.GetStaticCharField( fieldName: "UNICODE_LOCALE_EXTENSION", fieldType: "C", fieldCache: &UNICODE_LOCALE_EXTENSION_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
-            return JNIType.toSwift( type: UInt16(), from: __value )
+            return __value
         }
     }
 
-    /// static final long java.util.Locale.serialVersionUID
+    /// public static final java.util.Locale java.util.Locale.US
 
-    /// private static final int java.util.Locale.DISPLAY_LANGUAGE
+    private static var US_FieldID: jfieldID?
 
-    /// private static final int java.util.Locale.DISPLAY_COUNTRY
-
-    /// private static final int java.util.Locale.DISPLAY_VARIANT
-
-    /// private static final int java.util.Locale.DISPLAY_SCRIPT
-
-    /// private transient sun.util.locale.BaseLocale java.util.Locale.baseLocale
-
-    /// private transient sun.util.locale.LocaleExtensions java.util.Locale.localeExtensions
-
-    /// private transient volatile int java.util.Locale.hashCodeValue
-
-    /// private static volatile java.util.Locale java.util.Locale.defaultLocale
+    open static var US: JavaLocale! {
+        get {
+            let __value = JNIField.GetStaticObjectField( fieldName: "US", fieldType: "Ljava/util/Locale;", fieldCache: &US_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? JavaLocale( javaObject: __value ) : nil
+        }
+    }
 
     /// private static volatile java.util.Locale java.util.Locale.defaultDisplayLocale
 
     /// private static volatile java.util.Locale java.util.Locale.defaultFormatLocale
 
-    /// private transient volatile java.lang.String java.util.Locale.languageTag
-
-    /// private static final java.io.ObjectStreamField[] java.util.Locale.serialPersistentFields
-
-    /// private static volatile java.lang.String[] java.util.Locale.isoLanguages
+    /// private static volatile java.util.Locale java.util.Locale.defaultLocale
 
     /// private static volatile java.lang.String[] java.util.Locale.isoCountries
 
-    /// static final boolean java.util.Locale.$assertionsDisabled
+    /// private static volatile java.lang.String[] java.util.Locale.isoLanguages
 
-    /// java.util.Locale(sun.util.locale.BaseLocale,sun.util.locale.LocaleExtensions,java.util.Locale$1)
+    /// private static final java.io.ObjectStreamField[] java.util.Locale.serialPersistentFields
+
+    /// static final long java.util.Locale.serialVersionUID
+
+    // Skipping field: true true false false false false 
+
+    /// private transient sun.util.locale.BaseLocale java.util.Locale.baseLocale
+
+    /// private transient volatile int java.util.Locale.hashCodeValue
+
+    /// private transient volatile java.lang.String java.util.Locale.languageTag
+
+    /// private transient sun.util.locale.LocaleExtensions java.util.Locale.localeExtensions
 
     /// public java.util.Locale(java.lang.String)
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( arg0: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Locale", classCache: &JavaLocale.JavaLocaleJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &JavaLocale.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -342,8 +366,8 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
     private static var new_MethodID_2: jmethodID?
 
     public convenience init( arg0: String?, arg1: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/Locale", classCache: &JavaLocale.JavaLocaleJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/String;)V", methodCache: &JavaLocale.new_MethodID_2, args: &__args, locals: &__locals )
@@ -360,8 +384,8 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
     private static var new_MethodID_3: jmethodID?
 
     public convenience init( arg0: String?, arg1: String?, arg2: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
@@ -376,109 +400,38 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
 
     /// private java.util.Locale(sun.util.locale.BaseLocale,sun.util.locale.LocaleExtensions)
 
-    /// public boolean java.util.Locale.equals(java.lang.Object)
+    /// java.util.Locale(sun.util.locale.BaseLocale,sun.util.locale.LocaleExtensions,java.util.Locale$1)
 
-    /// public final java.lang.String java.util.Locale.toString()
-
-    /// public int java.util.Locale.hashCode()
-
-    /// public java.lang.Object java.util.Locale.clone()
-
-    private static var clone_MethodID_4: jmethodID?
-
-    override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &JavaLocale.clone_MethodID_4, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public java.lang.String java.util.Locale.getLanguage()
-
-    private static var getLanguage_MethodID_5: jmethodID?
-
-    open func getLanguage() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLanguage", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getLanguage_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public static java.util.Locale java.util.Locale.getDefault(java.util.Locale$Category)
-
-    private static var getDefault_MethodID_6: jmethodID?
-
-    open class func getDefault( arg0: /* java.util.Locale$Category */ UnclassedObject? ) -> JavaLocale! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getDefault", methodSig: "(Ljava/util/Locale$Category;)Ljava/util/Locale;", methodCache: &getDefault_MethodID_6, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? JavaLocale( javaObject: __return ) : nil
-    }
-
-    open class func getDefault( _ _arg0: /* java.util.Locale$Category */ UnclassedObject? ) -> JavaLocale! {
-        return getDefault( arg0: _arg0 )
-    }
-
-    /// public static java.util.Locale java.util.Locale.getDefault()
-
-    private static var getDefault_MethodID_7: jmethodID?
-
-    open class func getDefault() -> JavaLocale! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getDefault", methodSig: "()Ljava/util/Locale;", methodCache: &getDefault_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? JavaLocale( javaObject: __return ) : nil
-    }
-
-
-    /// static java.util.Locale java.util.Locale.getInstance(java.lang.String,java.lang.String,java.lang.String,java.lang.String,sun.util.locale.LocaleExtensions)
-
-    /// static java.util.Locale java.util.Locale.getInstance(java.lang.String,java.lang.String,java.lang.String)
-
-    /// static java.util.Locale java.util.Locale.getInstance(sun.util.locale.BaseLocale,sun.util.locale.LocaleExtensions)
-
-    /// private void java.util.Locale.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.Locale.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+    // Skipping init: true false false 
 
     /// static sun.util.locale.BaseLocale java.util.Locale.access$600(java.util.Locale)
 
-    /// public static java.util.Locale java.util.Locale.lookup(java.util.List,java.util.Collection)
+    // Skipping method: true false false false false 
 
-    private static var lookup_MethodID_8: jmethodID?
+    /// static sun.util.locale.LocaleExtensions java.util.Locale.access$700(java.util.Locale)
 
-    open class func lookup( arg0: List?, arg1: Collection? ) -> JavaLocale! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "lookup", methodSig: "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Locale;", methodCache: &lookup_MethodID_8, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? JavaLocale( javaObject: __return ) : nil
-    }
+    // Skipping method: true false false false false 
 
-    open class func lookup( _ _arg0: List?, _ _arg1: Collection? ) -> JavaLocale! {
-        return lookup( arg0: _arg0, arg1: _arg1 )
-    }
+    /// static sun.util.locale.LocaleExtensions java.util.Locale.access$800(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
 
-    /// private java.lang.Object java.util.Locale.readResolve() throws java.io.ObjectStreamException
+    // Skipping method: true false false false false 
+
+    /// private static java.lang.String[] java.util.Locale.composeList(java.text.MessageFormat,java.lang.String[])
+
+    /// private static java.lang.String java.util.Locale.convertOldISOCodes(java.lang.String)
+
+    /// private static java.util.Locale java.util.Locale.createConstant(java.lang.String,java.lang.String)
 
     /// public static java.util.List java.util.Locale.filter(java.util.List,java.util.Collection)
 
-    private static var filter_MethodID_9: jmethodID?
+    private static var filter_MethodID_4: jmethodID?
 
     open class func filter( arg0: List?, arg1: Collection? ) -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "filter", methodSig: "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", methodCache: &filter_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "filter", methodSig: "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", methodCache: &filter_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ListForward( javaObject: __return ) : nil
     }
@@ -489,459 +442,33 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
 
     /// public static java.util.List java.util.Locale.filter(java.util.List,java.util.Collection,java.util.Locale$FilteringMode)
 
-    private static var filter_MethodID_10: jmethodID?
+    private static var filter_MethodID_5: jmethodID?
 
-    open class func filter( arg0: List?, arg1: Collection?, arg2: /* java.util.Locale$FilteringMode */ UnclassedObject? ) -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    open class func filter( arg0: List?, arg1: Collection?, arg2: /* class java.util.Locale$FilteringMode */ UnavailableEnum? ) -> List! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "filter", methodSig: "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", methodCache: &filter_MethodID_10, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "filter", methodSig: "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", methodCache: &filter_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ListForward( javaObject: __return ) : nil
     }
 
-    open class func filter( _ _arg0: List?, _ _arg1: Collection?, _ _arg2: /* java.util.Locale$FilteringMode */ UnclassedObject? ) -> List! {
+    open class func filter( _ _arg0: List?, _ _arg1: Collection?, _ _arg2: /* class java.util.Locale$FilteringMode */ UnavailableEnum? ) -> List! {
         return filter( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
     }
 
-    /// private static java.util.Locale java.util.Locale.createConstant(java.lang.String,java.lang.String)
-
-    /// private static java.util.Locale java.util.Locale.initDefault()
-
-    /// private static java.util.Locale java.util.Locale.initDefault(java.util.Locale$Category)
-
-    /// public static synchronized void java.util.Locale.setDefault(java.util.Locale$Category,java.util.Locale)
-
-    private static var setDefault_MethodID_11: jmethodID?
-
-    open class func setDefault( arg0: /* java.util.Locale$Category */ UnclassedObject?, arg1: JavaLocale? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        JNIMethod.CallStaticVoidMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "setDefault", methodSig: "(Ljava/util/Locale$Category;Ljava/util/Locale;)V", methodCache: &setDefault_MethodID_11, args: &__args, locals: &__locals )
-    }
-
-    open class func setDefault( _ _arg0: /* java.util.Locale$Category */ UnclassedObject?, _ _arg1: JavaLocale? ) {
-        setDefault( arg0: _arg0, arg1: _arg1 )
-    }
-
-    /// public static synchronized void java.util.Locale.setDefault(java.util.Locale)
-
-    private static var setDefault_MethodID_12: jmethodID?
-
-    open class func setDefault( arg0: JavaLocale? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        JNIMethod.CallStaticVoidMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "setDefault", methodSig: "(Ljava/util/Locale;)V", methodCache: &setDefault_MethodID_12, args: &__args, locals: &__locals )
-    }
-
-    open class func setDefault( _ _arg0: JavaLocale? ) {
-        setDefault( arg0: _arg0 )
-    }
-
-    /// public static java.util.Locale[] java.util.Locale.getAvailableLocales()
-
-    private static var getAvailableLocales_MethodID_13: jmethodID?
-
-    open class func getAvailableLocales() -> [JavaLocale]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getAvailableLocales", methodSig: "()[Ljava/util/Locale;", methodCache: &getAvailableLocales_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [JavaLocale](), from: __return )
-    }
-
-
-    /// public static java.lang.String[] java.util.Locale.getISOCountries()
-
-    private static var getISOCountries_MethodID_14: jmethodID?
-
-    open class func getISOCountries() -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getISOCountries", methodSig: "()[Ljava/lang/String;", methodCache: &getISOCountries_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
-
-    /// public static java.lang.String[] java.util.Locale.getISOLanguages()
-
-    private static var getISOLanguages_MethodID_15: jmethodID?
-
-    open class func getISOLanguages() -> [String]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getISOLanguages", methodSig: "()[Ljava/lang/String;", methodCache: &getISOLanguages_MethodID_15, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [String](), from: __return )
-    }
-
-
-    /// private static java.lang.String[] java.util.Locale.getISO2Table(java.lang.String)
-
-    /// public java.lang.String java.util.Locale.getScript()
-
-    private static var getScript_MethodID_16: jmethodID?
-
-    open func getScript() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getScript", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getScript_MethodID_16, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.Locale.getCountry()
-
-    private static var getCountry_MethodID_17: jmethodID?
-
-    open func getCountry() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCountry", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getCountry_MethodID_17, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.Locale.getVariant()
-
-    private static var getVariant_MethodID_18: jmethodID?
-
-    open func getVariant() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getVariant", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getVariant_MethodID_18, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public boolean java.util.Locale.hasExtensions()
-
-    private static var hasExtensions_MethodID_19: jmethodID?
-
-    open func hasExtensions() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasExtensions", methodSig: "()Z", methodCache: &JavaLocale.hasExtensions_MethodID_19, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public java.util.Locale java.util.Locale.stripExtensions()
-
-    private static var stripExtensions_MethodID_20: jmethodID?
-
-    open func stripExtensions() -> JavaLocale! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "stripExtensions", methodSig: "()Ljava/util/Locale;", methodCache: &JavaLocale.stripExtensions_MethodID_20, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? JavaLocale( javaObject: __return ) : nil
-    }
-
-
-    /// public java.lang.String java.util.Locale.getExtension(char)
-
-    private static var getExtension_MethodID_21: jmethodID?
-
-    open func getExtension( arg0: UInt16 ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getExtension", methodSig: "(C)Ljava/lang/String;", methodCache: &JavaLocale.getExtension_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getExtension( _ _arg0: UInt16 ) -> String! {
-        return getExtension( arg0: _arg0 )
-    }
-
-    /// public java.util.Set java.util.Locale.getExtensionKeys()
-
-    private static var getExtensionKeys_MethodID_22: jmethodID?
-
-    open func getExtensionKeys() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getExtensionKeys", methodSig: "()Ljava/util/Set;", methodCache: &JavaLocale.getExtensionKeys_MethodID_22, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.Set java.util.Locale.getUnicodeLocaleAttributes()
-
-    private static var getUnicodeLocaleAttributes_MethodID_23: jmethodID?
-
-    open func getUnicodeLocaleAttributes() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getUnicodeLocaleAttributes", methodSig: "()Ljava/util/Set;", methodCache: &JavaLocale.getUnicodeLocaleAttributes_MethodID_23, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
-    }
-
-
-    /// public java.lang.String java.util.Locale.getUnicodeLocaleType(java.lang.String)
-
-    private static var getUnicodeLocaleType_MethodID_24: jmethodID?
-
-    open func getUnicodeLocaleType( arg0: String? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getUnicodeLocaleType", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &JavaLocale.getUnicodeLocaleType_MethodID_24, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getUnicodeLocaleType( _ _arg0: String? ) -> String! {
-        return getUnicodeLocaleType( arg0: _arg0 )
-    }
-
-    /// public java.util.Set java.util.Locale.getUnicodeLocaleKeys()
-
-    private static var getUnicodeLocaleKeys_MethodID_25: jmethodID?
-
-    open func getUnicodeLocaleKeys() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getUnicodeLocaleKeys", methodSig: "()Ljava/util/Set;", methodCache: &JavaLocale.getUnicodeLocaleKeys_MethodID_25, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
-    }
-
-
-    /// sun.util.locale.BaseLocale java.util.Locale.getBaseLocale()
-
-    /// sun.util.locale.LocaleExtensions java.util.Locale.getLocaleExtensions()
-
-    /// public java.lang.String java.util.Locale.toLanguageTag()
-
-    private static var toLanguageTag_MethodID_26: jmethodID?
-
-    open func toLanguageTag() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toLanguageTag", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.toLanguageTag_MethodID_26, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public static java.util.Locale java.util.Locale.forLanguageTag(java.lang.String)
-
-    private static var forLanguageTag_MethodID_27: jmethodID?
-
-    open class func forLanguageTag( arg0: String? ) -> JavaLocale! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "forLanguageTag", methodSig: "(Ljava/lang/String;)Ljava/util/Locale;", methodCache: &forLanguageTag_MethodID_27, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? JavaLocale( javaObject: __return ) : nil
-    }
-
-    open class func forLanguageTag( _ _arg0: String? ) -> JavaLocale! {
-        return forLanguageTag( arg0: _arg0 )
-    }
-
-    /// public java.lang.String java.util.Locale.getISO3Language() throws java.util.MissingResourceException
-
-    private static var getISO3Language_MethodID_28: jmethodID?
-
-    open func getISO3Language() throws /* java.util.MissingResourceException */ -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getISO3Language", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getISO3Language_MethodID_28, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw MissingResourceException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.Locale.getISO3Country() throws java.util.MissingResourceException
-
-    private static var getISO3Country_MethodID_29: jmethodID?
-
-    open func getISO3Country() throws /* java.util.MissingResourceException */ -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getISO3Country", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getISO3Country_MethodID_29, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw MissingResourceException( javaObject: throwable )
-        }
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// private static java.lang.String java.util.Locale.getISO3Code(java.lang.String,java.lang.String)
-
-    /// public java.lang.String java.util.Locale.getDisplayLanguage(java.util.Locale)
-
-    private static var getDisplayLanguage_MethodID_30: jmethodID?
-
-    open func getDisplayLanguage( arg0: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayLanguage", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayLanguage_MethodID_30, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getDisplayLanguage( _ _arg0: JavaLocale? ) -> String! {
-        return getDisplayLanguage( arg0: _arg0 )
-    }
-
-    /// public final java.lang.String java.util.Locale.getDisplayLanguage()
-
-    private static var getDisplayLanguage_MethodID_31: jmethodID?
-
-    open func getDisplayLanguage() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayLanguage", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayLanguage_MethodID_31, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.Locale.getDisplayScript(java.util.Locale)
-
-    private static var getDisplayScript_MethodID_32: jmethodID?
-
-    open func getDisplayScript( arg0: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayScript", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayScript_MethodID_32, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getDisplayScript( _ _arg0: JavaLocale? ) -> String! {
-        return getDisplayScript( arg0: _arg0 )
-    }
-
-    /// public java.lang.String java.util.Locale.getDisplayScript()
-
-    private static var getDisplayScript_MethodID_33: jmethodID?
-
-    open func getDisplayScript() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayScript", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayScript_MethodID_33, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.Locale.getDisplayCountry(java.util.Locale)
-
-    private static var getDisplayCountry_MethodID_34: jmethodID?
-
-    open func getDisplayCountry( arg0: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayCountry", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayCountry_MethodID_34, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getDisplayCountry( _ _arg0: JavaLocale? ) -> String! {
-        return getDisplayCountry( arg0: _arg0 )
-    }
-
-    /// public final java.lang.String java.util.Locale.getDisplayCountry()
-
-    private static var getDisplayCountry_MethodID_35: jmethodID?
-
-    open func getDisplayCountry() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayCountry", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayCountry_MethodID_35, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// private java.lang.String java.util.Locale.getDisplayString(java.lang.String,java.util.Locale,int)
-
-    /// public final java.lang.String java.util.Locale.getDisplayVariant()
-
-    private static var getDisplayVariant_MethodID_36: jmethodID?
-
-    open func getDisplayVariant() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayVariant", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayVariant_MethodID_36, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.Locale.getDisplayVariant(java.util.Locale)
-
-    private static var getDisplayVariant_MethodID_37: jmethodID?
-
-    open func getDisplayVariant( arg0: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayVariant", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayVariant_MethodID_37, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getDisplayVariant( _ _arg0: JavaLocale? ) -> String! {
-        return getDisplayVariant( arg0: _arg0 )
-    }
-
-    /// public java.lang.String java.util.Locale.getDisplayName(java.util.Locale)
-
-    private static var getDisplayName_MethodID_38: jmethodID?
-
-    open func getDisplayName( arg0: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayName_MethodID_38, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getDisplayName( _ _arg0: JavaLocale? ) -> String! {
-        return getDisplayName( arg0: _arg0 )
-    }
-
-    /// public final java.lang.String java.util.Locale.getDisplayName()
-
-    private static var getDisplayName_MethodID_39: jmethodID?
-
-    open func getDisplayName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayName_MethodID_39, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// private java.lang.String[] java.util.Locale.getDisplayVariantArray(java.util.Locale)
-
-    /// private static java.lang.String java.util.Locale.formatList(java.lang.String[],java.lang.String,java.lang.String)
-
-    /// private static java.lang.String[] java.util.Locale.composeList(java.text.MessageFormat,java.lang.String[])
-
-    /// private static boolean java.util.Locale.isUnicodeExtensionKey(java.lang.String)
-
-    /// private static java.lang.String java.util.Locale.convertOldISOCodes(java.lang.String)
-
-    /// private static sun.util.locale.LocaleExtensions java.util.Locale.getCompatibilityExtensions(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
-
     /// public static java.util.List java.util.Locale.filterTags(java.util.List,java.util.Collection)
 
-    private static var filterTags_MethodID_40: jmethodID?
+    private static var filterTags_MethodID_6: jmethodID?
 
     open class func filterTags( arg0: List?, arg1: Collection? ) -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "filterTags", methodSig: "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", methodCache: &filterTags_MethodID_40, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "filterTags", methodSig: "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;", methodCache: &filterTags_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ListForward( javaObject: __return ) : nil
     }
@@ -952,43 +479,588 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Se
 
     /// public static java.util.List java.util.Locale.filterTags(java.util.List,java.util.Collection,java.util.Locale$FilteringMode)
 
-    private static var filterTags_MethodID_41: jmethodID?
+    private static var filterTags_MethodID_7: jmethodID?
 
-    open class func filterTags( arg0: List?, arg1: Collection?, arg2: /* java.util.Locale$FilteringMode */ UnclassedObject? ) -> List! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    open class func filterTags( arg0: List?, arg1: Collection?, arg2: /* class java.util.Locale$FilteringMode */ UnavailableEnum? ) -> List! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
         __args[2] = JNIType.toJava( value: arg2, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "filterTags", methodSig: "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", methodCache: &filterTags_MethodID_41, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "filterTags", methodSig: "(Ljava/util/List;Ljava/util/Collection;Ljava/util/Locale$FilteringMode;)Ljava/util/List;", methodCache: &filterTags_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ListForward( javaObject: __return ) : nil
     }
 
-    open class func filterTags( _ _arg0: List?, _ _arg1: Collection?, _ _arg2: /* java.util.Locale$FilteringMode */ UnclassedObject? ) -> List! {
+    open class func filterTags( _ _arg0: List?, _ _arg1: Collection?, _ _arg2: /* class java.util.Locale$FilteringMode */ UnavailableEnum? ) -> List! {
         return filterTags( arg0: _arg0, arg1: _arg1, arg2: _arg2 )
+    }
+
+    /// public static java.util.Locale java.util.Locale.forLanguageTag(java.lang.String)
+
+    private static var forLanguageTag_MethodID_8: jmethodID?
+
+    open class func forLanguageTag( arg0: String? ) -> JavaLocale! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "forLanguageTag", methodSig: "(Ljava/lang/String;)Ljava/util/Locale;", methodCache: &forLanguageTag_MethodID_8, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? JavaLocale( javaObject: __return ) : nil
+    }
+
+    open class func forLanguageTag( _ _arg0: String? ) -> JavaLocale! {
+        return forLanguageTag( arg0: _arg0 )
+    }
+
+    /// private static java.lang.String java.util.Locale.formatList(java.lang.String[],java.lang.String,java.lang.String)
+
+    /// public static java.util.Locale[] java.util.Locale.getAvailableLocales()
+
+    private static var getAvailableLocales_MethodID_9: jmethodID?
+
+    open class func getAvailableLocales() -> [JavaLocale]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getAvailableLocales", methodSig: "()[Ljava/util/Locale;", methodCache: &getAvailableLocales_MethodID_9, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [JavaLocale].self, from: __return )
+    }
+
+
+    /// private static sun.util.locale.LocaleExtensions java.util.Locale.getCompatibilityExtensions(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+
+    /// public static java.util.Locale java.util.Locale.getDefault(java.util.Locale$Category)
+
+    private static var getDefault_MethodID_10: jmethodID?
+
+    open class func getDefault( arg0: /* class java.util.Locale$Category */ UnavailableEnum? ) -> JavaLocale! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getDefault", methodSig: "(Ljava/util/Locale$Category;)Ljava/util/Locale;", methodCache: &getDefault_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? JavaLocale( javaObject: __return ) : nil
+    }
+
+    open class func getDefault( _ _arg0: /* class java.util.Locale$Category */ UnavailableEnum? ) -> JavaLocale! {
+        return getDefault( arg0: _arg0 )
+    }
+
+    /// public static java.util.Locale java.util.Locale.getDefault()
+
+    private static var getDefault_MethodID_11: jmethodID?
+
+    open class func getDefault() -> JavaLocale! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getDefault", methodSig: "()Ljava/util/Locale;", methodCache: &getDefault_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? JavaLocale( javaObject: __return ) : nil
+    }
+
+
+    /// private static java.lang.String[] java.util.Locale.getISO2Table(java.lang.String)
+
+    /// private static java.lang.String java.util.Locale.getISO3Code(java.lang.String,java.lang.String)
+
+    /// public static java.lang.String[] java.util.Locale.getISOCountries()
+
+    private static var getISOCountries_MethodID_12: jmethodID?
+
+    open class func getISOCountries() -> [String]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getISOCountries", methodSig: "()[Ljava/lang/String;", methodCache: &getISOCountries_MethodID_12, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [String].self, from: __return )
+    }
+
+
+    /// public static java.lang.String[] java.util.Locale.getISOLanguages()
+
+    private static var getISOLanguages_MethodID_13: jmethodID?
+
+    open class func getISOLanguages() -> [String]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "getISOLanguages", methodSig: "()[Ljava/lang/String;", methodCache: &getISOLanguages_MethodID_13, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [String].self, from: __return )
+    }
+
+
+    /// static java.util.Locale java.util.Locale.getInstance(java.lang.String,java.lang.String,java.lang.String)
+
+    // Skipping method: true false false false false 
+
+    /// static java.util.Locale java.util.Locale.getInstance(java.lang.String,java.lang.String,java.lang.String,java.lang.String,sun.util.locale.LocaleExtensions)
+
+    // Skipping method: true false false false false 
+
+    /// static java.util.Locale java.util.Locale.getInstance(sun.util.locale.BaseLocale,sun.util.locale.LocaleExtensions)
+
+    // Skipping method: true false false false false 
+
+    /// private static java.util.Locale java.util.Locale.initDefault(java.util.Locale$Category)
+
+    /// private static java.util.Locale java.util.Locale.initDefault()
+
+    /// private static boolean java.util.Locale.isUnicodeExtensionKey(java.lang.String)
+
+    /// public static java.util.Locale java.util.Locale.lookup(java.util.List,java.util.Collection)
+
+    private static var lookup_MethodID_14: jmethodID?
+
+    open class func lookup( arg0: List?, arg1: Collection? ) -> JavaLocale! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "lookup", methodSig: "(Ljava/util/List;Ljava/util/Collection;)Ljava/util/Locale;", methodCache: &lookup_MethodID_14, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? JavaLocale( javaObject: __return ) : nil
+    }
+
+    open class func lookup( _ _arg0: List?, _ _arg1: Collection? ) -> JavaLocale! {
+        return lookup( arg0: _arg0, arg1: _arg1 )
     }
 
     /// public static java.lang.String java.util.Locale.lookupTag(java.util.List,java.util.Collection)
 
-    private static var lookupTag_MethodID_42: jmethodID?
+    private static var lookupTag_MethodID_15: jmethodID?
 
     open class func lookupTag( arg0: List?, arg1: Collection? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "lookupTag", methodSig: "(Ljava/util/List;Ljava/util/Collection;)Ljava/lang/String;", methodCache: &lookupTag_MethodID_42, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "lookupTag", methodSig: "(Ljava/util/List;Ljava/util/Collection;)Ljava/lang/String;", methodCache: &lookupTag_MethodID_15, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open class func lookupTag( _ _arg0: List?, _ _arg1: Collection? ) -> String! {
         return lookupTag( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// static sun.util.locale.LocaleExtensions java.util.Locale.access$700(java.util.Locale)
+    /// public static synchronized void java.util.Locale.setDefault(java.util.Locale)
 
-    /// static sun.util.locale.LocaleExtensions java.util.Locale.access$800(java.lang.String,java.lang.String,java.lang.String,java.lang.String)
+    private static var setDefault_MethodID_16: jmethodID?
+
+    open class func setDefault( arg0: JavaLocale? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        JNIMethod.CallStaticVoidMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "setDefault", methodSig: "(Ljava/util/Locale;)V", methodCache: &setDefault_MethodID_16, args: &__args, locals: &__locals )
+    }
+
+    open class func setDefault( _ _arg0: JavaLocale? ) {
+        setDefault( arg0: _arg0 )
+    }
+
+    /// public static synchronized void java.util.Locale.setDefault(java.util.Locale$Category,java.util.Locale)
+
+    private static var setDefault_MethodID_17: jmethodID?
+
+    open class func setDefault( arg0: /* class java.util.Locale$Category */ UnavailableEnum?, arg1: JavaLocale? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        __args[1] = JNIType.toJava( value: arg1, locals: &__locals )
+        JNIMethod.CallStaticVoidMethod( className: "java/util/Locale", classCache: &JavaLocaleJNIClass, methodName: "setDefault", methodSig: "(Ljava/util/Locale$Category;Ljava/util/Locale;)V", methodCache: &setDefault_MethodID_17, args: &__args, locals: &__locals )
+    }
+
+    open class func setDefault( _ _arg0: /* class java.util.Locale$Category */ UnavailableEnum?, _ _arg1: JavaLocale? ) {
+        setDefault( arg0: _arg0, arg1: _arg1 )
+    }
+
+    /// public java.lang.Object java.util.Locale.clone()
+
+    private static var clone_MethodID_18: jmethodID?
+
+    override open func clone() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &JavaLocale.clone_MethodID_18, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public boolean java.util.Locale.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// sun.util.locale.BaseLocale java.util.Locale.getBaseLocale()
+
+    // Skipping method: true false false false false 
+
+    /// public java.lang.String java.util.Locale.getCountry()
+
+    private static var getCountry_MethodID_19: jmethodID?
+
+    open func getCountry() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCountry", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getCountry_MethodID_19, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.getDisplayCountry(java.util.Locale)
+
+    private static var getDisplayCountry_MethodID_20: jmethodID?
+
+    open func getDisplayCountry( arg0: JavaLocale? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayCountry", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayCountry_MethodID_20, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getDisplayCountry( _ _arg0: JavaLocale? ) -> String! {
+        return getDisplayCountry( arg0: _arg0 )
+    }
+
+    /// public final java.lang.String java.util.Locale.getDisplayCountry()
+
+    private static var getDisplayCountry_MethodID_21: jmethodID?
+
+    open func getDisplayCountry() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayCountry", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayCountry_MethodID_21, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.getDisplayLanguage(java.util.Locale)
+
+    private static var getDisplayLanguage_MethodID_22: jmethodID?
+
+    open func getDisplayLanguage( arg0: JavaLocale? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayLanguage", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayLanguage_MethodID_22, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getDisplayLanguage( _ _arg0: JavaLocale? ) -> String! {
+        return getDisplayLanguage( arg0: _arg0 )
+    }
+
+    /// public final java.lang.String java.util.Locale.getDisplayLanguage()
+
+    private static var getDisplayLanguage_MethodID_23: jmethodID?
+
+    open func getDisplayLanguage() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayLanguage", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayLanguage_MethodID_23, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.getDisplayName(java.util.Locale)
+
+    private static var getDisplayName_MethodID_24: jmethodID?
+
+    open func getDisplayName( arg0: JavaLocale? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayName_MethodID_24, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getDisplayName( _ _arg0: JavaLocale? ) -> String! {
+        return getDisplayName( arg0: _arg0 )
+    }
+
+    /// public final java.lang.String java.util.Locale.getDisplayName()
+
+    private static var getDisplayName_MethodID_25: jmethodID?
+
+    open func getDisplayName() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayName_MethodID_25, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.getDisplayScript(java.util.Locale)
+
+    private static var getDisplayScript_MethodID_26: jmethodID?
+
+    open func getDisplayScript( arg0: JavaLocale? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayScript", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayScript_MethodID_26, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getDisplayScript( _ _arg0: JavaLocale? ) -> String! {
+        return getDisplayScript( arg0: _arg0 )
+    }
+
+    /// public java.lang.String java.util.Locale.getDisplayScript()
+
+    private static var getDisplayScript_MethodID_27: jmethodID?
+
+    open func getDisplayScript() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayScript", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayScript_MethodID_27, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// private java.lang.String java.util.Locale.getDisplayString(java.lang.String,java.util.Locale,int)
+
+    /// public java.lang.String java.util.Locale.getDisplayVariant(java.util.Locale)
+
+    private static var getDisplayVariant_MethodID_28: jmethodID?
+
+    open func getDisplayVariant( arg0: JavaLocale? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayVariant", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &JavaLocale.getDisplayVariant_MethodID_28, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getDisplayVariant( _ _arg0: JavaLocale? ) -> String! {
+        return getDisplayVariant( arg0: _arg0 )
+    }
+
+    /// public final java.lang.String java.util.Locale.getDisplayVariant()
+
+    private static var getDisplayVariant_MethodID_29: jmethodID?
+
+    open func getDisplayVariant() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayVariant", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getDisplayVariant_MethodID_29, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// private java.lang.String[] java.util.Locale.getDisplayVariantArray(java.util.Locale)
+
+    /// public java.lang.String java.util.Locale.getExtension(char)
+
+    private static var getExtension_MethodID_30: jmethodID?
+
+    open func getExtension( arg0: UInt16 ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( c: arg0 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getExtension", methodSig: "(C)Ljava/lang/String;", methodCache: &JavaLocale.getExtension_MethodID_30, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getExtension( _ _arg0: UInt16 ) -> String! {
+        return getExtension( arg0: _arg0 )
+    }
+
+    /// public java.util.Set java.util.Locale.getExtensionKeys()
+
+    private static var getExtensionKeys_MethodID_31: jmethodID?
+
+    open func getExtensionKeys() -> java_swift.JavaSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getExtensionKeys", methodSig: "()Ljava/util/Set;", methodCache: &JavaLocale.getExtensionKeys_MethodID_31, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.getISO3Country() throws java.util.MissingResourceException
+
+    private static var getISO3Country_MethodID_32: jmethodID?
+
+    open func getISO3Country() throws /* java.util.MissingResourceException */ -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getISO3Country", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getISO3Country_MethodID_32, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw MissingResourceException( javaObject: throwable )
+        }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.getISO3Language() throws java.util.MissingResourceException
+
+    private static var getISO3Language_MethodID_33: jmethodID?
+
+    open func getISO3Language() throws /* java.util.MissingResourceException */ -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getISO3Language", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getISO3Language_MethodID_33, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw MissingResourceException( javaObject: throwable )
+        }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.getLanguage()
+
+    private static var getLanguage_MethodID_34: jmethodID?
+
+    open func getLanguage() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLanguage", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getLanguage_MethodID_34, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// sun.util.locale.LocaleExtensions java.util.Locale.getLocaleExtensions()
+
+    // Skipping method: true false false false false 
+
+    /// public java.lang.String java.util.Locale.getScript()
+
+    private static var getScript_MethodID_35: jmethodID?
+
+    open func getScript() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getScript", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getScript_MethodID_35, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.Set java.util.Locale.getUnicodeLocaleAttributes()
+
+    private static var getUnicodeLocaleAttributes_MethodID_36: jmethodID?
+
+    open func getUnicodeLocaleAttributes() -> java_swift.JavaSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getUnicodeLocaleAttributes", methodSig: "()Ljava/util/Set;", methodCache: &JavaLocale.getUnicodeLocaleAttributes_MethodID_36, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.util.Set java.util.Locale.getUnicodeLocaleKeys()
+
+    private static var getUnicodeLocaleKeys_MethodID_37: jmethodID?
+
+    open func getUnicodeLocaleKeys() -> java_swift.JavaSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getUnicodeLocaleKeys", methodSig: "()Ljava/util/Set;", methodCache: &JavaLocale.getUnicodeLocaleKeys_MethodID_37, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.getUnicodeLocaleType(java.lang.String)
+
+    private static var getUnicodeLocaleType_MethodID_38: jmethodID?
+
+    open func getUnicodeLocaleType( arg0: String? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getUnicodeLocaleType", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &JavaLocale.getUnicodeLocaleType_MethodID_38, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getUnicodeLocaleType( _ _arg0: String? ) -> String! {
+        return getUnicodeLocaleType( arg0: _arg0 )
+    }
+
+    /// public java.lang.String java.util.Locale.getVariant()
+
+    private static var getVariant_MethodID_39: jmethodID?
+
+    open func getVariant() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getVariant", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.getVariant_MethodID_39, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public boolean java.util.Locale.hasExtensions()
+
+    private static var hasExtensions_MethodID_40: jmethodID?
+
+    open func hasExtensions() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasExtensions", methodSig: "()Z", methodCache: &JavaLocale.hasExtensions_MethodID_40, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public int java.util.Locale.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.Locale.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// private java.lang.Object java.util.Locale.readResolve() throws java.io.ObjectStreamException
+
+    /// public java.util.Locale java.util.Locale.stripExtensions()
+
+    private static var stripExtensions_MethodID_41: jmethodID?
+
+    open func stripExtensions() -> JavaLocale! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "stripExtensions", methodSig: "()Ljava/util/Locale;", methodCache: &JavaLocale.stripExtensions_MethodID_41, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? JavaLocale( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.Locale.toLanguageTag()
+
+    private static var toLanguageTag_MethodID_42: jmethodID?
+
+    open func toLanguageTag() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toLanguageTag", methodSig: "()Ljava/lang/String;", methodCache: &JavaLocale.toLanguageTag_MethodID_42, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public final java.lang.String java.util.Locale.toString()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.Locale.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
 }
 

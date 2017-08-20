@@ -11,6 +11,12 @@ public protocol LongUnaryOperator: JavaProtocol {
 
     //    class func identity() -> LongUnaryOperator!
 
+    /// private static long java.util.function.LongUnaryOperator.lambda$identity$2(long)
+
+    /// public default java.util.function.LongUnaryOperator java.util.function.LongUnaryOperator.andThen(java.util.function.LongUnaryOperator)
+
+    func andThen( after: LongUnaryOperator? ) -> LongUnaryOperator!
+
     /// public abstract long java.util.function.LongUnaryOperator.applyAsLong(long)
 
     func applyAsLong( operand: Int64 ) -> Int64
@@ -18,12 +24,6 @@ public protocol LongUnaryOperator: JavaProtocol {
     /// public default java.util.function.LongUnaryOperator java.util.function.LongUnaryOperator.compose(java.util.function.LongUnaryOperator)
 
     func compose( before: LongUnaryOperator? ) -> LongUnaryOperator!
-
-    /// public default java.util.function.LongUnaryOperator java.util.function.LongUnaryOperator.andThen(java.util.function.LongUnaryOperator)
-
-    func andThen( after: LongUnaryOperator? ) -> LongUnaryOperator!
-
-    /// private static long java.util.function.LongUnaryOperator.lambda$identity$2(long)
 
     /// private long java.util.function.LongUnaryOperator.lambda$andThen$1(java.util.function.LongUnaryOperator,long)
 
@@ -41,56 +41,23 @@ open class LongUnaryOperatorForward: JNIObjectForward, LongUnaryOperator {
     private static var identity_MethodID_5: jmethodID?
 
     open class func identity() -> LongUnaryOperator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/function/LongUnaryOperator", classCache: &LongUnaryOperatorJNIClass, methodName: "identity", methodSig: "()Ljava/util/function/LongUnaryOperator;", methodCache: &identity_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LongUnaryOperatorForward( javaObject: __return ) : nil
     }
 
 
-    /// public abstract long java.util.function.LongUnaryOperator.applyAsLong(long)
-
-    private static var applyAsLong_MethodID_6: jmethodID?
-
-    open func applyAsLong( operand: Int64 ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: operand, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "applyAsLong", methodSig: "(J)J", methodCache: &LongUnaryOperatorForward.applyAsLong_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-    open func applyAsLong( _ _operand: Int64 ) -> Int64 {
-        return applyAsLong( operand: _operand )
-    }
-
-    /// public default java.util.function.LongUnaryOperator java.util.function.LongUnaryOperator.compose(java.util.function.LongUnaryOperator)
-
-    private static var compose_MethodID_7: jmethodID?
-
-    open func compose( before: LongUnaryOperator? ) -> LongUnaryOperator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: before, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compose", methodSig: "(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;", methodCache: &LongUnaryOperatorForward.compose_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? LongUnaryOperatorForward( javaObject: __return ) : nil
-    }
-
-    open func compose( _ _before: LongUnaryOperator? ) -> LongUnaryOperator! {
-        return compose( before: _before )
-    }
-
     /// public default java.util.function.LongUnaryOperator java.util.function.LongUnaryOperator.andThen(java.util.function.LongUnaryOperator)
 
-    private static var andThen_MethodID_8: jmethodID?
+    private static var andThen_MethodID_6: jmethodID?
 
     open func andThen( after: LongUnaryOperator? ) -> LongUnaryOperator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: after, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;", methodCache: &LongUnaryOperatorForward.andThen_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "andThen", methodSig: "(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;", methodCache: &LongUnaryOperatorForward.andThen_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LongUnaryOperatorForward( javaObject: __return ) : nil
     }
@@ -99,6 +66,38 @@ open class LongUnaryOperatorForward: JNIObjectForward, LongUnaryOperator {
         return andThen( after: _after )
     }
 
-}
+    /// public abstract long java.util.function.LongUnaryOperator.applyAsLong(long)
 
+    private static var applyAsLong_MethodID_7: jmethodID?
+
+    open func applyAsLong( operand: Int64 ) -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: operand )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "applyAsLong", methodSig: "(J)J", methodCache: &LongUnaryOperatorForward.applyAsLong_MethodID_7, args: &__args, locals: &__locals )
+        return __return
+    }
+
+    open func applyAsLong( _ _operand: Int64 ) -> Int64 {
+        return applyAsLong( operand: _operand )
+    }
+
+    /// public default java.util.function.LongUnaryOperator java.util.function.LongUnaryOperator.compose(java.util.function.LongUnaryOperator)
+
+    private static var compose_MethodID_8: jmethodID?
+
+    open func compose( before: LongUnaryOperator? ) -> LongUnaryOperator! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: before, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "compose", methodSig: "(Ljava/util/function/LongUnaryOperator;)Ljava/util/function/LongUnaryOperator;", methodCache: &LongUnaryOperatorForward.compose_MethodID_8, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? LongUnaryOperatorForward( javaObject: __return ) : nil
+    }
+
+    open func compose( _ _before: LongUnaryOperator? ) -> LongUnaryOperator! {
+        return compose( before: _before )
+    }
+
+}
 

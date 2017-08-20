@@ -23,8 +23,8 @@ open class PreferenceChangeListenerForward: EventListenerForward, PreferenceChan
     private static var preferenceChange_MethodID_2: jmethodID?
 
     open func preferenceChange( evt: PreferenceChangeEvent? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: evt, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "preferenceChange", methodSig: "(Ljava/util/prefs/PreferenceChangeEvent;)V", methodCache: &PreferenceChangeListenerForward.preferenceChange_MethodID_2, args: &__args, locals: &__locals )
     }
@@ -35,13 +35,10 @@ open class PreferenceChangeListenerForward: EventListenerForward, PreferenceChan
 
 }
 
-
 private typealias PreferenceChangeListener_preferenceChange_0_type = @convention(c) ( _: UnsafeMutablePointer<JNIEnv?>, _: jobject?, _: jlong, _: jobject? ) -> ()
 
 private func PreferenceChangeListener_preferenceChange_0( _ __env: UnsafeMutablePointer<JNIEnv?>, _ __this: jobject?, _ __swiftObject: jlong, _ evt: jobject? ) -> () {
-    JNI.inNative = true;
     PreferenceChangeListenerLocal_.swiftObject( jniEnv: __env, javaObject: __this, swiftObject: __swiftObject ).preferenceChange( evt: evt != nil ? PreferenceChangeEvent( javaObject: evt ) : nil )
-    JNI.inNative = false;
 }
 
 fileprivate class PreferenceChangeListenerLocal_: JNILocalProxy<PreferenceChangeListener, Any> {
@@ -88,8 +85,5 @@ open class PreferenceChangeListenerBase: PreferenceChangeListener {
     open func preferenceChange( evt: PreferenceChangeEvent? ) /**/ {
     }
 
-    open func preferenceChange( _ _evt: PreferenceChangeEvent? ) /**/ {
-        preferenceChange( evt: _evt )
-    }
 
 }

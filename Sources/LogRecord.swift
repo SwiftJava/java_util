@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.logging.LogRecord ///
 
-open class LogRecord: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProtocol {
+open class LogRecord: java_swift.JavaObject, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -16,33 +16,23 @@ open class LogRecord: java_swift.JavaObject, /* java.io.Serializable */ Unclasse
 
     private static var LogRecordJNIClass: jclass?
 
-    /// private static final java.util.concurrent.atomic.AtomicLong java.util.logging.LogRecord.globalSequenceNumber
-
     /// private static final int java.util.logging.LogRecord.MIN_SEQUENTIAL_THREAD_ID
 
+    /// private static final java.util.concurrent.atomic.AtomicLong java.util.logging.LogRecord.globalSequenceNumber
+
     /// private static final java.util.concurrent.atomic.AtomicInteger java.util.logging.LogRecord.nextThreadId
+
+    /// private static final long java.util.logging.LogRecord.serialVersionUID
 
     /// private static final java.lang.ThreadLocal java.util.logging.LogRecord.threadIds
 
     /// private java.util.logging.Level java.util.logging.LogRecord.level
 
-    /// private long java.util.logging.LogRecord.sequenceNumber
-
-    /// private java.lang.String java.util.logging.LogRecord.sourceClassName
-
-    /// private java.lang.String java.util.logging.LogRecord.sourceMethodName
+    /// private java.lang.String java.util.logging.LogRecord.loggerName
 
     /// private java.lang.String java.util.logging.LogRecord.message
 
-    /// private int java.util.logging.LogRecord.threadID
-
     /// private long java.util.logging.LogRecord.millis
-
-    /// private java.lang.Throwable java.util.logging.LogRecord.thrown
-
-    /// private java.lang.String java.util.logging.LogRecord.loggerName
-
-    /// private java.lang.String java.util.logging.LogRecord.resourceBundleName
 
     /// private transient boolean java.util.logging.LogRecord.needToInferCaller
 
@@ -50,15 +40,25 @@ open class LogRecord: java_swift.JavaObject, /* java.io.Serializable */ Unclasse
 
     /// private transient java.util.ResourceBundle java.util.logging.LogRecord.resourceBundle
 
-    /// private static final long java.util.logging.LogRecord.serialVersionUID
+    /// private java.lang.String java.util.logging.LogRecord.resourceBundleName
+
+    /// private long java.util.logging.LogRecord.sequenceNumber
+
+    /// private java.lang.String java.util.logging.LogRecord.sourceClassName
+
+    /// private java.lang.String java.util.logging.LogRecord.sourceMethodName
+
+    /// private int java.util.logging.LogRecord.threadID
+
+    /// private java.lang.Throwable java.util.logging.LogRecord.thrown
 
     /// public java.util.logging.LogRecord(java.util.logging.Level,java.lang.String)
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( level: Level?, msg: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: level, locals: &__locals )
         __args[1] = JNIType.toJava( value: msg, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/logging/LogRecord", classCache: &LogRecord.LogRecordJNIClass, methodSig: "(Ljava/util/logging/Level;Ljava/lang/String;)V", methodCache: &LogRecord.new_MethodID_1, args: &__args, locals: &__locals )
@@ -70,225 +70,224 @@ open class LogRecord: java_swift.JavaObject, /* java.io.Serializable */ Unclasse
         self.init( level: _level, msg: _msg )
     }
 
-    /// public java.lang.String java.util.logging.LogRecord.getMessage()
-
-    private static var getMessage_MethodID_2: jmethodID?
-
-    open func getMessage() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getMessage", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getMessage_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// private void java.util.logging.LogRecord.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.logging.LogRecord.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// public java.lang.Object[] java.util.logging.LogRecord.getParameters()
-
-    private static var getParameters_MethodID_3: jmethodID?
-
-    open func getParameters() -> [JavaObject]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getParameters", methodSig: "()[Ljava/lang/Object;", methodCache: &LogRecord.getParameters_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [JavaObject](), from: __return )
-    }
-
+    /// private int java.util.logging.LogRecord.defaultThreadID()
 
     /// public java.util.logging.Level java.util.logging.LogRecord.getLevel()
 
-    private static var getLevel_MethodID_4: jmethodID?
+    private static var getLevel_MethodID_2: jmethodID?
 
     open func getLevel() -> Level! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLevel", methodSig: "()Ljava/util/logging/Level;", methodCache: &LogRecord.getLevel_MethodID_4, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLevel", methodSig: "()Ljava/util/logging/Level;", methodCache: &LogRecord.getLevel_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? Level( javaObject: __return ) : nil
     }
 
 
-    /// public java.lang.String java.util.logging.LogRecord.getResourceBundleName()
+    /// public java.lang.String java.util.logging.LogRecord.getLoggerName()
 
-    private static var getResourceBundleName_MethodID_5: jmethodID?
+    private static var getLoggerName_MethodID_3: jmethodID?
 
-    open func getResourceBundleName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func getLoggerName() -> String! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getResourceBundleName", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getResourceBundleName_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLoggerName", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getLoggerName_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.logging.LogRecord.getMessage()
+
+    private static var getMessage_MethodID_4: jmethodID?
+
+    open func getMessage() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getMessage", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getMessage_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public long java.util.logging.LogRecord.getMillis()
+
+    private static var getMillis_MethodID_5: jmethodID?
+
+    open func getMillis() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getMillis", methodSig: "()J", methodCache: &LogRecord.getMillis_MethodID_5, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public java.lang.Object[] java.util.logging.LogRecord.getParameters()
+
+    private static var getParameters_MethodID_6: jmethodID?
+
+    open func getParameters() -> [JavaObject]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getParameters", methodSig: "()[Ljava/lang/Object;", methodCache: &LogRecord.getParameters_MethodID_6, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [JavaObject].self, from: __return )
     }
 
 
     /// public java.util.ResourceBundle java.util.logging.LogRecord.getResourceBundle()
 
-    private static var getResourceBundle_MethodID_6: jmethodID?
+    private static var getResourceBundle_MethodID_7: jmethodID?
 
     open func getResourceBundle() -> ResourceBundle! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getResourceBundle", methodSig: "()Ljava/util/ResourceBundle;", methodCache: &LogRecord.getResourceBundle_MethodID_6, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getResourceBundle", methodSig: "()Ljava/util/ResourceBundle;", methodCache: &LogRecord.getResourceBundle_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? ResourceBundle( javaObject: __return ) : nil
     }
 
 
-    /// private int java.util.logging.LogRecord.defaultThreadID()
+    /// public java.lang.String java.util.logging.LogRecord.getResourceBundleName()
 
-    /// public java.lang.String java.util.logging.LogRecord.getLoggerName()
+    private static var getResourceBundleName_MethodID_8: jmethodID?
 
-    private static var getLoggerName_MethodID_7: jmethodID?
-
-    open func getLoggerName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func getResourceBundleName() -> String! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getLoggerName", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getLoggerName_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getResourceBundleName", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getResourceBundleName_MethodID_8, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
 
+    /// public long java.util.logging.LogRecord.getSequenceNumber()
+
+    private static var getSequenceNumber_MethodID_9: jmethodID?
+
+    open func getSequenceNumber() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getSequenceNumber", methodSig: "()J", methodCache: &LogRecord.getSequenceNumber_MethodID_9, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
+    /// public java.lang.String java.util.logging.LogRecord.getSourceClassName()
+
+    private static var getSourceClassName_MethodID_10: jmethodID?
+
+    open func getSourceClassName() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSourceClassName", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getSourceClassName_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public java.lang.String java.util.logging.LogRecord.getSourceMethodName()
+
+    private static var getSourceMethodName_MethodID_11: jmethodID?
+
+    open func getSourceMethodName() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSourceMethodName", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getSourceMethodName_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public int java.util.logging.LogRecord.getThreadID()
+
+    private static var getThreadID_MethodID_12: jmethodID?
+
+    open func getThreadID() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getThreadID", methodSig: "()I", methodCache: &LogRecord.getThreadID_MethodID_12, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public java.lang.Throwable java.util.logging.LogRecord.getThrown()
+
+    private static var getThrown_MethodID_13: jmethodID?
+
+    open func getThrown() -> java_swift.Throwable! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getThrown", methodSig: "()Ljava/lang/Throwable;", methodCache: &LogRecord.getThrown_MethodID_13, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.Throwable( javaObject: __return ) : nil
+    }
+
+
+    /// private void java.util.logging.LogRecord.inferCaller()
+
+    /// private boolean java.util.logging.LogRecord.isLoggerImplFrame(java.lang.String)
+
+    /// private void java.util.logging.LogRecord.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public void java.util.logging.LogRecord.setLevel(java.util.logging.Level)
+
+    private static var setLevel_MethodID_14: jmethodID?
+
+    open func setLevel( level: Level? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: level, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLevel", methodSig: "(Ljava/util/logging/Level;)V", methodCache: &LogRecord.setLevel_MethodID_14, args: &__args, locals: &__locals )
+    }
+
+    open func setLevel( _ _level: Level? ) {
+        setLevel( level: _level )
+    }
+
     /// public void java.util.logging.LogRecord.setLoggerName(java.lang.String)
 
-    private static var setLoggerName_MethodID_8: jmethodID?
+    private static var setLoggerName_MethodID_15: jmethodID?
 
     open func setLoggerName( name: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLoggerName", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setLoggerName_MethodID_8, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLoggerName", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setLoggerName_MethodID_15, args: &__args, locals: &__locals )
     }
 
     open func setLoggerName( _ _name: String? ) {
         setLoggerName( name: _name )
     }
 
-    /// public void java.util.logging.LogRecord.setResourceBundle(java.util.ResourceBundle)
-
-    private static var setResourceBundle_MethodID_9: jmethodID?
-
-    open func setResourceBundle( bundle: ResourceBundle? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bundle, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setResourceBundle", methodSig: "(Ljava/util/ResourceBundle;)V", methodCache: &LogRecord.setResourceBundle_MethodID_9, args: &__args, locals: &__locals )
-    }
-
-    open func setResourceBundle( _ _bundle: ResourceBundle? ) {
-        setResourceBundle( bundle: _bundle )
-    }
-
-    /// public void java.util.logging.LogRecord.setResourceBundleName(java.lang.String)
-
-    private static var setResourceBundleName_MethodID_10: jmethodID?
-
-    open func setResourceBundleName( name: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setResourceBundleName", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setResourceBundleName_MethodID_10, args: &__args, locals: &__locals )
-    }
-
-    open func setResourceBundleName( _ _name: String? ) {
-        setResourceBundleName( name: _name )
-    }
-
-    /// public long java.util.logging.LogRecord.getSequenceNumber()
-
-    private static var getSequenceNumber_MethodID_11: jmethodID?
-
-    open func getSequenceNumber() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getSequenceNumber", methodSig: "()J", methodCache: &LogRecord.getSequenceNumber_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public void java.util.logging.LogRecord.setSequenceNumber(long)
-
-    private static var setSequenceNumber_MethodID_12: jmethodID?
-
-    open func setSequenceNumber( seq: Int64 ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: seq, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSequenceNumber", methodSig: "(J)V", methodCache: &LogRecord.setSequenceNumber_MethodID_12, args: &__args, locals: &__locals )
-    }
-
-    open func setSequenceNumber( _ _seq: Int64 ) {
-        setSequenceNumber( seq: _seq )
-    }
-
-    /// public java.lang.String java.util.logging.LogRecord.getSourceClassName()
-
-    private static var getSourceClassName_MethodID_13: jmethodID?
-
-    open func getSourceClassName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSourceClassName", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getSourceClassName_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public void java.util.logging.LogRecord.setSourceClassName(java.lang.String)
-
-    private static var setSourceClassName_MethodID_14: jmethodID?
-
-    open func setSourceClassName( sourceClassName: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: sourceClassName, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSourceClassName", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setSourceClassName_MethodID_14, args: &__args, locals: &__locals )
-    }
-
-    open func setSourceClassName( _ _sourceClassName: String? ) {
-        setSourceClassName( sourceClassName: _sourceClassName )
-    }
-
-    /// public java.lang.String java.util.logging.LogRecord.getSourceMethodName()
-
-    private static var getSourceMethodName_MethodID_15: jmethodID?
-
-    open func getSourceMethodName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSourceMethodName", methodSig: "()Ljava/lang/String;", methodCache: &LogRecord.getSourceMethodName_MethodID_15, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public void java.util.logging.LogRecord.setSourceMethodName(java.lang.String)
-
-    private static var setSourceMethodName_MethodID_16: jmethodID?
-
-    open func setSourceMethodName( sourceMethodName: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: sourceMethodName, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSourceMethodName", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setSourceMethodName_MethodID_16, args: &__args, locals: &__locals )
-    }
-
-    open func setSourceMethodName( _ _sourceMethodName: String? ) {
-        setSourceMethodName( sourceMethodName: _sourceMethodName )
-    }
-
     /// public void java.util.logging.LogRecord.setMessage(java.lang.String)
 
-    private static var setMessage_MethodID_17: jmethodID?
+    private static var setMessage_MethodID_16: jmethodID?
 
     open func setMessage( message: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: message, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMessage", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setMessage_MethodID_17, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMessage", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setMessage_MethodID_16, args: &__args, locals: &__locals )
     }
 
     open func setMessage( _ _message: String? ) {
         setMessage( message: _message )
+    }
+
+    /// public void java.util.logging.LogRecord.setMillis(long)
+
+    private static var setMillis_MethodID_17: jmethodID?
+
+    open func setMillis( millis: Int64 ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: millis )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMillis", methodSig: "(J)V", methodCache: &LogRecord.setMillis_MethodID_17, args: &__args, locals: &__locals )
+    }
+
+    open func setMillis( _ _millis: Int64 ) {
+        setMillis( millis: _millis )
     }
 
     /// public void java.util.logging.LogRecord.setParameters(java.lang.Object[])
@@ -296,8 +295,8 @@ open class LogRecord: java_swift.JavaObject, /* java.io.Serializable */ Unclasse
     private static var setParameters_MethodID_18: jmethodID?
 
     open func setParameters( parameters: [JavaObject]? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: parameters, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "setParameters", methodSig: "([Ljava/lang/Object;)V", methodCache: &LogRecord.setParameters_MethodID_18, args: &__args, locals: &__locals )
     }
@@ -306,106 +305,112 @@ open class LogRecord: java_swift.JavaObject, /* java.io.Serializable */ Unclasse
         setParameters( parameters: _parameters )
     }
 
-    /// public int java.util.logging.LogRecord.getThreadID()
+    /// public void java.util.logging.LogRecord.setResourceBundle(java.util.ResourceBundle)
 
-    private static var getThreadID_MethodID_19: jmethodID?
+    private static var setResourceBundle_MethodID_19: jmethodID?
 
-    open func getThreadID() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func setResourceBundle( bundle: ResourceBundle? ) {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getThreadID", methodSig: "()I", methodCache: &LogRecord.getThreadID_MethodID_19, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: bundle, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setResourceBundle", methodSig: "(Ljava/util/ResourceBundle;)V", methodCache: &LogRecord.setResourceBundle_MethodID_19, args: &__args, locals: &__locals )
     }
 
+    open func setResourceBundle( _ _bundle: ResourceBundle? ) {
+        setResourceBundle( bundle: _bundle )
+    }
+
+    /// public void java.util.logging.LogRecord.setResourceBundleName(java.lang.String)
+
+    private static var setResourceBundleName_MethodID_20: jmethodID?
+
+    open func setResourceBundleName( name: String? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: name, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setResourceBundleName", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setResourceBundleName_MethodID_20, args: &__args, locals: &__locals )
+    }
+
+    open func setResourceBundleName( _ _name: String? ) {
+        setResourceBundleName( name: _name )
+    }
+
+    /// public void java.util.logging.LogRecord.setSequenceNumber(long)
+
+    private static var setSequenceNumber_MethodID_21: jmethodID?
+
+    open func setSequenceNumber( seq: Int64 ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: seq )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSequenceNumber", methodSig: "(J)V", methodCache: &LogRecord.setSequenceNumber_MethodID_21, args: &__args, locals: &__locals )
+    }
+
+    open func setSequenceNumber( _ _seq: Int64 ) {
+        setSequenceNumber( seq: _seq )
+    }
+
+    /// public void java.util.logging.LogRecord.setSourceClassName(java.lang.String)
+
+    private static var setSourceClassName_MethodID_22: jmethodID?
+
+    open func setSourceClassName( sourceClassName: String? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: sourceClassName, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSourceClassName", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setSourceClassName_MethodID_22, args: &__args, locals: &__locals )
+    }
+
+    open func setSourceClassName( _ _sourceClassName: String? ) {
+        setSourceClassName( sourceClassName: _sourceClassName )
+    }
+
+    /// public void java.util.logging.LogRecord.setSourceMethodName(java.lang.String)
+
+    private static var setSourceMethodName_MethodID_23: jmethodID?
+
+    open func setSourceMethodName( sourceMethodName: String? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: sourceMethodName, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setSourceMethodName", methodSig: "(Ljava/lang/String;)V", methodCache: &LogRecord.setSourceMethodName_MethodID_23, args: &__args, locals: &__locals )
+    }
+
+    open func setSourceMethodName( _ _sourceMethodName: String? ) {
+        setSourceMethodName( sourceMethodName: _sourceMethodName )
+    }
 
     /// public void java.util.logging.LogRecord.setThreadID(int)
 
-    private static var setThreadID_MethodID_20: jmethodID?
+    private static var setThreadID_MethodID_24: jmethodID?
 
     open func setThreadID( threadID: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: threadID, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setThreadID", methodSig: "(I)V", methodCache: &LogRecord.setThreadID_MethodID_20, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(threadID) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setThreadID", methodSig: "(I)V", methodCache: &LogRecord.setThreadID_MethodID_24, args: &__args, locals: &__locals )
     }
 
     open func setThreadID( _ _threadID: Int ) {
         setThreadID( threadID: _threadID )
     }
 
-    /// public java.lang.Throwable java.util.logging.LogRecord.getThrown()
-
-    private static var getThrown_MethodID_21: jmethodID?
-
-    open func getThrown() -> java_swift.Throwable! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getThrown", methodSig: "()Ljava/lang/Throwable;", methodCache: &LogRecord.getThrown_MethodID_21, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.Throwable( javaObject: __return ) : nil
-    }
-
-
     /// public void java.util.logging.LogRecord.setThrown(java.lang.Throwable)
 
-    private static var setThrown_MethodID_22: jmethodID?
+    private static var setThrown_MethodID_25: jmethodID?
 
     open func setThrown( thrown: java_swift.Throwable? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: thrown, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setThrown", methodSig: "(Ljava/lang/Throwable;)V", methodCache: &LogRecord.setThrown_MethodID_22, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setThrown", methodSig: "(Ljava/lang/Throwable;)V", methodCache: &LogRecord.setThrown_MethodID_25, args: &__args, locals: &__locals )
     }
 
     open func setThrown( _ _thrown: java_swift.Throwable? ) {
         setThrown( thrown: _thrown )
     }
 
-    /// private void java.util.logging.LogRecord.inferCaller()
-
-    /// private boolean java.util.logging.LogRecord.isLoggerImplFrame(java.lang.String)
-
-    /// public long java.util.logging.LogRecord.getMillis()
-
-    private static var getMillis_MethodID_23: jmethodID?
-
-    open func getMillis() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getMillis", methodSig: "()J", methodCache: &LogRecord.getMillis_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public void java.util.logging.LogRecord.setLevel(java.util.logging.Level)
-
-    private static var setLevel_MethodID_24: jmethodID?
-
-    open func setLevel( level: Level? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: level, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setLevel", methodSig: "(Ljava/util/logging/Level;)V", methodCache: &LogRecord.setLevel_MethodID_24, args: &__args, locals: &__locals )
-    }
-
-    open func setLevel( _ _level: Level? ) {
-        setLevel( level: _level )
-    }
-
-    /// public void java.util.logging.LogRecord.setMillis(long)
-
-    private static var setMillis_MethodID_25: jmethodID?
-
-    open func setMillis( millis: Int64 ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: millis, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setMillis", methodSig: "(J)V", methodCache: &LogRecord.setMillis_MethodID_25, args: &__args, locals: &__locals )
-    }
-
-    open func setMillis( _ _millis: Int64 ) {
-        setMillis( millis: _millis )
-    }
+    /// private void java.util.logging.LogRecord.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
 }
 

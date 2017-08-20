@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.BitSet ///
 
-open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serializable */ UnclassedProtocol {
+open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,6 +20,10 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
 
     private static var BitSetJNIClass: jclass?
 
+    /// static final boolean java.util.BitSet.$assertionsDisabled
+
+    // Skipping field: true false false false false false 
+
     /// private static final int java.util.BitSet.ADDRESS_BITS_PER_WORD
 
     /// private static final int java.util.BitSet.BITS_PER_WORD
@@ -30,25 +34,35 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
 
     /// private static final java.io.ObjectStreamField[] java.util.BitSet.serialPersistentFields
 
+    /// private static final long java.util.BitSet.serialVersionUID
+
+    /// private transient boolean java.util.BitSet.sizeIsSticky
+
     /// private long[] java.util.BitSet.words
 
     /// private transient int java.util.BitSet.wordsInUse
 
-    /// private transient boolean java.util.BitSet.sizeIsSticky
-
-    /// private static final long java.util.BitSet.serialVersionUID
-
-    /// static final boolean java.util.BitSet.$assertionsDisabled
-
-    /// public java.util.BitSet(int)
+    /// public java.util.BitSet()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( nbits: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init() {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: nbits, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/BitSet", classCache: &BitSet.BitSetJNIClass, methodSig: "(I)V", methodCache: &BitSet.new_MethodID_1, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/BitSet", classCache: &BitSet.BitSetJNIClass, methodSig: "()V", methodCache: &BitSet.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.BitSet(int)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( nbits: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(nbits) )
+        let __object = JNIMethod.NewObject( className: "java/util/BitSet", classCache: &BitSet.BitSetJNIClass, methodSig: "(I)V", methodCache: &BitSet.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -59,111 +73,36 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
 
     /// private java.util.BitSet(long[])
 
-    /// public java.util.BitSet()
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/BitSet", classCache: &BitSet.BitSetJNIClass, methodSig: "()V", methodCache: &BitSet.new_MethodID_2, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    /// public java.util.BitSet java.util.BitSet.get(int,int)
-
-    private static var get_MethodID_3: jmethodID?
-
-    open func get( fromIndex: Int, toIndex: Int ) -> BitSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toIndex, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(II)Ljava/util/BitSet;", methodCache: &BitSet.get_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? BitSet( javaObject: __return ) : nil
-    }
-
-    open func get( _ _fromIndex: Int, _ _toIndex: Int ) -> BitSet! {
-        return get( fromIndex: _fromIndex, toIndex: _toIndex )
-    }
-
-    /// public boolean java.util.BitSet.get(int)
-
-    private static var get_MethodID_4: jmethodID?
-
-    open func get( bitIndex: Int ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bitIndex, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "get", methodSig: "(I)Z", methodCache: &BitSet.get_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func get( _ _bitIndex: Int ) -> Bool {
-        return get( bitIndex: _bitIndex )
-    }
-
-    /// public boolean java.util.BitSet.equals(java.lang.Object)
-
-    private static var equals_MethodID_5: jmethodID?
-
-    open func equals( obj: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BitSet.equals_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
-        return equals( obj: _obj )
-    }
-
-    /// public java.lang.String java.util.BitSet.toString()
-
-    /// public int java.util.BitSet.hashCode()
-
-    /// public java.lang.Object java.util.BitSet.clone()
-
-    private static var clone_MethodID_6: jmethodID?
-
-    override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &BitSet.clone_MethodID_6, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
+    /// private static void java.util.BitSet.checkRange(int,int)
 
     /// public static java.util.BitSet java.util.BitSet.valueOf(java.nio.LongBuffer)
 
-    private static var valueOf_MethodID_7: jmethodID?
+    private static var valueOf_MethodID_3: jmethodID?
 
-    open class func valueOf( lb: /* java.nio.LongBuffer */ UnclassedObject? ) -> BitSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func valueOf( lb: /* class java.nio.LongBuffer */ UnavailableObject? ) -> BitSet! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: lb, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/BitSet", classCache: &BitSetJNIClass, methodName: "valueOf", methodSig: "(Ljava/nio/LongBuffer;)Ljava/util/BitSet;", methodCache: &valueOf_MethodID_7, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/BitSet", classCache: &BitSetJNIClass, methodName: "valueOf", methodSig: "(Ljava/nio/LongBuffer;)Ljava/util/BitSet;", methodCache: &valueOf_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BitSet( javaObject: __return ) : nil
     }
 
-    open class func valueOf( _ _lb: /* java.nio.LongBuffer */ UnclassedObject? ) -> BitSet! {
+    open class func valueOf( _ _lb: /* class java.nio.LongBuffer */ UnavailableObject? ) -> BitSet! {
         return valueOf( lb: _lb )
     }
 
+    /// public static java.util.BitSet java.util.BitSet.valueOf(java.nio.ByteBuffer)
+
     /// public static java.util.BitSet java.util.BitSet.valueOf(long[])
 
-    private static var valueOf_MethodID_8: jmethodID?
+    private static var valueOf_MethodID_4: jmethodID?
 
     open class func valueOf( longs: [Int64]? ) -> BitSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: longs, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/BitSet", classCache: &BitSetJNIClass, methodName: "valueOf", methodSig: "([J)Ljava/util/BitSet;", methodCache: &valueOf_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/BitSet", classCache: &BitSetJNIClass, methodName: "valueOf", methodSig: "([J)Ljava/util/BitSet;", methodCache: &valueOf_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BitSet( javaObject: __return ) : nil
     }
@@ -172,17 +111,15 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
         return valueOf( longs: _longs )
     }
 
-    /// public static java.util.BitSet java.util.BitSet.valueOf(java.nio.ByteBuffer)
-
     /// public static java.util.BitSet java.util.BitSet.valueOf(byte[])
 
-    private static var valueOf_MethodID_9: jmethodID?
+    private static var valueOf_MethodID_5: jmethodID?
 
     open class func valueOf( bytes: [Int8]? ) -> BitSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: bytes, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/BitSet", classCache: &BitSetJNIClass, methodName: "valueOf", methodSig: "([B)Ljava/util/BitSet;", methodCache: &valueOf_MethodID_9, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/BitSet", classCache: &BitSetJNIClass, methodName: "valueOf", methodSig: "([B)Ljava/util/BitSet;", methodCache: &valueOf_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BitSet( javaObject: __return ) : nil
     }
@@ -191,26 +128,61 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
         return valueOf( bytes: _bytes )
     }
 
-    /// public void java.util.BitSet.clear()
+    /// private static int java.util.BitSet.wordIndex(int)
 
-    private static var clear_MethodID_10: jmethodID?
+    /// public void java.util.BitSet.and(java.util.BitSet)
 
-    open func clear() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    private static var and_MethodID_6: jmethodID?
+
+    open func and( set: BitSet? ) {
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "()V", methodCache: &BitSet.clear_MethodID_10, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: set, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "and", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.and_MethodID_6, args: &__args, locals: &__locals )
+    }
+
+    open func and( _ _set: BitSet? ) {
+        and( set: _set )
+    }
+
+    /// public void java.util.BitSet.andNot(java.util.BitSet)
+
+    private static var andNot_MethodID_7: jmethodID?
+
+    open func andNot( set: BitSet? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: set, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "andNot", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.andNot_MethodID_7, args: &__args, locals: &__locals )
+    }
+
+    open func andNot( _ _set: BitSet? ) {
+        andNot( set: _set )
+    }
+
+    /// public int java.util.BitSet.cardinality()
+
+    private static var cardinality_MethodID_8: jmethodID?
+
+    open func cardinality() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "cardinality", methodSig: "()I", methodCache: &BitSet.cardinality_MethodID_8, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
 
+    /// private void java.util.BitSet.checkInvariants()
+
     /// public void java.util.BitSet.clear(int)
 
-    private static var clear_MethodID_11: jmethodID?
+    private static var clear_MethodID_9: jmethodID?
 
     open func clear( bitIndex: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bitIndex, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "(I)V", methodCache: &BitSet.clear_MethodID_11, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(bitIndex) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "(I)V", methodCache: &BitSet.clear_MethodID_9, args: &__args, locals: &__locals )
     }
 
     open func clear( _ _bitIndex: Int ) {
@@ -219,150 +191,73 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
 
     /// public void java.util.BitSet.clear(int,int)
 
-    private static var clear_MethodID_12: jmethodID?
+    private static var clear_MethodID_10: jmethodID?
 
     open func clear( fromIndex: Int, toIndex: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toIndex, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "(II)V", methodCache: &BitSet.clear_MethodID_12, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        __args[1] = jvalue( i: jint(toIndex) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "(II)V", methodCache: &BitSet.clear_MethodID_10, args: &__args, locals: &__locals )
     }
 
     open func clear( _ _fromIndex: Int, _ _toIndex: Int ) {
         clear( fromIndex: _fromIndex, toIndex: _toIndex )
     }
 
-    /// public int java.util.BitSet.length()
+    /// public void java.util.BitSet.clear()
 
-    private static var length_MethodID_13: jmethodID?
+    private static var clear_MethodID_11: jmethodID?
 
-    open func length() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func clear() {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "length", methodSig: "()I", methodCache: &BitSet.length_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "()V", methodCache: &BitSet.clear_MethodID_11, args: &__args, locals: &__locals )
     }
 
 
-    /// public boolean java.util.BitSet.isEmpty()
+    /// public java.lang.Object java.util.BitSet.clone()
 
-    private static var isEmpty_MethodID_14: jmethodID?
+    private static var clone_MethodID_12: jmethodID?
 
-    open func isEmpty() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    override open func clone() -> java_swift.JavaObject! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isEmpty", methodSig: "()Z", methodCache: &BitSet.isEmpty_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
-    /// public int java.util.BitSet.size()
-
-    private static var size_MethodID_15: jmethodID?
-
-    open func size() -> Int {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "size", methodSig: "()I", methodCache: &BitSet.size_MethodID_15, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public java.util.stream.IntStream java.util.BitSet.stream()
-
-    private static var stream_MethodID_16: jmethodID?
-
-    open func stream() -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "stream", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &BitSet.stream_MethodID_16, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &BitSet.clone_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
-
-    /// private void java.util.BitSet.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.BitSet.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// public void java.util.BitSet.set(int)
-
-    private static var set_MethodID_17: jmethodID?
-
-    open func set( bitIndex: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bitIndex, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(I)V", methodCache: &BitSet.set_MethodID_17, args: &__args, locals: &__locals )
-    }
-
-    open func set( _ _bitIndex: Int ) {
-        set( bitIndex: _bitIndex )
-    }
-
-    /// public void java.util.BitSet.set(int,boolean)
-
-    private static var set_MethodID_18: jmethodID?
-
-    open func set( bitIndex: Int, value: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bitIndex, locals: &__locals )
-        __args[1] = JNIType.toJava( value: value, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(IZ)V", methodCache: &BitSet.set_MethodID_18, args: &__args, locals: &__locals )
-    }
-
-    open func set( _ _bitIndex: Int, _ _value: Bool ) {
-        set( bitIndex: _bitIndex, value: _value )
-    }
-
-    /// public void java.util.BitSet.set(int,int)
-
-    private static var set_MethodID_19: jmethodID?
-
-    open func set( fromIndex: Int, toIndex: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toIndex, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(II)V", methodCache: &BitSet.set_MethodID_19, args: &__args, locals: &__locals )
-    }
-
-    open func set( _ _fromIndex: Int, _ _toIndex: Int ) {
-        set( fromIndex: _fromIndex, toIndex: _toIndex )
-    }
-
-    /// public void java.util.BitSet.set(int,int,boolean)
-
-    private static var set_MethodID_20: jmethodID?
-
-    open func set( fromIndex: Int, toIndex: Int, value: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toIndex, locals: &__locals )
-        __args[2] = JNIType.toJava( value: value, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(IIZ)V", methodCache: &BitSet.set_MethodID_20, args: &__args, locals: &__locals )
-    }
-
-    open func set( _ _fromIndex: Int, _ _toIndex: Int, _ _value: Bool ) {
-        set( fromIndex: _fromIndex, toIndex: _toIndex, value: _value )
-    }
 
     /// private void java.util.BitSet.ensureCapacity(int)
 
-    /// private void java.util.BitSet.trimToSize()
+    /// public boolean java.util.BitSet.equals(java.lang.Object)
+
+    private static var equals_MethodID_13: jmethodID?
+
+    open func equals( obj: java_swift.JavaObject? ) -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &BitSet.equals_MethodID_13, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
+        return equals( obj: _obj )
+    }
+
+    /// private void java.util.BitSet.expandTo(int)
 
     /// public void java.util.BitSet.flip(int)
 
-    private static var flip_MethodID_21: jmethodID?
+    private static var flip_MethodID_14: jmethodID?
 
     open func flip( bitIndex: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: bitIndex, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "flip", methodSig: "(I)V", methodCache: &BitSet.flip_MethodID_21, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(bitIndex) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "flip", methodSig: "(I)V", methodCache: &BitSet.flip_MethodID_14, args: &__args, locals: &__locals )
     }
 
     open func flip( _ _bitIndex: Int ) {
@@ -371,209 +266,320 @@ open class BitSet: java_swift.JavaObject, java_lang.Cloneable, /* java.io.Serial
 
     /// public void java.util.BitSet.flip(int,int)
 
-    private static var flip_MethodID_22: jmethodID?
+    private static var flip_MethodID_15: jmethodID?
 
     open func flip( fromIndex: Int, toIndex: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toIndex, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "flip", methodSig: "(II)V", methodCache: &BitSet.flip_MethodID_22, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        __args[1] = jvalue( i: jint(toIndex) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "flip", methodSig: "(II)V", methodCache: &BitSet.flip_MethodID_15, args: &__args, locals: &__locals )
     }
 
     open func flip( _ _fromIndex: Int, _ _toIndex: Int ) {
         flip( fromIndex: _fromIndex, toIndex: _toIndex )
     }
 
-    /// public int java.util.BitSet.nextClearBit(int)
+    /// public boolean java.util.BitSet.get(int)
 
-    private static var nextClearBit_MethodID_23: jmethodID?
+    private static var get_MethodID_16: jmethodID?
 
-    open func nextClearBit( fromIndex: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func get( bitIndex: Int ) -> Bool {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextClearBit", methodSig: "(I)I", methodCache: &BitSet.nextClearBit_MethodID_23, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(bitIndex) )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "get", methodSig: "(I)Z", methodCache: &BitSet.get_MethodID_16, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
-    open func nextClearBit( _ _fromIndex: Int ) -> Int {
-        return nextClearBit( fromIndex: _fromIndex )
+    open func get( _ _bitIndex: Int ) -> Bool {
+        return get( bitIndex: _bitIndex )
     }
 
-    /// private void java.util.BitSet.checkInvariants()
+    /// public java.util.BitSet java.util.BitSet.get(int,int)
 
-    /// private static int java.util.BitSet.wordIndex(int)
+    private static var get_MethodID_17: jmethodID?
 
-    /// private void java.util.BitSet.recalculateWordsInUse()
+    open func get( fromIndex: Int, toIndex: Int ) -> BitSet! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        __args[1] = jvalue( i: jint(toIndex) )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(II)Ljava/util/BitSet;", methodCache: &BitSet.get_MethodID_17, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? BitSet( javaObject: __return ) : nil
+    }
+
+    open func get( _ _fromIndex: Int, _ _toIndex: Int ) -> BitSet! {
+        return get( fromIndex: _fromIndex, toIndex: _toIndex )
+    }
+
+    /// public int java.util.BitSet.hashCode()
+
+    // Skipping method: false true false false false 
 
     /// private void java.util.BitSet.initWords(int)
 
-    /// public byte[] java.util.BitSet.toByteArray()
-
-    private static var toByteArray_MethodID_24: jmethodID?
-
-    open func toByteArray() -> [Int8]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toByteArray", methodSig: "()[B", methodCache: &BitSet.toByteArray_MethodID_24, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int8](), from: __return )
-    }
-
-
-    /// public long[] java.util.BitSet.toLongArray()
-
-    private static var toLongArray_MethodID_25: jmethodID?
-
-    open func toLongArray() -> [Int64]! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toLongArray", methodSig: "()[J", methodCache: &BitSet.toLongArray_MethodID_25, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: [Int64](), from: __return )
-    }
-
-
-    /// private void java.util.BitSet.expandTo(int)
-
-    /// private static void java.util.BitSet.checkRange(int,int)
-
-    /// public int java.util.BitSet.nextSetBit(int)
-
-    private static var nextSetBit_MethodID_26: jmethodID?
-
-    open func nextSetBit( fromIndex: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextSetBit", methodSig: "(I)I", methodCache: &BitSet.nextSetBit_MethodID_26, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func nextSetBit( _ _fromIndex: Int ) -> Int {
-        return nextSetBit( fromIndex: _fromIndex )
-    }
-
-    /// public int java.util.BitSet.previousSetBit(int)
-
-    private static var previousSetBit_MethodID_27: jmethodID?
-
-    open func previousSetBit( fromIndex: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "previousSetBit", methodSig: "(I)I", methodCache: &BitSet.previousSetBit_MethodID_27, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func previousSetBit( _ _fromIndex: Int ) -> Int {
-        return previousSetBit( fromIndex: _fromIndex )
-    }
-
-    /// public int java.util.BitSet.previousClearBit(int)
-
-    private static var previousClearBit_MethodID_28: jmethodID?
-
-    open func previousClearBit( fromIndex: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "previousClearBit", methodSig: "(I)I", methodCache: &BitSet.previousClearBit_MethodID_28, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-    open func previousClearBit( _ _fromIndex: Int ) -> Int {
-        return previousClearBit( fromIndex: _fromIndex )
-    }
-
     /// public boolean java.util.BitSet.intersects(java.util.BitSet)
 
-    private static var intersects_MethodID_29: jmethodID?
+    private static var intersects_MethodID_18: jmethodID?
 
     open func intersects( set: BitSet? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: set, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "intersects", methodSig: "(Ljava/util/BitSet;)Z", methodCache: &BitSet.intersects_MethodID_29, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "intersects", methodSig: "(Ljava/util/BitSet;)Z", methodCache: &BitSet.intersects_MethodID_18, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func intersects( _ _set: BitSet? ) -> Bool {
         return intersects( set: _set )
     }
 
-    /// public int java.util.BitSet.cardinality()
+    /// public boolean java.util.BitSet.isEmpty()
 
-    private static var cardinality_MethodID_30: jmethodID?
+    private static var isEmpty_MethodID_19: jmethodID?
 
-    open func cardinality() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func isEmpty() -> Bool {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "cardinality", methodSig: "()I", methodCache: &BitSet.cardinality_MethodID_30, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isEmpty", methodSig: "()Z", methodCache: &BitSet.isEmpty_MethodID_19, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
 
-    /// public void java.util.BitSet.and(java.util.BitSet)
+    /// private java.util.Spliterator$OfInt java.util.BitSet.lambda$stream$0()
 
-    private static var and_MethodID_31: jmethodID?
+    /// public int java.util.BitSet.length()
 
-    open func and( set: BitSet? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    private static var length_MethodID_20: jmethodID?
+
+    open func length() -> Int {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: set, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "and", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.and_MethodID_31, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "length", methodSig: "()I", methodCache: &BitSet.length_MethodID_20, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
-    open func and( _ _set: BitSet? ) {
-        and( set: _set )
+
+    /// public int java.util.BitSet.nextClearBit(int)
+
+    private static var nextClearBit_MethodID_21: jmethodID?
+
+    open func nextClearBit( fromIndex: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextClearBit", methodSig: "(I)I", methodCache: &BitSet.nextClearBit_MethodID_21, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func nextClearBit( _ _fromIndex: Int ) -> Int {
+        return nextClearBit( fromIndex: _fromIndex )
+    }
+
+    /// public int java.util.BitSet.nextSetBit(int)
+
+    private static var nextSetBit_MethodID_22: jmethodID?
+
+    open func nextSetBit( fromIndex: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "nextSetBit", methodSig: "(I)I", methodCache: &BitSet.nextSetBit_MethodID_22, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func nextSetBit( _ _fromIndex: Int ) -> Int {
+        return nextSetBit( fromIndex: _fromIndex )
     }
 
     /// public void java.util.BitSet.or(java.util.BitSet)
 
-    private static var or_MethodID_32: jmethodID?
+    private static var or_MethodID_23: jmethodID?
 
     open func or( set: BitSet? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: set, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "or", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.or_MethodID_32, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "or", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.or_MethodID_23, args: &__args, locals: &__locals )
     }
 
     open func or( _ _set: BitSet? ) {
         or( set: _set )
     }
 
+    /// public int java.util.BitSet.previousClearBit(int)
+
+    private static var previousClearBit_MethodID_24: jmethodID?
+
+    open func previousClearBit( fromIndex: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "previousClearBit", methodSig: "(I)I", methodCache: &BitSet.previousClearBit_MethodID_24, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func previousClearBit( _ _fromIndex: Int ) -> Int {
+        return previousClearBit( fromIndex: _fromIndex )
+    }
+
+    /// public int java.util.BitSet.previousSetBit(int)
+
+    private static var previousSetBit_MethodID_25: jmethodID?
+
+    open func previousSetBit( fromIndex: Int ) -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "previousSetBit", methodSig: "(I)I", methodCache: &BitSet.previousSetBit_MethodID_25, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+    open func previousSetBit( _ _fromIndex: Int ) -> Int {
+        return previousSetBit( fromIndex: _fromIndex )
+    }
+
+    /// private void java.util.BitSet.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// private void java.util.BitSet.recalculateWordsInUse()
+
+    /// public void java.util.BitSet.set(int)
+
+    private static var set_MethodID_26: jmethodID?
+
+    open func set( bitIndex: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(bitIndex) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(I)V", methodCache: &BitSet.set_MethodID_26, args: &__args, locals: &__locals )
+    }
+
+    open func set( _ _bitIndex: Int ) {
+        set( bitIndex: _bitIndex )
+    }
+
+    /// public void java.util.BitSet.set(int,boolean)
+
+    private static var set_MethodID_27: jmethodID?
+
+    open func set( bitIndex: Int, value: Bool ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(bitIndex) )
+        __args[1] = jvalue( z: jboolean(value ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(IZ)V", methodCache: &BitSet.set_MethodID_27, args: &__args, locals: &__locals )
+    }
+
+    open func set( _ _bitIndex: Int, _ _value: Bool ) {
+        set( bitIndex: _bitIndex, value: _value )
+    }
+
+    /// public void java.util.BitSet.set(int,int)
+
+    private static var set_MethodID_28: jmethodID?
+
+    open func set( fromIndex: Int, toIndex: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        __args[1] = jvalue( i: jint(toIndex) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(II)V", methodCache: &BitSet.set_MethodID_28, args: &__args, locals: &__locals )
+    }
+
+    open func set( _ _fromIndex: Int, _ _toIndex: Int ) {
+        set( fromIndex: _fromIndex, toIndex: _toIndex )
+    }
+
+    /// public void java.util.BitSet.set(int,int,boolean)
+
+    private static var set_MethodID_29: jmethodID?
+
+    open func set( fromIndex: Int, toIndex: Int, value: Bool ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        __args[1] = jvalue( i: jint(toIndex) )
+        __args[2] = jvalue( z: jboolean(value ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "set", methodSig: "(IIZ)V", methodCache: &BitSet.set_MethodID_29, args: &__args, locals: &__locals )
+    }
+
+    open func set( _ _fromIndex: Int, _ _toIndex: Int, _ _value: Bool ) {
+        set( fromIndex: _fromIndex, toIndex: _toIndex, value: _value )
+    }
+
+    /// public int java.util.BitSet.size()
+
+    private static var size_MethodID_30: jmethodID?
+
+    open func size() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "size", methodSig: "()I", methodCache: &BitSet.size_MethodID_30, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public java.util.stream.IntStream java.util.BitSet.stream()
+
+    private static var stream_MethodID_31: jmethodID?
+
+    open func stream() -> IntStream! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "stream", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &BitSet.stream_MethodID_31, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public byte[] java.util.BitSet.toByteArray()
+
+    private static var toByteArray_MethodID_32: jmethodID?
+
+    open func toByteArray() -> [Int8]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toByteArray", methodSig: "()[B", methodCache: &BitSet.toByteArray_MethodID_32, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int8].self, from: __return )
+    }
+
+
+    /// public long[] java.util.BitSet.toLongArray()
+
+    private static var toLongArray_MethodID_33: jmethodID?
+
+    open func toLongArray() -> [Int64]! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "toLongArray", methodSig: "()[J", methodCache: &BitSet.toLongArray_MethodID_33, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: [Int64].self, from: __return )
+    }
+
+
+    /// public java.lang.String java.util.BitSet.toString()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.BitSet.trimToSize()
+
+    /// private void java.util.BitSet.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
+
     /// public void java.util.BitSet.xor(java.util.BitSet)
 
-    private static var xor_MethodID_33: jmethodID?
+    private static var xor_MethodID_34: jmethodID?
 
     open func xor( set: BitSet? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: set, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "xor", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.xor_MethodID_33, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "xor", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.xor_MethodID_34, args: &__args, locals: &__locals )
     }
 
     open func xor( _ _set: BitSet? ) {
         xor( set: _set )
     }
-
-    /// public void java.util.BitSet.andNot(java.util.BitSet)
-
-    private static var andNot_MethodID_34: jmethodID?
-
-    open func andNot( set: BitSet? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: set, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "andNot", methodSig: "(Ljava/util/BitSet;)V", methodCache: &BitSet.andNot_MethodID_34, args: &__args, locals: &__locals )
-    }
-
-    open func andNot( _ _set: BitSet? ) {
-        andNot( set: _set )
-    }
-
-    /// private java.util.Spliterator$OfInt java.util.BitSet.lambda$stream$0()
 
 }
 

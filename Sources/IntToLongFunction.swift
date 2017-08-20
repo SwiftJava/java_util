@@ -23,11 +23,11 @@ open class IntToLongFunctionForward: JNIObjectForward, IntToLongFunction {
     private static var applyAsLong_MethodID_2: jmethodID?
 
     open func applyAsLong( value: Int ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(value) )
         let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "applyAsLong", methodSig: "(I)J", methodCache: &IntToLongFunctionForward.applyAsLong_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        return __return
     }
 
     open func applyAsLong( _ _value: Int ) -> Int64 {
@@ -35,5 +35,4 @@ open class IntToLongFunctionForward: JNIObjectForward, IntToLongFunction {
     }
 
 }
-
 

@@ -23,12 +23,12 @@ open class IntBinaryOperatorForward: JNIObjectForward, IntBinaryOperator {
     private static var applyAsInt_MethodID_2: jmethodID?
 
     open func applyAsInt( left: Int, right: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: left, locals: &__locals )
-        __args[1] = JNIType.toJava( value: right, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(left) )
+        __args[1] = jvalue( i: jint(right) )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "applyAsInt", methodSig: "(II)I", methodCache: &IntBinaryOperatorForward.applyAsInt_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     open func applyAsInt( _ _left: Int, _ _right: Int ) -> Int {
@@ -36,5 +36,4 @@ open class IntBinaryOperatorForward: JNIObjectForward, IntBinaryOperator {
     }
 
 }
-
 

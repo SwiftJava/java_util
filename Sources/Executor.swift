@@ -23,8 +23,8 @@ open class ExecutorForward: JNIObjectForward, Executor {
     private static var execute_MethodID_2: jmethodID?
 
     open func execute( command: java_swift.Runnable? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: command, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "execute", methodSig: "(Ljava/lang/Runnable;)V", methodCache: &ExecutorForward.execute_MethodID_2, args: &__args, locals: &__locals )
     }
@@ -34,5 +34,4 @@ open class ExecutorForward: JNIObjectForward, Executor {
     }
 
 }
-
 

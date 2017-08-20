@@ -26,34 +26,27 @@ open class OptionalInt: java_swift.JavaObject {
 
     /// private java.util.OptionalInt(int)
 
-    /// public boolean java.util.OptionalInt.equals(java.lang.Object)
+    /// public static java.util.OptionalInt java.util.OptionalInt.empty()
 
-    private static var equals_MethodID_1: jmethodID?
+    private static var empty_MethodID_1: jmethodID?
 
-    open func equals( obj: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func empty() -> OptionalInt! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &OptionalInt.equals_MethodID_1, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalInt", classCache: &OptionalIntJNIClass, methodName: "empty", methodSig: "()Ljava/util/OptionalInt;", methodCache: &empty_MethodID_1, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? OptionalInt( javaObject: __return ) : nil
     }
 
-    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
-        return equals( obj: _obj )
-    }
-
-    /// public java.lang.String java.util.OptionalInt.toString()
-
-    /// public int java.util.OptionalInt.hashCode()
 
     /// public static java.util.OptionalInt java.util.OptionalInt.of(int)
 
     private static var of_MethodID_2: jmethodID?
 
     open class func of( value: Int ) -> OptionalInt! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(value) )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalInt", classCache: &OptionalIntJNIClass, methodName: "of", methodSig: "(I)Ljava/util/OptionalInt;", methodCache: &of_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? OptionalInt( javaObject: __return ) : nil
@@ -63,38 +56,45 @@ open class OptionalInt: java_swift.JavaObject {
         return of( value: _value )
     }
 
-    /// public static java.util.OptionalInt java.util.OptionalInt.empty()
+    /// public boolean java.util.OptionalInt.equals(java.lang.Object)
 
-    private static var empty_MethodID_3: jmethodID?
+    private static var equals_MethodID_3: jmethodID?
 
-    open class func empty() -> OptionalInt! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func equals( obj: java_swift.JavaObject? ) -> Bool {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/OptionalInt", classCache: &OptionalIntJNIClass, methodName: "empty", methodSig: "()Ljava/util/OptionalInt;", methodCache: &empty_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? OptionalInt( javaObject: __return ) : nil
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: obj, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &OptionalInt.equals_MethodID_3, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
+        return equals( obj: _obj )
+    }
+
+    /// public int java.util.OptionalInt.getAsInt()
+
+    private static var getAsInt_MethodID_4: jmethodID?
+
+    open func getAsInt() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAsInt", methodSig: "()I", methodCache: &OptionalInt.getAsInt_MethodID_4, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
 
-    /// public boolean java.util.OptionalInt.isPresent()
+    /// public int java.util.OptionalInt.hashCode()
 
-    private static var isPresent_MethodID_4: jmethodID?
-
-    open func isPresent() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isPresent", methodSig: "()Z", methodCache: &OptionalInt.isPresent_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
+    // Skipping method: false true false false false 
 
     /// public void java.util.OptionalInt.ifPresent(java.util.function.IntConsumer)
 
     private static var ifPresent_MethodID_5: jmethodID?
 
     open func ifPresent( consumer: IntConsumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: consumer, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "ifPresent", methodSig: "(Ljava/util/function/IntConsumer;)V", methodCache: &OptionalInt.ifPresent_MethodID_5, args: &__args, locals: &__locals )
     }
@@ -103,16 +103,28 @@ open class OptionalInt: java_swift.JavaObject {
         ifPresent( consumer: _consumer )
     }
 
+    /// public boolean java.util.OptionalInt.isPresent()
+
+    private static var isPresent_MethodID_6: jmethodID?
+
+    open func isPresent() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isPresent", methodSig: "()Z", methodCache: &OptionalInt.isPresent_MethodID_6, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
     /// public int java.util.OptionalInt.orElse(int)
 
-    private static var orElse_MethodID_6: jmethodID?
+    private static var orElse_MethodID_7: jmethodID?
 
     open func orElse( other: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: other, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "orElse", methodSig: "(I)I", methodCache: &OptionalInt.orElse_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(other) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "orElse", methodSig: "(I)I", methodCache: &OptionalInt.orElse_MethodID_7, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
     open func orElse( _ _other: Int ) -> Int {
@@ -121,14 +133,14 @@ open class OptionalInt: java_swift.JavaObject {
 
     /// public int java.util.OptionalInt.orElseGet(java.util.function.IntSupplier)
 
-    private static var orElseGet_MethodID_7: jmethodID?
+    private static var orElseGet_MethodID_8: jmethodID?
 
     open func orElseGet( other: IntSupplier? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: other, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "orElseGet", methodSig: "(Ljava/util/function/IntSupplier;)I", methodCache: &OptionalInt.orElseGet_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "orElseGet", methodSig: "(Ljava/util/function/IntSupplier;)I", methodCache: &OptionalInt.orElseGet_MethodID_8, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
     open func orElseGet( _ _other: IntSupplier? ) -> Int {
@@ -137,34 +149,27 @@ open class OptionalInt: java_swift.JavaObject {
 
     /// public int java.util.OptionalInt.orElseThrow(java.util.function.Supplier) throws java.lang.Throwable
 
-    private static var orElseThrow_MethodID_8: jmethodID?
+    private static var orElseThrow_MethodID_9: jmethodID?
 
     open func orElseThrow( exceptionSupplier: Supplier? ) throws /* java.lang.Throwable */ -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: exceptionSupplier, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "orElseThrow", methodSig: "(Ljava/util/function/Supplier;)I", methodCache: &OptionalInt.orElseThrow_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "orElseThrow", methodSig: "(Ljava/util/function/Supplier;)I", methodCache: &OptionalInt.orElseThrow_MethodID_9, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_swift.Throwable( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     open func orElseThrow( _ _exceptionSupplier: Supplier? ) throws /* java.lang.Throwable */ -> Int {
         return try orElseThrow( exceptionSupplier: _exceptionSupplier )
     }
 
-    /// public int java.util.OptionalInt.getAsInt()
+    /// public java.lang.String java.util.OptionalInt.toString()
 
-    private static var getAsInt_MethodID_9: jmethodID?
-
-    open func getAsInt() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAsInt", methodSig: "()I", methodCache: &OptionalInt.getAsInt_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
+    // Skipping method: false true false false false 
 
 }
 

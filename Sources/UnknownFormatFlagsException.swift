@@ -26,41 +26,47 @@ open class UnknownFormatFlagsException: IllegalFormatException {
 
     /// static final long java.lang.RuntimeException.serialVersionUID
 
+    // Skipping field: true true false false false false 
+
     /// static final long java.lang.Exception.serialVersionUID
 
-    /// private static final long java.lang.Throwable.serialVersionUID
+    // Skipping field: true true false false false false 
 
-    /// private java.lang.String java.lang.Throwable.detailMessage
+    /// static final boolean java.lang.Throwable.$assertionsDisabled
 
-    /// private static final java.lang.StackTraceElement[] java.lang.Throwable.UNASSIGNED_STACK
+    // Skipping field: true false false false false false 
 
-    /// private java.lang.Throwable java.lang.Throwable.cause
+    /// private static final java.lang.String java.lang.Throwable.CAUSE_CAPTION
 
-    /// private java.lang.StackTraceElement[] java.lang.Throwable.stackTrace
-
-    /// private static final java.util.List java.lang.Throwable.SUPPRESSED_SENTINEL
-
-    /// private java.util.List java.lang.Throwable.suppressedExceptions
+    /// private static final java.lang.Throwable[] java.lang.Throwable.EMPTY_THROWABLE_ARRAY
 
     /// private static final java.lang.String java.lang.Throwable.NULL_CAUSE_MESSAGE
 
     /// private static final java.lang.String java.lang.Throwable.SELF_SUPPRESSION_MESSAGE
 
-    /// private static final java.lang.String java.lang.Throwable.CAUSE_CAPTION
-
     /// private static final java.lang.String java.lang.Throwable.SUPPRESSED_CAPTION
 
-    /// private static final java.lang.Throwable[] java.lang.Throwable.EMPTY_THROWABLE_ARRAY
+    /// private static final java.util.List java.lang.Throwable.SUPPRESSED_SENTINEL
 
-    /// static final boolean java.lang.Throwable.$assertionsDisabled
+    /// private static final java.lang.StackTraceElement[] java.lang.Throwable.UNASSIGNED_STACK
+
+    /// private static final long java.lang.Throwable.serialVersionUID
+
+    /// private java.lang.Throwable java.lang.Throwable.cause
+
+    /// private java.lang.String java.lang.Throwable.detailMessage
+
+    /// private java.lang.StackTraceElement[] java.lang.Throwable.stackTrace
+
+    /// private java.util.List java.lang.Throwable.suppressedExceptions
 
     /// public java.util.UnknownFormatFlagsException(java.lang.String)
 
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( f: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: f, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/UnknownFormatFlagsException", classCache: &UnknownFormatFlagsException.UnknownFormatFlagsExceptionJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &UnknownFormatFlagsException.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -71,19 +77,22 @@ open class UnknownFormatFlagsException: IllegalFormatException {
         self.init( f: _f )
     }
 
-    /// public java.lang.String java.util.UnknownFormatFlagsException.getMessage()
-
     /// public java.lang.String java.util.UnknownFormatFlagsException.getFlags()
 
     private static var getFlags_MethodID_2: jmethodID?
 
     open func getFlags() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFlags", methodSig: "()Ljava/lang/String;", methodCache: &UnknownFormatFlagsException.getFlags_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
+
+    /// public java.lang.String java.util.UnknownFormatFlagsException.getMessage()
+
+    // Skipping method: false true false false false 
 
 }
 

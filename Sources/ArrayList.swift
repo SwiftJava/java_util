@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.ArrayList ///
 
-open class ArrayList: AbstractList, RandomAccess, java_lang.Cloneable, /* java.io.Serializable */ UnclassedProtocol {
+open class ArrayList: AbstractList, RandomAccess, java_lang.Cloneable, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -20,19 +20,21 @@ open class ArrayList: AbstractList, RandomAccess, java_lang.Cloneable, /* java.i
 
     private static var ArrayListJNIClass: jclass?
 
-    /// private static final long java.util.ArrayList.serialVersionUID
+    /// private static final java.lang.Object[] java.util.ArrayList.DEFAULTCAPACITY_EMPTY_ELEMENTDATA
 
     /// private static final int java.util.ArrayList.DEFAULT_CAPACITY
 
     /// private static final java.lang.Object[] java.util.ArrayList.EMPTY_ELEMENTDATA
 
-    /// private static final java.lang.Object[] java.util.ArrayList.DEFAULTCAPACITY_EMPTY_ELEMENTDATA
+    /// private static final int java.util.ArrayList.MAX_ARRAY_SIZE
+
+    /// private static final long java.util.ArrayList.serialVersionUID
 
     /// transient java.lang.Object[] java.util.ArrayList.elementData
 
-    /// private int java.util.ArrayList.size
+    // Skipping field: true false false false false false 
 
-    /// private static final int java.util.ArrayList.MAX_ARRAY_SIZE
+    /// private int java.util.ArrayList.size
 
     /// protected transient int java.util.AbstractList.modCount
 
@@ -40,28 +42,39 @@ open class ArrayList: AbstractList, RandomAccess, java_lang.Cloneable, /* java.i
 
     override open var modCount: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &ArrayList.modCount_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &ArrayList.modCount_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &ArrayList.modCount_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
 
     /// private static final int java.util.AbstractCollection.MAX_ARRAY_SIZE
 
-    /// public java.util.ArrayList(java.util.Collection)
+    /// public java.util.ArrayList()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( c: Collection? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init() {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/ArrayList", classCache: &ArrayList.ArrayListJNIClass, methodSig: "()V", methodCache: &ArrayList.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.ArrayList(java.util.Collection)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( c: Collection? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: c, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/ArrayList", classCache: &ArrayList.ArrayListJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &ArrayList.new_MethodID_1, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/ArrayList", classCache: &ArrayList.ArrayListJNIClass, methodSig: "(Ljava/util/Collection;)V", methodCache: &ArrayList.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -70,26 +83,14 @@ open class ArrayList: AbstractList, RandomAccess, java_lang.Cloneable, /* java.i
         self.init( c: _c )
     }
 
-    /// public java.util.ArrayList()
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/ArrayList", classCache: &ArrayList.ArrayListJNIClass, methodSig: "()V", methodCache: &ArrayList.new_MethodID_2, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
     /// public java.util.ArrayList(int)
 
     private static var new_MethodID_3: jmethodID?
 
     public convenience init( initialCapacity: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: initialCapacity, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(initialCapacity) )
         let __object = JNIMethod.NewObject( className: "java/util/ArrayList", classCache: &ArrayList.ArrayListJNIClass, methodSig: "(I)V", methodCache: &ArrayList.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -99,75 +100,67 @@ open class ArrayList: AbstractList, RandomAccess, java_lang.Cloneable, /* java.i
         self.init( initialCapacity: _initialCapacity )
     }
 
-    /// public boolean java.util.ArrayList.add(java.lang.Object)
+    /// static int java.util.ArrayList.access$100(java.util.ArrayList)
+
+    // Skipping method: true false false false false 
+
+    /// private static int java.util.ArrayList.hugeCapacity(int)
+
+    /// static void java.util.ArrayList.subListRangeCheck(int,int,int)
+
+    // Skipping method: true false false false false 
 
     /// public void java.util.ArrayList.add(int,java.lang.Object)
 
-    /// public boolean java.util.ArrayList.remove(java.lang.Object)
+    // Skipping method: false true false false false 
 
-    /// public java.lang.Object java.util.ArrayList.remove(int)
+    /// public boolean java.util.ArrayList.add(java.lang.Object)
 
-    /// public java.lang.Object java.util.ArrayList.get(int)
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.ArrayList.addAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.ArrayList.addAll(int,java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// private boolean java.util.ArrayList.batchRemove(java.util.Collection,boolean)
+
+    /// public void java.util.ArrayList.clear()
+
+    // Skipping method: false true false false false 
 
     /// public java.lang.Object java.util.ArrayList.clone()
 
     private static var clone_MethodID_4: jmethodID?
 
     override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &ArrayList.clone_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public int java.util.ArrayList.indexOf(java.lang.Object)
-
-    /// public void java.util.ArrayList.clear()
-
-    /// public boolean java.util.ArrayList.isEmpty()
-
-    /// public int java.util.ArrayList.lastIndexOf(java.lang.Object)
-
     /// public boolean java.util.ArrayList.contains(java.lang.Object)
 
-    /// public void java.util.ArrayList.replaceAll(java.util.function.UnaryOperator)
+    // Skipping method: false true false false false 
 
-    /// public int java.util.ArrayList.size()
+    /// java.lang.Object java.util.ArrayList.elementData(int)
 
-    /// public java.util.List java.util.ArrayList.subList(int,int)
-
-    /// public java.lang.Object[] java.util.ArrayList.toArray(java.lang.Object[])
-
-    /// public java.lang.Object[] java.util.ArrayList.toArray()
-
-    /// public java.util.Iterator java.util.ArrayList.iterator()
-
-    /// public java.util.Spliterator java.util.ArrayList.spliterator()
-
-    /// public boolean java.util.ArrayList.addAll(int,java.util.Collection)
-
-    /// public boolean java.util.ArrayList.addAll(java.util.Collection)
-
-    /// static int java.util.ArrayList.access$100(java.util.ArrayList)
-
-    /// private void java.util.ArrayList.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.ArrayList.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// public void java.util.ArrayList.forEach(java.util.function.Consumer)
-
-    /// public java.lang.Object java.util.ArrayList.set(int,java.lang.Object)
+    // Skipping method: true false false false false 
 
     /// public void java.util.ArrayList.ensureCapacity(int)
 
     private static var ensureCapacity_MethodID_5: jmethodID?
 
     open func ensureCapacity( minCapacity: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: minCapacity, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(minCapacity) )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "ensureCapacity", methodSig: "(I)V", methodCache: &ArrayList.ensureCapacity_MethodID_5, args: &__args, locals: &__locals )
     }
 
@@ -175,132 +168,264 @@ open class ArrayList: AbstractList, RandomAccess, java_lang.Cloneable, /* java.i
         ensureCapacity( minCapacity: _minCapacity )
     }
 
-    /// public void java.util.ArrayList.trimToSize()
-
-    private static var trimToSize_MethodID_6: jmethodID?
-
-    open func trimToSize() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "trimToSize", methodSig: "()V", methodCache: &ArrayList.trimToSize_MethodID_6, args: &__args, locals: &__locals )
-    }
-
-
     /// private void java.util.ArrayList.ensureCapacityInternal(int)
 
-    /// java.lang.Object java.util.ArrayList.elementData(int)
+    /// private void java.util.ArrayList.ensureExplicitCapacity(int)
+
+    /// private void java.util.ArrayList.fastRemove(int)
+
+    /// public void java.util.ArrayList.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.ArrayList.get(int)
+
+    // Skipping method: false true false false false 
 
     /// private void java.util.ArrayList.grow(int)
 
-    /// private static int java.util.ArrayList.hugeCapacity(int)
+    /// public int java.util.ArrayList.indexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.ArrayList.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.Iterator java.util.ArrayList.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.ArrayList.lastIndexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.ListIterator java.util.ArrayList.listIterator(int)
+
+    // Skipping method: false true false false false 
+
+    /// public java.util.ListIterator java.util.ArrayList.listIterator()
+
+    // Skipping method: false true false false false 
+
+    /// private java.lang.String java.util.ArrayList.outOfBoundsMsg(int)
+
+    /// private void java.util.ArrayList.rangeCheck(int)
+
+    /// private void java.util.ArrayList.rangeCheckForAdd(int)
+
+    /// private void java.util.ArrayList.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public java.lang.Object java.util.ArrayList.remove(int)
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.ArrayList.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
 
     /// public boolean java.util.ArrayList.removeAll(java.util.Collection)
 
-    /// public boolean java.util.ArrayList.retainAll(java.util.Collection)
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.ArrayList.removeIf(java.util.function.Predicate)
+
+    // Skipping method: false true false false false 
 
     /// protected void java.util.ArrayList.removeRange(int,int)
 
-    private static var removeRange_MethodID_7: jmethodID?
+    private static var removeRange_MethodID_6: jmethodID?
 
     override open func removeRange( fromIndex: Int, toIndex: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: fromIndex, locals: &__locals )
-        __args[1] = JNIType.toJava( value: toIndex, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeRange", methodSig: "(II)V", methodCache: &ArrayList.removeRange_MethodID_7, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(fromIndex) )
+        __args[1] = jvalue( i: jint(toIndex) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "removeRange", methodSig: "(II)V", methodCache: &ArrayList.removeRange_MethodID_6, args: &__args, locals: &__locals )
     }
 
     override open func removeRange( _ _fromIndex: Int, _ _toIndex: Int ) {
         removeRange( fromIndex: _fromIndex, toIndex: _toIndex )
     }
 
-    /// public java.util.ListIterator java.util.ArrayList.listIterator()
+    /// public void java.util.ArrayList.replaceAll(java.util.function.UnaryOperator)
 
-    /// public java.util.ListIterator java.util.ArrayList.listIterator(int)
+    // Skipping method: false true false false false 
 
-    /// public boolean java.util.ArrayList.removeIf(java.util.function.Predicate)
+    /// public boolean java.util.ArrayList.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object java.util.ArrayList.set(int,java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public int java.util.ArrayList.size()
+
+    // Skipping method: false true false false false 
 
     /// public void java.util.ArrayList.sort(java.util.Comparator)
 
-    /// private void java.util.ArrayList.rangeCheckForAdd(int)
+    // Skipping method: false true false false false 
 
-    /// private java.lang.String java.util.ArrayList.outOfBoundsMsg(int)
+    /// public java.util.Spliterator java.util.ArrayList.spliterator()
 
-    /// private void java.util.ArrayList.ensureExplicitCapacity(int)
+    // Skipping method: false true false false false 
 
-    /// private void java.util.ArrayList.fastRemove(int)
+    /// public java.util.List java.util.ArrayList.subList(int,int)
 
-    /// private void java.util.ArrayList.rangeCheck(int)
+    // Skipping method: false true false false false 
 
-    /// private boolean java.util.ArrayList.batchRemove(java.util.Collection,boolean)
+    /// public java.lang.Object[] java.util.ArrayList.toArray(java.lang.Object[])
 
-    /// static void java.util.ArrayList.subListRangeCheck(int,int,int)
+    // Skipping method: false true false false false 
+
+    /// public java.lang.Object[] java.util.ArrayList.toArray()
+
+    // Skipping method: false true false false false 
+
+    /// public void java.util.ArrayList.trimToSize()
+
+    private static var trimToSize_MethodID_7: jmethodID?
+
+    open func trimToSize() {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "trimToSize", methodSig: "()V", methodCache: &ArrayList.trimToSize_MethodID_7, args: &__args, locals: &__locals )
+    }
+
+
+    /// private void java.util.ArrayList.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
     /// In declared protocol but not defined.. ///
 
-    /// public abstract boolean java.util.Collection.equals(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
-
-    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
-
-    /// public abstract java.util.ListIterator java.util.List.listIterator()
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray()
-
-    /// public abstract java.lang.Object java.util.List.remove(int)
-
-    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
-
-    /// public abstract int java.util.Collection.hashCode()
-
-    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
-
-    /// public abstract java.lang.Object java.util.List.get(int)
-
-    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
-
-    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
-
-    /// public default void java.util.List.sort(java.util.Comparator)
-
-    /// public abstract java.util.ListIterator java.util.List.listIterator(int)
-
-    /// public abstract void java.util.Collection.clear()
-
     /// public abstract void java.util.List.add(int,java.lang.Object)
 
-    /// public abstract boolean java.util.List.addAll(int,java.util.Collection)
-
-    /// public abstract boolean java.util.Collection.isEmpty()
-
-    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
-
-    /// public abstract java.util.List java.util.List.subList(int,int)
-
-    /// public abstract int java.util.List.lastIndexOf(java.lang.Object)
-
-    /// public abstract int java.util.List.indexOf(java.lang.Object)
-
-    /// public default void java.util.List.replaceAll(java.util.function.UnaryOperator)
-
-    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
-
-    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
-
-    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
-
-    /// public abstract java.lang.Object java.util.List.set(int,java.lang.Object)
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.add(java.lang.Object)
 
-    /// public default java.util.stream.Stream java.util.Collection.stream()
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.List.addAll(int,java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract void java.util.Collection.clear()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.equals(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.get(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.List.indexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.List.lastIndexOf(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.ListIterator java.util.List.listIterator(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.ListIterator java.util.List.listIterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.remove(int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.util.List.replaceAll(java.util.function.UnaryOperator)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object java.util.List.set(int,java.lang.Object)
+
+    // Skipping method: false true false false false 
 
     /// public abstract int java.util.Collection.size()
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.util.List.sort(java.util.Comparator)
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.stream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.List java.util.List.subList(int,int)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

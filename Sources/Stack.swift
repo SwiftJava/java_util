@@ -18,20 +18,23 @@ open class Stack: Vector {
 
     /// private static final long java.util.Stack.serialVersionUID
 
-    /// protected java.lang.Object[] java.util.Vector.elementData
+    /// private static final int java.util.Vector.MAX_ARRAY_SIZE
 
-    private static var elementData_FieldID: jfieldID?
+    /// private static final long java.util.Vector.serialVersionUID
 
-    override open var elementData: [JavaObject]! {
+    /// protected int java.util.Vector.capacityIncrement
+
+    private static var capacityIncrement_FieldID: jfieldID?
+
+    override open var capacityIncrement: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "elementData", fieldType: "[Ljava/lang/Object;", fieldCache: &Stack.elementData_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [JavaObject](), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "capacityIncrement", fieldType: "I", fieldCache: &Stack.capacityIncrement_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "elementData", fieldType: "[Ljava/lang/Object;", fieldCache: &Stack.elementData_FieldID, object: javaObject, value: __value.l, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
+            JNIField.SetIntField( fieldName: "capacityIncrement", fieldType: "I", fieldCache: &Stack.capacityIncrement_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
 
@@ -41,37 +44,31 @@ open class Stack: Vector {
 
     override open var elementCount: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "elementCount", fieldType: "I", fieldCache: &Stack.elementCount_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "elementCount", fieldType: "I", fieldCache: &Stack.elementCount_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "elementCount", fieldType: "I", fieldCache: &Stack.elementCount_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
 
-    /// protected int java.util.Vector.capacityIncrement
+    /// protected java.lang.Object[] java.util.Vector.elementData
 
-    private static var capacityIncrement_FieldID: jfieldID?
+    private static var elementData_FieldID: jfieldID?
 
-    override open var capacityIncrement: Int {
+    override open var elementData: [JavaObject]! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "capacityIncrement", fieldType: "I", fieldCache: &Stack.capacityIncrement_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "elementData", fieldType: "[Ljava/lang/Object;", fieldCache: &Stack.elementData_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [JavaObject].self, from: __value )
         }
         set(newValue) {
             var __locals = [jobject]()
             let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetIntField( fieldName: "capacityIncrement", fieldType: "I", fieldCache: &Stack.capacityIncrement_FieldID, object: javaObject, value: __value.i, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "elementData", fieldType: "[Ljava/lang/Object;", fieldCache: &Stack.elementData_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
-
-    /// private static final long java.util.Vector.serialVersionUID
-
-    /// private static final int java.util.Vector.MAX_ARRAY_SIZE
 
     /// protected transient int java.util.AbstractList.modCount
 
@@ -79,13 +76,12 @@ open class Stack: Vector {
 
     override open var modCount: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &Stack.modCount_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &Stack.modCount_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "modCount", fieldType: "I", fieldCache: &Stack.modCount_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
@@ -97,22 +93,60 @@ open class Stack: Vector {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/Stack", classCache: &Stack.StackJNIClass, methodSig: "()V", methodCache: &Stack.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
+    /// public boolean java.util.Stack.empty()
+
+    private static var empty_MethodID_2: jmethodID?
+
+    open func empty() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "empty", methodSig: "()Z", methodCache: &Stack.empty_MethodID_2, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public synchronized java.lang.Object java.util.Stack.peek()
+
+    private static var peek_MethodID_3: jmethodID?
+
+    open func peek() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peek", methodSig: "()Ljava/lang/Object;", methodCache: &Stack.peek_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
+    /// public synchronized java.lang.Object java.util.Stack.pop()
+
+    private static var pop_MethodID_4: jmethodID?
+
+    open func pop() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pop", methodSig: "()Ljava/lang/Object;", methodCache: &Stack.pop_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+    }
+
+
     /// public java.lang.Object java.util.Stack.push(java.lang.Object)
 
-    private static var push_MethodID_2: jmethodID?
+    private static var push_MethodID_5: jmethodID?
 
     open func push( item: java_swift.JavaObject? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: item, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "push", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Stack.push_MethodID_2, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "push", methodSig: "(Ljava/lang/Object;)Ljava/lang/Object;", methodCache: &Stack.push_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
@@ -121,54 +155,16 @@ open class Stack: Vector {
         return push( item: _item )
     }
 
-    /// public synchronized java.lang.Object java.util.Stack.pop()
-
-    private static var pop_MethodID_3: jmethodID?
-
-    open func pop() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "pop", methodSig: "()Ljava/lang/Object;", methodCache: &Stack.pop_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public synchronized java.lang.Object java.util.Stack.peek()
-
-    private static var peek_MethodID_4: jmethodID?
-
-    open func peek() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "peek", methodSig: "()Ljava/lang/Object;", methodCache: &Stack.peek_MethodID_4, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
-    }
-
-
-    /// public boolean java.util.Stack.empty()
-
-    private static var empty_MethodID_5: jmethodID?
-
-    open func empty() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "empty", methodSig: "()Z", methodCache: &Stack.empty_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-
     /// public synchronized int java.util.Stack.search(java.lang.Object)
 
     private static var search_MethodID_6: jmethodID?
 
     open func search( o: java_swift.JavaObject? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "search", methodSig: "(Ljava/lang/Object;)I", methodCache: &Stack.search_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     open func search( _ _o: java_swift.JavaObject? ) -> Int {

@@ -8,33 +8,33 @@ import java_lang
 
 public protocol BaseStream: java_lang.AutoCloseable {
 
-    /// public abstract java.util.Iterator java.util.stream.BaseStream.iterator()
-
-    func iterator() -> Iterator!
-
-    /// public abstract java.util.Spliterator java.util.stream.BaseStream.spliterator()
-
-    func spliterator() -> Spliterator!
-
     /// public abstract void java.util.stream.BaseStream.close()
 
     func close()
-
-    /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.parallel()
-
-    func parallel() -> BaseStream!
 
     /// public abstract boolean java.util.stream.BaseStream.isParallel()
 
     func isParallel() -> Bool
 
+    /// public abstract java.util.Iterator java.util.stream.BaseStream.iterator()
+
+    func iterator() -> Iterator!
+
     /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.onClose(java.lang.Runnable)
 
     func onClose( closeHandler: java_swift.Runnable? ) -> BaseStream!
 
+    /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.parallel()
+
+    func parallel() -> BaseStream!
+
     /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.sequential()
 
     func sequential() -> BaseStream!
+
+    /// public abstract java.util.Spliterator java.util.stream.BaseStream.spliterator()
+
+    func spliterator() -> Spliterator!
 
     /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.unordered()
 
@@ -47,77 +47,51 @@ open class BaseStreamForward: java_lang.AutoCloseableForward, BaseStream {
 
     private static var BaseStreamJNIClass: jclass?
 
-    /// public abstract java.util.Iterator java.util.stream.BaseStream.iterator()
-
-    private static var iterator_MethodID_9: jmethodID?
-
-    open func iterator() -> Iterator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "iterator", methodSig: "()Ljava/util/Iterator;", methodCache: &BaseStreamForward.iterator_MethodID_9, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? IteratorForward( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract java.util.Spliterator java.util.stream.BaseStream.spliterator()
-
-    private static var spliterator_MethodID_10: jmethodID?
-
-    open func spliterator() -> Spliterator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "spliterator", methodSig: "()Ljava/util/Spliterator;", methodCache: &BaseStreamForward.spliterator_MethodID_10, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? SpliteratorForward( javaObject: __return ) : nil
-    }
-
-
     /// public abstract void java.util.stream.BaseStream.close()
 
-    private static var close_MethodID_11: jmethodID?
+    private static var close_MethodID_9: jmethodID?
 
     override open func close() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "close", methodSig: "()V", methodCache: &BaseStreamForward.close_MethodID_11, args: &__args, locals: &__locals )
-    }
-
-
-    /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.parallel()
-
-    private static var parallel_MethodID_12: jmethodID?
-
-    open func parallel() -> BaseStream! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "parallel", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &BaseStreamForward.parallel_MethodID_12, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "close", methodSig: "()V", methodCache: &BaseStreamForward.close_MethodID_9, args: &__args, locals: &__locals )
     }
 
 
     /// public abstract boolean java.util.stream.BaseStream.isParallel()
 
-    private static var isParallel_MethodID_13: jmethodID?
+    private static var isParallel_MethodID_10: jmethodID?
 
     open func isParallel() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isParallel", methodSig: "()Z", methodCache: &BaseStreamForward.isParallel_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isParallel", methodSig: "()Z", methodCache: &BaseStreamForward.isParallel_MethodID_10, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public abstract java.util.Iterator java.util.stream.BaseStream.iterator()
+
+    private static var iterator_MethodID_11: jmethodID?
+
+    open func iterator() -> Iterator! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "iterator", methodSig: "()Ljava/util/Iterator;", methodCache: &BaseStreamForward.iterator_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? IteratorForward( javaObject: __return ) : nil
     }
 
 
     /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.onClose(java.lang.Runnable)
 
-    private static var onClose_MethodID_14: jmethodID?
+    private static var onClose_MethodID_12: jmethodID?
 
     open func onClose( closeHandler: java_swift.Runnable? ) -> BaseStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: closeHandler, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "onClose", methodSig: "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", methodCache: &BaseStreamForward.onClose_MethodID_14, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "onClose", methodSig: "(Ljava/lang/Runnable;)Ljava/util/stream/BaseStream;", methodCache: &BaseStreamForward.onClose_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
     }
@@ -126,16 +100,42 @@ open class BaseStreamForward: java_lang.AutoCloseableForward, BaseStream {
         return onClose( closeHandler: _closeHandler )
     }
 
-    /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.sequential()
+    /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.parallel()
 
-    private static var sequential_MethodID_15: jmethodID?
+    private static var parallel_MethodID_13: jmethodID?
 
-    open func sequential() -> BaseStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func parallel() -> BaseStream! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &BaseStreamForward.sequential_MethodID_15, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "parallel", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &BaseStreamForward.parallel_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.stream.BaseStream java.util.stream.BaseStream.sequential()
+
+    private static var sequential_MethodID_14: jmethodID?
+
+    open func sequential() -> BaseStream! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &BaseStreamForward.sequential_MethodID_14, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract java.util.Spliterator java.util.stream.BaseStream.spliterator()
+
+    private static var spliterator_MethodID_15: jmethodID?
+
+    open func spliterator() -> Spliterator! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "spliterator", methodSig: "()Ljava/util/Spliterator;", methodCache: &BaseStreamForward.spliterator_MethodID_15, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? SpliteratorForward( javaObject: __return ) : nil
     }
 
 
@@ -144,8 +144,8 @@ open class BaseStreamForward: java_lang.AutoCloseableForward, BaseStream {
     private static var unordered_MethodID_16: jmethodID?
 
     open func unordered() -> BaseStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "unordered", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &BaseStreamForward.unordered_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
@@ -153,5 +153,4 @@ open class BaseStreamForward: java_lang.AutoCloseableForward, BaseStream {
 
 
 }
-
 

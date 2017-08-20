@@ -7,57 +7,53 @@ import java_swift
 
 public protocol Spliterator: JavaProtocol {
 
-    /// public static final int java.util.Spliterator.ORDERED
+    /// public static final int java.util.Spliterator.CONCURRENT
 
-    static var ORDERED: Int { get }
+    // Skipping field: false false false false false true 
 
     /// public static final int java.util.Spliterator.DISTINCT
 
-    static var DISTINCT: Int { get }
-
-    /// public static final int java.util.Spliterator.SORTED
-
-    static var SORTED: Int { get }
-
-    /// public static final int java.util.Spliterator.SIZED
-
-    static var SIZED: Int { get }
-
-    /// public static final int java.util.Spliterator.NONNULL
-
-    static var NONNULL: Int { get }
+    // Skipping field: false false false false false true 
 
     /// public static final int java.util.Spliterator.IMMUTABLE
 
-    static var IMMUTABLE: Int { get }
+    // Skipping field: false false false false false true 
 
-    /// public static final int java.util.Spliterator.CONCURRENT
+    /// public static final int java.util.Spliterator.NONNULL
 
-    static var CONCURRENT: Int { get }
+    // Skipping field: false false false false false true 
+
+    /// public static final int java.util.Spliterator.ORDERED
+
+    // Skipping field: false false false false false true 
+
+    /// public static final int java.util.Spliterator.SIZED
+
+    // Skipping field: false false false false false true 
+
+    /// public static final int java.util.Spliterator.SORTED
+
+    // Skipping field: false false false false false true 
 
     /// public static final int java.util.Spliterator.SUBSIZED
 
-    static var SUBSIZED: Int { get }
+    // Skipping field: false false false false false true 
 
-    /// public default void java.util.Spliterator.forEachRemaining(java.util.function.Consumer)
+    /// public abstract int java.util.Spliterator.characteristics()
 
-    func forEachRemaining( action: Consumer? )
-
-    /// public abstract java.util.Spliterator java.util.Spliterator.trySplit()
-
-    func trySplit() -> Spliterator!
-
-    /// public abstract boolean java.util.Spliterator.tryAdvance(java.util.function.Consumer)
-
-    func tryAdvance( action: Consumer? ) -> Bool
+    func characteristics() -> Int
 
     /// public abstract long java.util.Spliterator.estimateSize()
 
     func estimateSize() -> Int64
 
-    /// public abstract int java.util.Spliterator.characteristics()
+    /// public default void java.util.Spliterator.forEachRemaining(java.util.function.Consumer)
 
-    func characteristics() -> Int
+    func forEachRemaining( action: Consumer? )
+
+    /// public default java.util.Comparator java.util.Spliterator.getComparator()
+
+    func getComparator() -> JavaComparator!
 
     /// public default long java.util.Spliterator.getExactSizeIfKnown()
 
@@ -67,9 +63,13 @@ public protocol Spliterator: JavaProtocol {
 
     func hasCharacteristics( characteristics: Int ) -> Bool
 
-    /// public default java.util.Comparator java.util.Spliterator.getComparator()
+    /// public abstract boolean java.util.Spliterator.tryAdvance(java.util.function.Consumer)
 
-    func getComparator() -> JavaComparator!
+    func tryAdvance( action: Consumer? ) -> Bool
+
+    /// public abstract java.util.Spliterator java.util.Spliterator.trySplit()
+
+    func trySplit() -> Spliterator!
 
 }
 
@@ -78,14 +78,14 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var SpliteratorJNIClass: jclass?
 
-    /// public static final int java.util.Spliterator.ORDERED
+    /// public static final int java.util.Spliterator.CONCURRENT
 
-    private static var ORDERED_FieldID: jfieldID?
+    private static var CONCURRENT_FieldID: jfieldID?
 
-    open static var ORDERED: Int {
+    open static var CONCURRENT: Int {
         get {
-            let __value = JNIField.GetStaticIntField( fieldName: "ORDERED", fieldType: "I", fieldCache: &ORDERED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetStaticIntField( fieldName: "CONCURRENT", fieldType: "I", fieldCache: &CONCURRENT_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
+            return Int(__value)
         }
     }
 
@@ -96,40 +96,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
     open static var DISTINCT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DISTINCT", fieldType: "I", fieldCache: &DISTINCT_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-    }
-
-    /// public static final int java.util.Spliterator.SORTED
-
-    private static var SORTED_FieldID: jfieldID?
-
-    open static var SORTED: Int {
-        get {
-            let __value = JNIField.GetStaticIntField( fieldName: "SORTED", fieldType: "I", fieldCache: &SORTED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-    }
-
-    /// public static final int java.util.Spliterator.SIZED
-
-    private static var SIZED_FieldID: jfieldID?
-
-    open static var SIZED: Int {
-        get {
-            let __value = JNIField.GetStaticIntField( fieldName: "SIZED", fieldType: "I", fieldCache: &SIZED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-    }
-
-    /// public static final int java.util.Spliterator.NONNULL
-
-    private static var NONNULL_FieldID: jfieldID?
-
-    open static var NONNULL: Int {
-        get {
-            let __value = JNIField.GetStaticIntField( fieldName: "NONNULL", fieldType: "I", fieldCache: &NONNULL_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            return Int(__value)
         }
     }
 
@@ -140,18 +107,51 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
     open static var IMMUTABLE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "IMMUTABLE", fieldType: "I", fieldCache: &IMMUTABLE_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            return Int(__value)
         }
     }
 
-    /// public static final int java.util.Spliterator.CONCURRENT
+    /// public static final int java.util.Spliterator.NONNULL
 
-    private static var CONCURRENT_FieldID: jfieldID?
+    private static var NONNULL_FieldID: jfieldID?
 
-    open static var CONCURRENT: Int {
+    open static var NONNULL: Int {
         get {
-            let __value = JNIField.GetStaticIntField( fieldName: "CONCURRENT", fieldType: "I", fieldCache: &CONCURRENT_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetStaticIntField( fieldName: "NONNULL", fieldType: "I", fieldCache: &NONNULL_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
+            return Int(__value)
+        }
+    }
+
+    /// public static final int java.util.Spliterator.ORDERED
+
+    private static var ORDERED_FieldID: jfieldID?
+
+    open static var ORDERED: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "ORDERED", fieldType: "I", fieldCache: &ORDERED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
+            return Int(__value)
+        }
+    }
+
+    /// public static final int java.util.Spliterator.SIZED
+
+    private static var SIZED_FieldID: jfieldID?
+
+    open static var SIZED: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "SIZED", fieldType: "I", fieldCache: &SIZED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
+            return Int(__value)
+        }
+    }
+
+    /// public static final int java.util.Spliterator.SORTED
+
+    private static var SORTED_FieldID: jfieldID?
+
+    open static var SORTED: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "SORTED", fieldType: "I", fieldCache: &SORTED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
+            return Int(__value)
         }
     }
 
@@ -162,119 +162,118 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
     open static var SUBSIZED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SUBSIZED", fieldType: "I", fieldCache: &SUBSIZED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            return Int(__value)
         }
     }
 
+    /// public abstract int java.util.Spliterator.characteristics()
+
+    private static var characteristics_MethodID_9: jmethodID?
+
+    open func characteristics() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "characteristics", methodSig: "()I", methodCache: &SpliteratorForward.characteristics_MethodID_9, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public abstract long java.util.Spliterator.estimateSize()
+
+    private static var estimateSize_MethodID_10: jmethodID?
+
+    open func estimateSize() -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "estimateSize", methodSig: "()J", methodCache: &SpliteratorForward.estimateSize_MethodID_10, args: &__args, locals: &__locals )
+        return __return
+    }
+
+
     /// public default void java.util.Spliterator.forEachRemaining(java.util.function.Consumer)
 
-    private static var forEachRemaining_MethodID_9: jmethodID?
+    private static var forEachRemaining_MethodID_11: jmethodID?
 
     open func forEachRemaining( action: Consumer? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: action, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachRemaining", methodSig: "(Ljava/util/function/Consumer;)V", methodCache: &SpliteratorForward.forEachRemaining_MethodID_9, args: &__args, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "forEachRemaining", methodSig: "(Ljava/util/function/Consumer;)V", methodCache: &SpliteratorForward.forEachRemaining_MethodID_11, args: &__args, locals: &__locals )
     }
 
     open func forEachRemaining( _ _action: Consumer? ) {
         forEachRemaining( action: _action )
     }
 
-    /// public abstract java.util.Spliterator java.util.Spliterator.trySplit()
+    /// public default java.util.Comparator java.util.Spliterator.getComparator()
 
-    private static var trySplit_MethodID_10: jmethodID?
+    private static var getComparator_MethodID_12: jmethodID?
 
-    open func trySplit() -> Spliterator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func getComparator() -> JavaComparator! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "trySplit", methodSig: "()Ljava/util/Spliterator;", methodCache: &SpliteratorForward.trySplit_MethodID_10, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getComparator", methodSig: "()Ljava/util/Comparator;", methodCache: &SpliteratorForward.getComparator_MethodID_12, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? SpliteratorForward( javaObject: __return ) : nil
-    }
-
-
-    /// public abstract boolean java.util.Spliterator.tryAdvance(java.util.function.Consumer)
-
-    private static var tryAdvance_MethodID_11: jmethodID?
-
-    open func tryAdvance( action: Consumer? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: action, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryAdvance", methodSig: "(Ljava/util/function/Consumer;)Z", methodCache: &SpliteratorForward.tryAdvance_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func tryAdvance( _ _action: Consumer? ) -> Bool {
-        return tryAdvance( action: _action )
-    }
-
-    /// public abstract long java.util.Spliterator.estimateSize()
-
-    private static var estimateSize_MethodID_12: jmethodID?
-
-    open func estimateSize() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "estimateSize", methodSig: "()J", methodCache: &SpliteratorForward.estimateSize_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
-    }
-
-
-    /// public abstract int java.util.Spliterator.characteristics()
-
-    private static var characteristics_MethodID_13: jmethodID?
-
-    open func characteristics() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "characteristics", methodSig: "()I", methodCache: &SpliteratorForward.characteristics_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return __return != nil ? JavaComparatorForward( javaObject: __return ) : nil
     }
 
 
     /// public default long java.util.Spliterator.getExactSizeIfKnown()
 
-    private static var getExactSizeIfKnown_MethodID_14: jmethodID?
+    private static var getExactSizeIfKnown_MethodID_13: jmethodID?
 
     open func getExactSizeIfKnown() -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getExactSizeIfKnown", methodSig: "()J", methodCache: &SpliteratorForward.getExactSizeIfKnown_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getExactSizeIfKnown", methodSig: "()J", methodCache: &SpliteratorForward.getExactSizeIfKnown_MethodID_13, args: &__args, locals: &__locals )
+        return __return
     }
 
 
     /// public default boolean java.util.Spliterator.hasCharacteristics(int)
 
-    private static var hasCharacteristics_MethodID_15: jmethodID?
+    private static var hasCharacteristics_MethodID_14: jmethodID?
 
     open func hasCharacteristics( characteristics: Int ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: characteristics, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasCharacteristics", methodSig: "(I)Z", methodCache: &SpliteratorForward.hasCharacteristics_MethodID_15, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(characteristics) )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasCharacteristics", methodSig: "(I)Z", methodCache: &SpliteratorForward.hasCharacteristics_MethodID_14, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
     open func hasCharacteristics( _ _characteristics: Int ) -> Bool {
         return hasCharacteristics( characteristics: _characteristics )
     }
 
-    /// public default java.util.Comparator java.util.Spliterator.getComparator()
+    /// public abstract boolean java.util.Spliterator.tryAdvance(java.util.function.Consumer)
 
-    private static var getComparator_MethodID_16: jmethodID?
+    private static var tryAdvance_MethodID_15: jmethodID?
 
-    open func getComparator() -> JavaComparator! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func tryAdvance( action: Consumer? ) -> Bool {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getComparator", methodSig: "()Ljava/util/Comparator;", methodCache: &SpliteratorForward.getComparator_MethodID_16, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: action, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "tryAdvance", methodSig: "(Ljava/util/function/Consumer;)Z", methodCache: &SpliteratorForward.tryAdvance_MethodID_15, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    open func tryAdvance( _ _action: Consumer? ) -> Bool {
+        return tryAdvance( action: _action )
+    }
+
+    /// public abstract java.util.Spliterator java.util.Spliterator.trySplit()
+
+    private static var trySplit_MethodID_16: jmethodID?
+
+    open func trySplit() -> Spliterator! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "trySplit", methodSig: "()Ljava/util/Spliterator;", methodCache: &SpliteratorForward.trySplit_MethodID_16, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? JavaComparatorForward( javaObject: __return ) : nil
+        return __return != nil ? SpliteratorForward( javaObject: __return ) : nil
     }
 
 
 }
-
 

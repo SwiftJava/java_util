@@ -21,45 +21,47 @@ open class CurrencyNameProvider: LocaleServiceProvider {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/spi/CurrencyNameProvider", classCache: &CurrencyNameProvider.CurrencyNameProviderJNIClass, methodSig: "()V", methodCache: &CurrencyNameProvider.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    /// public abstract java.lang.String java.util.spi.CurrencyNameProvider.getSymbol(java.lang.String,java.util.Locale)
-
-    private static var getSymbol_MethodID_2: jmethodID?
-
-    open func getSymbol( currencyCode: String?, locale: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: currencyCode, locals: &__locals )
-        __args[1] = JNIType.toJava( value: locale, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", methodCache: &CurrencyNameProvider.getSymbol_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getSymbol( _ _currencyCode: String?, _ _locale: JavaLocale? ) -> String! {
-        return getSymbol( currencyCode: _currencyCode, locale: _locale )
-    }
-
     /// public java.lang.String java.util.spi.CurrencyNameProvider.getDisplayName(java.lang.String,java.util.Locale)
 
-    private static var getDisplayName_MethodID_3: jmethodID?
+    private static var getDisplayName_MethodID_2: jmethodID?
 
     open func getDisplayName( currencyCode: String?, locale: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: currencyCode, locals: &__locals )
         __args[1] = JNIType.toJava( value: locale, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", methodCache: &CurrencyNameProvider.getDisplayName_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", methodCache: &CurrencyNameProvider.getDisplayName_MethodID_2, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open func getDisplayName( _ _currencyCode: String?, _ _locale: JavaLocale? ) -> String! {
         return getDisplayName( currencyCode: _currencyCode, locale: _locale )
+    }
+
+    /// public abstract java.lang.String java.util.spi.CurrencyNameProvider.getSymbol(java.lang.String,java.util.Locale)
+
+    private static var getSymbol_MethodID_3: jmethodID?
+
+    open func getSymbol( currencyCode: String?, locale: JavaLocale? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: currencyCode, locals: &__locals )
+        __args[1] = JNIType.toJava( value: locale, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "(Ljava/lang/String;Ljava/util/Locale;)Ljava/lang/String;", methodCache: &CurrencyNameProvider.getSymbol_MethodID_3, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getSymbol( _ _currencyCode: String?, _ _locale: JavaLocale? ) -> String! {
+        return getSymbol( currencyCode: _currencyCode, locale: _locale )
     }
 
 }

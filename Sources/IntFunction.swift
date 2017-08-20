@@ -23,9 +23,9 @@ open class IntFunctionForward: JNIObjectForward, IntFunction {
     private static var apply_MethodID_2: jmethodID?
 
     open func apply( value: Int ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: value, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(value) )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "apply", methodSig: "(I)Ljava/lang/Object;", methodCache: &IntFunctionForward.apply_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -36,5 +36,4 @@ open class IntFunctionForward: JNIObjectForward, IntFunction {
     }
 
 }
-
 

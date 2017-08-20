@@ -16,74 +16,13 @@ open class SimpleTimeZone: TimeZone {
 
     private static var SimpleTimeZoneJNIClass: jclass?
 
-    /// private int java.util.SimpleTimeZone.startMonth
-
-    /// private int java.util.SimpleTimeZone.startDay
-
-    /// private int java.util.SimpleTimeZone.startDayOfWeek
-
-    /// private int java.util.SimpleTimeZone.startTime
-
-    /// private int java.util.SimpleTimeZone.startTimeMode
-
-    /// private int java.util.SimpleTimeZone.endMonth
-
-    /// private int java.util.SimpleTimeZone.endDay
-
-    /// private int java.util.SimpleTimeZone.endDayOfWeek
-
-    /// private int java.util.SimpleTimeZone.endTime
-
-    /// private int java.util.SimpleTimeZone.endTimeMode
-
-    /// private int java.util.SimpleTimeZone.startYear
-
-    /// private int java.util.SimpleTimeZone.rawOffset
-
-    /// private boolean java.util.SimpleTimeZone.useDaylight
-
-    /// private static final int java.util.SimpleTimeZone.millisPerHour
-
-    /// private static final int java.util.SimpleTimeZone.millisPerDay
-
-    /// private final byte[] java.util.SimpleTimeZone.monthLength
-
-    /// private static final byte[] java.util.SimpleTimeZone.staticMonthLength
-
-    /// private static final byte[] java.util.SimpleTimeZone.staticLeapMonthLength
-
-    /// private int java.util.SimpleTimeZone.startMode
-
-    /// private int java.util.SimpleTimeZone.endMode
-
-    /// private int java.util.SimpleTimeZone.dstSavings
-
-    /// private static final sun.util.calendar.Gregorian java.util.SimpleTimeZone.gcal
-
-    /// private transient long java.util.SimpleTimeZone.cacheYear
-
-    /// private transient long java.util.SimpleTimeZone.cacheStart
-
-    /// private transient long java.util.SimpleTimeZone.cacheEnd
-
     /// private static final int java.util.SimpleTimeZone.DOM_MODE
-
-    /// private static final int java.util.SimpleTimeZone.DOW_IN_MONTH_MODE
 
     /// private static final int java.util.SimpleTimeZone.DOW_GE_DOM_MODE
 
+    /// private static final int java.util.SimpleTimeZone.DOW_IN_MONTH_MODE
+
     /// private static final int java.util.SimpleTimeZone.DOW_LE_DOM_MODE
-
-    /// public static final int java.util.SimpleTimeZone.WALL_TIME
-
-    private static var WALL_TIME_FieldID: jfieldID?
-
-    open static var WALL_TIME: Int {
-        get {
-            let __value = JNIField.GetStaticIntField( fieldName: "WALL_TIME", fieldType: "I", fieldCache: &WALL_TIME_FieldID, className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZoneJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
-        }
-    }
 
     /// public static final int java.util.SimpleTimeZone.STANDARD_TIME
 
@@ -92,7 +31,7 @@ open class SimpleTimeZone: TimeZone {
     open static var STANDARD_TIME: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "STANDARD_TIME", fieldType: "I", fieldCache: &STANDARD_TIME_FieldID, className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZoneJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            return Int(__value)
         }
     }
 
@@ -103,134 +42,129 @@ open class SimpleTimeZone: TimeZone {
     open static var UTC_TIME: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "UTC_TIME", fieldType: "I", fieldCache: &UTC_TIME_FieldID, className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZoneJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            return Int(__value)
         }
     }
 
-    /// static final long java.util.SimpleTimeZone.serialVersionUID
+    /// public static final int java.util.SimpleTimeZone.WALL_TIME
+
+    private static var WALL_TIME_FieldID: jfieldID?
+
+    open static var WALL_TIME: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "WALL_TIME", fieldType: "I", fieldCache: &WALL_TIME_FieldID, className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZoneJNIClass )
+            return Int(__value)
+        }
+    }
 
     /// static final int java.util.SimpleTimeZone.currentSerialVersion
 
+    // Skipping field: true false false false false false 
+
+    /// private static final sun.util.calendar.Gregorian java.util.SimpleTimeZone.gcal
+
+    /// private static final int java.util.SimpleTimeZone.millisPerDay
+
+    /// private static final int java.util.SimpleTimeZone.millisPerHour
+
+    /// static final long java.util.SimpleTimeZone.serialVersionUID
+
+    // Skipping field: true true false false false false 
+
+    /// private static final byte[] java.util.SimpleTimeZone.staticLeapMonthLength
+
+    /// private static final byte[] java.util.SimpleTimeZone.staticMonthLength
+
+    /// private transient long java.util.SimpleTimeZone.cacheEnd
+
+    /// private transient long java.util.SimpleTimeZone.cacheStart
+
+    /// private transient long java.util.SimpleTimeZone.cacheYear
+
+    /// private int java.util.SimpleTimeZone.dstSavings
+
+    /// private int java.util.SimpleTimeZone.endDay
+
+    /// private int java.util.SimpleTimeZone.endDayOfWeek
+
+    /// private int java.util.SimpleTimeZone.endMode
+
+    /// private int java.util.SimpleTimeZone.endMonth
+
+    /// private int java.util.SimpleTimeZone.endTime
+
+    /// private int java.util.SimpleTimeZone.endTimeMode
+
+    /// private final byte[] java.util.SimpleTimeZone.monthLength
+
+    /// private int java.util.SimpleTimeZone.rawOffset
+
     /// private int java.util.SimpleTimeZone.serialVersionOnStream
 
-    /// public static final int java.util.TimeZone.SHORT
+    /// private int java.util.SimpleTimeZone.startDay
 
-    /// public static final int java.util.TimeZone.LONG
+    /// private int java.util.SimpleTimeZone.startDayOfWeek
 
-    /// private static final int java.util.TimeZone.ONE_MINUTE
+    /// private int java.util.SimpleTimeZone.startMode
 
-    /// private static final int java.util.TimeZone.ONE_HOUR
+    /// private int java.util.SimpleTimeZone.startMonth
 
-    /// private static final int java.util.TimeZone.ONE_DAY
+    /// private int java.util.SimpleTimeZone.startTime
 
-    /// static final long java.util.TimeZone.serialVersionUID
+    /// private int java.util.SimpleTimeZone.startTimeMode
 
-    /// static final java.util.TimeZone java.util.TimeZone.NO_TIMEZONE
+    /// private int java.util.SimpleTimeZone.startYear
 
-    /// private java.lang.String java.util.TimeZone.ID
-
-    /// private static volatile java.util.TimeZone java.util.TimeZone.defaultTimeZone
-
-    /// static final java.lang.String java.util.TimeZone.GMT_ID
-
-    /// private static final int java.util.TimeZone.GMT_ID_LENGTH
-
-    /// private static volatile java.util.TimeZone java.util.TimeZone.mainAppContextDefault
+    /// private boolean java.util.SimpleTimeZone.useDaylight
 
     /// static final boolean java.util.TimeZone.$assertionsDisabled
 
-    /// public java.util.SimpleTimeZone(int,java.lang.String,int,int,int,int,int,int,int,int,int,int,int)
+    // Skipping field: true false false false false false 
 
-    private static var new_MethodID_1: jmethodID?
+    /// static final java.lang.String java.util.TimeZone.GMT_ID
 
-    public convenience init( rawOffset: Int, ID: String?, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, startTimeMode: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, endTimeMode: Int, dstSavings: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 13 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: rawOffset, locals: &__locals )
-        __args[1] = JNIType.toJava( value: ID, locals: &__locals )
-        __args[2] = JNIType.toJava( value: startMonth, locals: &__locals )
-        __args[3] = JNIType.toJava( value: startDay, locals: &__locals )
-        __args[4] = JNIType.toJava( value: startDayOfWeek, locals: &__locals )
-        __args[5] = JNIType.toJava( value: startTime, locals: &__locals )
-        __args[6] = JNIType.toJava( value: startTimeMode, locals: &__locals )
-        __args[7] = JNIType.toJava( value: endMonth, locals: &__locals )
-        __args[8] = JNIType.toJava( value: endDay, locals: &__locals )
-        __args[9] = JNIType.toJava( value: endDayOfWeek, locals: &__locals )
-        __args[10] = JNIType.toJava( value: endTime, locals: &__locals )
-        __args[11] = JNIType.toJava( value: endTimeMode, locals: &__locals )
-        __args[12] = JNIType.toJava( value: dstSavings, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZone.SimpleTimeZoneJNIClass, methodSig: "(ILjava/lang/String;IIIIIIIIIII)V", methodCache: &SimpleTimeZone.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    // Skipping field: true false false false false false 
 
-    public convenience init( _ _rawOffset: Int, _ _ID: String?, _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int, _ _startTimeMode: Int, _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int, _ _endTimeMode: Int, _ _dstSavings: Int ) {
-        self.init( rawOffset: _rawOffset, ID: _ID, startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime, startTimeMode: _startTimeMode, endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime, endTimeMode: _endTimeMode, dstSavings: _dstSavings )
-    }
+    /// private static final int java.util.TimeZone.GMT_ID_LENGTH
 
-    /// public java.util.SimpleTimeZone(int,java.lang.String,int,int,int,int,int,int,int,int,int)
+    /// public static final int java.util.TimeZone.LONG
 
-    private static var new_MethodID_2: jmethodID?
+    // Skipping field: false true false false false false 
 
-    public convenience init( rawOffset: Int, ID: String?, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, dstSavings: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 11 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: rawOffset, locals: &__locals )
-        __args[1] = JNIType.toJava( value: ID, locals: &__locals )
-        __args[2] = JNIType.toJava( value: startMonth, locals: &__locals )
-        __args[3] = JNIType.toJava( value: startDay, locals: &__locals )
-        __args[4] = JNIType.toJava( value: startDayOfWeek, locals: &__locals )
-        __args[5] = JNIType.toJava( value: startTime, locals: &__locals )
-        __args[6] = JNIType.toJava( value: endMonth, locals: &__locals )
-        __args[7] = JNIType.toJava( value: endDay, locals: &__locals )
-        __args[8] = JNIType.toJava( value: endDayOfWeek, locals: &__locals )
-        __args[9] = JNIType.toJava( value: endTime, locals: &__locals )
-        __args[10] = JNIType.toJava( value: dstSavings, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZone.SimpleTimeZoneJNIClass, methodSig: "(ILjava/lang/String;IIIIIIIII)V", methodCache: &SimpleTimeZone.new_MethodID_2, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    /// static final java.util.TimeZone java.util.TimeZone.NO_TIMEZONE
 
-    public convenience init( _ _rawOffset: Int, _ _ID: String?, _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int, _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int, _ _dstSavings: Int ) {
-        self.init( rawOffset: _rawOffset, ID: _ID, startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime, endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime, dstSavings: _dstSavings )
-    }
+    // Skipping field: true false false false false false 
 
-    /// public java.util.SimpleTimeZone(int,java.lang.String,int,int,int,int,int,int,int,int)
+    /// private static final int java.util.TimeZone.ONE_DAY
 
-    private static var new_MethodID_3: jmethodID?
+    /// private static final int java.util.TimeZone.ONE_HOUR
 
-    public convenience init( rawOffset: Int, ID: String?, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 10 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: rawOffset, locals: &__locals )
-        __args[1] = JNIType.toJava( value: ID, locals: &__locals )
-        __args[2] = JNIType.toJava( value: startMonth, locals: &__locals )
-        __args[3] = JNIType.toJava( value: startDay, locals: &__locals )
-        __args[4] = JNIType.toJava( value: startDayOfWeek, locals: &__locals )
-        __args[5] = JNIType.toJava( value: startTime, locals: &__locals )
-        __args[6] = JNIType.toJava( value: endMonth, locals: &__locals )
-        __args[7] = JNIType.toJava( value: endDay, locals: &__locals )
-        __args[8] = JNIType.toJava( value: endDayOfWeek, locals: &__locals )
-        __args[9] = JNIType.toJava( value: endTime, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZone.SimpleTimeZoneJNIClass, methodSig: "(ILjava/lang/String;IIIIIIII)V", methodCache: &SimpleTimeZone.new_MethodID_3, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    /// private static final int java.util.TimeZone.ONE_MINUTE
 
-    public convenience init( _ _rawOffset: Int, _ _ID: String?, _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int, _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int ) {
-        self.init( rawOffset: _rawOffset, ID: _ID, startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime, endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime )
-    }
+    /// public static final int java.util.TimeZone.SHORT
+
+    // Skipping field: false true false false false false 
+
+    /// private static volatile java.util.TimeZone java.util.TimeZone.defaultTimeZone
+
+    /// private static volatile java.util.TimeZone java.util.TimeZone.mainAppContextDefault
+
+    /// static final long java.util.TimeZone.serialVersionUID
+
+    // Skipping field: true true false false false false 
+
+    /// private java.lang.String java.util.TimeZone.ID
 
     /// public java.util.SimpleTimeZone(int,java.lang.String)
 
-    private static var new_MethodID_4: jmethodID?
+    private static var new_MethodID_1: jmethodID?
 
     public convenience init( rawOffset: Int, ID: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: rawOffset, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( i: jint(rawOffset) )
         __args[1] = JNIType.toJava( value: ID, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZone.SimpleTimeZoneJNIClass, methodSig: "(ILjava/lang/String;)V", methodCache: &SimpleTimeZone.new_MethodID_4, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZone.SimpleTimeZoneJNIClass, methodSig: "(ILjava/lang/String;)V", methodCache: &SimpleTimeZone.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -239,49 +173,135 @@ open class SimpleTimeZone: TimeZone {
         self.init( rawOffset: _rawOffset, ID: _ID )
     }
 
+    /// public java.util.SimpleTimeZone(int,java.lang.String,int,int,int,int,int,int,int,int)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( rawOffset: Int, ID: String?, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 10 )
+        __args[0] = jvalue( i: jint(rawOffset) )
+        __args[1] = JNIType.toJava( value: ID, locals: &__locals )
+        __args[2] = jvalue( i: jint(startMonth) )
+        __args[3] = jvalue( i: jint(startDay) )
+        __args[4] = jvalue( i: jint(startDayOfWeek) )
+        __args[5] = jvalue( i: jint(startTime) )
+        __args[6] = jvalue( i: jint(endMonth) )
+        __args[7] = jvalue( i: jint(endDay) )
+        __args[8] = jvalue( i: jint(endDayOfWeek) )
+        __args[9] = jvalue( i: jint(endTime) )
+        let __object = JNIMethod.NewObject( className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZone.SimpleTimeZoneJNIClass, methodSig: "(ILjava/lang/String;IIIIIIII)V", methodCache: &SimpleTimeZone.new_MethodID_2, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _rawOffset: Int, _ _ID: String?, _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int, _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int ) {
+        self.init( rawOffset: _rawOffset, ID: _ID, startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime, endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime )
+    }
+
+    /// public java.util.SimpleTimeZone(int,java.lang.String,int,int,int,int,int,int,int,int,int)
+
+    private static var new_MethodID_3: jmethodID?
+
+    public convenience init( rawOffset: Int, ID: String?, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, dstSavings: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 11 )
+        __args[0] = jvalue( i: jint(rawOffset) )
+        __args[1] = JNIType.toJava( value: ID, locals: &__locals )
+        __args[2] = jvalue( i: jint(startMonth) )
+        __args[3] = jvalue( i: jint(startDay) )
+        __args[4] = jvalue( i: jint(startDayOfWeek) )
+        __args[5] = jvalue( i: jint(startTime) )
+        __args[6] = jvalue( i: jint(endMonth) )
+        __args[7] = jvalue( i: jint(endDay) )
+        __args[8] = jvalue( i: jint(endDayOfWeek) )
+        __args[9] = jvalue( i: jint(endTime) )
+        __args[10] = jvalue( i: jint(dstSavings) )
+        let __object = JNIMethod.NewObject( className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZone.SimpleTimeZoneJNIClass, methodSig: "(ILjava/lang/String;IIIIIIIII)V", methodCache: &SimpleTimeZone.new_MethodID_3, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _rawOffset: Int, _ _ID: String?, _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int, _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int, _ _dstSavings: Int ) {
+        self.init( rawOffset: _rawOffset, ID: _ID, startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime, endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime, dstSavings: _dstSavings )
+    }
+
+    /// public java.util.SimpleTimeZone(int,java.lang.String,int,int,int,int,int,int,int,int,int,int,int)
+
+    private static var new_MethodID_4: jmethodID?
+
+    public convenience init( rawOffset: Int, ID: String?, startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, startTimeMode: Int, endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, endTimeMode: Int, dstSavings: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 13 )
+        __args[0] = jvalue( i: jint(rawOffset) )
+        __args[1] = JNIType.toJava( value: ID, locals: &__locals )
+        __args[2] = jvalue( i: jint(startMonth) )
+        __args[3] = jvalue( i: jint(startDay) )
+        __args[4] = jvalue( i: jint(startDayOfWeek) )
+        __args[5] = jvalue( i: jint(startTime) )
+        __args[6] = jvalue( i: jint(startTimeMode) )
+        __args[7] = jvalue( i: jint(endMonth) )
+        __args[8] = jvalue( i: jint(endDay) )
+        __args[9] = jvalue( i: jint(endDayOfWeek) )
+        __args[10] = jvalue( i: jint(endTime) )
+        __args[11] = jvalue( i: jint(endTimeMode) )
+        __args[12] = jvalue( i: jint(dstSavings) )
+        let __object = JNIMethod.NewObject( className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZone.SimpleTimeZoneJNIClass, methodSig: "(ILjava/lang/String;IIIIIIIIIII)V", methodCache: &SimpleTimeZone.new_MethodID_4, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _rawOffset: Int, _ _ID: String?, _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int, _ _startTimeMode: Int, _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int, _ _endTimeMode: Int, _ _dstSavings: Int ) {
+        self.init( rawOffset: _rawOffset, ID: _ID, startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime, startTimeMode: _startTimeMode, endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime, endTimeMode: _endTimeMode, dstSavings: _dstSavings )
+    }
+
+    /// public java.lang.Object java.util.SimpleTimeZone.clone()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.SimpleTimeZone.decodeEndRule()
+
+    /// private void java.util.SimpleTimeZone.decodeRules()
+
+    /// private void java.util.SimpleTimeZone.decodeStartRule()
+
     /// public boolean java.util.SimpleTimeZone.equals(java.lang.Object)
 
     private static var equals_MethodID_5: jmethodID?
 
     open func equals( obj: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: obj, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &SimpleTimeZone.equals_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     override open func equals( _ _obj: java_swift.JavaObject? ) -> Bool {
         return equals( obj: _obj )
     }
 
-    /// public java.lang.String java.util.SimpleTimeZone.toString()
+    /// public int java.util.SimpleTimeZone.getDSTSavings()
 
-    /// public synchronized int java.util.SimpleTimeZone.hashCode()
+    // Skipping method: false true false false false 
 
-    /// public java.lang.Object java.util.SimpleTimeZone.clone()
-
-    /// private void java.util.SimpleTimeZone.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
-
-    /// private void java.util.SimpleTimeZone.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
-
-    /// private int java.util.SimpleTimeZone.getOffset(sun.util.calendar.BaseCalendar,sun.util.calendar.BaseCalendar$Date,int,long)
+    /// private long java.util.SimpleTimeZone.getEnd(sun.util.calendar.BaseCalendar,sun.util.calendar.BaseCalendar$Date,int)
 
     /// public int java.util.SimpleTimeZone.getOffset(int,int,int,int,int,int)
 
     private static var getOffset_MethodID_6: jmethodID?
 
     open func getOffset( era: Int, year: Int, month: Int, day: Int, dayOfWeek: Int, millis: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 6 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: era, locals: &__locals )
-        __args[1] = JNIType.toJava( value: year, locals: &__locals )
-        __args[2] = JNIType.toJava( value: month, locals: &__locals )
-        __args[3] = JNIType.toJava( value: day, locals: &__locals )
-        __args[4] = JNIType.toJava( value: dayOfWeek, locals: &__locals )
-        __args[5] = JNIType.toJava( value: millis, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 6 )
+        __args[0] = jvalue( i: jint(era) )
+        __args[1] = jvalue( i: jint(year) )
+        __args[2] = jvalue( i: jint(month) )
+        __args[3] = jvalue( i: jint(day) )
+        __args[4] = jvalue( i: jint(dayOfWeek) )
+        __args[5] = jvalue( i: jint(millis) )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getOffset", methodSig: "(IIIIII)I", methodCache: &SimpleTimeZone.getOffset_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     override open func getOffset( _ _era: Int, _ _year: Int, _ _month: Int, _ _day: Int, _ _dayOfWeek: Int, _ _millis: Int ) -> Int {
@@ -293,116 +313,107 @@ open class SimpleTimeZone: TimeZone {
     private static var getOffset_MethodID_7: jmethodID?
 
     open func getOffset( date: Int64 ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: date, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: date )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getOffset", methodSig: "(J)I", methodCache: &SimpleTimeZone.getOffset_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     override open func getOffset( _ _date: Int64 ) -> Int {
         return getOffset( date: _date )
     }
 
-    /// public void java.util.SimpleTimeZone.setStartYear(int)
+    /// private int java.util.SimpleTimeZone.getOffset(sun.util.calendar.BaseCalendar,sun.util.calendar.BaseCalendar$Date,int,long)
 
-    private static var setStartYear_MethodID_8: jmethodID?
+    /// int java.util.SimpleTimeZone.getOffsets(long,int[])
 
-    open func setStartYear( year: Int ) {
+    // Skipping method: true false false false false 
+
+    /// public int java.util.SimpleTimeZone.getRawOffset()
+
+    // Skipping method: false true false false false 
+
+    /// private long java.util.SimpleTimeZone.getStart(sun.util.calendar.BaseCalendar,sun.util.calendar.BaseCalendar$Date,int)
+
+    /// private long java.util.SimpleTimeZone.getTransition(sun.util.calendar.BaseCalendar,sun.util.calendar.BaseCalendar$Date,int,int,int,int,int,int)
+
+    /// public boolean java.util.SimpleTimeZone.hasSameRules(java.util.TimeZone)
+
+    private static var hasSameRules_MethodID_8: jmethodID?
+
+    open func hasSameRules( other: TimeZone? ) -> Bool {
+        var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: other, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasSameRules", methodSig: "(Ljava/util/TimeZone;)Z", methodCache: &SimpleTimeZone.hasSameRules_MethodID_8, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+    override open func hasSameRules( _ _other: TimeZone? ) -> Bool {
+        return hasSameRules( other: _other )
+    }
+
+    /// public synchronized int java.util.SimpleTimeZone.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public boolean java.util.SimpleTimeZone.inDaylightTime(java.util.Date)
+
+    private static var inDaylightTime_MethodID_9: jmethodID?
+
+    open func inDaylightTime( date: Date? ) -> Bool {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: year, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStartYear", methodSig: "(I)V", methodCache: &SimpleTimeZone.setStartYear_MethodID_8, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: date, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "inDaylightTime", methodSig: "(Ljava/util/Date;)Z", methodCache: &SimpleTimeZone.inDaylightTime_MethodID_9, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
-    open func setStartYear( _ _year: Int ) {
-        setStartYear( year: _year )
+    override open func inDaylightTime( _ _date: Date? ) -> Bool {
+        return inDaylightTime( date: _date )
     }
 
-    /// public void java.util.SimpleTimeZone.setStartRule(int,int,int,int)
+    /// private synchronized void java.util.SimpleTimeZone.invalidateCache()
 
-    private static var setStartRule_MethodID_9: jmethodID?
+    /// private void java.util.SimpleTimeZone.makeRulesCompatible()
 
-    open func setStartRule( startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+    /// public boolean java.util.SimpleTimeZone.observesDaylightTime()
+
+    // Skipping method: false true false false false 
+
+    /// private byte[] java.util.SimpleTimeZone.packRules()
+
+    /// private int[] java.util.SimpleTimeZone.packTimes()
+
+    /// private void java.util.SimpleTimeZone.readObject(java.io.ObjectInputStream) throws java.io.IOException,java.lang.ClassNotFoundException
+
+    /// public void java.util.SimpleTimeZone.setDSTSavings(int)
+
+    private static var setDSTSavings_MethodID_10: jmethodID?
+
+    open func setDSTSavings( millisSavedDuringDST: Int ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: startMonth, locals: &__locals )
-        __args[1] = JNIType.toJava( value: startDay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: startDayOfWeek, locals: &__locals )
-        __args[3] = JNIType.toJava( value: startTime, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStartRule", methodSig: "(IIII)V", methodCache: &SimpleTimeZone.setStartRule_MethodID_9, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(millisSavedDuringDST) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDSTSavings", methodSig: "(I)V", methodCache: &SimpleTimeZone.setDSTSavings_MethodID_10, args: &__args, locals: &__locals )
     }
 
-    open func setStartRule( _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int ) {
-        setStartRule( startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime )
-    }
-
-    /// public void java.util.SimpleTimeZone.setStartRule(int,int,int)
-
-    private static var setStartRule_MethodID_10: jmethodID?
-
-    open func setStartRule( startMonth: Int, startDay: Int, startTime: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: startMonth, locals: &__locals )
-        __args[1] = JNIType.toJava( value: startDay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: startTime, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStartRule", methodSig: "(III)V", methodCache: &SimpleTimeZone.setStartRule_MethodID_10, args: &__args, locals: &__locals )
-    }
-
-    open func setStartRule( _ _startMonth: Int, _ _startDay: Int, _ _startTime: Int ) {
-        setStartRule( startMonth: _startMonth, startDay: _startDay, startTime: _startTime )
-    }
-
-    /// public void java.util.SimpleTimeZone.setStartRule(int,int,int,int,boolean)
-
-    private static var setStartRule_MethodID_11: jmethodID?
-
-    open func setStartRule( startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, after: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 5 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: startMonth, locals: &__locals )
-        __args[1] = JNIType.toJava( value: startDay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: startDayOfWeek, locals: &__locals )
-        __args[3] = JNIType.toJava( value: startTime, locals: &__locals )
-        __args[4] = JNIType.toJava( value: after, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStartRule", methodSig: "(IIIIZ)V", methodCache: &SimpleTimeZone.setStartRule_MethodID_11, args: &__args, locals: &__locals )
-    }
-
-    open func setStartRule( _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int, _ _after: Bool ) {
-        setStartRule( startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime, after: _after )
-    }
-
-    /// public void java.util.SimpleTimeZone.setEndRule(int,int,int,int,boolean)
-
-    private static var setEndRule_MethodID_12: jmethodID?
-
-    open func setEndRule( endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, after: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 5 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: endMonth, locals: &__locals )
-        __args[1] = JNIType.toJava( value: endDay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: endDayOfWeek, locals: &__locals )
-        __args[3] = JNIType.toJava( value: endTime, locals: &__locals )
-        __args[4] = JNIType.toJava( value: after, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setEndRule", methodSig: "(IIIIZ)V", methodCache: &SimpleTimeZone.setEndRule_MethodID_12, args: &__args, locals: &__locals )
-    }
-
-    open func setEndRule( _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int, _ _after: Bool ) {
-        setEndRule( endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime, after: _after )
+    open func setDSTSavings( _ _millisSavedDuringDST: Int ) {
+        setDSTSavings( millisSavedDuringDST: _millisSavedDuringDST )
     }
 
     /// public void java.util.SimpleTimeZone.setEndRule(int,int,int)
 
-    private static var setEndRule_MethodID_13: jmethodID?
+    private static var setEndRule_MethodID_11: jmethodID?
 
     open func setEndRule( endMonth: Int, endDay: Int, endTime: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: endMonth, locals: &__locals )
-        __args[1] = JNIType.toJava( value: endDay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: endTime, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setEndRule", methodSig: "(III)V", methodCache: &SimpleTimeZone.setEndRule_MethodID_13, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( i: jint(endMonth) )
+        __args[1] = jvalue( i: jint(endDay) )
+        __args[2] = jvalue( i: jint(endTime) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setEndRule", methodSig: "(III)V", methodCache: &SimpleTimeZone.setEndRule_MethodID_11, args: &__args, locals: &__locals )
     }
 
     open func setEndRule( _ _endMonth: Int, _ _endDay: Int, _ _endTime: Int ) {
@@ -411,117 +422,138 @@ open class SimpleTimeZone: TimeZone {
 
     /// public void java.util.SimpleTimeZone.setEndRule(int,int,int,int)
 
-    private static var setEndRule_MethodID_14: jmethodID?
+    private static var setEndRule_MethodID_12: jmethodID?
 
     open func setEndRule( endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 4 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: endMonth, locals: &__locals )
-        __args[1] = JNIType.toJava( value: endDay, locals: &__locals )
-        __args[2] = JNIType.toJava( value: endDayOfWeek, locals: &__locals )
-        __args[3] = JNIType.toJava( value: endTime, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setEndRule", methodSig: "(IIII)V", methodCache: &SimpleTimeZone.setEndRule_MethodID_14, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( i: jint(endMonth) )
+        __args[1] = jvalue( i: jint(endDay) )
+        __args[2] = jvalue( i: jint(endDayOfWeek) )
+        __args[3] = jvalue( i: jint(endTime) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setEndRule", methodSig: "(IIII)V", methodCache: &SimpleTimeZone.setEndRule_MethodID_12, args: &__args, locals: &__locals )
     }
 
     open func setEndRule( _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int ) {
         setEndRule( endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime )
     }
 
-    /// private long java.util.SimpleTimeZone.getStart(sun.util.calendar.BaseCalendar,sun.util.calendar.BaseCalendar$Date,int)
+    /// public void java.util.SimpleTimeZone.setEndRule(int,int,int,int,boolean)
 
-    /// private long java.util.SimpleTimeZone.getEnd(sun.util.calendar.BaseCalendar,sun.util.calendar.BaseCalendar$Date,int)
+    private static var setEndRule_MethodID_13: jmethodID?
 
-    /// public void java.util.SimpleTimeZone.setDSTSavings(int)
-
-    private static var setDSTSavings_MethodID_15: jmethodID?
-
-    open func setDSTSavings( millisSavedDuringDST: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func setEndRule( endMonth: Int, endDay: Int, endDayOfWeek: Int, endTime: Int, after: Bool ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: millisSavedDuringDST, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setDSTSavings", methodSig: "(I)V", methodCache: &SimpleTimeZone.setDSTSavings_MethodID_15, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+        __args[0] = jvalue( i: jint(endMonth) )
+        __args[1] = jvalue( i: jint(endDay) )
+        __args[2] = jvalue( i: jint(endDayOfWeek) )
+        __args[3] = jvalue( i: jint(endTime) )
+        __args[4] = jvalue( z: jboolean(after ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setEndRule", methodSig: "(IIIIZ)V", methodCache: &SimpleTimeZone.setEndRule_MethodID_13, args: &__args, locals: &__locals )
     }
 
-    open func setDSTSavings( _ _millisSavedDuringDST: Int ) {
-        setDSTSavings( millisSavedDuringDST: _millisSavedDuringDST )
+    open func setEndRule( _ _endMonth: Int, _ _endDay: Int, _ _endDayOfWeek: Int, _ _endTime: Int, _ _after: Bool ) {
+        setEndRule( endMonth: _endMonth, endDay: _endDay, endDayOfWeek: _endDayOfWeek, endTime: _endTime, after: _after )
     }
-
-    /// private synchronized void java.util.SimpleTimeZone.invalidateCache()
-
-    /// private void java.util.SimpleTimeZone.decodeRules()
-
-    /// private void java.util.SimpleTimeZone.decodeStartRule()
-
-    /// private void java.util.SimpleTimeZone.decodeEndRule()
-
-    /// private void java.util.SimpleTimeZone.makeRulesCompatible()
-
-    /// private byte[] java.util.SimpleTimeZone.packRules()
-
-    /// private void java.util.SimpleTimeZone.unpackRules(byte[])
-
-    /// private int[] java.util.SimpleTimeZone.packTimes()
-
-    /// private void java.util.SimpleTimeZone.unpackTimes(int[])
-
-    /// public int java.util.SimpleTimeZone.getRawOffset()
-
-    /// public boolean java.util.SimpleTimeZone.hasSameRules(java.util.TimeZone)
-
-    private static var hasSameRules_MethodID_16: jmethodID?
-
-    open func hasSameRules( other: TimeZone? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: other, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasSameRules", methodSig: "(Ljava/util/TimeZone;)Z", methodCache: &SimpleTimeZone.hasSameRules_MethodID_16, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    override open func hasSameRules( _ _other: TimeZone? ) -> Bool {
-        return hasSameRules( other: _other )
-    }
-
-    /// int java.util.SimpleTimeZone.getOffsets(long,int[])
 
     /// public void java.util.SimpleTimeZone.setRawOffset(int)
 
-    private static var setRawOffset_MethodID_17: jmethodID?
+    private static var setRawOffset_MethodID_14: jmethodID?
 
     open func setRawOffset( offsetMillis: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: offsetMillis, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawOffset", methodSig: "(I)V", methodCache: &SimpleTimeZone.setRawOffset_MethodID_17, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(offsetMillis) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setRawOffset", methodSig: "(I)V", methodCache: &SimpleTimeZone.setRawOffset_MethodID_14, args: &__args, locals: &__locals )
     }
 
     override open func setRawOffset( _ _offsetMillis: Int ) {
         setRawOffset( offsetMillis: _offsetMillis )
     }
 
-    /// public int java.util.SimpleTimeZone.getDSTSavings()
+    /// public void java.util.SimpleTimeZone.setStartRule(int,int,int)
+
+    private static var setStartRule_MethodID_15: jmethodID?
+
+    open func setStartRule( startMonth: Int, startDay: Int, startTime: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = jvalue( i: jint(startMonth) )
+        __args[1] = jvalue( i: jint(startDay) )
+        __args[2] = jvalue( i: jint(startTime) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStartRule", methodSig: "(III)V", methodCache: &SimpleTimeZone.setStartRule_MethodID_15, args: &__args, locals: &__locals )
+    }
+
+    open func setStartRule( _ _startMonth: Int, _ _startDay: Int, _ _startTime: Int ) {
+        setStartRule( startMonth: _startMonth, startDay: _startDay, startTime: _startTime )
+    }
+
+    /// public void java.util.SimpleTimeZone.setStartRule(int,int,int,int)
+
+    private static var setStartRule_MethodID_16: jmethodID?
+
+    open func setStartRule( startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 4 )
+        __args[0] = jvalue( i: jint(startMonth) )
+        __args[1] = jvalue( i: jint(startDay) )
+        __args[2] = jvalue( i: jint(startDayOfWeek) )
+        __args[3] = jvalue( i: jint(startTime) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStartRule", methodSig: "(IIII)V", methodCache: &SimpleTimeZone.setStartRule_MethodID_16, args: &__args, locals: &__locals )
+    }
+
+    open func setStartRule( _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int ) {
+        setStartRule( startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime )
+    }
+
+    /// public void java.util.SimpleTimeZone.setStartRule(int,int,int,int,boolean)
+
+    private static var setStartRule_MethodID_17: jmethodID?
+
+    open func setStartRule( startMonth: Int, startDay: Int, startDayOfWeek: Int, startTime: Int, after: Bool ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 5 )
+        __args[0] = jvalue( i: jint(startMonth) )
+        __args[1] = jvalue( i: jint(startDay) )
+        __args[2] = jvalue( i: jint(startDayOfWeek) )
+        __args[3] = jvalue( i: jint(startTime) )
+        __args[4] = jvalue( z: jboolean(after ? JNI_TRUE : JNI_FALSE) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStartRule", methodSig: "(IIIIZ)V", methodCache: &SimpleTimeZone.setStartRule_MethodID_17, args: &__args, locals: &__locals )
+    }
+
+    open func setStartRule( _ _startMonth: Int, _ _startDay: Int, _ _startDayOfWeek: Int, _ _startTime: Int, _ _after: Bool ) {
+        setStartRule( startMonth: _startMonth, startDay: _startDay, startDayOfWeek: _startDayOfWeek, startTime: _startTime, after: _after )
+    }
+
+    /// public void java.util.SimpleTimeZone.setStartYear(int)
+
+    private static var setStartYear_MethodID_18: jmethodID?
+
+    open func setStartYear( year: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(year) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "setStartYear", methodSig: "(I)V", methodCache: &SimpleTimeZone.setStartYear_MethodID_18, args: &__args, locals: &__locals )
+    }
+
+    open func setStartYear( _ _year: Int ) {
+        setStartYear( year: _year )
+    }
+
+    /// public java.lang.String java.util.SimpleTimeZone.toString()
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.SimpleTimeZone.unpackRules(byte[])
+
+    /// private void java.util.SimpleTimeZone.unpackTimes(int[])
 
     /// public boolean java.util.SimpleTimeZone.useDaylightTime()
 
-    /// public boolean java.util.SimpleTimeZone.observesDaylightTime()
+    // Skipping method: false true false false false 
 
-    /// public boolean java.util.SimpleTimeZone.inDaylightTime(java.util.Date)
-
-    private static var inDaylightTime_MethodID_18: jmethodID?
-
-    open func inDaylightTime( date: Date? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: date, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "inDaylightTime", methodSig: "(Ljava/util/Date;)Z", methodCache: &SimpleTimeZone.inDaylightTime_MethodID_18, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    override open func inDaylightTime( _ _date: Date? ) -> Bool {
-        return inDaylightTime( date: _date )
-    }
-
-    /// private long java.util.SimpleTimeZone.getTransition(sun.util.calendar.BaseCalendar,sun.util.calendar.BaseCalendar$Date,int,int,int,int,int,int)
+    /// private void java.util.SimpleTimeZone.writeObject(java.io.ObjectOutputStream) throws java.io.IOException
 
 }
 

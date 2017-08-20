@@ -15,20 +15,20 @@ open class ScheduledFutureForward: DelayedForward, ScheduledFuture {
 
     private static var ScheduledFutureJNIClass: jclass?
 
-    /// public abstract long java.util.concurrent.Delayed.getDelay(java.util.concurrent.TimeUnit)
+    /// public abstract boolean java.util.concurrent.Future.cancel(boolean)
 
-    private static var getDelay_MethodID_1: jmethodID?
+    private static var cancel_MethodID_1: jmethodID?
 
-    override open func getDelay( unit: TimeUnit? ) -> Int64 {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func cancel( mayInterruptIfRunning: Bool ) -> Bool {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: unit, locals: &__locals )
-        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getDelay", methodSig: "(Ljava/util/concurrent/TimeUnit;)J", methodCache: &ScheduledFutureForward.getDelay_MethodID_1, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int64(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( z: jboolean(mayInterruptIfRunning ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "cancel", methodSig: "(Z)Z", methodCache: &ScheduledFutureForward.cancel_MethodID_1, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
-    override open func getDelay( _ _unit: TimeUnit? ) -> Int64 {
-        return getDelay( unit: _unit )
+    open func cancel( _ _mayInterruptIfRunning: Bool ) -> Bool {
+        return cancel( mayInterruptIfRunning: _mayInterruptIfRunning )
     }
 
     /// public abstract int java.lang.Comparable.compareTo(java.lang.Object)
@@ -36,11 +36,11 @@ open class ScheduledFutureForward: DelayedForward, ScheduledFuture {
     private static var compareTo_MethodID_2: jmethodID?
 
     override open func compareTo( arg0: java_swift.JavaObject? ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "compareTo", methodSig: "(Ljava/lang/Object;)I", methodCache: &ScheduledFutureForward.compareTo_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     override open func compareTo( _ _arg0: java_swift.JavaObject? ) -> Int {
@@ -52,13 +52,14 @@ open class ScheduledFutureForward: DelayedForward, ScheduledFuture {
     private static var get_MethodID_3: jmethodID?
 
     open func get( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException, java.util.concurrent.TimeoutException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: timeout, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( j: timeout )
         __args[1] = JNIType.toJava( value: unit, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;", methodCache: &ScheduledFutureForward.get_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -73,57 +74,57 @@ open class ScheduledFutureForward: DelayedForward, ScheduledFuture {
     private static var get_MethodID_4: jmethodID?
 
     open func get() throws /* java.lang.InterruptedException, java.util.concurrent.ExecutionException */ -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "()Ljava/lang/Object;", methodCache: &ScheduledFutureForward.get_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
             throw java_lang.InterruptedException( javaObject: throwable )
         }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public abstract boolean java.util.concurrent.Future.cancel(boolean)
+    /// public abstract long java.util.concurrent.Delayed.getDelay(java.util.concurrent.TimeUnit)
 
-    private static var cancel_MethodID_5: jmethodID?
+    private static var getDelay_MethodID_5: jmethodID?
 
-    open func cancel( mayInterruptIfRunning: Bool ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    override open func getDelay( unit: TimeUnit? ) -> Int64 {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: mayInterruptIfRunning, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "cancel", methodSig: "(Z)Z", methodCache: &ScheduledFutureForward.cancel_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
-    open func cancel( _ _mayInterruptIfRunning: Bool ) -> Bool {
-        return cancel( mayInterruptIfRunning: _mayInterruptIfRunning )
-    }
-
-    /// public abstract boolean java.util.concurrent.Future.isDone()
-
-    private static var isDone_MethodID_6: jmethodID?
-
-    open func isDone() -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isDone", methodSig: "()Z", methodCache: &ScheduledFutureForward.isDone_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        __args[0] = JNIType.toJava( value: unit, locals: &__locals )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "getDelay", methodSig: "(Ljava/util/concurrent/TimeUnit;)J", methodCache: &ScheduledFutureForward.getDelay_MethodID_5, args: &__args, locals: &__locals )
+        return __return
     }
 
+    override open func getDelay( _ _unit: TimeUnit? ) -> Int64 {
+        return getDelay( unit: _unit )
+    }
 
     /// public abstract boolean java.util.concurrent.Future.isCancelled()
 
-    private static var isCancelled_MethodID_7: jmethodID?
+    private static var isCancelled_MethodID_6: jmethodID?
 
     open func isCancelled() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isCancelled", methodSig: "()Z", methodCache: &ScheduledFutureForward.isCancelled_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isCancelled", methodSig: "()Z", methodCache: &ScheduledFutureForward.isCancelled_MethodID_6, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public abstract boolean java.util.concurrent.Future.isDone()
+
+    private static var isDone_MethodID_7: jmethodID?
+
+    open func isDone() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "isDone", methodSig: "()Z", methodCache: &ScheduledFutureForward.isDone_MethodID_7, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
 
 }
-
 

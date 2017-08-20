@@ -16,14 +16,37 @@ open class GZIPInputStream: InflaterInputStream {
 
     private static var GZIPInputStreamJNIClass: jclass?
 
+    /// private static final int java.util.zip.GZIPInputStream.FCOMMENT
+
+    /// private static final int java.util.zip.GZIPInputStream.FEXTRA
+
+    /// private static final int java.util.zip.GZIPInputStream.FHCRC
+
+    /// private static final int java.util.zip.GZIPInputStream.FNAME
+
+    /// private static final int java.util.zip.GZIPInputStream.FTEXT
+
+    /// public static final int java.util.zip.GZIPInputStream.GZIP_MAGIC
+
+    private static var GZIP_MAGIC_FieldID: jfieldID?
+
+    open static var GZIP_MAGIC: Int {
+        get {
+            let __value = JNIField.GetStaticIntField( fieldName: "GZIP_MAGIC", fieldType: "I", fieldCache: &GZIP_MAGIC_FieldID, className: "java/util/zip/GZIPInputStream", classCache: &GZIPInputStreamJNIClass )
+            return Int(__value)
+        }
+    }
+
+    /// private boolean java.util.zip.GZIPInputStream.closed
+
     /// protected java.util.zip.CRC32 java.util.zip.GZIPInputStream.crc
 
     private static var crc_FieldID: jfieldID?
 
     open var crc: CRC32! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "crc", fieldType: "Ljava/util/zip/CRC32;", fieldCache: &GZIPInputStream.crc_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "crc", fieldType: "Ljava/util/zip/CRC32;", fieldCache: &GZIPInputStream.crc_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? CRC32( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -39,41 +62,37 @@ open class GZIPInputStream: InflaterInputStream {
 
     open var eos: Bool {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetBooleanField( fieldName: "eos", fieldType: "Z", fieldCache: &GZIPInputStream.eos_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Bool(), from: __value )
+            let __value = JNIField.GetBooleanField( fieldName: "eos", fieldType: "Z", fieldCache: &GZIPInputStream.eos_FieldID, object: javaObject )
+            return __value != jboolean(JNI_FALSE)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( z: jboolean(newValue ? JNI_TRUE : JNI_FALSE) )
             JNIField.SetBooleanField( fieldName: "eos", fieldType: "Z", fieldCache: &GZIPInputStream.eos_FieldID, object: javaObject, value: __value.z, locals: &__locals )
         }
     }
 
-    /// private boolean java.util.zip.GZIPInputStream.closed
+    /// private byte[] java.util.zip.GZIPInputStream.tmpbuf
 
-    /// public static final int java.util.zip.GZIPInputStream.GZIP_MAGIC
+    /// private byte[] java.util.zip.InflaterInputStream.b
 
-    private static var GZIP_MAGIC_FieldID: jfieldID?
+    /// protected byte[] java.util.zip.InflaterInputStream.buf
 
-    open static var GZIP_MAGIC: Int {
+    private static var buf_FieldID: jfieldID?
+
+    override open var buf: [Int8]! {
         get {
-            let __value = JNIField.GetStaticIntField( fieldName: "GZIP_MAGIC", fieldType: "I", fieldCache: &GZIP_MAGIC_FieldID, className: "java/util/zip/GZIPInputStream", classCache: &GZIPInputStreamJNIClass )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &GZIPInputStream.buf_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int8].self, from: __value )
+        }
+        set(newValue) {
+            var __locals = [jobject]()
+            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            JNIField.SetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &GZIPInputStream.buf_FieldID, object: javaObject, value: __value.l, locals: &__locals )
         }
     }
 
-    /// private static final int java.util.zip.GZIPInputStream.FTEXT
-
-    /// private static final int java.util.zip.GZIPInputStream.FHCRC
-
-    /// private static final int java.util.zip.GZIPInputStream.FEXTRA
-
-    /// private static final int java.util.zip.GZIPInputStream.FNAME
-
-    /// private static final int java.util.zip.GZIPInputStream.FCOMMENT
-
-    /// private byte[] java.util.zip.GZIPInputStream.tmpbuf
+    /// private boolean java.util.zip.InflaterInputStream.closed
 
     /// protected java.util.zip.Inflater java.util.zip.InflaterInputStream.inf
 
@@ -81,8 +100,8 @@ open class GZIPInputStream: InflaterInputStream {
 
     override open var inf: Inflater! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &GZIPInputStream.inf_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &GZIPInputStream.inf_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? Inflater( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -92,59 +111,39 @@ open class GZIPInputStream: InflaterInputStream {
         }
     }
 
-    /// protected byte[] java.util.zip.InflaterInputStream.buf
-
-    private static var buf_FieldID: jfieldID?
-
-    override open var buf: [Int8]! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &GZIPInputStream.buf_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int8](), from: __value )
-        }
-        set(newValue) {
-            var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
-            JNIField.SetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &GZIPInputStream.buf_FieldID, object: javaObject, value: __value.l, locals: &__locals )
-        }
-    }
-
     /// protected int java.util.zip.InflaterInputStream.len
 
     private static var len_FieldID: jfieldID?
 
     override open var len: Int {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetIntField( fieldName: "len", fieldType: "I", fieldCache: &GZIPInputStream.len_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: Int(), from: __value )
+            let __value = JNIField.GetIntField( fieldName: "len", fieldType: "I", fieldCache: &GZIPInputStream.len_FieldID, object: javaObject )
+            return Int(__value)
         }
         set(newValue) {
             var __locals = [jobject]()
-            let __value = JNIType.toJava( value: newValue, locals: &__locals )
+            let __value = jvalue( i: jint(newValue) )
             JNIField.SetIntField( fieldName: "len", fieldType: "I", fieldCache: &GZIPInputStream.len_FieldID, object: javaObject, value: __value.i, locals: &__locals )
         }
     }
 
-    /// private boolean java.util.zip.InflaterInputStream.closed
-
     /// private boolean java.util.zip.InflaterInputStream.reachEOF
-
-    /// boolean java.util.zip.InflaterInputStream.usesDefaultInflater
 
     /// private byte[] java.util.zip.InflaterInputStream.singleByteBuf
 
-    /// private byte[] java.util.zip.InflaterInputStream.b
+    /// boolean java.util.zip.InflaterInputStream.usesDefaultInflater
+
+    // Skipping field: true false false false false false 
 
     /// protected volatile java.io.InputStream java.io.FilterInputStream.in
 
     private static var _in_FieldID: jfieldID?
 
-    override open var _in: /* java.io.InputStream */ UnclassedObject! {
+    override open var _in: /* class java.io.InputStream */ UnavailableObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &GZIPInputStream._in_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? /* java.io.InputStream */ UnclassedObject( javaObject: __value ) : nil
+            let __value = JNIField.GetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &GZIPInputStream._in_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* class java.io.InputStream */ UnavailableObject( javaObject: __value ) : nil
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -159,16 +158,16 @@ open class GZIPInputStream: InflaterInputStream {
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( _in: /* java.io.InputStream */ UnclassedObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init( _in: /* class java.io.InputStream */ UnavailableObject? ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPInputStream", classCache: &GZIPInputStream.GZIPInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &GZIPInputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ __in: /* java.io.InputStream */ UnclassedObject? ) {
+    public convenience init( _ __in: /* class java.io.InputStream */ UnavailableObject? ) {
         self.init( _in: __in )
     }
 
@@ -176,59 +175,63 @@ open class GZIPInputStream: InflaterInputStream {
 
     private static var new_MethodID_2: jmethodID?
 
-    public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, size: Int ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( _in: /* class java.io.InputStream */ UnavailableObject?, size: Int ) throws {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: _in, locals: &__locals )
-        __args[1] = JNIType.toJava( value: size, locals: &__locals )
+        __args[1] = jvalue( i: jint(size) )
         let __object = JNIMethod.NewObject( className: "java/util/zip/GZIPInputStream", classCache: &GZIPInputStream.GZIPInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;I)V", methodCache: &GZIPInputStream.new_MethodID_2, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ __in: /* java.io.InputStream */ UnclassedObject?, _ _size: Int ) throws {
+    public convenience init( _ __in: /* class java.io.InputStream */ UnavailableObject?, _ _size: Int ) throws {
         try self.init( _in: __in, size: _size )
     }
+
+    /// public void java.util.zip.GZIPInputStream.close() throws java.io.IOException
+
+    // Skipping method: false true false false false 
+
+    /// private void java.util.zip.GZIPInputStream.ensureOpen() throws java.io.IOException
 
     /// public int java.util.zip.GZIPInputStream.read(byte[],int,int) throws java.io.IOException
 
     private static var read_MethodID_3: jmethodID?
 
     open func read( buf: [Int8]?, off: Int, len: Int ) throws /* java.io.IOException */ -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: buf, locals: &__locals )
-        __args[1] = JNIType.toJava( value: off, locals: &__locals )
-        __args[2] = JNIType.toJava( value: len, locals: &__locals )
+        __args[1] = jvalue( i: jint(off) )
+        __args[2] = jvalue( i: jint(len) )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "read", methodSig: "([BII)I", methodCache: &GZIPInputStream.read_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
-    open func read( _ _buf: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.io.IOException */ -> Int {
+    override open func read( _ _buf: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.io.IOException */ -> Int {
         return try read( buf: _buf, off: _off, len: _len )
     }
 
-    /// public void java.util.zip.GZIPInputStream.close() throws java.io.IOException
-
-    /// private void java.util.zip.GZIPInputStream.ensureOpen() throws java.io.IOException
-
-    /// private void java.util.zip.GZIPInputStream.skipBytes(java.io.InputStream,int) throws java.io.IOException
+    /// private int java.util.zip.GZIPInputStream.readHeader(java.io.InputStream) throws java.io.IOException
 
     /// private boolean java.util.zip.GZIPInputStream.readTrailer() throws java.io.IOException
 
-    /// private int java.util.zip.GZIPInputStream.readHeader(java.io.InputStream) throws java.io.IOException
+    /// private int java.util.zip.GZIPInputStream.readUByte(java.io.InputStream) throws java.io.IOException
 
     /// private long java.util.zip.GZIPInputStream.readUInt(java.io.InputStream) throws java.io.IOException
 
     /// private int java.util.zip.GZIPInputStream.readUShort(java.io.InputStream) throws java.io.IOException
 
-    /// private int java.util.zip.GZIPInputStream.readUByte(java.io.InputStream) throws java.io.IOException
+    /// private void java.util.zip.GZIPInputStream.skipBytes(java.io.InputStream,int) throws java.io.IOException
 
 }
 

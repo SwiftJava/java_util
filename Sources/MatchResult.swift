@@ -7,14 +7,6 @@ import java_swift
 
 public protocol MatchResult: JavaProtocol {
 
-    /// public abstract java.lang.String java.util.regex.MatchResult.group()
-
-    func group() -> String!
-
-    /// public abstract java.lang.String java.util.regex.MatchResult.group(int)
-
-    func group( group: Int ) -> String!
-
     /// public abstract int java.util.regex.MatchResult.end(int)
 
     func end( group: Int ) -> Int
@@ -23,17 +15,25 @@ public protocol MatchResult: JavaProtocol {
 
     func end() -> Int
 
-    /// public abstract int java.util.regex.MatchResult.start()
+    /// public abstract java.lang.String java.util.regex.MatchResult.group(int)
 
-    func start() -> Int
+    func group( group: Int ) -> String!
+
+    /// public abstract java.lang.String java.util.regex.MatchResult.group()
+
+    func group() -> String!
+
+    /// public abstract int java.util.regex.MatchResult.groupCount()
+
+    func groupCount() -> Int
 
     /// public abstract int java.util.regex.MatchResult.start(int)
 
     func start( group: Int ) -> Int
 
-    /// public abstract int java.util.regex.MatchResult.groupCount()
+    /// public abstract int java.util.regex.MatchResult.start()
 
-    func groupCount() -> Int
+    func start() -> Int
 
 }
 
@@ -42,44 +42,16 @@ open class MatchResultForward: JNIObjectForward, MatchResult {
 
     private static var MatchResultJNIClass: jclass?
 
-    /// public abstract java.lang.String java.util.regex.MatchResult.group()
-
-    private static var group_MethodID_8: jmethodID?
-
-    open func group() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "group", methodSig: "()Ljava/lang/String;", methodCache: &MatchResultForward.group_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public abstract java.lang.String java.util.regex.MatchResult.group(int)
-
-    private static var group_MethodID_9: jmethodID?
-
-    open func group( group: Int ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: group, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "group", methodSig: "(I)Ljava/lang/String;", methodCache: &MatchResultForward.group_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func group( _ _group: Int ) -> String! {
-        return group( group: _group )
-    }
-
     /// public abstract int java.util.regex.MatchResult.end(int)
 
-    private static var end_MethodID_10: jmethodID?
+    private static var end_MethodID_8: jmethodID?
 
     open func end( group: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: group, locals: &__locals )
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "end", methodSig: "(I)I", methodCache: &MatchResultForward.end_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(group) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "end", methodSig: "(I)I", methodCache: &MatchResultForward.end_MethodID_8, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
     open func end( _ _group: Int ) -> Int {
@@ -88,25 +60,55 @@ open class MatchResultForward: JNIObjectForward, MatchResult {
 
     /// public abstract int java.util.regex.MatchResult.end()
 
-    private static var end_MethodID_11: jmethodID?
+    private static var end_MethodID_9: jmethodID?
 
     open func end() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "end", methodSig: "()I", methodCache: &MatchResultForward.end_MethodID_11, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "end", methodSig: "()I", methodCache: &MatchResultForward.end_MethodID_9, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
 
-    /// public abstract int java.util.regex.MatchResult.start()
+    /// public abstract java.lang.String java.util.regex.MatchResult.group(int)
 
-    private static var start_MethodID_12: jmethodID?
+    private static var group_MethodID_10: jmethodID?
 
-    open func start() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func group( group: Int ) -> String! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "start", methodSig: "()I", methodCache: &MatchResultForward.start_MethodID_12, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(group) )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "group", methodSig: "(I)Ljava/lang/String;", methodCache: &MatchResultForward.group_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func group( _ _group: Int ) -> String! {
+        return group( group: _group )
+    }
+
+    /// public abstract java.lang.String java.util.regex.MatchResult.group()
+
+    private static var group_MethodID_11: jmethodID?
+
+    open func group() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "group", methodSig: "()Ljava/lang/String;", methodCache: &MatchResultForward.group_MethodID_11, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public abstract int java.util.regex.MatchResult.groupCount()
+
+    private static var groupCount_MethodID_12: jmethodID?
+
+    open func groupCount() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "groupCount", methodSig: "()I", methodCache: &MatchResultForward.groupCount_MethodID_12, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
 
@@ -115,29 +117,28 @@ open class MatchResultForward: JNIObjectForward, MatchResult {
     private static var start_MethodID_13: jmethodID?
 
     open func start( group: Int ) -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: group, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(group) )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "start", methodSig: "(I)I", methodCache: &MatchResultForward.start_MethodID_13, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
     open func start( _ _group: Int ) -> Int {
         return start( group: _group )
     }
 
-    /// public abstract int java.util.regex.MatchResult.groupCount()
+    /// public abstract int java.util.regex.MatchResult.start()
 
-    private static var groupCount_MethodID_14: jmethodID?
+    private static var start_MethodID_14: jmethodID?
 
-    open func groupCount() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func start() -> Int {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "groupCount", methodSig: "()I", methodCache: &MatchResultForward.groupCount_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "start", methodSig: "()I", methodCache: &MatchResultForward.start_MethodID_14, args: &__args, locals: &__locals )
+        return Int(__return)
     }
 
 
 }
-
 

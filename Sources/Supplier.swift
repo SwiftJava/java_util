@@ -23,8 +23,8 @@ open class SupplierForward: JNIObjectForward, Supplier {
     private static var get_MethodID_2: jmethodID?
 
     open func get() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "get", methodSig: "()Ljava/lang/Object;", methodCache: &SupplierForward.get_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
@@ -32,5 +32,4 @@ open class SupplierForward: JNIObjectForward, Supplier {
 
 
 }
-
 

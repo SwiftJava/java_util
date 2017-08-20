@@ -32,12 +32,12 @@ open class Pack200: java_swift.JavaObject {
 
     private static var newPacker_MethodID_1: jmethodID?
 
-    open class func newPacker() -> /* java.util.jar.Pack200$Packer */ UnclassedProtocol! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func newPacker() -> /* interface java.util.jar.Pack200$Packer */ UnavailableProtocol! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/jar/Pack200", classCache: &Pack200JNIClass, methodName: "newPacker", methodSig: "()Ljava/util/jar/Pack200$Packer;", methodCache: &newPacker_MethodID_1, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.jar.Pack200$Packer */ UnclassedProtocolForward( javaObject: __return ) : nil
+        return __return != nil ? /* interface java.util.jar.Pack200$Packer */ UnavailableProtocolForward( javaObject: __return ) : nil
     }
 
 
@@ -45,12 +45,12 @@ open class Pack200: java_swift.JavaObject {
 
     private static var newUnpacker_MethodID_2: jmethodID?
 
-    open class func newUnpacker() -> /* java.util.jar.Pack200$Unpacker */ UnclassedProtocol! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func newUnpacker() -> /* interface java.util.jar.Pack200$Unpacker */ UnavailableProtocol! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/jar/Pack200", classCache: &Pack200JNIClass, methodName: "newUnpacker", methodSig: "()Ljava/util/jar/Pack200$Unpacker;", methodCache: &newUnpacker_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? /* java.util.jar.Pack200$Unpacker */ UnclassedProtocolForward( javaObject: __return ) : nil
+        return __return != nil ? /* interface java.util.jar.Pack200$Unpacker */ UnavailableProtocolForward( javaObject: __return ) : nil
     }
 
 

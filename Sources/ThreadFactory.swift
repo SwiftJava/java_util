@@ -24,8 +24,8 @@ open class ThreadFactoryForward: JNIObjectForward, ThreadFactory {
     private static var newThread_MethodID_2: jmethodID?
 
     open func newThread( r: java_swift.Runnable? ) -> java_lang.Thread! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: r, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "newThread", methodSig: "(Ljava/lang/Runnable;)Ljava/lang/Thread;", methodCache: &ThreadFactoryForward.newThread_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -37,5 +37,4 @@ open class ThreadFactoryForward: JNIObjectForward, ThreadFactory {
     }
 
 }
-
 

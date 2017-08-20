@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.zip.DeflaterInputStream ///
 
-open class DeflaterInputStream: /* java.io.FilterInputStream */ UnclassedObject {
+open class DeflaterInputStream: /* class java.io.FilterInputStream */ UnavailableObject {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -16,45 +16,44 @@ open class DeflaterInputStream: /* java.io.FilterInputStream */ UnclassedObject 
 
     private static var DeflaterInputStreamJNIClass: jclass?
 
-    /// protected final java.util.zip.Deflater java.util.zip.DeflaterInputStream.def
-
-    private static var def_FieldID: jfieldID?
-
-    open var def: Deflater! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &DeflaterInputStream.def_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? Deflater( javaObject: __value ) : nil
-        }
-    }
-
     /// protected final byte[] java.util.zip.DeflaterInputStream.buf
 
     private static var buf_FieldID: jfieldID?
 
     open var buf: [Int8]! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &DeflaterInputStream.buf_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int8](), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &DeflaterInputStream.buf_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int8].self, from: __value )
+        }
+    }
+
+    /// protected final java.util.zip.Deflater java.util.zip.DeflaterInputStream.def
+
+    private static var def_FieldID: jfieldID?
+
+    open var def: Deflater! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "def", fieldType: "Ljava/util/zip/Deflater;", fieldCache: &DeflaterInputStream.def_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? Deflater( javaObject: __value ) : nil
         }
     }
 
     /// private byte[] java.util.zip.DeflaterInputStream.rbuf
 
-    /// private boolean java.util.zip.DeflaterInputStream.usesDefaultDeflater
-
     /// private boolean java.util.zip.DeflaterInputStream.reachEOF
+
+    /// private boolean java.util.zip.DeflaterInputStream.usesDefaultDeflater
 
     /// protected volatile java.io.InputStream java.io.FilterInputStream.in
 
     private static var _in_FieldID: jfieldID?
 
-    open var _in: /* java.io.InputStream */ UnclassedObject! {
+    open var _in: /* class java.io.InputStream */ UnavailableObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &DeflaterInputStream._in_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? /* java.io.InputStream */ UnclassedObject( javaObject: __value ) : nil
+            let __value = JNIField.GetObjectField( fieldName: "in", fieldType: "Ljava/io/InputStream;", fieldCache: &DeflaterInputStream._in_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* class java.io.InputStream */ UnavailableObject( javaObject: __value ) : nil
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -65,90 +64,192 @@ open class DeflaterInputStream: /* java.io.FilterInputStream */ UnclassedObject 
 
     /// private static final int java.io.InputStream.MAX_SKIP_BUFFER_SIZE
 
-    /// public java.util.zip.DeflaterInputStream(java.io.InputStream,java.util.zip.Deflater,int)
+    /// public java.util.zip.DeflaterInputStream(java.io.InputStream)
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, defl: Deflater?, bufLen: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    public convenience init( _in: /* class java.io.InputStream */ UnavailableObject? ) {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
-        __args[1] = JNIType.toJava( value: defl, locals: &__locals )
-        __args[2] = JNIType.toJava( value: bufLen, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/util/zip/Deflater;I)V", methodCache: &DeflaterInputStream.new_MethodID_1, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ __in: /* java.io.InputStream */ UnclassedObject?, _ _defl: Deflater?, _ _bufLen: Int ) {
-        self.init( _in: __in, defl: _defl, bufLen: _bufLen )
-    }
-
-    /// public java.util.zip.DeflaterInputStream(java.io.InputStream)
-
-    private static var new_MethodID_2: jmethodID?
-
-    public convenience init( _in: /* java.io.InputStream */ UnclassedObject? ) {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: _in, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &DeflaterInputStream.new_MethodID_2, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &DeflaterInputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ __in: /* java.io.InputStream */ UnclassedObject? ) {
+    public convenience init( _ __in: /* class java.io.InputStream */ UnavailableObject? ) {
         self.init( _in: __in )
     }
 
     /// public java.util.zip.DeflaterInputStream(java.io.InputStream,java.util.zip.Deflater)
 
-    private static var new_MethodID_3: jmethodID?
+    private static var new_MethodID_2: jmethodID?
 
-    public convenience init( _in: /* java.io.InputStream */ UnclassedObject?, defl: Deflater? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( _in: /* class java.io.InputStream */ UnavailableObject?, defl: Deflater? ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: _in, locals: &__locals )
         __args[1] = JNIType.toJava( value: defl, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/util/zip/Deflater;)V", methodCache: &DeflaterInputStream.new_MethodID_3, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/util/zip/Deflater;)V", methodCache: &DeflaterInputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ __in: /* java.io.InputStream */ UnclassedObject?, _ _defl: Deflater? ) {
+    public convenience init( _ __in: /* class java.io.InputStream */ UnavailableObject?, _ _defl: Deflater? ) {
         self.init( _in: __in, defl: _defl )
     }
 
-    /// public int java.util.zip.DeflaterInputStream.read() throws java.io.IOException
+    /// public java.util.zip.DeflaterInputStream(java.io.InputStream,java.util.zip.Deflater,int)
 
-    /// public int java.util.zip.DeflaterInputStream.read(byte[],int,int) throws java.io.IOException
+    private static var new_MethodID_3: jmethodID?
+
+    public convenience init( _in: /* class java.io.InputStream */ UnavailableObject?, defl: Deflater?, bufLen: Int ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: _in, locals: &__locals )
+        __args[1] = JNIType.toJava( value: defl, locals: &__locals )
+        __args[2] = jvalue( i: jint(bufLen) )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/DeflaterInputStream", classCache: &DeflaterInputStream.DeflaterInputStreamJNIClass, methodSig: "(Ljava/io/InputStream;Ljava/util/zip/Deflater;I)V", methodCache: &DeflaterInputStream.new_MethodID_3, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ __in: /* class java.io.InputStream */ UnavailableObject?, _ _defl: Deflater?, _ _bufLen: Int ) {
+        self.init( _in: __in, defl: _defl, bufLen: _bufLen )
+    }
+
+    /// public int java.util.zip.DeflaterInputStream.available() throws java.io.IOException
+
+    private static var available_MethodID_4: jmethodID?
+
+    open func available() throws /* java.io.IOException */ -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "available", methodSig: "()I", methodCache: &DeflaterInputStream.available_MethodID_4, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return Int(__return)
+    }
+
 
     /// public void java.util.zip.DeflaterInputStream.close() throws java.io.IOException
 
-    /// public long java.util.zip.DeflaterInputStream.skip(long) throws java.io.IOException
+    private static var close_MethodID_5: jmethodID?
+
+    open func close() throws /* java.io.IOException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "close", methodSig: "()V", methodCache: &DeflaterInputStream.close_MethodID_5, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+    }
+
+
+    /// private void java.util.zip.DeflaterInputStream.ensureOpen() throws java.io.IOException
 
     /// public void java.util.zip.DeflaterInputStream.mark(int)
 
-    private static var mark_MethodID_4: jmethodID?
+    private static var mark_MethodID_6: jmethodID?
 
     open func mark( limit: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: limit, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "mark", methodSig: "(I)V", methodCache: &DeflaterInputStream.mark_MethodID_4, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(limit) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "mark", methodSig: "(I)V", methodCache: &DeflaterInputStream.mark_MethodID_6, args: &__args, locals: &__locals )
     }
 
     open func mark( _ _limit: Int ) {
         mark( limit: _limit )
     }
 
-    /// public int java.util.zip.DeflaterInputStream.available() throws java.io.IOException
-
     /// public boolean java.util.zip.DeflaterInputStream.markSupported()
+
+    private static var markSupported_MethodID_7: jmethodID?
+
+    open func markSupported() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "markSupported", methodSig: "()Z", methodCache: &DeflaterInputStream.markSupported_MethodID_7, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public int java.util.zip.DeflaterInputStream.read(byte[],int,int) throws java.io.IOException
+
+    private static var read_MethodID_8: jmethodID?
+
+    open func read( b: [Int8]?, off: Int, len: Int ) throws /* java.io.IOException */ -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        __args[1] = jvalue( i: jint(off) )
+        __args[2] = jvalue( i: jint(len) )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "read", methodSig: "([BII)I", methodCache: &DeflaterInputStream.read_MethodID_8, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return Int(__return)
+    }
+
+    open func read( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.io.IOException */ -> Int {
+        return try read( b: _b, off: _off, len: _len )
+    }
+
+    /// public int java.util.zip.DeflaterInputStream.read() throws java.io.IOException
+
+    private static var read_MethodID_9: jmethodID?
+
+    open func read() throws /* java.io.IOException */ -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "read", methodSig: "()I", methodCache: &DeflaterInputStream.read_MethodID_9, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return Int(__return)
+    }
+
 
     /// public void java.util.zip.DeflaterInputStream.reset() throws java.io.IOException
 
-    /// private void java.util.zip.DeflaterInputStream.ensureOpen() throws java.io.IOException
+    private static var reset_MethodID_10: jmethodID?
+
+    open func reset() throws /* java.io.IOException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "reset", methodSig: "()V", methodCache: &DeflaterInputStream.reset_MethodID_10, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+    }
+
+
+    /// public long java.util.zip.DeflaterInputStream.skip(long) throws java.io.IOException
+
+    private static var skip_MethodID_11: jmethodID?
+
+    open func skip( n: Int64 ) throws /* java.io.IOException */ -> Int64 {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( j: n )
+        let __return = JNIMethod.CallLongMethod( object: javaObject, methodName: "skip", methodSig: "(J)J", methodCache: &DeflaterInputStream.skip_MethodID_11, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return __return
+    }
+
+    open func skip( _ _n: Int64 ) throws /* java.io.IOException */ -> Int64 {
+        return try skip( n: _n )
+    }
 
 }
 

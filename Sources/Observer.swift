@@ -23,8 +23,8 @@ open class ObserverForward: JNIObjectForward, Observer {
     private static var update_MethodID_2: jmethodID?
 
     open func update( o: Observable?, arg: java_swift.JavaObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
         __args[1] = JNIType.toJava( value: arg, locals: &__locals )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "update", methodSig: "(Ljava/util/Observable;Ljava/lang/Object;)V", methodCache: &ObserverForward.update_MethodID_2, args: &__args, locals: &__locals )
@@ -35,5 +35,4 @@ open class ObserverForward: JNIObjectForward, Observer {
     }
 
 }
-
 

@@ -24,15 +24,27 @@ open class Manifest: java_swift.JavaObject, java_lang.Cloneable {
 
     /// private java.util.Map java.util.jar.Manifest.entries
 
-    /// public java.util.jar.Manifest(java.util.jar.Manifest)
+    /// public java.util.jar.Manifest()
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( man: Manifest? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init() {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/Manifest", classCache: &Manifest.ManifestJNIClass, methodSig: "()V", methodCache: &Manifest.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    /// public java.util.jar.Manifest(java.util.jar.Manifest)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( man: Manifest? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: man, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/Manifest", classCache: &Manifest.ManifestJNIClass, methodSig: "(Ljava/util/jar/Manifest;)V", methodCache: &Manifest.new_MethodID_1, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/Manifest", classCache: &Manifest.ManifestJNIClass, methodSig: "(Ljava/util/jar/Manifest;)V", methodCache: &Manifest.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -43,162 +55,154 @@ open class Manifest: java_swift.JavaObject, java_lang.Cloneable {
 
     /// public java.util.jar.Manifest(java.io.InputStream) throws java.io.IOException
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_3: jmethodID?
 
-    public convenience init( _is: /* java.io.InputStream */ UnclassedObject? ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init( _is: /* class java.io.InputStream */ UnavailableObject? ) throws {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: _is, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/Manifest", classCache: &Manifest.ManifestJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &Manifest.new_MethodID_2, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/Manifest", classCache: &Manifest.ManifestJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &Manifest.new_MethodID_3, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ __is: /* java.io.InputStream */ UnclassedObject? ) throws {
+    public convenience init( _ __is: /* class java.io.InputStream */ UnavailableObject? ) throws {
         try self.init( _is: __is )
     }
 
-    /// public java.util.jar.Manifest()
+    /// static void java.util.jar.Manifest.make72Safe(java.lang.StringBuffer)
 
-    private static var new_MethodID_3: jmethodID?
+    // Skipping method: true false false false false 
 
-    public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    /// public void java.util.jar.Manifest.clear()
+
+    private static var clear_MethodID_4: jmethodID?
+
+    open func clear() {
         var __locals = [jobject]()
-        let __object = JNIMethod.NewObject( className: "java/util/jar/Manifest", classCache: &Manifest.ManifestJNIClass, methodSig: "()V", methodCache: &Manifest.new_MethodID_3, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    /// public boolean java.util.jar.Manifest.equals(java.lang.Object)
-
-    private static var equals_MethodID_4: jmethodID?
-
-    open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: o, locals: &__locals )
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Manifest.equals_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "()V", methodCache: &Manifest.clear_MethodID_4, args: &__args, locals: &__locals )
     }
 
-    override open func equals( _ _o: java_swift.JavaObject? ) -> Bool {
-        return equals( o: _o )
-    }
-
-    /// public int java.util.jar.Manifest.hashCode()
 
     /// public java.lang.Object java.util.jar.Manifest.clone()
 
     private static var clone_MethodID_5: jmethodID?
 
     override open func clone() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "clone", methodSig: "()Ljava/lang/Object;", methodCache: &Manifest.clone_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
-    /// public void java.util.jar.Manifest.clear()
+    /// public boolean java.util.jar.Manifest.equals(java.lang.Object)
 
-    private static var clear_MethodID_6: jmethodID?
+    private static var equals_MethodID_6: jmethodID?
 
-    open func clear() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func equals( o: java_swift.JavaObject? ) -> Bool {
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "clear", methodSig: "()V", methodCache: &Manifest.clear_MethodID_6, args: &__args, locals: &__locals )
-    }
-
-
-    /// public void java.util.jar.Manifest.write(java.io.OutputStream) throws java.io.IOException
-
-    private static var write_MethodID_7: jmethodID?
-
-    open func write( out: /* java.io.OutputStream */ UnclassedObject? ) throws /* java.io.IOException */ {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: out, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "write", methodSig: "(Ljava/io/OutputStream;)V", methodCache: &Manifest.write_MethodID_7, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
+        __args[0] = JNIType.toJava( value: o, locals: &__locals )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &Manifest.equals_MethodID_6, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
     }
 
-    open func write( _ _out: /* java.io.OutputStream */ UnclassedObject? ) throws /* java.io.IOException */ {
-        try write( out: _out )
-    }
-
-    /// public void java.util.jar.Manifest.read(java.io.InputStream) throws java.io.IOException
-
-    private static var read_MethodID_8: jmethodID?
-
-    open func read( _is: /* java.io.InputStream */ UnclassedObject? ) throws /* java.io.IOException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: _is, locals: &__locals )
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "read", methodSig: "(Ljava/io/InputStream;)V", methodCache: &Manifest.read_MethodID_8, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-    }
-
-    open func read( _ __is: /* java.io.InputStream */ UnclassedObject? ) throws /* java.io.IOException */ {
-        try read( _is: __is )
+    override open func equals( _ _o: java_swift.JavaObject? ) -> Bool {
+        return equals( o: _o )
     }
 
     /// public java.util.jar.Attributes java.util.jar.Manifest.getAttributes(java.lang.String)
 
-    private static var getAttributes_MethodID_9: jmethodID?
+    private static var getAttributes_MethodID_7: jmethodID?
 
     open func getAttributes( name: String? ) -> Attributes! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getAttributes", methodSig: "(Ljava/lang/String;)Ljava/util/jar/Attributes;", methodCache: &Manifest.getAttributes_MethodID_9, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: Attributes(), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getAttributes", methodSig: "(Ljava/lang/String;)Ljava/util/jar/Attributes;", methodCache: &Manifest.getAttributes_MethodID_7, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Attributes.self, from: __return )
     }
 
     open func getAttributes( _ _name: String? ) -> Attributes! {
         return getAttributes( name: _name )
     }
 
-    /// public java.util.jar.Attributes java.util.jar.Manifest.getMainAttributes()
-
-    private static var getMainAttributes_MethodID_10: jmethodID?
-
-    open func getMainAttributes() -> Attributes! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getMainAttributes", methodSig: "()Ljava/util/jar/Attributes;", methodCache: &Manifest.getMainAttributes_MethodID_10, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: Attributes(), from: __return )
-    }
-
-
     /// public java.util.Map java.util.jar.Manifest.getEntries()
 
-    private static var getEntries_MethodID_11: jmethodID?
+    private static var getEntries_MethodID_8: jmethodID?
 
     open func getEntries() -> java_swift.JavaMap! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getEntries", methodSig: "()Ljava/util/Map;", methodCache: &Manifest.getEntries_MethodID_11, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return JNIType.toSwift( type: java_swift.JavaMapForward(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getEntries", methodSig: "()Ljava/util/Map;", methodCache: &Manifest.getEntries_MethodID_8, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: java_swift.JavaMapForward.self, from: __return )
     }
 
 
-    /// static void java.util.jar.Manifest.make72Safe(java.lang.StringBuffer)
+    /// public java.util.jar.Attributes java.util.jar.Manifest.getMainAttributes()
+
+    private static var getMainAttributes_MethodID_9: jmethodID?
+
+    open func getMainAttributes() -> Attributes! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getMainAttributes", methodSig: "()Ljava/util/jar/Attributes;", methodCache: &Manifest.getMainAttributes_MethodID_9, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: Attributes.self, from: __return )
+    }
+
+
+    /// public int java.util.jar.Manifest.hashCode()
+
+    // Skipping method: false true false false false 
 
     /// private java.lang.String java.util.jar.Manifest.parseName(byte[],int)
 
+    /// public void java.util.jar.Manifest.read(java.io.InputStream) throws java.io.IOException
+
+    private static var read_MethodID_10: jmethodID?
+
+    open func read( _is: /* class java.io.InputStream */ UnavailableObject? ) throws /* java.io.IOException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: _is, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "read", methodSig: "(Ljava/io/InputStream;)V", methodCache: &Manifest.read_MethodID_10, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+    }
+
+    open func read( _ __is: /* class java.io.InputStream */ UnavailableObject? ) throws /* java.io.IOException */ {
+        try read( _is: __is )
+    }
+
     /// private int java.util.jar.Manifest.toLower(int)
+
+    /// public void java.util.jar.Manifest.write(java.io.OutputStream) throws java.io.IOException
+
+    private static var write_MethodID_11: jmethodID?
+
+    open func write( out: /* class java.io.OutputStream */ UnavailableObject? ) throws /* java.io.IOException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: out, locals: &__locals )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "write", methodSig: "(Ljava/io/OutputStream;)V", methodCache: &Manifest.write_MethodID_11, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+    }
+
+    open func write( _ _out: /* class java.io.OutputStream */ UnavailableObject? ) throws /* java.io.IOException */ {
+        try write( out: _out )
+    }
 
 }
 

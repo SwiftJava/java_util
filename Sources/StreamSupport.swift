@@ -18,17 +18,54 @@ open class StreamSupport: java_swift.JavaObject {
 
     /// private java.util.stream.StreamSupport()
 
+    /// public static java.util.stream.DoubleStream java.util.stream.StreamSupport.doubleStream(java.util.function.Supplier,int,boolean)
+
+    private static var doubleStream_MethodID_1: jmethodID?
+
+    open class func doubleStream( supplier: Supplier?, characteristics: Int, parallel: Bool ) -> DoubleStream! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: supplier, locals: &__locals )
+        __args[1] = jvalue( i: jint(characteristics) )
+        __args[2] = jvalue( z: jboolean(parallel ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "doubleStream", methodSig: "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/DoubleStream;", methodCache: &doubleStream_MethodID_1, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+    }
+
+    open class func doubleStream( _ _supplier: Supplier?, _ _characteristics: Int, _ _parallel: Bool ) -> DoubleStream! {
+        return doubleStream( supplier: _supplier, characteristics: _characteristics, parallel: _parallel )
+    }
+
+    /// public static java.util.stream.DoubleStream java.util.stream.StreamSupport.doubleStream(java.util.Spliterator$OfDouble,boolean)
+
+    private static var doubleStream_MethodID_2: jmethodID?
+
+    open class func doubleStream( spliterator: /* interface java.util.Spliterator$OfDouble */ UnavailableProtocol?, parallel: Bool ) -> DoubleStream! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: spliterator, locals: &__locals )
+        __args[1] = jvalue( z: jboolean(parallel ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "doubleStream", methodSig: "(Ljava/util/Spliterator$OfDouble;Z)Ljava/util/stream/DoubleStream;", methodCache: &doubleStream_MethodID_2, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+    }
+
+    open class func doubleStream( _ _spliterator: /* interface java.util.Spliterator$OfDouble */ UnavailableProtocol?, _ _parallel: Bool ) -> DoubleStream! {
+        return doubleStream( spliterator: _spliterator, parallel: _parallel )
+    }
+
     /// public static java.util.stream.IntStream java.util.stream.StreamSupport.intStream(java.util.function.Supplier,int,boolean)
 
-    private static var intStream_MethodID_1: jmethodID?
+    private static var intStream_MethodID_3: jmethodID?
 
     open class func intStream( supplier: Supplier?, characteristics: Int, parallel: Bool ) -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: supplier, locals: &__locals )
-        __args[1] = JNIType.toJava( value: characteristics, locals: &__locals )
-        __args[2] = JNIType.toJava( value: parallel, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "intStream", methodSig: "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/IntStream;", methodCache: &intStream_MethodID_1, args: &__args, locals: &__locals )
+        __args[1] = jvalue( i: jint(characteristics) )
+        __args[2] = jvalue( z: jboolean(parallel ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "intStream", methodSig: "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/IntStream;", methodCache: &intStream_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? IntStreamForward( javaObject: __return ) : nil
     }
@@ -39,57 +76,20 @@ open class StreamSupport: java_swift.JavaObject {
 
     /// public static java.util.stream.IntStream java.util.stream.StreamSupport.intStream(java.util.Spliterator$OfInt,boolean)
 
-    private static var intStream_MethodID_2: jmethodID?
+    private static var intStream_MethodID_4: jmethodID?
 
-    open class func intStream( spliterator: /* java.util.Spliterator$OfInt */ UnclassedProtocol?, parallel: Bool ) -> IntStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open class func intStream( spliterator: /* interface java.util.Spliterator$OfInt */ UnavailableProtocol?, parallel: Bool ) -> IntStream! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: spliterator, locals: &__locals )
-        __args[1] = JNIType.toJava( value: parallel, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "intStream", methodSig: "(Ljava/util/Spliterator$OfInt;Z)Ljava/util/stream/IntStream;", methodCache: &intStream_MethodID_2, args: &__args, locals: &__locals )
+        __args[1] = jvalue( z: jboolean(parallel ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "intStream", methodSig: "(Ljava/util/Spliterator$OfInt;Z)Ljava/util/stream/IntStream;", methodCache: &intStream_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? IntStreamForward( javaObject: __return ) : nil
     }
 
-    open class func intStream( _ _spliterator: /* java.util.Spliterator$OfInt */ UnclassedProtocol?, _ _parallel: Bool ) -> IntStream! {
+    open class func intStream( _ _spliterator: /* interface java.util.Spliterator$OfInt */ UnavailableProtocol?, _ _parallel: Bool ) -> IntStream! {
         return intStream( spliterator: _spliterator, parallel: _parallel )
-    }
-
-    /// public static java.util.stream.Stream java.util.stream.StreamSupport.stream(java.util.function.Supplier,int,boolean)
-
-    private static var stream_MethodID_3: jmethodID?
-
-    open class func stream( supplier: Supplier?, characteristics: Int, parallel: Bool ) -> Stream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: supplier, locals: &__locals )
-        __args[1] = JNIType.toJava( value: characteristics, locals: &__locals )
-        __args[2] = JNIType.toJava( value: parallel, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "stream", methodSig: "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/Stream;", methodCache: &stream_MethodID_3, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? StreamForward( javaObject: __return ) : nil
-    }
-
-    open class func stream( _ _supplier: Supplier?, _ _characteristics: Int, _ _parallel: Bool ) -> Stream! {
-        return stream( supplier: _supplier, characteristics: _characteristics, parallel: _parallel )
-    }
-
-    /// public static java.util.stream.Stream java.util.stream.StreamSupport.stream(java.util.Spliterator,boolean)
-
-    private static var stream_MethodID_4: jmethodID?
-
-    open class func stream( spliterator: Spliterator?, parallel: Bool ) -> Stream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: spliterator, locals: &__locals )
-        __args[1] = JNIType.toJava( value: parallel, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "stream", methodSig: "(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;", methodCache: &stream_MethodID_4, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? StreamForward( javaObject: __return ) : nil
-    }
-
-    open class func stream( _ _spliterator: Spliterator?, _ _parallel: Bool ) -> Stream! {
-        return stream( spliterator: _spliterator, parallel: _parallel )
     }
 
     /// public static java.util.stream.LongStream java.util.stream.StreamSupport.longStream(java.util.function.Supplier,int,boolean)
@@ -97,11 +97,11 @@ open class StreamSupport: java_swift.JavaObject {
     private static var longStream_MethodID_5: jmethodID?
 
     open class func longStream( supplier: Supplier?, characteristics: Int, parallel: Bool ) -> LongStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: supplier, locals: &__locals )
-        __args[1] = JNIType.toJava( value: characteristics, locals: &__locals )
-        __args[2] = JNIType.toJava( value: parallel, locals: &__locals )
+        __args[1] = jvalue( i: jint(characteristics) )
+        __args[2] = jvalue( z: jboolean(parallel ? JNI_TRUE : JNI_FALSE) )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "longStream", methodSig: "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/LongStream;", methodCache: &longStream_MethodID_5, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LongStreamForward( javaObject: __return ) : nil
@@ -115,55 +115,55 @@ open class StreamSupport: java_swift.JavaObject {
 
     private static var longStream_MethodID_6: jmethodID?
 
-    open class func longStream( spliterator: /* java.util.Spliterator$OfLong */ UnclassedProtocol?, parallel: Bool ) -> LongStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    open class func longStream( spliterator: /* interface java.util.Spliterator$OfLong */ UnavailableProtocol?, parallel: Bool ) -> LongStream! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: spliterator, locals: &__locals )
-        __args[1] = JNIType.toJava( value: parallel, locals: &__locals )
+        __args[1] = jvalue( z: jboolean(parallel ? JNI_TRUE : JNI_FALSE) )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "longStream", methodSig: "(Ljava/util/Spliterator$OfLong;Z)Ljava/util/stream/LongStream;", methodCache: &longStream_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? LongStreamForward( javaObject: __return ) : nil
     }
 
-    open class func longStream( _ _spliterator: /* java.util.Spliterator$OfLong */ UnclassedProtocol?, _ _parallel: Bool ) -> LongStream! {
+    open class func longStream( _ _spliterator: /* interface java.util.Spliterator$OfLong */ UnavailableProtocol?, _ _parallel: Bool ) -> LongStream! {
         return longStream( spliterator: _spliterator, parallel: _parallel )
     }
 
-    /// public static java.util.stream.DoubleStream java.util.stream.StreamSupport.doubleStream(java.util.Spliterator$OfDouble,boolean)
+    /// public static java.util.stream.Stream java.util.stream.StreamSupport.stream(java.util.Spliterator,boolean)
 
-    private static var doubleStream_MethodID_7: jmethodID?
+    private static var stream_MethodID_7: jmethodID?
 
-    open class func doubleStream( spliterator: /* java.util.Spliterator$OfDouble */ UnclassedProtocol?, parallel: Bool ) -> DoubleStream! {
+    open class func stream( spliterator: Spliterator?, parallel: Bool ) -> Stream! {
+        var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: spliterator, locals: &__locals )
-        __args[1] = JNIType.toJava( value: parallel, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "doubleStream", methodSig: "(Ljava/util/Spliterator$OfDouble;Z)Ljava/util/stream/DoubleStream;", methodCache: &doubleStream_MethodID_7, args: &__args, locals: &__locals )
+        __args[1] = jvalue( z: jboolean(parallel ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "stream", methodSig: "(Ljava/util/Spliterator;Z)Ljava/util/stream/Stream;", methodCache: &stream_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+        return __return != nil ? StreamForward( javaObject: __return ) : nil
     }
 
-    open class func doubleStream( _ _spliterator: /* java.util.Spliterator$OfDouble */ UnclassedProtocol?, _ _parallel: Bool ) -> DoubleStream! {
-        return doubleStream( spliterator: _spliterator, parallel: _parallel )
+    open class func stream( _ _spliterator: Spliterator?, _ _parallel: Bool ) -> Stream! {
+        return stream( spliterator: _spliterator, parallel: _parallel )
     }
 
-    /// public static java.util.stream.DoubleStream java.util.stream.StreamSupport.doubleStream(java.util.function.Supplier,int,boolean)
+    /// public static java.util.stream.Stream java.util.stream.StreamSupport.stream(java.util.function.Supplier,int,boolean)
 
-    private static var doubleStream_MethodID_8: jmethodID?
+    private static var stream_MethodID_8: jmethodID?
 
-    open class func doubleStream( supplier: Supplier?, characteristics: Int, parallel: Bool ) -> DoubleStream! {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    open class func stream( supplier: Supplier?, characteristics: Int, parallel: Bool ) -> Stream! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: supplier, locals: &__locals )
-        __args[1] = JNIType.toJava( value: characteristics, locals: &__locals )
-        __args[2] = JNIType.toJava( value: parallel, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "doubleStream", methodSig: "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/DoubleStream;", methodCache: &doubleStream_MethodID_8, args: &__args, locals: &__locals )
+        __args[1] = jvalue( i: jint(characteristics) )
+        __args[2] = jvalue( z: jboolean(parallel ? JNI_TRUE : JNI_FALSE) )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/stream/StreamSupport", classCache: &StreamSupportJNIClass, methodName: "stream", methodSig: "(Ljava/util/function/Supplier;IZ)Ljava/util/stream/Stream;", methodCache: &stream_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+        return __return != nil ? StreamForward( javaObject: __return ) : nil
     }
 
-    open class func doubleStream( _ _supplier: Supplier?, _ _characteristics: Int, _ _parallel: Bool ) -> DoubleStream! {
-        return doubleStream( supplier: _supplier, characteristics: _characteristics, parallel: _parallel )
+    open class func stream( _ _supplier: Supplier?, _ _characteristics: Int, _ _parallel: Bool ) -> Stream! {
+        return stream( supplier: _supplier, characteristics: _characteristics, parallel: _parallel )
     }
 
 }

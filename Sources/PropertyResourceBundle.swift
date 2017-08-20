@@ -18,13 +18,29 @@ open class PropertyResourceBundle: ResourceBundle {
 
     /// private java.util.Map java.util.PropertyResourceBundle.lookup
 
+    /// static final boolean java.util.ResourceBundle.$assertionsDisabled
+
+    // Skipping field: true false false false false false 
+
     /// private static final int java.util.ResourceBundle.INITIAL_CACHE_SIZE
 
     /// private static final java.util.ResourceBundle java.util.ResourceBundle.NONEXISTENT_BUNDLE
 
     /// private static final java.util.concurrent.ConcurrentMap java.util.ResourceBundle.cacheList
 
+    /// private static final java.util.List java.util.ResourceBundle.providers
+
     /// private static final java.lang.ref.ReferenceQueue java.util.ResourceBundle.referenceQueue
+
+    /// private volatile java.util.ResourceBundle$CacheKey java.util.ResourceBundle.cacheKey
+
+    /// private volatile boolean java.util.ResourceBundle.expired
+
+    /// private volatile java.util.Set java.util.ResourceBundle.keySet
+
+    /// private java.util.Locale java.util.ResourceBundle.locale
+
+    /// private java.lang.String java.util.ResourceBundle.name
 
     /// protected java.util.ResourceBundle java.util.ResourceBundle.parent
 
@@ -32,8 +48,8 @@ open class PropertyResourceBundle: ResourceBundle {
 
     override open var parent: ResourceBundle! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "parent", fieldType: "Ljava/util/ResourceBundle;", fieldCache: &PropertyResourceBundle.parent_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "parent", fieldType: "Ljava/util/ResourceBundle;", fieldCache: &PropertyResourceBundle.parent_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? ResourceBundle( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -43,49 +59,42 @@ open class PropertyResourceBundle: ResourceBundle {
         }
     }
 
-    /// private java.util.Locale java.util.ResourceBundle.locale
-
-    /// private java.lang.String java.util.ResourceBundle.name
-
-    /// private volatile boolean java.util.ResourceBundle.expired
-
-    /// private volatile java.util.ResourceBundle$CacheKey java.util.ResourceBundle.cacheKey
-
-    /// private volatile java.util.Set java.util.ResourceBundle.keySet
-
-    /// private static final java.util.List java.util.ResourceBundle.providers
-
-    /// static final boolean java.util.ResourceBundle.$assertionsDisabled
-
     /// public java.util.PropertyResourceBundle(java.io.InputStream) throws java.io.IOException
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( stream: /* java.io.InputStream */ UnclassedObject? ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init( stream: /* class java.io.InputStream */ UnavailableObject? ) throws {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: stream, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/PropertyResourceBundle", classCache: &PropertyResourceBundle.PropertyResourceBundleJNIClass, methodSig: "(Ljava/io/InputStream;)V", methodCache: &PropertyResourceBundle.new_MethodID_1, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _stream: /* java.io.InputStream */ UnclassedObject? ) throws {
+    public convenience init( _ _stream: /* class java.io.InputStream */ UnavailableObject? ) throws {
         try self.init( stream: _stream )
     }
 
     /// public java.util.PropertyResourceBundle(java.io.Reader) throws java.io.IOException
+
+    // Skipping init: false true false 
+
+    /// public java.util.Enumeration java.util.PropertyResourceBundle.getKeys()
+
+    // Skipping method: false true false false false 
 
     /// public java.lang.Object java.util.PropertyResourceBundle.handleGetObject(java.lang.String)
 
     private static var handleGetObject_MethodID_2: jmethodID?
 
     override open func handleGetObject( key: String? ) -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: key, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "handleGetObject", methodSig: "(Ljava/lang/String;)Ljava/lang/Object;", methodCache: &PropertyResourceBundle.handleGetObject_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -101,15 +110,13 @@ open class PropertyResourceBundle: ResourceBundle {
     private static var handleKeySet_MethodID_3: jmethodID?
 
     override open func handleKeySet() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "handleKeySet", methodSig: "()Ljava/util/Set;", methodCache: &PropertyResourceBundle.handleKeySet_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
     }
 
-
-    /// public java.util.Enumeration java.util.PropertyResourceBundle.getKeys()
 
 }
 

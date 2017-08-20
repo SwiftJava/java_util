@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.zip.InflaterOutputStream ///
 
-open class InflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObject {
+open class InflaterOutputStream: /* class java.io.FilterOutputStream */ UnavailableObject {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -16,45 +16,44 @@ open class InflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
 
     private static var InflaterOutputStreamJNIClass: jclass?
 
-    /// protected final java.util.zip.Inflater java.util.zip.InflaterOutputStream.inf
-
-    private static var inf_FieldID: jfieldID?
-
-    open var inf: Inflater! {
-        get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &InflaterOutputStream.inf_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? Inflater( javaObject: __value ) : nil
-        }
-    }
-
     /// protected final byte[] java.util.zip.InflaterOutputStream.buf
 
     private static var buf_FieldID: jfieldID?
 
     open var buf: [Int8]! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &InflaterOutputStream.buf_FieldID, object: javaObject, locals: &__locals )
-            return JNIType.toSwift( type: [Int8](), from: __value )
+            let __value = JNIField.GetObjectField( fieldName: "buf", fieldType: "[B", fieldCache: &InflaterOutputStream.buf_FieldID, object: javaObject )
+            return JNIType.toSwift( type: [Int8].self, from: __value )
         }
     }
 
-    /// private final byte[] java.util.zip.InflaterOutputStream.wbuf
+    /// private boolean java.util.zip.InflaterOutputStream.closed
+
+    /// protected final java.util.zip.Inflater java.util.zip.InflaterOutputStream.inf
+
+    private static var inf_FieldID: jfieldID?
+
+    open var inf: Inflater! {
+        get {
+            let __value = JNIField.GetObjectField( fieldName: "inf", fieldType: "Ljava/util/zip/Inflater;", fieldCache: &InflaterOutputStream.inf_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? Inflater( javaObject: __value ) : nil
+        }
+    }
 
     /// private boolean java.util.zip.InflaterOutputStream.usesDefaultInflater
 
-    /// private boolean java.util.zip.InflaterOutputStream.closed
+    /// private final byte[] java.util.zip.InflaterOutputStream.wbuf
 
     /// protected java.io.OutputStream java.io.FilterOutputStream.out
 
     private static var out_FieldID: jfieldID?
 
-    open var out: /* java.io.OutputStream */ UnclassedObject! {
+    open var out: /* class java.io.OutputStream */ UnavailableObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &InflaterOutputStream.out_FieldID, object: javaObject, locals: &__locals )
-            return __value != nil ? /* java.io.OutputStream */ UnclassedObject( javaObject: __value ) : nil
+            let __value = JNIField.GetObjectField( fieldName: "out", fieldType: "Ljava/io/OutputStream;", fieldCache: &InflaterOutputStream.out_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? /* class java.io.OutputStream */ UnavailableObject( javaObject: __value ) : nil
         }
         set(newValue) {
             var __locals = [jobject]()
@@ -63,83 +62,146 @@ open class InflaterOutputStream: /* java.io.FilterOutputStream */ UnclassedObjec
         }
     }
 
-    /// public java.util.zip.InflaterOutputStream(java.io.OutputStream,java.util.zip.Inflater)
+    /// public java.util.zip.InflaterOutputStream(java.io.OutputStream)
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, infl: Inflater? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( out: /* class java.io.OutputStream */ UnavailableObject? ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: out, locals: &__locals )
-        __args[1] = JNIType.toJava( value: infl, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/InflaterOutputStream", classCache: &InflaterOutputStream.InflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/zip/Inflater;)V", methodCache: &InflaterOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/InflaterOutputStream", classCache: &InflaterOutputStream.InflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;)V", methodCache: &InflaterOutputStream.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _out: /* java.io.OutputStream */ UnclassedObject?, _ _infl: Inflater? ) {
-        self.init( out: _out, infl: _infl )
+    public convenience init( _ _out: /* class java.io.OutputStream */ UnavailableObject? ) {
+        self.init( out: _out )
     }
 
-    /// public java.util.zip.InflaterOutputStream(java.io.OutputStream)
+    /// public java.util.zip.InflaterOutputStream(java.io.OutputStream,java.util.zip.Inflater)
 
     private static var new_MethodID_2: jmethodID?
 
-    public convenience init( out: /* java.io.OutputStream */ UnclassedObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    public convenience init( out: /* class java.io.OutputStream */ UnavailableObject?, infl: Inflater? ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: out, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/zip/InflaterOutputStream", classCache: &InflaterOutputStream.InflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;)V", methodCache: &InflaterOutputStream.new_MethodID_2, args: &__args, locals: &__locals )
+        __args[1] = JNIType.toJava( value: infl, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/zip/InflaterOutputStream", classCache: &InflaterOutputStream.InflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/zip/Inflater;)V", methodCache: &InflaterOutputStream.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _out: /* java.io.OutputStream */ UnclassedObject? ) {
-        self.init( out: _out )
+    public convenience init( _ _out: /* class java.io.OutputStream */ UnavailableObject?, _ _infl: Inflater? ) {
+        self.init( out: _out, infl: _infl )
     }
 
     /// public java.util.zip.InflaterOutputStream(java.io.OutputStream,java.util.zip.Inflater,int)
 
     private static var new_MethodID_3: jmethodID?
 
-    public convenience init( out: /* java.io.OutputStream */ UnclassedObject?, infl: Inflater?, bufLen: Int ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+    public convenience init( out: /* class java.io.OutputStream */ UnavailableObject?, infl: Inflater?, bufLen: Int ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: out, locals: &__locals )
         __args[1] = JNIType.toJava( value: infl, locals: &__locals )
-        __args[2] = JNIType.toJava( value: bufLen, locals: &__locals )
+        __args[2] = jvalue( i: jint(bufLen) )
         let __object = JNIMethod.NewObject( className: "java/util/zip/InflaterOutputStream", classCache: &InflaterOutputStream.InflaterOutputStreamJNIClass, methodSig: "(Ljava/io/OutputStream;Ljava/util/zip/Inflater;I)V", methodCache: &InflaterOutputStream.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
 
-    public convenience init( _ _out: /* java.io.OutputStream */ UnclassedObject?, _ _infl: Inflater?, _ _bufLen: Int ) {
+    public convenience init( _ _out: /* class java.io.OutputStream */ UnavailableObject?, _ _infl: Inflater?, _ _bufLen: Int ) {
         self.init( out: _out, infl: _infl, bufLen: _bufLen )
     }
 
-    /// public void java.util.zip.InflaterOutputStream.write(int) throws java.io.IOException
-
-    /// public void java.util.zip.InflaterOutputStream.write(byte[],int,int) throws java.io.IOException
-
-    /// public void java.util.zip.InflaterOutputStream.flush() throws java.io.IOException
-
     /// public void java.util.zip.InflaterOutputStream.close() throws java.io.IOException
+
+    private static var close_MethodID_4: jmethodID?
+
+    open func close() throws /* java.io.IOException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "close", methodSig: "()V", methodCache: &InflaterOutputStream.close_MethodID_4, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+    }
+
 
     /// private void java.util.zip.InflaterOutputStream.ensureOpen() throws java.io.IOException
 
     /// public void java.util.zip.InflaterOutputStream.finish() throws java.io.IOException
 
-    private static var finish_MethodID_4: jmethodID?
+    private static var finish_MethodID_5: jmethodID?
 
     open func finish() throws /* java.io.IOException */ {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        JNIMethod.CallVoidMethod( object: javaObject, methodName: "finish", methodSig: "()V", methodCache: &InflaterOutputStream.finish_MethodID_4, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "finish", methodSig: "()V", methodCache: &InflaterOutputStream.finish_MethodID_5, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
     }
 
+
+    /// public void java.util.zip.InflaterOutputStream.flush() throws java.io.IOException
+
+    private static var flush_MethodID_6: jmethodID?
+
+    open func flush() throws /* java.io.IOException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "flush", methodSig: "()V", methodCache: &InflaterOutputStream.flush_MethodID_6, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+    }
+
+
+    /// public void java.util.zip.InflaterOutputStream.write(int) throws java.io.IOException
+
+    private static var write_MethodID_7: jmethodID?
+
+    open func write( b: Int ) throws /* java.io.IOException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = jvalue( i: jint(b) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "write", methodSig: "(I)V", methodCache: &InflaterOutputStream.write_MethodID_7, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+    }
+
+    open func write( _ _b: Int ) throws /* java.io.IOException */ {
+        try write( b: _b )
+    }
+
+    /// public void java.util.zip.InflaterOutputStream.write(byte[],int,int) throws java.io.IOException
+
+    private static var write_MethodID_8: jmethodID?
+
+    open func write( b: [Int8]?, off: Int, len: Int ) throws /* java.io.IOException */ {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: b, locals: &__locals )
+        __args[1] = jvalue( i: jint(off) )
+        __args[2] = jvalue( i: jint(len) )
+        JNIMethod.CallVoidMethod( object: javaObject, methodName: "write", methodSig: "([BII)V", methodCache: &InflaterOutputStream.write_MethodID_8, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+    }
+
+    open func write( _ _b: [Int8]?, _ _off: Int, _ _len: Int ) throws /* java.io.IOException */ {
+        try write( b: _b, off: _off, len: _len )
+    }
 
 }
 

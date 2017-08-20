@@ -16,19 +16,11 @@ open class JarFile: ZipFile {
 
     private static var JarFileJNIClass: jclass?
 
-    /// private java.lang.ref.SoftReference java.util.jar.JarFile.manRef
+    /// private static final char[] java.util.jar.JarFile.CLASSPATH_CHARS
 
-    /// private java.util.jar.JarEntry java.util.jar.JarFile.manEntry
+    /// private static final int[] java.util.jar.JarFile.CLASSPATH_LASTOCC
 
-    /// private java.util.jar.JarVerifier java.util.jar.JarFile.jv
-
-    /// private boolean java.util.jar.JarFile.jvInitialized
-
-    /// private boolean java.util.jar.JarFile.verify
-
-    /// private boolean java.util.jar.JarFile.hasClassPathAttribute
-
-    /// private volatile boolean java.util.jar.JarFile.hasCheckedSpecialAttributes
+    /// private static final int[] java.util.jar.JarFile.CLASSPATH_OPTOSFT
 
     /// public static final java.lang.String java.util.jar.JarFile.MANIFEST_NAME
 
@@ -37,227 +29,237 @@ open class JarFile: ZipFile {
     open static var MANIFEST_NAME: String! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "MANIFEST_NAME", fieldType: "Ljava/lang/String;", fieldCache: &MANIFEST_NAME_FieldID, className: "java/util/jar/JarFile", classCache: &JarFileJNIClass )
-            return JNIType.toSwift( type: String(), from: __value )
+            defer { JNI.DeleteLocalRef( __value ) }
+            return __value != nil ? String( javaObject: __value ) : nil
         }
     }
-
-    /// private static final char[] java.util.jar.JarFile.CLASSPATH_CHARS
-
-    /// private static final int[] java.util.jar.JarFile.CLASSPATH_LASTOCC
-
-    /// private static final int[] java.util.jar.JarFile.CLASSPATH_OPTOSFT
-
-    /// private static java.lang.String java.util.jar.JarFile.javaHome
 
     /// private static volatile java.lang.String[] java.util.jar.JarFile.jarNames
 
-    /// private long java.util.zip.ZipFile.jzfile
+    /// private static java.lang.String java.util.jar.JarFile.javaHome
 
-    /// private final java.lang.String java.util.zip.ZipFile.name
+    /// private volatile boolean java.util.jar.JarFile.hasCheckedSpecialAttributes
 
-    /// private final int java.util.zip.ZipFile.total
+    /// private boolean java.util.jar.JarFile.hasClassPathAttribute
 
-    /// private final boolean java.util.zip.ZipFile.locsig
+    /// private java.util.jar.JarVerifier java.util.jar.JarFile.jv
 
-    /// private volatile boolean java.util.zip.ZipFile.closeRequested
+    /// private boolean java.util.jar.JarFile.jvInitialized
 
-    /// private static final int java.util.zip.ZipFile.STORED
+    /// private java.util.jar.JarEntry java.util.jar.JarFile.manEntry
+
+    /// private java.lang.ref.SoftReference java.util.jar.JarFile.manRef
+
+    /// private boolean java.util.jar.JarFile.verify
 
     /// private static final int java.util.zip.ZipFile.DEFLATED
 
-    /// public static final int java.util.zip.ZipFile.OPEN_READ
-
-    /// public static final int java.util.zip.ZipFile.OPEN_DELETE
-
-    /// private static final boolean java.util.zip.ZipFile.usemmap
-
-    /// private java.util.zip.ZipCoder java.util.zip.ZipFile.zc
-
-    /// private final java.util.Map java.util.zip.ZipFile.streams
-
-    /// private java.util.Deque java.util.zip.ZipFile.inflaterCache
-
-    /// private static final int java.util.zip.ZipFile.JZENTRY_NAME
+    /// private static final int java.util.zip.ZipFile.JZENTRY_COMMENT
 
     /// private static final int java.util.zip.ZipFile.JZENTRY_EXTRA
 
-    /// private static final int java.util.zip.ZipFile.JZENTRY_COMMENT
+    /// private static final int java.util.zip.ZipFile.JZENTRY_NAME
 
-    /// public static final long java.util.zip.ZipConstants.LOCSIG
+    /// public static final int java.util.zip.ZipFile.OPEN_DELETE
 
-    /// public static final long java.util.zip.ZipConstants.EXTSIG
+    // Skipping field: false true false false false false 
 
-    /// public static final long java.util.zip.ZipConstants.CENSIG
+    /// public static final int java.util.zip.ZipFile.OPEN_READ
 
-    /// public static final long java.util.zip.ZipConstants.ENDSIG
+    // Skipping field: false true false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.LOCHDR
+    /// private static final int java.util.zip.ZipFile.STORED
 
-    /// public static final int java.util.zip.ZipConstants.EXTHDR
+    /// private static final boolean java.util.zip.ZipFile.usemmap
 
-    /// public static final int java.util.zip.ZipConstants.CENHDR
+    /// private volatile boolean java.util.zip.ZipFile.closeRequested
 
-    /// public static final int java.util.zip.ZipConstants.ENDHDR
+    /// private java.util.Deque java.util.zip.ZipFile.inflaterCache
 
-    /// public static final int java.util.zip.ZipConstants.LOCVER
+    /// private long java.util.zip.ZipFile.jzfile
 
-    /// public static final int java.util.zip.ZipConstants.LOCFLG
+    /// private final boolean java.util.zip.ZipFile.locsig
 
-    /// public static final int java.util.zip.ZipConstants.LOCHOW
+    /// private final java.lang.String java.util.zip.ZipFile.name
 
-    /// public static final int java.util.zip.ZipConstants.LOCTIM
+    /// private final java.util.Map java.util.zip.ZipFile.streams
 
-    /// public static final int java.util.zip.ZipConstants.LOCCRC
+    /// private final int java.util.zip.ZipFile.total
 
-    /// public static final int java.util.zip.ZipConstants.LOCSIZ
-
-    /// public static final int java.util.zip.ZipConstants.LOCLEN
-
-    /// public static final int java.util.zip.ZipConstants.LOCNAM
-
-    /// public static final int java.util.zip.ZipConstants.LOCEXT
-
-    /// public static final int java.util.zip.ZipConstants.EXTCRC
-
-    /// public static final int java.util.zip.ZipConstants.EXTSIZ
-
-    /// public static final int java.util.zip.ZipConstants.EXTLEN
-
-    /// public static final int java.util.zip.ZipConstants.CENVEM
-
-    /// public static final int java.util.zip.ZipConstants.CENVER
-
-    /// public static final int java.util.zip.ZipConstants.CENFLG
-
-    /// public static final int java.util.zip.ZipConstants.CENHOW
-
-    /// public static final int java.util.zip.ZipConstants.CENTIM
-
-    /// public static final int java.util.zip.ZipConstants.CENCRC
-
-    /// public static final int java.util.zip.ZipConstants.CENSIZ
-
-    /// public static final int java.util.zip.ZipConstants.CENLEN
-
-    /// public static final int java.util.zip.ZipConstants.CENNAM
-
-    /// public static final int java.util.zip.ZipConstants.CENEXT
-
-    /// public static final int java.util.zip.ZipConstants.CENCOM
-
-    /// public static final int java.util.zip.ZipConstants.CENDSK
+    /// private java.util.zip.ZipCoder java.util.zip.ZipFile.zc
 
     /// public static final int java.util.zip.ZipConstants.CENATT
 
+    // Skipping field: false true false false false false 
+
     /// public static final int java.util.zip.ZipConstants.CENATX
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENCOM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENCRC
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENDSK
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENEXT
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENFLG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENHOW
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENNAM
+
+    // Skipping field: false true false false false false 
 
     /// public static final int java.util.zip.ZipConstants.CENOFF
 
-    /// public static final int java.util.zip.ZipConstants.ENDSUB
+    // Skipping field: false true false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.ENDTOT
+    /// public static final long java.util.zip.ZipConstants.CENSIG
 
-    /// public static final int java.util.zip.ZipConstants.ENDSIZ
+    // Skipping field: false true false false false false 
 
-    /// public static final int java.util.zip.ZipConstants.ENDOFF
+    /// public static final int java.util.zip.ZipConstants.CENSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENTIM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENVEM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.CENVER
+
+    // Skipping field: false true false false false false 
 
     /// public static final int java.util.zip.ZipConstants.ENDCOM
 
-    /// public java.util.jar.JarFile(java.io.File,boolean,int) throws java.io.IOException
+    // Skipping field: false true false false false false 
 
-    private static var new_MethodID_1: jmethodID?
+    /// public static final int java.util.zip.ZipConstants.ENDHDR
 
-    public convenience init( file: /* java.io.File */ UnclassedObject?, verify: Bool, mode: Int ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file, locals: &__locals )
-        __args[1] = JNIType.toJava( value: verify, locals: &__locals )
-        __args[2] = JNIType.toJava( value: mode, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;ZI)V", methodCache: &JarFile.new_MethodID_1, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    // Skipping field: false true false false false false 
 
-    public convenience init( _ _file: /* java.io.File */ UnclassedObject?, _ _verify: Bool, _ _mode: Int ) throws {
-        try self.init( file: _file, verify: _verify, mode: _mode )
-    }
+    /// public static final int java.util.zip.ZipConstants.ENDOFF
 
-    /// public java.util.jar.JarFile(java.io.File,boolean) throws java.io.IOException
+    // Skipping field: false true false false false false 
 
-    private static var new_MethodID_2: jmethodID?
+    /// public static final long java.util.zip.ZipConstants.ENDSIG
 
-    public convenience init( file: /* java.io.File */ UnclassedObject?, verify: Bool ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file, locals: &__locals )
-        __args[1] = JNIType.toJava( value: verify, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;Z)V", methodCache: &JarFile.new_MethodID_2, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    // Skipping field: false true false false false false 
 
-    public convenience init( _ _file: /* java.io.File */ UnclassedObject?, _ _verify: Bool ) throws {
-        try self.init( file: _file, verify: _verify )
-    }
+    /// public static final int java.util.zip.ZipConstants.ENDSIZ
 
-    /// public java.util.jar.JarFile(java.io.File) throws java.io.IOException
+    // Skipping field: false true false false false false 
 
-    private static var new_MethodID_3: jmethodID?
+    /// public static final int java.util.zip.ZipConstants.ENDSUB
 
-    public convenience init( file: /* java.io.File */ UnclassedObject? ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: file, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;)V", methodCache: &JarFile.new_MethodID_3, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    // Skipping field: false true false false false false 
 
-    public convenience init( _ _file: /* java.io.File */ UnclassedObject? ) throws {
-        try self.init( file: _file )
-    }
+    /// public static final int java.util.zip.ZipConstants.ENDTOT
 
-    /// public java.util.jar.JarFile(java.lang.String,boolean) throws java.io.IOException
+    // Skipping field: false true false false false false 
 
-    private static var new_MethodID_4: jmethodID?
+    /// public static final int java.util.zip.ZipConstants.EXTCRC
 
-    public convenience init( name: String?, verify: Bool ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        __args[1] = JNIType.toJava( value: verify, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/lang/String;Z)V", methodCache: &JarFile.new_MethodID_4, args: &__args, locals: &__locals )
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
+    // Skipping field: false true false false false false 
 
-    public convenience init( _ _name: String?, _ _verify: Bool ) throws {
-        try self.init( name: _name, verify: _verify )
-    }
+    /// public static final int java.util.zip.ZipConstants.EXTHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final long java.util.zip.ZipConstants.EXTSIG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.EXTSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCCRC
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCEXT
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCFLG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCHDR
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCHOW
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCLEN
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCNAM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final long java.util.zip.ZipConstants.LOCSIG
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCSIZ
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCTIM
+
+    // Skipping field: false true false false false false 
+
+    /// public static final int java.util.zip.ZipConstants.LOCVER
+
+    // Skipping field: false true false false false false 
 
     /// public java.util.jar.JarFile(java.lang.String) throws java.io.IOException
 
-    private static var new_MethodID_5: jmethodID?
+    private static var new_MethodID_1: jmethodID?
 
     public convenience init( name: String? ) throws {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &JarFile.new_MethodID_5, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &JarFile.new_MethodID_1, args: &__args, locals: &__locals )
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -267,67 +269,166 @@ open class JarFile: ZipFile {
         try self.init( name: _name )
     }
 
-    /// private byte[] java.util.jar.JarFile.getBytes(java.util.zip.ZipEntry) throws java.io.IOException
+    /// public java.util.jar.JarFile(java.lang.String,boolean) throws java.io.IOException
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( name: String?, verify: Bool ) throws {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: name, locals: &__locals )
+        __args[1] = jvalue( z: jboolean(verify ? JNI_TRUE : JNI_FALSE) )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/lang/String;Z)V", methodCache: &JarFile.new_MethodID_2, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _name: String?, _ _verify: Bool ) throws {
+        try self.init( name: _name, verify: _verify )
+    }
+
+    /// public java.util.jar.JarFile(java.io.File) throws java.io.IOException
+
+    private static var new_MethodID_3: jmethodID?
+
+    public convenience init( file: /* class java.io.File */ UnavailableObject? ) throws {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;)V", methodCache: &JarFile.new_MethodID_3, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _file: /* class java.io.File */ UnavailableObject? ) throws {
+        try self.init( file: _file )
+    }
+
+    /// public java.util.jar.JarFile(java.io.File,boolean) throws java.io.IOException
+
+    private static var new_MethodID_4: jmethodID?
+
+    public convenience init( file: /* class java.io.File */ UnavailableObject?, verify: Bool ) throws {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
+        __args[1] = jvalue( z: jboolean(verify ? JNI_TRUE : JNI_FALSE) )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;Z)V", methodCache: &JarFile.new_MethodID_4, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _file: /* class java.io.File */ UnavailableObject?, _ _verify: Bool ) throws {
+        try self.init( file: _file, verify: _verify )
+    }
+
+    /// public java.util.jar.JarFile(java.io.File,boolean,int) throws java.io.IOException
+
+    private static var new_MethodID_5: jmethodID?
+
+    public convenience init( file: /* class java.io.File */ UnavailableObject?, verify: Bool, mode: Int ) throws {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
+        __args[0] = JNIType.toJava( value: file, locals: &__locals )
+        __args[1] = jvalue( z: jboolean(verify ? JNI_TRUE : JNI_FALSE) )
+        __args[2] = jvalue( i: jint(mode) )
+        let __object = JNIMethod.NewObject( className: "java/util/jar/JarFile", classCache: &JarFile.JarFileJNIClass, methodSig: "(Ljava/io/File;ZI)V", methodCache: &JarFile.new_MethodID_5, args: &__args, locals: &__locals )
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _file: /* class java.io.File */ UnavailableObject?, _ _verify: Bool, _ _mode: Int ) throws {
+        try self.init( file: _file, verify: _verify, mode: _mode )
+    }
+
+    /// static java.util.Enumeration java.util.jar.JarFile.access$001(java.util.jar.JarFile)
+
+    // Skipping method: true false false false false 
 
     /// static void java.util.jar.JarFile.access$200(java.util.jar.JarFile) throws java.io.IOException
 
+    // Skipping method: true false false false false 
+
     /// static java.util.jar.JarVerifier java.util.jar.JarFile.access$300(java.util.jar.JarFile)
 
-    /// public java.util.stream.Stream java.util.jar.JarFile.stream()
+    // Skipping method: true false false false false 
+
+    /// private void java.util.jar.JarFile.checkForSpecialAttributes() throws java.io.IOException
+
+    /// private synchronized void java.util.jar.JarFile.ensureInitialization()
+
+    /// public java.util.Enumeration java.util.jar.JarFile.entries()
+
+    // Skipping method: false true false false false 
+
+    /// java.util.Enumeration java.util.jar.JarFile.entries2()
+
+    // Skipping method: true false false false false 
+
+    /// java.util.Enumeration java.util.jar.JarFile.entryNames(java.security.CodeSource[])
+
+    // Skipping method: true false false false false 
+
+    /// private byte[] java.util.jar.JarFile.getBytes(java.util.zip.ZipEntry) throws java.io.IOException
 
     /// java.security.CodeSource java.util.jar.JarFile.getCodeSource(java.net.URL,java.lang.String)
 
-    /// private boolean java.util.jar.JarFile.match(char[],byte[],int[],int[])
+    // Skipping method: true false false false false 
+
+    /// java.security.CodeSource[] java.util.jar.JarFile.getCodeSources(java.net.URL)
+
+    // Skipping method: true false false false false 
+
+    /// public java.util.zip.ZipEntry java.util.jar.JarFile.getEntry(java.lang.String)
+
+    // Skipping method: false true false false false 
 
     /// public synchronized java.io.InputStream java.util.jar.JarFile.getInputStream(java.util.zip.ZipEntry) throws java.io.IOException
 
     private static var getInputStream_MethodID_6: jmethodID?
 
-    open func getInputStream( ze: ZipEntry? ) throws /* java.io.IOException */ -> /* java.io.InputStream */ UnclassedObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open func getInputStream( ze: ZipEntry? ) throws /* java.io.IOException */ -> /* class java.io.InputStream */ UnavailableObject! {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: ze, locals: &__locals )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getInputStream", methodSig: "(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;", methodCache: &JarFile.getInputStream_MethodID_6, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
         }
-        return __return != nil ? /* java.io.InputStream */ UnclassedObject( javaObject: __return ) : nil
+        return __return != nil ? /* class java.io.InputStream */ UnavailableObject( javaObject: __return ) : nil
     }
 
-    override open func getInputStream( _ _ze: ZipEntry? ) throws /* java.io.IOException */ -> /* java.io.InputStream */ UnclassedObject! {
+    override open func getInputStream( _ _ze: ZipEntry? ) throws /* java.io.IOException */ -> /* class java.io.InputStream */ UnavailableObject! {
         return try getInputStream( ze: _ze )
     }
 
-    /// public java.util.jar.Manifest java.util.jar.JarFile.getManifest() throws java.io.IOException
-
-    private static var getManifest_MethodID_7: jmethodID?
-
-    open func getManifest() throws /* java.io.IOException */ -> Manifest! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getManifest", methodSig: "()Ljava/util/jar/Manifest;", methodCache: &JarFile.getManifest_MethodID_7, args: &__args, locals: &__locals )
-        defer { JNI.DeleteLocalRef( __return ) }
-        if let throwable = JNI.ExceptionCheck() {
-            throw /* java.io.IOException */ UnclassedObject( javaObject: throwable )
-        }
-        return __return != nil ? Manifest( javaObject: __return ) : nil
-    }
-
-
-    /// public java.util.Enumeration java.util.jar.JarFile.entries()
-
-    /// public java.util.zip.ZipEntry java.util.jar.JarFile.getEntry(java.lang.String)
-
     /// public java.util.jar.JarEntry java.util.jar.JarFile.getJarEntry(java.lang.String)
 
-    private static var getJarEntry_MethodID_8: jmethodID?
+    private static var getJarEntry_MethodID_7: jmethodID?
 
     open func getJarEntry( name: String? ) -> JarEntry! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: name, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getJarEntry", methodSig: "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", methodCache: &JarFile.getJarEntry_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getJarEntry", methodSig: "(Ljava/lang/String;)Ljava/util/jar/JarEntry;", methodCache: &JarFile.getJarEntry_MethodID_7, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? JarEntry( javaObject: __return ) : nil
     }
@@ -336,39 +437,58 @@ open class JarFile: ZipFile {
         return getJarEntry( name: _name )
     }
 
-    /// boolean java.util.jar.JarFile.hasClassPathAttribute() throws java.io.IOException
+    /// private java.util.jar.JarEntry java.util.jar.JarFile.getManEntry()
+
+    /// public java.util.jar.Manifest java.util.jar.JarFile.getManifest() throws java.io.IOException
+
+    private static var getManifest_MethodID_8: jmethodID?
+
+    open func getManifest() throws /* java.io.IOException */ -> Manifest! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getManifest", methodSig: "()Ljava/util/jar/Manifest;", methodCache: &JarFile.getManifest_MethodID_8, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        if let throwable = JNI.ExceptionCheck() {
+            defer { JNI.DeleteLocalRef( throwable ) }
+            throw /* class java.io.IOException */ UnavailableObject( javaObject: throwable )
+        }
+        return __return != nil ? Manifest( javaObject: __return ) : nil
+    }
+
+
+    /// java.util.List java.util.jar.JarFile.getManifestDigests()
+
+    // Skipping method: true false false false false 
 
     /// private java.util.jar.Manifest java.util.jar.JarFile.getManifestFromReference() throws java.io.IOException
 
     /// private native java.lang.String[] java.util.jar.JarFile.getMetaInfEntryNames()
 
-    /// private void java.util.jar.JarFile.maybeInstantiateVerifier() throws java.io.IOException
+    /// boolean java.util.jar.JarFile.hasClassPathAttribute() throws java.io.IOException
+
+    // Skipping method: true false false false false 
 
     /// private void java.util.jar.JarFile.initializeVerifier()
 
-    /// private java.util.jar.JarEntry java.util.jar.JarFile.getManEntry()
-
-    /// private void java.util.jar.JarFile.checkForSpecialAttributes() throws java.io.IOException
-
     /// private boolean java.util.jar.JarFile.isKnownNotToHaveSpecialAttributes()
 
-    /// private synchronized void java.util.jar.JarFile.ensureInitialization()
+    /// private boolean java.util.jar.JarFile.match(char[],byte[],int[],int[])
+
+    /// private void java.util.jar.JarFile.maybeInstantiateVerifier() throws java.io.IOException
 
     /// java.util.jar.JarEntry java.util.jar.JarFile.newEntry(java.util.zip.ZipEntry)
 
-    /// java.util.Enumeration java.util.jar.JarFile.entryNames(java.security.CodeSource[])
-
-    /// java.util.Enumeration java.util.jar.JarFile.entries2()
-
-    /// java.security.CodeSource[] java.util.jar.JarFile.getCodeSources(java.net.URL)
-
-    /// private java.util.Enumeration java.util.jar.JarFile.unsignedEntryNames()
+    // Skipping method: true false false false false 
 
     /// void java.util.jar.JarFile.setEagerValidation(boolean)
 
-    /// java.util.List java.util.jar.JarFile.getManifestDigests()
+    // Skipping method: true false false false false 
 
-    /// static java.util.Enumeration java.util.jar.JarFile.access$001(java.util.jar.JarFile)
+    /// public java.util.stream.Stream java.util.jar.JarFile.stream()
+
+    // Skipping method: false true false false false 
+
+    /// private java.util.Enumeration java.util.jar.JarFile.unsignedEntryNames()
 
 }
 

@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.EventObject ///
 
-open class EventObject: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProtocol {
+open class EventObject: java_swift.JavaObject, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -24,8 +24,8 @@ open class EventObject: java_swift.JavaObject, /* java.io.Serializable */ Unclas
 
     open var source: java_swift.JavaObject! {
         get {
-            var __locals = [jobject]()
-            let __value = JNIField.GetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &EventObject.source_FieldID, object: javaObject, locals: &__locals )
+            let __value = JNIField.GetObjectField( fieldName: "source", fieldType: "Ljava/lang/Object;", fieldCache: &EventObject.source_FieldID, object: javaObject )
+            defer { JNI.DeleteLocalRef( __value ) }
             return __value != nil ? java_swift.JavaObject( javaObject: __value ) : nil
         }
         set(newValue) {
@@ -40,8 +40,8 @@ open class EventObject: java_swift.JavaObject, /* java.io.Serializable */ Unclas
     private static var new_MethodID_1: jmethodID?
 
     public convenience init( source: java_swift.JavaObject? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: source, locals: &__locals )
         let __object = JNIMethod.NewObject( className: "java/util/EventObject", classCache: &EventObject.EventObjectJNIClass, methodSig: "(Ljava/lang/Object;)V", methodCache: &EventObject.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
@@ -52,20 +52,22 @@ open class EventObject: java_swift.JavaObject, /* java.io.Serializable */ Unclas
         self.init( source: _source )
     }
 
-    /// public java.lang.String java.util.EventObject.toString()
-
     /// public java.lang.Object java.util.EventObject.getSource()
 
     private static var getSource_MethodID_2: jmethodID?
 
     open func getSource() -> java_swift.JavaObject! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSource", methodSig: "()Ljava/lang/Object;", methodCache: &EventObject.getSource_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
         return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
+
+    /// public java.lang.String java.util.EventObject.toString()
+
+    // Skipping method: false true false false false 
 
 }
 

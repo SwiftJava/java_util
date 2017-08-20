@@ -23,12 +23,12 @@ open class DoubleBinaryOperatorForward: JNIObjectForward, DoubleBinaryOperator {
     private static var applyAsDouble_MethodID_2: jmethodID?
 
     open func applyAsDouble( left: Double, right: Double ) -> Double {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: left, locals: &__locals )
-        __args[1] = JNIType.toJava( value: right, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+        __args[0] = jvalue( d: left )
+        __args[1] = jvalue( d: right )
         let __return = JNIMethod.CallDoubleMethod( object: javaObject, methodName: "applyAsDouble", methodSig: "(DD)D", methodCache: &DoubleBinaryOperatorForward.applyAsDouble_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Double(), from: __return )
+        return __return
     }
 
     open func applyAsDouble( _ _left: Double, _ _right: Double ) -> Double {
@@ -36,5 +36,4 @@ open class DoubleBinaryOperatorForward: JNIObjectForward, DoubleBinaryOperator {
     }
 
 }
-
 

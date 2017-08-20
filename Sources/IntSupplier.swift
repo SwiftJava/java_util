@@ -23,13 +23,12 @@ open class IntSupplierForward: JNIObjectForward, IntSupplier {
     private static var getAsInt_MethodID_2: jmethodID?
 
     open func getAsInt() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getAsInt", methodSig: "()I", methodCache: &IntSupplierForward.getAsInt_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
 
 }
-
 

@@ -6,19 +6,19 @@ import java_swift
 /// class java.util.AbstractSet ///
 
 open class AbstractSet: AbstractCollection, java_swift.JavaSet {
-    public func addAll(c: UnclassedProtocol?) -> Bool {
+    public func addAll(c: UnavailableProtocol?) -> Bool {
         return false
     }
 
-    public func containsAll(c: UnclassedProtocol?) -> Bool {
+    public func containsAll(c: UnavailableProtocol?) -> Bool {
         return false
     }
 
-    public func removeAll(c: UnclassedProtocol?) -> Bool {
+    public func removeAll(c: UnavailableProtocol?) -> Bool {
         return false
     }
 
-    public func retainAll(c: UnclassedProtocol?) -> Bool {
+    public func retainAll(c: UnavailableProtocol?) -> Bool {
         return false
     }
 
@@ -39,8 +39,8 @@ open class AbstractSet: AbstractCollection, java_swift.JavaSet {
     private static var new_MethodID_1: jmethodID?
 
     public convenience init() {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __object = JNIMethod.NewObject( className: "java/util/AbstractSet", classCache: &AbstractSet.AbstractSetJNIClass, methodSig: "()V", methodCache: &AbstractSet.new_MethodID_1, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
@@ -51,11 +51,11 @@ open class AbstractSet: AbstractCollection, java_swift.JavaSet {
     private static var equals_MethodID_2: jmethodID?
 
     override open func equals( o: java_swift.JavaObject? ) -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: o, locals: &__locals )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "equals", methodSig: "(Ljava/lang/Object;)Z", methodCache: &AbstractSet.equals_MethodID_2, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
     }
 
     override open func equals( _ _o: java_swift.JavaObject? ) -> Bool {
@@ -64,47 +64,89 @@ open class AbstractSet: AbstractCollection, java_swift.JavaSet {
 
     /// public int java.util.AbstractSet.hashCode()
 
+    // Skipping method: false true false false false 
+
     /// public boolean java.util.AbstractSet.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
 
     /// In declared protocol but not defined.. ///
 
-    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+    /// public abstract boolean java.util.Collection.add(java.lang.Object)
 
-    /// public abstract boolean java.util.Collection.isEmpty()
+    // Skipping method: false true false false false 
 
     /// public abstract boolean java.util.Collection.addAll(java.util.Collection)
 
-    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
-
-    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray()
-
-    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
-
-    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
-
-    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
-
-    /// public abstract int java.util.Collection.hashCode()
-
-    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
-
-    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
-
-    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
-
-    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
-
-    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
-
-    /// public abstract boolean java.util.Collection.add(java.lang.Object)
-
-    /// public default java.util.stream.Stream java.util.Collection.stream()
+    // Skipping method: false true false false false 
 
     /// public abstract void java.util.Collection.clear()
 
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.contains(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.containsAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public default void java.lang.Iterable.forEach(java.util.function.Consumer)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract int java.util.Collection.hashCode()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.isEmpty()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.util.Iterator java.lang.Iterable.iterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.parallelStream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.remove(java.lang.Object)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.removeAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
+    /// public default boolean java.util.Collection.removeIf(java.util.function.Predicate)
+
+    // Skipping method: false true false false false 
+
+    /// public abstract boolean java.util.Collection.retainAll(java.util.Collection)
+
+    // Skipping method: false true false false false 
+
     /// public abstract int java.util.Collection.size()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.Spliterator java.lang.Iterable.spliterator()
+
+    // Skipping method: false true false false false 
+
+    /// public default java.util.stream.Stream java.util.Collection.stream()
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray(java.lang.Object[])
+
+    // Skipping method: false true false false false 
+
+    /// public abstract java.lang.Object[] java.util.Collection.toArray()
+
+    // Skipping method: false true false false false 
 
 }
 

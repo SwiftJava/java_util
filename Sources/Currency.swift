@@ -5,7 +5,7 @@ import java_swift
 
 /// class java.util.Currency ///
 
-open class Currency: java_swift.JavaObject, /* java.io.Serializable */ UnclassedProtocol {
+open class Currency: java_swift.JavaObject, /* interface java.io.Serializable */ UnavailableProtocol {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
@@ -16,6 +16,98 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     private static var CurrencyJNIClass: jclass?
 
+    /// private static final int java.util.Currency.A_TO_Z
+
+    /// private static final int java.util.Currency.COUNTRY_TYPE_MASK
+
+    /// private static final int java.util.Currency.COUNTRY_WITHOUT_CURRENCY_ENTRY
+
+    /// private static final int java.util.Currency.DISPLAYNAME
+
+    /// private static final int java.util.Currency.INVALID_COUNTRY_ENTRY
+
+    /// private static final int java.util.Currency.MAGIC_NUMBER
+
+    /// private static final int java.util.Currency.NUMERIC_CODE_MASK
+
+    /// private static final int java.util.Currency.NUMERIC_CODE_SHIFT
+
+    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK
+
+    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT
+
+    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK
+
+    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_MASK
+
+    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS
+
+    /// private static final int java.util.Currency.SPECIAL_CASE_COUNTRY_INDEX_DELTA
+
+    /// private static final int java.util.Currency.SPECIAL_CASE_COUNTRY_INDEX_MASK
+
+    /// private static final int java.util.Currency.SPECIAL_CASE_COUNTRY_MASK
+
+    /// private static final int java.util.Currency.SYMBOL
+
+    /// private static final int java.util.Currency.VALID_FORMAT_VERSION
+
+    /// private static java.util.HashSet java.util.Currency.available
+
+    /// static int java.util.Currency.dataVersion
+
+    // Skipping field: true false false false false false 
+
+    /// static int java.util.Currency.formatVersion
+
+    // Skipping field: true false false false false false 
+
+    /// private static java.util.concurrent.ConcurrentMap java.util.Currency.instances
+
+    /// static int[] java.util.Currency.mainTable
+
+    // Skipping field: true false false false false false 
+
+    /// static java.lang.String java.util.Currency.otherCurrencies
+
+    // Skipping field: true false false false false false 
+
+    /// static int[] java.util.Currency.otherCurrenciesDFD
+
+    // Skipping field: true false false false false false 
+
+    /// static int[] java.util.Currency.otherCurrenciesNumericCode
+
+    // Skipping field: true false false false false false 
+
+    /// static long[] java.util.Currency.scCutOverTimes
+
+    // Skipping field: true false false false false false 
+
+    /// static java.lang.String[] java.util.Currency.scNewCurrencies
+
+    // Skipping field: true false false false false false 
+
+    /// static int[] java.util.Currency.scNewCurrenciesDFD
+
+    // Skipping field: true false false false false false 
+
+    /// static int[] java.util.Currency.scNewCurrenciesNumericCode
+
+    // Skipping field: true false false false false false 
+
+    /// static java.lang.String[] java.util.Currency.scOldCurrencies
+
+    // Skipping field: true false false false false false 
+
+    /// static int[] java.util.Currency.scOldCurrenciesDFD
+
+    // Skipping field: true false false false false false 
+
+    /// static int[] java.util.Currency.scOldCurrenciesNumericCode
+
+    // Skipping field: true false false false false false 
+
     /// private static final long java.util.Currency.serialVersionUID
 
     /// private final java.lang.String java.util.Currency.currencyCode
@@ -24,106 +116,50 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// private final transient int java.util.Currency.numericCode
 
-    /// private static java.util.concurrent.ConcurrentMap java.util.Currency.instances
-
-    /// private static java.util.HashSet java.util.Currency.available
-
-    /// static int java.util.Currency.formatVersion
-
-    /// static int java.util.Currency.dataVersion
-
-    /// static int[] java.util.Currency.mainTable
-
-    /// static long[] java.util.Currency.scCutOverTimes
-
-    /// static java.lang.String[] java.util.Currency.scOldCurrencies
-
-    /// static java.lang.String[] java.util.Currency.scNewCurrencies
-
-    /// static int[] java.util.Currency.scOldCurrenciesDFD
-
-    /// static int[] java.util.Currency.scNewCurrenciesDFD
-
-    /// static int[] java.util.Currency.scOldCurrenciesNumericCode
-
-    /// static int[] java.util.Currency.scNewCurrenciesNumericCode
-
-    /// static java.lang.String java.util.Currency.otherCurrencies
-
-    /// static int[] java.util.Currency.otherCurrenciesDFD
-
-    /// static int[] java.util.Currency.otherCurrenciesNumericCode
-
-    /// private static final int java.util.Currency.MAGIC_NUMBER
-
-    /// private static final int java.util.Currency.A_TO_Z
-
-    /// private static final int java.util.Currency.INVALID_COUNTRY_ENTRY
-
-    /// private static final int java.util.Currency.COUNTRY_WITHOUT_CURRENCY_ENTRY
-
-    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_MASK
-
-    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_FINAL_CHAR_MASK
-
-    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_MASK
-
-    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_DEFAULT_DIGITS_SHIFT
-
-    /// private static final int java.util.Currency.SIMPLE_CASE_COUNTRY_MAX_DEFAULT_DIGITS
-
-    /// private static final int java.util.Currency.SPECIAL_CASE_COUNTRY_MASK
-
-    /// private static final int java.util.Currency.SPECIAL_CASE_COUNTRY_INDEX_MASK
-
-    /// private static final int java.util.Currency.SPECIAL_CASE_COUNTRY_INDEX_DELTA
-
-    /// private static final int java.util.Currency.COUNTRY_TYPE_MASK
-
-    /// private static final int java.util.Currency.NUMERIC_CODE_MASK
-
-    /// private static final int java.util.Currency.NUMERIC_CODE_SHIFT
-
-    /// private static final int java.util.Currency.VALID_FORMAT_VERSION
-
-    /// private static final int java.util.Currency.SYMBOL
-
-    /// private static final int java.util.Currency.DISPLAYNAME
-
     /// private java.util.Currency(java.lang.String,int,int)
 
-    /// public java.lang.String java.util.Currency.toString()
+    /// static int[] java.util.Currency.access$000(java.io.DataInputStream,int) throws java.io.IOException
+
+    // Skipping method: true false false false false 
 
     /// static long[] java.util.Currency.access$100(java.io.DataInputStream,int) throws java.io.IOException
 
+    // Skipping method: true false false false false 
+
     /// static java.lang.String[] java.util.Currency.access$200(java.io.DataInputStream,int) throws java.io.IOException
+
+    // Skipping method: true false false false false 
 
     /// static void java.util.Currency.access$300(java.util.regex.Pattern,java.lang.String,java.lang.String)
 
-    /// public static java.util.Currency java.util.Currency.getInstance(java.lang.String)
+    // Skipping method: true false false false false 
 
-    private static var getInstance_MethodID_1: jmethodID?
+    /// static void java.util.Currency.access$400(java.lang.String,java.lang.Throwable)
 
-    open class func getInstance( arg0: String? ) -> Currency! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    // Skipping method: true false false false false 
+
+    /// private static int java.util.Currency.countOccurrences(java.lang.String,char)
+
+    /// public static java.util.Set java.util.Currency.getAvailableCurrencies()
+
+    private static var getAvailableCurrencies_MethodID_1: jmethodID?
+
+    open class func getAvailableCurrencies() -> java_swift.JavaSet! {
         var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getInstance", methodSig: "(Ljava/lang/String;)Ljava/util/Currency;", methodCache: &getInstance_MethodID_1, args: &__args, locals: &__locals )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getAvailableCurrencies", methodSig: "()Ljava/util/Set;", methodCache: &getAvailableCurrencies_MethodID_1, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? Currency( javaObject: __return ) : nil
+        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
     }
 
-    open class func getInstance( _ _arg0: String? ) -> Currency! {
-        return getInstance( arg0: _arg0 )
-    }
 
     /// public static java.util.Currency java.util.Currency.getInstance(java.util.Locale)
 
     private static var getInstance_MethodID_2: jmethodID?
 
     open class func getInstance( arg0: JavaLocale? ) -> Currency! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
         let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getInstance", methodSig: "(Ljava/util/Locale;)Ljava/util/Currency;", methodCache: &getInstance_MethodID_2, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
@@ -134,96 +170,30 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
         return getInstance( arg0: _arg0 )
     }
 
-    /// private static java.util.Currency java.util.Currency.getInstance(java.lang.String,int,int)
+    /// public static java.util.Currency java.util.Currency.getInstance(java.lang.String)
 
-    /// static int[] java.util.Currency.access$000(java.io.DataInputStream,int) throws java.io.IOException
+    private static var getInstance_MethodID_3: jmethodID?
 
-    /// static void java.util.Currency.access$400(java.lang.String,java.lang.Throwable)
-
-    /// private java.lang.Object java.util.Currency.readResolve()
-
-    /// private static void java.util.Currency.info(java.lang.String,java.lang.Throwable)
-
-    /// public java.lang.String java.util.Currency.getSymbol()
-
-    private static var getSymbol_MethodID_3: jmethodID?
-
-    open func getSymbol() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+    open class func getInstance( arg0: String? ) -> Currency! {
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getSymbol_MethodID_3, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public java.lang.String java.util.Currency.getSymbol(java.util.Locale)
-
-    private static var getSymbol_MethodID_4: jmethodID?
-
-    open func getSymbol( arg0: JavaLocale? ) -> String! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &Currency.getSymbol_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-    open func getSymbol( _ _arg0: JavaLocale? ) -> String! {
-        return getSymbol( arg0: _arg0 )
-    }
-
-    /// public static java.util.Set java.util.Currency.getAvailableCurrencies()
-
-    private static var getAvailableCurrencies_MethodID_5: jmethodID?
-
-    open class func getAvailableCurrencies() -> java_swift.JavaSet! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getAvailableCurrencies", methodSig: "()Ljava/util/Set;", methodCache: &getAvailableCurrencies_MethodID_5, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallStaticObjectMethod( className: "java/util/Currency", classCache: &CurrencyJNIClass, methodName: "getInstance", methodSig: "(Ljava/lang/String;)Ljava/util/Currency;", methodCache: &getInstance_MethodID_3, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaSetForward( javaObject: __return ) : nil
+        return __return != nil ? Currency( javaObject: __return ) : nil
     }
 
-
-    /// public java.lang.String java.util.Currency.getCurrencyCode()
-
-    private static var getCurrencyCode_MethodID_6: jmethodID?
-
-    open func getCurrencyCode() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCurrencyCode", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getCurrencyCode_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+    open class func getInstance( _ _arg0: String? ) -> Currency! {
+        return getInstance( arg0: _arg0 )
     }
 
-
-    /// public int java.util.Currency.getDefaultFractionDigits()
-
-    private static var getDefaultFractionDigits_MethodID_7: jmethodID?
-
-    open func getDefaultFractionDigits() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getDefaultFractionDigits", methodSig: "()I", methodCache: &Currency.getDefaultFractionDigits_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
-
-    /// public int java.util.Currency.getNumericCode()
-
-    private static var getNumericCode_MethodID_8: jmethodID?
-
-    open func getNumericCode() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getNumericCode", methodSig: "()I", methodCache: &Currency.getNumericCode_MethodID_8, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
-    }
-
+    /// private static java.util.Currency java.util.Currency.getInstance(java.lang.String,int,int)
 
     /// private static int java.util.Currency.getMainTableEntry(char,char)
 
-    /// private static void java.util.Currency.setMainTableEntry(char,char,int)
+    /// private static void java.util.Currency.info(java.lang.String,java.lang.Throwable)
+
+    /// private static boolean java.util.Currency.isPastCutoverDate(java.lang.String) throws java.text.ParseException
 
     /// private static int[] java.util.Currency.readIntArray(java.io.DataInputStream,int) throws java.io.IOException
 
@@ -233,20 +203,44 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// private static void java.util.Currency.replaceCurrencyData(java.util.regex.Pattern,java.lang.String,java.lang.String)
 
-    /// private static boolean java.util.Currency.isPastCutoverDate(java.lang.String) throws java.text.ParseException
+    /// private static void java.util.Currency.setMainTableEntry(char,char,int)
 
-    /// private static int java.util.Currency.countOccurrences(java.lang.String,char)
+    /// public java.lang.String java.util.Currency.getCurrencyCode()
+
+    private static var getCurrencyCode_MethodID_4: jmethodID?
+
+    open func getCurrencyCode() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getCurrencyCode", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getCurrencyCode_MethodID_4, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// public int java.util.Currency.getDefaultFractionDigits()
+
+    private static var getDefaultFractionDigits_MethodID_5: jmethodID?
+
+    open func getDefaultFractionDigits() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getDefaultFractionDigits", methodSig: "()I", methodCache: &Currency.getDefaultFractionDigits_MethodID_5, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
 
     /// public java.lang.String java.util.Currency.getDisplayName(java.util.Locale)
 
-    private static var getDisplayName_MethodID_9: jmethodID?
+    private static var getDisplayName_MethodID_6: jmethodID?
 
     open func getDisplayName( arg0: JavaLocale? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &Currency.getDisplayName_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &Currency.getDisplayName_MethodID_6, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open func getDisplayName( _ _arg0: JavaLocale? ) -> String! {
@@ -255,15 +249,64 @@ open class Currency: java_swift.JavaObject, /* java.io.Serializable */ Unclassed
 
     /// public java.lang.String java.util.Currency.getDisplayName()
 
-    private static var getDisplayName_MethodID_10: jmethodID?
+    private static var getDisplayName_MethodID_7: jmethodID?
 
     open func getDisplayName() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getDisplayName_MethodID_10, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getDisplayName", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getDisplayName_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
+
+    /// public int java.util.Currency.getNumericCode()
+
+    private static var getNumericCode_MethodID_8: jmethodID?
+
+    open func getNumericCode() -> Int {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "getNumericCode", methodSig: "()I", methodCache: &Currency.getNumericCode_MethodID_8, args: &__args, locals: &__locals )
+        return Int(__return)
+    }
+
+
+    /// public java.lang.String java.util.Currency.getSymbol(java.util.Locale)
+
+    private static var getSymbol_MethodID_9: jmethodID?
+
+    open func getSymbol( arg0: JavaLocale? ) -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: arg0, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "(Ljava/util/Locale;)Ljava/lang/String;", methodCache: &Currency.getSymbol_MethodID_9, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+    open func getSymbol( _ _arg0: JavaLocale? ) -> String! {
+        return getSymbol( arg0: _arg0 )
+    }
+
+    /// public java.lang.String java.util.Currency.getSymbol()
+
+    private static var getSymbol_MethodID_10: jmethodID?
+
+    open func getSymbol() -> String! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getSymbol", methodSig: "()Ljava/lang/String;", methodCache: &Currency.getSymbol_MethodID_10, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
+    }
+
+
+    /// private java.lang.Object java.util.Currency.readResolve()
+
+    /// public java.lang.String java.util.Currency.toString()
+
+    // Skipping method: false true false false false 
 
 }
 

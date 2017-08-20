@@ -18,34 +18,51 @@ open class StringTokenizer: java_swift.JavaObject, Enumeration {
 
     /// private int java.util.StringTokenizer.currentPosition
 
-    /// private int java.util.StringTokenizer.newPosition
-
-    /// private int java.util.StringTokenizer.maxPosition
-
-    /// private java.lang.String java.util.StringTokenizer.str
+    /// private int[] java.util.StringTokenizer.delimiterCodePoints
 
     /// private java.lang.String java.util.StringTokenizer.delimiters
 
-    /// private boolean java.util.StringTokenizer.retDelims
-
     /// private boolean java.util.StringTokenizer.delimsChanged
-
-    /// private int java.util.StringTokenizer.maxDelimCodePoint
 
     /// private boolean java.util.StringTokenizer.hasSurrogates
 
-    /// private int[] java.util.StringTokenizer.delimiterCodePoints
+    /// private int java.util.StringTokenizer.maxDelimCodePoint
 
-    /// public java.util.StringTokenizer(java.lang.String,java.lang.String)
+    /// private int java.util.StringTokenizer.maxPosition
+
+    /// private int java.util.StringTokenizer.newPosition
+
+    /// private boolean java.util.StringTokenizer.retDelims
+
+    /// private java.lang.String java.util.StringTokenizer.str
+
+    /// public java.util.StringTokenizer(java.lang.String)
 
     private static var new_MethodID_1: jmethodID?
 
-    public convenience init( str: String?, delim: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 2 )
+    public convenience init( str: String? ) {
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: str, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/StringTokenizer", classCache: &StringTokenizer.StringTokenizerJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &StringTokenizer.new_MethodID_1, args: &__args, locals: &__locals )
+        self.init( javaObject: __object )
+        JNI.DeleteLocalRef( __object )
+    }
+
+    public convenience init( _ _str: String? ) {
+        self.init( str: _str )
+    }
+
+    /// public java.util.StringTokenizer(java.lang.String,java.lang.String)
+
+    private static var new_MethodID_2: jmethodID?
+
+    public convenience init( str: String?, delim: String? ) {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: str, locals: &__locals )
         __args[1] = JNIType.toJava( value: delim, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/StringTokenizer", classCache: &StringTokenizer.StringTokenizerJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/String;)V", methodCache: &StringTokenizer.new_MethodID_1, args: &__args, locals: &__locals )
+        let __object = JNIMethod.NewObject( className: "java/util/StringTokenizer", classCache: &StringTokenizer.StringTokenizerJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/String;)V", methodCache: &StringTokenizer.new_MethodID_2, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -56,15 +73,15 @@ open class StringTokenizer: java_swift.JavaObject, Enumeration {
 
     /// public java.util.StringTokenizer(java.lang.String,java.lang.String,boolean)
 
-    private static var new_MethodID_2: jmethodID?
+    private static var new_MethodID_3: jmethodID?
 
     public convenience init( str: String?, delim: String?, returnDelims: Bool ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 3 )
         __args[0] = JNIType.toJava( value: str, locals: &__locals )
         __args[1] = JNIType.toJava( value: delim, locals: &__locals )
-        __args[2] = JNIType.toJava( value: returnDelims, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/StringTokenizer", classCache: &StringTokenizer.StringTokenizerJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/String;Z)V", methodCache: &StringTokenizer.new_MethodID_2, args: &__args, locals: &__locals )
+        __args[2] = jvalue( z: jboolean(returnDelims ? JNI_TRUE : JNI_FALSE) )
+        let __object = JNIMethod.NewObject( className: "java/util/StringTokenizer", classCache: &StringTokenizer.StringTokenizerJNIClass, methodSig: "(Ljava/lang/String;Ljava/lang/String;Z)V", methodCache: &StringTokenizer.new_MethodID_3, args: &__args, locals: &__locals )
         self.init( javaObject: __object )
         JNI.DeleteLocalRef( __object )
     }
@@ -73,32 +90,15 @@ open class StringTokenizer: java_swift.JavaObject, Enumeration {
         self.init( str: _str, delim: _delim, returnDelims: _returnDelims )
     }
 
-    /// public java.util.StringTokenizer(java.lang.String)
-
-    private static var new_MethodID_3: jmethodID?
-
-    public convenience init( str: String? ) {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        __args[0] = JNIType.toJava( value: str, locals: &__locals )
-        let __object = JNIMethod.NewObject( className: "java/util/StringTokenizer", classCache: &StringTokenizer.StringTokenizerJNIClass, methodSig: "(Ljava/lang/String;)V", methodCache: &StringTokenizer.new_MethodID_3, args: &__args, locals: &__locals )
-        self.init( javaObject: __object )
-        JNI.DeleteLocalRef( __object )
-    }
-
-    public convenience init( _ _str: String? ) {
-        self.init( str: _str )
-    }
-
     /// public int java.util.StringTokenizer.countTokens()
 
     private static var countTokens_MethodID_4: jmethodID?
 
     open func countTokens() -> Int {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallIntMethod( object: javaObject, methodName: "countTokens", methodSig: "()I", methodCache: &StringTokenizer.countTokens_MethodID_4, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Int(), from: __return )
+        return Int(__return)
     }
 
 
@@ -107,23 +107,51 @@ open class StringTokenizer: java_swift.JavaObject, Enumeration {
     private static var hasMoreElements_MethodID_5: jmethodID?
 
     open func hasMoreElements() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasMoreElements", methodSig: "()Z", methodCache: &StringTokenizer.hasMoreElements_MethodID_5, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// public boolean java.util.StringTokenizer.hasMoreTokens()
+
+    private static var hasMoreTokens_MethodID_6: jmethodID?
+
+    open func hasMoreTokens() -> Bool {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasMoreTokens", methodSig: "()Z", methodCache: &StringTokenizer.hasMoreTokens_MethodID_6, args: &__args, locals: &__locals )
+        return __return != jboolean(JNI_FALSE)
+    }
+
+
+    /// private boolean java.util.StringTokenizer.isDelimiter(int)
+
+    /// public java.lang.Object java.util.StringTokenizer.nextElement()
+
+    private static var nextElement_MethodID_7: jmethodID?
+
+    open func nextElement() -> java_swift.JavaObject! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextElement", methodSig: "()Ljava/lang/Object;", methodCache: &StringTokenizer.nextElement_MethodID_7, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
     }
 
 
     /// public java.lang.String java.util.StringTokenizer.nextToken(java.lang.String)
 
-    private static var nextToken_MethodID_6: jmethodID?
+    private static var nextToken_MethodID_8: jmethodID?
 
     open func nextToken( delim: String? ) -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: delim, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextToken", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &StringTokenizer.nextToken_MethodID_6, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextToken", methodSig: "(Ljava/lang/String;)Ljava/lang/String;", methodCache: &StringTokenizer.nextToken_MethodID_8, args: &__args, locals: &__locals )
+        defer { JNI.DeleteLocalRef( __return ) }
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
     open func nextToken( _ _delim: String? ) -> String! {
@@ -132,48 +160,22 @@ open class StringTokenizer: java_swift.JavaObject, Enumeration {
 
     /// public java.lang.String java.util.StringTokenizer.nextToken()
 
-    private static var nextToken_MethodID_7: jmethodID?
+    private static var nextToken_MethodID_9: jmethodID?
 
     open func nextToken() -> String! {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
         var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextToken", methodSig: "()Ljava/lang/String;", methodCache: &StringTokenizer.nextToken_MethodID_7, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: String(), from: __return )
-    }
-
-
-    /// public java.lang.Object java.util.StringTokenizer.nextElement()
-
-    private static var nextElement_MethodID_8: jmethodID?
-
-    open func nextElement() -> java_swift.JavaObject! {
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextElement", methodSig: "()Ljava/lang/Object;", methodCache: &StringTokenizer.nextElement_MethodID_8, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "nextToken", methodSig: "()Ljava/lang/String;", methodCache: &StringTokenizer.nextToken_MethodID_9, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
 
-    /// public boolean java.util.StringTokenizer.hasMoreTokens()
-
-    private static var hasMoreTokens_MethodID_9: jmethodID?
-
-    open func hasMoreTokens() -> Bool {
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        var __locals = [jobject]()
-        let __return = JNIMethod.CallBooleanMethod( object: javaObject, methodName: "hasMoreTokens", methodSig: "()Z", methodCache: &StringTokenizer.hasMoreTokens_MethodID_9, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: Bool(), from: __return )
-    }
-
+    /// private int java.util.StringTokenizer.scanToken(int)
 
     /// private void java.util.StringTokenizer.setMaxDelimCodePoint()
 
     /// private int java.util.StringTokenizer.skipDelimiters(int)
-
-    /// private int java.util.StringTokenizer.scanToken(int)
-
-    /// private boolean java.util.StringTokenizer.isDelimiter(int)
 
 }
 
