@@ -229,24 +229,24 @@ open class ConcurrentSkipListSet: AbstractSet, java_lang.Cloneable {////}, /* in
         return floor( e: _e )
     }
 
-    /// public java.util.NavigableSet java.util.concurrent.ConcurrentSkipListSet.headSet(java.lang.Object)
+    /// public java.util.SortedSet java.util.concurrent.ConcurrentSkipListSet.headSet(java.lang.Object)
 
     private static var headSet_MethodID_13: jmethodID?
 
-    open func headSet( toElement: java_swift.JavaObject? ) -> NavigableSet! {
+    open func headSet( toElement: java_swift.JavaObject? ) -> SortedSet! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: toElement, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;)Ljava/util/NavigableSet;", methodCache: &ConcurrentSkipListSet.headSet_MethodID_13, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headSet", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedSet;", methodCache: &ConcurrentSkipListSet.headSet_MethodID_13, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? NavigableSetForward( javaObject: __return ) : nil
+        return __return != nil ? SortedSetForward( javaObject: __return ) : nil
     }
 
-    open func headSet( _ _toElement: java_swift.JavaObject? ) -> NavigableSet! {
+    open func headSet( _ _toElement: java_swift.JavaObject? ) -> SortedSet! {
         return headSet( toElement: _toElement )
     }
 
-    /// public java.util.SortedSet java.util.concurrent.ConcurrentSkipListSet.headSet(java.lang.Object)
+    /// public java.util.NavigableSet java.util.concurrent.ConcurrentSkipListSet.headSet(java.lang.Object)
 
     /// public java.util.NavigableSet java.util.concurrent.ConcurrentSkipListSet.headSet(java.lang.Object,boolean)
 

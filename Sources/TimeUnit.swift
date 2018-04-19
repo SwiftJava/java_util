@@ -10,7 +10,7 @@ public enum TimeUnit: Int, JNIObjectProtocol, JNIObjectInit {
 
     case NANOSECONDS, MICROSECONDS, MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS
 
-    static let enumConstants = try! JavaClass.forName("java.util.concurrent.TimeUnit")
+    static let enumConstants = JavaClass(loading: "java.util.concurrent.TimeUnit")
         .getEnumConstants()!.map { TimeUnitForward( javaObject: $0.javaObject ) }
 
     public func underlier() -> TimeUnitForward {
@@ -78,10 +78,10 @@ public enum TimeUnit: Int, JNIObjectProtocol, JNIObjectInit {
 
     private static var timedJoin_MethodID_5: jmethodID?
 
-    public func timedJoin( thread: java_lang.Thread?, timeout: Int64 ) throws /* java.lang.InterruptedException */ {
+    public func timedJoin( thread: java_swift.JavaThread?, timeout: Int64 ) throws /* java.lang.InterruptedException */ {
         return try underlier().timedJoin( thread: thread, timeout: timeout )
     }
-    public func timedJoin( _ _thread: java_lang.Thread?, _ _timeout: Int64 ) throws /* java.lang.InterruptedException */ {
+    public func timedJoin( _ _thread: java_swift.JavaThread?, _ _timeout: Int64 ) throws /* java.lang.InterruptedException */ {
         try timedJoin( thread: _thread, timeout: _timeout )
     }
 
@@ -425,7 +425,7 @@ open class TimeUnitForward: JNIObjectForward {
 
     private static var timedJoin_MethodID_19: jmethodID?
 
-    open func timedJoin( thread: java_lang.Thread?, timeout: Int64 ) throws /* java.lang.InterruptedException */ {
+    open func timedJoin( thread: java_swift.JavaThread?, timeout: Int64 ) throws /* java.lang.InterruptedException */ {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: thread, locals: &__locals )
@@ -437,7 +437,7 @@ open class TimeUnitForward: JNIObjectForward {
         }
     }
 
-    open func timedJoin( _ _thread: java_lang.Thread?, _ _timeout: Int64 ) throws /* java.lang.InterruptedException */ {
+    open func timedJoin( _ _thread: java_swift.JavaThread?, _ _timeout: Int64 ) throws /* java.lang.InterruptedException */ {
         try timedJoin( thread: _thread, timeout: _timeout )
     }
 

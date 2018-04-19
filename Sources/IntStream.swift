@@ -161,11 +161,11 @@ public protocol IntStream: BaseStream {
 
     func reduce( op: IntBinaryOperator? ) -> OptionalInt!
 
-    /// public default java.util.stream.BaseStream java.util.stream.IntStream.sequential()
-
-    func sequential() -> BaseStream!
-
     /// public abstract java.util.stream.IntStream java.util.stream.IntStream.sequential()
+
+    func sequential() -> IntStream!
+
+    /// public default java.util.stream.BaseStream java.util.stream.IntStream.sequential()
 
     /// public abstract java.util.stream.IntStream java.util.stream.IntStream.skip(long)
 
@@ -810,20 +810,20 @@ open class IntStreamForward: BaseStreamForward, IntStream {
         return reduce( op: _op )
     }
 
-    /// public default java.util.stream.BaseStream java.util.stream.IntStream.sequential()
+    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.sequential()
 
     private static var sequential_MethodID_83: jmethodID?
 
-    override open func sequential() -> BaseStream! {
+    open func sequential() -> IntStream! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &IntStreamForward.sequential_MethodID_83, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/IntStream;", methodCache: &IntStreamForward.sequential_MethodID_83, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
+        return __return != nil ? IntStreamForward( javaObject: __return ) : nil
     }
 
 
-    /// public abstract java.util.stream.IntStream java.util.stream.IntStream.sequential()
+    /// public default java.util.stream.BaseStream java.util.stream.IntStream.sequential()
 
     /// public abstract java.util.stream.IntStream java.util.stream.IntStream.skip(long)
 

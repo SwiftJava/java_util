@@ -294,19 +294,19 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* interface
     }
 
 
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.descendingMap()
+    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.descendingMap()
 
     private static var descendingMap_MethodID_14: jmethodID?
 
-    open func descendingMap() -> ConcurrentNavigableMap! {
+    open func descendingMap() -> NavigableMap! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingMap", methodSig: "()Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.descendingMap_MethodID_14, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: ConcurrentNavigableMapForward.self, from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "descendingMap", methodSig: "()Ljava/util/NavigableMap;", methodCache: &ConcurrentSkipListMap.descendingMap_MethodID_14, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: NavigableMapForward.self, from: __return )
     }
 
 
-    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.descendingMap()
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.descendingMap()
 
     /// private java.lang.Object java.util.concurrent.ConcurrentSkipListMap.doGet(java.lang.Object)
 
@@ -455,23 +455,23 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* interface
         return getOrDefault( arg0: _arg0, arg1: _arg1 )
     }
 
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object)
+    /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object)
 
     private static var headMap_MethodID_21: jmethodID?
 
-    open func headMap( toKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
+    open func headMap( toKey: java_swift.JavaObject? ) -> SortedMap! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: toKey, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headMap", methodSig: "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.headMap_MethodID_21, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: ConcurrentNavigableMapForward.self, from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "headMap", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &ConcurrentSkipListMap.headMap_MethodID_21, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: SortedMapForward.self, from: __return )
     }
 
-    open func headMap( _ _toKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
+    open func headMap( _ _toKey: java_swift.JavaObject? ) -> SortedMap! {
         return headMap( toKey: _toKey )
     }
 
-    /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object)
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object)
 
     /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.headMap(java.lang.Object,boolean)
 
@@ -536,11 +536,11 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* interface
 
     // Skipping method: true false false false false 
 
-    /// public java.util.Set java.util.concurrent.ConcurrentSkipListMap.keySet()
+    /// public java.util.NavigableSet java.util.concurrent.ConcurrentSkipListMap.keySet()
 
     // Skipping method: false true false false false 
 
-    /// public java.util.NavigableSet java.util.concurrent.ConcurrentSkipListMap.keySet()
+    /// public java.util.Set java.util.concurrent.ConcurrentSkipListMap.keySet()
 
     // Skipping method: false true false false false 
 
@@ -787,61 +787,61 @@ open class ConcurrentSkipListMap: AbstractMap, java_lang.Cloneable, /* interface
 
     /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,boolean,java.lang.Object,boolean)
 
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,java.lang.Object)
+    /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,java.lang.Object)
 
     private static var subMap_MethodID_39: jmethodID?
 
-    open func subMap( fromKey: java_swift.JavaObject?, toKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
+    open func subMap( fromKey: java_swift.JavaObject?, toKey: java_swift.JavaObject? ) -> SortedMap! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
         __args[1] = JNIType.toJava( value: toKey, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.subMap_MethodID_39, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: ConcurrentNavigableMapForward.self, from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "subMap", methodSig: "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &ConcurrentSkipListMap.subMap_MethodID_39, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: SortedMapForward.self, from: __return )
     }
 
-    open func subMap( _ _fromKey: java_swift.JavaObject?, _ _toKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
+    open func subMap( _ _fromKey: java_swift.JavaObject?, _ _toKey: java_swift.JavaObject? ) -> SortedMap! {
         return subMap( fromKey: _fromKey, toKey: _toKey )
     }
 
-    /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,java.lang.Object)
-
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object)
-
-    private static var tailMap_MethodID_40: jmethodID?
-
-    open func tailMap( fromKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
-        var __locals = [jobject]()
-        var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;)Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.tailMap_MethodID_40, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: ConcurrentNavigableMapForward.self, from: __return )
-    }
-
-    open func tailMap( _ _fromKey: java_swift.JavaObject? ) -> ConcurrentNavigableMap! {
-        return tailMap( fromKey: _fromKey )
-    }
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.subMap(java.lang.Object,java.lang.Object)
 
     /// public java.util.SortedMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object)
 
-    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object,boolean)
+    private static var tailMap_MethodID_40: jmethodID?
+
+    open func tailMap( fromKey: java_swift.JavaObject? ) -> SortedMap! {
+        var __locals = [jobject]()
+        var __args = [jvalue]( repeating: jvalue(), count: 1 )
+        __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;)Ljava/util/SortedMap;", methodCache: &ConcurrentSkipListMap.tailMap_MethodID_40, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: SortedMapForward.self, from: __return )
+    }
+
+    open func tailMap( _ _fromKey: java_swift.JavaObject? ) -> SortedMap! {
+        return tailMap( fromKey: _fromKey )
+    }
+
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object)
+
+    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object,boolean)
 
     private static var tailMap_MethodID_41: jmethodID?
 
-    open func tailMap( fromKey: java_swift.JavaObject?, inclusive: Bool ) -> ConcurrentNavigableMap! {
+    open func tailMap( fromKey: java_swift.JavaObject?, inclusive: Bool ) -> NavigableMap! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = JNIType.toJava( value: fromKey, locals: &__locals )
         __args[1] = jvalue( z: jboolean(inclusive ? JNI_TRUE : JNI_FALSE) )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;Z)Ljava/util/concurrent/ConcurrentNavigableMap;", methodCache: &ConcurrentSkipListMap.tailMap_MethodID_41, args: &__args, locals: &__locals )
-        return JNIType.toSwift( type: ConcurrentNavigableMapForward.self, from: __return )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "tailMap", methodSig: "(Ljava/lang/Object;Z)Ljava/util/NavigableMap;", methodCache: &ConcurrentSkipListMap.tailMap_MethodID_41, args: &__args, locals: &__locals )
+        return JNIType.toSwift( type: NavigableMapForward.self, from: __return )
     }
 
-    open func tailMap( _ _fromKey: java_swift.JavaObject?, _ _inclusive: Bool ) -> ConcurrentNavigableMap! {
+    open func tailMap( _ _fromKey: java_swift.JavaObject?, _ _inclusive: Bool ) -> NavigableMap! {
         return tailMap( fromKey: _fromKey, inclusive: _inclusive )
     }
 
-    /// public java.util.NavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object,boolean)
+    /// public java.util.concurrent.ConcurrentNavigableMap java.util.concurrent.ConcurrentSkipListMap.tailMap(java.lang.Object,boolean)
 
     /// private void java.util.concurrent.ConcurrentSkipListMap.tryReduceLevel()
 

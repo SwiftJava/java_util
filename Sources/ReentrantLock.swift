@@ -66,12 +66,12 @@ open class ReentrantLock: java_swift.JavaObject, Lock, /* interface java.io.Seri
 
     private static var getOwner_MethodID_4: jmethodID?
 
-    open func getOwner() -> java_lang.Thread! {
+    open func getOwner() -> java_swift.JavaThread! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getOwner", methodSig: "()Ljava/lang/Thread;", methodCache: &ReentrantLock.getOwner_MethodID_4, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_lang.Thread( javaObject: __return ) : nil
+        return __return != nil ? java_swift.JavaThread( javaObject: __return ) : nil
     }
 
 
@@ -137,7 +137,7 @@ open class ReentrantLock: java_swift.JavaObject, Lock, /* interface java.io.Seri
 
     private static var hasQueuedThread_MethodID_9: jmethodID?
 
-    open func hasQueuedThread( thread: java_lang.Thread? ) -> Bool {
+    open func hasQueuedThread( thread: java_swift.JavaThread? ) -> Bool {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: thread, locals: &__locals )
@@ -145,7 +145,7 @@ open class ReentrantLock: java_swift.JavaObject, Lock, /* interface java.io.Seri
         return __return != jboolean(JNI_FALSE)
     }
 
-    open func hasQueuedThread( _ _thread: java_lang.Thread? ) -> Bool {
+    open func hasQueuedThread( _ _thread: java_swift.JavaThread? ) -> Bool {
         return hasQueuedThread( thread: _thread )
     }
 

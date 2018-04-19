@@ -157,11 +157,11 @@ public protocol LongStream: BaseStream {
 
     func reduce( op: LongBinaryOperator? ) -> OptionalLong!
 
-    /// public default java.util.stream.BaseStream java.util.stream.LongStream.sequential()
-
-    func sequential() -> BaseStream!
-
     /// public abstract java.util.stream.LongStream java.util.stream.LongStream.sequential()
+
+    func sequential() -> LongStream!
+
+    /// public default java.util.stream.BaseStream java.util.stream.LongStream.sequential()
 
     /// public abstract java.util.stream.LongStream java.util.stream.LongStream.skip(long)
 
@@ -793,20 +793,20 @@ open class LongStreamForward: BaseStreamForward, LongStream {
         return reduce( op: _op )
     }
 
-    /// public default java.util.stream.BaseStream java.util.stream.LongStream.sequential()
+    /// public abstract java.util.stream.LongStream java.util.stream.LongStream.sequential()
 
     private static var sequential_MethodID_81: jmethodID?
 
-    override open func sequential() -> BaseStream! {
+    open func sequential() -> LongStream! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &LongStreamForward.sequential_MethodID_81, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/LongStream;", methodCache: &LongStreamForward.sequential_MethodID_81, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
+        return __return != nil ? LongStreamForward( javaObject: __return ) : nil
     }
 
 
-    /// public abstract java.util.stream.LongStream java.util.stream.LongStream.sequential()
+    /// public default java.util.stream.BaseStream java.util.stream.LongStream.sequential()
 
     /// public abstract java.util.stream.LongStream java.util.stream.LongStream.skip(long)
 

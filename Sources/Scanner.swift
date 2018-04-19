@@ -692,20 +692,20 @@ open class Scanner: java_swift.JavaObject, /* interface java.io.Closeable */ Una
         return next( pattern: _pattern )
     }
 
-    /// public java.lang.Object java.util.Scanner.next()
+    /// public java.lang.String java.util.Scanner.next()
 
     private static var next_MethodID_36: jmethodID?
 
-    open func next() -> java_swift.JavaObject! {
+    open func next() -> String! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "next", methodSig: "()Ljava/lang/Object;", methodCache: &Scanner.next_MethodID_36, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "next", methodSig: "()Ljava/lang/String;", methodCache: &Scanner.next_MethodID_36, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_swift.JavaObject( javaObject: __return ) : nil
+        return __return != nil ? String( javaObject: __return ) : nil
     }
 
 
-    /// public java.lang.String java.util.Scanner.next()
+    /// public java.lang.Object java.util.Scanner.next()
 
     /// public java.math.BigDecimal java.util.Scanner.nextBigDecimal()
 

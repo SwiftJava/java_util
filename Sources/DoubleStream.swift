@@ -145,11 +145,11 @@ public protocol DoubleStream: BaseStream {
 
     func reduce( op: DoubleBinaryOperator? ) -> OptionalDouble!
 
-    /// public abstract java.util.stream.DoubleStream java.util.stream.DoubleStream.sequential()
-
-    func sequential() -> DoubleStream!
-
     /// public default java.util.stream.BaseStream java.util.stream.DoubleStream.sequential()
+
+    func sequential() -> BaseStream!
+
+    /// public abstract java.util.stream.DoubleStream java.util.stream.DoubleStream.sequential()
 
     /// public abstract java.util.stream.DoubleStream java.util.stream.DoubleStream.skip(long)
 
@@ -732,20 +732,20 @@ open class DoubleStreamForward: BaseStreamForward, DoubleStream {
         return reduce( op: _op )
     }
 
-    /// public abstract java.util.stream.DoubleStream java.util.stream.DoubleStream.sequential()
+    /// public default java.util.stream.BaseStream java.util.stream.DoubleStream.sequential()
 
     private static var sequential_MethodID_75: jmethodID?
 
-    open func sequential() -> DoubleStream! {
+    override open func sequential() -> BaseStream! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
-        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/DoubleStream;", methodCache: &DoubleStreamForward.sequential_MethodID_75, args: &__args, locals: &__locals )
+        let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "sequential", methodSig: "()Ljava/util/stream/BaseStream;", methodCache: &DoubleStreamForward.sequential_MethodID_75, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? DoubleStreamForward( javaObject: __return ) : nil
+        return __return != nil ? BaseStreamForward( javaObject: __return ) : nil
     }
 
 
-    /// public default java.util.stream.BaseStream java.util.stream.DoubleStream.sequential()
+    /// public abstract java.util.stream.DoubleStream java.util.stream.DoubleStream.sequential()
 
     /// public abstract java.util.stream.DoubleStream java.util.stream.DoubleStream.skip(long)
 

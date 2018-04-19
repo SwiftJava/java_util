@@ -6,7 +6,7 @@ import java_lang
 
 /// class java.util.Hashtable ///
 
-open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable, /* interface java.io.Serializable */ UnavailableProtocol {
+open class Hashtable: Dictionary, java_swift.JavaMap, java_lang.Cloneable {
     public func compute(arg0: JavaObject?, arg1: UnavailableProtocol?) -> JavaObject! {
         return nil
     }

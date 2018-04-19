@@ -6,13 +6,10 @@ import java_lang
 
 /// class java.util.concurrent.ForkJoinWorkerThread ///
 
-open class ForkJoinWorkerThread: java_lang.Thread {
+open class ForkJoinWorkerThread: java_swift.JavaThread {
 
     public convenience init?( casting object: java_swift.JavaObject, _ file: StaticString = #file, _ line: Int = #line ) {
         self.init( javaObject: nil )
-        if !object.validDownCast( toJavaClass: "java.util.concurrent.ForkJoinWorkerThread", file, line ) {
-            return nil
-        }
         object.withJavaObject {
             self.javaObject = $0
         }

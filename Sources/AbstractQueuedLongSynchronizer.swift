@@ -207,12 +207,12 @@ open class AbstractQueuedLongSynchronizer: AbstractOwnableSynchronizer {
 
     private static var getFirstQueuedThread_MethodID_8: jmethodID?
 
-    open func getFirstQueuedThread() -> java_lang.Thread! {
+    open func getFirstQueuedThread() -> java_swift.JavaThread! {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         let __return = JNIMethod.CallObjectMethod( object: javaObject, methodName: "getFirstQueuedThread", methodSig: "()Ljava/lang/Thread;", methodCache: &AbstractQueuedLongSynchronizer.getFirstQueuedThread_MethodID_8, args: &__args, locals: &__locals )
         defer { JNI.DeleteLocalRef( __return ) }
-        return __return != nil ? java_lang.Thread( javaObject: __return ) : nil
+        return __return != nil ? java_swift.JavaThread( javaObject: __return ) : nil
     }
 
 
@@ -371,7 +371,7 @@ open class AbstractQueuedLongSynchronizer: AbstractOwnableSynchronizer {
 
     private static var isQueued_MethodID_20: jmethodID?
 
-    open func isQueued( thread: java_lang.Thread? ) -> Bool {
+    open func isQueued( thread: java_swift.JavaThread? ) -> Bool {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         __args[0] = JNIType.toJava( value: thread, locals: &__locals )
@@ -379,7 +379,7 @@ open class AbstractQueuedLongSynchronizer: AbstractOwnableSynchronizer {
         return __return != jboolean(JNI_FALSE)
     }
 
-    open func isQueued( _ _thread: java_lang.Thread? ) -> Bool {
+    open func isQueued( _ _thread: java_swift.JavaThread? ) -> Bool {
         return isQueued( thread: _thread )
     }
 
