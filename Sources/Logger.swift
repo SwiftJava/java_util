@@ -25,7 +25,7 @@ open class Logger: java_swift.JavaObject {
 
     private static var GLOBAL_LOGGER_NAME_FieldID: jfieldID?
 
-    open static var GLOBAL_LOGGER_NAME: String! {
+    public static var GLOBAL_LOGGER_NAME: String! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "GLOBAL_LOGGER_NAME", fieldType: "Ljava/lang/String;", fieldCache: &GLOBAL_LOGGER_NAME_FieldID, className: "java/util/logging/Logger", classCache: &LoggerJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -47,7 +47,7 @@ open class Logger: java_swift.JavaObject {
 
     private static var global_FieldID: jfieldID?
 
-    open static var global: Logger! {
+    public static var global: Logger! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "global", fieldType: "Ljava/util/logging/Logger;", fieldCache: &global_FieldID, className: "java/util/logging/Logger", classCache: &LoggerJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

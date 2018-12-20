@@ -30,7 +30,7 @@ open class GZIPInputStream: InflaterInputStream {
 
     private static var GZIP_MAGIC_FieldID: jfieldID?
 
-    open static var GZIP_MAGIC: Int {
+    public static var GZIP_MAGIC: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "GZIP_MAGIC", fieldType: "I", fieldCache: &GZIP_MAGIC_FieldID, className: "java/util/zip/GZIPInputStream", classCache: &GZIPInputStreamJNIClass )
             return Int(__value)

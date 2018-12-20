@@ -20,7 +20,7 @@ open class ErrorManager: java_swift.JavaObject {
 
     private static var CLOSE_FAILURE_FieldID: jfieldID?
 
-    open static var CLOSE_FAILURE: Int {
+    public static var CLOSE_FAILURE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "CLOSE_FAILURE", fieldType: "I", fieldCache: &CLOSE_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
             return Int(__value)
@@ -31,7 +31,7 @@ open class ErrorManager: java_swift.JavaObject {
 
     private static var FLUSH_FAILURE_FieldID: jfieldID?
 
-    open static var FLUSH_FAILURE: Int {
+    public static var FLUSH_FAILURE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FLUSH_FAILURE", fieldType: "I", fieldCache: &FLUSH_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
             return Int(__value)
@@ -42,7 +42,7 @@ open class ErrorManager: java_swift.JavaObject {
 
     private static var FORMAT_FAILURE_FieldID: jfieldID?
 
-    open static var FORMAT_FAILURE: Int {
+    public static var FORMAT_FAILURE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FORMAT_FAILURE", fieldType: "I", fieldCache: &FORMAT_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
             return Int(__value)
@@ -53,7 +53,7 @@ open class ErrorManager: java_swift.JavaObject {
 
     private static var GENERIC_FAILURE_FieldID: jfieldID?
 
-    open static var GENERIC_FAILURE: Int {
+    public static var GENERIC_FAILURE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "GENERIC_FAILURE", fieldType: "I", fieldCache: &GENERIC_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
             return Int(__value)
@@ -64,7 +64,7 @@ open class ErrorManager: java_swift.JavaObject {
 
     private static var OPEN_FAILURE_FieldID: jfieldID?
 
-    open static var OPEN_FAILURE: Int {
+    public static var OPEN_FAILURE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "OPEN_FAILURE", fieldType: "I", fieldCache: &OPEN_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
             return Int(__value)
@@ -75,7 +75,7 @@ open class ErrorManager: java_swift.JavaObject {
 
     private static var WRITE_FAILURE_FieldID: jfieldID?
 
-    open static var WRITE_FAILURE: Int {
+    public static var WRITE_FAILURE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "WRITE_FAILURE", fieldType: "I", fieldCache: &WRITE_FAILURE_FieldID, className: "java/util/logging/ErrorManager", classCache: &ErrorManagerJNIClass )
             return Int(__value)

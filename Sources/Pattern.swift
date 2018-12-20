@@ -25,7 +25,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var CANON_EQ_FieldID: jfieldID?
 
-    open static var CANON_EQ: Int {
+    public static var CANON_EQ: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "CANON_EQ", fieldType: "I", fieldCache: &CANON_EQ_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)
@@ -36,7 +36,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var CASE_INSENSITIVE_FieldID: jfieldID?
 
-    open static var CASE_INSENSITIVE: Int {
+    public static var CASE_INSENSITIVE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "CASE_INSENSITIVE", fieldType: "I", fieldCache: &CASE_INSENSITIVE_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)
@@ -47,7 +47,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var COMMENTS_FieldID: jfieldID?
 
-    open static var COMMENTS: Int {
+    public static var COMMENTS: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "COMMENTS", fieldType: "I", fieldCache: &COMMENTS_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)
@@ -58,7 +58,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var DOTALL_FieldID: jfieldID?
 
-    open static var DOTALL: Int {
+    public static var DOTALL: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DOTALL", fieldType: "I", fieldCache: &DOTALL_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)
@@ -81,7 +81,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var LITERAL_FieldID: jfieldID?
 
-    open static var LITERAL: Int {
+    public static var LITERAL: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "LITERAL", fieldType: "I", fieldCache: &LITERAL_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)
@@ -96,7 +96,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var MULTILINE_FieldID: jfieldID?
 
-    open static var MULTILINE: Int {
+    public static var MULTILINE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MULTILINE", fieldType: "I", fieldCache: &MULTILINE_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)
@@ -111,7 +111,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var UNICODE_CASE_FieldID: jfieldID?
 
-    open static var UNICODE_CASE: Int {
+    public static var UNICODE_CASE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "UNICODE_CASE", fieldType: "I", fieldCache: &UNICODE_CASE_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)
@@ -122,7 +122,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var UNICODE_CHARACTER_CLASS_FieldID: jfieldID?
 
-    open static var UNICODE_CHARACTER_CLASS: Int {
+    public static var UNICODE_CHARACTER_CLASS: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "UNICODE_CHARACTER_CLASS", fieldType: "I", fieldCache: &UNICODE_CHARACTER_CLASS_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)
@@ -133,7 +133,7 @@ open class Pattern: java_swift.JavaObject, /* interface java.io.Serializable */ 
 
     private static var UNIX_LINES_FieldID: jfieldID?
 
-    open static var UNIX_LINES: Int {
+    public static var UNIX_LINES: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "UNIX_LINES", fieldType: "I", fieldCache: &UNIX_LINES_FieldID, className: "java/util/regex/Pattern", classCache: &PatternJNIClass )
             return Int(__value)

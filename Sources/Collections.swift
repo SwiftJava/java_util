@@ -24,7 +24,7 @@ open class Collections: java_swift.JavaObject {
 
     private static var EMPTY_LIST_FieldID: jfieldID?
 
-    open static var EMPTY_LIST: List! {
+    public static var EMPTY_LIST: List! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "EMPTY_LIST", fieldType: "Ljava/util/List;", fieldCache: &EMPTY_LIST_FieldID, className: "java/util/Collections", classCache: &CollectionsJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -36,7 +36,7 @@ open class Collections: java_swift.JavaObject {
 
     private static var EMPTY_MAP_FieldID: jfieldID?
 
-    open static var EMPTY_MAP: java_swift.JavaMap! {
+    public static var EMPTY_MAP: java_swift.JavaMap! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "EMPTY_MAP", fieldType: "Ljava/util/Map;", fieldCache: &EMPTY_MAP_FieldID, className: "java/util/Collections", classCache: &CollectionsJNIClass )
             return JNIType.toSwift( type: java_swift.JavaMapForward.self, from: __value )
@@ -47,7 +47,7 @@ open class Collections: java_swift.JavaObject {
 
     private static var EMPTY_SET_FieldID: jfieldID?
 
-    open static var EMPTY_SET: java_swift.JavaSet! {
+    public static var EMPTY_SET: java_swift.JavaSet! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "EMPTY_SET", fieldType: "Ljava/util/Set;", fieldCache: &EMPTY_SET_FieldID, className: "java/util/Collections", classCache: &CollectionsJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

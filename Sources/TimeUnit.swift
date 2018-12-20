@@ -214,7 +214,7 @@ open class TimeUnitForward: JNIObjectForward {
 
     private static var DAYS_FieldID: jfieldID?
 
-    open static var DAYS: TimeUnit! {
+    public static var DAYS: TimeUnit! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "DAYS", fieldType: "Ljava/util/concurrent/TimeUnit;", fieldCache: &DAYS_FieldID, className: "java/util/concurrent/TimeUnit", classCache: &TimeUnitJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -226,7 +226,7 @@ open class TimeUnitForward: JNIObjectForward {
 
     private static var HOURS_FieldID: jfieldID?
 
-    open static var HOURS: TimeUnit! {
+    public static var HOURS: TimeUnit! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "HOURS", fieldType: "Ljava/util/concurrent/TimeUnit;", fieldCache: &HOURS_FieldID, className: "java/util/concurrent/TimeUnit", classCache: &TimeUnitJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -242,7 +242,7 @@ open class TimeUnitForward: JNIObjectForward {
 
     private static var MICROSECONDS_FieldID: jfieldID?
 
-    open static var MICROSECONDS: TimeUnit! {
+    public static var MICROSECONDS: TimeUnit! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "MICROSECONDS", fieldType: "Ljava/util/concurrent/TimeUnit;", fieldCache: &MICROSECONDS_FieldID, className: "java/util/concurrent/TimeUnit", classCache: &TimeUnitJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -254,7 +254,7 @@ open class TimeUnitForward: JNIObjectForward {
 
     private static var MILLISECONDS_FieldID: jfieldID?
 
-    open static var MILLISECONDS: TimeUnit! {
+    public static var MILLISECONDS: TimeUnit! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "MILLISECONDS", fieldType: "Ljava/util/concurrent/TimeUnit;", fieldCache: &MILLISECONDS_FieldID, className: "java/util/concurrent/TimeUnit", classCache: &TimeUnitJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -266,7 +266,7 @@ open class TimeUnitForward: JNIObjectForward {
 
     private static var MINUTES_FieldID: jfieldID?
 
-    open static var MINUTES: TimeUnit! {
+    public static var MINUTES: TimeUnit! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "MINUTES", fieldType: "Ljava/util/concurrent/TimeUnit;", fieldCache: &MINUTES_FieldID, className: "java/util/concurrent/TimeUnit", classCache: &TimeUnitJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -278,7 +278,7 @@ open class TimeUnitForward: JNIObjectForward {
 
     private static var NANOSECONDS_FieldID: jfieldID?
 
-    open static var NANOSECONDS: TimeUnit! {
+    public static var NANOSECONDS: TimeUnit! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "NANOSECONDS", fieldType: "Ljava/util/concurrent/TimeUnit;", fieldCache: &NANOSECONDS_FieldID, className: "java/util/concurrent/TimeUnit", classCache: &TimeUnitJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -290,7 +290,7 @@ open class TimeUnitForward: JNIObjectForward {
 
     private static var SECONDS_FieldID: jfieldID?
 
-    open static var SECONDS: TimeUnit! {
+    public static var SECONDS: TimeUnit! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "SECONDS", fieldType: "Ljava/util/concurrent/TimeUnit;", fieldCache: &SECONDS_FieldID, className: "java/util/concurrent/TimeUnit", classCache: &TimeUnitJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

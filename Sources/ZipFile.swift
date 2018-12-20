@@ -28,7 +28,7 @@ open class ZipFile: java_swift.JavaObject, /* interface java.io.Closeable */ Una
 
     private static var OPEN_DELETE_FieldID: jfieldID?
 
-    open static var OPEN_DELETE: Int {
+    public static var OPEN_DELETE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "OPEN_DELETE", fieldType: "I", fieldCache: &OPEN_DELETE_FieldID, className: "java/util/zip/ZipFile", classCache: &ZipFileJNIClass )
             return Int(__value)
@@ -39,7 +39,7 @@ open class ZipFile: java_swift.JavaObject, /* interface java.io.Closeable */ Una
 
     private static var OPEN_READ_FieldID: jfieldID?
 
-    open static var OPEN_READ: Int {
+    public static var OPEN_READ: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "OPEN_READ", fieldType: "I", fieldCache: &OPEN_READ_FieldID, className: "java/util/zip/ZipFile", classCache: &ZipFileJNIClass )
             return Int(__value)

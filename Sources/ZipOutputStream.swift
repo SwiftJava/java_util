@@ -20,7 +20,7 @@ open class ZipOutputStream: DeflaterOutputStream {
 
     private static var DEFLATED_FieldID: jfieldID?
 
-    open static var DEFLATED: Int {
+    public static var DEFLATED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DEFLATED", fieldType: "I", fieldCache: &DEFLATED_FieldID, className: "java/util/zip/ZipOutputStream", classCache: &ZipOutputStreamJNIClass )
             return Int(__value)
@@ -31,7 +31,7 @@ open class ZipOutputStream: DeflaterOutputStream {
 
     private static var STORED_FieldID: jfieldID?
 
-    open static var STORED: Int {
+    public static var STORED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "STORED", fieldType: "I", fieldCache: &STORED_FieldID, className: "java/util/zip/ZipOutputStream", classCache: &ZipOutputStreamJNIClass )
             return Int(__value)

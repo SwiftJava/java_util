@@ -20,7 +20,7 @@ open class FormattableFlags: java_swift.JavaObject {
 
     private static var ALTERNATE_FieldID: jfieldID?
 
-    open static var ALTERNATE: Int {
+    public static var ALTERNATE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "ALTERNATE", fieldType: "I", fieldCache: &ALTERNATE_FieldID, className: "java/util/FormattableFlags", classCache: &FormattableFlagsJNIClass )
             return Int(__value)
@@ -31,7 +31,7 @@ open class FormattableFlags: java_swift.JavaObject {
 
     private static var LEFT_JUSTIFY_FieldID: jfieldID?
 
-    open static var LEFT_JUSTIFY: Int {
+    public static var LEFT_JUSTIFY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "LEFT_JUSTIFY", fieldType: "I", fieldCache: &LEFT_JUSTIFY_FieldID, className: "java/util/FormattableFlags", classCache: &FormattableFlagsJNIClass )
             return Int(__value)
@@ -42,7 +42,7 @@ open class FormattableFlags: java_swift.JavaObject {
 
     private static var UPPERCASE_FieldID: jfieldID?
 
-    open static var UPPERCASE: Int {
+    public static var UPPERCASE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "UPPERCASE", fieldType: "I", fieldCache: &UPPERCASE_FieldID, className: "java/util/FormattableFlags", classCache: &FormattableFlagsJNIClass )
             return Int(__value)

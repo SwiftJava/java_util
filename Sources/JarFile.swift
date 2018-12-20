@@ -26,7 +26,7 @@ open class JarFile: ZipFile {
 
     private static var MANIFEST_NAME_FieldID: jfieldID?
 
-    open static var MANIFEST_NAME: String! {
+    public static var MANIFEST_NAME: String! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "MANIFEST_NAME", fieldType: "Ljava/lang/String;", fieldCache: &MANIFEST_NAME_FieldID, className: "java/util/jar/JarFile", classCache: &JarFileJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

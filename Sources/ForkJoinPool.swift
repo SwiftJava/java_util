@@ -141,7 +141,7 @@ open class ForkJoinPool: AbstractExecutorService {
 
     private static var defaultForkJoinWorkerThreadFactory_FieldID: jfieldID?
 
-    open static var defaultForkJoinWorkerThreadFactory: /* interface java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory */ UnavailableProtocol! {
+    public static var defaultForkJoinWorkerThreadFactory: /* interface java.util.concurrent.ForkJoinPool$ForkJoinWorkerThreadFactory */ UnavailableProtocol! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "defaultForkJoinWorkerThreadFactory", fieldType: "Ljava/util/concurrent/ForkJoinPool$ForkJoinWorkerThreadFactory;", fieldCache: &defaultForkJoinWorkerThreadFactory_FieldID, className: "java/util/concurrent/ForkJoinPool", classCache: &ForkJoinPoolJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

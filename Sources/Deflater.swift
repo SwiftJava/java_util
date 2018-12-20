@@ -24,7 +24,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var BEST_COMPRESSION_FieldID: jfieldID?
 
-    open static var BEST_COMPRESSION: Int {
+    public static var BEST_COMPRESSION: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "BEST_COMPRESSION", fieldType: "I", fieldCache: &BEST_COMPRESSION_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -35,7 +35,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var BEST_SPEED_FieldID: jfieldID?
 
-    open static var BEST_SPEED: Int {
+    public static var BEST_SPEED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "BEST_SPEED", fieldType: "I", fieldCache: &BEST_SPEED_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -46,7 +46,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var DEFAULT_COMPRESSION_FieldID: jfieldID?
 
-    open static var DEFAULT_COMPRESSION: Int {
+    public static var DEFAULT_COMPRESSION: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DEFAULT_COMPRESSION", fieldType: "I", fieldCache: &DEFAULT_COMPRESSION_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -57,7 +57,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var DEFAULT_STRATEGY_FieldID: jfieldID?
 
-    open static var DEFAULT_STRATEGY: Int {
+    public static var DEFAULT_STRATEGY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DEFAULT_STRATEGY", fieldType: "I", fieldCache: &DEFAULT_STRATEGY_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -68,7 +68,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var DEFLATED_FieldID: jfieldID?
 
-    open static var DEFLATED: Int {
+    public static var DEFLATED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DEFLATED", fieldType: "I", fieldCache: &DEFLATED_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -79,7 +79,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var FILTERED_FieldID: jfieldID?
 
-    open static var FILTERED: Int {
+    public static var FILTERED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FILTERED", fieldType: "I", fieldCache: &FILTERED_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -90,7 +90,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var FULL_FLUSH_FieldID: jfieldID?
 
-    open static var FULL_FLUSH: Int {
+    public static var FULL_FLUSH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FULL_FLUSH", fieldType: "I", fieldCache: &FULL_FLUSH_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -101,7 +101,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var HUFFMAN_ONLY_FieldID: jfieldID?
 
-    open static var HUFFMAN_ONLY: Int {
+    public static var HUFFMAN_ONLY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "HUFFMAN_ONLY", fieldType: "I", fieldCache: &HUFFMAN_ONLY_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -112,7 +112,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var NO_COMPRESSION_FieldID: jfieldID?
 
-    open static var NO_COMPRESSION: Int {
+    public static var NO_COMPRESSION: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "NO_COMPRESSION", fieldType: "I", fieldCache: &NO_COMPRESSION_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -123,7 +123,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var NO_FLUSH_FieldID: jfieldID?
 
-    open static var NO_FLUSH: Int {
+    public static var NO_FLUSH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "NO_FLUSH", fieldType: "I", fieldCache: &NO_FLUSH_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)
@@ -134,7 +134,7 @@ open class Deflater: java_swift.JavaObject {
 
     private static var SYNC_FLUSH_FieldID: jfieldID?
 
-    open static var SYNC_FLUSH: Int {
+    public static var SYNC_FLUSH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SYNC_FLUSH", fieldType: "I", fieldCache: &SYNC_FLUSH_FieldID, className: "java/util/zip/Deflater", classCache: &DeflaterJNIClass )
             return Int(__value)

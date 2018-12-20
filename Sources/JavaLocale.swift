@@ -28,7 +28,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var CANADA_FieldID: jfieldID?
 
-    open static var CANADA: JavaLocale! {
+    public static var CANADA: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "CANADA", fieldType: "Ljava/util/Locale;", fieldCache: &CANADA_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -40,7 +40,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var CANADA_FRENCH_FieldID: jfieldID?
 
-    open static var CANADA_FRENCH: JavaLocale! {
+    public static var CANADA_FRENCH: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "CANADA_FRENCH", fieldType: "Ljava/util/Locale;", fieldCache: &CANADA_FRENCH_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -52,7 +52,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var CHINA_FieldID: jfieldID?
 
-    open static var CHINA: JavaLocale! {
+    public static var CHINA: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "CHINA", fieldType: "Ljava/util/Locale;", fieldCache: &CHINA_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -64,7 +64,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var CHINESE_FieldID: jfieldID?
 
-    open static var CHINESE: JavaLocale! {
+    public static var CHINESE: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -84,7 +84,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var ENGLISH_FieldID: jfieldID?
 
-    open static var ENGLISH: JavaLocale! {
+    public static var ENGLISH: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "ENGLISH", fieldType: "Ljava/util/Locale;", fieldCache: &ENGLISH_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -96,7 +96,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var FRANCE_FieldID: jfieldID?
 
-    open static var FRANCE: JavaLocale! {
+    public static var FRANCE: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "FRANCE", fieldType: "Ljava/util/Locale;", fieldCache: &FRANCE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -108,7 +108,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var FRENCH_FieldID: jfieldID?
 
-    open static var FRENCH: JavaLocale! {
+    public static var FRENCH: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "FRENCH", fieldType: "Ljava/util/Locale;", fieldCache: &FRENCH_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -120,7 +120,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var GERMAN_FieldID: jfieldID?
 
-    open static var GERMAN: JavaLocale! {
+    public static var GERMAN: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "GERMAN", fieldType: "Ljava/util/Locale;", fieldCache: &GERMAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -132,7 +132,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var GERMANY_FieldID: jfieldID?
 
-    open static var GERMANY: JavaLocale! {
+    public static var GERMANY: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "GERMANY", fieldType: "Ljava/util/Locale;", fieldCache: &GERMANY_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -144,7 +144,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var ITALIAN_FieldID: jfieldID?
 
-    open static var ITALIAN: JavaLocale! {
+    public static var ITALIAN: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "ITALIAN", fieldType: "Ljava/util/Locale;", fieldCache: &ITALIAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -156,7 +156,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var ITALY_FieldID: jfieldID?
 
-    open static var ITALY: JavaLocale! {
+    public static var ITALY: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "ITALY", fieldType: "Ljava/util/Locale;", fieldCache: &ITALY_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -168,7 +168,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var JAPAN_FieldID: jfieldID?
 
-    open static var JAPAN: JavaLocale! {
+    public static var JAPAN: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "JAPAN", fieldType: "Ljava/util/Locale;", fieldCache: &JAPAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -180,7 +180,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var JAPANESE_FieldID: jfieldID?
 
-    open static var JAPANESE: JavaLocale! {
+    public static var JAPANESE: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "JAPANESE", fieldType: "Ljava/util/Locale;", fieldCache: &JAPANESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -192,7 +192,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var KOREA_FieldID: jfieldID?
 
-    open static var KOREA: JavaLocale! {
+    public static var KOREA: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "KOREA", fieldType: "Ljava/util/Locale;", fieldCache: &KOREA_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -204,7 +204,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var KOREAN_FieldID: jfieldID?
 
-    open static var KOREAN: JavaLocale! {
+    public static var KOREAN: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "KOREAN", fieldType: "Ljava/util/Locale;", fieldCache: &KOREAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -218,7 +218,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var PRC_FieldID: jfieldID?
 
-    open static var PRC: JavaLocale! {
+    public static var PRC: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "PRC", fieldType: "Ljava/util/Locale;", fieldCache: &PRC_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -230,7 +230,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var PRIVATE_USE_EXTENSION_FieldID: jfieldID?
 
-    open static var PRIVATE_USE_EXTENSION: UInt16 {
+    public static var PRIVATE_USE_EXTENSION: UInt16 {
         get {
             let __value = JNIField.GetStaticCharField( fieldName: "PRIVATE_USE_EXTENSION", fieldType: "C", fieldCache: &PRIVATE_USE_EXTENSION_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             return __value
@@ -241,7 +241,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var ROOT_FieldID: jfieldID?
 
-    open static var ROOT: JavaLocale! {
+    public static var ROOT: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "ROOT", fieldType: "Ljava/util/Locale;", fieldCache: &ROOT_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -253,7 +253,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var SIMPLIFIED_CHINESE_FieldID: jfieldID?
 
-    open static var SIMPLIFIED_CHINESE: JavaLocale! {
+    public static var SIMPLIFIED_CHINESE: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "SIMPLIFIED_CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &SIMPLIFIED_CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -265,7 +265,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var TAIWAN_FieldID: jfieldID?
 
-    open static var TAIWAN: JavaLocale! {
+    public static var TAIWAN: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "TAIWAN", fieldType: "Ljava/util/Locale;", fieldCache: &TAIWAN_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -277,7 +277,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var TRADITIONAL_CHINESE_FieldID: jfieldID?
 
-    open static var TRADITIONAL_CHINESE: JavaLocale! {
+    public static var TRADITIONAL_CHINESE: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "TRADITIONAL_CHINESE", fieldType: "Ljava/util/Locale;", fieldCache: &TRADITIONAL_CHINESE_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -289,7 +289,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var UK_FieldID: jfieldID?
 
-    open static var UK: JavaLocale! {
+    public static var UK: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "UK", fieldType: "Ljava/util/Locale;", fieldCache: &UK_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -301,7 +301,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var UNICODE_LOCALE_EXTENSION_FieldID: jfieldID?
 
-    open static var UNICODE_LOCALE_EXTENSION: UInt16 {
+    public static var UNICODE_LOCALE_EXTENSION: UInt16 {
         get {
             let __value = JNIField.GetStaticCharField( fieldName: "UNICODE_LOCALE_EXTENSION", fieldType: "C", fieldCache: &UNICODE_LOCALE_EXTENSION_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             return __value
@@ -312,7 +312,7 @@ open class JavaLocale: java_swift.JavaObject, java_lang.Cloneable, /* interface 
 
     private static var US_FieldID: jfieldID?
 
-    open static var US: JavaLocale! {
+    public static var US: JavaLocale! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "US", fieldType: "Ljava/util/Locale;", fieldCache: &US_FieldID, className: "java/util/Locale", classCache: &JavaLocaleJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

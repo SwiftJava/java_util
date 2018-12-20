@@ -82,7 +82,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var CONCURRENT_FieldID: jfieldID?
 
-    open static var CONCURRENT: Int {
+    public static var CONCURRENT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "CONCURRENT", fieldType: "I", fieldCache: &CONCURRENT_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
             return Int(__value)
@@ -93,7 +93,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var DISTINCT_FieldID: jfieldID?
 
-    open static var DISTINCT: Int {
+    public static var DISTINCT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DISTINCT", fieldType: "I", fieldCache: &DISTINCT_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
             return Int(__value)
@@ -104,7 +104,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var IMMUTABLE_FieldID: jfieldID?
 
-    open static var IMMUTABLE: Int {
+    public static var IMMUTABLE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "IMMUTABLE", fieldType: "I", fieldCache: &IMMUTABLE_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
             return Int(__value)
@@ -115,7 +115,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var NONNULL_FieldID: jfieldID?
 
-    open static var NONNULL: Int {
+    public static var NONNULL: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "NONNULL", fieldType: "I", fieldCache: &NONNULL_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
             return Int(__value)
@@ -126,7 +126,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var ORDERED_FieldID: jfieldID?
 
-    open static var ORDERED: Int {
+    public static var ORDERED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "ORDERED", fieldType: "I", fieldCache: &ORDERED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
             return Int(__value)
@@ -137,7 +137,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var SIZED_FieldID: jfieldID?
 
-    open static var SIZED: Int {
+    public static var SIZED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SIZED", fieldType: "I", fieldCache: &SIZED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
             return Int(__value)
@@ -148,7 +148,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var SORTED_FieldID: jfieldID?
 
-    open static var SORTED: Int {
+    public static var SORTED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SORTED", fieldType: "I", fieldCache: &SORTED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
             return Int(__value)
@@ -159,7 +159,7 @@ open class SpliteratorForward: JNIObjectForward, Spliterator {
 
     private static var SUBSIZED_FieldID: jfieldID?
 
-    open static var SUBSIZED: Int {
+    public static var SUBSIZED: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SUBSIZED", fieldType: "I", fieldCache: &SUBSIZED_FieldID, className: "java/util/Spliterator", classCache: &SpliteratorJNIClass )
             return Int(__value)

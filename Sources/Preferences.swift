@@ -20,7 +20,7 @@ open class Preferences: java_swift.JavaObject {
 
     private static var MAX_KEY_LENGTH_FieldID: jfieldID?
 
-    open static var MAX_KEY_LENGTH: Int {
+    public static var MAX_KEY_LENGTH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MAX_KEY_LENGTH", fieldType: "I", fieldCache: &MAX_KEY_LENGTH_FieldID, className: "java/util/prefs/Preferences", classCache: &PreferencesJNIClass )
             return Int(__value)
@@ -31,7 +31,7 @@ open class Preferences: java_swift.JavaObject {
 
     private static var MAX_NAME_LENGTH_FieldID: jfieldID?
 
-    open static var MAX_NAME_LENGTH: Int {
+    public static var MAX_NAME_LENGTH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MAX_NAME_LENGTH", fieldType: "I", fieldCache: &MAX_NAME_LENGTH_FieldID, className: "java/util/prefs/Preferences", classCache: &PreferencesJNIClass )
             return Int(__value)
@@ -42,7 +42,7 @@ open class Preferences: java_swift.JavaObject {
 
     private static var MAX_VALUE_LENGTH_FieldID: jfieldID?
 
-    open static var MAX_VALUE_LENGTH: Int {
+    public static var MAX_VALUE_LENGTH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MAX_VALUE_LENGTH", fieldType: "I", fieldCache: &MAX_VALUE_LENGTH_FieldID, className: "java/util/prefs/Preferences", classCache: &PreferencesJNIClass )
             return Int(__value)

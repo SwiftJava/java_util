@@ -34,7 +34,7 @@ open class TimeZone: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var LONG_FieldID: jfieldID?
 
-    open static var LONG: Int {
+    public static var LONG: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "LONG", fieldType: "I", fieldCache: &LONG_FieldID, className: "java/util/TimeZone", classCache: &TimeZoneJNIClass )
             return Int(__value)
@@ -55,7 +55,7 @@ open class TimeZone: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var SHORT_FieldID: jfieldID?
 
-    open static var SHORT: Int {
+    public static var SHORT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SHORT", fieldType: "I", fieldCache: &SHORT_FieldID, className: "java/util/TimeZone", classCache: &TimeZoneJNIClass )
             return Int(__value)

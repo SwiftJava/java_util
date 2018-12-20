@@ -21,7 +21,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var ALL_FieldID: jfieldID?
 
-    open static var ALL: Level! {
+    public static var ALL: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "ALL", fieldType: "Ljava/util/logging/Level;", fieldCache: &ALL_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -33,7 +33,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var CONFIG_FieldID: jfieldID?
 
-    open static var CONFIG: Level! {
+    public static var CONFIG: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "CONFIG", fieldType: "Ljava/util/logging/Level;", fieldCache: &CONFIG_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -45,7 +45,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var FINE_FieldID: jfieldID?
 
-    open static var FINE: Level! {
+    public static var FINE: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "FINE", fieldType: "Ljava/util/logging/Level;", fieldCache: &FINE_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -57,7 +57,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var FINER_FieldID: jfieldID?
 
-    open static var FINER: Level! {
+    public static var FINER: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "FINER", fieldType: "Ljava/util/logging/Level;", fieldCache: &FINER_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -69,7 +69,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var FINEST_FieldID: jfieldID?
 
-    open static var FINEST: Level! {
+    public static var FINEST: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "FINEST", fieldType: "Ljava/util/logging/Level;", fieldCache: &FINEST_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -81,7 +81,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var INFO_FieldID: jfieldID?
 
-    open static var INFO: Level! {
+    public static var INFO: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "INFO", fieldType: "Ljava/util/logging/Level;", fieldCache: &INFO_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -93,7 +93,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var OFF_FieldID: jfieldID?
 
-    open static var OFF: Level! {
+    public static var OFF: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "OFF", fieldType: "Ljava/util/logging/Level;", fieldCache: &OFF_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -105,7 +105,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var SEVERE_FieldID: jfieldID?
 
-    open static var SEVERE: Level! {
+    public static var SEVERE: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "SEVERE", fieldType: "Ljava/util/logging/Level;", fieldCache: &SEVERE_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }
@@ -117,7 +117,7 @@ open class Level: java_swift.JavaObject, /* interface java.io.Serializable */ Un
 
     private static var WARNING_FieldID: jfieldID?
 
-    open static var WARNING: Level! {
+    public static var WARNING: Level! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "WARNING", fieldType: "Ljava/util/logging/Level;", fieldCache: &WARNING_FieldID, className: "java/util/logging/Level", classCache: &LevelJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

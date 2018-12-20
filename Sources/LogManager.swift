@@ -25,7 +25,7 @@ open class LogManager: java_swift.JavaObject {
 
     private static var LOGGING_MXBEAN_NAME_FieldID: jfieldID?
 
-    open static var LOGGING_MXBEAN_NAME: String! {
+    public static var LOGGING_MXBEAN_NAME: String! {
         get {
             let __value = JNIField.GetStaticObjectField( fieldName: "LOGGING_MXBEAN_NAME", fieldType: "Ljava/lang/String;", fieldCache: &LOGGING_MXBEAN_NAME_FieldID, className: "java/util/logging/LogManager", classCache: &LogManagerJNIClass )
             defer { JNI.DeleteLocalRef( __value ) }

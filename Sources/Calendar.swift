@@ -32,7 +32,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var ALL_STYLES_FieldID: jfieldID?
 
-    open static var ALL_STYLES: Int {
+    public static var ALL_STYLES: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "ALL_STYLES", fieldType: "I", fieldCache: &ALL_STYLES_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -43,7 +43,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var AM_FieldID: jfieldID?
 
-    open static var AM: Int {
+    public static var AM: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "AM", fieldType: "I", fieldCache: &AM_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -54,7 +54,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var AM_PM_FieldID: jfieldID?
 
-    open static var AM_PM: Int {
+    public static var AM_PM: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "AM_PM", fieldType: "I", fieldCache: &AM_PM_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -69,7 +69,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var APRIL_FieldID: jfieldID?
 
-    open static var APRIL: Int {
+    public static var APRIL: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "APRIL", fieldType: "I", fieldCache: &APRIL_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -80,7 +80,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var AUGUST_FieldID: jfieldID?
 
-    open static var AUGUST: Int {
+    public static var AUGUST: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "AUGUST", fieldType: "I", fieldCache: &AUGUST_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -93,7 +93,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var DATE_FieldID: jfieldID?
 
-    open static var DATE: Int {
+    public static var DATE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DATE", fieldType: "I", fieldCache: &DATE_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -108,7 +108,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var DAY_OF_MONTH_FieldID: jfieldID?
 
-    open static var DAY_OF_MONTH: Int {
+    public static var DAY_OF_MONTH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DAY_OF_MONTH", fieldType: "I", fieldCache: &DAY_OF_MONTH_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -123,7 +123,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var DAY_OF_WEEK_FieldID: jfieldID?
 
-    open static var DAY_OF_WEEK: Int {
+    public static var DAY_OF_WEEK: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DAY_OF_WEEK", fieldType: "I", fieldCache: &DAY_OF_WEEK_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -134,7 +134,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var DAY_OF_WEEK_IN_MONTH_FieldID: jfieldID?
 
-    open static var DAY_OF_WEEK_IN_MONTH: Int {
+    public static var DAY_OF_WEEK_IN_MONTH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DAY_OF_WEEK_IN_MONTH", fieldType: "I", fieldCache: &DAY_OF_WEEK_IN_MONTH_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -153,7 +153,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var DAY_OF_YEAR_FieldID: jfieldID?
 
-    open static var DAY_OF_YEAR: Int {
+    public static var DAY_OF_YEAR: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DAY_OF_YEAR", fieldType: "I", fieldCache: &DAY_OF_YEAR_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -168,7 +168,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var DECEMBER_FieldID: jfieldID?
 
-    open static var DECEMBER: Int {
+    public static var DECEMBER: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DECEMBER", fieldType: "I", fieldCache: &DECEMBER_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -179,7 +179,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var DST_OFFSET_FieldID: jfieldID?
 
-    open static var DST_OFFSET: Int {
+    public static var DST_OFFSET: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "DST_OFFSET", fieldType: "I", fieldCache: &DST_OFFSET_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -194,7 +194,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var ERA_FieldID: jfieldID?
 
-    open static var ERA: Int {
+    public static var ERA: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "ERA", fieldType: "I", fieldCache: &ERA_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -209,7 +209,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var FEBRUARY_FieldID: jfieldID?
 
-    open static var FEBRUARY: Int {
+    public static var FEBRUARY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FEBRUARY", fieldType: "I", fieldCache: &FEBRUARY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -220,7 +220,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var FIELD_COUNT_FieldID: jfieldID?
 
-    open static var FIELD_COUNT: Int {
+    public static var FIELD_COUNT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FIELD_COUNT", fieldType: "I", fieldCache: &FIELD_COUNT_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -233,7 +233,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var FRIDAY_FieldID: jfieldID?
 
-    open static var FRIDAY: Int {
+    public static var FRIDAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "FRIDAY", fieldType: "I", fieldCache: &FRIDAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -244,7 +244,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var HOUR_FieldID: jfieldID?
 
-    open static var HOUR: Int {
+    public static var HOUR: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "HOUR", fieldType: "I", fieldCache: &HOUR_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -259,7 +259,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var HOUR_OF_DAY_FieldID: jfieldID?
 
-    open static var HOUR_OF_DAY: Int {
+    public static var HOUR_OF_DAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "HOUR_OF_DAY", fieldType: "I", fieldCache: &HOUR_OF_DAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -274,7 +274,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var JANUARY_FieldID: jfieldID?
 
-    open static var JANUARY: Int {
+    public static var JANUARY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "JANUARY", fieldType: "I", fieldCache: &JANUARY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -285,7 +285,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var JULY_FieldID: jfieldID?
 
-    open static var JULY: Int {
+    public static var JULY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "JULY", fieldType: "I", fieldCache: &JULY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -296,7 +296,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var JUNE_FieldID: jfieldID?
 
-    open static var JUNE: Int {
+    public static var JUNE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "JUNE", fieldType: "I", fieldCache: &JUNE_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -307,7 +307,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var LONG_FieldID: jfieldID?
 
-    open static var LONG: Int {
+    public static var LONG: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "LONG", fieldType: "I", fieldCache: &LONG_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -318,7 +318,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var LONG_FORMAT_FieldID: jfieldID?
 
-    open static var LONG_FORMAT: Int {
+    public static var LONG_FORMAT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "LONG_FORMAT", fieldType: "I", fieldCache: &LONG_FORMAT_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -329,7 +329,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var LONG_STANDALONE_FieldID: jfieldID?
 
-    open static var LONG_STANDALONE: Int {
+    public static var LONG_STANDALONE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "LONG_STANDALONE", fieldType: "I", fieldCache: &LONG_STANDALONE_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -340,7 +340,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var MARCH_FieldID: jfieldID?
 
-    open static var MARCH: Int {
+    public static var MARCH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MARCH", fieldType: "I", fieldCache: &MARCH_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -351,7 +351,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var MAY_FieldID: jfieldID?
 
-    open static var MAY: Int {
+    public static var MAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MAY", fieldType: "I", fieldCache: &MAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -362,7 +362,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var MILLISECOND_FieldID: jfieldID?
 
-    open static var MILLISECOND: Int {
+    public static var MILLISECOND: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MILLISECOND", fieldType: "I", fieldCache: &MILLISECOND_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -379,7 +379,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var MINUTE_FieldID: jfieldID?
 
-    open static var MINUTE: Int {
+    public static var MINUTE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MINUTE", fieldType: "I", fieldCache: &MINUTE_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -394,7 +394,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var MONDAY_FieldID: jfieldID?
 
-    open static var MONDAY: Int {
+    public static var MONDAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MONDAY", fieldType: "I", fieldCache: &MONDAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -405,7 +405,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var MONTH_FieldID: jfieldID?
 
-    open static var MONTH: Int {
+    public static var MONTH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "MONTH", fieldType: "I", fieldCache: &MONTH_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -420,7 +420,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var NARROW_FORMAT_FieldID: jfieldID?
 
-    open static var NARROW_FORMAT: Int {
+    public static var NARROW_FORMAT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "NARROW_FORMAT", fieldType: "I", fieldCache: &NARROW_FORMAT_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -431,7 +431,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var NARROW_STANDALONE_FieldID: jfieldID?
 
-    open static var NARROW_STANDALONE: Int {
+    public static var NARROW_STANDALONE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "NARROW_STANDALONE", fieldType: "I", fieldCache: &NARROW_STANDALONE_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -442,7 +442,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var NOVEMBER_FieldID: jfieldID?
 
-    open static var NOVEMBER: Int {
+    public static var NOVEMBER: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "NOVEMBER", fieldType: "I", fieldCache: &NOVEMBER_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -453,7 +453,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var OCTOBER_FieldID: jfieldID?
 
-    open static var OCTOBER: Int {
+    public static var OCTOBER: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "OCTOBER", fieldType: "I", fieldCache: &OCTOBER_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -464,7 +464,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var PM_FieldID: jfieldID?
 
-    open static var PM: Int {
+    public static var PM: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "PM", fieldType: "I", fieldCache: &PM_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -475,7 +475,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var SATURDAY_FieldID: jfieldID?
 
-    open static var SATURDAY: Int {
+    public static var SATURDAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SATURDAY", fieldType: "I", fieldCache: &SATURDAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -486,7 +486,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var SECOND_FieldID: jfieldID?
 
-    open static var SECOND: Int {
+    public static var SECOND: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SECOND", fieldType: "I", fieldCache: &SECOND_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -501,7 +501,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var SEPTEMBER_FieldID: jfieldID?
 
-    open static var SEPTEMBER: Int {
+    public static var SEPTEMBER: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SEPTEMBER", fieldType: "I", fieldCache: &SEPTEMBER_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -512,7 +512,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var SHORT_FieldID: jfieldID?
 
-    open static var SHORT: Int {
+    public static var SHORT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SHORT", fieldType: "I", fieldCache: &SHORT_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -523,7 +523,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var SHORT_FORMAT_FieldID: jfieldID?
 
-    open static var SHORT_FORMAT: Int {
+    public static var SHORT_FORMAT: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SHORT_FORMAT", fieldType: "I", fieldCache: &SHORT_FORMAT_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -534,7 +534,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var SHORT_STANDALONE_FieldID: jfieldID?
 
-    open static var SHORT_STANDALONE: Int {
+    public static var SHORT_STANDALONE: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SHORT_STANDALONE", fieldType: "I", fieldCache: &SHORT_STANDALONE_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -549,7 +549,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var SUNDAY_FieldID: jfieldID?
 
-    open static var SUNDAY: Int {
+    public static var SUNDAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "SUNDAY", fieldType: "I", fieldCache: &SUNDAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -560,7 +560,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var THURSDAY_FieldID: jfieldID?
 
-    open static var THURSDAY: Int {
+    public static var THURSDAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "THURSDAY", fieldType: "I", fieldCache: &THURSDAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -571,7 +571,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var TUESDAY_FieldID: jfieldID?
 
-    open static var TUESDAY: Int {
+    public static var TUESDAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "TUESDAY", fieldType: "I", fieldCache: &TUESDAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -582,7 +582,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var UNDECIMBER_FieldID: jfieldID?
 
-    open static var UNDECIMBER: Int {
+    public static var UNDECIMBER: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "UNDECIMBER", fieldType: "I", fieldCache: &UNDECIMBER_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -595,7 +595,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var WEDNESDAY_FieldID: jfieldID?
 
-    open static var WEDNESDAY: Int {
+    public static var WEDNESDAY: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "WEDNESDAY", fieldType: "I", fieldCache: &WEDNESDAY_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -606,7 +606,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var WEEK_OF_MONTH_FieldID: jfieldID?
 
-    open static var WEEK_OF_MONTH: Int {
+    public static var WEEK_OF_MONTH: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "WEEK_OF_MONTH", fieldType: "I", fieldCache: &WEEK_OF_MONTH_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -621,7 +621,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var WEEK_OF_YEAR_FieldID: jfieldID?
 
-    open static var WEEK_OF_YEAR: Int {
+    public static var WEEK_OF_YEAR: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "WEEK_OF_YEAR", fieldType: "I", fieldCache: &WEEK_OF_YEAR_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -636,7 +636,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var YEAR_FieldID: jfieldID?
 
-    open static var YEAR: Int {
+    public static var YEAR: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "YEAR", fieldType: "I", fieldCache: &YEAR_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)
@@ -651,7 +651,7 @@ open class Calendar: java_swift.JavaObject, /* interface java.io.Serializable */
 
     private static var ZONE_OFFSET_FieldID: jfieldID?
 
-    open static var ZONE_OFFSET: Int {
+    public static var ZONE_OFFSET: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "ZONE_OFFSET", fieldType: "I", fieldCache: &ZONE_OFFSET_FieldID, className: "java/util/Calendar", classCache: &CalendarJNIClass )
             return Int(__value)

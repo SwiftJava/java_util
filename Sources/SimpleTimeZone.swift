@@ -28,7 +28,7 @@ open class SimpleTimeZone: TimeZone {
 
     private static var STANDARD_TIME_FieldID: jfieldID?
 
-    open static var STANDARD_TIME: Int {
+    public static var STANDARD_TIME: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "STANDARD_TIME", fieldType: "I", fieldCache: &STANDARD_TIME_FieldID, className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZoneJNIClass )
             return Int(__value)
@@ -39,7 +39,7 @@ open class SimpleTimeZone: TimeZone {
 
     private static var UTC_TIME_FieldID: jfieldID?
 
-    open static var UTC_TIME: Int {
+    public static var UTC_TIME: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "UTC_TIME", fieldType: "I", fieldCache: &UTC_TIME_FieldID, className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZoneJNIClass )
             return Int(__value)
@@ -50,7 +50,7 @@ open class SimpleTimeZone: TimeZone {
 
     private static var WALL_TIME_FieldID: jfieldID?
 
-    open static var WALL_TIME: Int {
+    public static var WALL_TIME: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "WALL_TIME", fieldType: "I", fieldCache: &WALL_TIME_FieldID, className: "java/util/SimpleTimeZone", classCache: &SimpleTimeZoneJNIClass )
             return Int(__value)

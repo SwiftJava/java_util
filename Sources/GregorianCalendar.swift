@@ -24,7 +24,7 @@ open class GregorianCalendar: Calendar {
 
     private static var AD_FieldID: jfieldID?
 
-    open static var AD: Int {
+    public static var AD: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "AD", fieldType: "I", fieldCache: &AD_FieldID, className: "java/util/GregorianCalendar", classCache: &GregorianCalendarJNIClass )
             return Int(__value)
@@ -35,7 +35,7 @@ open class GregorianCalendar: Calendar {
 
     private static var BC_FieldID: jfieldID?
 
-    open static var BC: Int {
+    public static var BC: Int {
         get {
             let __value = JNIField.GetStaticIntField( fieldName: "BC", fieldType: "I", fieldCache: &BC_FieldID, className: "java/util/GregorianCalendar", classCache: &GregorianCalendarJNIClass )
             return Int(__value)
