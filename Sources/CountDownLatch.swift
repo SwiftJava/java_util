@@ -36,11 +36,11 @@ open class CountDownLatch: java_swift.JavaObject {
         self.init( count: _count )
     }
 
-    /// public boolean java.util.concurrent.CountDownLatch.await(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
+    /// public boolean java.util.concurrent.CountDownLatch.javait(long,java.util.concurrent.TimeUnit) throws java.lang.InterruptedException
 
     private static var await_MethodID_2: jmethodID?
 
-    open func await( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
+    open func javait( timeout: Int64, unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 2 )
         __args[0] = jvalue( j: timeout )
@@ -53,15 +53,15 @@ open class CountDownLatch: java_swift.JavaObject {
         return __return != jboolean(JNI_FALSE)
     }
 
-    open func await( _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
-        return try await( timeout: _timeout, unit: _unit )
+    open func javait( _ _timeout: Int64, _ _unit: TimeUnit? ) throws /* java.lang.InterruptedException */ -> Bool {
+        return try javait( timeout: _timeout, unit: _unit )
     }
 
-    /// public void java.util.concurrent.CountDownLatch.await() throws java.lang.InterruptedException
+    /// public void java.util.concurrent.CountDownLatch.javait() throws java.lang.InterruptedException
 
     private static var await_MethodID_3: jmethodID?
 
-    open func await() throws /* java.lang.InterruptedException */ {
+    open func javait() throws /* java.lang.InterruptedException */ {
         var __locals = [jobject]()
         var __args = [jvalue]( repeating: jvalue(), count: 1 )
         JNIMethod.CallVoidMethod( object: javaObject, methodName: "await", methodSig: "()V", methodCache: &CountDownLatch.await_MethodID_3, args: &__args, locals: &__locals )
